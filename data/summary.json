@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-27T07:02:46.304993",
+  "timestamp": "2026-07-27T10:44:58.393223",
   "date": "2026-07-27",
   "macro": {
     "us10y": {
@@ -7,71 +7,127 @@
       "change": -0.024
     },
     "dxy": {
-      "value": 101.31,
-      "change": -0.16
+      "value": 101.16,
+      "change": -0.31
     },
     "fear_greed": {
       "value": 18.58,
       "change": -0.12,
       "label": "VIX Index",
-      "timestamp": "2026-07-27T07:02:40.287176"
+      "timestamp": "2026-07-27T10:44:53.259508"
     },
     "btc": {
-      "value": 65369.0,
-      "change_pct": 1.64
+      "value": 65198.0,
+      "change_pct": 0
     }
   },
   "stocks_processed": 125,
   "stocks_successful": 125,
   "stocks_failed": 0,
-  "new_alerts": 0,
-  "overbought_count": 2,
-  "oversold_count": 11,
-  "normal_count": 112,
+  "new_alerts": 4,
+  "overbought_count": 4,
+  "oversold_count": 13,
+  "normal_count": 108,
   "overbought_stocks": [
     {
       "symbol": "00715L.TW",
       "name": "期街口布蘭特正2",
-      "current_price": 55.35,
-      "change_pct": 5.33,
+      "current_price": 48.88,
+      "change_pct": -11.69,
       "extra_data": {
-        "regular_market_price": 55.35,
+        "regular_market_price": 48.88,
         "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 52.55
+        "prev_close": 55.35
       },
-      "kd_k": 94.97,
-      "kd_d": 92.65
+      "kd_k": 78.21,
+      "kd_d": 87.84
+    },
+    {
+      "symbol": "00918.TW",
+      "name": "大華優利高填息30",
+      "current_price": 32.42,
+      "change_pct": -0.25,
+      "extra_data": {
+        "regular_market_price": 32.42,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 32.5
+      },
+      "kd_k": 81.83,
+      "kd_d": 68.41
+    },
+    {
+      "symbol": "00939.TW",
+      "name": "統一台灣高息動能",
+      "current_price": 21.82,
+      "change_pct": 0.18,
+      "extra_data": {
+        "regular_market_price": 21.82,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 21.78
+      },
+      "kd_k": 82.72,
+      "kd_d": 71.07
     },
     {
       "symbol": "00955.TWO",
       "name": "中信日本商社",
-      "current_price": 14.82,
-      "change_pct": -0.87,
+      "current_price": 14.98,
+      "change_pct": 1.08,
       "extra_data": {
-        "regular_market_price": 14.82,
+        "regular_market_price": 14.98,
         "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 14.95
+        "prev_close": 14.82
       },
-      "kd_k": 81.95,
-      "kd_d": 74.63
+      "kd_k": 87.6,
+      "kd_d": 78.95
     }
   ],
   "oversold_stocks": [
     {
-      "symbol": "00885.TW",
-      "name": "富邦越南",
-      "current_price": 17.42,
-      "change_pct": 1.52,
+      "symbol": "00670L.TW",
+      "name": "富邦NASDAQ",
+      "current_price": 189.1,
+      "change_pct": 0.13,
       "extra_data": {
-        "regular_market_price": 17.42,
+        "regular_market_price": 189.1,
         "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 17.16
+        "prev_close": 188.85
       },
-      "kd_k": 11.84,
-      "kd_d": 10.3
+      "kd_k": 16.63,
+      "kd_d": 22.48
+    },
+    {
+      "symbol": "00733.TW",
+      "name": "富邦臺灣中小",
+      "current_price": 62.2,
+      "change_pct": -2.28,
+      "extra_data": {
+        "regular_market_price": 62.2,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 63.65
+      },
+      "kd_k": 18.92,
+      "kd_d": 22.39
+    },
+    {
+      "symbol": "00885.TW",
+      "name": "富邦越南",
+      "current_price": 17.47,
+      "change_pct": 0.29,
+      "extra_data": {
+        "regular_market_price": 17.47,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 17.42
+      },
+      "kd_k": 17.49,
+      "kd_d": 12.7
     },
     {
       "symbol": "TSLA",
