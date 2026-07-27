@@ -1,33 +1,33 @@
 {
-  "timestamp": "2026-07-27T18:40:46.935730",
+  "timestamp": "2026-07-27T21:38:43.948476",
   "date": "2026-07-27",
   "macro": {
     "us10y": {
-      "value": 4.679,
-      "change": -0.024
+      "value": 4.645,
+      "change": -0.034
     },
     "dxy": {
-      "value": 101.27,
+      "value": 101.43,
       "change": 0.0
     },
     "fear_greed": {
-      "value": 17.6,
-      "change": -0.98,
+      "value": 17.75,
+      "change": -0.83,
       "label": "VIX Index",
-      "timestamp": "2026-07-27T18:40:41.079194"
+      "timestamp": "2026-07-27T21:38:39.105857"
     },
     "btc": {
-      "value": 65349.0,
-      "change_pct": 0.01
+      "value": 65283.0,
+      "change_pct": -0.09
     }
   },
   "stocks_processed": 125,
   "stocks_successful": 125,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 4,
   "overbought_count": 4,
-  "oversold_count": 13,
-  "normal_count": 108,
+  "oversold_count": 16,
+  "normal_count": 105,
   "overbought_stocks": [
     {
       "symbol": "00715L.TW",
@@ -132,142 +132,184 @@
     {
       "symbol": "TSLA",
       "name": "Tesla Inc.",
-      "current_price": 313.03,
-      "change_pct": -2.08,
+      "current_price": 316.35,
+      "change_pct": 1.06,
       "extra_data": {
-        "regular_market_price": 313.03,
-        "pre_market_price": 317.23,
+        "regular_market_price": 316.35,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 319.69
+        "prev_close": 313.03
       },
-      "kd_k": 9.22,
-      "kd_d": 13.47
+      "kd_k": 9.42,
+      "kd_d": 12.12
     },
     {
       "symbol": "GOOGL",
       "name": "Alphabet Inc.",
-      "current_price": 319.74,
-      "change_pct": 0.65,
+      "current_price": 328.55,
+      "change_pct": 2.76,
       "extra_data": {
-        "regular_market_price": 319.74,
-        "pre_market_price": 324.92,
+        "regular_market_price": 328.55,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 317.69
+        "prev_close": 319.74
       },
-      "kd_k": 12.32,
-      "kd_d": 21.3
+      "kd_k": 15.73,
+      "kd_d": 19.44
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com Inc.",
+      "current_price": 235.04,
+      "change_pct": 1.26,
+      "extra_data": {
+        "regular_market_price": 235.04,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 232.11
+      },
+      "kd_k": 18.96,
+      "kd_d": 32.77
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms Inc.",
+      "current_price": 605.855,
+      "change_pct": 1.79,
+      "extra_data": {
+        "regular_market_price": 605.855,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 595.19
+      },
+      "kd_k": 19.99,
+      "kd_d": 36.63
     },
     {
       "symbol": "CRWD",
       "name": "CrowdStrike Holdings Inc.",
-      "current_price": 183.28,
-      "change_pct": -0.08,
+      "current_price": 185.675,
+      "change_pct": 1.31,
       "extra_data": {
-        "regular_market_price": 183.28,
-        "pre_market_price": 186.42,
+        "regular_market_price": 185.675,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 183.42
+        "prev_close": 183.28
       },
-      "kd_k": 19.9,
-      "kd_d": 34.32
+      "kd_k": 16.9,
+      "kd_d": 28.51
+    },
+    {
+      "symbol": "AMZU",
+      "name": "Direxion Daily AMZN Bull 2X Shares",
+      "current_price": 31.96,
+      "change_pct": 2.53,
+      "extra_data": {
+        "regular_market_price": 31.96,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 31.17
+      },
+      "kd_k": 17.93,
+      "kd_d": 31.48
+    },
+    {
+      "symbol": "FBL",
+      "name": "GraniteShares 2x Long META Daily ETF",
+      "current_price": 23.55,
+      "change_pct": 3.61,
+      "extra_data": {
+        "regular_market_price": 23.55,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 22.73
+      },
+      "kd_k": 18.68,
+      "kd_d": 34.98
     },
     {
       "symbol": "GGLL",
       "name": "Direxion Daily GOOGL Bull 2X Shares",
-      "current_price": 89.35,
-      "change_pct": 1.06,
+      "current_price": 94.28,
+      "change_pct": 5.52,
       "extra_data": {
-        "regular_market_price": 89.35,
-        "pre_market_price": 92.27,
+        "regular_market_price": 94.28,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 88.415
+        "prev_close": 89.35
       },
-      "kd_k": 11.41,
-      "kd_d": 20.15
+      "kd_k": 14.23,
+      "kd_d": 18.18
     },
     {
       "symbol": "ORCL",
       "name": "Oracle Corporation",
-      "current_price": 114.99,
-      "change_pct": -4.21,
+      "current_price": 120.56,
+      "change_pct": 4.83,
       "extra_data": {
-        "regular_market_price": 114.99,
-        "pre_market_price": 118.22,
+        "regular_market_price": 120.56,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 120.04
+        "prev_close": 115.01
       },
-      "kd_k": 8.87,
-      "kd_d": 12.16
+      "kd_k": 16.12,
+      "kd_d": 13.48
     },
     {
       "symbol": "ORCX",
       "name": "Defiance Daily Target 2X Long ORCL ETF",
-      "current_price": 13.89,
-      "change_pct": -8.62,
+      "current_price": 15.2395,
+      "change_pct": 9.72,
       "extra_data": {
-        "regular_market_price": 13.89,
-        "pre_market_price": 14.67,
+        "regular_market_price": 15.2395,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 15.200001
+        "prev_close": 13.89
       },
-      "kd_k": 7.73,
-      "kd_d": 10.68
+      "kd_k": 13.97,
+      "kd_d": 11.78
     },
     {
       "symbol": "TSLL",
       "name": "Direxion Daily TSLA Bull 2X Shares",
-      "current_price": 7.42,
-      "change_pct": -4.38,
+      "current_price": 7.5729,
+      "change_pct": 2.06,
       "extra_data": {
-        "regular_market_price": 7.42,
-        "pre_market_price": 7.6394,
+        "regular_market_price": 7.5729,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 7.76
+        "prev_close": 7.42
       },
-      "kd_k": 7.94,
-      "kd_d": 11.6
+      "kd_k": 7.86,
+      "kd_d": 10.35
     },
     {
       "symbol": "RKLB",
       "name": "Rocket Lab USA, Inc.",
-      "current_price": 63.91,
-      "change_pct": -8.69,
+      "current_price": 68.17,
+      "change_pct": 6.67,
       "extra_data": {
-        "regular_market_price": 63.91,
-        "pre_market_price": 66.56,
+        "regular_market_price": 68.17,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 69.99
+        "prev_close": 63.91
       },
-      "kd_k": 16.25,
-      "kd_d": 16.25
+      "kd_k": 20.38,
+      "kd_d": 17.63
     },
     {
       "symbol": "RKLX",
       "name": "Defiance Daily Target 2X Long RKLB ETF",
-      "current_price": 16.32,
-      "change_pct": -17.37,
+      "current_price": 18.48,
+      "change_pct": 13.24,
       "extra_data": {
-        "regular_market_price": 16.32,
-        "pre_market_price": 17.6765,
+        "regular_market_price": 18.48,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 19.75
+        "prev_close": 16.32
       },
-      "kd_k": 12.81,
-      "kd_d": 13.06
-    },
-    {
-      "symbol": "QCML",
-      "name": "GraniteShares 2x Long QCOM Daily ETF",
-      "current_price": 15.85,
-      "change_pct": -4.92,
-      "extra_data": {
-        "regular_market_price": 15.85,
-        "pre_market_price": 16.6467,
-        "post_market_price": null,
-        "prev_close": 16.67
-      },
-      "kd_k": 19.12,
-      "kd_d": 23.01
+      "kd_k": 15.71,
+      "kd_d": 13.94
     }
   ],
   "errors": []
