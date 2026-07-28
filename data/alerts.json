@@ -1,5 +1,21 @@
 [
   {
+    "id": "SNDK_20260728_oversold",
+    "symbol": "SNDK",
+    "name": "Sandisk Corporation",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.01,
+    "kd_d": 25.95,
+    "current_price": 1079.94,
+    "threshold": 20,
+    "message": "✅ SNDK (Sandisk Corporation) is OVERSOLD! KD-K: 18.01, KD-D: 25.95 (<= 20)",
+    "timestamp": "2026-07-28T22:09:07.289593",
+    "date": "2026-07-28",
+    "acknowledged": false
+  },
+  {
     "id": "00988A.TW_20260728_oversold",
     "symbol": "00988A.TW",
     "name": "主動統一全球創新",
@@ -1580,22 +1596,6 @@
     "threshold": 80,
     "message": "⚠️ 00926.TW (凱基全球菁英55) is OVERBOUGHT! KD-K: 80.08, KD-D: 79.66 (>= 80)",
     "timestamp": "2026-07-23T10:35:37.728788",
-    "date": "2026-07-23",
-    "acknowledged": false
-  },
-  {
-    "id": "00955.TWO_20260723_overbought",
-    "symbol": "00955.TWO",
-    "name": "中信日本商社",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.83,
-    "kd_d": 70.49,
-    "current_price": 14.9,
-    "threshold": 80,
-    "message": "⚠️ 00955.TWO (中信日本商社) is OVERBOUGHT! KD-K: 80.83, KD-D: 70.49 (>= 80)",
-    "timestamp": "2026-07-23T10:35:37.728853",
     "date": "2026-07-23",
     "acknowledged": false
   }
