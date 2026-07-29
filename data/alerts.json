@@ -1,5 +1,21 @@
 [
   {
+    "id": "VT_20260730_oversold",
+    "symbol": "VT",
+    "name": "Vanguard Total World Stock ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.88,
+    "kd_d": 29.31,
+    "current_price": 152.22,
+    "threshold": 20,
+    "message": "✅ VT (Vanguard Total World Stock ETF) is OVERSOLD! KD-K: 19.88, KD-D: 29.31 (<= 20)",
+    "timestamp": "2026-07-30T05:59:43.389301",
+    "date": "2026-07-30",
+    "acknowledged": false
+  },
+  {
     "id": "SMH_20260730_oversold",
     "symbol": "SMH",
     "name": "VanEck Semiconductor ETF",
@@ -1580,22 +1596,6 @@
     "threshold": 20,
     "message": "✅ 009815.TWO (大華美國MAG7+) is OVERSOLD! KD-K: 19.1, KD-D: 31.47 (<= 20)",
     "timestamp": "2026-07-28T11:27:35.353318",
-    "date": "2026-07-28",
-    "acknowledged": false
-  },
-  {
-    "id": "SNXX_20260728_oversold",
-    "symbol": "SNXX",
-    "name": "Tradr 2X Long Sndk Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.04,
-    "kd_d": 22.45,
-    "current_price": 10.825,
-    "threshold": 20,
-    "message": "✅ SNXX (Tradr 2X Long Sndk Daily ETF) is OVERSOLD! KD-K: 19.04, KD-D: 22.45 (<= 20)",
-    "timestamp": "2026-07-28T02:24:08.444059",
     "date": "2026-07-28",
     "acknowledged": false
   }

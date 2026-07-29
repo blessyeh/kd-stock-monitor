@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-30T04:12:45.979193",
+  "timestamp": "2026-07-30T05:59:46.737257",
   "date": "2026-07-30",
   "macro": {
     "us10y": {
@@ -7,18 +7,18 @@
       "change": 0.018
     },
     "dxy": {
-      "value": 100.93,
-      "change": -0.45
+      "value": 100.84,
+      "change": -0.54
     },
     "fear_greed": {
-      "value": 20.39,
-      "change": 2.18,
+      "value": 20.66,
+      "change": 2.45,
       "label": "VIX Index",
-      "timestamp": "2026-07-30T04:12:42.819370"
+      "timestamp": "2026-07-30T05:59:41.901527"
     },
     "btc": {
-      "value": 63400.0,
-      "change_pct": -0.74
+      "value": 63776.0,
+      "change_pct": -0.15
     }
   },
   "stocks_processed": 125,
@@ -26,8 +26,8 @@
   "stocks_failed": 0,
   "new_alerts": 1,
   "overbought_count": 2,
-  "oversold_count": 39,
-  "normal_count": 84,
+  "oversold_count": 41,
+  "normal_count": 82,
   "overbought_stocks": [
     {
       "symbol": "00665L.TW",
@@ -319,7 +319,7 @@
       "extra_data": {
         "regular_market_price": 298.32,
         "pre_market_price": null,
-        "post_market_price": 296.9,
+        "post_market_price": 295.2,
         "prev_close": 307.44
       },
       "kd_k": 5.38,
@@ -333,7 +333,7 @@
       "extra_data": {
         "regular_market_price": 226.65,
         "pre_market_price": null,
-        "post_market_price": 225.5,
+        "post_market_price": 224.75,
         "prev_close": 230.86
       },
       "kd_k": 9.27,
@@ -347,7 +347,7 @@
       "extra_data": {
         "regular_market_price": 585.61,
         "pre_market_price": null,
-        "post_market_price": 558.97,
+        "post_market_price": 526.9497,
         "prev_close": 593.41
       },
       "kd_k": 10.17,
@@ -361,39 +361,53 @@
       "extra_data": {
         "regular_market_price": 179.38,
         "pre_market_price": null,
-        "post_market_price": 179.38,
+        "post_market_price": 181.91,
         "prev_close": 181.8
       },
       "kd_k": 15.89,
       "kd_d": 21.16
     },
     {
+      "symbol": "VT",
+      "name": "Vanguard Total World Stock ETF",
+      "current_price": 152.22,
+      "change_pct": -1.38,
+      "extra_data": {
+        "regular_market_price": 152.22,
+        "pre_market_price": null,
+        "post_market_price": 153.15,
+        "prev_close": 154.35
+      },
+      "kd_k": 19.88,
+      "kd_d": 29.31
+    },
+    {
       "symbol": "VOO",
       "name": "Vanguard S&P 500 ETF",
-      "current_price": 670.55,
-      "change_pct": -1.53,
+      "current_price": 670.63,
+      "change_pct": -1.52,
       "extra_data": {
-        "regular_market_price": 670.55,
+        "regular_market_price": 670.63,
         "pre_market_price": null,
-        "post_market_price": 668.77,
+        "post_market_price": 669.3,
         "prev_close": 680.96
       },
-      "kd_k": 18.94,
-      "kd_d": 28.91
+      "kd_k": 19.08,
+      "kd_d": 28.96
     },
     {
       "symbol": "SPY",
       "name": "SPDR S&P 500 ETF Trust",
-      "current_price": 729.52,
-      "change_pct": -1.53,
+      "current_price": 729.46,
+      "change_pct": -1.54,
       "extra_data": {
-        "regular_market_price": 729.52,
+        "regular_market_price": 729.46,
         "pre_market_price": null,
-        "post_market_price": 727.5,
+        "post_market_price": 727.8465,
         "prev_close": 740.86
       },
-      "kd_k": 18.88,
-      "kd_d": 28.87
+      "kd_k": 18.78,
+      "kd_d": 28.84
     },
     {
       "symbol": "QQQ",
@@ -403,7 +417,7 @@
       "extra_data": {
         "regular_market_price": 661.73,
         "pre_market_price": null,
-        "post_market_price": 659.6673,
+        "post_market_price": 657.9508,
         "prev_close": 675.49
       },
       "kd_k": 12.82,
@@ -417,7 +431,7 @@
       "extra_data": {
         "regular_market_price": 504.22,
         "pre_market_price": null,
-        "post_market_price": 501.0602,
+        "post_market_price": 498.3694,
         "prev_close": 529.6
       },
       "kd_k": 19.76,
@@ -431,7 +445,7 @@
       "extra_data": {
         "regular_market_price": 29.69,
         "pre_market_price": null,
-        "post_market_price": 29.5121,
+        "post_market_price": 29.22,
         "prev_close": 30.84
       },
       "kd_k": 8.81,
@@ -445,7 +459,7 @@
       "extra_data": {
         "regular_market_price": 22.11,
         "pre_market_price": null,
-        "post_market_price": 20.08,
+        "post_market_price": 17.63,
         "prev_close": 22.59
       },
       "kd_k": 10.2,
@@ -459,25 +473,39 @@
       "extra_data": {
         "regular_market_price": 70.985,
         "pre_market_price": null,
-        "post_market_price": 70.985,
+        "post_market_price": 70.01,
         "prev_close": 72.37
       },
       "kd_k": 13.53,
       "kd_d": 24.39
     },
     {
+      "symbol": "FNGG",
+      "name": "Direxion Daily NYSE FANG+ Bull 2X Shares",
+      "current_price": 208.752,
+      "change_pct": -3.45,
+      "extra_data": {
+        "regular_market_price": 208.752,
+        "pre_market_price": null,
+        "post_market_price": 202.0,
+        "prev_close": 216.217
+      },
+      "kd_k": 13.45,
+      "kd_d": 25.74
+    },
+    {
       "symbol": "ORCL",
       "name": "Oracle Corporation",
-      "current_price": 117.77,
-      "change_pct": -1.83,
+      "current_price": 117.74,
+      "change_pct": -1.85,
       "extra_data": {
-        "regular_market_price": 117.77,
+        "regular_market_price": 117.74,
         "pre_market_price": null,
-        "post_market_price": 117.1486,
+        "post_market_price": 115.7457,
         "prev_close": 119.96
       },
-      "kd_k": 21.23,
-      "kd_d": 17.43
+      "kd_k": 21.17,
+      "kd_d": 17.41
     },
     {
       "symbol": "ORCX",
@@ -487,7 +515,7 @@
       "extra_data": {
         "regular_market_price": 14.54,
         "pre_market_price": null,
-        "post_market_price": 14.3607,
+        "post_market_price": 14.06,
         "prev_close": 15.07
       },
       "kd_k": 19.21,
@@ -501,7 +529,7 @@
       "extra_data": {
         "regular_market_price": 6.74,
         "pre_market_price": null,
-        "post_market_price": 6.67,
+        "post_market_price": 6.5997,
         "prev_close": 7.15
       },
       "kd_k": 4.42,
@@ -515,7 +543,7 @@
       "extra_data": {
         "regular_market_price": 1015.89,
         "pre_market_price": null,
-        "post_market_price": 1017.85,
+        "post_market_price": 993.25,
         "prev_close": 1096.1
       },
       "kd_k": 14.19,
@@ -524,16 +552,16 @@
     {
       "symbol": "SNXX",
       "name": "Tradr 2X Long Sndk Daily ETF",
-      "current_price": 6.825,
-      "change_pct": -15.11,
+      "current_price": 6.9,
+      "change_pct": -14.18,
       "extra_data": {
-        "regular_market_price": 6.825,
+        "regular_market_price": 6.9,
         "pre_market_price": null,
-        "post_market_price": 6.8194,
+        "post_market_price": 6.5185,
         "prev_close": 8.04
       },
-      "kd_k": 11.09,
-      "kd_d": 17.36
+      "kd_k": 11.27,
+      "kd_d": 17.42
     },
     {
       "symbol": "RKLB",
@@ -543,7 +571,7 @@
       "extra_data": {
         "regular_market_price": 58.6,
         "pre_market_price": null,
-        "post_market_price": 58.3992,
+        "post_market_price": 57.7,
         "prev_close": 63.89
       },
       "kd_k": 15.09,
@@ -557,7 +585,7 @@
       "extra_data": {
         "regular_market_price": 13.48,
         "pre_market_price": null,
-        "post_market_price": 13.3718,
+        "post_market_price": 13.08,
         "prev_close": 16.19
       },
       "kd_k": 12.25,
@@ -571,7 +599,7 @@
       "extra_data": {
         "regular_market_price": 14.6,
         "pre_market_price": null,
-        "post_market_price": 14.1,
+        "post_market_price": 12.2667,
         "prev_close": 17.47
       },
       "kd_k": 17.69,
@@ -585,7 +613,7 @@
       "extra_data": {
         "regular_market_price": 155.68,
         "pre_market_price": null,
-        "post_market_price": 145.54,
+        "post_market_price": 144.67,
         "prev_close": 162.88
       },
       "kd_k": 13.32,
@@ -599,7 +627,7 @@
       "extra_data": {
         "regular_market_price": 13.73,
         "pre_market_price": null,
-        "post_market_price": 11.9,
+        "post_market_price": 11.68,
         "prev_close": 15.01
       },
       "kd_k": 11.29,
