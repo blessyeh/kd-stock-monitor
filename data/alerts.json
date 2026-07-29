@@ -1,5 +1,21 @@
 [
   {
+    "id": "SMH_20260730_oversold",
+    "symbol": "SMH",
+    "name": "VanEck Semiconductor ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.76,
+    "kd_d": 31.12,
+    "current_price": 504.22,
+    "threshold": 20,
+    "message": "✅ SMH (VanEck Semiconductor ETF) is OVERSOLD! KD-K: 19.76, KD-D: 31.12 (<= 20)",
+    "timestamp": "2026-07-30T04:12:43.898514",
+    "date": "2026-07-30",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260730_oversold",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -1580,22 +1596,6 @@
     "threshold": 20,
     "message": "✅ SNXX (Tradr 2X Long Sndk Daily ETF) is OVERSOLD! KD-K: 19.04, KD-D: 22.45 (<= 20)",
     "timestamp": "2026-07-28T02:24:08.444059",
-    "date": "2026-07-28",
-    "acknowledged": false
-  },
-  {
-    "id": "00670L.TW_20260728_oversold",
-    "symbol": "00670L.TW",
-    "name": "富邦NASDAQ",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.01,
-    "kd_d": 22.94,
-    "current_price": 190.0,
-    "threshold": 20,
-    "message": "✅ 00670L.TW (富邦NASDAQ) is OVERSOLD! KD-K: 18.01, KD-D: 22.94 (<= 20)",
-    "timestamp": "2026-07-28T00:16:55.290748",
     "date": "2026-07-28",
     "acknowledged": false
   }
