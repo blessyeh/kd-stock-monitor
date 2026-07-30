@@ -1,5 +1,21 @@
 [
   {
+    "id": "AMZN_20260731_oversold",
+    "symbol": "AMZN",
+    "name": "Amazon.com Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.83,
+    "kd_d": 19.24,
+    "current_price": 235.5,
+    "threshold": 20,
+    "message": "✅ AMZN (Amazon.com Inc.) is OVERSOLD! KD-K: 17.83, KD-D: 19.24 (<= 20)",
+    "timestamp": "2026-07-31T05:08:07.144617",
+    "date": "2026-07-31",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260731_oversold",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -1580,22 +1596,6 @@
     "threshold": 20,
     "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 17.26, KD-D: 25.29 (<= 20)",
     "timestamp": "2026-07-30T00:20:52.274266",
-    "date": "2026-07-30",
-    "acknowledged": false
-  },
-  {
-    "id": "QCOM_20260730_oversold",
-    "symbol": "QCOM",
-    "name": "QUALCOMM Incorporated",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 14.24,
-    "kd_d": 20.32,
-    "current_price": 159.02,
-    "threshold": 20,
-    "message": "✅ QCOM (QUALCOMM Incorporated) is OVERSOLD! KD-K: 14.24, KD-D: 20.32 (<= 20)",
-    "timestamp": "2026-07-30T00:20:52.274311",
     "date": "2026-07-30",
     "acknowledged": false
   }
