@@ -1,5 +1,21 @@
 [
   {
+    "id": "00652.TW_20260731_overbought",
+    "symbol": "00652.TW",
+    "name": "富邦印度",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.76,
+    "kd_d": 65.33,
+    "current_price": 33.83,
+    "threshold": 80,
+    "message": "⚠️ 00652.TW (富邦印度) is OVERBOUGHT! KD-K: 81.76, KD-D: 65.33 (>= 80)",
+    "timestamp": "2026-07-31T10:38:59.750912",
+    "date": "2026-07-31",
+    "acknowledged": false
+  },
+  {
     "id": "AMZN_20260731_oversold",
     "symbol": "AMZN",
     "name": "Amazon.com Inc.",
@@ -1580,22 +1596,6 @@
     "threshold": 20,
     "message": "✅ RKLX (Defiance Daily Target 2X Long RKLB ETF) is OVERSOLD! KD-K: 12.15, KD-D: 13.79 (<= 20)",
     "timestamp": "2026-07-30T00:20:52.274200",
-    "date": "2026-07-30",
-    "acknowledged": false
-  },
-  {
-    "id": "ARMG_20260730_oversold",
-    "symbol": "ARMG",
-    "name": "Leverage Shares 2X Long ARM Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.26,
-    "kd_d": 25.29,
-    "current_price": 15.0841,
-    "threshold": 20,
-    "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 17.26, KD-D: 25.29 (<= 20)",
-    "timestamp": "2026-07-30T00:20:52.274266",
     "date": "2026-07-30",
     "acknowledged": false
   }
