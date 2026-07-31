@@ -1,5 +1,21 @@
 [
   {
+    "id": "ARMG_20260801_oversold",
+    "symbol": "ARMG",
+    "name": "Leverage Shares 2X Long ARM Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.02,
+    "kd_d": 21.84,
+    "current_price": 16.53,
+    "threshold": 20,
+    "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 19.02, KD-D: 21.84 (<= 20)",
+    "timestamp": "2026-08-01T04:19:17.069598",
+    "date": "2026-08-01",
+    "acknowledged": false
+  },
+  {
     "id": "00652.TW_20260801_overbought",
     "symbol": "00652.TW",
     "name": "富邦印度",
@@ -1580,22 +1596,6 @@
     "threshold": 20,
     "message": "✅ CRWD (CrowdStrike Holdings Inc.) is OVERSOLD! KD-K: 14.8, KD-D: 20.8 (<= 20)",
     "timestamp": "2026-07-30T00:20:52.273572",
-    "date": "2026-07-30",
-    "acknowledged": false
-  },
-  {
-    "id": "VOO_20260730_oversold",
-    "symbol": "VOO",
-    "name": "Vanguard S&P 500 ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.06,
-    "kd_d": 28.95,
-    "current_price": 672.985,
-    "threshold": 20,
-    "message": "✅ VOO (Vanguard S&P 500 ETF) is OVERSOLD! KD-K: 19.06, KD-D: 28.95 (<= 20)",
-    "timestamp": "2026-07-30T00:20:52.273619",
     "date": "2026-07-30",
     "acknowledged": false
   }
