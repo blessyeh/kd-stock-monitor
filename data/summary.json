@@ -1,33 +1,33 @@
 {
-  "timestamp": "2026-08-05T01:47:37.302313",
+  "timestamp": "2026-08-05T03:29:16.624939",
   "date": "2026-08-05",
   "macro": {
     "us10y": {
-      "value": 4.631,
-      "change": -0.055
+      "value": 4.627,
+      "change": -0.059
     },
     "dxy": {
-      "value": 99.93,
-      "change": -0.03
+      "value": 99.88,
+      "change": -0.08
     },
     "fear_greed": {
-      "value": 16.53,
-      "change": 0.67,
+      "value": 16.45,
+      "change": 0.59,
       "label": "VIX Index",
-      "timestamp": "2026-08-05T01:47:31.039071"
+      "timestamp": "2026-08-05T03:29:11.709871"
     },
     "btc": {
-      "value": 64026.0,
-      "change_pct": 0.89
+      "value": 64233.0,
+      "change_pct": 1.22
     }
   },
   "stocks_processed": 125,
   "stocks_successful": 125,
   "stocks_failed": 0,
-  "new_alerts": 15,
-  "overbought_count": 11,
+  "new_alerts": 0,
+  "overbought_count": 10,
   "oversold_count": 4,
-  "normal_count": 110,
+  "normal_count": 111,
   "overbought_stocks": [
     {
       "symbol": "00652.TW",
@@ -88,100 +88,86 @@
     {
       "symbol": "MSFT",
       "name": "Microsoft Corp.",
-      "current_price": 495.97,
-      "change_pct": 1.71,
+      "current_price": 496.815,
+      "change_pct": 1.88,
       "extra_data": {
-        "regular_market_price": 495.97,
+        "regular_market_price": 496.815,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 487.65
       },
-      "kd_k": 86.45,
-      "kd_d": 73.15
+      "kd_k": 86.68,
+      "kd_d": 73.23
     },
     {
       "symbol": "NFLX",
       "name": "Netflix Inc.",
-      "current_price": 73.235,
-      "change_pct": -0.13,
+      "current_price": 73.28,
+      "change_pct": -0.07,
       "extra_data": {
-        "regular_market_price": 73.235,
+        "regular_market_price": 73.28,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 73.33
       },
-      "kd_k": 82.77,
-      "kd_d": 74.21
+      "kd_k": 83.01,
+      "kd_d": 74.29
     },
     {
       "symbol": "MSFU",
       "name": "Direxion Daily MSFT Bull 2X Shares",
-      "current_price": 37.71,
-      "change_pct": 3.4,
+      "current_price": 37.85,
+      "change_pct": 3.78,
       "extra_data": {
-        "regular_market_price": 37.71,
+        "regular_market_price": 37.85,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 36.47
       },
-      "kd_k": 86.15,
-      "kd_d": 72.72
+      "kd_k": 86.44,
+      "kd_d": 72.82
     },
     {
       "symbol": "NFXL",
       "name": "Direxion Daily NFLX Bull 2X Shares",
-      "current_price": 16.01,
-      "change_pct": -0.31,
+      "current_price": 16.0201,
+      "change_pct": -0.25,
       "extra_data": {
-        "regular_market_price": 16.01,
+        "regular_market_price": 16.0201,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 16.06
       },
-      "kd_k": 81.89,
-      "kd_d": 73.11
+      "kd_k": 82.02,
+      "kd_d": 73.15
     },
     {
       "symbol": "CRM",
       "name": "Salesforce, Inc.",
-      "current_price": 189.93,
-      "change_pct": 2.14,
+      "current_price": 190.88,
+      "change_pct": 2.65,
       "extra_data": {
-        "regular_market_price": 189.93,
+        "regular_market_price": 190.88,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 185.95
       },
-      "kd_k": 82.28,
-      "kd_d": 76.41
+      "kd_k": 83.1,
+      "kd_d": 76.68
     },
     {
       "symbol": "CRMG",
       "name": "Leverage Shares 2X Long CRM Daily ETF",
-      "current_price": 5.79,
-      "change_pct": 3.95,
+      "current_price": 5.845,
+      "change_pct": 4.94,
       "extra_data": {
-        "regular_market_price": 5.79,
+        "regular_market_price": 5.845,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 5.57
       },
-      "kd_k": 81.01,
-      "kd_d": 75.02
-    },
-    {
-      "symbol": "ORCL",
-      "name": "Oracle Corporation",
-      "current_price": 148.35,
-      "change_pct": 4.58,
-      "extra_data": {
-        "regular_market_price": 148.35,
-        "pre_market_price": null,
-        "post_market_price": null,
-        "prev_close": 141.85
-      },
-      "kd_k": 80.16,
-      "kd_d": 58.91
+      "kd_k": 81.88,
+      "kd_d": 75.31
     }
   ],
   "oversold_stocks": [
@@ -202,44 +188,44 @@
     {
       "symbol": "TSLA",
       "name": "Tesla Inc.",
-      "current_price": 327.02,
-      "change_pct": 1.53,
+      "current_price": 327.96,
+      "change_pct": 1.83,
       "extra_data": {
-        "regular_market_price": 327.02,
+        "regular_market_price": 327.96,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 322.08
       },
-      "kd_k": 33.41,
-      "kd_d": 18.96
+      "kd_k": 34.11,
+      "kd_d": 19.19
     },
     {
       "symbol": "TSLL",
       "name": "Direxion Daily TSLA Bull 2X Shares",
-      "current_price": 8.0501,
-      "change_pct": 3.07,
+      "current_price": 8.095,
+      "change_pct": 3.65,
       "extra_data": {
-        "regular_market_price": 8.0501,
+        "regular_market_price": 8.095,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 7.81
       },
-      "kd_k": 28.14,
-      "kd_d": 15.74
+      "kd_k": 28.77,
+      "kd_d": 15.95
     },
     {
       "symbol": "QCML",
       "name": "GraniteShares 2x Long QCOM Daily ETF",
-      "current_price": 14.825,
-      "change_pct": 14.92,
+      "current_price": 14.88,
+      "change_pct": 15.35,
       "extra_data": {
-        "regular_market_price": 14.825,
+        "regular_market_price": 14.88,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 12.9
       },
-      "kd_k": 28.49,
-      "kd_d": 18.66
+      "kd_k": 28.81,
+      "kd_d": 18.77
     }
   ],
   "errors": []
