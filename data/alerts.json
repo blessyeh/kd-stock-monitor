@@ -1,5 +1,21 @@
 [
   {
+    "id": "00918.TW_20260804_overbought",
+    "symbol": "00918.TW",
+    "name": "大華優利高填息30",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.27,
+    "kd_d": 72.53,
+    "current_price": 33.18,
+    "threshold": 80,
+    "message": "⚠️ 00918.TW (大華優利高填息30) is OVERBOUGHT! KD-K: 80.27, KD-D: 72.53 (>= 80)",
+    "timestamp": "2026-08-04T12:12:18.917278",
+    "date": "2026-08-04",
+    "acknowledged": false
+  },
+  {
     "id": "00652.TW_20260804_overbought",
     "symbol": "00652.TW",
     "name": "富邦印度",
@@ -1580,22 +1596,6 @@
     "threshold": 20,
     "message": "✅ 6026.TWO (福邦證) is OVERSOLD! KD-K: 17.34, KD-D: 20.46 (<= 20)",
     "timestamp": "2026-07-31T01:25:23.865751",
-    "date": "2026-07-31",
-    "acknowledged": false
-  },
-  {
-    "id": "TSLA_20260731_oversold",
-    "symbol": "TSLA",
-    "name": "Tesla Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 7.19,
-    "kd_d": 8.14,
-    "current_price": 307.01,
-    "threshold": 20,
-    "message": "✅ TSLA (Tesla Inc.) is OVERSOLD! KD-K: 7.19, KD-D: 8.14 (<= 20)",
-    "timestamp": "2026-07-31T01:25:23.865791",
     "date": "2026-07-31",
     "acknowledged": false
   }
