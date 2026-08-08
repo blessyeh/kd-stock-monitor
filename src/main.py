@@ -17,6 +17,8 @@ from datetime import datetime
 import logging
 from typing import Dict
 
+import numpy as np
+
 # Add src to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,6 +27,33 @@ from kd_calculator import KDCalculator
 from alert_checker import AlertChecker
 from scoring_engine import ScoringEngine
 from signal_confluence import evaluate_signal_confluence
+
+
+class NumpyJSONEncoder(json.JSONEncoder):
+    """
+    json.dump()'s last line of defense against numpy/pandas scalar types
+    (numpy.float64, numpy.int64, numpy.bool_, numpy.ndarray, ...) anywhere in
+    the object graph being serialized.
+
+    numpy.float64 happens to be a subclass of Python's float, so it serializes
+    fine without this — but numpy.bool_ and numpy.int64 are NOT subclasses of
+    Python's bool/int, and comparisons or aggregations across pandas/numpy
+    code (fetcher.py, pattern_analyzer.py, scoring_engine.py, kd_calculator.py,
+    signal_confluence.py, ...) can produce them in places that are easy to
+    miss one-by-one. Rather than chase every individual leak across five
+    modules, this catches whatever slips through at the single point it
+    actually matters: the moment we're about to write JSON.
+    """
+    def default(self, obj):
+        if isinstance(obj, np.bool_):
+            return bool(obj)
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super().default(obj)
 
 # Configure logging
 logging.basicConfig(
@@ -265,7 +294,7 @@ class KDStockMonitor:
         # Save summary to file
         summary_file = os.path.join(self.data_dir, 'summary.json')
         with open(summary_file, 'w', encoding='utf-8') as f:
-            json.dump(summary, f, indent=2, ensure_ascii=False)
+            json.dump(summary, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
         
         return summary
     
@@ -299,7 +328,7 @@ class KDStockMonitor:
         
         # Save logs
         with open(log_file, 'w', encoding='utf-8') as f:
-            json.dump(logs, f, indent=2, ensure_ascii=False)
+            json.dump(logs, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
 
     def _load_macro_history(self) -> list:
         """Load the persisted daily macro/chip snapshot history."""
@@ -441,7 +470,7 @@ class KDStockMonitor:
         history = history[-250:]
 
         with open(history_file, 'w', encoding='utf-8') as f:
-            json.dump(history, f, indent=2, ensure_ascii=False)
+            json.dump(history, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
 
         return history
 
