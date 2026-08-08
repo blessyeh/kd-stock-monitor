@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-08T23:26:08.279651",
+  "timestamp": "2026-08-08T23:53:54.487302",
   "date": "2026-08-08",
   "macro": {
     "us10y": {
@@ -14,12 +14,69 @@
       "value": 14.9,
       "change": -0.25,
       "label": "VIX Index",
-      "timestamp": "2026-08-08T23:26:03.014029"
+      "timestamp": "2026-08-08T23:53:43.931769"
     },
     "btc": {
-      "value": 65058.0,
-      "change_pct": 0.27
+      "value": 65034.0,
+      "change_pct": 0.24
+    },
+    "oil": {
+      "value": 78.18,
+      "change": 0.89,
+      "change_pct": 1.15
+    },
+    "gold": {
+      "value": 4340.7,
+      "change": 98.7,
+      "change_pct": 2.33
     }
+  },
+  "chip": {
+    "foreign_net": {
+      "value": -407.16,
+      "unit": "億元",
+      "date": "2026-08-07"
+    },
+    "trust_net": {
+      "value": -12.02,
+      "unit": "億元",
+      "date": "2026-08-07"
+    },
+    "margin_balance": {
+      "value": 8986438.0,
+      "change": 28177.0,
+      "unit": "張",
+      "date": "2026-08-07"
+    },
+    "margin_balance_amount": {
+      "value": 5376.65,
+      "change": 48.6,
+      "unit": "億元",
+      "date": "2026-08-07"
+    },
+    "short_balance": {
+      "value": 192740.0,
+      "change": 843.0,
+      "unit": "張",
+      "date": "2026-08-07"
+    },
+    "margin_short_ratio": {
+      "value": 2.14,
+      "unit": "%"
+    },
+    "usdtwd": {
+      "value": 32.235,
+      "change": -0.03
+    }
+  },
+  "signal_confluence": {
+    "available": false,
+    "as_of_date": "2026-08-07",
+    "history_days": 1,
+    "min_history_days": 6,
+    "note": "歷史資料僅 1 天，至少需要 6 天才開始評估（資料會隨每日執行自動累積）",
+    "top": null,
+    "bottom": null
   },
   "stocks_processed": 127,
   "stocks_successful": 127,
