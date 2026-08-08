@@ -14,7 +14,7 @@ A GitHub-powered stock monitoring system that tracks KD (Stochastic Oscillator) 
 - 🔔 **Smart Alerts**: Automatic notifications when KD ≥ 80 (overbought) or ≤ 20 (oversold).
 - 🇹🇼 **Taiwan Stocks**: Supports TWSE stocks (e.g., 0050.TW, 2330.TW).
 - 🇺🇸 **US Stocks**: Supports NYSE/NASDAQ stocks (e.g., AAPL, TSLA).
-- 🌐 **Web Dashboard**: Interactive dashboard with charts and real-time data.
+- 🌐 **Web Dashboard**: Interactive dashboard with charts and real-time data. TAIEX (台股加權指數) and the TAIFEX night-session gap are shown prominently at the top of the page, above everything else.
 - 🌍 **Global Macro Indicators**: VIX, US 10Y yield, DXY, Bitcoin, WTI Crude Oil, Gold, plus SOX (Philadelphia Semiconductor), Nasdaq 100, and S&P 500 — the indices that actually drive TW-listed tech/semiconductor names, rather than the Dow.
 - 🇹🇼 **Taiwan Chip Flow**: Foreign/investment-trust net buy-sell, margin & short balances, USD/TWD (TWSE open data), foreign TAIFEX futures net position and options Put/Call Ratio (FinMind), plus a retrospective TAIFEX night-session (夜盤) gap indicator.
 - 🎯 **Signal Confluence Model**: Cross-validates macro + chip-flow + derivatives + tech-index indicators against a fully-verified top/bottom turning-point framework (see below).
@@ -34,6 +34,10 @@ Automated analysis of 11 market patterns:
 9. 🟢 **Panic Bottom** (Short-term rebound): Extremely strict signal, only a few times per year.
 10. 🔴 **Blowoff Top** (Inevitable pullback): Extremely strict signal, extreme short-term overheating.
 11. 🟢 **Chip Lock Rally** (Main uptrend continuation): Extremely strict signal, highly concentrated chips in a strong uptrend.
+
+### 🇹🇼 TAIEX (台股大盤/加權指數)
+Shown prominently at the very top of the dashboard, above everything else — it's the actual index this whole project exists to monitor, not just another supporting macro indicator. Right beside it is the TAIFEX night-session (夜盤) gap (see Taiwan Chip Flow Indicators, item 6 below) — paired together since the night session is the overnight lead-in to TAIEX's next open.
+在儀表板最上方最顯眼的位置顯示——這是本專案真正要監控的指數本體，不只是眾多輔助宏觀指標之一。旁邊搭配顯示台指期夜盤跳空（見下方台股籌碼面指標項目 6）——兩者放在一起，因為夜盤正是 TAIEX 下一個開盤的隔夜前哨。
 
 ### 🌐 Macro Indicators | 宏觀指標
 1. **VIX (Fear Index) | VIX 恐慌指數**: Measures market volatility and fear levels. High VIX (>30) indicates high fear and potential buying opportunities.
@@ -119,7 +123,7 @@ The TAIFEX night-session gap (item 6) is shown on the dashboard as supporting co
 - 🔔 **智能警示**：當 KD ≥ 80 (超買) 或 ≤ 20 (超賣) 時自動發出提醒。
 - 🇹🇼 **台股支援**：支援台股代碼 (如 0050.TW, 2330.TW)。
 - 🇺🇸 **美股支援**：支援美股代碼 (如 AAPL, TSLA)。
-- 🌐 **網頁儀表板**：提供圖表與即時數據的互動式介面。
+- 🌐 **網頁儀表板**：提供圖表與即時數據的互動式介面。台股大盤（加權指數）與台指期夜盤跳空放在頁面最上方最顯眼的位置。
 - 🌍 **全球宏觀指標**：VIX、美債 10Y、美元指數、比特幣、原油 (WTI)、黃金，以及費半 (SOX)、那斯達克100、標普500——真正牽動台股科技/半導體權值股的指數，而非道瓊。
 - 🇹🇼 **台股籌碼面**：外資/投信買賣超、融資融券餘額、新台幣匯率（TWSE 開放資料），外資台指期淨部位、選擇權 P/C Ratio（FinMind），以及追溯性的台指期夜盤跳空指標。
 - 🎯 **訊號共振模型**：交叉驗證宏觀指標、台股籌碼面、衍生性商品與科技指數指標，判斷大盤頂部/底部轉折，所有條件皆可完整驗證（詳見下方說明）。
@@ -139,6 +143,9 @@ The TAIFEX night-session gap (item 6) is shown on the dashboard as supporting co
 9. 🟢 **恐慌底部** (短線搶反彈)：極嚴格信號，一年僅數次。
 10. 🔴 **天量噴出** (必然回落)：極嚴格信號，短線過熱極端。
 11. 🟢 **籌碼鎖定** (主升延續)：極嚴格信號，籌碼高度鎖定的強勢主升。
+
+### 🇹🇼 台股大盤（TAIEX/加權指數）
+在儀表板最上方最顯眼的位置顯示——這是本專案真正要監控的指數本體，不只是眾多輔助宏觀指標之一。旁邊搭配顯示台指期夜盤跳空（見下方台股籌碼面指標項目 6）——兩者放在一起，因為夜盤正是 TAIEX 下一個開盤的隔夜前哨。
 
 ### 🌐 宏觀指標
 1. **VIX 恐慌指數**: 衡量市場波動度與恐慌情緒。高 VIX (>30) 通常代表恐慌，可能是分批買點。

@@ -102,6 +102,7 @@ class KDStockMonitor:
             if test_mode:
                 stock_data = self._get_mock_data()
                 macro_indicators = {
+                    "taiex": {"value": 22350.5, "change": -85.3, "change_pct": -0.38},
                     "us10y": {"value": 4.25, "change": 0.02, "change_pct": 0.47},
                     "dxy": {"value": 104.5, "change": -0.15, "change_pct": -0.14},
                     "fear_greed": {"value": 55, "change": -1.2, "change_pct": -2.13, "label": "Greed"},
@@ -442,6 +443,7 @@ class KDStockMonitor:
 
         entry = {
             "date": snapshot_date,
+            "taiex": self._to_native(macro_indicators.get("taiex", {}).get("value")),
             "dxy": self._to_native(macro_indicators.get("dxy", {}).get("value")),
             "us10y": self._to_native(macro_indicators.get("us10y", {}).get("value")),
             "vix": self._to_native(macro_indicators.get("fear_greed", {}).get("value")),

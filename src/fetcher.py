@@ -301,9 +301,11 @@ class StockFetcher:
         logger.info(f"Saved raw data to {filepath} ({len(df)} records)")
 
     def fetch_macro_indicators(self) -> Dict:
-        """Fetch US10Y yield, Dollar Index, VIX, Bitcoin, WTI Crude Oil, Gold,
-        SOX (Philadelphia Semiconductor Index), NDX (Nasdaq 100), and S&P 500."""
+        """Fetch TAIEX (台股加權指數), US10Y yield, Dollar Index, VIX, Bitcoin,
+        WTI Crude Oil, Gold, SOX (Philadelphia Semiconductor Index),
+        NDX (Nasdaq 100), and S&P 500."""
         macro_data = {
+            "taiex": {"value": None, "change": None, "change_pct": None},
             "us10y": {"value": None, "change": None, "change_pct": None},
             "dxy": {"value": None, "change": None, "change_pct": None},
             "fear_greed": {"value": None, "change": None, "change_pct": None, "label": "N/A"},
@@ -314,6 +316,23 @@ class StockFetcher:
             "ndx": {"value": None, "change": None, "change_pct": None},
             "sp500": {"value": None, "change": None, "change_pct": None}
         }
+
+        # 0. Fetch TAIEX (台股加權指數, ^TWII) — the actual "台股大盤" this whole
+        # dashboard exists to monitor, shown prominently at the top of the page.
+        try:
+            ticker_taiex = yf.Ticker("^TWII")
+            hist_taiex = ticker_taiex.history(period="2d")
+            if not hist_taiex.empty:
+                latest_val = hist_taiex['Close'].iloc[-1]
+                prev_val = hist_taiex['Close'].iloc[-2] if len(hist_taiex) >= 2 else latest_val
+                change = latest_val - prev_val
+                change_pct = (change / prev_val * 100) if prev_val else 0
+                macro_data["taiex"] = {
+                    "value": round(latest_val, 2), "change": round(change, 2),
+                    "change_pct": round(change_pct, 2)
+                }
+        except Exception as e:
+            logger.error(f"Error fetching TAIEX: {e}")
 
         # 1. Fetch US10Y Yield (^TNX)
         try:

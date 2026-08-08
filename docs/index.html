@@ -110,6 +110,32 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-6">
+        <!-- TW Weighted Index (台股大盤) + Night Session (夜盤) -->
+        <div class="dark-card rounded-lg border border-dark-border mb-6 p-5">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div>
+                    <p class="text-xs text-dark-text2 uppercase tracking-wider mb-1">
+                        <i class="fas fa-chart-area mr-1 text-accent"></i>台股大盤（加權指數）
+                    </p>
+                    <div class="flex items-baseline gap-3 flex-wrap">
+                        <p id="taiex-value" class="text-3xl font-bold text-white">-</p>
+                        <p id="taiex-change" class="text-lg font-semibold">-</p>
+                    </div>
+                </div>
+                <div class="text-left sm:text-right border-t sm:border-t-0 sm:border-l border-dark-border pt-3 sm:pt-0 sm:pl-6 w-full sm:w-auto"
+                     title="台指期夜盤跳空幅度（與前一交易日盤收比較）。此為收盤後回溯性資料，約台北時間16:30更新，並非盤中即時報價。">
+                    <p class="text-xs text-dark-text2 uppercase tracking-wider mb-1">
+                        台指期夜盤 <i class="fas fa-circle-info opacity-50"></i>
+                        <span id="taiex-night-date" class="normal-case font-normal"></span>
+                    </p>
+                    <div class="flex items-baseline gap-2 flex-wrap">
+                        <p id="taiex-night-value" class="text-xl font-bold text-dark-text">-</p>
+                        <p id="taiex-night-gap" class="text-base font-semibold">-</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Stats Cards -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             <div class="dark-card rounded-lg p-4 border border-dark-border">
@@ -156,7 +182,7 @@
                 <i class="fas fa-water mr-2 text-accent"></i>台股籌碼面
                 <span id="chip-date" class="text-xs text-dark-text2 font-normal ml-2"></span>
             </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
                 <div class="text-center">
                     <p class="text-xs text-dark-text2">外資買賣超</p>
                     <p id="chip-foreign" class="font-bold text-lg mt-1">-</p>
@@ -184,10 +210,6 @@
                 <div class="text-center">
                     <p class="text-xs text-dark-text2">選擇權P/C比</p>
                     <p id="chip-pcratio" class="font-bold text-lg mt-1">-</p>
-                </div>
-                <div class="text-center" title="台指期夜盤跳空幅度 (與前一交易日盤收比較)。此為收盤後回溯性資料，約台北時間16:30更新，並非盤中即時報價。">
-                    <p class="text-xs text-dark-text2">夜盤跳空 <i class="fas fa-circle-info opacity-50"></i></p>
-                    <p id="chip-night-gap" class="font-bold text-lg mt-1">-</p>
                 </div>
             </div>
         </div>

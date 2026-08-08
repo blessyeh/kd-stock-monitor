@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Initialize UI
     updateStats();
+    updateTaiexSection();
     updateChipStats();
     renderSignalConfluence();
     renderStockGrid();
@@ -283,22 +284,54 @@ function updateChipStats() {
             pcRatioEl.className = 'font-bold text-lg mt-1 text-dark-text';
             pcRatioEl.textContent = `${chip.put_call_ratio.value.toFixed(2)}%`;
         }
-
-        // 台指期夜盤跳空 (%) — retrospective (see tooltip on the card itself).
-        // Gap down = red/alarm color convention flipped vs other cards here:
-        // a negative gap (跳空下跌) is the risk signal, so it gets kd-green
-        // (matches this dashboard's "green = bearish/sell-side" convention).
-        const nightGapEl = document.getElementById('chip-night-gap');
-        if (nightGapEl && chip.night_session && chip.night_session.gap_pct !== null && chip.night_session.gap_pct !== undefined) {
-            const gapPct = chip.night_session.gap_pct;
-            const colorClass = gapPct >= 0 ? 'text-kd-red' : 'text-kd-green';
-            const sign = gapPct >= 0 ? '+' : '';
-            nightGapEl.className = `font-bold text-lg mt-1 ${colorClass}`;
-            nightGapEl.textContent = `${sign}${gapPct.toFixed(2)}%`;
-            nightGapEl.title = `夜盤收盤 ${chip.night_session.close} vs 前一日盤收 ${chip.night_session.prev_close}`;
-        }
     } catch (e) {
         console.error("Error updating chip stats:", e);
+    }
+}
+
+/**
+ * Render the top-of-page 台股大盤 (TAIEX) + 台指期夜盤 hero section.
+ * TAIEX itself is the actual index this whole dashboard exists to monitor,
+ * so it gets the most prominent placement on the page. The night-session gap
+ * sits right beside it since it's the overnight lead-in to TAIEX's next open
+ * — but per the tooltip on the card, it's retrospective (posted ~16:30
+ * Taipei), not a live intraday feed.
+ */
+function updateTaiexSection() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const macro = summary.macro || {};
+        const chip = summary.chip || {};
+
+        const valueEl = document.getElementById('taiex-value');
+        const changeEl = document.getElementById('taiex-change');
+        if (valueEl && changeEl && macro.taiex && macro.taiex.value !== null && macro.taiex.value !== undefined) {
+            const val = macro.taiex.value;
+            const change = macro.taiex.change || 0;
+            const changePct = macro.taiex.change_pct || 0;
+            const colorClass = change >= 0 ? 'text-kd-red' : 'text-kd-green';
+            const sign = change >= 0 ? '+' : '';
+            valueEl.textContent = val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            changeEl.className = `text-lg font-semibold ${colorClass}`;
+            changeEl.textContent = `${sign}${change.toFixed(2)} (${sign}${changePct.toFixed(2)}%)`;
+        }
+
+        const nightValueEl = document.getElementById('taiex-night-value');
+        const nightGapEl = document.getElementById('taiex-night-gap');
+        const nightDateEl = document.getElementById('taiex-night-date');
+        if (nightValueEl && nightGapEl && chip.night_session && chip.night_session.gap_pct !== null && chip.night_session.gap_pct !== undefined) {
+            const ns = chip.night_session;
+            // Gap down = risk signal, so it gets kd-green (matches this
+            // dashboard's "green = bearish/sell-side" convention elsewhere).
+            const colorClass = ns.gap_pct >= 0 ? 'text-kd-red' : 'text-kd-green';
+            const sign = ns.gap_pct >= 0 ? '+' : '';
+            nightValueEl.textContent = ns.close ? ns.close.toLocaleString('en-US') : '-';
+            nightGapEl.className = `text-base font-semibold ${colorClass}`;
+            nightGapEl.textContent = `${sign}${ns.gap} (${sign}${ns.gap_pct.toFixed(2)}%)`;
+            if (nightDateEl) nightDateEl.textContent = ns.date ? `(${ns.date})` : '';
+        }
+    } catch (e) {
+        console.error("Error updating TAIEX section:", e);
     }
 }
 
@@ -888,6 +921,7 @@ async function refreshData() {
     console.log('Refreshing data...');
     await DataManager.loadData();
     updateStats();
+    updateTaiexSection();
     updateChipStats();
     renderSignalConfluence();
     renderStockGrid();
