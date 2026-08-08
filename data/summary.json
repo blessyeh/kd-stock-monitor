@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-09T01:55:45.226771",
+  "timestamp": "2026-08-09T02:09:46.871177",
   "date": "2026-08-09",
   "macro": {
     "us10y": {
@@ -14,10 +14,10 @@
       "value": 14.9,
       "change": -0.25,
       "label": "VIX Index",
-      "timestamp": "2026-08-09T01:55:32.655041"
+      "timestamp": "2026-08-09T02:07:37.969937"
     },
     "btc": {
-      "value": 65070.0,
+      "value": 65071.0,
       "change_pct": 0.29
     },
     "oil": {
@@ -29,6 +29,21 @@
       "value": 4340.7,
       "change": 98.7,
       "change_pct": 2.33
+    },
+    "sox": {
+      "value": 12356.79,
+      "change": 308.1,
+      "change_pct": 2.56
+    },
+    "ndx": {
+      "value": 29722.3,
+      "change": 348.97,
+      "change_pct": 1.19
+    },
+    "sp500": {
+      "value": 7757.64,
+      "change": 47.68,
+      "change_pct": 0.62
     }
   },
   "chip": {
@@ -77,16 +92,94 @@
       "value": 106.48,
       "unit": "%",
       "date": "2026-08-07"
+    },
+    "night_session": {
+      "close": 44543.0,
+      "prev_close": 44280.0,
+      "gap": 263.0,
+      "gap_pct": 0.59,
+      "date": "2026-08-07",
+      "prev_date": "2026-08-06"
     }
   },
   "signal_confluence": {
-    "available": false,
+    "available": true,
     "as_of_date": "2026-08-07",
-    "history_days": 1,
-    "min_history_days": 6,
-    "note": "歷史資料僅 1 天，至少需要 6 天才開始評估（資料會隨每日執行自動累積）",
-    "top": null,
-    "bottom": null
+    "history_days": 45,
+    "top": {
+      "conditions": [
+        {
+          "id": "macro_drain",
+          "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
+          "status": false,
+          "completeness": "full",
+          "detail": "DXY 99.60 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.08pp（未達 0.15pp）"
+        },
+        {
+          "id": "twd_depreciation",
+          "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
+          "status": false,
+          "completeness": "full",
+          "detail": "USD/TWD 5日變動 -0.160（貶值門檻 0.3）"
+        },
+        {
+          "id": "foreign_dual_short",
+          "label": "外資期現貨雙空",
+          "status": false,
+          "completeness": "full",
+          "detail": "外資現貨連續3日賣超：否（[903.1, 20.2, -407.2]億元）；台指期淨部位 -87911口（達 -30000口門檻）"
+        },
+        {
+          "id": "retail_holding_bag",
+          "label": "籌碼過度樂觀/散戶接刀",
+          "status": false,
+          "completeness": "full",
+          "detail": "今日外資賣超；融資餘額5日未回落（5377億元）；P/C Ratio 106.5%（>= 100%門檻）"
+        },
+        {
+          "id": "tech_capital_retreat",
+          "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
+          "status": false,
+          "completeness": "full",
+          "detail": "SOX 12357未跌破近20日支撐10447；NDX 29722未跌破近20日支撐27192；美債10Y 5日變動 -0.08pp（未達 0.15pp）"
+        }
+      ],
+      "total_conditions": 5,
+      "evaluated_count": 5,
+      "triggered_count": 0,
+      "triggered_full_count": 0,
+      "triggered_partial_count": 0
+    },
+    "bottom": {
+      "conditions": [
+        {
+          "id": "vix_extreme_reversal",
+          "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
+          "status": false,
+          "completeness": "full",
+          "detail": "近10日VIX高點 20.7（<= 30.0門檻）；目前 14.9（較高點回落 28%，門檻 15%）"
+        },
+        {
+          "id": "margin_capitulation",
+          "label": "散戶投降/融資斷頭式大減",
+          "status": false,
+          "completeness": "full",
+          "detail": "近5個交易日融資餘額最大單日減幅 24億元（斷頭式門檻 -30億元）"
+        },
+        {
+          "id": "foreign_short_covering",
+          "label": "外資空單回補與匯率止穩",
+          "status": false,
+          "completeness": "full",
+          "detail": "USD/TWD 5日變動 -0.160（止穩/升值）；外資今日仍賣超，近期均值 +269.9億元；台指期淨部位5日變動 -5396口（未回補）"
+        }
+      ],
+      "total_conditions": 3,
+      "evaluated_count": 3,
+      "triggered_count": 0,
+      "triggered_full_count": 0,
+      "triggered_partial_count": 0
+    }
   },
   "stocks_processed": 127,
   "stocks_successful": 127,
@@ -776,7 +869,7 @@
       "extra_data": {
         "regular_market_price": 82.83,
         "pre_market_price": null,
-        "post_market_price": 83.88,
+        "post_market_price": 83.85,
         "prev_close": 75.67
       },
       "kd_k": 82.21,
