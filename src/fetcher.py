@@ -6,11 +6,12 @@ Supports incremental updates to reduce API calls.
 
 import yfinance as yf
 import pandas as pd
+import requests
 import json
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple
+from typing import Callable, Dict, List, Optional, Tuple
 import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -401,6 +402,148 @@ class StockFetcher:
             logger.error(f"Error fetching Gold: {e}")
 
         return macro_data
+
+    def _fetch_twse_latest(self, build_url: Callable[[datetime], str],
+                            max_lookback_days: int = 7) -> Tuple[Optional[Dict], Optional[str]]:
+        """
+        Fetch a TWSE 'rwd' open-data report, walking backward from today until a
+        trading day with real data is found.
+
+        TWSE's institutional-investor / margin-trading reports are End-of-Day data:
+        they don't exist for weekends/holidays, and the current day's figures aren't
+        posted until after market close (roughly 15:00-19:00 Taipei time). Calling
+        this before that means today's URL returns an empty/error payload, so we
+        fall back to the most recent day that actually has data (up to a week back).
+
+        Returns (parsed_json, "YYYY-MM-DD" of the day the data is actually for), or
+        (None, None) if nothing was found in the lookback window.
+        """
+        headers = {"User-Agent": "Mozilla/5.0 (compatible; KDStockMonitor/1.0)"}
+        for offset in range(max_lookback_days):
+            day = datetime.now() - timedelta(days=offset)
+            url = build_url(day)
+            try:
+                resp = requests.get(url, headers=headers, timeout=10)
+                resp.raise_for_status()
+                data = resp.json()
+                if data.get("stat") == "OK" and (data.get("data") or data.get("tables")):
+                    return data, day.strftime("%Y-%m-%d")
+            except Exception as e:
+                logger.warning(f"TWSE report fetch failed for {day.strftime('%Y%m%d')} ({url}): {e}")
+        return None, None
+
+    @staticmethod
+    def _twse_num(raw: str) -> float:
+        """Parse a TWSE report cell ('1,234,567' style) into a float."""
+        return float(str(raw).replace(",", "").strip() or 0)
+
+    def fetch_tw_chip_indicators(self) -> Dict:
+        """
+        Fetch Taiwan-market 'chip flow' (籌碼面) indicators from TWSE's free public
+        open-data endpoints (no API key required):
+          - foreign_net / trust_net: market-wide net buy/sell amount (NT$ 億元) for
+            foreign investors and investment trusts, from the daily 三大法人買賣金額
+            統計表 (TWSE report BFI82U).
+          - margin_balance / short_balance / margin_short_ratio: 融資融券餘額 from
+            the daily 信用交易統計 (TWSE report MI_MARGN).
+          - usdtwd: USD/TWD exchange rate via yfinance — a coincident/leading signal
+            for foreign capital flows into or out of TW equities.
+
+        These are End-of-Day figures, not intraday ticks, so on an hourly refresh
+        they'll typically only change once per trading day (when TWSE posts that
+        day's numbers in the evening). Each value's 'date' field says which trading
+        day it's actually for, so the UI can show that instead of implying it's live.
+
+        Note: this intentionally does NOT include 外資台指期未平倉淨部位 or 選擇權
+        Put/Call Ratio (TAIFEX). Those endpoints exist on TAIFEX's official OpenAPI
+        but their response schema wasn't verified — adding them blind risked silently
+        broken parsing on a production dashboard, so they're left for a follow-up.
+        """
+        chip_data = {
+            "foreign_net": {"value": None, "unit": "億元", "date": None},
+            "trust_net": {"value": None, "unit": "億元", "date": None},
+            "margin_balance": {"value": None, "change": None, "unit": "張", "date": None},
+            "margin_balance_amount": {"value": None, "change": None, "unit": "億元", "date": None},
+            "short_balance": {"value": None, "change": None, "unit": "張", "date": None},
+            "margin_short_ratio": {"value": None, "unit": "%"},
+            "usdtwd": {"value": None, "change": None}
+        }
+
+        # 1+2. 三大法人買賣金額統計表 (foreign + investment trust net buy/sell, NT$)
+        try:
+            data, report_date = self._fetch_twse_latest(
+                lambda d: f"https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate={d.strftime('%Y%m%d')}&type=day&response=json"
+            )
+            if data:
+                rows = {row[0]: row for row in data.get("data", [])}
+                foreign_row = rows.get("外資及陸資(不含外資自營商)")
+                trust_row = rows.get("投信")
+                if foreign_row:
+                    net = self._twse_num(foreign_row[3]) / 1e8  # NT$ -> 億元
+                    chip_data["foreign_net"] = {"value": round(net, 2), "unit": "億元", "date": report_date}
+                if trust_row:
+                    net = self._twse_num(trust_row[3]) / 1e8
+                    chip_data["trust_net"] = {"value": round(net, 2), "unit": "億元", "date": report_date}
+        except Exception as e:
+            logger.error(f"Error fetching TWSE BFI82U (三大法人買賣金額): {e}")
+
+        # 3+4+5. 融資融券餘額 (margin / short balance + 資券比)
+        try:
+            data, report_date = self._fetch_twse_latest(
+                lambda d: f"https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?date={d.strftime('%Y%m%d')}&response=json&selectType=ALL"
+            )
+            if data and data.get("tables"):
+                summary_table = data["tables"][0]  # 信用交易統計 (market-wide aggregate)
+                rows = {row[0]: row for row in summary_table.get("data", [])}
+                # fields: [項目, 買進, 賣出, 現金(券)償還, 前日餘額, 今日餘額]
+                margin_row = rows.get("融資(交易單位)")
+                margin_amount_row = rows.get("融資金額(仟元)")
+                short_row = rows.get("融券(交易單位)")
+
+                margin_today = None
+                short_today = None
+                if margin_row:
+                    margin_today = self._twse_num(margin_row[5])
+                    margin_prev = self._twse_num(margin_row[4])
+                    chip_data["margin_balance"] = {
+                        "value": margin_today, "change": round(margin_today - margin_prev, 0),
+                        "unit": "張", "date": report_date
+                    }
+                if margin_amount_row:
+                    # 仟元 (thousands of NT$) -> 億元 (hundred-millions), matches how
+                    # 融資斷頭 is usually reported in the news ("單日減幅數十億")
+                    amount_today = self._twse_num(margin_amount_row[5]) * 1000 / 1e8
+                    amount_prev = self._twse_num(margin_amount_row[4]) * 1000 / 1e8
+                    chip_data["margin_balance_amount"] = {
+                        "value": round(amount_today, 2), "change": round(amount_today - amount_prev, 2),
+                        "unit": "億元", "date": report_date
+                    }
+                if short_row:
+                    short_today = self._twse_num(short_row[5])
+                    short_prev = self._twse_num(short_row[4])
+                    chip_data["short_balance"] = {
+                        "value": short_today, "change": round(short_today - short_prev, 0),
+                        "unit": "張", "date": report_date
+                    }
+                if margin_today and short_today is not None:
+                    chip_data["margin_short_ratio"] = {
+                        "value": round(short_today / margin_today * 100, 2), "unit": "%"
+                    }
+        except Exception as e:
+            logger.error(f"Error fetching TWSE MI_MARGN (融資融券): {e}")
+
+        # 6. USD/TWD exchange rate
+        try:
+            ticker_twd = yf.Ticker("TWD=X")
+            hist_twd = ticker_twd.history(period="5d")
+            if not hist_twd.empty:
+                latest_val = hist_twd['Close'].iloc[-1]
+                prev_val = hist_twd['Close'].iloc[-2] if len(hist_twd) >= 2 else latest_val
+                chip_data["usdtwd"] = {"value": round(latest_val, 3), "change": round(latest_val - prev_val, 3)}
+        except Exception as e:
+            logger.error(f"Error fetching USD/TWD: {e}")
+
+        return chip_data
     
     def get_latest_price(self, symbol: str) -> Optional[float]:
         """Get the latest closing price for a stock."""

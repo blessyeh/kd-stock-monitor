@@ -24,6 +24,7 @@ from fetcher import StockFetcher
 from kd_calculator import KDCalculator
 from alert_checker import AlertChecker
 from scoring_engine import ScoringEngine
+from signal_confluence import evaluate_signal_confluence
 
 # Configure logging
 logging.basicConfig(
@@ -79,10 +80,20 @@ class KDStockMonitor:
                     "oil": {"value": 78.5, "change": 0.8, "change_pct": 1.03},
                     "gold": {"value": 2650.0, "change": -12.3, "change_pct": -0.46}
                 }
+                tw_chip_indicators = {
+                    "foreign_net": {"value": -40.7, "unit": "億元", "date": "2026-08-07"},
+                    "trust_net": {"value": -12.0, "unit": "億元", "date": "2026-08-07"},
+                    "margin_balance": {"value": 8986438, "change": 28177, "unit": "張", "date": "2026-08-07"},
+                    "margin_balance_amount": {"value": 5376.6, "change": 48.6, "unit": "億元", "date": "2026-08-07"},
+                    "short_balance": {"value": 192740, "change": 843, "unit": "張", "date": "2026-08-07"},
+                    "margin_short_ratio": {"value": 2.15, "unit": "%"},
+                    "usdtwd": {"value": 31.25, "change": -0.05}
+                }
                 logger.info("Using mock data (test mode)")
             else:
                 stock_data = self.fetcher.fetch_all_stocks()
                 macro_indicators = self.fetcher.fetch_macro_indicators()
+                tw_chip_indicators = self.fetcher.fetch_tw_chip_indicators()
             
             stocks_fetched = sum(len(stocks) for stocks in stock_data.values())
             logger.info(f"Fetched data for {stocks_fetched} stocks and macro indicators")
@@ -106,10 +117,19 @@ class KDStockMonitor:
             # Step 3: Check for alerts
             logger.info("\n[Step 3/4] Checking for alerts...")
             alert_result = self.checker.process_alerts(stocks_with_kd)
-            
+
+            # Step 3.5: Persist today's macro/chip snapshot and evaluate the
+            # top/bottom signal-confluence model against the accumulated history
+            logger.info("\n[Step 3.5/4] Updating macro history and signal confluence...")
+            macro_history = self._save_macro_history(macro_indicators, tw_chip_indicators)
+            confluence_result = evaluate_signal_confluence(macro_history)
+            logger.info(f"Signal confluence: available={confluence_result['available']}, "
+                        f"history_days={confluence_result.get('history_days')}")
+
             # Step 4: Generate summary report
             logger.info("\n[Step 4/4] Generating summary report...")
-            summary = self._generate_summary(stocks_with_kd, alert_result, macro_indicators)
+            summary = self._generate_summary(stocks_with_kd, alert_result, macro_indicators,
+                                              tw_chip_indicators, confluence_result)
             
             # Save run log
             self._save_run_log(summary)
@@ -173,7 +193,8 @@ class KDStockMonitor:
         
         return mock_data
     
-    def _generate_summary(self, stocks_data: Dict, alert_result: Dict, macro_indicators: Dict = None) -> Dict:
+    def _generate_summary(self, stocks_data: Dict, alert_result: Dict, macro_indicators: Dict = None,
+                           tw_chip_indicators: Dict = None, confluence_result: Dict = None) -> Dict:
         """Generate a summary of the run."""
         all_stocks = []
         for market in ["TW", "US"]:
@@ -220,6 +241,8 @@ class KDStockMonitor:
             "timestamp": datetime.now().isoformat(),
             "date": datetime.now().strftime("%Y-%m-%d"),
             "macro": macro_indicators or {},
+            "chip": tw_chip_indicators or {},
+            "signal_confluence": confluence_result or {"available": False},
             "stocks_processed": len(all_stocks),
             "stocks_successful": len([s for s in all_stocks if "error" not in s]),
             "stocks_failed": len(errors),
@@ -270,6 +293,72 @@ class KDStockMonitor:
         # Save logs
         with open(log_file, 'w', encoding='utf-8') as f:
             json.dump(logs, f, indent=2, ensure_ascii=False)
+
+    def _load_macro_history(self) -> list:
+        """Load the persisted daily macro/chip snapshot history."""
+        history_file = os.path.join(self.data_dir, 'macro_history.json')
+        if os.path.exists(history_file):
+            try:
+                with open(history_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                logger.warning(f"Could not load macro_history.json: {e}")
+        return []
+
+    def _save_macro_history(self, macro_indicators: Dict, tw_chip_indicators: Dict) -> list:
+        """
+        Append (or update) today's macro + TW chip-flow snapshot to a running daily
+        history file. This is what lets trend-based signal-confluence checks (DXY
+        breaking above a prior high, VIX peaking and rolling over, margin balance
+        dropping several days in a row, etc.) actually work — a single point-in-time
+        reading can't tell you a trend, you need history to compare against.
+
+        Chip data (foreign_net, margin_balance, ...) is End-of-Day and carries its
+        own report date (which trading day it's actually for) that can lag "today"
+        if called before TWSE posts that day's numbers. macro data (DXY/VIX/US10Y
+        from yfinance) doesn't carry an explicit date, so we fall back to the chip
+        report date when available, else today's date. Re-running within the same
+        day (hourly schedule) overwrites that day's entry instead of duplicating it.
+
+        Returns the updated history list (so run() can pass it straight into the
+        signal confluence evaluator without a redundant re-read from disk).
+        """
+        history_file = os.path.join(self.data_dir, 'macro_history.json')
+        history = self._load_macro_history()
+
+        snapshot_date = (
+            tw_chip_indicators.get("foreign_net", {}).get("date")
+            or tw_chip_indicators.get("margin_balance", {}).get("date")
+            or datetime.now().strftime("%Y-%m-%d")
+        )
+
+        entry = {
+            "date": snapshot_date,
+            "dxy": macro_indicators.get("dxy", {}).get("value"),
+            "us10y": macro_indicators.get("us10y", {}).get("value"),
+            "vix": macro_indicators.get("fear_greed", {}).get("value"),
+            "usdtwd": tw_chip_indicators.get("usdtwd", {}).get("value"),
+            "foreign_net": tw_chip_indicators.get("foreign_net", {}).get("value"),
+            "trust_net": tw_chip_indicators.get("trust_net", {}).get("value"),
+            "margin_balance": tw_chip_indicators.get("margin_balance", {}).get("value"),
+            "margin_balance_amount": tw_chip_indicators.get("margin_balance_amount", {}).get("value"),
+        }
+
+        # Overwrite today's entry if we already have one (hourly reruns), else append
+        existing_idx = next((i for i, h in enumerate(history) if h.get("date") == snapshot_date), None)
+        if existing_idx is not None:
+            history[existing_idx] = entry
+        else:
+            history.append(entry)
+
+        history.sort(key=lambda h: h.get("date") or "")
+        # Keep roughly a year of trading days
+        history = history[-250:]
+
+        with open(history_file, 'w', encoding='utf-8') as f:
+            json.dump(history, f, indent=2, ensure_ascii=False)
+
+        return history
 
 
 def main():

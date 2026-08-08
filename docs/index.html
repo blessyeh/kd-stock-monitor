@@ -129,6 +129,50 @@
             </div>
         </div>
 
+        <!-- TW Chip Flow (籌碼面) -->
+        <div class="dark-card rounded-lg border border-dark-border mb-6 p-4">
+            <h2 class="text-sm font-bold text-white mb-3 flex items-center">
+                <i class="fas fa-water mr-2 text-accent"></i>台股籌碼面
+                <span id="chip-date" class="text-xs text-dark-text2 font-normal ml-2"></span>
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                <div class="text-center">
+                    <p class="text-xs text-dark-text2">外資買賣超</p>
+                    <p id="chip-foreign" class="font-bold text-lg mt-1">-</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs text-dark-text2">投信買賣超</p>
+                    <p id="chip-trust" class="font-bold text-lg mt-1">-</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs text-dark-text2">融資餘額</p>
+                    <p id="chip-margin" class="font-bold text-lg mt-1">-</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs text-dark-text2">資券比</p>
+                    <p id="chip-ratio" class="font-bold text-lg mt-1">-</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs text-dark-text2">新台幣匯率</p>
+                    <p id="chip-twd" class="font-bold text-lg mt-1">-</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signal Confluence (訊號共振：大盤轉折觀察) -->
+        <div class="dark-card rounded-lg border border-dark-border mb-6 p-4">
+            <h2 class="text-sm font-bold text-white mb-1 flex items-center">
+                <i class="fas fa-bullseye mr-2 text-accent"></i>訊號共振：大盤轉折觀察
+                <span id="confluence-date" class="text-xs text-dark-text2 font-normal ml-2"></span>
+            </h2>
+            <div id="confluence-body">
+                <!-- filled by JS -->
+            </div>
+            <p class="text-[10px] text-dark-text2 opacity-70 mt-3 border-t border-dark-border pt-2 leading-relaxed">
+                免責聲明：本模型僅供單筆大額加碼或停止追高的參考依據，並非放空或頻繁進出訊號；避險成本高昂，若已在執行定期定額策略，不建議因短線訊號打斷既有投資紀律。標示「部分驗證」的條件因缺少台指期未平倉淨部位與選擇權 Put/Call Ratio 資料，僅反映原始邏輯的一半，請勿單獨依賴。
+            </p>
+        </div>
+
         <!-- Filter Tabs -->
         <div class="dark-card rounded-lg border border-dark-border mb-6 overflow-hidden">
             <div class="border-b border-dark-border">

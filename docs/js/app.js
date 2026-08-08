@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Initialize UI
     updateStats();
+    updateChipStats();
+    renderSignalConfluence();
     renderStockGrid();
     renderAlertHistory();
     updateLastUpdated();
@@ -132,6 +134,149 @@ function updateStats() {
         }
     } catch (e) {
         console.error("Error updating stats:", e);
+    }
+}
+
+/**
+ * Update TW chip-flow (籌碼面) cards.
+ * These are End-of-Day TWSE figures (posted ~15:00-19:00 Taipei time), not
+ * intraday ticks, so the 'date' shown is which trading day the numbers are
+ * actually for — they'll typically only change once per trading day.
+ */
+function updateChipStats() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const chip = summary.chip || {};
+
+        const dateEl = document.getElementById('chip-date');
+        const anyDate = (chip.foreign_net && chip.foreign_net.date) ||
+                         (chip.margin_balance && chip.margin_balance.date);
+        if (dateEl) dateEl.textContent = anyDate ? `(資料日期: ${anyDate})` : '';
+
+        // 外資買賣超 (億元) — positive = buy = red, negative = sell = green
+        const foreignEl = document.getElementById('chip-foreign');
+        if (foreignEl && chip.foreign_net && chip.foreign_net.value !== null && chip.foreign_net.value !== undefined) {
+            const val = chip.foreign_net.value;
+            const colorClass = val >= 0 ? 'text-kd-red' : 'text-kd-green';
+            const sign = val >= 0 ? '+' : '';
+            foreignEl.className = `font-bold text-lg mt-1 ${colorClass}`;
+            foreignEl.textContent = `${sign}${val.toFixed(1)}億`;
+        }
+
+        // 投信買賣超 (億元)
+        const trustEl = document.getElementById('chip-trust');
+        if (trustEl && chip.trust_net && chip.trust_net.value !== null && chip.trust_net.value !== undefined) {
+            const val = chip.trust_net.value;
+            const colorClass = val >= 0 ? 'text-kd-red' : 'text-kd-green';
+            const sign = val >= 0 ? '+' : '';
+            trustEl.className = `font-bold text-lg mt-1 ${colorClass}`;
+            trustEl.textContent = `${sign}${val.toFixed(1)}億`;
+        }
+
+        // 融資餘額 (張) — colored by direction of change vs. previous trading day
+        const marginEl = document.getElementById('chip-margin');
+        if (marginEl && chip.margin_balance && chip.margin_balance.value !== null && chip.margin_balance.value !== undefined) {
+            const val = chip.margin_balance.value;
+            const change = chip.margin_balance.change || 0;
+            const colorClass = change >= 0 ? 'text-kd-red' : 'text-kd-green';
+            const sign = change >= 0 ? '+' : '';
+            marginEl.className = `font-bold text-lg mt-1 ${colorClass}`;
+            marginEl.textContent = `${(val / 10000).toFixed(1)}萬張`;
+            marginEl.title = `融資餘額: ${val.toLocaleString()}張 (${sign}${change.toLocaleString()}張)`;
+        }
+
+        // 資券比 (%) — neutral stat, no directional color
+        const ratioEl = document.getElementById('chip-ratio');
+        if (ratioEl && chip.margin_short_ratio && chip.margin_short_ratio.value !== null && chip.margin_short_ratio.value !== undefined) {
+            ratioEl.className = 'font-bold text-lg mt-1 text-dark-text';
+            ratioEl.textContent = `${chip.margin_short_ratio.value.toFixed(2)}%`;
+        }
+
+        // 新台幣匯率 (USD/TWD) — same up/down convention as the DXY card
+        const twdEl = document.getElementById('chip-twd');
+        if (twdEl && chip.usdtwd && chip.usdtwd.value !== null && chip.usdtwd.value !== undefined) {
+            const val = chip.usdtwd.value;
+            const change = chip.usdtwd.change || 0;
+            const colorClass = change >= 0 ? 'text-kd-red' : 'text-kd-green';
+            twdEl.className = `font-bold text-lg mt-1 ${colorClass}`;
+            twdEl.textContent = val.toFixed(3);
+        }
+    } catch (e) {
+        console.error("Error updating chip stats:", e);
+    }
+}
+
+/**
+ * Render the 訊號共振 (signal confluence) top/bottom turning-point panel.
+ * Backed by src/signal_confluence.py — see that module's docstring for the
+ * exact condition definitions and thresholds. Conditions marked 'partial'
+ * only verify half of the original AND-condition (the TAIFEX futures/options
+ * leg isn't fetched yet) and are visually flagged as such, never presented
+ * the same as a fully-verified trigger.
+ */
+function renderSignalConfluence() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const sc = summary.signal_confluence || { available: false };
+        const dateEl = document.getElementById('confluence-date');
+        const body = document.getElementById('confluence-body');
+        if (!body) return;
+
+        if (!sc.available) {
+            if (dateEl) dateEl.textContent = '';
+            const days = sc.history_days || 0;
+            const minDays = sc.min_history_days || 6;
+            body.innerHTML = `
+                <div class="text-center py-4 text-dark-text2 text-sm">
+                    <i class="fas fa-hourglass-half mr-1"></i>
+                    歷史資料累積中（${days}/${minDays} 天），累積足夠天數後將自動開始評估
+                </div>
+            `;
+            return;
+        }
+
+        if (dateEl) dateEl.textContent = `(資料日期: ${sc.as_of_date})`;
+
+        const renderGroup = (group, title, colorClass, icon) => {
+            if (!group) return '';
+            const conditionsHtml = group.conditions.map(c => {
+                let statusIcon, statusColor;
+                if (c.status === true) { statusIcon = 'fa-circle-check'; statusColor = colorClass; }
+                else if (c.status === false) { statusIcon = 'fa-circle-xmark'; statusColor = 'text-dark-text2 opacity-40'; }
+                else { statusIcon = 'fa-circle-question'; statusColor = 'text-dark-text2 opacity-40'; }
+                const partialBadge = c.completeness === 'partial'
+                    ? '<span class="ml-1 px-1.5 py-0.5 rounded text-[9px] bg-yellow-500/20 text-yellow-400 align-middle">部分驗證</span>'
+                    : '';
+                return `
+                    <div class="flex items-start gap-2 py-1.5 border-b border-dark-border/50 last:border-b-0">
+                        <i class="fas ${statusIcon} ${statusColor} mt-0.5"></i>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-xs text-dark-text font-medium">${c.label}${partialBadge}</div>
+                            <div class="text-[10px] text-dark-text2 mt-0.5">${c.detail}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            return `
+                <div class="flex-1 min-w-[280px]">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-sm font-bold ${colorClass}"><i class="fas ${icon} mr-1"></i>${title}</h3>
+                        <span class="text-xs font-mono ${colorClass}">${group.triggered_count} / ${group.total_conditions} 項共振</span>
+                    </div>
+                    <div>${conditionsHtml}</div>
+                </div>
+            `;
+        };
+
+        body.innerHTML = `
+            <div class="flex flex-col md:flex-row gap-4 mt-2">
+                ${renderGroup(sc.top, '頂部結構與避險啟動', 'text-kd-red', 'fa-triangle-exclamation')}
+                ${renderGroup(sc.bottom, '底部轉折與加碼訊號', 'text-kd-green', 'fa-arrow-trend-up')}
+            </div>
+        `;
+    } catch (e) {
+        console.error("Error rendering signal confluence:", e);
     }
 }
 
@@ -647,6 +792,8 @@ async function refreshData() {
     console.log('Refreshing data...');
     await DataManager.loadData();
     updateStats();
+    updateChipStats();
+    renderSignalConfluence();
     renderStockGrid();
     renderAlertHistory();
     updateLastUpdated();
