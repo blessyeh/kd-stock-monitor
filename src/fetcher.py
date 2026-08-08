@@ -448,16 +448,17 @@ class StockFetcher:
             the daily 信用交易統計 (TWSE report MI_MARGN).
           - usdtwd: USD/TWD exchange rate via yfinance — a coincident/leading signal
             for foreign capital flows into or out of TW equities.
+          - foreign_futures_net / put_call_ratio: 外資台指期未平倉淨部位 and 選擇權
+            Put/Call Ratio, via FinMind's free open-data API (see _fetch_finmind()).
+            FinMind normalizes TAIFEX's raw data into a documented, verified schema —
+            unlike TAIFEX's own OpenAPI (see _fetch_finmind() docstring for why that
+            route was abandoned).
 
         These are End-of-Day figures, not intraday ticks, so on an hourly refresh
-        they'll typically only change once per trading day (when TWSE posts that
-        day's numbers in the evening). Each value's 'date' field says which trading
-        day it's actually for, so the UI can show that instead of implying it's live.
-
-        Note: this intentionally does NOT include 外資台指期未平倉淨部位 or 選擇權
-        Put/Call Ratio (TAIFEX). Those endpoints exist on TAIFEX's official OpenAPI
-        but their response schema wasn't verified — adding them blind risked silently
-        broken parsing on a production dashboard, so they're left for a follow-up.
+        they'll typically only change once per trading day (when TWSE/FinMind post
+        that day's numbers in the evening). Each value's 'date' field says which
+        trading day it's actually for, so the UI can show that instead of implying
+        it's live.
         """
         chip_data = {
             "foreign_net": {"value": None, "unit": "億元", "date": None},
@@ -466,7 +467,9 @@ class StockFetcher:
             "margin_balance_amount": {"value": None, "change": None, "unit": "億元", "date": None},
             "short_balance": {"value": None, "change": None, "unit": "張", "date": None},
             "margin_short_ratio": {"value": None, "unit": "%"},
-            "usdtwd": {"value": None, "change": None}
+            "usdtwd": {"value": None, "change": None},
+            "foreign_futures_net": {"value": None, "unit": "口", "date": None},
+            "put_call_ratio": {"value": None, "unit": "%", "date": None}
         }
 
         # 1+2. 三大法人買賣金額統計表 (foreign + investment trust net buy/sell, NT$)
@@ -543,7 +546,86 @@ class StockFetcher:
         except Exception as e:
             logger.error(f"Error fetching USD/TWD: {e}")
 
+        # 7. 外資台指期未平倉淨部位 (foreign futures net long/short position)
+        try:
+            rows = self._fetch_finmind("TaiwanFuturesInstitutionalInvestors", "TX")
+            if rows:
+                latest_date = max(r["date"] for r in rows)
+                foreign_row = next(
+                    (r for r in rows if r["date"] == latest_date and r["institutional_investors"] == "外資"),
+                    None
+                )
+                if foreign_row:
+                    net = foreign_row["long_open_interest_balance_volume"] - foreign_row["short_open_interest_balance_volume"]
+                    chip_data["foreign_futures_net"] = {"value": net, "unit": "口", "date": latest_date}
+        except Exception as e:
+            logger.error(f"Error fetching TaiwanFuturesInstitutionalInvestors (外資台指期淨部位): {e}")
+
+        # 8. 選擇權 Put/Call Ratio (未平倉量比)
+        try:
+            rows = self._fetch_finmind("TaiwanOptionDaily", "TXO")
+            if rows:
+                latest_date = max(r["date"] for r in rows)
+                # 'position' = the regular end-of-day session (open_interest is only
+                # meaningful there); 'after_market' rows carry open_interest=0.
+                day_rows = [r for r in rows if r["date"] == latest_date and r.get("trading_session") == "position"]
+                put_oi = sum(r["open_interest"] for r in day_rows if r["call_put"] == "put")
+                call_oi = sum(r["open_interest"] for r in day_rows if r["call_put"] == "call")
+                if call_oi > 0:
+                    chip_data["put_call_ratio"] = {
+                        "value": round(put_oi / call_oi * 100, 2), "unit": "%", "date": latest_date
+                    }
+                else:
+                    logger.warning(f"TaiwanOptionDaily returned no usable 'position'-session rows for {latest_date}")
+        except Exception as e:
+            logger.error(f"Error fetching TaiwanOptionDaily (選擇權P/C Ratio): {e}")
+
         return chip_data
+
+    def _fetch_finmind(self, dataset: str, data_id: str, days_back: int = 7) -> Optional[List[Dict]]:
+        """
+        Fetch a dataset from FinMind's free open-data API (https://finmindtrade.com/).
+
+        Why FinMind instead of hitting TAIFEX's own OpenAPI directly: TAIFEX's raw
+        endpoints (openapi.taifex.com.tw) do exist for this data, but returned
+        undecoded application/octet-stream in testing with no way to confirm the
+        real field layout — shipping a parser against a guessed schema on a public
+        dashboard risked silently-wrong numbers. FinMind re-publishes the same
+        TAIFEX data with a documented, verified JSON schema (confirmed against live
+        data: TaiwanFuturesInstitutionalInvestors and TaiwanOptionDaily both work
+        unauthenticated). See https://finmind.github.io/llms-full.txt for the full
+        dataset/column reference.
+
+        Queries a `days_back`-day window (not a single date) and lets the caller
+        pick out the max date present, since — same as TWSE — there's no data for
+        weekends/holidays or for today before TAIFEX posts that day's numbers.
+
+        An optional FINMIND_TOKEN environment variable is used as a bearer token if
+        set (raises the rate limit from 300 to 600 requests/hour); unauthenticated
+        calls work fine for this project's usage (a handful of calls per run).
+
+        Returns the raw list of row-dicts from the 'data' field, or None on failure.
+        """
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=days_back)
+        params = {
+            "dataset": dataset,
+            "data_id": data_id,
+            "start_date": start_date.strftime("%Y-%m-%d"),
+            "end_date": end_date.strftime("%Y-%m-%d"),
+        }
+        headers = {}
+        token = os.environ.get("FINMIND_TOKEN")
+        if token:
+            headers["Authorization"] = f"Bearer {token}"
+
+        resp = requests.get("https://api.finmindtrade.com/api/v4/data", params=params, headers=headers, timeout=15)
+        resp.raise_for_status()
+        payload = resp.json()
+        if payload.get("status") != 200:
+            logger.warning(f"FinMind {dataset}/{data_id} returned status={payload.get('status')}: {payload.get('msg')}")
+            return None
+        return payload.get("data") or None
     
     def get_latest_price(self, symbol: str) -> Optional[float]:
         """Get the latest closing price for a stock."""

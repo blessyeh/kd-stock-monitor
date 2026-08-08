@@ -87,7 +87,9 @@ class KDStockMonitor:
                     "margin_balance_amount": {"value": 5376.6, "change": 48.6, "unit": "億元", "date": "2026-08-07"},
                     "short_balance": {"value": 192740, "change": 843, "unit": "張", "date": "2026-08-07"},
                     "margin_short_ratio": {"value": 2.15, "unit": "%"},
-                    "usdtwd": {"value": 31.25, "change": -0.05}
+                    "usdtwd": {"value": 31.25, "change": -0.05},
+                    "foreign_futures_net": {"value": -87911, "unit": "口", "date": "2026-08-07"},
+                    "put_call_ratio": {"value": 76.92, "unit": "%", "date": "2026-08-07"}
                 }
                 logger.info("Using mock data (test mode)")
             else:
@@ -342,6 +344,8 @@ class KDStockMonitor:
             "trust_net": tw_chip_indicators.get("trust_net", {}).get("value"),
             "margin_balance": tw_chip_indicators.get("margin_balance", {}).get("value"),
             "margin_balance_amount": tw_chip_indicators.get("margin_balance_amount", {}).get("value"),
+            "foreign_futures_net": tw_chip_indicators.get("foreign_futures_net", {}).get("value"),
+            "put_call_ratio": tw_chip_indicators.get("put_call_ratio", {}).get("value"),
         }
 
         # Overwrite today's entry if we already have one (hourly reruns), else append

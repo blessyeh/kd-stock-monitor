@@ -201,6 +201,23 @@ function updateChipStats() {
             twdEl.className = `font-bold text-lg mt-1 ${colorClass}`;
             twdEl.textContent = val.toFixed(3);
         }
+
+        // 外資期貨淨部位 (口) — positive = net long = red, negative = net short = green
+        const futuresEl = document.getElementById('chip-futures');
+        if (futuresEl && chip.foreign_futures_net && chip.foreign_futures_net.value !== null && chip.foreign_futures_net.value !== undefined) {
+            const val = chip.foreign_futures_net.value;
+            const colorClass = val >= 0 ? 'text-kd-red' : 'text-kd-green';
+            const sign = val >= 0 ? '+' : '';
+            futuresEl.className = `font-bold text-lg mt-1 ${colorClass}`;
+            futuresEl.textContent = `${sign}${val.toLocaleString()}口`;
+        }
+
+        // 選擇權 Put/Call Ratio (%) — neutral stat, no directional color
+        const pcRatioEl = document.getElementById('chip-pcratio');
+        if (pcRatioEl && chip.put_call_ratio && chip.put_call_ratio.value !== null && chip.put_call_ratio.value !== undefined) {
+            pcRatioEl.className = 'font-bold text-lg mt-1 text-dark-text';
+            pcRatioEl.textContent = `${chip.put_call_ratio.value.toFixed(2)}%`;
+        }
     } catch (e) {
         console.error("Error updating chip stats:", e);
     }
