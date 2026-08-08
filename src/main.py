@@ -102,10 +102,10 @@ class KDStockMonitor:
             if test_mode:
                 stock_data = self._get_mock_data()
                 macro_indicators = {
-                    "us10y": {"value": 4.25, "change": 0.02},
-                    "dxy": {"value": 104.5, "change": -0.15},
-                    "fear_greed": {"value": 55, "label": "Greed"},
-                    "btc": {"value": 65000, "change_pct": 1.2},
+                    "us10y": {"value": 4.25, "change": 0.02, "change_pct": 0.47},
+                    "dxy": {"value": 104.5, "change": -0.15, "change_pct": -0.14},
+                    "fear_greed": {"value": 55, "change": -1.2, "change_pct": -2.13, "label": "Greed"},
+                    "btc": {"value": 65000, "change": 780, "change_pct": 1.2},
                     "oil": {"value": 78.5, "change": 0.8, "change_pct": 1.03},
                     "gold": {"value": 2650.0, "change": -12.3, "change_pct": -0.46},
                     "sox": {"value": 5230.0, "change": -45.2, "change_pct": -0.86},

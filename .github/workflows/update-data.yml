@@ -21,7 +21,12 @@ env:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  # 每次觸發（push 或每小時排程）都會用「觸發當下」的 commit 執行，不是「執行當下」
+  # main 最新的 commit。若保留 false，快速連續 push 修正時，較早觸發、還在排隊的
+  # 執行會在較晚的修正已經上線後才真正開始跑，用的還是舊版程式碼，很容易讓人誤以為
+  # 「明明推了修正還是失敗」。改成 true：新的執行一開始就會取消還在排隊/執行中的
+  # 舊執行，確保永遠只有「最新 commit」在跑，也省下重複跑的運算資源。
+  cancel-in-progress: true
 
 jobs:
   update-and-deploy:

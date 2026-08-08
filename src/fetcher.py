@@ -304,10 +304,10 @@ class StockFetcher:
         """Fetch US10Y yield, Dollar Index, VIX, Bitcoin, WTI Crude Oil, Gold,
         SOX (Philadelphia Semiconductor Index), NDX (Nasdaq 100), and S&P 500."""
         macro_data = {
-            "us10y": {"value": None, "change": None},
-            "dxy": {"value": None, "change": None},
-            "fear_greed": {"value": None, "label": "N/A"},
-            "btc": {"value": None, "change_pct": None},
+            "us10y": {"value": None, "change": None, "change_pct": None},
+            "dxy": {"value": None, "change": None, "change_pct": None},
+            "fear_greed": {"value": None, "change": None, "change_pct": None, "label": "N/A"},
+            "btc": {"value": None, "change": None, "change_pct": None},
             "oil": {"value": None, "change": None, "change_pct": None},
             "gold": {"value": None, "change": None, "change_pct": None},
             "sox": {"value": None, "change": None, "change_pct": None},
@@ -322,7 +322,12 @@ class StockFetcher:
             if not hist_us10y.empty:
                 latest_val = hist_us10y['Close'].iloc[-1]
                 prev_val = hist_us10y['Close'].iloc[-2] if len(hist_us10y) >= 2 else latest_val
-                macro_data["us10y"] = {"value": round(latest_val, 3), "change": round(latest_val - prev_val, 3)}
+                change = latest_val - prev_val
+                change_pct = (change / prev_val * 100) if prev_val else 0
+                macro_data["us10y"] = {
+                    "value": round(latest_val, 3), "change": round(change, 3),
+                    "change_pct": round(change_pct, 2)
+                }
         except Exception as e:
             logger.error(f"Error fetching US10Y: {e}")
 
@@ -333,7 +338,12 @@ class StockFetcher:
             if not hist_dxy.empty:
                 latest_val = hist_dxy['Close'].iloc[-1]
                 prev_val = hist_dxy['Close'].iloc[-2] if len(hist_dxy) >= 2 else latest_val
-                macro_data["dxy"] = {"value": round(latest_val, 2), "change": round(latest_val - prev_val, 2)}
+                change = latest_val - prev_val
+                change_pct = (change / prev_val * 100) if prev_val else 0
+                macro_data["dxy"] = {
+                    "value": round(latest_val, 2), "change": round(change, 2),
+                    "change_pct": round(change_pct, 2)
+                }
         except Exception as e:
             logger.error(f"Error fetching DXY: {e}")
 
@@ -344,11 +354,15 @@ class StockFetcher:
             latest_val = ticker_btc.fast_info.get('lastPrice')
             if latest_val:
                 hist_btc = ticker_btc.history(period="2d")
-                change_pct = 0
+                change, change_pct = 0, 0
                 if len(hist_btc) >= 2:
                     prev_val = hist_btc['Close'].iloc[-2]
-                    change_pct = ((latest_val - prev_val) / prev_val) * 100
-                macro_data["btc"] = {"value": round(latest_val, 0), "change_pct": round(change_pct, 2)}
+                    change = latest_val - prev_val
+                    change_pct = (change / prev_val) * 100
+                macro_data["btc"] = {
+                    "value": round(latest_val, 0), "change": round(change, 0),
+                    "change_pct": round(change_pct, 2)
+                }
             else:
                 logger.warning("Could not get Bitcoin price via fast_info")
         except Exception as e:
@@ -361,9 +375,12 @@ class StockFetcher:
             if not hist_vix.empty:
                 latest_val = hist_vix['Close'].iloc[-1]
                 prev_val = hist_vix['Close'].iloc[-2] if len(hist_vix) >= 2 else latest_val
+                change = latest_val - prev_val
+                change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["fear_greed"] = {
                     "value": round(latest_val, 2),
-                    "change": round(latest_val - prev_val, 2),
+                    "change": round(change, 2),
+                    "change_pct": round(change_pct, 2),
                     "label": "VIX Index",
                     "timestamp": datetime.now().isoformat()
                 }

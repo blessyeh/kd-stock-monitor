@@ -7,6 +7,26 @@
 let currentFilter = 'all';
 
 /**
+ * Render the small "▲+1.23%" / "▼-0.45%" line under a macro card's value,
+ * showing day-over-day change so it's visible without hovering (a tooltip
+ * alone isn't usable on mobile / touch devices).
+ */
+function renderMacroChange(elId, changePct) {
+    const el = document.getElementById(elId);
+    if (!el) return;
+    if (changePct === null || changePct === undefined || isNaN(changePct)) {
+        el.textContent = '-';
+        el.className = 'text-[10px] leading-tight text-dark-text2';
+        return;
+    }
+    const colorClass = changePct >= 0 ? 'text-kd-red' : 'text-kd-green';
+    const arrow = changePct >= 0 ? '▲' : '▼';
+    const sign = changePct >= 0 ? '+' : '';
+    el.className = `text-[10px] leading-tight ${colorClass}`;
+    el.textContent = `${arrow} ${sign}${changePct.toFixed(2)}%`;
+}
+
+/**
  * Initialize the application
  */
 document.addEventListener('DOMContentLoaded', async () => {
@@ -74,6 +94,7 @@ function updateStats() {
                 fngEl.className = `font-bold text-lg ${colorClass}`;
                 fngEl.textContent = val.toFixed(2);
                 fngEl.title = `VIX 恐慌指數: ${val.toFixed(2)}`;
+                renderMacroChange('macro-fng-chg', macro.fear_greed.change_pct);
             }
 
             // 2. US 10Y
@@ -84,6 +105,7 @@ function updateStats() {
                 const colorClass = change >= 0 ? 'text-kd-red' : 'text-kd-green';
                 us10yEl.className = `font-bold text-lg ${colorClass}`;
                 us10yEl.textContent = `${val.toFixed(2)}%`;
+                renderMacroChange('macro-us10y-chg', macro.us10y.change_pct);
             }
 
             // 3. DXY
@@ -94,6 +116,7 @@ function updateStats() {
                 const colorClass = change >= 0 ? 'text-kd-red' : 'text-kd-green';
                 dxyEl.className = `font-bold text-lg ${colorClass}`;
                 dxyEl.textContent = val.toFixed(2);
+                renderMacroChange('macro-dxy-chg', macro.dxy.change_pct);
             }
 
             // 4. Bitcoin
@@ -105,6 +128,7 @@ function updateStats() {
                 const formattedPrice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
                 btcEl.className = `font-bold text-lg ${colorClass}`;
                 btcEl.textContent = formattedPrice;
+                renderMacroChange('macro-btc-chg', macro.btc.change_pct);
             }
 
             // 5. WTI Crude Oil
@@ -117,6 +141,7 @@ function updateStats() {
                 oilEl.className = `font-bold text-lg ${colorClass}`;
                 oilEl.textContent = `$${val.toFixed(2)}`;
                 oilEl.title = `WTI 原油: $${val.toFixed(2)} (${sign}${changePct.toFixed(2)}%)`;
+                renderMacroChange('macro-oil-chg', macro.oil.change_pct);
             }
 
             // 6. Gold
@@ -130,6 +155,7 @@ function updateStats() {
                 goldEl.className = `font-bold text-lg ${colorClass}`;
                 goldEl.textContent = formattedPrice;
                 goldEl.title = `黃金: ${formattedPrice} (${sign}${changePct.toFixed(2)}%)`;
+                renderMacroChange('macro-gold-chg', macro.gold.change_pct);
             }
 
             // 7. SOX (Philadelphia Semiconductor Index)
@@ -142,6 +168,7 @@ function updateStats() {
                 soxEl.className = `font-bold text-lg ${colorClass}`;
                 soxEl.textContent = val.toFixed(0);
                 soxEl.title = `費城半導體指數: ${val.toFixed(2)} (${sign}${changePct.toFixed(2)}%)`;
+                renderMacroChange('macro-sox-chg', macro.sox.change_pct);
             }
 
             // 8. NDX (Nasdaq 100)
@@ -154,6 +181,7 @@ function updateStats() {
                 ndxEl.className = `font-bold text-lg ${colorClass}`;
                 ndxEl.textContent = val.toFixed(0);
                 ndxEl.title = `那斯達克100指數: ${val.toFixed(2)} (${sign}${changePct.toFixed(2)}%)`;
+                renderMacroChange('macro-ndx-chg', macro.ndx.change_pct);
             }
 
             // 9. S&P 500
@@ -166,6 +194,7 @@ function updateStats() {
                 sp500El.className = `font-bold text-lg ${colorClass}`;
                 sp500El.textContent = val.toFixed(0);
                 sp500El.title = `標普500指數: ${val.toFixed(2)} (${sign}${changePct.toFixed(2)}%)`;
+                renderMacroChange('macro-sp500-chg', macro.sp500.change_pct);
             }
         }
     } catch (e) {
