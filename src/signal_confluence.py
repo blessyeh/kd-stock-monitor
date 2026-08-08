@@ -13,7 +13,14 @@ conditions below can now be fully evaluated. Older history entries recorded
 before that field was added simply won't have foreign_futures_net /
 put_call_ratio — _series() drops the missing values, so a condition just
 reports "insufficient data" (status=None) until enough post-upgrade history
-accumulates, rather than crashing or silently mis-scoring.
+accumulates, rather than crashing or silently mis-scoring. The same applies
+to sox/ndx (added alongside the T5 condition below).
+
+Index choice note (T5): TWSE's weighted index is effectively a tech/
+semiconductor-heavy index (TSMC + supply chain dominate its weighting), so
+SOX and NDX are used as the "source pricing" leading indicators instead of
+the Dow — the Dow's blue-chip/industrial composition has little correlation
+with TW corporate earnings or capital flows.
 
 This module only reads the persisted daily history (data/macro_history.json)
 plus the module producing it — it doesn't fetch anything itself.
@@ -39,6 +46,8 @@ FOREIGN_FUTURES_NET_SHORT_THRESHOLD = 30000  # 口, per the user's own "3萬至4
 PUT_CALL_RATIO_LOW_THRESHOLD = 100.0          # "跌破100%" = call side crowded = complacent
 FUTURES_COVERING_LOOKBACK_DAYS = 5
 FUTURES_COVERING_THRESHOLD = 5000    # 口 — net position moving less-short by at least this much
+TECH_BREAKDOWN_LOOKBACK_DAYS = 20    # "重要支撐" = lowest SOX/NDX close in the past N days
+FOREIGN_RECENT_AVG_WINDOW = 5        # "近期均值" window used by B3's flow-reversal check
 
 
 def _series(history: List[Dict], key: str, window: Optional[int] = None) -> List[float]:
@@ -127,6 +136,44 @@ def _top_conditions(history: List[Dict]) -> List[Dict]:
         status, detail = None, "歷史資料不足，尚無法判斷"
     conditions.append(_condition("retail_holding_bag", "籌碼過度樂觀/散戶接刀", status, "full", detail))
 
+    # T5. 科技資金退潮: 費半(SOX)或那斯達克100(NDX)跌破近期支撐 AND 美債10Y快速攀升
+    # — 完整可驗證。台股加權指數本質是「科技/半導體重壓指數」（台積電及供應鏈佔絕對
+    # 權重），SOX/NDX 的轉折是台股轉折的源頭定價，比道瓊等傳產指數更有預測力，因此
+    # 用「跌破支撐」而非「跌幅」來定義：只要兩者之一跌破近 N 日低點，視為結構轉弱。
+    sox_series = _series(history, "sox")
+    ndx_series = _series(history, "ndx")
+    if (len(us10y_series) >= US10Y_FAST_RISE_LOOKBACK_DAYS + 1
+            and (len(sox_series) >= TECH_BREAKDOWN_LOOKBACK_DAYS + 1
+                 or len(ndx_series) >= TECH_BREAKDOWN_LOOKBACK_DAYS + 1)):
+        us10y_today = us10y_series[-1]
+        us10y_change = us10y_today - us10y_series[-(US10Y_FAST_RISE_LOOKBACK_DAYS + 1)]
+        us10y_fast_rise = us10y_change >= US10Y_FAST_RISE_THRESHOLD
+
+        sox_breakdown = None
+        if len(sox_series) >= TECH_BREAKDOWN_LOOKBACK_DAYS + 1:
+            sox_today = sox_series[-1]
+            sox_support = min(sox_series[-(TECH_BREAKDOWN_LOOKBACK_DAYS + 1):-1])
+            sox_breakdown = sox_today < sox_support
+
+        ndx_breakdown = None
+        if len(ndx_series) >= TECH_BREAKDOWN_LOOKBACK_DAYS + 1:
+            ndx_today = ndx_series[-1]
+            ndx_support = min(ndx_series[-(TECH_BREAKDOWN_LOOKBACK_DAYS + 1):-1])
+            ndx_breakdown = ndx_today < ndx_support
+
+        tech_breakdown = bool(sox_breakdown) or bool(ndx_breakdown)
+        status = tech_breakdown and us10y_fast_rise
+        detail_parts = []
+        if sox_breakdown is not None:
+            detail_parts.append(f"SOX {sox_series[-1]:.0f}{'跌破' if sox_breakdown else '未跌破'}近{TECH_BREAKDOWN_LOOKBACK_DAYS}日支撐{sox_support:.0f}")
+        if ndx_breakdown is not None:
+            detail_parts.append(f"NDX {ndx_series[-1]:.0f}{'跌破' if ndx_breakdown else '未跌破'}近{TECH_BREAKDOWN_LOOKBACK_DAYS}日支撐{ndx_support:.0f}")
+        detail = ("；".join(detail_parts) + f"；美債10Y {US10Y_FAST_RISE_LOOKBACK_DAYS}日變動 {us10y_change:+.2f}pp"
+                  f"（{'達標' if us10y_fast_rise else '未達'} {US10Y_FAST_RISE_THRESHOLD}pp）")
+    else:
+        status, detail = None, "歷史資料不足，尚無法判斷"
+    conditions.append(_condition("tech_capital_retreat", "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)", status, "full", detail))
+
     return conditions
 
 
@@ -135,7 +182,10 @@ def _bottom_conditions(history: List[Dict]) -> List[Dict]:
 
     # B1. 恐慌極值反轉: VIX飆高後見頂回落 — 完整可驗證
     vix_series = _series(history, "vix", window=VIX_PEAK_LOOKBACK_DAYS)
-    if len(vix_series) >= 3:
+    # Require the window to actually be full before calling anything a "10-day
+    # peak" — with only 2-3 points, "peak" is just whichever days happened to
+    # be collected first, not a real recent high.
+    if len(vix_series) >= VIX_PEAK_LOOKBACK_DAYS:
         peak = max(vix_series)
         today = vix_series[-1]
         status = peak > VIX_PEAK_THRESHOLD and today <= peak * VIX_ROLLOVER_RATIO
@@ -149,7 +199,9 @@ def _bottom_conditions(history: List[Dict]) -> List[Dict]:
 
     # B2. 散戶投降/融資斷頭: 融資餘額單日斷頭式大減 — 完整可驗證
     margin_amt_series = _series(history, "margin_balance_amount", window=MARGIN_CAPITULATION_LOOKBACK_DAYS + 1)
-    if len(margin_amt_series) >= 2:
+    # Same reasoning as B1: require the full comparison window, not just 2
+    # points, so "近5個交易日最大單日減幅" is measured over an actual 5 days.
+    if len(margin_amt_series) >= MARGIN_CAPITULATION_LOOKBACK_DAYS + 1:
         diffs = [margin_amt_series[i] - margin_amt_series[i - 1] for i in range(1, len(margin_amt_series))]
         worst_drop = min(diffs) if diffs else 0
         status = worst_drop <= -MARGIN_CAPITULATION_DROP_NTB
@@ -163,11 +215,16 @@ def _bottom_conditions(history: List[Dict]) -> List[Dict]:
     usdtwd_series = _series(history, "usdtwd")
     foreign_series = _series(history, "foreign_net")
     futures_net_series = _series(history, "foreign_futures_net", window=FUTURES_COVERING_LOOKBACK_DAYS + 1)
-    if (len(usdtwd_series) >= TWD_DEPRECIATION_LOOKBACK_DAYS + 1 and len(foreign_series) >= 2
-            and len(futures_net_series) >= 2):
+    # Require the full comparison windows (not just 2 points) so "近期均值"
+    # and the futures-covering delta are measured over their actual windows,
+    # same reasoning as B1/B2 above.
+    if (len(usdtwd_series) >= TWD_DEPRECIATION_LOOKBACK_DAYS + 1
+            and len(foreign_series) >= FOREIGN_RECENT_AVG_WINDOW + 1
+            and len(futures_net_series) >= FUTURES_COVERING_LOOKBACK_DAYS + 1):
         fx_change = usdtwd_series[-1] - usdtwd_series[-(TWD_DEPRECIATION_LOOKBACK_DAYS + 1)]
         fx_stabilizing = fx_change <= 0
-        foreign_recent_avg = sum(foreign_series[-6:-1]) / max(len(foreign_series[-6:-1]), 1)
+        recent_window = foreign_series[-(FOREIGN_RECENT_AVG_WINDOW + 1):-1]
+        foreign_recent_avg = sum(recent_window) / len(recent_window)
         foreign_flow_reversed = foreign_series[-1] > 0 and foreign_recent_avg < 0
         futures_change = futures_net_series[-1] - futures_net_series[0]  # less negative = covering
         futures_covering = futures_change >= FUTURES_COVERING_THRESHOLD
@@ -198,7 +255,7 @@ def _summarize(conditions: List[Dict]) -> Dict:
     }
 
 
-def evaluate_signal_confluence(history: List[Dict], min_history_days: int = 6) -> Dict:
+def evaluate_signal_confluence(history: List[Dict], min_history_days: int = 21) -> Dict:
     """
     Evaluate the top/bottom confluence conditions against the persisted daily
     macro/chip history.
@@ -207,9 +264,18 @@ def evaluate_signal_confluence(history: List[Dict], min_history_days: int = 6) -
         history: list of daily snapshots (see main.py's _save_macro_history),
                  sorted ascending by date, most recent entry last.
         min_history_days: below this many days of history, don't even attempt
-                 evaluation — every condition needs at least a few days of
-                 comparison points, so a shorter history would just produce
-                 noise dressed up as a signal.
+                 evaluation. Set to 21 (~1 month of trading days) to match the
+                 longest individual condition window — T1's DXY breakout and
+                 T5's SOX/NDX support breakdown both need a 20-day lookback
+                 plus today (21 points). A lower gate (this used to be 6)
+                 would flip 'available' to True while 2 of the 5 top
+                 conditions still silently sit at "insufficient data" for two
+                 more weeks — technically not wrong (each condition still
+                 self-reports None honestly), but confusing: the panel claims
+                 to be "on" while under-representing what it can actually see.
+                 21 is the point where every condition (including B1/B2/B3's
+                 now-tightened full-window requirements) can potentially
+                 evaluate, so "available" means what it says.
 
     Returns a dict with 'available' (bool), 'as_of_date', and 'top'/'bottom'
     blocks (each from _summarize()). Individual conditions carry their own

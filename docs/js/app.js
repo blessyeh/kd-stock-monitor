@@ -131,6 +131,42 @@ function updateStats() {
                 goldEl.textContent = formattedPrice;
                 goldEl.title = `黃金: ${formattedPrice} (${sign}${changePct.toFixed(2)}%)`;
             }
+
+            // 7. SOX (Philadelphia Semiconductor Index)
+            const soxEl = document.getElementById('macro-sox');
+            if (soxEl && macro.sox && macro.sox.value !== null) {
+                const val = macro.sox.value;
+                const changePct = macro.sox.change_pct || 0;
+                const colorClass = changePct >= 0 ? 'text-kd-red' : 'text-kd-green';
+                const sign = changePct >= 0 ? '+' : '';
+                soxEl.className = `font-bold text-lg ${colorClass}`;
+                soxEl.textContent = val.toFixed(0);
+                soxEl.title = `費城半導體指數: ${val.toFixed(2)} (${sign}${changePct.toFixed(2)}%)`;
+            }
+
+            // 8. NDX (Nasdaq 100)
+            const ndxEl = document.getElementById('macro-ndx');
+            if (ndxEl && macro.ndx && macro.ndx.value !== null) {
+                const val = macro.ndx.value;
+                const changePct = macro.ndx.change_pct || 0;
+                const colorClass = changePct >= 0 ? 'text-kd-red' : 'text-kd-green';
+                const sign = changePct >= 0 ? '+' : '';
+                ndxEl.className = `font-bold text-lg ${colorClass}`;
+                ndxEl.textContent = val.toFixed(0);
+                ndxEl.title = `那斯達克100指數: ${val.toFixed(2)} (${sign}${changePct.toFixed(2)}%)`;
+            }
+
+            // 9. S&P 500
+            const sp500El = document.getElementById('macro-sp500');
+            if (sp500El && macro.sp500 && macro.sp500.value !== null) {
+                const val = macro.sp500.value;
+                const changePct = macro.sp500.change_pct || 0;
+                const colorClass = changePct >= 0 ? 'text-kd-red' : 'text-kd-green';
+                const sign = changePct >= 0 ? '+' : '';
+                sp500El.className = `font-bold text-lg ${colorClass}`;
+                sp500El.textContent = val.toFixed(0);
+                sp500El.title = `標普500指數: ${val.toFixed(2)} (${sign}${changePct.toFixed(2)}%)`;
+            }
         }
     } catch (e) {
         console.error("Error updating stats:", e);
@@ -218,6 +254,20 @@ function updateChipStats() {
             pcRatioEl.className = 'font-bold text-lg mt-1 text-dark-text';
             pcRatioEl.textContent = `${chip.put_call_ratio.value.toFixed(2)}%`;
         }
+
+        // 台指期夜盤跳空 (%) — retrospective (see tooltip on the card itself).
+        // Gap down = red/alarm color convention flipped vs other cards here:
+        // a negative gap (跳空下跌) is the risk signal, so it gets kd-green
+        // (matches this dashboard's "green = bearish/sell-side" convention).
+        const nightGapEl = document.getElementById('chip-night-gap');
+        if (nightGapEl && chip.night_session && chip.night_session.gap_pct !== null && chip.night_session.gap_pct !== undefined) {
+            const gapPct = chip.night_session.gap_pct;
+            const colorClass = gapPct >= 0 ? 'text-kd-red' : 'text-kd-green';
+            const sign = gapPct >= 0 ? '+' : '';
+            nightGapEl.className = `font-bold text-lg mt-1 ${colorClass}`;
+            nightGapEl.textContent = `${sign}${gapPct.toFixed(2)}%`;
+            nightGapEl.title = `夜盤收盤 ${chip.night_session.close} vs 前一日盤收 ${chip.night_session.prev_close}`;
+        }
     } catch (e) {
         console.error("Error updating chip stats:", e);
     }
@@ -242,7 +292,7 @@ function renderSignalConfluence() {
         if (!sc.available) {
             if (dateEl) dateEl.textContent = '';
             const days = sc.history_days || 0;
-            const minDays = sc.min_history_days || 6;
+            const minDays = sc.min_history_days || 21;
             body.innerHTML = `
                 <div class="text-center py-4 text-dark-text2 text-sm">
                     <i class="fas fa-hourglass-half mr-1"></i>

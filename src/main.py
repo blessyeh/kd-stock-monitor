@@ -78,7 +78,10 @@ class KDStockMonitor:
                     "fear_greed": {"value": 55, "label": "Greed"},
                     "btc": {"value": 65000, "change_pct": 1.2},
                     "oil": {"value": 78.5, "change": 0.8, "change_pct": 1.03},
-                    "gold": {"value": 2650.0, "change": -12.3, "change_pct": -0.46}
+                    "gold": {"value": 2650.0, "change": -12.3, "change_pct": -0.46},
+                    "sox": {"value": 5230.0, "change": -45.2, "change_pct": -0.86},
+                    "ndx": {"value": 19850.0, "change": 62.5, "change_pct": 0.32},
+                    "sp500": {"value": 5450.0, "change": 12.1, "change_pct": 0.22}
                 }
                 tw_chip_indicators = {
                     "foreign_net": {"value": -40.7, "unit": "億元", "date": "2026-08-07"},
@@ -89,7 +92,9 @@ class KDStockMonitor:
                     "margin_short_ratio": {"value": 2.15, "unit": "%"},
                     "usdtwd": {"value": 31.25, "change": -0.05},
                     "foreign_futures_net": {"value": -87911, "unit": "口", "date": "2026-08-07"},
-                    "put_call_ratio": {"value": 76.92, "unit": "%", "date": "2026-08-07"}
+                    "put_call_ratio": {"value": 76.92, "unit": "%", "date": "2026-08-07"},
+                    "night_session": {"close": 23100, "prev_close": 23180, "gap": -80,
+                                       "gap_pct": -0.35, "date": "2026-08-08", "prev_date": "2026-08-07"}
                 }
                 logger.info("Using mock data (test mode)")
             else:
@@ -123,7 +128,7 @@ class KDStockMonitor:
             # Step 3.5: Persist today's macro/chip snapshot and evaluate the
             # top/bottom signal-confluence model against the accumulated history
             logger.info("\n[Step 3.5/4] Updating macro history and signal confluence...")
-            macro_history = self._save_macro_history(macro_indicators, tw_chip_indicators)
+            macro_history = self._save_macro_history(macro_indicators, tw_chip_indicators, test_mode=test_mode)
             confluence_result = evaluate_signal_confluence(macro_history)
             logger.info(f"Signal confluence: available={confluence_result['available']}, "
                         f"history_days={confluence_result.get('history_days')}")
@@ -307,7 +312,30 @@ class KDStockMonitor:
                 logger.warning(f"Could not load macro_history.json: {e}")
         return []
 
-    def _save_macro_history(self, macro_indicators: Dict, tw_chip_indicators: Dict) -> list:
+    def _merge_backfill(self, history: list, backfill: Dict[str, Dict]) -> list:
+        """
+        Merge a fetcher.backfill_macro_history() result into the existing daily
+        history, filling gaps only. Never overwrites a value that's already
+        recorded — a real value from a normal run (today's included) always
+        wins over a historical backfill value for the same date/field.
+        """
+        by_date = {h["date"]: h for h in history if h.get("date")}
+        for date_str, fields in backfill.items():
+            if date_str in by_date:
+                entry = by_date[date_str]
+                for k, v in fields.items():
+                    if entry.get(k) is None:
+                        entry[k] = v
+            else:
+                new_entry = {"date": date_str}
+                new_entry.update(fields)
+                history.append(new_entry)
+                by_date[date_str] = new_entry
+        history.sort(key=lambda h: h.get("date") or "")
+        return history[-250:]
+
+    def _save_macro_history(self, macro_indicators: Dict, tw_chip_indicators: Dict,
+                             test_mode: bool = False) -> list:
         """
         Append (or update) today's macro + TW chip-flow snapshot to a running daily
         history file. This is what lets trend-based signal-confluence checks (DXY
@@ -322,11 +350,35 @@ class KDStockMonitor:
         report date when available, else today's date. Re-running within the same
         day (hourly schedule) overwrites that day's entry instead of duplicating it.
 
+        If history is still short (signal confluence needs ~21 trading days), this
+        also runs a one-time historical backfill (see fetcher.backfill_macro_history)
+        instead of waiting three weeks of hourly runs to accumulate it day by day.
+        A marker file gates this to run at most once — even if the backfill only
+        partially succeeds, we don't want every hourly run for the next three weeks
+        re-hitting TWSE with ~70 sequential requests. Delete
+        data/.macro_backfill_done to force a retry.
+
         Returns the updated history list (so run() can pass it straight into the
         signal confluence evaluator without a redundant re-read from disk).
         """
         history_file = os.path.join(self.data_dir, 'macro_history.json')
         history = self._load_macro_history()
+
+        backfill_marker = os.path.join(self.data_dir, '.macro_backfill_done')
+        if not test_mode and len(history) < 21 and not os.path.exists(backfill_marker):
+            try:
+                logger.info("Macro history is short — running one-time historical backfill...")
+                backfill = self.fetcher.backfill_macro_history()
+                history = self._merge_backfill(history, backfill)
+                logger.info(f"Backfill merged {len(backfill)} historical dates; history now {len(history)} days")
+            except Exception as e:
+                logger.warning(f"Macro history backfill failed (will keep accumulating day-by-day): {e}")
+            finally:
+                try:
+                    with open(backfill_marker, 'w') as f:
+                        f.write(datetime.now().isoformat())
+                except Exception as e:
+                    logger.warning(f"Could not write backfill marker: {e}")
 
         snapshot_date = (
             tw_chip_indicators.get("foreign_net", {}).get("date")
@@ -346,6 +398,10 @@ class KDStockMonitor:
             "margin_balance_amount": tw_chip_indicators.get("margin_balance_amount", {}).get("value"),
             "foreign_futures_net": tw_chip_indicators.get("foreign_futures_net", {}).get("value"),
             "put_call_ratio": tw_chip_indicators.get("put_call_ratio", {}).get("value"),
+            "sox": macro_indicators.get("sox", {}).get("value"),
+            "ndx": macro_indicators.get("ndx", {}).get("value"),
+            "sp500": macro_indicators.get("sp500", {}).get("value"),
+            "night_session_gap_pct": tw_chip_indicators.get("night_session", {}).get("gap_pct"),
         }
 
         # Overwrite today's entry if we already have one (hourly reruns), else append

@@ -15,9 +15,9 @@ A GitHub-powered stock monitoring system that tracks KD (Stochastic Oscillator) 
 - 🇹🇼 **Taiwan Stocks**: Supports TWSE stocks (e.g., 0050.TW, 2330.TW).
 - 🇺🇸 **US Stocks**: Supports NYSE/NASDAQ stocks (e.g., AAPL, TSLA).
 - 🌐 **Web Dashboard**: Interactive dashboard with charts and real-time data.
-- 🌍 **Global Macro Indicators**: VIX, US 10Y yield, DXY, Bitcoin, WTI Crude Oil, and Gold.
-- 🇹🇼 **Taiwan Chip Flow**: Foreign/investment-trust net buy-sell, margin & short balances, USD/TWD (TWSE open data), plus foreign TAIFEX futures net position and options Put/Call Ratio (FinMind).
-- 🎯 **Signal Confluence Model**: Cross-validates macro + chip-flow + derivatives indicators against a fully-verified top/bottom turning-point framework (see below).
+- 🌍 **Global Macro Indicators**: VIX, US 10Y yield, DXY, Bitcoin, WTI Crude Oil, Gold, plus SOX (Philadelphia Semiconductor), Nasdaq 100, and S&P 500 — the indices that actually drive TW-listed tech/semiconductor names, rather than the Dow.
+- 🇹🇼 **Taiwan Chip Flow**: Foreign/investment-trust net buy-sell, margin & short balances, USD/TWD (TWSE open data), foreign TAIFEX futures net position and options Put/Call Ratio (FinMind), plus a retrospective TAIFEX night-session (夜盤) gap indicator.
+- 🎯 **Signal Confluence Model**: Cross-validates macro + chip-flow + derivatives + tech-index indicators against a fully-verified top/bottom turning-point framework (see below).
 - ⚡ **Auto Updates**: **Hourly** automated data fetching and deployment via GitHub Actions.
 - 📱 **Mobile Friendly**: Responsive design works on all devices.
 
@@ -48,10 +48,16 @@ Automated analysis of 11 market patterns:
    *   生產與運輸成本的代表。油價飆升會引發輸入型通膨，壓抑企業利潤，並迫使央行維持高利率。
 6. **Gold | 黃金**: A hedge against geopolitical risk and currency debasement, complementing Bitcoin as an alternative "risk appetite" read.
    *   對沖地緣政治風險與法幣貶值的工具，可與比特幣（高風險偏好）互補觀察市場情緒。
+7. **SOX (Philadelphia Semiconductor Index) | 費城半導體指數**: TWSE's weighted index is effectively a tech/semiconductor-heavy index — TSMC and its supply chain dominate its weighting — so SOX's turning points are a leading "source pricing" signal for TW's, with far more predictive power than the Dow (traditional blue-chip industrials, weak correlation with TW earnings/flows).
+   *   台股加權指數本質上是「科技/半導體重壓指數」（台積電及其供應鏈佔絕對權重），SOX 的轉折是台股轉折的「源頭定價」訊號，預測力遠高於道瓊（傳統藍籌工業股，與台股獲利/資金連動性極低）。
+8. **Nasdaq 100 (NDX) | 那斯達克100指數**: Covers the world's major tech giants (Apple, NVIDIA, etc.) — the end customers that place the orders driving TW's electronics supply chain.
+   *   涵蓋全球主要科技巨頭（如 Apple、NVIDIA），這些公司是台股電子供應鏈訂單的終端大客戶。
+9. **S&P 500 | 標普500指數**: The standard read on overall US macro health, used to judge whether the US is heading into recession.
+   *   反映美國整體總體經濟狀況的標準指標，用於判斷美國是否步入衰退。
 
 ### 🇹🇼 Taiwan Chip Flow Indicators | 台股籌碼面指標
-Items 1–3 are sourced from TWSE's official free open-data endpoints (no API key required); items 4–5 are sourced from FinMind's open-data API (`api.finmindtrade.com`, free tier, no key required — an optional `FINMIND_TOKEN` env var raises the rate limit). All are End-of-Day figures — posted after market close — not intraday ticks, so the dashboard shows which trading day each value is actually for.
-項目 1–3 來自台灣證交所 (TWSE) 官方免費開放資料 (無需 API 金鑰)；項目 4–5 來自 FinMind 開放資料 API (`api.finmindtrade.com`，免費額度、無需金鑰，可選填 `FINMIND_TOKEN` 環境變數以提高流量上限)。這些皆為每日收盤後才會公布的資料，並非即時報價，因此儀表板會標示每個數值實際對應的交易日。
+Items 1–3 are sourced from TWSE's official free open-data endpoints (no API key required); items 4–6 are sourced from FinMind's open-data API (`api.finmindtrade.com`, free tier, no key required — an optional `FINMIND_TOKEN` env var raises the rate limit). All are End-of-Day figures — posted after market close — not intraday ticks, so the dashboard shows which trading day each value is actually for.
+項目 1–3 來自台灣證交所 (TWSE) 官方免費開放資料 (無需 API 金鑰)；項目 4–6 來自 FinMind 開放資料 API (`api.finmindtrade.com`，免費額度、無需金鑰，可選填 `FINMIND_TOKEN` 環境變數以提高流量上限)。這些皆為每日收盤後才會公布的資料，並非即時報價，因此儀表板會標示每個數值實際對應的交易日。
 
 1. **Foreign / Investment Trust Net Buy-Sell | 外資 / 投信買賣超**: Market-wide net NT$ flow from the daily 三大法人買賣金額統計表 (BFI82U). Foreign investors dominate TWSE market cap, so sustained buying/selling drives the index's medium-term direction; 投信 flows matter most for small/mid caps and ETF constituents.
    *   來自「三大法人買賣金額統計表」的全市場淨買賣金額。外資占台股市值比重極高，是加權指數中長期方向的主要驅動力；投信資金對中小型股與 ETF 成分股影響力較大。
@@ -63,6 +69,8 @@ Items 1–3 are sourced from TWSE's official free open-data endpoints (no API ke
    *   外資在台指期的多空未平倉淨部位（`TaiwanFuturesInstitutionalInvestors` 資料集）。若現貨賣超同時期貨呈現大量淨空單，代表外資不只是調節現貨，而是在避險或看空後市。
 5. **Options Put/Call Ratio | 選擇權 Put/Call Ratio**: Open-interest ratio of TXO put options to call options (`TaiwanOptionDaily` dataset). A low ratio (crowded call side) signals complacency near market tops; a rising ratio signals fear/hedging demand.
    *   台指選擇權 (TXO) put/call 未平倉量比（`TaiwanOptionDaily` 資料集）。比值偏低代表市場偏多、樂觀情緒濃厚，接近頭部風險；比值走高則代表避險/恐慌需求上升。
+6. **TAIFEX Night-Session Gap | 台指期夜盤跳空**: Front-month TX futures close during the after-hours session (15:00–05:00 Taipei) vs. the prior day session's close (`TaiwanFuturesDaily`, `trading_session=after_market`). This is a **retrospective** confirmation of what already happened overnight — FinMind only publishes the full day's data (both sessions) in its ~16:30 Taipei daily batch, same cadence as items 1–5. It is *not* a live intraday feed you could act on during the actual night session; that would require FinMind's paid sponsor-tier real-time snapshot endpoint, which this project doesn't use.
+   *   近月台指期夜盤（台北時間 15:00–05:00）收盤價 vs. 前一交易日盤收（`TaiwanFuturesDaily`，`trading_session=after_market`）。這是**追溯性**資料，用來確認「昨夜已經發生的事」——FinMind 只在約台北時間 16:30 的每日批次中一次公布完整的日盤+夜盤資料，與項目 1–5 同一節奏。這**不是**能在夜盤當下即時操作的盤中報價；真正即時的資料需要 FinMind 付費 sponsor 方案的即時快照端點，本專案並未使用。
 
 ### 🎯 Signal Confluence Model | 訊號共振：大盤轉折模型
 No single macro or chip indicator is trusted in isolation — this model (`src/signal_confluence.py`) only flags a potential turning point when **multiple independent conditions agree**, cross-validating global macro flows, TWD, and TW-specific chip flow.
@@ -73,13 +81,19 @@ No single macro or chip indicator is trusted in isolation — this model (`src/s
 - TWD depreciation: sustained weakening or breaking a round-number level. | 匯率表態：新台幣連續走貶或貶破整數關卡。
 - Foreign spot+futures dual short: sustained spot selling **and** a heavy net-short TAIFEX futures position. | 外資期現貨雙空：現貨連續賣超，且台指期淨部位達重度空單門檻。
 - Retail holding the bag: foreign selling while margin balance keeps rising **and** the options Put/Call Ratio is low (complacent). | 籌碼過度樂觀/散戶接刀：外資倒貨同時融資餘額不退，且選擇權 P/C Ratio 偏低（市場過度樂觀）。
+- Tech capital retreat: SOX and/or Nasdaq 100 breaks below its recent-day support **and** US 10Y yield rises quickly — the "source pricing" mechanism, since TWSE's index is effectively tech/semiconductor-weighted. | 科技資金退潮：費半 (SOX) 或那斯達克100 (NDX) 跌破近期支撐，且美債 10Y 快速攀升——「源頭定價」機制，因台股加權指數本質上是科技/半導體重壓指數。
 
 **Bottom turning point / add-position signals | 底部轉折與加碼訊號** (crisis clearing):
 - VIX extreme reversal: spikes above 30 then rolls over. | 恐慌極值反轉：VIX 飆高後見頂回落。
 - Retail capitulation: a sharp single-day drop in margin balance ("融資斷頭"). | 散戶投降：融資餘額斷頭式大減。
 - FX stabilizing + foreign spot flow reversal **and** TAIFEX futures short-covering. | 匯率止穩、外資現貨轉買，且台指期空單回補中。
 
-All conditions above are now fully verifiable — the TAIFEX futures net position and options Put/Call Ratio are fetched via FinMind (see Taiwan Chip Flow Indicators, items 4–5). Each condition still reports itself as unavailable (rather than a false trigger) until enough daily history (`data/macro_history.json`) has accumulated.
+All conditions above are now fully verifiable — the TAIFEX futures net position and options Put/Call Ratio are fetched via FinMind (see Taiwan Chip Flow Indicators, items 4–5). Each condition still reports itself as unavailable (rather than a false trigger) until enough daily history (`data/macro_history.json`) has accumulated. The panel itself only turns on after **21 trading days** (~1 month) — chosen to match the longest individual condition window (T1's DXY breakout and T5's SOX/NDX support breakdown both need a 20-day lookback plus today), so that once the panel says "available," every condition can actually evaluate rather than a few staying stuck at "insufficient data" for weeks after the panel already claims to be live.
+
+You don't have to wait three weeks of hourly runs for that history to build up, though: the first run where history is still short automatically does a **one-time historical backfill** (`fetcher.backfill_macro_history()`) — a single `yfinance` call per ticker and a single date-range call per FinMind dataset already return weeks of history in one shot; only the TWSE chip-flow figures (foreign/investment-trust net buy-sell, margin balance) need a per-day loop, since TWSE's free reports don't support range queries. That loop is the slow part (up to ~70 sequential requests, a couple of minutes, with a small delay between calls to be polite to a free public endpoint) but only runs once — a marker file (`data/.macro_backfill_done`) prevents it from re-running every hour even if it only partially succeeds. Delete that marker file to force a retry. The backfill only fills gaps; it never overwrites a value a normal run has already recorded.
+
+The TAIFEX night-session gap (item 6) is shown on the dashboard as supporting context — how large last night's overnight move was — but isn't wired into a signal-confluence condition itself, since it's retrospective (not available until well after the day session has already opened and reacted to it).
+夜盤跳空（項目 6）在儀表板上作為輔助參考顯示——呈現昨夜跳空的幅度——但並未納入訊號共振的條件判斷，因為這是追溯性資料（要到日盤已經開盤反應過後才能取得）。
 以上所有條件現在皆可完整驗證——台指期淨部位與選擇權 P/C Ratio 已透過 FinMind 取得（見台股籌碼面指標項目 4–5）。在每日歷史資料（`data/macro_history.json`）累積足夠天數之前，各條件會回報「資料不足」而非誤判觸發。
 
 ⚠️ Per the model's own design intent: this is a reference point for large lump-sum entries or pausing a chase-the-rally purchase — **not** a signal for frequent trading or shorting. If you're running a DCA strategy on a broad-market ETF (e.g., 0050), letting short-term futures/chip noise trigger "dynamic hedging" typically costs more (in hedging losses when the read turns out wrong) than it saves.
@@ -106,9 +120,9 @@ All conditions above are now fully verifiable — the TAIFEX futures net positio
 - 🇹🇼 **台股支援**：支援台股代碼 (如 0050.TW, 2330.TW)。
 - 🇺🇸 **美股支援**：支援美股代碼 (如 AAPL, TSLA)。
 - 🌐 **網頁儀表板**：提供圖表與即時數據的互動式介面。
-- 🌍 **全球宏觀指標**：VIX、美債 10Y、美元指數、比特幣、原油 (WTI)、黃金。
-- 🇹🇼 **台股籌碼面**：外資/投信買賣超、融資融券餘額、新台幣匯率（TWSE 開放資料），以及外資台指期淨部位、選擇權 P/C Ratio（FinMind）。
-- 🎯 **訊號共振模型**：交叉驗證宏觀指標、台股籌碼面與衍生性商品指標，判斷大盤頂部/底部轉折，所有條件皆可完整驗證（詳見下方說明）。
+- 🌍 **全球宏觀指標**：VIX、美債 10Y、美元指數、比特幣、原油 (WTI)、黃金，以及費半 (SOX)、那斯達克100、標普500——真正牽動台股科技/半導體權值股的指數，而非道瓊。
+- 🇹🇼 **台股籌碼面**：外資/投信買賣超、融資融券餘額、新台幣匯率（TWSE 開放資料），外資台指期淨部位、選擇權 P/C Ratio（FinMind），以及追溯性的台指期夜盤跳空指標。
+- 🎯 **訊號共振模型**：交叉驗證宏觀指標、台股籌碼面、衍生性商品與科技指數指標，判斷大盤頂部/底部轉折，所有條件皆可完整驗證（詳見下方說明）。
 - ⚡ **自動更新**：透過 GitHub Actions 進行**每小時**自動化抓取與部署。
 - 📱 **行動裝置優化**：響應式設計，適合手機查看。
 
@@ -133,15 +147,19 @@ All conditions above are now fully verifiable — the TAIFEX futures net positio
 4. **比特幣**: 通常被視為高風險資產的代表。其趨勢反映了市場對風險的整體偏好程度。
 5. **原油 (WTI)**: 生產與運輸成本的代表。油價飆升會引發輸入型通膨，壓抑企業利潤，並迫使央行維持高利率。
 6. **黃金**: 對沖地緣政治風險與法幣貶值的工具，可與比特幣（高風險偏好）互補觀察市場情緒。
+7. **費城半導體指數 (SOX)**：台股加權指數本質上是「科技/半導體重壓指數」（台積電及其供應鏈佔絕對權重），SOX 的轉折是台股轉折的「源頭定價」訊號，預測力遠高於道瓊（傳統藍籌工業股，與台股獲利/資金連動性極低）。
+8. **那斯達克100指數 (NDX)**：涵蓋全球主要科技巨頭（如 Apple、NVIDIA），這些公司是台股電子供應鏈訂單的終端大客戶。
+9. **標普500指數**：反映美國整體總體經濟狀況的標準指標，用於判斷美國是否步入衰退。
 
 ### 🇹🇼 台股籌碼面指標
-項目 1–3 資料來源為台灣證交所 (TWSE) 官方免費開放資料，無需 API 金鑰；項目 4–5 來自 FinMind 開放資料 API (`api.finmindtrade.com`，免費額度、無需金鑰，可選填 `FINMIND_TOKEN` 環境變數以提高流量上限)。這些皆為每日收盤後才會公布的資料，並非即時報價，儀表板會標示每個數值實際對應的交易日。
+項目 1–3 資料來源為台灣證交所 (TWSE) 官方免費開放資料，無需 API 金鑰；項目 4–6 來自 FinMind 開放資料 API (`api.finmindtrade.com`，免費額度、無需金鑰，可選填 `FINMIND_TOKEN` 環境變數以提高流量上限)。這些皆為每日收盤後才會公布的資料，並非即時報價，儀表板會標示每個數值實際對應的交易日。
 
 1. **外資 / 投信買賣超**：來自「三大法人買賣金額統計表」的全市場淨買賣金額。外資占台股市值比重極高，是加權指數中長期方向的主要驅動力；投信資金對中小型股與 ETF 成分股影響力較大。
 2. **融資融券餘額與資券比**：來自「信用交易統計」。融資餘額代表散戶槓桿多頭力道，融券餘額代表空頭部位。融資餘額單日大減（俗稱「融資斷頭」）是散戶籌碼洗淨最客觀的訊號之一。
 3. **新台幣匯率**：外資進出台股的領先/同步指標。新台幣升值通常伴隨外資匯入，持續貶值則通常伴隨外資撤出。
 4. **外資台指期未平倉淨部位**：外資在台指期的多空未平倉淨部位（`TaiwanFuturesInstitutionalInvestors` 資料集）。若現貨賣超同時期貨呈現大量淨空單，代表外資不只是調節現貨，而是在避險或看空後市。
 5. **選擇權 Put/Call Ratio**：台指選擇權 (TXO) put/call 未平倉量比（`TaiwanOptionDaily` 資料集）。比值偏低代表市場偏多、樂觀情緒濃厚，接近頭部風險；比值走高則代表避險/恐慌需求上升。
+6. **台指期夜盤跳空**：近月台指期夜盤（台北時間 15:00–05:00）收盤價 vs. 前一交易日盤收（`TaiwanFuturesDaily`，`trading_session=after_market`）。這是**追溯性**資料——FinMind 只在約台北時間 16:30 的每日批次中一次公布完整的日盤+夜盤資料，與項目 1–5 同一節奏。這**不是**能在夜盤當下即時操作的盤中報價；真正即時的資料需要 FinMind 付費 sponsor 方案的即時快照端點，本專案並未使用。
 
 ### 🎯 訊號共振：大盤轉折模型
 不單看任何單一指標——這個模型（`src/signal_confluence.py`）只有在**多項獨立條件同時出現共振**時才會標示可能的轉折點，交叉驗證全球宏觀資金、匯率與台股籌碼面。
@@ -151,13 +169,18 @@ All conditions above are now fully verifiable — the TAIFEX futures net positio
 - 匯率表態：新台幣連續走貶或貶破整數關卡。
 - 外資期現貨雙空：現貨連續賣超，且台指期淨部位達重度空單門檻。
 - 籌碼過度樂觀/散戶接刀：外資倒貨同時融資餘額不退，且選擇權 P/C Ratio 偏低（市場過度樂觀）。
+- 科技資金退潮：費半 (SOX) 或那斯達克100 (NDX) 跌破近期支撐，且美債 10Y 快速攀升——「源頭定價」機制，因台股加權指數本質上是科技/半導體重壓指數。
 
 **底部轉折與加碼訊號**（危機解除）：
 - 恐慌極值反轉：VIX 飆高後見頂回落。
 - 散戶投降：融資餘額斷頭式大減。
 - 匯率止穩、外資現貨轉買，且台指期空單回補中。
 
-以上所有條件現在皆可完整驗證——台指期淨部位與選擇權 P/C Ratio 已透過 FinMind 取得（見台股籌碼面指標項目 4–5）。在每日歷史資料（`data/macro_history.json`）累積足夠天數之前，各條件會回報「資料不足」而非誤判觸發。
+以上所有條件現在皆可完整驗證——台指期淨部位與選擇權 P/C Ratio 已透過 FinMind 取得（見台股籌碼面指標項目 4–5）。在每日歷史資料（`data/macro_history.json`）累積足夠天數之前，各條件會回報「資料不足」而非誤判觸發。面板本身要累積滿 **21 個交易日**（約 1 個月）才會開始評估——這個天數對齊了最長的單一條件視窗（T1 的 DXY 突破前高與 T5 的 SOX/NDX 跌破支撐都需要 20 日回看期+當日），確保面板一旦顯示「開始評估」，所有條件都真正有機會判斷，而不是有兩三個條件在面板已顯示「可用」後還要再卡兩週才會有結果。
+
+不需要真的等三週的每小時執行才能累積出這些歷史資料：只要歷史資料還不夠長，第一次執行時會自動做**一次性歷史回填**（`fetcher.backfill_macro_history()`）——`yfinance` 每檔標的只要一次呼叫、FinMind 每個資料集只要一次區間查詢，就能一口氣拿到好幾週的歷史；只有 TWSE 的籌碼面資料（外資/投信買賣超、融資餘額）需要逐日迴圈抓取，因為 TWSE 的免費報表不支援區間查詢。這個逐日迴圈是最慢的部分（最多約 70 次連續請求，約需幾分鐘，並在每次請求間加入短暫延遲以善待這個免費公開端點），但只會執行一次——一個標記檔案（`data/.macro_backfill_done`）會避免它每小時重跑，即使只有部分成功也一樣。想強制重跑的話刪除該標記檔案即可。回填只會補齊缺漏的欄位，絕不會覆蓋一般執行已經記錄下來的真實數值。
+
+台指期夜盤跳空（項目 6）在儀表板上作為輔助參考顯示——呈現昨夜跳空的幅度——但並未納入訊號共振的條件判斷，因為這是追溯性資料（要到日盤已經開盤反應過後才能取得）。
 
 ⚠️ 依照模型本身的設計初衷：這是單筆大額加碼或停止追高的參考依據，**並非**頻繁進出或放空訊號。若本身在對大盤型 ETF（如 0050）執行定期定額策略，讓短線期貨/籌碼雜訊觸發「動態避險」，一旦判斷錯誤，避險成本通常比它省下的還多。
 

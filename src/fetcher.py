@@ -301,14 +301,18 @@ class StockFetcher:
         logger.info(f"Saved raw data to {filepath} ({len(df)} records)")
 
     def fetch_macro_indicators(self) -> Dict:
-        """Fetch US10Y yield, Dollar Index, VIX, Bitcoin, WTI Crude Oil, and Gold."""
+        """Fetch US10Y yield, Dollar Index, VIX, Bitcoin, WTI Crude Oil, Gold,
+        SOX (Philadelphia Semiconductor Index), NDX (Nasdaq 100), and S&P 500."""
         macro_data = {
             "us10y": {"value": None, "change": None},
             "dxy": {"value": None, "change": None},
             "fear_greed": {"value": None, "label": "N/A"},
             "btc": {"value": None, "change_pct": None},
             "oil": {"value": None, "change": None, "change_pct": None},
-            "gold": {"value": None, "change": None, "change_pct": None}
+            "gold": {"value": None, "change": None, "change_pct": None},
+            "sox": {"value": None, "change": None, "change_pct": None},
+            "ndx": {"value": None, "change": None, "change_pct": None},
+            "sp500": {"value": None, "change": None, "change_pct": None}
         }
 
         # 1. Fetch US10Y Yield (^TNX)
@@ -401,7 +405,79 @@ class StockFetcher:
         except Exception as e:
             logger.error(f"Error fetching Gold: {e}")
 
+        # 7. Fetch Philadelphia Semiconductor Index (^SOX)
+        # TWSE weighted index is a "tech/semiconductor-heavy" index (TSMC + supply
+        # chain dominate its weighting) — SOX has far more predictive power for TW
+        # turning points than the Dow, which is barely correlated.
+        try:
+            ticker_sox = yf.Ticker("^SOX")
+            hist_sox = ticker_sox.history(period="2d")
+            if not hist_sox.empty:
+                latest_val = hist_sox['Close'].iloc[-1]
+                prev_val = hist_sox['Close'].iloc[-2] if len(hist_sox) >= 2 else latest_val
+                change = latest_val - prev_val
+                change_pct = (change / prev_val * 100) if prev_val else 0
+                macro_data["sox"] = {
+                    "value": round(latest_val, 2),
+                    "change": round(change, 2),
+                    "change_pct": round(change_pct, 2)
+                }
+        except Exception as e:
+            logger.error(f"Error fetching SOX: {e}")
+
+        # 8. Fetch Nasdaq 100 Index (^NDX) — TW electronics supply chain's end customers
+        try:
+            ticker_ndx = yf.Ticker("^NDX")
+            hist_ndx = ticker_ndx.history(period="2d")
+            if not hist_ndx.empty:
+                latest_val = hist_ndx['Close'].iloc[-1]
+                prev_val = hist_ndx['Close'].iloc[-2] if len(hist_ndx) >= 2 else latest_val
+                change = latest_val - prev_val
+                change_pct = (change / prev_val * 100) if prev_val else 0
+                macro_data["ndx"] = {
+                    "value": round(latest_val, 2),
+                    "change": round(change, 2),
+                    "change_pct": round(change_pct, 2)
+                }
+        except Exception as e:
+            logger.error(f"Error fetching NDX: {e}")
+
+        # 9. Fetch S&P 500 Index (^GSPC) — broad US macro/recession read
+        try:
+            ticker_spx = yf.Ticker("^GSPC")
+            hist_spx = ticker_spx.history(period="2d")
+            if not hist_spx.empty:
+                latest_val = hist_spx['Close'].iloc[-1]
+                prev_val = hist_spx['Close'].iloc[-2] if len(hist_spx) >= 2 else latest_val
+                change = latest_val - prev_val
+                change_pct = (change / prev_val * 100) if prev_val else 0
+                macro_data["sp500"] = {
+                    "value": round(latest_val, 2),
+                    "change": round(change, 2),
+                    "change_pct": round(change_pct, 2)
+                }
+        except Exception as e:
+            logger.error(f"Error fetching S&P 500: {e}")
+
         return macro_data
+
+    def _fetch_twse_for_date(self, build_url: Callable[[datetime], str], day: datetime) -> Optional[Dict]:
+        """
+        Fetch a TWSE 'rwd' open-data report for one specific date. Returns None
+        (not an error) for weekends/holidays or dates without data yet — that's
+        the normal, expected case for most calendar days, not a failure.
+        """
+        headers = {"User-Agent": "Mozilla/5.0 (compatible; KDStockMonitor/1.0)"}
+        url = build_url(day)
+        try:
+            resp = requests.get(url, headers=headers, timeout=10)
+            resp.raise_for_status()
+            data = resp.json()
+            if data.get("stat") == "OK" and (data.get("data") or data.get("tables")):
+                return data
+        except Exception as e:
+            logger.warning(f"TWSE report fetch failed for {day.strftime('%Y%m%d')} ({url}): {e}")
+        return None
 
     def _fetch_twse_latest(self, build_url: Callable[[datetime], str],
                             max_lookback_days: int = 7) -> Tuple[Optional[Dict], Optional[str]]:
@@ -418,18 +494,11 @@ class StockFetcher:
         Returns (parsed_json, "YYYY-MM-DD" of the day the data is actually for), or
         (None, None) if nothing was found in the lookback window.
         """
-        headers = {"User-Agent": "Mozilla/5.0 (compatible; KDStockMonitor/1.0)"}
         for offset in range(max_lookback_days):
             day = datetime.now() - timedelta(days=offset)
-            url = build_url(day)
-            try:
-                resp = requests.get(url, headers=headers, timeout=10)
-                resp.raise_for_status()
-                data = resp.json()
-                if data.get("stat") == "OK" and (data.get("data") or data.get("tables")):
-                    return data, day.strftime("%Y-%m-%d")
-            except Exception as e:
-                logger.warning(f"TWSE report fetch failed for {day.strftime('%Y%m%d')} ({url}): {e}")
+            data = self._fetch_twse_for_date(build_url, day)
+            if data:
+                return data, day.strftime("%Y-%m-%d")
         return None, None
 
     @staticmethod
@@ -453,6 +522,9 @@ class StockFetcher:
             FinMind normalizes TAIFEX's raw data into a documented, verified schema —
             unlike TAIFEX's own OpenAPI (see _fetch_finmind() docstring for why that
             route was abandoned).
+          - night_session: 台指期夜盤跳空幅度 (overnight TX futures gap vs the prior
+            day session close), via FinMind. Retrospective only — published in the
+            same ~16:30 daily batch as the fields above, not a real-time feed.
 
         These are End-of-Day figures, not intraday ticks, so on an hourly refresh
         they'll typically only change once per trading day (when TWSE/FinMind post
@@ -469,7 +541,9 @@ class StockFetcher:
             "margin_short_ratio": {"value": None, "unit": "%"},
             "usdtwd": {"value": None, "change": None},
             "foreign_futures_net": {"value": None, "unit": "口", "date": None},
-            "put_call_ratio": {"value": None, "unit": "%", "date": None}
+            "put_call_ratio": {"value": None, "unit": "%", "date": None},
+            "night_session": {"close": None, "prev_close": None, "gap": None,
+                               "gap_pct": None, "date": None, "prev_date": None}
         }
 
         # 1+2. 三大法人買賣金額統計表 (foreign + investment trust net buy/sell, NT$)
@@ -580,6 +654,51 @@ class StockFetcher:
         except Exception as e:
             logger.error(f"Error fetching TaiwanOptionDaily (選擇權P/C Ratio): {e}")
 
+        # 9. 台指期夜盤跳空 (TAIFEX night-session gap) — retrospective, not real-time.
+        # FinMind's TaiwanFuturesDaily carries an 'after_market' (夜盤) row alongside
+        # the regular 'position' (日盤) row, but the whole day's data — both
+        # sessions — is only published in FinMind's ~16:30 Taipei daily batch, same
+        # cadence as the other TWSE chip data above. So this confirms what already
+        # happened overnight (useful as a signal-confluence corroboration point);
+        # it is NOT a live intraday feed for real-time hedging during the actual
+        # night session — that requires FinMind's paid sponsor-tier real-time
+        # snapshot endpoint (taiwan_futures_snapshot), which this project doesn't use.
+        try:
+            rows = self._fetch_finmind("TaiwanFuturesDaily", "TX", days_back=10)
+            if rows:
+                # 只取近月合約 (front-month，流動性與參考性最高)：每個 (日期, 時段)
+                # 只保留 contract_date 最小 (YYYYMM 字串可直接比較) 的那一筆。
+                by_date_session = {}
+                for r in rows:
+                    key = (r["date"], r["trading_session"])
+                    if key not in by_date_session or r["contract_date"] < by_date_session[key]["contract_date"]:
+                        by_date_session[key] = r
+
+                am_dates = sorted(d for (d, s) in by_date_session if s == "after_market")
+                pos_dates = sorted(d for (d, s) in by_date_session if s == "position")
+
+                if am_dates and pos_dates:
+                    latest_am_date = am_dates[-1]
+                    am_row = by_date_session[(latest_am_date, "after_market")]
+                    prior_pos_dates = [d for d in pos_dates if d < latest_am_date]
+                    if prior_pos_dates:
+                        prior_date = prior_pos_dates[-1]
+                        pos_row = by_date_session[(prior_date, "position")]
+                        am_close = am_row.get("close")
+                        pos_close = pos_row.get("close")
+                        if am_close and pos_close:
+                            gap = am_close - pos_close
+                            chip_data["night_session"] = {
+                                "close": am_close,
+                                "prev_close": pos_close,
+                                "gap": round(gap, 0),
+                                "gap_pct": round(gap / pos_close * 100, 2),
+                                "date": latest_am_date,
+                                "prev_date": prior_date
+                            }
+        except Exception as e:
+            logger.error(f"Error fetching TaiwanFuturesDaily after_market (台指期夜盤): {e}")
+
         return chip_data
 
     def _fetch_finmind(self, dataset: str, data_id: str, days_back: int = 7) -> Optional[List[Dict]]:
@@ -626,7 +745,125 @@ class StockFetcher:
             logger.warning(f"FinMind {dataset}/{data_id} returned status={payload.get('status')}: {payload.get('msg')}")
             return None
         return payload.get("data") or None
-    
+
+    def backfill_macro_history(self, days_back: int = 35) -> Dict[str, Dict]:
+        """
+        One-time historical backfill for the signal-confluence model, so a user
+        doesn't have to wait ~21 trading days of hourly runs before the model has
+        enough history to turn on. Returns a dict keyed by "YYYY-MM-DD" -> a
+        partial entry (same field names main.py's _save_macro_history uses), with
+        whatever could be recovered for that date. The caller merges this into
+        the existing history, filling gaps only — it never overwrites a value
+        that's already been recorded (today's freshly fetched entry always wins).
+
+        Coverage per source:
+          - yfinance (dxy/us10y/vix/usdtwd/sox/ndx/sp500): one history() call per
+            ticker already returns the whole daily series, so this is cheap —
+            7 requests total, independent of days_back.
+          - FinMind (foreign_futures_net/put_call_ratio): _fetch_finmind already
+            takes a date-range window, so this is 2 requests total.
+          - TWSE (foreign_net/trust_net/margin_balance/margin_balance_amount):
+            TWSE's 'rwd' reports only support one date per request (no range
+            query), so this loops over every calendar day in the window and
+            skips non-trading days — up to ~2×days_back requests, with a small
+            delay between calls to be polite to a free public endpoint. This is
+            the slow part (a couple of minutes), but only runs once.
+
+        oil/gold and the TAIFEX night-session gap are intentionally NOT
+        backfilled — neither feeds a signal-confluence condition, so the extra
+        requests (and, for night-session, the extra parsing complexity of
+        walking after_market/position pairs across a whole date range) aren't
+        worth it here.
+        """
+        import time
+        backfill: Dict[str, Dict] = {}
+
+        def _set(date_str: str, field: str, value):
+            if value is None:
+                return
+            backfill.setdefault(date_str, {})[field] = value
+
+        # 1. yfinance series — one call per ticker covers the whole window
+        yf_tickers = {
+            "dxy": "DX-Y.NYB", "us10y": "^TNX", "vix": "^VIX", "usdtwd": "TWD=X",
+            "sox": "^SOX", "ndx": "^NDX", "sp500": "^GSPC",
+        }
+        period = "3mo" if days_back > 40 else "2mo"
+        for field, ticker_symbol in yf_tickers.items():
+            try:
+                hist = yf.Ticker(ticker_symbol).history(period=period)
+                if hist.empty:
+                    continue
+                for idx, row in hist.iterrows():
+                    date_str = idx.strftime("%Y-%m-%d")
+                    val = row.get("Close")
+                    if val is not None:
+                        _set(date_str, field, round(float(val), 4))
+            except Exception as e:
+                logger.error(f"Backfill: error fetching {ticker_symbol} history: {e}")
+
+        # 2. FinMind ranges — one call per dataset covers the whole window
+        try:
+            rows = self._fetch_finmind("TaiwanFuturesInstitutionalInvestors", "TX", days_back=days_back)
+            if rows:
+                by_date = {r["date"]: r for r in rows if r.get("institutional_investors") == "外資"}
+                for date_str, r in by_date.items():
+                    net = r["long_open_interest_balance_volume"] - r["short_open_interest_balance_volume"]
+                    _set(date_str, "foreign_futures_net", net)
+        except Exception as e:
+            logger.error(f"Backfill: error fetching TaiwanFuturesInstitutionalInvestors range: {e}")
+
+        try:
+            rows = self._fetch_finmind("TaiwanOptionDaily", "TXO", days_back=days_back)
+            if rows:
+                by_date_rows: Dict[str, List[Dict]] = {}
+                for r in rows:
+                    if r.get("trading_session") == "position":
+                        by_date_rows.setdefault(r["date"], []).append(r)
+                for date_str, day_rows in by_date_rows.items():
+                    put_oi = sum(r["open_interest"] for r in day_rows if r["call_put"] == "put")
+                    call_oi = sum(r["open_interest"] for r in day_rows if r["call_put"] == "call")
+                    if call_oi > 0:
+                        _set(date_str, "put_call_ratio", round(put_oi / call_oi * 100, 2))
+        except Exception as e:
+            logger.error(f"Backfill: error fetching TaiwanOptionDaily range: {e}")
+
+        # 3. TWSE per-day loop — no range query support, so this is sequential
+        for offset in range(days_back):
+            day = datetime.now() - timedelta(days=offset)
+            date_str = day.strftime("%Y-%m-%d")
+
+            data = self._fetch_twse_for_date(
+                lambda d: f"https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate={d.strftime('%Y%m%d')}&type=day&response=json",
+                day
+            )
+            if data:
+                rows = {row[0]: row for row in data.get("data", [])}
+                foreign_row = rows.get("外資及陸資(不含外資自營商)")
+                trust_row = rows.get("投信")
+                if foreign_row:
+                    _set(date_str, "foreign_net", round(self._twse_num(foreign_row[3]) / 1e8, 2))
+                if trust_row:
+                    _set(date_str, "trust_net", round(self._twse_num(trust_row[3]) / 1e8, 2))
+            time.sleep(0.3)
+
+            data = self._fetch_twse_for_date(
+                lambda d: f"https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?date={d.strftime('%Y%m%d')}&response=json&selectType=ALL",
+                day
+            )
+            if data and data.get("tables"):
+                summary_table = data["tables"][0]
+                rows = {row[0]: row for row in summary_table.get("data", [])}
+                margin_row = rows.get("融資(交易單位)")
+                margin_amount_row = rows.get("融資金額(仟元)")
+                if margin_row:
+                    _set(date_str, "margin_balance", self._twse_num(margin_row[5]))
+                if margin_amount_row:
+                    _set(date_str, "margin_balance_amount", round(self._twse_num(margin_amount_row[5]) * 1000 / 1e8, 2))
+            time.sleep(0.3)
+
+        return backfill
+
     def get_latest_price(self, symbol: str) -> Optional[float]:
         """Get the latest closing price for a stock."""
         try:
