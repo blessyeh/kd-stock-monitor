@@ -129,6 +129,17 @@ class AlertChecker:
         )
         volume_confirmed = volume_ratio is not None and volume_ratio > 1.0
 
+        # Per-stock 外資買賣超 (individual-holding foreign flow, from
+        # fetch_stock_institutional_flow — not the market-wide foreign_net
+        # already covered in signal_confluence.py). Uses the 3-day cumulative
+        # net rather than a single day to cut down single-day noise; a small
+        # threshold (500 張 = 500,000 股) avoids treating negligible flow as a
+        # meaningful signal either way.
+        institutional = stock_data.get("institutional") or {}
+        foreign_net_3d = institutional.get("foreign_net_3d")
+        foreign_buying = foreign_net_3d is not None and foreign_net_3d > 500_000
+        foreign_selling = foreign_net_3d is not None and foreign_net_3d < -500_000
+
         passed, cautions = [], []
 
         if direction == "oversold":
@@ -141,7 +152,11 @@ class AlertChecker:
                 passed.append("股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）")
             if macd_diverging_down:
                 cautions.append("MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）")
-            confirmed = (bullish_regime or bollinger_touch) and not macd_diverging_down
+            if foreign_buying:
+                passed.append(f"個股外資近3日同步買超 {foreign_net_3d/1000:.0f} 張（籌碼面轉強，非籌碼出走）")
+            elif foreign_selling:
+                cautions.append(f"個股外資近3日仍賣超 {abs(foreign_net_3d)/1000:.0f} 張（籌碼仍在流出，KD超賣可能持續鈍化）")
+            confirmed = (bullish_regime or bollinger_touch or foreign_buying) and not macd_diverging_down
         else:  # overbought
             bollinger_touch = bb_upper is not None and price >= bb_upper * 0.99
             if bullish_regime:
@@ -152,7 +167,11 @@ class AlertChecker:
                 passed.append("股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）")
             if macd_diverging_up:
                 cautions.append("MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）")
-            confirmed = (not bullish_regime) or (bollinger_touch and not volume_confirmed)
+            if foreign_selling:
+                passed.append(f"個股外資近3日轉為賣超 {abs(foreign_net_3d)/1000:.0f} 張（籌碼面轉弱，超買可能對應真正高點）")
+            elif foreign_buying:
+                cautions.append(f"個股外資近3日仍買超 {foreign_net_3d/1000:.0f} 張（籌碼面仍強，超買可能只是鈍化）")
+            confirmed = (not bullish_regime) or (bollinger_touch and not volume_confirmed) or foreign_selling
 
         return {"available": True, "confirmed": confirmed, "passed": passed, "cautions": cautions}
 
@@ -420,7 +439,9 @@ class AlertChecker:
                         # Add pattern analysis
                         "patterns": pattern_analysis,
                         # Add multi-dimensional score
-                        "score": self._serialize_score(stock.get("score"))
+                        "score": self._serialize_score(stock.get("score")),
+                        # Per-stock 外資/投信/自營商買賣超 (None for US stocks / fetch failures)
+                        "institutional": stock.get("institutional")
                     }
                     
                     dashboard_data[market].append(stock_entry)

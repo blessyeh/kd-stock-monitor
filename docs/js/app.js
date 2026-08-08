@@ -105,9 +105,136 @@ function initInfoPopovers() {
         if (e.target === backdrop) close();
     });
     if (closeBtn) closeBtn.addEventListener('click', close);
+
+    const manageBackdrop = document.getElementById('manage-stocks-backdrop');
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') close();
+        if (e.key === 'Escape') {
+            close();
+            closeManageStocksModal();
+        }
     });
+    if (manageBackdrop) {
+        manageBackdrop.addEventListener('click', (e) => {
+            if (e.target === manageBackdrop) closeManageStocksModal();
+        });
+    }
+}
+
+/**
+ * Manage Watchlist (新增/移除監控股票) — repo-owner-only via GitHub Issues.
+ *
+ * This dashboard is a static GitHub Pages site with no backend, so there's
+ * no server to check "is this really the owner?" against. The site itself
+ * never asks for or stores any credential (a PAT-in-localStorage version of
+ * this was tried once and removed for exactly that risk). Instead, this
+ * just opens a pre-filled GitHub "New Issue" — GitHub's own login state
+ * decides who's allowed to open it as themselves, and
+ * .github/workflows/stock-request.yml only ever applies the change if the
+ * issue's author is github.repository_owner. Anyone else's submission
+ * creates an inert issue that the automation silently ignores.
+ */
+const STOCK_REQUEST_REPO = 'blessyeh/kd-stock-monitor';
+
+function openManageStocksModal() {
+    const backdrop = document.getElementById('manage-stocks-backdrop');
+    if (!backdrop) return;
+    populateRemoveStockSelect();
+    backdrop.classList.remove('hidden');
+}
+
+function closeManageStocksModal() {
+    const backdrop = document.getElementById('manage-stocks-backdrop');
+    if (backdrop) backdrop.classList.add('hidden');
+}
+
+function switchManageStocksTab(tab) {
+    const addPanel = document.getElementById('manage-panel-add');
+    const removePanel = document.getElementById('manage-panel-remove');
+    const addTab = document.getElementById('manage-tab-add');
+    const removeTab = document.getElementById('manage-tab-remove');
+    const activeClass = ['border-accent', 'text-white', 'font-semibold'];
+    const inactiveClass = ['border-transparent', 'text-dark-text2'];
+
+    if (tab === 'add') {
+        addPanel.classList.remove('hidden');
+        removePanel.classList.add('hidden');
+        addTab.classList.add(...activeClass);
+        addTab.classList.remove(...inactiveClass);
+        removeTab.classList.add(...inactiveClass);
+        removeTab.classList.remove(...activeClass);
+    } else {
+        removePanel.classList.remove('hidden');
+        addPanel.classList.add('hidden');
+        removeTab.classList.add(...activeClass);
+        removeTab.classList.remove(...inactiveClass);
+        addTab.classList.add(...inactiveClass);
+        addTab.classList.remove(...activeClass);
+    }
+}
+
+function populateRemoveStockSelect() {
+    const select = document.getElementById('remove-stock-select');
+    if (!select) return;
+    const stocks = DataManager.getAllStocks();
+    if (!stocks.length) {
+        select.innerHTML = '<option value="">（尚無資料）</option>';
+        return;
+    }
+    select.innerHTML = stocks
+        .map(s => `<option value="${s.symbol}">${s.symbol} - ${s.name} (${s.market})</option>`)
+        .join('');
+}
+
+/**
+ * Builds a GitHub "New Issue" URL pre-filled with a machine-parseable body.
+ * See scripts/apply_stock_request.py for the exact format this must match
+ * (an HTML-comment marker line, then ACTION/SYMBOL/NAME/MARKET key:value
+ * lines) — the two are intentionally kept in sync manually since this is a
+ * tiny, stable contract.
+ */
+function buildStockRequestIssueUrl(action, symbol, name, market) {
+    const title = action === 'add'
+        ? `[監控股票申請] 新增 ${symbol}`
+        : `[監控股票申請] 移除 ${symbol}`;
+    const bodyLines = ['<!-- stock-request -->', `ACTION: ${action}`, `SYMBOL: ${symbol}`];
+    if (action === 'add') {
+        bodyLines.push(`NAME: ${name}`, `MARKET: ${market}`);
+    }
+    const params = new URLSearchParams({
+        title,
+        body: bodyLines.join('\n'),
+        labels: 'stock-request'
+    });
+    return `https://github.com/${STOCK_REQUEST_REPO}/issues/new?${params.toString()}`;
+}
+
+function submitAddStockRequest() {
+    const symbol = document.getElementById('add-stock-symbol').value.trim();
+    const name = document.getElementById('add-stock-name').value.trim();
+    const market = document.getElementById('add-stock-market').value;
+
+    if (!symbol || !name) {
+        alert('請填寫股票代碼與名稱');
+        return;
+    }
+
+    const url = buildStockRequestIssueUrl('add', symbol, name, market);
+    window.open(url, '_blank');
+    closeManageStocksModal();
+}
+
+function submitRemoveStockRequest() {
+    const select = document.getElementById('remove-stock-select');
+    const symbol = select ? select.value : '';
+
+    if (!symbol) {
+        alert('請選擇要移除的股票');
+        return;
+    }
+
+    const url = buildStockRequestIssueUrl('remove', symbol, '', '');
+    window.open(url, '_blank');
+    closeManageStocksModal();
 }
 
 /**
@@ -710,6 +837,7 @@ function createStockCard(stock) {
                 </div>
             </div>
 
+            ${createInstitutionalFlowSection(stock)}
             ${createPatternSection(stock.patterns)}
             <div class="mt-3 pt-2 border-t border-dark-border flex justify-between items-center">
                 <span class="text-[10px] text-dark-text2 opacity-60">點擊卡片查看K線</span>
@@ -790,6 +918,41 @@ function createVolumeSparkline(history, market) {
             <div class="flex justify-between text-xs text-dark-text2 mt-1 opacity-50">
                 <span>10日前</span>
                 <span>今日</span>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Create per-stock 外資/投信買賣超 section (TW stocks only). Shows the latest
+ * day's foreign net buy/sell (張, i.e. thousands of shares) plus the 3-day
+ * cumulative figure that alert_checker.py's filters actually key off of, so
+ * the number on screen matches the reasoning behind any 高信心/疑似鈍化
+ * badge shown on a related alert.
+ */
+function createInstitutionalFlowSection(stock) {
+    if (stock.market !== 'TW') return '';
+    const inst = stock.institutional;
+    if (!inst || inst.foreign_net === null || inst.foreign_net === undefined) return '';
+
+    const lots = (shares) => (shares / 1000).toFixed(0);
+    const dayVal = inst.foreign_net;
+    const dayClass = dayVal >= 0 ? 'text-kd-red' : 'text-kd-green';
+    const daySign = dayVal >= 0 ? '+' : '';
+
+    let cumHtml = '';
+    if (inst.foreign_net_3d !== null && inst.foreign_net_3d !== undefined) {
+        const cumVal = inst.foreign_net_3d;
+        const cumClass = cumVal >= 0 ? 'text-kd-red' : 'text-kd-green';
+        const cumSign = cumVal >= 0 ? '+' : '';
+        cumHtml = `<span class="text-[10px] text-dark-text2 ml-1">(近3日 ${cumSign}${lots(cumVal)}張)</span>`;
+    }
+
+    return `
+        <div class="border-t border-dark-border pt-2 mt-2">
+            <div class="flex justify-between items-center">
+                <span class="text-xs text-dark-text2">個股外資買賣超${inst.date ? ` (${inst.date})` : ''}</span>
+                <span class="text-xs font-bold ${dayClass}">${daySign}${lots(dayVal)}張${cumHtml}</span>
             </div>
         </div>
     `;

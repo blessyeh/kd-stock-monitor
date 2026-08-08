@@ -800,6 +800,111 @@ class StockFetcher:
             return None
         return payload.get("data") or None
 
+    def _fetch_stock_institutional_flow(self, symbol: str, days_back: int = 10) -> Optional[Dict]:
+        """
+        Per-stock 三大法人買賣超 (foreign/investment-trust/dealer net buy-sell, in
+        shares) via FinMind's TaiwanStockInstitutionalInvestorsBuySell dataset —
+        the per-stock counterpart to fetch_tw_chip_indicators()'s market-wide
+        foreign_net/trust_net (which only cover the whole market's aggregate,
+        not any individual holding). Works uniformly for TWSE and TPEx (OTC)
+        listings and even ETFs — all confirmed against live data.
+
+        `symbol` is the config-style ticker (e.g. "2330.TW", "6026.TWO");
+        FinMind's data_id is the bare code with no exchange suffix.
+
+        Returns a dict with the latest day's per-institution net share counts,
+        the prior day's for change comparison, and a 3-day cumulative net
+        (smooths out single-day noise for signal purposes) — or None if no
+        data was returned (e.g. a newly-listed ticker, or a non-trading day
+        with nothing posted yet):
+            {
+                "date": "YYYY-MM-DD",
+                "foreign_net": int,       # today's 外資 (Foreign_Investor) net, shares
+                "foreign_net_prev": int,  # yesterday's, for change display
+                "trust_net": int,         # today's 投信 (Investment_Trust) net, shares
+                "dealer_net": int,        # today's 自營商 (Dealer_self + Dealer_Hedging) net, shares
+                "foreign_net_3d": int,    # sum of the latest up to 3 trading days' foreign net
+            }
+        """
+        data_id = symbol.split(".")[0]
+        try:
+            rows = self._fetch_finmind("TaiwanStockInstitutionalInvestorsBuySell", data_id, days_back=days_back)
+        except Exception as e:
+            logger.error(f"Error fetching institutional flow for {symbol}: {e}")
+            return None
+        if not rows:
+            return None
+
+        by_date: Dict[str, Dict[str, float]] = {}
+        for r in rows:
+            d = r.get("date")
+            name = r.get("name")
+            buy = r.get("buy") or 0
+            sell = r.get("sell") or 0
+            if d is None or name is None:
+                continue
+            entry = by_date.setdefault(d, {"foreign": 0, "trust": 0, "dealer": 0})
+            net = buy - sell
+            if name == "Foreign_Investor":
+                # Matches the "不含外資自營商" definition already used for the
+                # market-wide foreign_net in fetch_tw_chip_indicators(), so the
+                # two are directly comparable.
+                entry["foreign"] += net
+            elif name == "Investment_Trust":
+                entry["trust"] += net
+            elif name in ("Dealer_self", "Dealer_Hedging"):
+                entry["dealer"] += net
+
+        dates = sorted(by_date.keys())
+        if not dates:
+            return None
+        latest_date = dates[-1]
+        prev_date = dates[-2] if len(dates) >= 2 else None
+        last_3 = dates[-3:]
+
+        return {
+            "date": latest_date,
+            "foreign_net": round(by_date[latest_date]["foreign"]),
+            "foreign_net_prev": round(by_date[prev_date]["foreign"]) if prev_date else None,
+            "trust_net": round(by_date[latest_date]["trust"]),
+            "dealer_net": round(by_date[latest_date]["dealer"]),
+            "foreign_net_3d": round(sum(by_date[d]["foreign"] for d in last_3)),
+        }
+
+    def attach_stock_institutional_flow(self, stocks_with_kd: Dict[str, List[Dict]]):
+        """
+        Enrich every TW stock in stocks_with_kd (mutated in place) with an
+        "institutional" field from _fetch_stock_institutional_flow(). US
+        stocks and stocks that already failed KD calculation (no usable
+        "symbol"/have an "error" key) are skipped.
+
+        Call this AFTER KDCalculator.calculate_all_stocks(), not on the raw
+        fetch_all_stocks() output — calculate_all_stocks() rebuilds each
+        stock dict from a fixed field list, so anything attached before that
+        point would be silently dropped.
+
+        One FinMind request per TW stock — with a small delay between calls
+        to be polite to FinMind's free unauthenticated tier (300 req/hour;
+        600/hour with FINMIND_TOKEN set). A handful of TW tickers is cheap;
+        this project's config currently tracks ~80, comfortably under the
+        limit even alongside the other FinMind calls this run already makes.
+        Each ticker's fetch is independently wrapped so one bad symbol
+        (delisted, newly listed with no history yet, etc.) can't take down
+        the rest.
+        """
+        import time
+        tw_stocks = [s for s in stocks_with_kd.get("TW", []) if s.get("symbol") and "error" not in s]
+        logger.info(f"Fetching per-stock institutional flow for {len(tw_stocks)} TW tickers...")
+        for i, stock in enumerate(tw_stocks):
+            symbol = stock["symbol"]
+            try:
+                stock["institutional"] = self._fetch_stock_institutional_flow(symbol)
+            except Exception as e:
+                logger.warning(f"Institutional flow failed for {symbol}: {e}")
+                stock["institutional"] = None
+            if i < len(tw_stocks) - 1:
+                time.sleep(0.15)
+
     def backfill_macro_history(self, days_back: int = 35) -> Dict[str, Dict]:
         """
         One-time historical backfill for the signal-confluence model, so a user

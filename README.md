@@ -43,6 +43,12 @@ KD is a bounded oscillator — it assumes price mean-reverts inside a range. In 
 
 The concrete filter reasons (which checks passed vs. flagged caution) are shown directly on each alert card in the dashboard.
 
+### 📊 Per-Stock Institutional Flow (個股外資買賣超)
+Beyond the market-wide foreign/investment-trust net buy-sell already covered in Taiwan Chip Flow Indicators (below), each individually-tracked TW ticker now gets its own foreign/investment-trust/dealer net buy-sell in shares, via FinMind's `TaiwanStockInstitutionalInvestorsBuySell` dataset (works uniformly for TWSE, TPEx/OTC, and ETFs). This feeds directly into the KD Alert Filters above as an additional confirming signal: a 3-day cumulative foreign net buy during an oversold reading, or a 3-day cumulative foreign net sell during an overbought reading, can independently confirm the alert even when the MA/Bollinger filters don't — smart-money accumulation/distribution in a specific stock is a real signal on its own, not just a byproduct of price action. Shown on every TW stock card in the dashboard.
+
+### 🔒 Manage Watchlist (owner-only add/remove)
+The dashboard has a "管理監控股票" panel for adding or removing a monitored stock — restricted to the repo owner, with **no credentials of any kind stored in or entered into the site**. Submitting the form opens a pre-filled GitHub "New Issue" (`[監控股票申請] ...`) instead of calling any API directly. A dedicated workflow (`.github/workflows/stock-request.yml`) is the actual gatekeeper: it only ever runs for issues opened by `github.repository_owner` — a request opened by anyone else is left completely untouched (no comment, no config change). When it does run, it parses the issue body, updates `config.json` via `scripts/apply_stock_request.py`, commits, and comments + closes the issue with the result; the push then triggers the normal hourly update workflow to fetch the new/removed ticker within minutes. This design deliberately avoids storing a GitHub token in the browser — an earlier PAT-in-`localStorage` version of this idea was removed for exactly that risk (see commit `53fc74560`).
+
 ### 🇹🇼 TAIEX (台股大盤/加權指數)
 Shown prominently at the very top of the dashboard, above everything else — it's the actual index this whole project exists to monitor, not just another supporting macro indicator. Right beside it is the TAIFEX night-session (夜盤) gap (see Taiwan Chip Flow Indicators, item 6 below) — paired together since the night session is the overnight lead-in to TAIEX's next open.
 在儀表板最上方最顯眼的位置顯示——這是本專案真正要監控的指數本體，不只是眾多輔助宏觀指標之一。旁邊搭配顯示台指期夜盤跳空（見下方台股籌碼面指標項目 6）——兩者放在一起，因為夜盤正是 TAIEX 下一個開盤的隔夜前哨。
@@ -160,6 +166,12 @@ KD 是一個「震盪型指標」，假設股價會在箱型區間內來回波�
 
 具體套用了哪些濾網條件（通過與提醒的項目）會直接顯示在儀表板的每一則警示卡片上。
 
+### 📊 個股外資買賣超
+除了台股籌碼面指標中原有的「大盤整體」外資／投信買賣超之外，現在每一檔個別追蹤的台股標的也會有自己的外資／投信／自營商買賣超（股數），資料來源為 FinMind 的 `TaiwanStockInstitutionalInvestorsBuySell`（上市、上櫃、ETF 皆適用）。這項資料會直接納入上方「KD 警示多重濾網」作為額外的確認訊號：超賣情境下若近 3 日外資累計買超、或超買情境下若近 3 日外資累計賣超，即使 MA／布林通道濾網未能確認，也能獨立確認該警示——個股外資的買賣動向本身就是有意義的訊號，不只是股價波動的附屬產物。此資料會顯示在每一張台股個股卡片上。
+
+### 🔒 管理監控股票（僅限擁有者）
+儀表板上有一個「管理監控股票」面板，可以新增或移除監控的股票——僅限本專案擁有者本人操作，且**網站本身不會儲存或要求任何帳號密碼、Token**。送出表單時會開啟一個預先填好內容的 GitHub「New Issue」，而不是直接呼叫任何 API。真正的權限判斷在一個獨立的 GitHub Action（`.github/workflows/stock-request.yml`）：只有當 Issue 是由 `github.repository_owner` 本人開啟時才會執行，其他人開的申請完全不會有任何反應（不留言、不變更設定）。當它真的執行時，會解析 Issue 內容、透過 `scripts/apply_stock_request.py` 更新 `config.json`、提交變更，並在 Issue 留言告知結果後自動關閉——推送變更後會自動觸發每小時的資料更新流程，幾分鐘內就能看到新增/移除的標的生效。這個設計刻意避開了在瀏覽器儲存 GitHub Token 的做法——先前曾經有過把 PAT 存在 `localStorage` 的版本，因為風險考量已經移除（見 commit `53fc74560`）。
+
 ### 🇹🇼 台股大盤（TAIEX/加權指數）
 在儀表板最上方最顯眼的位置顯示——這是本專案真正要監控的指數本體，不只是眾多輔助宏觀指標之一。旁邊搭配顯示台指期夜盤跳空（見下方台股籌碼面指標項目 6）——兩者放在一起，因為夜盤正是 TAIEX 下一個開盤的隔夜前哨。
 
@@ -222,7 +234,7 @@ KD 是一個「震盪型指標」，假設股價會在箱型區間內來回波�
 
 ### Installation | 安裝步驟
 ```bash
-git clone https://github.com/jack-lee2022/kd-stock-monitor.git
+git clone https://github.com/blessyeh/kd-stock-monitor.git
 cd kd-stock-monitor
 pip install -r requirements.txt
 ```

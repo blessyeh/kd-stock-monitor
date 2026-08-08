@@ -1,0 +1,96 @@
+name: Stock Watchlist Request
+
+# Lets the repo owner add/remove a monitored stock from the live dashboard
+# (docs/js/app.js's "管理監控股票" panel builds a pre-filled "New Issue" URL
+# and opens it — the static site itself never asks for or stores any
+# credential, avoiding the PAT-in-browser risk that was deliberately removed
+# earlier, see commit 53fc74560).
+#
+# The real gatekeeping happens here: this workflow only ever runs for issues
+# opened by github.repository_owner (see the job-level `if:` below). A
+# stock-request issue opened by anyone else is left completely untouched —
+# no comment, no config change, no indication it was even inspected.
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  apply:
+    if: github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Apply stock request
+        id: apply
+        env:
+          # Passed as an env var (not interpolated into the script text) so
+          # issue content is always treated as data, never as shell code.
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set +e
+          python3 scripts/apply_stock_request.py > /tmp/stock_request_out.txt 2> /tmp/stock_request_err.txt
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" -eq 0 ]; then
+            echo "message<<STOCKREQ_EOF" >> "$GITHUB_OUTPUT"
+            cat /tmp/stock_request_out.txt >> "$GITHUB_OUTPUT"
+            echo "STOCKREQ_EOF" >> "$GITHUB_OUTPUT"
+          elif [ "$code" -eq 2 ]; then
+            echo "message<<STOCKREQ_EOF" >> "$GITHUB_OUTPUT"
+            cat /tmp/stock_request_err.txt >> "$GITHUB_OUTPUT"
+            echo "STOCKREQ_EOF" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
+      - name: Commit config.json change
+        if: steps.apply.outputs.exit_code == '0'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add config.json
+          git commit -m "🔧 監控股票異動（Issue #${{ github.event.issue.number }}）"
+
+          # Same rebase-then-fallback pattern as update-data.yml: this commit
+          # only ever touches config.json, so on conflict it's always safe to
+          # keep this run's version (the change the owner just requested).
+          if ! git pull --rebase -X theirs origin ${{ github.event.repository.default_branch }}; then
+            git rebase --abort
+            git pull --no-rebase -X ours origin ${{ github.event.repository.default_branch }}
+          fi
+          git push origin ${{ github.event.repository.default_branch }}
+
+      - name: Comment on issue
+        if: steps.apply.outputs.exit_code == '0' || steps.apply.outputs.exit_code == '2'
+        uses: actions/github-script@v7
+        env:
+          COMMENT_BODY: ${{ steps.apply.outputs.message }}
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: process.env.COMMENT_BODY || '(no message)'
+            });
+
+      - name: Close issue on success
+        if: steps.apply.outputs.exit_code == '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+              state_reason: 'completed'
+            });

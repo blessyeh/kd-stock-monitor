@@ -138,10 +138,26 @@ class KDStockMonitor:
             # Step 2: Calculate KD indicators
             logger.info("\n[Step 2/4] Calculating KD indicators...")
             stocks_with_kd = self.calculator.calculate_all_stocks(stock_data)
-            
+
             stocks_calculated = sum(len(stocks) for stocks in stocks_with_kd.values())
             logger.info(f"Calculated KD for {stocks_calculated} stocks")
-            
+
+            # Step 2.25: Per-stock 外資/投信/自營商買賣超 (individual-holding
+            # institutional flow) — the per-stock counterpart to the market-wide
+            # foreign_net/trust_net already in tw_chip_indicators. Runs after KD
+            # calc (calculate_all_stocks rebuilds each stock dict, so anything
+            # attached before that point would be lost) and feeds both the alert
+            # filters (Step 3) and the dashboard's per-stock cards.
+            logger.info("\n[Step 2.25/4] Fetching per-stock institutional flow...")
+            if test_mode:
+                for stock in stocks_with_kd.get("TW", []):
+                    stock["institutional"] = {
+                        "date": "2026-08-07", "foreign_net": 850000, "foreign_net_prev": -320000,
+                        "trust_net": 120000, "dealer_net": -45000, "foreign_net_3d": 1560000
+                    }
+            else:
+                self.fetcher.attach_stock_institutional_flow(stocks_with_kd)
+
             # Step 2.5: Calculate multi-dimensional scores
             logger.info("\n[Step 2.5/4] Calculating multi-dimensional scores...")
             for market in stocks_with_kd:
