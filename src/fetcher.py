@@ -300,12 +300,14 @@ class StockFetcher:
         logger.info(f"Saved raw data to {filepath} ({len(df)} records)")
 
     def fetch_macro_indicators(self) -> Dict:
-        """Fetch US10Y yield, Dollar Index, CNN Fear & Greed, and Bitcoin."""
+        """Fetch US10Y yield, Dollar Index, VIX, Bitcoin, WTI Crude Oil, and Gold."""
         macro_data = {
             "us10y": {"value": None, "change": None},
             "dxy": {"value": None, "change": None},
             "fear_greed": {"value": None, "label": "N/A"},
-            "btc": {"value": None, "change_pct": None}
+            "btc": {"value": None, "change_pct": None},
+            "oil": {"value": None, "change": None, "change_pct": None},
+            "gold": {"value": None, "change": None, "change_pct": None}
         }
 
         # 1. Fetch US10Y Yield (^TNX)
@@ -363,6 +365,40 @@ class StockFetcher:
                 logger.info(f"VIX Index: {round(latest_val, 2)}")
         except Exception as e:
             logger.error(f"Error fetching VIX: {e}")
+
+        # 5. Fetch WTI Crude Oil futures (CL=F)
+        try:
+            ticker_oil = yf.Ticker("CL=F")
+            hist_oil = ticker_oil.history(period="2d")
+            if not hist_oil.empty:
+                latest_val = hist_oil['Close'].iloc[-1]
+                prev_val = hist_oil['Close'].iloc[-2] if len(hist_oil) >= 2 else latest_val
+                change = latest_val - prev_val
+                change_pct = (change / prev_val * 100) if prev_val else 0
+                macro_data["oil"] = {
+                    "value": round(latest_val, 2),
+                    "change": round(change, 2),
+                    "change_pct": round(change_pct, 2)
+                }
+        except Exception as e:
+            logger.error(f"Error fetching WTI Crude Oil: {e}")
+
+        # 6. Fetch Gold futures (GC=F)
+        try:
+            ticker_gold = yf.Ticker("GC=F")
+            hist_gold = ticker_gold.history(period="2d")
+            if not hist_gold.empty:
+                latest_val = hist_gold['Close'].iloc[-1]
+                prev_val = hist_gold['Close'].iloc[-2] if len(hist_gold) >= 2 else latest_val
+                change = latest_val - prev_val
+                change_pct = (change / prev_val * 100) if prev_val else 0
+                macro_data["gold"] = {
+                    "value": round(latest_val, 2),
+                    "change": round(change, 2),
+                    "change_pct": round(change_pct, 2)
+                }
+        except Exception as e:
+            logger.error(f"Error fetching Gold: {e}")
 
         return macro_data
     

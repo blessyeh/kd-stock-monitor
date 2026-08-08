@@ -104,6 +104,31 @@ function updateStats() {
                 btcEl.className = `font-bold text-lg ${colorClass}`;
                 btcEl.textContent = formattedPrice;
             }
+
+            // 5. WTI Crude Oil
+            const oilEl = document.getElementById('macro-oil');
+            if (oilEl && macro.oil && macro.oil.value !== null) {
+                const val = macro.oil.value;
+                const changePct = macro.oil.change_pct || 0;
+                const colorClass = changePct >= 0 ? 'text-kd-red' : 'text-kd-green';
+                const sign = changePct >= 0 ? '+' : '';
+                oilEl.className = `font-bold text-lg ${colorClass}`;
+                oilEl.textContent = `$${val.toFixed(2)}`;
+                oilEl.title = `WTI 原油: $${val.toFixed(2)} (${sign}${changePct.toFixed(2)}%)`;
+            }
+
+            // 6. Gold
+            const goldEl = document.getElementById('macro-gold');
+            if (goldEl && macro.gold && macro.gold.value !== null) {
+                const val = macro.gold.value;
+                const changePct = macro.gold.change_pct || 0;
+                const colorClass = changePct >= 0 ? 'text-kd-red' : 'text-kd-green';
+                const sign = changePct >= 0 ? '+' : '';
+                const formattedPrice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
+                goldEl.className = `font-bold text-lg ${colorClass}`;
+                goldEl.textContent = formattedPrice;
+                goldEl.title = `黃金: ${formattedPrice} (${sign}${changePct.toFixed(2)}%)`;
+            }
         }
     } catch (e) {
         console.error("Error updating stats:", e);

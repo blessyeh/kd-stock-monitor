@@ -74,7 +74,10 @@ class KDStockMonitor:
                 macro_indicators = {
                     "us10y": {"value": 4.25, "change": 0.02},
                     "dxy": {"value": 104.5, "change": -0.15},
-                    "fear_greed": {"value": 55, "label": "Greed"}
+                    "fear_greed": {"value": 55, "label": "Greed"},
+                    "btc": {"value": 65000, "change_pct": 1.2},
+                    "oil": {"value": 78.5, "change": 0.8, "change_pct": 1.03},
+                    "gold": {"value": 2650.0, "change": -12.3, "change_pct": -0.46}
                 }
                 logger.info("Using mock data (test mode)")
             else:
