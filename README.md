@@ -11,7 +11,7 @@ A GitHub-powered stock monitoring system that tracks KD (Stochastic Oscillator) 
 
 ### ✨ Features
 - 📈 **KD Indicator Tracking**: Calculates 9-day Stochastic Oscillator (KD) for all monitored stocks.
-- 🔔 **Smart Alerts**: Automatic notifications when KD ≥ 80 (overbought) or ≤ 20 (oversold).
+- 🔔 **Smart Alerts**: Automatic notifications when KD ≥ 80 (overbought) or ≤ 20 (oversold), tagged with a MA/Bollinger/MACD filter-confidence check to flag likely indicator failure (see below).
 - 🇹🇼 **Taiwan Stocks**: Supports TWSE stocks (e.g., 0050.TW, 2330.TW).
 - 🇺🇸 **US Stocks**: Supports NYSE/NASDAQ stocks (e.g., AAPL, TSLA).
 - 🌐 **Web Dashboard**: Interactive dashboard with charts and real-time data. TAIEX (台股加權指數) and the TAIFEX night-session gap are shown prominently at the top of the page, above everything else.
@@ -34,6 +34,14 @@ Automated analysis of 11 market patterns:
 9. 🟢 **Panic Bottom** (Short-term rebound): Extremely strict signal, only a few times per year.
 10. 🔴 **Blowoff Top** (Inevitable pullback): Extremely strict signal, extreme short-term overheating.
 11. 🟢 **Chip Lock Rally** (Main uptrend continuation): Extremely strict signal, highly concentrated chips in a strong uptrend.
+
+### 🛡️ KD Alert Filters (indicator-failure guard)
+KD is a bounded oscillator — it assumes price mean-reverts inside a range. In a strong trend it "sticks" at an extreme for weeks (鈍化 / indicator failure): a raw `KD ≥ 80` check alone would fire non-stop through a genuine breakout rally (tempting an early sell that misses the whole move), and a raw `KD ≤ 20` check alone can't tell a real bounce setup from a stock that's simply still falling. Every KD extreme still generates an alert (nothing is hidden), but each one is now run through the same MA / volume / MACD / Bollinger Band data the multi-dimensional scoring engine already computes, and tagged with a confidence level:
+- **高信心 High confidence**: for oversold, price sits above a rising 20-day MA (a pullback inside an uptrend) and/or price has touched the lower Bollinger Band, with MACD not accelerating downward. For overbought, price is *not* holding above a rising 20-day MA, or price is stretched to the upper Bollinger Band without volume confirmation (exhaustion, not fresh strength).
+- **疑似鈍化 Likely indicator failure**: for oversold, price is below/under a falling 20-day MA (real downtrend, no MA/Bollinger support) or MACD is still accelerating down. For overbought, price is still comfortably above a rising 20-day MA with MACD still accelerating up (classic runaway-rally 鈍化, not a top).
+- **資料不足 Unknown**: fewer than ~25 trading days of history (new tickers), so the filters can't run yet — the raw KD alert still fires, just unlabeled.
+
+The concrete filter reasons (which checks passed vs. flagged caution) are shown directly on each alert card in the dashboard.
 
 ### 🇹🇼 TAIEX (台股大盤/加權指數)
 Shown prominently at the very top of the dashboard, above everything else — it's the actual index this whole project exists to monitor, not just another supporting macro indicator. Right beside it is the TAIFEX night-session (夜盤) gap (see Taiwan Chip Flow Indicators, item 6 below) — paired together since the night session is the overnight lead-in to TAIEX's next open.
@@ -120,7 +128,7 @@ The TAIFEX night-session gap (item 6) is shown on the dashboard as supporting co
 
 ### ✨ 核心功能
 - 📈 **KD 指標追蹤**：自動計算所有監控股票的 9 日隨機指標 (KD)。
-- 🔔 **智能警示**：當 KD ≥ 80 (超買) 或 ≤ 20 (超賣) 時自動發出提醒。
+- 🔔 **智能警示**：當 KD ≥ 80 (超買) 或 ≤ 20 (超賣) 時自動發出提醒，並附上 MA／布林通道／MACD 多重濾網信心標籤，標示可能的指標鈍化（詳見下方說明）。
 - 🇹🇼 **台股支援**：支援台股代碼 (如 0050.TW, 2330.TW)。
 - 🇺🇸 **美股支援**：支援美股代碼 (如 AAPL, TSLA)。
 - 🌐 **網頁儀表板**：提供圖表與即時數據的互動式介面。台股大盤（加權指數）與台指期夜盤跳空放在頁面最上方最顯眼的位置。
@@ -143,6 +151,14 @@ The TAIFEX night-session gap (item 6) is shown on the dashboard as supporting co
 9. 🟢 **恐慌底部** (短線搶反彈)：極嚴格信號，一年僅數次。
 10. 🔴 **天量噴出** (必然回落)：極嚴格信號，短線過熱極端。
 11. 🟢 **籌碼鎖定** (主升延續)：極嚴格信號，籌碼高度鎖定的強勢主升。
+
+### 🛡️ KD 警示多重濾網（防指標鈍化）
+KD 是一個「震盪型指標」，假設股價會在箱型區間內來回波動。強烈趨勢中它會「鈍化」——單純 `KD ≥ 80` 在飆股主升段可能連續發出數週警示（誘使過早賣出、錯失主升段），單純 `KD ≤ 20` 也無法區分「即將反彈」與「還在破底」。系統不會隱藏任何一次 KD 極端讀值（每次都仍會發出警示），但會套用與多維評分引擎共用的 MA／成交量／MACD／布林通道資料，為每一則警示標註信心等級：
+- **高信心**：超賣情境下，股價站上上彎的 20 日均線之上（多頭趨勢中的回檔）且／或觸及布林通道下軌，MACD 未加速走弱。超買情境下，股價未能站穩上彎的 20 日均線之上，或股價觸及布林通道上軌但成交量未放大（動能不足，非真正強勢）。
+- **疑似鈍化**：超賣情境下，股價在下彎的 20 日均線之下（真正空頭趨勢，無均線/布林支撐）或 MACD 仍加速走弱。超買情境下，股價仍穩穩站在上彎的 20 日均線之上且 MACD 仍加速走強（典型主升段鈍化，並非真正的頭部）。
+- **資料不足**：歷史資料不到約 25 個交易日（新掛牌標的），濾網尚無法運作——原始 KD 警示仍會照常發出，只是不附上信心標籤。
+
+具體套用了哪些濾網條件（通過與提醒的項目）會直接顯示在儀表板的每一則警示卡片上。
 
 ### 🇹🇼 台股大盤（TAIEX/加權指數）
 在儀表板最上方最顯眼的位置顯示——這是本專案真正要監控的指數本體，不只是眾多輔助宏觀指標之一。旁邊搭配顯示台指期夜盤跳空（見下方台股籌碼面指標項目 6）——兩者放在一起，因為夜盤正是 TAIEX 下一個開盤的隔夜前哨。

@@ -27,6 +27,90 @@ function renderMacroChange(elId, changePct) {
 }
 
 /**
+ * Explanation text for the "ⓘ" info-trigger icons scattered across the
+ * dashboard. Kept as tap-to-open popovers (see initInfoPopovers()) instead
+ * of hover tooltips/title attributes, because title tooltips don't fire on
+ * touch devices — most of this dashboard's traffic is mobile.
+ */
+const INFO_TEXT = {
+    foreign_net: {
+        title: '外資買賣超',
+        body: '外資（外國機構投資人）當日在台股集中市場的買賣超金額（億元）。正值代表買超（資金流入台股),負值代表賣超（資金流出)。外資規模龐大，是觀察台股資金動向最重要的指標之一。'
+    },
+    trust_net: {
+        title: '投信買賣超',
+        body: '投信（國內基金）當日買賣超金額（億元)。資金規模比外資小很多，但常被視為「內資」對台股中小型股態度的指標，尤其在外資大幅賣超時，投信是否進場承接常受市場關注。'
+    },
+    margin_balance: {
+        title: '融資餘額',
+        body: '一般散戶以融資（向券商借錢）買進股票的未平倉張數。融資餘額持續增加，代表散戶追價意願升溫，但也代表槓桿風險升高；股市重挫時常伴隨融資餘額大幅減少（俗稱融資斷頭）。'
+    },
+    margin_short_ratio: {
+        title: '資券比',
+        body: '融券餘額 ÷ 融資餘額 的比值（%），用來衡量市場做空力道相對做多力道的強度。比值異常偏高，有時代表放空籌碼集中，若股價續漲可能引發軋空（逼空）行情；但這只是輔助觀察指標，不宜單獨作為買賣依據。'
+    },
+    usdtwd: {
+        title: '新台幣匯率',
+        body: '美元兌新台幣匯率（USD/TWD）。新台幣升值（數字下降）通常伴隨外資匯入買進台股；新台幣貶值（數字上升）則常見於外資匯出、資金退出台股的階段。'
+    },
+    foreign_futures_net: {
+        title: '外資期貨淨部位',
+        body: '外資在台指期貨的未平倉淨部位（口數)。正值為淨多單（外資看多台股後市走勢),負值為淨空單（看空)。由於台指期貨具槓桿與領先性，常被視為外資對大盤短期方向的態度指標。'
+    },
+    put_call_ratio: {
+        title: '選擇權 P/C 比',
+        body: '賣權（Put）未平倉量 ÷ 買權（Call）未平倉量的比值（%）。數值愈高，代表市場避險或看跌需求愈重；數值愈低，代表市場偏樂觀。P/C 比出現極端值時，常被當作反向指標參考（過度悲觀或過度樂觀，都可能醞釀反轉），但仍須搭配其他指標判讀。'
+    },
+    night_session: {
+        title: '台指期夜盤',
+        body: '台指期夜盤跳空幅度，與前一交易日日盤收盤價比較。這是收盤後回溯性資料（約台北時間16:30才更新，隨當天籌碼面資料一起發布），並非盤中即時報價，主要用來輔助觀察隔夜國際盤氣氛，判斷隔天台股開盤可能的跳空方向與幅度。'
+    },
+    signal_confluence: {
+        title: '訊號共振：大盤轉折觀察',
+        body: '整合多項技術面與籌碼面條件（如 VIX 反轉、融資斷頭、外資回補空單、費半/那斯達克跌破支撐、美債殖利率急升等），尋找台股大盤「可能出現短線頂部或底部」的訊號共振時刻。當愈多條件同時成立，代表出現轉折的機率愈高——但這是機率參考工具，並非即時買賣訊號，也不是放空建議，請勿單獨依賴、更不建議因短線訊號打斷既有的定期定額投資紀律。'
+    }
+};
+
+/**
+ * Wire up the info-trigger icons (see INFO_TEXT above) to open/close the
+ * shared #info-modal-backdrop popover. Uses event delegation so it also
+ * covers any info-trigger icons rendered dynamically later.
+ */
+function initInfoPopovers() {
+    const backdrop = document.getElementById('info-modal-backdrop');
+    const titleEl = document.getElementById('info-modal-title');
+    const bodyEl = document.getElementById('info-modal-body');
+    const closeBtn = document.getElementById('info-modal-close');
+    if (!backdrop || !titleEl || !bodyEl) return;
+
+    function open(key) {
+        const info = INFO_TEXT[key];
+        if (!info) return;
+        titleEl.textContent = info.title;
+        bodyEl.textContent = info.body;
+        backdrop.classList.remove('hidden');
+    }
+    function close() {
+        backdrop.classList.add('hidden');
+    }
+
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.info-trigger');
+        if (trigger) {
+            e.preventDefault();
+            e.stopPropagation();
+            open(trigger.dataset.info);
+            return;
+        }
+        if (e.target === backdrop) close();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+    });
+}
+
+/**
  * Initialize the application
  */
 document.addEventListener('DOMContentLoaded', async () => {
@@ -43,6 +127,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderStockGrid();
     renderAlertHistory();
     updateLastUpdated();
+    initInfoPopovers();
 
     // Initialize ECharts
     StockChart.init('stock-chart');
@@ -228,6 +313,7 @@ function updateChipStats() {
             foreignEl.className = `font-bold text-lg mt-1 ${colorClass}`;
             foreignEl.textContent = `${sign}${val.toFixed(1)}億`;
         }
+        renderMacroChange('chip-foreign-chg', chip.foreign_net && chip.foreign_net.change_pct);
 
         // 投信買賣超 (億元)
         const trustEl = document.getElementById('chip-trust');
@@ -238,6 +324,7 @@ function updateChipStats() {
             trustEl.className = `font-bold text-lg mt-1 ${colorClass}`;
             trustEl.textContent = `${sign}${val.toFixed(1)}億`;
         }
+        renderMacroChange('chip-trust-chg', chip.trust_net && chip.trust_net.change_pct);
 
         // 融資餘額 (張) — colored by direction of change vs. previous trading day
         const marginEl = document.getElementById('chip-margin');
@@ -250,6 +337,7 @@ function updateChipStats() {
             marginEl.textContent = `${(val / 10000).toFixed(1)}萬張`;
             marginEl.title = `融資餘額: ${val.toLocaleString()}張 (${sign}${change.toLocaleString()}張)`;
         }
+        renderMacroChange('chip-margin-chg', chip.margin_balance && chip.margin_balance.change_pct);
 
         // 資券比 (%) — neutral stat, no directional color
         const ratioEl = document.getElementById('chip-ratio');
@@ -257,6 +345,7 @@ function updateChipStats() {
             ratioEl.className = 'font-bold text-lg mt-1 text-dark-text';
             ratioEl.textContent = `${chip.margin_short_ratio.value.toFixed(2)}%`;
         }
+        renderMacroChange('chip-ratio-chg', chip.margin_short_ratio && chip.margin_short_ratio.change_pct);
 
         // 新台幣匯率 (USD/TWD) — same up/down convention as the DXY card
         const twdEl = document.getElementById('chip-twd');
@@ -267,6 +356,7 @@ function updateChipStats() {
             twdEl.className = `font-bold text-lg mt-1 ${colorClass}`;
             twdEl.textContent = val.toFixed(3);
         }
+        renderMacroChange('chip-twd-chg', chip.usdtwd && chip.usdtwd.change_pct);
 
         // 外資期貨淨部位 (口) — positive = net long = red, negative = net short = green
         const futuresEl = document.getElementById('chip-futures');
@@ -277,6 +367,7 @@ function updateChipStats() {
             futuresEl.className = `font-bold text-lg mt-1 ${colorClass}`;
             futuresEl.textContent = `${sign}${val.toLocaleString()}口`;
         }
+        renderMacroChange('chip-futures-chg', chip.foreign_futures_net && chip.foreign_futures_net.change_pct);
 
         // 選擇權 Put/Call Ratio (%) — neutral stat, no directional color
         const pcRatioEl = document.getElementById('chip-pcratio');
@@ -284,6 +375,7 @@ function updateChipStats() {
             pcRatioEl.className = 'font-bold text-lg mt-1 text-dark-text';
             pcRatioEl.textContent = `${chip.put_call_ratio.value.toFixed(2)}%`;
         }
+        renderMacroChange('chip-pcratio-chg', chip.put_call_ratio && chip.put_call_ratio.change_pct);
     } catch (e) {
         console.error("Error updating chip stats:", e);
     }
@@ -798,6 +890,24 @@ function renderAlertHistory() {
 }
 
 /**
+ * Render the filter-confidence badge for an alert: "high" means the
+ * MA/Bollinger/MACD filters (see alert_checker.py._evaluate_filters) agree
+ * with the raw KD extreme reading; "low" flags a likely 鈍化 (indicator
+ * stuck at an extreme through a real trend, not a reversal) so the raw KD
+ * signal alone shouldn't be acted on; "unknown" means there wasn't enough
+ * price history yet to run the filters.
+ */
+function renderFilterBadge(confidence) {
+    if (confidence === 'high') {
+        return '<span class="ml-2 px-2 py-0.5 rounded text-xs bg-blue-900/30 text-blue-400"><i class="fas fa-check-circle"></i> 高信心</span>';
+    }
+    if (confidence === 'low') {
+        return '<span class="ml-2 px-2 py-0.5 rounded text-xs bg-yellow-900/30 text-yellow-400"><i class="fas fa-triangle-exclamation"></i> 疑似鈍化</span>';
+    }
+    return '<span class="ml-2 px-2 py-0.5 rounded text-xs bg-gray-700/40 text-dark-text2">資料不足</span>';
+}
+
+/**
  * Create alert item HTML
  */
 function createAlertItem(alert) {
@@ -805,19 +915,31 @@ function createAlertItem(alert) {
     const icon = alert.type === 'overbought' ? 'fa-arrow-up text-kd-red' : 'fa-arrow-down text-kd-green';
     const title = alert.type === 'overbought' ? '超買警告' : '超賣提醒';
 
+    const passed = Array.isArray(alert.filter_passed) ? alert.filter_passed : [];
+    const cautions = Array.isArray(alert.filter_cautions) ? alert.filter_cautions : [];
+    const hasFilterInfo = passed.length > 0 || cautions.length > 0;
+
+    const filterNotesHtml = hasFilterInfo ? `
+        <div class="mt-2 pt-2 border-t border-dark-border/60 text-xs space-y-1">
+            ${passed.map(p => `<div class="text-dark-text2"><i class="fas fa-check text-kd-red opacity-70 mr-1"></i>${p}</div>`).join('')}
+            ${cautions.map(c => `<div class="text-yellow-400/90"><i class="fas fa-triangle-exclamation opacity-70 mr-1"></i>${c}</div>`).join('')}
+        </div>
+    ` : '';
+
     return `
         <div class="alert-item ${typeClass} ${alert.acknowledged ? 'acknowledged' : ''}">
             <div class="flex-shrink-0 mr-3">
                 <i class="fas ${icon} text-xl"></i>
             </div>
             <div class="flex-grow">
-                <div class="flex justify-between items-start">
+                <div class="flex justify-between items-start flex-wrap gap-y-1">
                     <div>
                         <span class="font-semibold text-white">${alert.symbol}</span>
                         <span class="text-sm text-dark-text2 ml-1">${alert.name}</span>
                         <span class="ml-2 px-2 py-0.5 rounded text-xs ${alert.type === 'overbought' ? 'bg-red-900/30 text-kd-red' : 'bg-green-900/30 text-kd-green'}">
                             ${title}
                         </span>
+                        ${alert.filter_confidence ? renderFilterBadge(alert.filter_confidence) : ''}
                     </div>
                     <span class="text-xs text-dark-text2">${DataManager.formatDate(alert.timestamp)}</span>
                 </div>
@@ -826,6 +948,7 @@ function createAlertItem(alert) {
                     KD-D: <span class="font-semibold text-white">${alert.kd_d}</span> |
                     價格: <span class="font-semibold text-white">${DataManager.formatPrice(alert.current_price, alert.market === 'TW' ? 'TWD' : 'USD')}</span>
                 </div>
+                ${filterNotesHtml}
             </div>
         </div>
     `;

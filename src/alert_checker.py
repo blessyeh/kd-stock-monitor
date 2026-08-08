@@ -61,13 +61,108 @@ class AlertChecker:
         except Exception as e:
             logger.error(f"Error saving alerts: {e}")
     
+    def _evaluate_filters(self, stock_data: Dict, direction: str) -> Dict:
+        """
+        Multi-filter confirmation for a raw KD extreme reading.
+
+        KD is a bounded oscillator: it assumes price mean-reverts inside a
+        range, so it "sticks" (鈍化 / indicator failure) at the extremes
+        during a strong trend — a KD<=20 reading can persist for weeks in a
+        real downtrend (there's no bottom to catch), and a KD>=80 reading can
+        persist for weeks in a strong uptrend (selling early misses the
+        whole rally). A bare `if kd_k <= 20` alert can't tell the difference
+        between "oversold bounce coming" and "downtrend, keep falling".
+
+        This runs the raw KD reading through the trend/volume/MACD/Bollinger
+        data already computed by ScoringEngine (main.py's Step 2.5, before
+        alerts are checked) to flag which of those two situations it more
+        likely is — without hiding the raw KD reading itself. Every KD
+        extreme still produces an alert; this only adds a confidence tag and
+        the concrete reasons behind it, mirroring how signal_confluence.py
+        already reports per-condition completeness rather than a bare bool.
+
+        Returns:
+            {
+                "available": bool — whether enough history existed to run the filters,
+                "confirmed": bool — filters agree with the raw KD signal,
+                "passed": [str, ...] — filter checks that support the KD signal,
+                "cautions": [str, ...] — filter checks that argue against it,
+            }
+        """
+        score = stock_data.get("score") or {}
+        raw = score.get("raw") or {}
+        price = stock_data.get("current_price")
+
+        ma20 = raw.get("ma20")
+        macd_hist = raw.get("macd_hist")
+        macd_hist_prev = raw.get("macd_hist_prev")
+        volume_ratio = raw.get("volume_ratio")
+        bb_upper = raw.get("bb_upper")
+        bb_lower = raw.get("bb_lower")
+
+        # "MA20 上彎" is checked directly against MA20's own value 5 trading
+        # days ago, rather than reusing ScoringEngine's `trend_dir` (a 20-day
+        # linear-regression slope categorized into up/down/flat with a
+        # deliberately strict >1% threshold, tuned for the scoring/
+        # recommendation dimension — not a plain "is the average rising"
+        # check). Using MA20-vs-5-days-ago keeps this filter matching the
+        # everyday reading of "均線上彎" instead of only firing in unusually
+        # steep trends.
+        closes = [h.get("close") for h in (stock_data.get("history") or []) if h.get("close") is not None]
+        ma20_prev = sum(closes[-25:-5]) / 20 if len(closes) >= 25 else None
+
+        available = price is not None and ma20 is not None and ma20_prev is not None
+        if not available:
+            return {"available": False, "confirmed": True, "passed": [], "cautions": []}
+
+        above_ma20 = price > ma20
+        ma20_rising = ma20 > ma20_prev
+        bullish_regime = above_ma20 and ma20_rising
+
+        macd_diverging_down = (
+            macd_hist is not None and macd_hist_prev is not None
+            and macd_hist < 0 and macd_hist < macd_hist_prev
+        )
+        macd_diverging_up = (
+            macd_hist is not None and macd_hist_prev is not None
+            and macd_hist > 0 and macd_hist > macd_hist_prev
+        )
+        volume_confirmed = volume_ratio is not None and volume_ratio > 1.0
+
+        passed, cautions = [], []
+
+        if direction == "oversold":
+            bollinger_touch = bb_lower is not None and price <= bb_lower * 1.01
+            if bullish_regime:
+                passed.append("股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）")
+            else:
+                cautions.append("股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）")
+            if bollinger_touch:
+                passed.append("股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）")
+            if macd_diverging_down:
+                cautions.append("MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）")
+            confirmed = (bullish_regime or bollinger_touch) and not macd_diverging_down
+        else:  # overbought
+            bollinger_touch = bb_upper is not None and price >= bb_upper * 0.99
+            if bullish_regime:
+                cautions.append("股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）")
+            else:
+                passed.append("股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）")
+            if bollinger_touch and not volume_confirmed:
+                passed.append("股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）")
+            if macd_diverging_up:
+                cautions.append("MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）")
+            confirmed = (not bullish_regime) or (bollinger_touch and not volume_confirmed)
+
+        return {"available": True, "confirmed": confirmed, "passed": passed, "cautions": cautions}
+
     def check_stock(self, stock_data: Dict) -> Optional[Dict]:
         """
         Check a single stock for KD alert conditions.
-        
+
         Args:
             stock_data: Dictionary containing stock info with kd_k and kd_d values
-        
+
         Returns:
             Alert dictionary if condition met, None otherwise
         """
@@ -75,18 +170,23 @@ class AlertChecker:
         kd_k = stock_data.get("kd_k")
         kd_d = stock_data.get("kd_d")
         current_price = stock_data.get("current_price")
-        
+
         if kd_k is None or kd_d is None:
             logger.warning(f"Missing KD values for {symbol}")
             return None
-        
+
         overbought_threshold = self.thresholds.get("overbought", 80)
         oversold_threshold = self.thresholds.get("oversold", 20)
-        
+
         alert = None
-        
+
         # Check overbought condition (KD >= 80)
         if kd_k >= overbought_threshold or kd_d >= overbought_threshold:
+            f = self._evaluate_filters(stock_data, "overbought")
+            confidence = "unknown" if not f["available"] else ("high" if f["confirmed"] else "low")
+            suffix = ""
+            if f["available"] and not f["confirmed"]:
+                suffix = "（⚠️ 疑似高檔鈍化，非明確賣出訊號）"
             alert = {
                 "id": f"{symbol}_{datetime.now().strftime('%Y%m%d')}_overbought",
                 "symbol": symbol,
@@ -98,15 +198,23 @@ class AlertChecker:
                 "kd_d": kd_d,
                 "current_price": current_price,
                 "threshold": overbought_threshold,
-                "message": f"⚠️ {symbol} ({stock_data.get('name', symbol)}) is OVERBOUGHT! KD-K: {kd_k}, KD-D: {kd_d} (>= {overbought_threshold})",
+                "filter_confidence": confidence,
+                "filter_passed": f["passed"],
+                "filter_cautions": f["cautions"],
+                "message": f"⚠️ {symbol} ({stock_data.get('name', symbol)}) is OVERBOUGHT! KD-K: {kd_k}, KD-D: {kd_d} (>= {overbought_threshold}){suffix}",
                 "timestamp": datetime.now().isoformat(),
                 "date": datetime.now().strftime("%Y-%m-%d"),
                 "acknowledged": False
             }
-            logger.warning(f"ALERT: {symbol} is overbought! K={kd_k}, D={kd_d}")
-        
+            logger.warning(f"ALERT: {symbol} is overbought! K={kd_k}, D={kd_d}, confidence={confidence}")
+
         # Check oversold condition (KD <= 20)
         elif kd_k <= oversold_threshold or kd_d <= oversold_threshold:
+            f = self._evaluate_filters(stock_data, "oversold")
+            confidence = "unknown" if not f["available"] else ("high" if f["confirmed"] else "low")
+            suffix = ""
+            if f["available"] and not f["confirmed"]:
+                suffix = "（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）"
             alert = {
                 "id": f"{symbol}_{datetime.now().strftime('%Y%m%d')}_oversold",
                 "symbol": symbol,
@@ -118,13 +226,16 @@ class AlertChecker:
                 "kd_d": kd_d,
                 "current_price": current_price,
                 "threshold": oversold_threshold,
-                "message": f"✅ {symbol} ({stock_data.get('name', symbol)}) is OVERSOLD! KD-K: {kd_k}, KD-D: {kd_d} (<= {oversold_threshold})",
+                "filter_confidence": confidence,
+                "filter_passed": f["passed"],
+                "filter_cautions": f["cautions"],
+                "message": f"✅ {symbol} ({stock_data.get('name', symbol)}) is OVERSOLD! KD-K: {kd_k}, KD-D: {kd_d} (<= {oversold_threshold}){suffix}",
                 "timestamp": datetime.now().isoformat(),
                 "date": datetime.now().strftime("%Y-%m-%d"),
                 "acknowledged": False
             }
-            logger.info(f"ALERT: {symbol} is oversold! K={kd_k}, D={kd_d}")
-        
+            logger.info(f"ALERT: {symbol} is oversold! K={kd_k}, D={kd_d}, confidence={confidence}")
+
         return alert
     
     def check_all_stocks(self, stocks_data: Dict[str, List[Dict]]) -> List[Dict]:

@@ -569,15 +569,15 @@ class StockFetcher:
         it's live.
         """
         chip_data = {
-            "foreign_net": {"value": None, "unit": "億元", "date": None},
-            "trust_net": {"value": None, "unit": "億元", "date": None},
-            "margin_balance": {"value": None, "change": None, "unit": "張", "date": None},
-            "margin_balance_amount": {"value": None, "change": None, "unit": "億元", "date": None},
-            "short_balance": {"value": None, "change": None, "unit": "張", "date": None},
-            "margin_short_ratio": {"value": None, "unit": "%"},
-            "usdtwd": {"value": None, "change": None},
-            "foreign_futures_net": {"value": None, "unit": "口", "date": None},
-            "put_call_ratio": {"value": None, "unit": "%", "date": None},
+            "foreign_net": {"value": None, "change": None, "change_pct": None, "unit": "億元", "date": None},
+            "trust_net": {"value": None, "change": None, "change_pct": None, "unit": "億元", "date": None},
+            "margin_balance": {"value": None, "change": None, "change_pct": None, "unit": "張", "date": None},
+            "margin_balance_amount": {"value": None, "change": None, "change_pct": None, "unit": "億元", "date": None},
+            "short_balance": {"value": None, "change": None, "change_pct": None, "unit": "張", "date": None},
+            "margin_short_ratio": {"value": None, "change": None, "change_pct": None, "unit": "%"},
+            "usdtwd": {"value": None, "change": None, "change_pct": None},
+            "foreign_futures_net": {"value": None, "change": None, "change_pct": None, "unit": "口", "date": None},
+            "put_call_ratio": {"value": None, "change": None, "change_pct": None, "unit": "%", "date": None},
             "night_session": {"close": None, "prev_close": None, "gap": None,
                                "gap_pct": None, "date": None, "prev_date": None}
         }
@@ -615,11 +615,15 @@ class StockFetcher:
 
                 margin_today = None
                 short_today = None
+                margin_prev = None
+                short_prev = None
                 if margin_row:
                     margin_today = self._twse_num(margin_row[5])
                     margin_prev = self._twse_num(margin_row[4])
+                    change = margin_today - margin_prev
                     chip_data["margin_balance"] = {
-                        "value": margin_today, "change": round(margin_today - margin_prev, 0),
+                        "value": margin_today, "change": round(change, 0),
+                        "change_pct": round(change / abs(margin_prev) * 100, 2) if margin_prev else None,
                         "unit": "張", "date": report_date
                     }
                 if margin_amount_row:
@@ -627,20 +631,30 @@ class StockFetcher:
                     # 融資斷頭 is usually reported in the news ("單日減幅數十億")
                     amount_today = self._twse_num(margin_amount_row[5]) * 1000 / 1e8
                     amount_prev = self._twse_num(margin_amount_row[4]) * 1000 / 1e8
+                    change = amount_today - amount_prev
                     chip_data["margin_balance_amount"] = {
-                        "value": round(amount_today, 2), "change": round(amount_today - amount_prev, 2),
+                        "value": round(amount_today, 2), "change": round(change, 2),
+                        "change_pct": round(change / abs(amount_prev) * 100, 2) if amount_prev else None,
                         "unit": "億元", "date": report_date
                     }
                 if short_row:
                     short_today = self._twse_num(short_row[5])
                     short_prev = self._twse_num(short_row[4])
+                    change = short_today - short_prev
                     chip_data["short_balance"] = {
-                        "value": short_today, "change": round(short_today - short_prev, 0),
+                        "value": short_today, "change": round(change, 0),
+                        "change_pct": round(change / abs(short_prev) * 100, 2) if short_prev else None,
                         "unit": "張", "date": report_date
                     }
                 if margin_today and short_today is not None:
+                    ratio_today = short_today / margin_today * 100
+                    ratio_prev = (short_prev / margin_prev * 100) if margin_prev else None
+                    ratio_change = (ratio_today - ratio_prev) if ratio_prev is not None else None
                     chip_data["margin_short_ratio"] = {
-                        "value": round(short_today / margin_today * 100, 2), "unit": "%"
+                        "value": round(ratio_today, 2),
+                        "change": round(ratio_change, 2) if ratio_change is not None else None,
+                        "change_pct": round(ratio_change / abs(ratio_prev) * 100, 2) if ratio_change is not None and ratio_prev else None,
+                        "unit": "%"
                     }
         except Exception as e:
             logger.error(f"Error fetching TWSE MI_MARGN (融資融券): {e}")
@@ -652,7 +666,11 @@ class StockFetcher:
             if not hist_twd.empty:
                 latest_val = hist_twd['Close'].iloc[-1]
                 prev_val = hist_twd['Close'].iloc[-2] if len(hist_twd) >= 2 else latest_val
-                chip_data["usdtwd"] = {"value": round(latest_val, 3), "change": round(latest_val - prev_val, 3)}
+                change = latest_val - prev_val
+                chip_data["usdtwd"] = {
+                    "value": round(latest_val, 3), "change": round(change, 3),
+                    "change_pct": round(change / prev_val * 100, 2) if prev_val else None
+                }
         except Exception as e:
             logger.error(f"Error fetching USD/TWD: {e}")
 

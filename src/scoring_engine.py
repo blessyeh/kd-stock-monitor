@@ -81,6 +81,15 @@ class ScoringEngine:
         scores['trend'] = trend_score
         details['trend'] = {'score': trend_score, **trend_detail}
 
+        # 7. Bollinger Bands — informational only (not weighted into `total`),
+        # used by alert_checker.py as a mean-reversion confirmation filter
+        # alongside the MA/volume/MACD filters: a KD<=20 reading that also
+        # touches the lower band has a statistically higher bounce rate than
+        # KD<=20 alone, and a KD>=80 reading that touches the upper band
+        # without volume confirmation flags short-term exhaustion.
+        bb_detail = self._calc_bollinger(closes)
+        details['bollinger'] = bb_detail
+
         # Weighted total
         total = sum(scores[k] * self.weights[k] for k in self.weights)
         total = round(min(100, max(0, total)), 1)
@@ -97,8 +106,13 @@ class ScoringEngine:
                 'ma20': ma_bias_detail.get('ma20'),
                 'ma60': ma_bias_detail.get('ma60'),
                 'macd_hist': macd_detail.get('macd_hist'),
+                'macd_hist_prev': macd_detail.get('macd_hist_prev'),
                 'volume_ratio': vp_detail.get('volume_ratio'),
                 'slope_20d': trend_detail.get('slope_20d'),
+                'trend_dir': trend_detail.get('trend_dir'),
+                'bb_upper': bb_detail.get('bb_upper'),
+                'bb_lower': bb_detail.get('bb_lower'),
+                'percent_b': bb_detail.get('percent_b'),
             }
         }
 
@@ -341,6 +355,38 @@ class ScoringEngine:
         return score, {'slope_20d': round(slope_pct, 3),
                        'volatility': round(volatility, 2),
                        'trend_dir': trend_dir}
+
+    # ── Bollinger Bands ─────────────────────────
+    @staticmethod
+    def _calc_bollinger(closes: np.ndarray, period: int = 20, num_std: float = 2.0) -> Dict:
+        """
+        20-period Bollinger Bands (2 standard deviations, the standard
+        default). percent_b expresses where the latest close sits relative
+        to the bands: 0 = sitting on the lower band, 1 = sitting on the
+        upper band, <0 / >1 = price has pierced through the band.
+        """
+        if len(closes) < period:
+            return {'bb_upper': None, 'bb_mid': None, 'bb_lower': None, 'percent_b': None}
+        try:
+            window = closes[-period:]
+            mid = float(np.mean(window))
+            std = float(np.std(window))
+            if not (np.isfinite(mid) and np.isfinite(std)):
+                return {'bb_upper': None, 'bb_mid': None, 'bb_lower': None, 'percent_b': None}
+            upper = mid + num_std * std
+            lower = mid - num_std * std
+            price = float(closes[-1])
+            band_width = upper - lower
+            percent_b = (price - lower) / band_width if band_width > 0 else None
+        except Exception:
+            return {'bb_upper': None, 'bb_mid': None, 'bb_lower': None, 'percent_b': None}
+
+        return {
+            'bb_upper': round(upper, 2),
+            'bb_mid': round(mid, 2),
+            'bb_lower': round(lower, 2),
+            'percent_b': round(percent_b, 3) if percent_b is not None else None,
+        }
 
     # ── Recommendation ──────────────────────────
     @staticmethod

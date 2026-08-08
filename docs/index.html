@@ -122,10 +122,9 @@
                         <p id="taiex-change" class="text-lg font-semibold">-</p>
                     </div>
                 </div>
-                <div class="text-left sm:text-right border-t sm:border-t-0 sm:border-l border-dark-border pt-3 sm:pt-0 sm:pl-6 w-full sm:w-auto"
-                     title="台指期夜盤跳空幅度（與前一交易日盤收比較）。此為收盤後回溯性資料，約台北時間16:30更新，並非盤中即時報價。">
+                <div class="text-left sm:text-right border-t sm:border-t-0 sm:border-l border-dark-border pt-3 sm:pt-0 sm:pl-6 w-full sm:w-auto">
                     <p class="text-xs text-dark-text2 uppercase tracking-wider mb-1">
-                        台指期夜盤 <i class="fas fa-circle-info opacity-50"></i>
+                        台指期夜盤 <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer" data-info="night_session"></i>
                         <span id="taiex-night-date" class="normal-case font-normal"></span>
                     </p>
                     <div class="flex items-baseline gap-2 flex-wrap">
@@ -184,32 +183,39 @@
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
                 <div class="text-center">
-                    <p class="text-xs text-dark-text2">外資買賣超</p>
+                    <p class="text-xs text-dark-text2">外資買賣超 <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer" data-info="foreign_net"></i></p>
                     <p id="chip-foreign" class="font-bold text-lg mt-1">-</p>
+                    <p id="chip-foreign-chg" class="text-[10px] leading-tight">-</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-xs text-dark-text2">投信買賣超</p>
+                    <p class="text-xs text-dark-text2">投信買賣超 <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer" data-info="trust_net"></i></p>
                     <p id="chip-trust" class="font-bold text-lg mt-1">-</p>
+                    <p id="chip-trust-chg" class="text-[10px] leading-tight">-</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-xs text-dark-text2">融資餘額</p>
+                    <p class="text-xs text-dark-text2">融資餘額 <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer" data-info="margin_balance"></i></p>
                     <p id="chip-margin" class="font-bold text-lg mt-1">-</p>
+                    <p id="chip-margin-chg" class="text-[10px] leading-tight">-</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-xs text-dark-text2">資券比</p>
+                    <p class="text-xs text-dark-text2">資券比 <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer" data-info="margin_short_ratio"></i></p>
                     <p id="chip-ratio" class="font-bold text-lg mt-1">-</p>
+                    <p id="chip-ratio-chg" class="text-[10px] leading-tight">-</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-xs text-dark-text2">新台幣匯率</p>
+                    <p class="text-xs text-dark-text2">新台幣匯率 <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer" data-info="usdtwd"></i></p>
                     <p id="chip-twd" class="font-bold text-lg mt-1">-</p>
+                    <p id="chip-twd-chg" class="text-[10px] leading-tight">-</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-xs text-dark-text2">外資期貨淨部位</p>
+                    <p class="text-xs text-dark-text2">外資期貨淨部位 <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer" data-info="foreign_futures_net"></i></p>
                     <p id="chip-futures" class="font-bold text-lg mt-1">-</p>
+                    <p id="chip-futures-chg" class="text-[10px] leading-tight">-</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-xs text-dark-text2">選擇權P/C比</p>
+                    <p class="text-xs text-dark-text2">選擇權P/C比 <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer" data-info="put_call_ratio"></i></p>
                     <p id="chip-pcratio" class="font-bold text-lg mt-1">-</p>
+                    <p id="chip-pcratio-chg" class="text-[10px] leading-tight">-</p>
                 </div>
             </div>
         </div>
@@ -218,6 +224,7 @@
         <div class="dark-card rounded-lg border border-dark-border mb-6 p-4">
             <h2 class="text-sm font-bold text-white mb-1 flex items-center">
                 <i class="fas fa-bullseye mr-2 text-accent"></i>訊號共振：大盤轉折觀察
+                <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer ml-2" data-info="signal_confluence"></i>
                 <span id="confluence-date" class="text-xs text-dark-text2 font-normal ml-2"></span>
             </h2>
             <div id="confluence-body">
@@ -382,9 +389,20 @@
         </div>
     </footer>
 
+    <!-- Info Popover (tap-to-open explanation for indicators; hover tooltips
+         don't work on mobile, so every "ⓘ" icon on the page opens this
+         instead) -->
+    <div id="info-modal-backdrop" class="hidden fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="dark-card border border-dark-border rounded-t-xl sm:rounded-xl w-full sm:max-w-md max-h-[80vh] overflow-y-auto p-5 relative">
+            <button id="info-modal-close" class="absolute top-3 right-3 text-dark-text2 hover:text-white text-xl leading-none">&times;</button>
+            <h3 id="info-modal-title" class="text-base font-bold text-white mb-2 pr-6"></h3>
+            <p id="info-modal-body" class="text-sm text-dark-text2 leading-relaxed whitespace-pre-line"></p>
+        </div>
+    </div>
+
     <!-- Scripts - force refresh -->
-    <script src="js/data.js?v=202606050500"></script>
-    <script src="js/chart.js?v=202606050500"></script>
-    <script src="js/app.js?v=202606050500"></script>
+    <script src="js/data.js?v=202608090400"></script>
+    <script src="js/chart.js?v=202608090400"></script>
+    <script src="js/app.js?v=202608090400"></script>
 </body>
 </html>

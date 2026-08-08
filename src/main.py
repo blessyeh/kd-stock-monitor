@@ -114,15 +114,15 @@ class KDStockMonitor:
                     "sp500": {"value": 5450.0, "change": 12.1, "change_pct": 0.22}
                 }
                 tw_chip_indicators = {
-                    "foreign_net": {"value": -40.7, "unit": "億元", "date": "2026-08-07"},
-                    "trust_net": {"value": -12.0, "unit": "億元", "date": "2026-08-07"},
-                    "margin_balance": {"value": 8986438, "change": 28177, "unit": "張", "date": "2026-08-07"},
-                    "margin_balance_amount": {"value": 5376.6, "change": 48.6, "unit": "億元", "date": "2026-08-07"},
-                    "short_balance": {"value": 192740, "change": 843, "unit": "張", "date": "2026-08-07"},
-                    "margin_short_ratio": {"value": 2.15, "unit": "%"},
-                    "usdtwd": {"value": 31.25, "change": -0.05},
-                    "foreign_futures_net": {"value": -87911, "unit": "口", "date": "2026-08-07"},
-                    "put_call_ratio": {"value": 76.92, "unit": "%", "date": "2026-08-07"},
+                    "foreign_net": {"value": -40.7, "change": 20.7, "change_pct": 50.86, "unit": "億元", "date": "2026-08-07"},
+                    "trust_net": {"value": -12.0, "change": -3.5, "change_pct": -41.18, "unit": "億元", "date": "2026-08-07"},
+                    "margin_balance": {"value": 8986438, "change": 28177, "change_pct": 0.31, "unit": "張", "date": "2026-08-07"},
+                    "margin_balance_amount": {"value": 5376.6, "change": 48.6, "change_pct": 0.91, "unit": "億元", "date": "2026-08-07"},
+                    "short_balance": {"value": 192740, "change": 843, "change_pct": 0.44, "unit": "張", "date": "2026-08-07"},
+                    "margin_short_ratio": {"value": 2.15, "change": 0.02, "change_pct": 0.94, "unit": "%"},
+                    "usdtwd": {"value": 31.25, "change": -0.05, "change_pct": -0.16},
+                    "foreign_futures_net": {"value": -87911, "change": 3204, "change_pct": 3.52, "unit": "口", "date": "2026-08-07"},
+                    "put_call_ratio": {"value": 76.92, "change": -2.31, "change_pct": -2.92, "unit": "%", "date": "2026-08-07"},
                     "night_session": {"close": 23100, "prev_close": 23180, "gap": -80,
                                        "gap_pct": -0.35, "date": "2026-08-08", "prev_date": "2026-08-07"}
                 }
@@ -389,6 +389,43 @@ class KDStockMonitor:
         history.sort(key=lambda h: h.get("date") or "")
         return history[-250:]
 
+    def _enrich_chip_changes(self, tw_chip_indicators: Dict, history: list, snapshot_date: str):
+        """
+        Add change / change_pct (vs. the most recent prior trading day in
+        history) to chip fields that don't already carry one from fetcher.py.
+        Mutates tw_chip_indicators in place.
+
+        change_pct is computed as change / abs(prev_value) rather than the
+        textbook change / prev_value, so its sign always matches change's
+        sign. This matters specifically for foreign_net/trust_net, which are
+        net buy/sell amounts that regularly cross zero (e.g. -40.7 -> -20.0
+        is an improvement/less selling — dividing by the raw negative prev
+        value would flip that into a misleading negative percentage).
+        """
+        prior = next((h for h in reversed(history) if h.get("date") and h["date"] < snapshot_date), None)
+        if not prior:
+            return
+
+        # (chip key, history key, rounding decimals)
+        fields_to_enrich = [
+            ("foreign_net", "foreign_net", 2),
+            ("trust_net", "trust_net", 2),
+            ("foreign_futures_net", "foreign_futures_net", 0),
+            ("put_call_ratio", "put_call_ratio", 2),
+        ]
+        for chip_key, hist_key, decimals in fields_to_enrich:
+            field = tw_chip_indicators.get(chip_key)
+            if not isinstance(field, dict) or field.get("value") is None:
+                continue
+            if field.get("change") is not None:
+                continue  # fetcher.py already computed this one
+            prev_val = prior.get(hist_key)
+            if prev_val is None:
+                continue
+            change = field["value"] - prev_val
+            field["change"] = round(change, decimals)
+            field["change_pct"] = round(change / abs(prev_val) * 100, 2) if prev_val else None
+
     def _save_macro_history(self, macro_indicators: Dict, tw_chip_indicators: Dict,
                              test_mode: bool = False) -> list:
         """
@@ -440,6 +477,17 @@ class KDStockMonitor:
             or tw_chip_indicators.get("margin_balance", {}).get("date")
             or datetime.now().strftime("%Y-%m-%d")
         )
+
+        # foreign_net/trust_net (BFI82U) and foreign_futures_net/put_call_ratio
+        # (FinMind) come back as single-day snapshots with no prior-day value
+        # embedded in the API response (unlike margin/short/usdtwd, which are
+        # enriched with change/change_pct directly in fetcher.py from data
+        # that's already in the same response). For these four, the only
+        # place a prior value is available is yesterday's persisted history
+        # entry, so enrich them here, in place, before today's entry is built
+        # — this way summary.json's "chip" payload carries change/change_pct
+        # for every field, not just the ones fetcher.py could compute alone.
+        self._enrich_chip_changes(tw_chip_indicators, history, snapshot_date)
 
         entry = {
             "date": snapshot_date,
