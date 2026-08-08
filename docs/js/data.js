@@ -221,11 +221,14 @@ const DataManager = {
         try {
             // Try to load from data files
             // Note: When deployed to GitHub Pages, data is copied to docs/data/
-            // Add timestamp to bypass cache
-            const timestamp = new Date().getTime();
-            const stockResponse = await fetch(`./data/stock_data.json?v=${timestamp}`);
-            const alertsResponse = await fetch(`./data/alerts.json?v=${timestamp}`);
-            const summaryResponse = await fetch(`./data/summary.json?v=${timestamp}`);
+            // Use 'no-cache' (conditional revalidation via ETag/Last-Modified) instead of a
+            // random cache-busting query string — this still always gets fresh data logically,
+            // but lets the browser skip re-downloading the ~750KB payload via a 304 when
+            // the file hasn't actually changed (huge win for the 5-minute auto-refresh).
+            const fetchOpts = { cache: 'no-cache' };
+            const stockResponse = await fetch(`./data/stock_data.json`, fetchOpts);
+            const alertsResponse = await fetch(`./data/alerts.json`, fetchOpts);
+            const summaryResponse = await fetch(`./data/summary.json`, fetchOpts);
             
             if (stockResponse.ok) {
                 this.stockData = await stockResponse.json();
@@ -400,8 +403,7 @@ const DataManager = {
     async loadStockHistory(symbol) {
         try {
             const fileName = symbol.replace(/\./g, '_') + '_kd.csv';
-            const timestamp = new Date().getTime();
-            const response = await fetch(`./data/${fileName}?v=${timestamp}`);
+            const response = await fetch(`./data/${fileName}`, { cache: 'no-cache' });
             if (!response.ok) {
                 console.log(`History file not found for ${symbol}: ${fileName}`);
                 return null;

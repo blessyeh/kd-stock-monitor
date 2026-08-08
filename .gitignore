@@ -38,6 +38,14 @@ env/
 # data/*.csv
 # data/*.json
 
+# docs/data is a build artifact: the deploy workflow copies data/ -> docs/data/
+# fresh on every run for the GitHub Pages upload. It should NOT be committed —
+# doing so just duplicates the entire data/ directory in every commit's tree
+# and, since nothing ever re-commits it, it silently goes stale vs. the real
+# data/ history anyway. Run `git rm -r --cached docs/data` once to untrack the
+# existing copy (see project docs for the full command).
+docs/data/
+
 # Logs
 *.log
 

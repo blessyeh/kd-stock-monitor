@@ -20,11 +20,7 @@ class KDCalculator:
     def __init__(self, config_path: str = "config.json"):
         """Initialize with configuration."""
         self.config = self._load_config(config_path)
-        self.kd_settings = self.config.get("kd_settings", {
-            "k_period": 9,
-            "d_period": 3,
-            "smooth": 3
-        })
+        self.kd_settings = self.config.get("kd_settings", {"k_period": 9})
         self.data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
         os.makedirs(self.data_dir, exist_ok=True)
     
@@ -56,20 +52,26 @@ class KDCalculator:
         
         # Get settings
         k_period = self.kd_settings.get("k_period", 9)
-        d_period = self.kd_settings.get("d_period", 3)
-        
+
         # Calculate KD using manual method
-        result_df = self._calculate_kd_manual(result_df, k_period, d_period)
-        
+        result_df = self._calculate_kd_manual(result_df, k_period)
+
         return result_df
-    
-    def _calculate_kd_manual(self, df: pd.DataFrame, k_period: int, d_period: int) -> pd.DataFrame:
+
+    def _calculate_kd_manual(self, df: pd.DataFrame, k_period: int) -> pd.DataFrame:
         """
         Manual KD calculation (Taiwan style).
-        
+
         RSV = 100 * (Close - Lowest Low) / (Highest High - Lowest Low)
         K = (2/3) * Previous K + (1/3) * RSV
         D = (2/3) * Previous D + (1/3) * K
+
+        Note: the 2/3 and 1/3 smoothing weights are fixed by convention for the
+        standard Taiwan-style KD formula and are NOT derived from a separate
+        "d_period"/"smooth" setting — only the RSV lookback window (k_period,
+        default 9 days) is configurable. Earlier versions of config.json exposed
+        unused d_period/smooth keys that had no effect on this calculation; they
+        were removed to avoid the false impression that changing them does anything.
         """
         result_df = df.copy()
         

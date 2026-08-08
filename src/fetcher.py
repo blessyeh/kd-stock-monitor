@@ -8,6 +8,7 @@ import yfinance as yf
 import pandas as pd
 import json
 import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple
 import logging
@@ -208,47 +209,88 @@ class StockFetcher:
                 return local_df
             return None
     
-    def fetch_all_stocks(self) -> Dict[str, List[Dict]]:
+    def _fetch_one_stock(self, market: str, stock: Dict) -> Tuple[str, Optional[Dict]]:
+        """
+        Fetch data + extra_data for a single stock. Designed to be safe to run
+        from a worker thread: each symbol only touches its own CSV file and its
+        own yf.Ticker instance, so there's no shared mutable state between calls.
+        """
+        symbol = stock["symbol"]
+        df = self.fetch_stock_data(symbol)
+
+        if df is None or df.empty:
+            logger.warning(f"Failed to fetch data for {symbol}")
+            return market, None
+
+        # Get real-time/extended hours data
+        extra_data = {}
+        try:
+            ticker = yf.Ticker(symbol)
+            info = ticker.info
+            extra_data = {
+                "regular_market_price": info.get("regularMarketPrice"),
+                "pre_market_price": info.get("preMarketPrice"),
+                "post_market_price": info.get("postMarketPrice"),
+                "prev_close": info.get("regularMarketPreviousClose")
+            }
+        except Exception as e:
+            logger.error(f"Error fetching extra data for {symbol}: {e}")
+
+        return market, {
+            "symbol": symbol,
+            "name": stock["name"],
+            "market": market,
+            "data": df,
+            "extra_data": extra_data,
+            "last_updated": datetime.now().isoformat()
+        }
+
+    def fetch_all_stocks(self, max_workers: int = 5) -> Dict[str, List[Dict]]:
         """
         Fetch data for all configured stocks with incremental update support.
-        
+
+        Fetches run on a small thread pool since each call is network-bound
+        (Yahoo Finance HTTP requests) and largely blocked on I/O wait, not CPU.
+        max_workers is kept modest by default to avoid tripping Yahoo Finance's
+        rate limiting when running ~100+ symbols back to back.
+
         Returns:
             Dictionary with stock data organized by market
         """
         results = {"TW": [], "US": []}
-        
-        for market in ["TW", "US"]:
-            stocks = self.config["stocks"][market]
-            for stock in stocks:
-                symbol = stock["symbol"]
-                df = self.fetch_stock_data(symbol)
-                
-                if df is not None and not df.empty:
-                    # Get real-time/extended hours data
-                    extra_data = {}
-                    try:
-                        ticker = yf.Ticker(symbol)
-                        info = ticker.info
-                        extra_data = {
-                            "regular_market_price": info.get("regularMarketPrice"),
-                            "pre_market_price": info.get("preMarketPrice"),
-                            "post_market_price": info.get("postMarketPrice"),
-                            "prev_close": info.get("regularMarketPreviousClose")
-                        }
-                    except Exception as e:
-                        logger.error(f"Error fetching extra data for {symbol}: {e}")
-                    
-                    results[market].append({
-                        "symbol": symbol,
-                        "name": stock["name"],
-                        "market": market,
-                        "data": df,
-                        "extra_data": extra_data,
-                        "last_updated": datetime.now().isoformat()
-                    })
-                else:
-                    logger.warning(f"Failed to fetch data for {symbol}")
-        
+        tasks = [
+            (market, stock)
+            for market in ["TW", "US"]
+            for stock in self.config["stocks"][market]
+        ]
+
+        if not tasks:
+            return results
+
+        workers = max(1, min(max_workers, len(tasks)))
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            future_to_symbol = {
+                executor.submit(self._fetch_one_stock, market, stock): stock["symbol"]
+                for market, stock in tasks
+            }
+            for future in as_completed(future_to_symbol):
+                symbol = future_to_symbol[future]
+                try:
+                    market, entry = future.result()
+                    if entry is not None:
+                        results[market].append(entry)
+                except Exception as e:
+                    logger.error(f"Unhandled error fetching {symbol}: {e}")
+
+        # Threads complete out of order; restore the configured symbol order so
+        # downstream output (JSON, dashboard ordering) stays deterministic.
+        order = {
+            market: [s["symbol"] for s in self.config["stocks"][market]]
+            for market in ["TW", "US"]
+        }
+        for market in results:
+            results[market].sort(key=lambda s: order[market].index(s["symbol"]))
+
         return results
     
     def _save_raw_data(self, symbol: str, df: pd.DataFrame):
