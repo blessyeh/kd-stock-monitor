@@ -75,7 +75,12 @@ jobs:
           git add data/
           # Commit 訊息會自動使用台灣時間
           git commit -m "📊 自動更新資料 - $(date +'%Y-%m-%d %H:%M') (台北時間)"
-          git push
+          
+          # 在 push 前拉取遠端最新變更，使用 rebase 避免產生多餘的合併節點
+          git pull --rebase origin ${{ github.ref_name }}
+          
+          # 推送至觸發工作流程的當前分支
+          git push origin ${{ github.ref_name }}
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
