@@ -59,6 +59,14 @@ def _series(history: List[Dict], key: str, window: Optional[int] = None) -> List
 
 
 def _condition(cid: str, label: str, status: Optional[bool], completeness: str, detail: str) -> Dict:
+    # Defensive cast: every condition above computes `status` via comparisons
+    # (>, >=, <, and/or) on values from history. main.py's _to_native() should
+    # already keep numpy types out of that history, but this is the single
+    # choke point all 8 conditions pass through — cheap insurance against a
+    # numpy.bool_ (which json.dump() can't serialize) slipping into the
+    # persisted summary from here or any future condition added later.
+    if status is not None:
+        status = bool(status)
     return {"id": cid, "label": label, "status": status, "completeness": completeness, "detail": detail}
 
 

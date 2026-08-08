@@ -312,6 +312,31 @@ class KDStockMonitor:
                 logger.warning(f"Could not load macro_history.json: {e}")
         return []
 
+    @staticmethod
+    def _to_native(value):
+        """
+        Coerce numpy/pandas scalar types (numpy.float64, numpy.bool_, ...) to
+        plain Python types before they enter history that gets JSON-persisted
+        or compared against JSON-loaded (already-plain) values.
+
+        Why this matters: fetcher.py's round(pandas_series_value, N) returns a
+        numpy.float64, not a plain float. That's harmless on its own — float64
+        IS a subclass of Python's float, so json.dump() serializes it fine —
+        but a numpy.float64 (today's fresh value) compared against a plain
+        float (a prior day's value, already round-tripped through JSON) via
+        >, >=, < produces numpy.bool_, NOT Python bool. json.dump() can't
+        serialize numpy.bool_ ("Object of type bool is not JSON serializable"
+        — numpy 2.x's repr for numpy.bool_ is literally "bool", so the error
+        looks like it's complaining about an ordinary bool). Converting here,
+        at the point values enter persisted history, stops the numpy type
+        from ever reaching a comparison in signal_confluence.py.
+        """
+        if value is None:
+            return None
+        if hasattr(value, "item"):
+            return value.item()
+        return value
+
     def _merge_backfill(self, history: list, backfill: Dict[str, Dict]) -> list:
         """
         Merge a fetcher.backfill_macro_history() result into the existing daily
@@ -388,20 +413,20 @@ class KDStockMonitor:
 
         entry = {
             "date": snapshot_date,
-            "dxy": macro_indicators.get("dxy", {}).get("value"),
-            "us10y": macro_indicators.get("us10y", {}).get("value"),
-            "vix": macro_indicators.get("fear_greed", {}).get("value"),
-            "usdtwd": tw_chip_indicators.get("usdtwd", {}).get("value"),
-            "foreign_net": tw_chip_indicators.get("foreign_net", {}).get("value"),
-            "trust_net": tw_chip_indicators.get("trust_net", {}).get("value"),
-            "margin_balance": tw_chip_indicators.get("margin_balance", {}).get("value"),
-            "margin_balance_amount": tw_chip_indicators.get("margin_balance_amount", {}).get("value"),
-            "foreign_futures_net": tw_chip_indicators.get("foreign_futures_net", {}).get("value"),
-            "put_call_ratio": tw_chip_indicators.get("put_call_ratio", {}).get("value"),
-            "sox": macro_indicators.get("sox", {}).get("value"),
-            "ndx": macro_indicators.get("ndx", {}).get("value"),
-            "sp500": macro_indicators.get("sp500", {}).get("value"),
-            "night_session_gap_pct": tw_chip_indicators.get("night_session", {}).get("gap_pct"),
+            "dxy": self._to_native(macro_indicators.get("dxy", {}).get("value")),
+            "us10y": self._to_native(macro_indicators.get("us10y", {}).get("value")),
+            "vix": self._to_native(macro_indicators.get("fear_greed", {}).get("value")),
+            "usdtwd": self._to_native(tw_chip_indicators.get("usdtwd", {}).get("value")),
+            "foreign_net": self._to_native(tw_chip_indicators.get("foreign_net", {}).get("value")),
+            "trust_net": self._to_native(tw_chip_indicators.get("trust_net", {}).get("value")),
+            "margin_balance": self._to_native(tw_chip_indicators.get("margin_balance", {}).get("value")),
+            "margin_balance_amount": self._to_native(tw_chip_indicators.get("margin_balance_amount", {}).get("value")),
+            "foreign_futures_net": self._to_native(tw_chip_indicators.get("foreign_futures_net", {}).get("value")),
+            "put_call_ratio": self._to_native(tw_chip_indicators.get("put_call_ratio", {}).get("value")),
+            "sox": self._to_native(macro_indicators.get("sox", {}).get("value")),
+            "ndx": self._to_native(macro_indicators.get("ndx", {}).get("value")),
+            "sp500": self._to_native(macro_indicators.get("sp500", {}).get("value")),
+            "night_session_gap_pct": self._to_native(tw_chip_indicators.get("night_session", {}).get("gap_pct")),
         }
 
         # Overwrite today's entry if we already have one (hourly reruns), else append
