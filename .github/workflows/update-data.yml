@@ -76,9 +76,17 @@ jobs:
           # Commit 訊息會自動使用台灣時間
           git commit -m "📊 自動更新資料 - $(date +'%Y-%m-%d %H:%M') (台北時間)"
           
-          # 在 push 前拉取遠端最新變更，使用 rebase 避免產生多餘的合併節點
-          git pull --rebase origin ${{ github.ref_name }}
-          
+          # 在 push 前拉取遠端最新變更，使用 rebase 避免產生多餘的合併節點。
+          # 這個 commit 只會動到 data/（機器產生、每小時都會被覆蓋的資料），
+          # 所以發生衝突時可以放心採用「這次 rebase 正在套用的 commit」（也就是
+          # 這次剛產生的最新資料）── 對 git rebase 而言那是 -X theirs，
+          # 而不是字面上看起來相反的 -X ours。
+          if ! git pull --rebase -X theirs origin ${{ github.ref_name }}; then
+            echo "Rebase 發生非預期衝突，改用一般 merge 並保留這次最新產生的資料"
+            git rebase --abort
+            git pull --no-rebase -X ours origin ${{ github.ref_name }}
+          fi
+
           # 推送至觸發工作流程的當前分支
           git push origin ${{ github.ref_name }}
           
