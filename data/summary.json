@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-10T05:31:15.871510",
+  "timestamp": "2026-08-10T06:27:39.786867",
   "date": "2026-08-10",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -0.21
     },
     "dxy": {
-      "value": 99.6,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 99.62,
+      "change": 0.02,
+      "change_pct": 0.02
     },
     "fear_greed": {
       "value": 14.9,
       "change": -0.25,
       "change_pct": -1.65,
       "label": "VIX Index",
-      "timestamp": "2026-08-10T05:27:45.924951"
+      "timestamp": "2026-08-10T06:26:18.488244"
     },
     "btc": {
-      "value": 65094.0,
-      "change": 189.0,
-      "change_pct": 0.29
+      "value": 65182.0,
+      "change": 277.0,
+      "change_pct": 0.43
     },
     "oil": {
-      "value": 78.18,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 79.03,
+      "change": 0.85,
+      "change_pct": 1.09
     },
     "gold": {
-      "value": 4399.7,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 4402.6,
+      "change": 61.9,
+      "change_pct": 1.43
     },
     "sox": {
       "value": 12356.79,
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 32.235,
-      "change": 0.028,
-      "change_pct": 0.09
+      "value": 32.234,
+      "change": 0.027,
+      "change_pct": 0.08
     },
     "foreign_futures_net": {
       "value": -87911,
@@ -136,14 +136,14 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.60 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.08pp（未達 0.15pp）"
+          "detail": "DXY 99.62 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.08pp（未達 0.15pp）"
         },
         {
           "id": "twd_depreciation",
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.160（貶值門檻 0.3）"
+          "detail": "USD/TWD 5日變動 -0.161（貶值門檻 0.3）"
         },
         {
           "id": "foreign_dual_short",
@@ -194,7 +194,7 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.160（止穩/升值）；外資今日仍賣超，近期均值 +269.9億元；台指期淨部位5日變動 -5396口（未回補）"
+          "detail": "USD/TWD 5日變動 -0.161（止穩/升值）；外資今日仍賣超，近期均值 +269.9億元；台指期淨部位5日變動 -5396口（未回補）"
         }
       ],
       "total_conditions": 3,
@@ -225,7 +225,7 @@
           "score": 10.0,
           "cap": 25,
           "notes": [
-            "DXY 99.60 未創近20日新高（美元壓力未加劇，+10）"
+            "DXY 99.62 未創近20日新高（美元壓力未加劇，+10）"
           ]
         },
         {
@@ -381,7 +381,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $420.0 換算2330隱含價 2708.0元，2330現價 2370.0元（折價 12.5%）",
+          "TSM ADR $420.0 換算2330隱含價 2707.9元，2330現價 2370.0元（折價 12.5%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -414,6 +414,31 @@
       "meta": null
     },
     {
+      "title": "公司債出包3／兆基李建成羈押　宏碁入主48小時閃退「不接盤」風暴",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%8F%B8%E5%82%B5%E5%87%BA%E5%8C%853-%E5%85%86%E5%9F%BA%E6%9D%8E%E5%BB%BA%E6%88%90%E7%BE%88%E6%8A%BC-%E5%AE%8F%E7%A2%81%E5%85%A5%E4%B8%BB48%E5%B0%8F%E6%99%82%E9%96%83%E9%80%80-%E4%B8%8D%E6%8E%A5%E7%9B%A4-%E9%A2%A8%E6%9A%B4-220000357.html",
+      "meta": null
+    },
+    {
+      "title": "公司債出包2／李建成辯未參與財務　自救會轟「又再騙」擬團體訴訟",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%8F%B8%E5%82%B5%E5%87%BA%E5%8C%852-%E6%9D%8E%E5%BB%BA%E6%88%90%E8%BE%AF%E6%9C%AA%E5%8F%83%E8%88%87%E8%B2%A1%E5%8B%99-%E8%87%AA%E6%95%91%E6%9C%83%E8%BD%9F-%E5%8F%88%E5%86%8D%E9%A8%99-%E6%93%AC%E5%9C%98%E9%AB%94%E8%A8%B4%E8%A8%9F-220000777.html",
+      "meta": null
+    },
+    {
+      "title": "公司債出包1／財務爆雷　獨家專訪兆基創辦人李建成親曝「我本來要落跑」",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%8F%B8%E5%82%B5%E5%87%BA%E5%8C%851-%E8%B2%A1%E5%8B%99%E7%88%86%E9%9B%B7-%E7%8D%A8%E5%AE%B6%E5%B0%88%E8%A8%AA%E5%85%86%E5%9F%BA%E5%89%B5%E8%BE%A6%E4%BA%BA%E6%9D%8E%E5%BB%BA%E6%88%90%E8%A6%AA%E6%9B%9D-%E6%88%91%E6%9C%AC%E4%BE%86%E8%A6%81%E8%90%BD%E8%B7%91-220000899.html",
+      "meta": null
+    },
+    {
+      "title": "「這檔ETF」受惠AI配息4.6元創新高　陳重銘：表現超越0050",
+      "url": "https://tw.stock.yahoo.com/news/%E9%80%99%E6%AA%94etf-%E5%8F%97%E6%83%A0ai%E9%85%8D%E6%81%AF4-6%E5%85%83%E5%89%B5%E6%96%B0%E9%AB%98-%E9%99%B3%E9%87%8D%E9%8A%98-%E8%A1%A8%E7%8F%BE%E8%B6%85%E8%B6%8A0050-215850308.html",
+      "meta": null
+    },
+    {
+      "title": "三商壽8／19最後交易日9月下市　245名千張大戶持股將換玉山金",
+      "url": "https://tw.stock.yahoo.com/news/%E4%B8%89%E5%95%86%E5%A3%BD8-19%E6%9C%80%E5%BE%8C%E4%BA%A4%E6%98%93%E6%97%A59%E6%9C%88%E4%B8%8B%E5%B8%82-245%E5%90%8D%E5%8D%83%E5%BC%B5%E5%A4%A7%E6%88%B6%E6%8C%81%E8%82%A1%E5%B0%87%E6%8F%9B%E7%8E%89%E5%B1%B1%E9%87%91-212800902.html",
+      "meta": null
+    },
+    {
       "title": "台股週報》外資由賣轉買　夜盤先站回45K",
       "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E9%80%B1%E5%A0%B1-%E5%A4%96%E8%B3%87%E7%94%B1%E8%B3%A3%E8%BD%89%E8%B2%B7-%E5%A4%9C%E7%9B%A4%E5%85%88%E7%AB%99%E5%9B%9E45k-180721801.html",
       "meta": null
@@ -431,31 +456,6 @@
     {
       "title": "白海豚發威＂東北角海水倒灌＂ 攤販連2天被迫收攤",
       "url": "https://tw.stock.yahoo.com/news/%E7%99%BD%E6%B5%B7%E8%B1%9A%E7%99%BC%E5%A8%81-%E6%9D%B1%E5%8C%97%E8%A7%92%E6%B5%B7%E6%B0%B4%E5%80%92%E7%81%8C-%E6%94%A4%E8%B2%A9%E9%80%A32%E5%A4%A9%E8%A2%AB%E8%BF%AB%E6%94%B6%E6%94%A4-155544284.html",
-      "meta": null
-    },
-    {
-      "title": "目標價3380元！這「連接線束大廠」7月營收飆近6成　 手握完整解決方案、全年EPS挑戰7個股本",
-      "url": "https://tw.stock.yahoo.com/news/%E7%9B%AE%E6%A8%99%E5%83%B93380%E5%85%83-%E9%80%99-%E9%80%A3%E6%8E%A5%E7%B7%9A%E6%9D%9F%E5%A4%A7%E5%BB%A0-7%E6%9C%88%E7%87%9F%E6%94%B6%E9%A3%86%E8%BF%916%E6%88%90-%E6%89%8B%E6%8F%A1%E5%AE%8C%E6%95%B4%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-155500673.html",
-      "meta": null
-    },
-    {
-      "title": "Omdia：新機需求疲弱，整新手機面板出貨量首度超越新機市場",
-      "url": "https://tw.stock.yahoo.com/news/omdia-%E6%96%B0%E6%A9%9F%E9%9C%80%E6%B1%82%E7%96%B2%E5%BC%B1-%E6%95%B4%E6%96%B0%E6%89%8B%E6%A9%9F%E9%9D%A2%E6%9D%BF%E5%87%BA%E8%B2%A8%E9%87%8F%E9%A6%96%E5%BA%A6%E8%B6%85%E8%B6%8A%E6%96%B0%E6%A9%9F%E5%B8%82%E5%A0%B4-153513439.html",
-      "meta": null
-    },
-    {
-      "title": "「PCB大廠」7月營收首破百億、喜收年月雙增！　主動式賣壓籠罩股民喊：已經被瑤姐蛋雕了",
-      "url": "https://tw.stock.yahoo.com/news/pcb%E5%A4%A7%E5%BB%A0-7%E6%9C%88%E7%87%9F%E6%94%B6%E9%A6%96%E7%A0%B4%E7%99%BE%E5%84%84-%E5%96%9C%E6%94%B6%E5%B9%B4%E6%9C%88%E9%9B%99%E5%A2%9E-%E4%B8%BB%E5%8B%95%E5%BC%8F%E8%B3%A3%E5%A3%93%E7%B1%A0%E7%BD%A9%E8%82%A1%E6%B0%91%E5%96%8A-%E5%B7%B2%E7%B6%93%E8%A2%AB%E7%91%A4%E5%A7%90%E8%9B%8B%E9%9B%95%E4%BA%86-152500532.html",
-      "meta": null
-    },
-    {
-      "title": "省吃儉用40年存千萬！　68歲嬤退休卻崩潰後悔：有錢但沒時間了",
-      "url": "https://tw.stock.yahoo.com/news/%E7%9C%81%E5%90%83%E5%84%89%E7%94%A840%E5%B9%B4%E5%AD%98%E5%8D%83%E8%90%AC-68%E6%AD%B2%E5%AC%A4%E9%80%80%E4%BC%91%E5%8D%BB%E5%B4%A9%E6%BD%B0%E5%BE%8C%E6%82%94-%E6%9C%89%E9%8C%A2%E4%BD%86%E6%B2%92%E6%99%82%E9%96%93%E4%BA%86-145137261.html",
-      "meta": null
-    },
-    {
-      "title": "美國靠這一招干預日圓阻貶？郭正亮曝「將被IMF當作弊」：沒人能永遠這樣玩",
-      "url": "https://tw.stock.yahoo.com/news/%E9%95%B7%E6%A6%AE%E7%A9%BA%E6%9C%8D%E7%BD%B7%E5%B7%A5%E5%8D%B1%E6%A9%9F%E6%9C%AA%E8%A7%A3-17%E6%97%A5%E6%9C%80%E5%BE%8C%E5%8D%94%E8%AA%BF-%E7%A6%81%E6%90%AD%E4%BE%BF%E8%BB%8A%E6%A2%9D%E6%AC%BE%E6%98%AF%E9%97%9C%E9%8D%B5-092632321.html",
       "meta": null
     }
   ],
@@ -1147,7 +1147,7 @@
       "extra_data": {
         "regular_market_price": 82.83,
         "pre_market_price": null,
-        "post_market_price": 83.85,
+        "post_market_price": 83.88,
         "prev_close": 75.67
       },
       "kd_k": 82.21,
