@@ -27,6 +27,8 @@ from kd_calculator import KDCalculator
 from alert_checker import AlertChecker
 from scoring_engine import ScoringEngine
 from signal_confluence import evaluate_signal_confluence
+from market_regime import detect_market_regime
+from signal_score import calculate_signal_scores
 
 
 class NumpyJSONEncoder(json.JSONEncoder):
@@ -177,22 +179,34 @@ class KDStockMonitor:
                         stock["score"] = score_result
             logger.info("Multi-dimensional scoring complete")
             
-            # Step 3: Check for alerts
-            logger.info("\n[Step 3/4] Checking for alerts...")
-            alert_result = self.checker.process_alerts(stocks_with_kd)
-
-            # Step 3.5: Persist today's macro/chip snapshot and evaluate the
-            # top/bottom signal-confluence model against the accumulated history
-            logger.info("\n[Step 3.5/4] Updating macro history and signal confluence...")
+            # Step 2.75: Persist today's macro/chip snapshot, then evaluate the
+            # top/bottom signal-confluence model, the 0-100 signal scores, and
+            # the market regime against the accumulated history. This has to
+            # run BEFORE Step 3 (alert checking) — the regime label is fed
+            # into each stock's KD filter confirmation (see
+            # alert_checker.AlertChecker._evaluate_filters's `regime` param),
+            # so it needs to already be known by the time alerts are checked,
+            # not computed afterward as a separate side-channel.
+            logger.info("\n[Step 2.75/4] Updating macro history, signal confluence, regime, and scores...")
             macro_history = self._save_macro_history(macro_indicators, tw_chip_indicators, test_mode=test_mode)
             confluence_result = evaluate_signal_confluence(macro_history)
+            regime_result = detect_market_regime(macro_history)
+            signal_score_result = calculate_signal_scores(macro_history)
             logger.info(f"Signal confluence: available={confluence_result['available']}, "
                         f"history_days={confluence_result.get('history_days')}")
+            logger.info(f"Market regime: {regime_result.get('regime')} "
+                        f"({regime_result.get('regime_label')}), available={regime_result.get('available')}")
+
+            # Step 3: Check for alerts (regime-aware — see Step 2.75 note above)
+            logger.info("\n[Step 3/4] Checking for alerts...")
+            current_regime = regime_result.get("regime") if regime_result.get("available") else None
+            alert_result = self.checker.process_alerts(stocks_with_kd, regime=current_regime)
 
             # Step 4: Generate summary report
             logger.info("\n[Step 4/4] Generating summary report...")
             summary = self._generate_summary(stocks_with_kd, alert_result, macro_indicators,
-                                              tw_chip_indicators, confluence_result, market_news)
+                                              tw_chip_indicators, confluence_result, market_news,
+                                              regime_result, signal_score_result)
             
             # Save run log
             self._save_run_log(summary)
@@ -258,7 +272,8 @@ class KDStockMonitor:
     
     def _generate_summary(self, stocks_data: Dict, alert_result: Dict, macro_indicators: Dict = None,
                            tw_chip_indicators: Dict = None, confluence_result: Dict = None,
-                           market_news: list = None) -> Dict:
+                           market_news: list = None, regime_result: Dict = None,
+                           signal_score_result: Dict = None) -> Dict:
         """Generate a summary of the run."""
         all_stocks = []
         for market in ["TW", "US"]:
@@ -307,6 +322,8 @@ class KDStockMonitor:
             "macro": macro_indicators or {},
             "chip": tw_chip_indicators or {},
             "signal_confluence": confluence_result or {"available": False},
+            "market_regime": regime_result or {"available": False},
+            "signal_score": signal_score_result or {"available": False},
             "news": market_news or [],
             "stocks_processed": len(all_stocks),
             "stocks_successful": len([s for s in all_stocks if "error" not in s]),

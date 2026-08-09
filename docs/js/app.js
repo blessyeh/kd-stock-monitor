@@ -72,6 +72,18 @@ const INFO_TEXT = {
     signal_confluence: {
         title: '訊號共振：大盤轉折觀察',
         body: '整合多項技術面與籌碼面條件（如 VIX 反轉、融資斷頭、外資回補空單、費半/那斯達克跌破支撐、美債殖利率急升等），尋找台股大盤「可能出現短線頂部或底部」的訊號共振時刻。當愈多條件同時成立，代表出現轉折的機率愈高——但這是機率參考工具，並非即時買賣訊號，也不是放空建議，請勿單獨依賴、更不建議因短線訊號打斷既有的定期定額投資紀律。'
+    },
+    market_regime: {
+        title: '市場狀態 (Market Regime)',
+        body: '依 TAIEX 相對長天期均線的位置與斜率、VIX 是否急升/見頂回落、外資資金流向是否反轉，將目前大盤狀態分類為「多頭趨勢」「多頭回檔」「空頭趨勢」「恐慌急殺」「築底回穩」五種之一。同樣的訊號（例如個股 KD 超賣）在不同市場狀態下代表的意義不同：多頭回檔時的超賣通常是加碼機會，空頭趨勢或恐慌時的超賣則可能只是持續破底的開始。本專案的個股警示會依目前市場狀態調整確認門檻（詳見警示卡片內的說明），但這仍是規則式分類，並非對未來走勢的預測。'
+    },
+    kd_state: {
+        title: 'KD 狀態 (KD State)',
+        body: '比單純「超買/超賣」更細緻的 KD 判讀，同時參考昨日的 K/D 位置：黃金交叉／死亡交叉＝K、D 今日剛交叉；超買中·動能未歇＝K-D 差距仍在擴大，多頭動能尚未停歇（此時的「超買」較可能只是鈍化，非賣出訊號）；超買轉弱＝K-D 差距開始收斂，動能停滯，較可能是真正的高點；超賣反轉／超賣回升中＝同樣邏輯用在低檔。多頭/空頭動能則是 K、D 未進入極端區間時的方向判斷。這仍是規則式分類，並非預測。'
+    },
+    market_regime: {
+        title: '市場狀態 (Market Regime)',
+        body: '將「訊號共振」使用的同一批市場資料，重新拆解為五個面向（總經 Macro／籌碼 Chip Flow／衍生性商品 Derivative／技術面 Technical／情緒面 Sentiment），各自給予權重加總成 0-100 分的「頂部風險分數」與「底部佈局分數」，取代原本非黑即白的「N/5 項共振」表示法，讓強弱程度可以比較。務必注意：這是人工設定權重的規則式評分，並非經過歷史資料回測、驗證過勝率的統計模型——「82分」的意思是「目前有82%權重的已知條件成立」，不是「82%機率會反轉」。事後績效追蹤與回測是規劃中的下一階段功能。'
     }
 };
 
@@ -253,8 +265,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Initialize UI
     updateStats();
     updateTaiexSection();
+    renderRegimeBadge();
     renderMarketNews();
     updateChipStats();
+    renderSignalScore();
     renderSignalConfluence();
     renderStockGrid();
     renderAlertHistory();
@@ -661,6 +675,122 @@ function renderSignalConfluence() {
 }
 
 /**
+ * Render the 市場狀態 (Market Regime) badge inside the TAIEX hero card.
+ * Backed by src/market_regime.py — see that module's docstring for the
+ * exact classification logic (MA position/slope, VIX spike/rollover,
+ * foreign flow reversal). Hidden entirely while regime detection doesn't
+ * have enough history yet, rather than showing a misleading "資料不足" pill
+ * every hour until then.
+ */
+const REGIME_STYLE = {
+    BULL_TREND: { cls: 'bg-kd-red/15 text-kd-red', icon: 'fa-arrow-trend-up' },
+    BULL_CORRECTION: { cls: 'bg-kd-yellow/15 text-kd-yellow', icon: 'fa-arrows-left-right' },
+    BEAR_TREND: { cls: 'bg-kd-green/15 text-kd-green', icon: 'fa-arrow-trend-down' },
+    PANIC: { cls: 'bg-kd-red/25 text-kd-red', icon: 'fa-triangle-exclamation' },
+    RECOVERY: { cls: 'bg-kd-yellow/20 text-kd-yellow', icon: 'fa-life-ring' },
+};
+function renderRegimeBadge() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const mr = summary.market_regime || { available: false };
+        const badge = document.getElementById('regime-badge');
+        const textEl = document.getElementById('regime-badge-text');
+        if (!badge || !textEl) return;
+
+        if (!mr.available || !REGIME_STYLE[mr.regime]) {
+            badge.classList.add('hidden');
+            return;
+        }
+        const style = REGIME_STYLE[mr.regime];
+        badge.className = `inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold cursor-pointer info-trigger ${style.cls}`;
+        badge.dataset.info = 'market_regime';
+        textEl.textContent = `${mr.regime_label}（${mr.ma_period_used}日均線）`;
+        badge.querySelector('i').className = `fas ${style.icon}`;
+    } catch (e) {
+        console.error("Error rendering regime badge:", e);
+    }
+}
+
+/**
+ * Render the 訊號評分 (Signal Score) 0-100 panel — Top Risk Score / Bottom
+ * Setup Score, each broken into 5 weighted dimensions. Backed by
+ * src/signal_score.py. See that module's docstring for why this is
+ * presented as "how many known conditions are met" rather than a
+ * probability — the caveat text is repeated here in the UI, not just in
+ * the card's footer disclaimer, so it's visible right next to the number.
+ */
+function renderSignalScore() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const ss = summary.signal_score || { available: false };
+        const dateEl = document.getElementById('signal-score-date');
+        const body = document.getElementById('signal-score-body');
+        if (!body) return;
+
+        if (!ss.available) {
+            if (dateEl) dateEl.textContent = '';
+            const days = ss.history_days || 0;
+            const minDays = ss.min_history_days || 21;
+            body.innerHTML = `
+                <div class="text-center py-4 text-dark-text2 text-sm">
+                    <i class="fas fa-hourglass-half mr-1"></i>
+                    歷史資料累積中（${days}/${minDays} 天），累積足夠天數後將自動開始評分
+                </div>
+            `;
+            return;
+        }
+
+        if (dateEl) dateEl.textContent = `(資料日期: ${ss.as_of_date})`;
+
+        const dimLabels = {
+            macro: '總經 Macro', chip_flow: '籌碼 Chip Flow', derivative: '衍生性商品 Derivative',
+            technical: '技術面 Technical', sentiment: '情緒面 Sentiment'
+        };
+
+        const renderScoreCard = (group, title, colorClass, barClass, icon) => {
+            if (!group) return '';
+            const dimsHtml = group.dimensions.map(d => {
+                const pct = d.cap > 0 ? Math.round((d.score / d.cap) * 100) : 0;
+                const notesHtml = d.notes.length
+                    ? `<div class="mt-1 space-y-0.5">${d.notes.map(n => `<div class="text-[10px] text-dark-text2 leading-snug">・${n}</div>`).join('')}</div>`
+                    : '';
+                return `
+                    <div class="py-1.5">
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="text-dark-text">${dimLabels[d.name] || d.name}</span>
+                            <span class="font-mono ${colorClass}">${d.score} / ${d.cap}</span>
+                        </div>
+                        <div class="h-1.5 rounded-full bg-dark-bg overflow-hidden">
+                            <div class="h-full ${barClass} rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                        ${notesHtml}
+                    </div>
+                `;
+            }).join('');
+
+            return `
+                <div class="flex-1 min-w-[280px]">
+                    <div class="flex items-center justify-between mb-1">
+                        <h3 class="text-sm font-bold ${colorClass}"><i class="fas ${icon} mr-1"></i>${title}</h3>
+                        <span class="text-2xl font-bold font-mono ${colorClass}">${group.total}<span class="text-xs text-dark-text2">/100</span></span>
+                    </div>
+                    <div class="divide-y divide-dark-border/50">${dimsHtml}</div>
+                </div>
+            `;
+        };
+
+        body.innerHTML = `
+            <div class="flex flex-col md:flex-row gap-4 mt-2">
+                ${renderScoreCard(ss.top, '頂部風險分數', 'text-kd-red', 'bg-kd-red', 'fa-triangle-exclamation')}
+                ${renderScoreCard(ss.bottom, '底部佈局分數', 'text-kd-green', 'bg-kd-green', 'fa-arrow-trend-up')}
+            </div>
+        `;
+    } catch (e) {
+        console.error("Error rendering signal score:", e);
+    }
+}
+
+/**
  * Update last updated timestamp
  */
 function updateLastUpdated() {
@@ -744,6 +874,38 @@ function renderStockGrid() {
     }
 
     grid.innerHTML = stocks.map(stock => createStockCard(stock)).join('');
+}
+
+/**
+ * KD State (see src/kd_calculator.py's analyze_kd_signal docstring) — a
+ * finer-grained read on today's K/D than the raw overbought/oversold zone
+ * alone, distinguishing e.g. "overbought but momentum still building" from
+ * "overbought and stalling" by also looking at yesterday's K/D (crossover +
+ * whether the K-D gap is widening or narrowing).
+ */
+const KD_STATE_STYLE = {
+    GOLDEN_CROSS: { label: '黃金交叉', cls: 'bg-kd-red/15 text-kd-red' },
+    DEATH_CROSS: { label: '死亡交叉', cls: 'bg-kd-green/15 text-kd-green' },
+    OVERBOUGHT_BUT_RISING: { label: '超買中·動能未歇', cls: 'bg-kd-red/15 text-kd-red' },
+    OVERBOUGHT_REVERSAL: { label: '超買轉弱', cls: 'bg-kd-yellow/15 text-kd-yellow' },
+    OVERBOUGHT: { label: '超買', cls: 'bg-kd-yellow/15 text-kd-yellow' },
+    OVERSOLD_REVERSAL: { label: '超賣反轉', cls: 'bg-kd-green/15 text-kd-green' },
+    OVERSOLD_BUT_RISING: { label: '超賣回升中', cls: 'bg-kd-yellow/15 text-kd-yellow' },
+    OVERSOLD: { label: '超賣', cls: 'bg-kd-yellow/15 text-kd-yellow' },
+    BULLISH_MOMENTUM: { label: '多頭動能', cls: 'bg-kd-red/10 text-kd-red' },
+    BEARISH_MOMENTUM: { label: '空頭動能', cls: 'bg-kd-green/10 text-kd-green' },
+    NEUTRAL: { label: '中性', cls: 'bg-dark-bg text-dark-text2' },
+};
+function renderKdStateBadge(kdState) {
+    const style = KD_STATE_STYLE[kdState];
+    if (!style) return '';
+    return `
+        <div class="mt-1.5 text-right">
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium cursor-pointer info-trigger ${style.cls}" data-info="kd_state">
+                ${style.label}
+            </span>
+        </div>
+    `;
 }
 
 /**
@@ -852,6 +1014,7 @@ function createStockCard(stock) {
                 <div class="kd-progress-bar">
                     <div class="kd-progress-fill ${progressClass}" style="width: ${Math.min(Math.max(progressValue, 0), 100)}%"></div>
                 </div>
+                ${renderKdStateBadge(stock.kd_state)}
             </div>
 
             <div class="border-t border-dark-border pt-3 mt-2">
@@ -1135,6 +1298,7 @@ function createAlertItem(alert) {
                             ${title}
                         </span>
                         ${alert.filter_confidence ? renderFilterBadge(alert.filter_confidence) : ''}
+                        ${alert.market_regime_label ? `<span class="ml-2 px-2 py-0.5 rounded text-xs bg-dark-bg border border-dark-border text-dark-text2"><i class="fas fa-compass opacity-70"></i> ${alert.market_regime_label}</span>` : ''}
                     </div>
                     <span class="text-xs text-dark-text2">${DataManager.formatDate(alert.timestamp)}</span>
                 </div>
@@ -1240,8 +1404,10 @@ async function refreshData() {
     await DataManager.loadData();
     updateStats();
     updateTaiexSection();
+    renderRegimeBadge();
     renderMarketNews();
     updateChipStats();
+    renderSignalScore();
     renderSignalConfluence();
     renderStockGrid();
     renderAlertHistory();

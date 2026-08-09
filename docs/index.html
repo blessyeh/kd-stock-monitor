@@ -126,6 +126,12 @@
                         <p id="taiex-value" class="text-3xl font-bold text-white">-</p>
                         <p id="taiex-change" class="text-lg font-semibold">-</p>
                     </div>
+                    <div class="mt-2">
+                        <span id="regime-badge" class="hidden inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold cursor-pointer info-trigger" data-info="market_regime">
+                            <i class="fas fa-compass"></i>
+                            <span id="regime-badge-text">-</span>
+                        </span>
+                    </div>
                 </div>
                 <div class="text-left sm:text-right border-t sm:border-t-0 sm:border-l border-dark-border pt-3 sm:pt-0 sm:pl-6 w-full sm:w-auto">
                     <p class="text-xs text-dark-text2 uppercase tracking-wider mb-1">
@@ -234,6 +240,21 @@
                     <p id="chip-pcratio-chg" class="text-[10px] leading-tight">-</p>
                 </div>
             </div>
+        </div>
+
+        <!-- Signal Score (訊號評分：頂部風險 / 底部佈局) -->
+        <div class="dark-card rounded-lg border border-dark-border mb-6 p-4">
+            <h2 class="text-sm font-bold text-white mb-1 flex items-center">
+                <i class="fas fa-gauge-high mr-2 text-accent"></i>訊號評分：頂部風險 / 底部佈局
+                <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer ml-2" data-info="signal_score"></i>
+                <span id="signal-score-date" class="text-xs text-dark-text2 font-normal ml-2"></span>
+            </h2>
+            <div id="signal-score-body">
+                <!-- filled by JS -->
+            </div>
+            <p class="text-[10px] text-dark-text2 opacity-70 mt-3 border-t border-dark-border pt-2 leading-relaxed">
+                免責聲明：本分數為規則式加權評分（非機率、非勝率），尚未經歷史資料回測驗證統計優勢，僅供比較「目前有多少項已知條件成立」，請勿單獨作為買賣依據。
+            </p>
         </div>
 
         <!-- Signal Confluence (訊號共振：大盤轉折觀察) -->
@@ -477,8 +498,8 @@
     </div>
 
     <!-- Scripts - force refresh -->
-    <script src="js/data.js?v=202608090800"></script>
-    <script src="js/chart.js?v=202608090800"></script>
-    <script src="js/app.js?v=202608090800"></script>
+    <script src="js/data.js?v=202608091000"></script>
+    <script src="js/chart.js?v=202608091000"></script>
+    <script src="js/app.js?v=202608091000"></script>
 </body>
 </html>

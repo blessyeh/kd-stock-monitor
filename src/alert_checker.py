@@ -17,6 +17,8 @@ except ImportError:
     PATTERN_ANALYSIS_AVAILABLE = False
     logging.warning("Pattern analyzer not available")
 
+from market_regime import oversold_bias, overbought_bias, REGIME_LABELS
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
@@ -61,7 +63,7 @@ class AlertChecker:
         except Exception as e:
             logger.error(f"Error saving alerts: {e}")
     
-    def _evaluate_filters(self, stock_data: Dict, direction: str) -> Dict:
+    def _evaluate_filters(self, stock_data: Dict, direction: str, regime: Optional[str] = None) -> Dict:
         """
         Multi-filter confirmation for a raw KD extreme reading.
 
@@ -80,6 +82,16 @@ class AlertChecker:
         extreme still produces an alert; this only adds a confidence tag and
         the concrete reasons behind it, mirroring how signal_confluence.py
         already reports per-condition completeness rather than a bare bool.
+
+        `regime` (from market_regime.detect_market_regime(), main.py's Step
+        3.5, run before alerts are checked) shifts the confirmation bar up or
+        down: the exact same per-stock reading — e.g. "股價站上上彎的20日均
+        線" — means something different depending on whether the broader
+        market is in a confirmed bear trend or a bull correction. See
+        market_regime.REGIME_OVERSOLD_BIAS / REGIME_OVERBOUGHT_BIAS for the
+        mapping. This is a modifier on top of the per-stock filters, not a
+        replacement for them — a stock can still buck the market regime, so
+        the per-stock evidence is always computed and shown first.
 
         Returns:
             {
@@ -141,6 +153,7 @@ class AlertChecker:
         foreign_selling = foreign_net_3d is not None and foreign_net_3d < -500_000
 
         passed, cautions = [], []
+        regime_label = REGIME_LABELS.get(regime) if regime else None
 
         if direction == "oversold":
             bollinger_touch = bb_lower is not None and price <= bb_lower * 1.01
@@ -156,7 +169,26 @@ class AlertChecker:
                 passed.append(f"個股外資近3日同步買超 {foreign_net_3d/1000:.0f} 張（籌碼面轉強，非籌碼出走）")
             elif foreign_selling:
                 cautions.append(f"個股外資近3日仍賣超 {abs(foreign_net_3d)/1000:.0f} 張（籌碼仍在流出，KD超賣可能持續鈍化）")
-            confirmed = (bullish_regime or bollinger_touch or foreign_buying) and not macd_diverging_down
+            base_confirmed = (bullish_regime or bollinger_touch or foreign_buying) and not macd_diverging_down
+
+            bias = oversold_bias(regime) if regime else "neutral"
+            if bias == "favor":
+                # Bull correction / recovery backdrop: this is the textbook
+                # "buy the dip" setup, so a per-stock oversold reading is
+                # trusted by default unless MACD actively argues against it.
+                confirmed = base_confirmed or not macd_diverging_down
+                if confirmed and not base_confirmed:
+                    passed.append(f"大盤處於「{regime_label}」，超賣訊號可信度上調（下修個股層級的確認門檻）")
+            elif bias == "distrust":
+                # Bear trend / panic backdrop: a lone "still above MA20"
+                # reading is the weakest of the three per-stock supports, so
+                # require at least one of the concrete ones (band touch or
+                # actual foreign buying) — don't confirm on MA reading alone.
+                confirmed = base_confirmed and (bollinger_touch or foreign_buying)
+                if base_confirmed and not confirmed:
+                    cautions.append(f"大盤處於「{regime_label}」，個股支撐訊號證據不足以抵銷大盤逆風（上修確認門檻）")
+            else:
+                confirmed = base_confirmed
         else:  # overbought
             bollinger_touch = bb_upper is not None and price >= bb_upper * 0.99
             if bullish_regime:
@@ -171,16 +203,36 @@ class AlertChecker:
                 passed.append(f"個股外資近3日轉為賣超 {abs(foreign_net_3d)/1000:.0f} 張（籌碼面轉弱，超買可能對應真正高點）")
             elif foreign_buying:
                 cautions.append(f"個股外資近3日仍買超 {foreign_net_3d/1000:.0f} 張（籌碼面仍強，超買可能只是鈍化）")
-            confirmed = (not bullish_regime) or (bollinger_touch and not volume_confirmed) or foreign_selling
+            base_confirmed = (not bullish_regime) or (bollinger_touch and not volume_confirmed) or foreign_selling
+
+            bias = overbought_bias(regime) if regime else "neutral"
+            if bias == "favor":
+                # Bear trend / panic backdrop: rallies here are the classic
+                # "sucker's rally" — trust the overbought/sell reading by
+                # default unless MACD actively argues the rally still has legs.
+                confirmed = base_confirmed or not macd_diverging_up
+                if confirmed and not base_confirmed:
+                    passed.append(f"大盤處於「{regime_label}」，超買/反彈訊號可信度上調（下修個股層級的確認門檻）")
+            elif bias == "distrust":
+                # Bull trend backdrop: strong uptrends legitimately stay
+                # "overbought" for weeks — require concrete evidence (band
+                # touch or actual foreign selling), not just the MA reading.
+                confirmed = base_confirmed and (bollinger_touch or foreign_selling)
+                if base_confirmed and not confirmed:
+                    cautions.append(f"大盤處於「{regime_label}」，個股轉弱訊號證據不足以抵銷大盤順風（上修確認門檻）")
+            else:
+                confirmed = base_confirmed
 
         return {"available": True, "confirmed": confirmed, "passed": passed, "cautions": cautions}
 
-    def check_stock(self, stock_data: Dict) -> Optional[Dict]:
+    def check_stock(self, stock_data: Dict, regime: Optional[str] = None) -> Optional[Dict]:
         """
         Check a single stock for KD alert conditions.
 
         Args:
             stock_data: Dictionary containing stock info with kd_k and kd_d values
+            regime: current market regime code from market_regime.detect_market_regime()
+                    (e.g. "BEAR_TREND"), or None if unavailable — see _evaluate_filters()
 
         Returns:
             Alert dictionary if condition met, None otherwise
@@ -201,7 +253,7 @@ class AlertChecker:
 
         # Check overbought condition (KD >= 80)
         if kd_k >= overbought_threshold or kd_d >= overbought_threshold:
-            f = self._evaluate_filters(stock_data, "overbought")
+            f = self._evaluate_filters(stock_data, "overbought", regime=regime)
             confidence = "unknown" if not f["available"] else ("high" if f["confirmed"] else "low")
             suffix = ""
             if f["available"] and not f["confirmed"]:
@@ -215,11 +267,14 @@ class AlertChecker:
                 "level": "high",
                 "kd_k": kd_k,
                 "kd_d": kd_d,
+                "kd_state": stock_data.get("kd_state"),
                 "current_price": current_price,
                 "threshold": overbought_threshold,
                 "filter_confidence": confidence,
                 "filter_passed": f["passed"],
                 "filter_cautions": f["cautions"],
+                "market_regime": regime,
+                "market_regime_label": REGIME_LABELS.get(regime) if regime else None,
                 "message": f"⚠️ {symbol} ({stock_data.get('name', symbol)}) is OVERBOUGHT! KD-K: {kd_k}, KD-D: {kd_d} (>= {overbought_threshold}){suffix}",
                 "timestamp": datetime.now().isoformat(),
                 "date": datetime.now().strftime("%Y-%m-%d"),
@@ -229,7 +284,7 @@ class AlertChecker:
 
         # Check oversold condition (KD <= 20)
         elif kd_k <= oversold_threshold or kd_d <= oversold_threshold:
-            f = self._evaluate_filters(stock_data, "oversold")
+            f = self._evaluate_filters(stock_data, "oversold", regime=regime)
             confidence = "unknown" if not f["available"] else ("high" if f["confirmed"] else "low")
             suffix = ""
             if f["available"] and not f["confirmed"]:
@@ -243,11 +298,14 @@ class AlertChecker:
                 "level": "low",
                 "kd_k": kd_k,
                 "kd_d": kd_d,
+                "kd_state": stock_data.get("kd_state"),
                 "current_price": current_price,
                 "threshold": oversold_threshold,
                 "filter_confidence": confidence,
                 "filter_passed": f["passed"],
                 "filter_cautions": f["cautions"],
+                "market_regime": regime,
+                "market_regime_label": REGIME_LABELS.get(regime) if regime else None,
                 "message": f"✅ {symbol} ({stock_data.get('name', symbol)}) is OVERSOLD! KD-K: {kd_k}, KD-D: {kd_d} (<= {oversold_threshold}){suffix}",
                 "timestamp": datetime.now().isoformat(),
                 "date": datetime.now().strftime("%Y-%m-%d"),
@@ -257,38 +315,47 @@ class AlertChecker:
 
         return alert
     
-    def check_all_stocks(self, stocks_data: Dict[str, List[Dict]]) -> List[Dict]:
+    def check_all_stocks(self, stocks_data: Dict[str, List[Dict]], regime: Optional[str] = None) -> List[Dict]:
         """
         Check all stocks for alert conditions.
-        
+
         Args:
             stocks_data: Dictionary with 'TW' and 'US' keys containing stock data
-        
+            regime: current market regime code, or None if unavailable — see check_stock()
+
         Returns:
             List of alert dictionaries
         """
         new_alerts = []
-        
+
         for market in ["TW", "US"]:
             for stock in stocks_data.get(market, []):
-                alert = self.check_stock(stock)
+                alert = self.check_stock(stock, regime=regime)
                 if alert:
                     new_alerts.append(alert)
-        
+
         return new_alerts
-    
-    def process_alerts(self, stocks_data: Dict[str, List[Dict]]) -> Dict:
+
+    def process_alerts(self, stocks_data: Dict[str, List[Dict]], regime: Optional[str] = None) -> Dict:
         """
         Process all stocks and update alerts.
-        
+
+        Args:
+            stocks_data: Dictionary with 'TW' and 'US' keys containing stock data
+            regime: current market regime code from market_regime.detect_market_regime()
+                    ("BULL_TREND" / "BULL_CORRECTION" / "BEAR_TREND" / "PANIC" /
+                    "RECOVERY"), or None if unavailable (e.g. still accumulating
+                    history) — passed straight through to each stock's filter
+                    confirmation logic, see _evaluate_filters()'s docstring.
+
         Returns:
             Dictionary with alert summary and all current alerts
         """
         # Load existing alerts
         existing_alerts = self._load_existing_alerts()
-        
+
         # Check for new alerts
-        new_alerts = self.check_all_stocks(stocks_data)
+        new_alerts = self.check_all_stocks(stocks_data, regime=regime)
         
         # Filter out duplicate alerts for the same symbol on the same day
         existing_ids = {alert["id"] for alert in existing_alerts}
@@ -429,6 +496,7 @@ class AlertChecker:
                         "extra_data": stock.get("extra_data"),
                         "kd_k": stock.get("kd_k"),
                         "kd_d": stock.get("kd_d"),
+                        "kd_state": stock.get("kd_state"),
                         "bias_5": stock.get("bias_5"),
                         "bias_10": stock.get("bias_10"),
                         "bias_20": stock.get("bias_20"),

@@ -72,23 +72,58 @@ class KDCalculator:
         default 9 days) is configurable. Earlier versions of config.json exposed
         unused d_period/smooth keys that had no effect on this calculation; they
         were removed to avoid the false impression that changing them does anything.
+
+        Initialization convention (stated explicitly here since it's a real
+        design choice, not an incidental detail — other TA libraries make a
+        different choice and will disagree with this one for the first
+        k_period-1 rows of any given series):
+          - Rows 0 .. k_period-2 (fewer than k_period days of range data
+            available) get K=D=50.0 flat, rather than participating in the
+            recursive formula early with a partial/skewed lookback window.
+            This avoids a misleadingly precise-looking KD reading before
+            there's actually a full window to compute RSV's range from.
+          - The recursive formula starts at row k_period-1, seeded from
+            prev_k=prev_d=50.0 (the same neutral value, not the row's own
+            RSV) — this is the standard "seed at 50" convention, distinct
+            from libraries that seed K/D = RSV on the very first row and
+            recurse from there. Expect a several-day "settling in" period
+            before K/D converge to the same values a chart platform seeded
+            differently would show.
         """
         result_df = df.copy()
-        
+
         # Calculate lowest low and highest high over k_period
         low_min = result_df['low'].rolling(window=k_period, min_periods=1).min()
         high_max = result_df['high'].rolling(window=k_period, min_periods=1).max()
-        
-        # Calculate RSV (Raw Stochastic Value)
-        rsv = 100 * (result_df['close'] - low_min) / (high_max - low_min)
-        rsv = rsv.fillna(50)  # Fill NaN with neutral value
-        
+
+        # RSV (Raw Stochastic Value). A flat range (high_max == low_min, e.g.
+        # a halted/illiquid stock trading in a single tick all day, or the
+        # very first row where high==low==close) is a genuine, well-defined
+        # case — RSV is neutral (50) there *by definition*, not because data
+        # is missing. Previously this was handled with a single
+        # `rsv.fillna(50)` after a division that produces NaN/inf on a
+        # zero-width range, which happened to land on the same 50 value but
+        # conflated "range is genuinely flat" with "this row is otherwise
+        # broken" (e.g. a future bug that produces NaN for an unrelated
+        # reason would silently get the same neutral treatment). Made
+        # explicit here: default every row to 50, then only overwrite the
+        # rows where the range is actually non-zero with the real computed
+        # RSV — anything that stays at the 50 default did so because of the
+        # flat-range case specifically, not through fillna() catching an
+        # unknown NaN source.
+        price_range = high_max - low_min
+        has_range = price_range > 0
+        rsv = pd.Series(50.0, index=result_df.index)
+        rsv.loc[has_range] = (
+            100 * (result_df.loc[has_range, 'close'] - low_min.loc[has_range]) / price_range.loc[has_range]
+        )
+
         # Initialize K and D arrays
         k_values = []
         d_values = []
         prev_k = 50.0  # Initial value
         prev_d = 50.0  # Initial value
-        
+
         for i, rsv_val in enumerate(rsv):
             if i < k_period - 1:
                 # Not enough data yet, use neutral values
@@ -102,10 +137,10 @@ class KDCalculator:
                 d_values.append(d)
                 prev_k = k
                 prev_d = d
-        
+
         result_df['kd_k'] = pd.Series(k_values, index=result_df.index).round(2)
         result_df['kd_d'] = pd.Series(d_values, index=result_df.index).round(2)
-        
+
         logger.info("KD calculated using Taiwan style formula")
         return result_df
     
@@ -187,7 +222,20 @@ class KDCalculator:
                         # Calculate KD
                         df_with_kd = self.calculate_kd(df)
                         current_kd = self.get_current_kd(df_with_kd)
-                        
+
+                        # KD state (see analyze_kd_signal's docstring) — needs
+                        # yesterday's K/D too, for crossover/momentum detection.
+                        kd_k_prev = kd_d_prev = None
+                        if len(df_with_kd) >= 2:
+                            prev_row = df_with_kd.iloc[-2]
+                            kd_k_prev = float(prev_row['kd_k']) if pd.notna(prev_row.get('kd_k')) else None
+                            kd_d_prev = float(prev_row['kd_d']) if pd.notna(prev_row.get('kd_d')) else None
+                        kd_state = None
+                        if current_kd and current_kd.get("kd_k") is not None and current_kd.get("kd_d") is not None:
+                            kd_state = self.analyze_kd_signal(
+                                current_kd["kd_k"], current_kd["kd_d"], kd_k_prev, kd_d_prev
+                            )
+
                         # Calculate BIAS (乖離率)
                         for period in [5, 10, 20]:
                             df_with_kd[f'bias_{period}'] = self.calculate_bias(df_with_kd, period)
@@ -227,6 +275,7 @@ class KDCalculator:
                             "extra_data": extra_data,
                             "kd_k": current_kd.get("kd_k") if current_kd else None,
                             "kd_d": current_kd.get("kd_d") if current_kd else None,
+                            "kd_state": kd_state,
                             "bias_5": current_bias.get("bias_5") if current_bias else None,
                             "bias_10": current_bias.get("bias_10") if current_bias else None,
                             "bias_20": current_bias.get("bias_20") if current_bias else None,
@@ -254,27 +303,98 @@ class KDCalculator:
         df.to_csv(filepath, index=False)
         logger.info(f"Saved processed data to {filepath}")
     
-    def analyze_kd_signal(self, kd_k: float, kd_d: float) -> str:
+    def analyze_kd_signal(self, kd_k: float, kd_d: float,
+                           kd_k_prev: Optional[float] = None, kd_d_prev: Optional[float] = None) -> str:
         """
-        Analyze KD values and return a signal description.
-        
-        Returns:
-            Signal description: 'overbought', 'oversold', 'golden_cross', 'death_cross', or 'neutral'
+        Classify today's KD reading into one of 10 states, rather than the
+        coarse overbought/oversold/bullish/bearish/neutral this function
+        previously returned.
+
+        Why this changed: a bare "K>=80 and D>=80 -> overbought" treats
+        K=95/D=80 (gap wide and, if K is still climbing, widening — momentum
+        still building) the same as K=95/D=94 (gap almost closed — momentum
+        stalling, a down-cross is close). Those are different market states
+        with different implications, and the old version couldn't tell them
+        apart. This version also fixes a real docstring/implementation
+        mismatch: the previous docstring promised 'golden_cross'/'death_cross'
+        as possible return values, but the function never actually computed
+        or returned either — there was no crossover detection at all.
+
+        Pass kd_k_prev/kd_d_prev (yesterday's K/D — calculate_all_stocks()
+        supplies these from history) to enable crossover and momentum
+        (rising/falling, gap widening/narrowing) detection. Without them,
+        this falls back to a zone-only classification (OVERBOUGHT / OVERSOLD
+        / BULLISH_MOMENTUM / BEARISH_MOMENTUM / NEUTRAL) — still useful, just
+        less specific.
+
+        Returns one of:
+            GOLDEN_CROSS         — K crossed above D today (either zone)
+            DEATH_CROSS          — K crossed below D today (either zone)
+            OVERBOUGHT_BUT_RISING — in overbought zone, K-D gap still widening
+                                     (or K still rising) — momentum intact, a
+                                     raw KD>=80 sell alert here is more likely
+                                     鈍化 (indicator stuck) than a real top
+            OVERBOUGHT_REVERSAL  — in overbought zone, gap narrowing / K
+                                     falling — momentum stalling, more likely
+                                     a genuine top forming
+            OVERBOUGHT           — in overbought zone, not enough prior data
+                                     to tell the two apart
+            OVERSOLD_REVERSAL    — in oversold zone, K rising and gap
+                                     narrowing (climbing back toward D) — the
+                                     clearest pre-golden-cross bottoming signal
+            OVERSOLD_BUT_RISING  — in oversold zone, K rising but gap not yet
+                                     meaningfully narrowing — early/unconfirmed
+            OVERSOLD              — in oversold zone, not enough prior data
+                                     (or still falling) to call it a reversal
+            BULLISH_MOMENTUM     — K > D, outside both extreme zones
+            BEARISH_MOMENTUM     — K < D, outside both extreme zones
+            NEUTRAL               — K == D, or insufficient input
         """
+        if kd_k is None or kd_d is None:
+            return "NEUTRAL"
+
         thresholds = self.config.get("alert_thresholds", {"overbought": 80, "oversold": 20})
         overbought = thresholds.get("overbought", 80)
         oversold = thresholds.get("oversold", 20)
-        
+
+        have_prev = kd_k_prev is not None and kd_d_prev is not None
+        gap = kd_k - kd_d
+        gap_prev = (kd_k_prev - kd_d_prev) if have_prev else None
+        k_rising = have_prev and kd_k > kd_k_prev
+        k_falling = have_prev and kd_k < kd_k_prev
+        # "Widening" / "narrowing" compares magnitude, not signed value, so it
+        # means the same thing (momentum strengthening vs. stalling) whether
+        # gap is positive (K above D) or negative (K below D).
+        gap_widening = gap_prev is not None and abs(gap) > abs(gap_prev)
+        gap_narrowing = gap_prev is not None and abs(gap) < abs(gap_prev)
+
+        crossed_up = have_prev and kd_k_prev <= kd_d_prev and kd_k > kd_d
+        crossed_down = have_prev and kd_k_prev >= kd_d_prev and kd_k < kd_d
+
+        if crossed_up:
+            return "GOLDEN_CROSS"
+        if crossed_down:
+            return "DEATH_CROSS"
+
         if kd_k >= overbought and kd_d >= overbought:
-            return "overbought"
-        elif kd_k <= oversold and kd_d <= oversold:
-            return "oversold"
-        elif kd_k > kd_d:
-            return "bullish"  # K above D is generally bullish
-        elif kd_k < kd_d:
-            return "bearish"  # K below D is generally bearish
-        else:
-            return "neutral"
+            if gap_widening or (k_rising and not gap_narrowing):
+                return "OVERBOUGHT_BUT_RISING"
+            if gap_narrowing or k_falling:
+                return "OVERBOUGHT_REVERSAL"
+            return "OVERBOUGHT"
+
+        if kd_k <= oversold and kd_d <= oversold:
+            if k_rising and gap_narrowing:
+                return "OVERSOLD_REVERSAL"
+            if k_rising:
+                return "OVERSOLD_BUT_RISING"
+            return "OVERSOLD"
+
+        if kd_k > kd_d:
+            return "BULLISH_MOMENTUM"
+        if kd_k < kd_d:
+            return "BEARISH_MOMENTUM"
+        return "NEUTRAL"
 
 
 def main():
