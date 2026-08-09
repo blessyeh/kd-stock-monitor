@@ -1,0 +1,43 @@
+{
+  "_readme": "自動抓取台積電官方IR網站（investor.tsmc.com/english/quarterly-results）之Guidance/Actual資料。每次pipeline執行時抓取當下最新一季，若該季尚未記錄過才寫入（append-only，不覆寫已記錄的舊季別，避免回填偏誤）。guidance_history為公司新公布的下一季財測指引；actual_vs_guidance_history為已公布實際數字對比當初該季指引之beat/miss，兩者數字皆為公司官方US$計價數字，無需自行以NTD/USD匯率換算。benchmark_type恆為\"GUIDANCE\"——與第三方分析師Consensus（若未來加入）絕不可混用比較。",
+  "guidance_history": [
+    {
+      "quarter": "2026Q3",
+      "guidance_given_date_approx": "2026-08-09",
+      "guidance_given_for_quarter_end": "2026-09-30",
+      "revenue_guidance_low_usd_b": 44.6,
+      "revenue_guidance_high_usd_b": 45.8,
+      "exchange_rate_guidance": 32.0,
+      "gross_margin_guidance_low_pct": 65.0,
+      "gross_margin_guidance_high_pct": 67.0,
+      "operating_margin_guidance_low_pct": 56.0,
+      "operating_margin_guidance_high_pct": 58.0,
+      "capex_guidance_usd_b": null,
+      "benchmark_type": "GUIDANCE",
+      "source": "auto:investor.tsmc.com",
+      "notes": "2026Q2法說會公布之2026Q3財測指引（自動抓取，guidance_given_date_approx為抓取當下日期，非確切法說會日期）"
+    }
+  ],
+  "actual_vs_guidance_history": [
+    {
+      "quarter": "2026Q2",
+      "quarter_end": "2026-06-30",
+      "actual_revenue_usd_b": 40.2,
+      "guidance_revenue_low_usd_b": 39.0,
+      "guidance_revenue_high_usd_b": 40.2,
+      "actual_gross_margin_pct": 67.7,
+      "guidance_gross_margin_low_pct": 65.5,
+      "guidance_gross_margin_high_pct": 67.5,
+      "actual_operating_margin_pct": 60.3,
+      "guidance_operating_margin_low_pct": 56.5,
+      "guidance_operating_margin_high_pct": 58.5,
+      "actual_exchange_rate": 31.6,
+      "guidance_exchange_rate": 31.7,
+      "benchmark_type": "GUIDANCE",
+      "source": "auto:investor.tsmc.com",
+      "fetched_at": "2026-08-09T21:57:17.423777"
+    }
+  ],
+  "last_fetch_ok": true,
+  "last_fetch_at": "2026-08-09T21:57:17.423777"
+}

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-09T21:48:29.561303",
+  "timestamp": "2026-08-09T21:57:21.738694",
   "date": "2026-08-09",
   "macro": {
     "taiex": {
@@ -22,11 +22,11 @@
       "change": -0.25,
       "change_pct": -1.65,
       "label": "VIX Index",
-      "timestamp": "2026-08-09T21:46:22.912199"
+      "timestamp": "2026-08-09T21:55:32.504930"
     },
     "btc": {
-      "value": 65180.0,
-      "change": 275.0,
+      "value": 65175.0,
+      "change": 270.0,
       "change_pct": 0.42
     },
     "oil": {
@@ -301,6 +301,114 @@
     },
     "caveat": "本分數為規則式加權評分，尚未經過歷史資料回測驗證統計勝率，僅供比較「目前有多少項已知條件成立」，並非機率或勝率——回測與訊號事後績效追蹤為下一階段規劃項目。"
   },
+  "tsmc_analysis": {
+    "available": true,
+    "total": 77.7,
+    "coverage": "10/10",
+    "recommendation": "偏多持有",
+    "dimensions": [
+      {
+        "name": "revenue_momentum",
+        "score": 15,
+        "cap": 15,
+        "available": true,
+        "notes": [
+          "近3個月營收YoY：[17.5, 30.1, 67.9]，3個月均值 +38.5%（較前期 +30.9% 加速）"
+        ]
+      },
+      {
+        "name": "margin_eps_trend",
+        "score": 10,
+        "cap": 10,
+        "available": true,
+        "notes": [
+          "毛利率 62.3% → 66.2%（+3.9pp）",
+          "EPS年增 +58.3%"
+        ]
+      },
+      {
+        "name": "guidance",
+        "score": 13.0,
+        "cap": 15,
+        "available": true,
+        "notes": [
+          "[Guidance Revision] 2026Q3財測指引 $44.6-45.8B，較2026Q2指引 $39.0-40.2B 變動 +14.1%",
+          "[Actual vs Guidance] 2026Q2實際營收 $40.20B（官方US$計價，非NTD換算），vs 公司自身指引中值 $39.60B（+1.5%）",
+          "[Margin vs Guidance] 毛利率實際67.7% 優於指引上緣67.5%（beat）",
+          "[Margin vs Guidance] 營益率實際60.3% 優於指引上緣58.5%（beat）"
+        ]
+      },
+      {
+        "name": "technical_trend",
+        "score": 15,
+        "cap": 15,
+        "available": true,
+        "notes": [
+          "價格 2370.0，MA20 2361.8，MA60 2358.5，MA120 2171.0",
+          "完整多頭排列：價格>MA20>MA60>MA120"
+        ]
+      },
+      {
+        "name": "momentum_composite",
+        "score": 5.2,
+        "cap": 10,
+        "available": true,
+        "notes": [
+          "KD/RSI/MACD平均分數 52/100（取平均而非加總，避免三個高度相關指標重複計分）",
+          "KD狀態：BULLISH_MOMENTUM"
+        ]
+      },
+      {
+        "name": "relative_strength",
+        "score": 6,
+        "cap": 10,
+        "available": true,
+        "notes": [
+          "2330 近20日漲跌 -1.9%；相對SOX +2.8pp、相對NDX -1.5pp"
+        ]
+      },
+      {
+        "name": "institutional",
+        "score": 10,
+        "cap": 10,
+        "available": true,
+        "notes": [
+          "近3日累計外資 +8881 張，同期股價上漲",
+          "趨勢確認（價漲＋外資買）"
+        ]
+      },
+      {
+        "name": "adr_premium",
+        "score": 1,
+        "cap": 5,
+        "available": true,
+        "notes": [
+          "TSM ADR $420.0 換算2330隱含價 2708.0元，2330現價 2370.0元（折價 12.5%）",
+          "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
+        ]
+      },
+      {
+        "name": "market_regime",
+        "score": 2.5,
+        "cap": 5,
+        "available": true,
+        "notes": [
+          "市場狀態資料不足，採中性分數"
+        ]
+      },
+      {
+        "name": "valuation",
+        "score": 0,
+        "cap": 5,
+        "available": true,
+        "notes": [
+          "目前本益比 31.9，位於近730筆歷史資料的第 94 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+        ]
+      }
+    ],
+    "buy_points": [],
+    "caveat": "本分數為規則式加權評分，且法說會財測指引為人工維護資料（非分析師市場共識），尚未經歷史回測驗證統計勝率，僅供比較「目前有多少項已知條件成立」，並非機率或投資建議。"
+  },
   "news": [
     {
       "title": "算力ETF開募搶先布局 AI雙雄法說會",
@@ -310,6 +418,11 @@
     {
       "title": "AI伺服器需求旺！「這2檔代工大廠」單周被外資狂掃14.5萬張　鴻海法說前夕獲挹注158億元",
       "url": "https://tw.stock.yahoo.com/news/ai%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%9C%80%E6%B1%82%E6%97%BA-%E9%80%992%E6%AA%94%E4%BB%A3%E5%B7%A5%E5%A4%A7%E5%BB%A0-%E5%96%AE%E5%91%A8%E8%A2%AB%E5%A4%96%E8%B3%87%E7%8B%82%E6%8E%8314-5%E8%90%AC%E5%BC%B5-%E9%B4%BB%E6%B5%B7%E6%B3%95%E8%AA%AA%E5%89%8D%E5%A4%95%E7%8D%B2%E6%8C%B9%E6%B3%A8158%E5%84%84%E5%85%83-133000148.html",
+      "meta": null
+    },
+    {
+      "title": "中國7月物價漲幅低於預期  通縮壓力揮之不去",
+      "url": "https://tw.stock.yahoo.com/news/%E4%B8%AD%E5%9C%8B7%E6%9C%88%E7%89%A9%E5%83%B9%E6%BC%B2%E5%B9%85%E4%BD%8E%E6%96%BC%E9%A0%90%E6%9C%9F-%E9%80%9A%E7%B8%AE%E5%A3%93%E5%8A%9B%E6%8F%AE%E4%B9%8B%E4%B8%8D%E5%8E%BB-132700793.html",
       "meta": null
     },
     {
@@ -345,11 +458,6 @@
     {
       "title": "「銅箔大廠」Q2每股賺2.16元、H1EPS衝4.22元　7月營收再報捷、迎年月雙增",
       "url": "https://tw.stock.yahoo.com/news/%E9%8A%85%E7%AE%94%E5%A4%A7%E5%BB%A0-q2%E6%AF%8F%E8%82%A1%E8%B3%BA2-16%E5%85%83-h1eps%E8%A1%9D4-22%E5%85%83-121000466.html",
-      "meta": null
-    },
-    {
-      "title": "投顧：台股短線已反彈5000點  第四季逢低布局",
-      "url": "https://tw.stock.yahoo.com/news/%E6%8A%95%E9%A1%A7-%E5%8F%B0%E8%82%A1%E7%9F%AD%E7%B7%9A%E5%B7%B2%E5%8F%8D%E5%BD%885000%E9%BB%9E-%E7%AC%AC%E5%9B%9B%E5%AD%A3%E9%80%A2%E4%BD%8E%E5%B8%83%E5%B1%80-120313025.html",
       "meta": null
     }
   ],
