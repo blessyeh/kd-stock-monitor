@@ -1,0 +1,31 @@
+{
+  "_readme": "【2026-08 起改為備援/種子檔】台積電財測指引（Guidance）現在主要由 fetcher.fetch_tsmc_official_guidance() 自動從 investor.tsmc.com/english/quarterly-results（TSMC官方IR網站）抓取，寫入 data/tsmc_guidance_auto.json（main.py 的 _update_tsmc_guidance_auto() 負責append-only累積歷史，避免回填偏誤）。這份手動檔案現在只用來補足『自動抓取開始追蹤之前』的季別（例如本檔已有的 2026Q2/2026Q3 兩筆歷史，是自動抓取上線前先人工建立的起始資料）——合併時『自動抓取的季別一律優先』，本檔只在自動抓取尚未涵蓋的季別才會被用到。官方IR頁面直接以美元(USD)公布Actual與Guidance兩者，因此自動抓取路徑已不再需要用USD/TWD快照匯率概略換算NT$實際值（那是舊版FinMind-only作法的已知誤差來源，現已降級為自動抓取失敗時的備援）。若未來要繼續手動新增，格式需與現有 entries 保持一致；revenue guidance 為美元計價。",
+  "entries": [
+    {
+      "quarter": "2026Q3",
+      "guidance_given_date": "2026-07-17",
+      "guidance_given_for_quarter_end": "2026-09-30",
+      "revenue_guidance_low_usd_b": 44.6,
+      "revenue_guidance_high_usd_b": 45.8,
+      "gross_margin_guidance_low_pct": 65.0,
+      "gross_margin_guidance_high_pct": 67.0,
+      "operating_margin_guidance_low_pct": 56.0,
+      "operating_margin_guidance_high_pct": 58.0,
+      "capex_guidance_usd_b": null,
+      "notes": "2026-07-17 法說會公布之3Q26財測指引"
+    },
+    {
+      "quarter": "2026Q2",
+      "guidance_given_date": "2026-04-17",
+      "guidance_given_for_quarter_end": "2026-06-30",
+      "revenue_guidance_low_usd_b": 39.0,
+      "revenue_guidance_high_usd_b": 40.2,
+      "gross_margin_guidance_low_pct": null,
+      "gross_margin_guidance_high_pct": null,
+      "operating_margin_guidance_low_pct": null,
+      "operating_margin_guidance_high_pct": null,
+      "capex_guidance_usd_b": null,
+      "notes": "2026-04-17 法說會公布之2Q26財測指引（毛利率/營益率指引待補）"
+    }
+  ]
+}

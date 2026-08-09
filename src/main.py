@@ -15,7 +15,7 @@ import json
 import argparse
 from datetime import datetime
 import logging
-from typing import Dict
+from typing import Dict, Optional
 
 import numpy as np
 
@@ -29,6 +29,7 @@ from scoring_engine import ScoringEngine
 from signal_confluence import evaluate_signal_confluence
 from market_regime import detect_market_regime
 from signal_score import calculate_signal_scores
+from tsmc_analyzer import calculate_tsmc_score
 
 
 class NumpyJSONEncoder(json.JSONEncoder):
@@ -133,6 +134,30 @@ class KDStockMonitor:
                     {"title": "美股拉警報？華爾街示警：今夏恐爆三波大修正", "url": "https://tw.stock.yahoo.com/news/example-095923224.html", "meta": "4小時前"},
                     {"title": "日圓兌美元貶破162關口 創40年新低", "url": "https://tw.stock.yahoo.com/news/example-104500542.html", "meta": "6小時前"}
                 ]
+                tsmc_monthly_revenue = [
+                    {"year": 2026, "month": m, "revenue_ntd": 3.3e11 + m * 1.0e10, "report_date": f"2026-{(m % 12) + 1:02d}-10"}
+                    for m in range(1, 19)
+                ]
+                tsmc_quarterly_financials = [
+                    {"date": "2026-03-31", "revenue_ntd": 1.134e12, "gross_profit_ntd": 7.513e11, "operating_income_ntd": 6.590e11, "eps": 22.08},
+                    {"date": "2026-06-30", "revenue_ntd": 1.270e12, "gross_profit_ntd": 8.598e11, "operating_income_ntd": 7.658e11, "eps": 27.25},
+                ]
+                tsmc_valuation = [{"date": f"2026-mock-{i}", "per": 28 + (i % 6), "pbr": 10, "dividend_yield": 0.9} for i in range(120)]
+                tsmc_official_guidance = {
+                    "source": "mock", "fetched_url": "mock",
+                    "reported_quarter": "2026Q2", "reported_quarter_end": "2026-06-30",
+                    "next_quarter": "2026Q3", "next_quarter_end": "2026-09-30",
+                    "actual": {"revenue_usd_b": 40.20, "exchange_rate_usdtwd": 31.60,
+                               "gross_margin_pct": 67.7, "operating_margin_pct": 60.3},
+                    "guidance_for_reported_quarter": {
+                        "revenue_low_usd_b": 39.0, "revenue_high_usd_b": 40.2, "exchange_rate_assumed": 31.7,
+                        "gross_margin_low_pct": 65.5, "gross_margin_high_pct": 67.5,
+                        "operating_margin_low_pct": 56.5, "operating_margin_high_pct": 58.5},
+                    "guidance_for_next_quarter": {
+                        "revenue_low_usd_b": 44.6, "revenue_high_usd_b": 45.8, "exchange_rate_assumed": 32.0,
+                        "gross_margin_low_pct": 65.0, "gross_margin_high_pct": 67.0,
+                        "operating_margin_low_pct": 56.0, "operating_margin_high_pct": 58.0},
+                }
                 logger.info("Using mock data (test mode)")
             else:
                 stock_data = self.fetcher.fetch_all_stocks()
@@ -143,6 +168,18 @@ class KDStockMonitor:
                 except Exception as e:
                     logger.error(f"Market news fetch failed (non-fatal, continuing): {e}")
                     market_news = []
+                try:
+                    tsmc_monthly_revenue = self.fetcher.fetch_tsmc_monthly_revenue()
+                    tsmc_quarterly_financials = self.fetcher.fetch_tsmc_quarterly_financials()
+                    tsmc_valuation = self.fetcher.fetch_tsmc_valuation()
+                except Exception as e:
+                    logger.error(f"TSMC fundamentals fetch failed (non-fatal, continuing): {e}")
+                    tsmc_monthly_revenue, tsmc_quarterly_financials, tsmc_valuation = [], [], []
+                try:
+                    tsmc_official_guidance = self.fetcher.fetch_tsmc_official_guidance()
+                except Exception as e:
+                    logger.error(f"TSMC official guidance fetch failed (non-fatal, continuing): {e}")
+                    tsmc_official_guidance = None
 
             stocks_fetched = sum(len(stocks) for stocks in stock_data.values())
             logger.info(f"Fetched data for {stocks_fetched} stocks and macro indicators")
@@ -197,6 +234,41 @@ class KDStockMonitor:
             logger.info(f"Market regime: {regime_result.get('regime')} "
                         f"({regime_result.get('regime_label')}), available={regime_result.get('available')}")
 
+            # Step 2.85: 台積電 (2330) five-layer Investment Score — needs
+            # regime_result/confluence_result (just computed above, for the
+            # Market Regime dimension and the Panic Reversal buy-point) and
+            # stocks_with_kd's per-stock score/institutional data (Step 2.5/
+            # 2.25, already done).
+            #
+            # Guidance data itself now comes primarily from
+            # tsmc_official_guidance (Step 1's auto-fetch of TSMC's own IR
+            # site — Level A official Guidance, per the three-tier data
+            # design). data/tsmc_guidance.json remains as a manually-seeded
+            # fallback for quarters before the auto-fetch existed; auto
+            # always wins on an overlapping quarter. See
+            # _update_tsmc_guidance_auto()'s docstring for why past auto
+            # entries are never overwritten (avoids look-ahead/backfill
+            # bias — each entry is frozen at what was true when first seen).
+            logger.info("\n[Step 2.85/4] Calculating TSMC (2330) investment score...")
+            try:
+                stock_2330 = next((s for s in stocks_with_kd.get("TW", []) if s.get("symbol") == "2330.TW" and "error" not in s), None)
+                stock_tsm = next((s for s in stocks_with_kd.get("US", []) if s.get("symbol") == "TSM" and "error" not in s), None)
+                usdtwd = tw_chip_indicators.get("usdtwd", {}).get("value")
+                guidance_entries, actual_vs_guidance = self._update_tsmc_guidance_auto(tsmc_official_guidance)
+                if stock_2330 is None:
+                    logger.warning("2330.TW not found in watchlist results — skipping TSMC score")
+                    tsmc_analysis = {"available": False, "reason": "2330.TW not in stocks_with_kd"}
+                else:
+                    tsmc_analysis = calculate_tsmc_score(
+                        tsmc_monthly_revenue, tsmc_quarterly_financials, tsmc_valuation, guidance_entries,
+                        stock_2330, stock_tsm, macro_history, regime_result, confluence_result, usdtwd,
+                        actual_vs_guidance=actual_vs_guidance
+                    )
+                logger.info(f"TSMC score: available={tsmc_analysis.get('available')}, total={tsmc_analysis.get('total')}")
+            except Exception as e:
+                logger.error(f"TSMC score calculation failed (non-fatal, continuing): {e}", exc_info=True)
+                tsmc_analysis = {"available": False, "reason": str(e)}
+
             # Step 3: Check for alerts (regime-aware — see Step 2.75 note above)
             logger.info("\n[Step 3/4] Checking for alerts...")
             current_regime = regime_result.get("regime") if regime_result.get("available") else None
@@ -206,7 +278,7 @@ class KDStockMonitor:
             logger.info("\n[Step 4/4] Generating summary report...")
             summary = self._generate_summary(stocks_with_kd, alert_result, macro_indicators,
                                               tw_chip_indicators, confluence_result, market_news,
-                                              regime_result, signal_score_result)
+                                              regime_result, signal_score_result, tsmc_analysis)
             
             # Save run log
             self._save_run_log(summary)
@@ -273,7 +345,7 @@ class KDStockMonitor:
     def _generate_summary(self, stocks_data: Dict, alert_result: Dict, macro_indicators: Dict = None,
                            tw_chip_indicators: Dict = None, confluence_result: Dict = None,
                            market_news: list = None, regime_result: Dict = None,
-                           signal_score_result: Dict = None) -> Dict:
+                           signal_score_result: Dict = None, tsmc_analysis: Dict = None) -> Dict:
         """Generate a summary of the run."""
         all_stocks = []
         for market in ["TW", "US"]:
@@ -324,6 +396,7 @@ class KDStockMonitor:
             "signal_confluence": confluence_result or {"available": False},
             "market_regime": regime_result or {"available": False},
             "signal_score": signal_score_result or {"available": False},
+            "tsmc_analysis": tsmc_analysis or {"available": False},
             "news": market_news or [],
             "stocks_processed": len(all_stocks),
             "stocks_successful": len([s for s in all_stocks if "error" not in s]),
@@ -375,6 +448,164 @@ class KDStockMonitor:
         # Save logs
         with open(log_file, 'w', encoding='utf-8') as f:
             json.dump(logs, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
+
+    def _load_tsmc_guidance(self) -> list:
+        """
+        Load the manually-maintained TSMC guidance history (see
+        data/tsmc_guidance.json's own "_readme" field for why this one file
+        is hand-edited instead of fetched — no free API publishes TSMC's own
+        structured guidance figures or Street consensus estimates). Read
+        only; main.py never writes to this file. Returns [] (not an error)
+        if the file doesn't exist yet, so a fresh checkout without it
+        degrades to tsmc_analyzer.py's normal "insufficient data" handling
+        for the Guidance dimension rather than crashing the whole run.
+        """
+        guidance_file = os.path.join(self.data_dir, 'tsmc_guidance.json')
+        if os.path.exists(guidance_file):
+            try:
+                with open(guidance_file, 'r', encoding='utf-8') as f:
+                    return json.load(f).get("entries", [])
+            except Exception as e:
+                logger.warning(f"Could not load tsmc_guidance.json: {e}")
+        return []
+
+    def _update_tsmc_guidance_auto(self, official_guidance: Optional[dict]) -> tuple:
+        """
+        Persist and merge the auto-fetched TSMC official Guidance
+        (fetcher.fetch_tsmc_official_guidance(), Step 1) into a running
+        history file, then merge it with the manually-seeded
+        data/tsmc_guidance.json to build the final guidance_entries list
+        tsmc_analyzer.py's _score_guidance() consumes.
+
+        Persistence design (data/tsmc_guidance_auto.json):
+          - "guidance_history": one entry per quarter's newly-issued
+            forward guidance (what data/tsmc_guidance.json's manual
+            entries already looked like) — newest first.
+          - "actual_vs_guidance_history": one entry per quarter's realized
+            actual vs. the guidance that had been given FOR that quarter —
+            newest first. This is what makes the beat/miss calculation
+            exact (both figures already in USD, straight from TSMC's own
+            page) instead of the old FinMind NTD-actual + same-day-FX-
+            snapshot approximation.
+
+        Past entries are NEVER overwritten once written — each quarter's
+        entry is frozen at whatever the page showed the first time this
+        pipeline saw that quarter as "latest". This matters for the same
+        point-in-time-integrity reason the project owner raised about
+        Consensus data: if this file were instead rebuilt by re-fetching
+        and blindly upserting on every hourly run, a > later > revision to
+        TSMC's own historical figures (restatements are rare but do
+        happen) could silently rewrite what a past backtest would have
+        seen "as of" that date. Append-only-by-new-quarter avoids that.
+
+        Returns (guidance_entries, actual_vs_guidance_latest):
+          - guidance_entries: auto history + manual data/tsmc_guidance.json
+            entries, deduped by quarter (auto wins), sorted newest-first —
+            drop-in compatible with the pre-existing guidance_entries shape.
+          - actual_vs_guidance_latest: the newest actual_vs_guidance_history
+            entry (or None), passed straight to calculate_tsmc_score() for
+            the precise beat/miss path.
+        """
+        auto_file = os.path.join(self.data_dir, 'tsmc_guidance_auto.json')
+        auto_data = {"guidance_history": [], "actual_vs_guidance_history": []}
+        if os.path.exists(auto_file):
+            try:
+                with open(auto_file, 'r', encoding='utf-8') as f:
+                    loaded = json.load(f)
+                    auto_data["guidance_history"] = loaded.get("guidance_history", [])
+                    auto_data["actual_vs_guidance_history"] = loaded.get("actual_vs_guidance_history", [])
+            except Exception as e:
+                logger.warning(f"Could not load tsmc_guidance_auto.json: {e}")
+
+        if official_guidance:
+            fetched_at = datetime.now().isoformat()
+            gnq = official_guidance.get("guidance_for_next_quarter", {})
+            new_guidance_entry = {
+                "quarter": official_guidance.get("next_quarter"),
+                "guidance_given_date_approx": fetched_at[:10],
+                "guidance_given_for_quarter_end": official_guidance.get("next_quarter_end"),
+                "revenue_guidance_low_usd_b": gnq.get("revenue_low_usd_b"),
+                "revenue_guidance_high_usd_b": gnq.get("revenue_high_usd_b"),
+                "exchange_rate_guidance": gnq.get("exchange_rate_assumed"),
+                "gross_margin_guidance_low_pct": gnq.get("gross_margin_low_pct"),
+                "gross_margin_guidance_high_pct": gnq.get("gross_margin_high_pct"),
+                "operating_margin_guidance_low_pct": gnq.get("operating_margin_low_pct"),
+                "operating_margin_guidance_high_pct": gnq.get("operating_margin_high_pct"),
+                "capex_guidance_usd_b": None,
+                "benchmark_type": "GUIDANCE",
+                "source": f"auto:{official_guidance.get('source')}",
+                "notes": f"{official_guidance.get('reported_quarter')}法說會公布之"
+                         f"{official_guidance.get('next_quarter')}財測指引（自動抓取，"
+                         f"guidance_given_date_approx為抓取當下日期，非確切法說會日期）",
+            }
+            existing_quarters = {e.get("quarter") for e in auto_data["guidance_history"]}
+            if new_guidance_entry["quarter"] not in existing_quarters:
+                auto_data["guidance_history"].insert(0, new_guidance_entry)
+                logger.info(f"TSMC guidance auto-fetch: recorded new quarter "
+                            f"{new_guidance_entry['quarter']}")
+
+            act = official_guidance.get("actual", {})
+            grq = official_guidance.get("guidance_for_reported_quarter", {})
+            new_actual_entry = {
+                "quarter": official_guidance.get("reported_quarter"),
+                "quarter_end": official_guidance.get("reported_quarter_end"),
+                "actual_revenue_usd_b": act.get("revenue_usd_b"),
+                "guidance_revenue_low_usd_b": grq.get("revenue_low_usd_b"),
+                "guidance_revenue_high_usd_b": grq.get("revenue_high_usd_b"),
+                "actual_gross_margin_pct": act.get("gross_margin_pct"),
+                "guidance_gross_margin_low_pct": grq.get("gross_margin_low_pct"),
+                "guidance_gross_margin_high_pct": grq.get("gross_margin_high_pct"),
+                "actual_operating_margin_pct": act.get("operating_margin_pct"),
+                "guidance_operating_margin_low_pct": grq.get("operating_margin_low_pct"),
+                "guidance_operating_margin_high_pct": grq.get("operating_margin_high_pct"),
+                "actual_exchange_rate": act.get("exchange_rate_usdtwd"),
+                "guidance_exchange_rate": grq.get("exchange_rate_assumed"),
+                "benchmark_type": "GUIDANCE",
+                "source": f"auto:{official_guidance.get('source')}",
+                "fetched_at": fetched_at,
+            }
+            existing_actual_quarters = {e.get("quarter") for e in auto_data["actual_vs_guidance_history"]}
+            if new_actual_entry["quarter"] not in existing_actual_quarters:
+                auto_data["actual_vs_guidance_history"].insert(0, new_actual_entry)
+                logger.info(f"TSMC guidance auto-fetch: recorded actual-vs-guidance for "
+                            f"{new_actual_entry['quarter']}")
+
+            try:
+                with open(auto_file, 'w', encoding='utf-8') as f:
+                    json.dump({
+                        "_readme": ("自動抓取台積電官方IR網站（investor.tsmc.com/english/quarterly-results）"
+                                    "之Guidance/Actual資料。每次pipeline執行時抓取當下最新一季，若該季尚未"
+                                    "記錄過才寫入（append-only，不覆寫已記錄的舊季別，避免回填偏誤）。"
+                                    "guidance_history為公司新公布的下一季財測指引；"
+                                    "actual_vs_guidance_history為已公布實際數字對比當初該季指引之beat/miss，"
+                                    "兩者數字皆為公司官方US$計價數字，無需自行以NTD/USD匯率換算。"
+                                    "benchmark_type恆為\"GUIDANCE\"——與第三方分析師Consensus（若未來加入）"
+                                    "絕不可混用比較。"),
+                        "guidance_history": auto_data["guidance_history"],
+                        "actual_vs_guidance_history": auto_data["actual_vs_guidance_history"],
+                        "last_fetch_ok": True,
+                        "last_fetch_at": fetched_at,
+                    }, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
+            except Exception as e:
+                logger.warning(f"Could not save tsmc_guidance_auto.json: {e}")
+        else:
+            logger.warning("TSMC official guidance fetch returned nothing this run — "
+                            "using previously-persisted auto history (if any) + manual fallback")
+
+        manual_entries = self._load_tsmc_guidance()
+        merged_by_quarter = {}
+        for e in manual_entries:
+            q = e.get("quarter")
+            if q:
+                merged_by_quarter[q] = e
+        for e in auto_data["guidance_history"]:
+            q = e.get("quarter")
+            if q:
+                merged_by_quarter[q] = e  # auto wins over manual on the same quarter
+        guidance_entries = sorted(merged_by_quarter.values(), key=lambda e: e.get("quarter", ""), reverse=True)
+
+        actual_vs_guidance_latest = auto_data["actual_vs_guidance_history"][0] if auto_data["actual_vs_guidance_history"] else None
+        return guidance_entries, actual_vs_guidance_latest
 
     def _load_macro_history(self) -> list:
         """Load the persisted daily macro/chip snapshot history."""

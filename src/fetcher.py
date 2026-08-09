@@ -1005,6 +1005,269 @@ class StockFetcher:
             if i < len(tw_stocks) - 1:
                 time.sleep(0.15)
 
+    # ── 2330 (TSMC) fundamental data — feeds src/tsmc_analyzer.py ──────────
+    # These three datasets were each confirmed against live FinMind data on
+    # 2026-08-09 to exactly match TSMC's own publicly disclosed figures
+    # (e.g. June 2026 single-month revenue NT$442.68B, 1Q25 EPS 13.95,
+    # 2Q25 EPS 15.36) — see tsmc_analyzer.py's module docstring for why 2330
+    # gets its own dedicated fundamentals model instead of being treated
+    # like any other KD/technical-only ticker.
+
+    def fetch_tsmc_monthly_revenue(self, months_back: int = 18) -> List[Dict]:
+        """
+        2330 monthly revenue (月營收) via FinMind's TaiwanStockMonthRevenue.
+        Returns ascending-by-month list of:
+            {"year": int, "month": int, "revenue_ntd": float, "report_date": "YYYY-MM-DD"}
+        `report_date` is when TWSE/the company actually disclosed that
+        month's figure (usually ~10 days into the following month), not the
+        month the revenue is for.
+        """
+        try:
+            rows = self._fetch_finmind("TaiwanStockMonthRevenue", "2330", days_back=months_back * 31)
+        except Exception as e:
+            logger.error(f"Error fetching TSMC monthly revenue: {e}")
+            return []
+        if not rows:
+            return []
+        out = []
+        for r in rows:
+            revenue, month, year = r.get("revenue"), r.get("revenue_month"), r.get("revenue_year")
+            if revenue is None or month is None or year is None:
+                continue
+            out.append({"year": int(year), "month": int(month), "revenue_ntd": float(revenue), "report_date": r.get("date")})
+        out.sort(key=lambda x: (x["year"], x["month"]))
+        return out
+
+    def fetch_tsmc_quarterly_financials(self, quarters_back: int = 8) -> List[Dict]:
+        """
+        2330 quarterly Revenue / GrossProfit / OperatingIncome / EPS via
+        FinMind's TaiwanStockFinancialStatements — these are single-quarter
+        actuals (not cumulative year-to-date figures), confirmed against
+        real reported TSMC quarterly results.
+        Returns ascending-by-quarter-end-date list of:
+            {"date": "YYYY-MM-DD" (quarter end), "revenue_ntd", "gross_profit_ntd",
+             "operating_income_ntd", "eps"}
+        A quarter missing from the result just means FinMind hasn't ingested
+        it yet (recently-reported quarters can lag a few days) — callers
+        should treat a missing latest quarter as "not yet available", not
+        an error.
+        """
+        try:
+            rows = self._fetch_finmind("TaiwanStockFinancialStatements", "2330", days_back=quarters_back * 100)
+        except Exception as e:
+            logger.error(f"Error fetching TSMC quarterly financials: {e}")
+            return []
+        if not rows:
+            return []
+        field_map = {"Revenue": "revenue_ntd", "GrossProfit": "gross_profit_ntd",
+                     "OperatingIncome": "operating_income_ntd", "EPS": "eps"}
+        by_date: Dict[str, Dict] = {}
+        for r in rows:
+            d, t, v = r.get("date"), r.get("type"), r.get("value")
+            if d is None or t not in field_map or v is None:
+                continue
+            by_date.setdefault(d, {"date": d})[field_map[t]] = float(v)
+        return sorted(by_date.values(), key=lambda x: x["date"])
+
+    def fetch_tsmc_valuation(self, days_back: int = 1100) -> List[Dict]:
+        """
+        2330 daily trailing PER / PBR / dividend yield via FinMind's
+        TaiwanStockPER. Used to build a historical percentile rank rather
+        than an absolute "PE > 30 = expensive" cutoff, since a fixed number
+        drifts out of relevance as the market re-rates the whole
+        semiconductor sector over multi-year periods — default window is
+        ~3 years (1100 calendar days) specifically to span more than one
+        market cycle. Returns ascending-by-date list of:
+            {"date", "per", "pbr", "dividend_yield"}
+        """
+        try:
+            rows = self._fetch_finmind("TaiwanStockPER", "2330", days_back=days_back)
+        except Exception as e:
+            logger.error(f"Error fetching TSMC valuation (PER/PBR): {e}")
+            return []
+        if not rows:
+            return []
+        out = []
+        for r in rows:
+            d, per = r.get("date"), r.get("PER")
+            if d is None or per is None:
+                continue
+            out.append({"date": d, "per": float(per), "pbr": r.get("PBR"), "dividend_yield": r.get("dividend_yield")})
+        out.sort(key=lambda x: x["date"])
+        return out
+
+    def fetch_tsmc_official_guidance(self) -> Optional[Dict]:
+        """
+        Fetch TSMC's own official Guidance-vs-Actual table directly from
+        their investor relations site, which is a genuinely free,
+        reasonably structured, official source — see the project owner's
+        2026-08 correction: "free + automatable" is not the same as
+        "unobtainable", and it's specifically the company's OWN Guidance
+        (as opposed to third-party analyst Consensus) that has a real free
+        source here. https://investor.tsmc.com/english/quarterly-results
+        redirects to whichever quarter was most recently reported, so this
+        always fetches "the latest" without needing to guess a URL.
+
+        Why this is a materially better source than the old FinMind-based
+        approach: this ONE page gives, directly in USD (no NTD/USD
+        conversion needed), everything required for both:
+          - "Actual vs Guidance" (beat/miss vs the guidance the company
+            itself gave for that exact quarter), and
+          - "Guidance Revision" (this quarter's newly-issued forward
+            guidance vs what will become the prior guidance once the next
+            quarter is fetched).
+        The previous approach converted FinMind's NTD actuals through a
+        same-day USD/TWD snapshot rate as an approximation; TSMC's own page
+        already reports Actual in USD, so that whole approximation goes
+        away for revenue. Gross Margin and Operating Margin actual-vs-
+        guidance (previously not computed at all) fall out of this for
+        free too.
+
+        This is Level A data (official Guidance) in the three-tier
+        data-quality design — never to be confused with third-party
+        Consensus (Level B) or a self-built proxy (Level C). The caller is
+        expected to tag anything derived from this benchmark_type="GUIDANCE".
+
+        Parses by TABLE STRUCTURE and ROW-LABEL TEXT ("Net Revenue",
+        "Exchange Rate", "Gross Margin", "Operating Margin") rather than
+        CSS classes, which are Drupal-generated and the first thing to
+        change in a redesign — same philosophy as fetch_market_news()'s
+        URL-pattern scraping. The reported/next quarter labels come from
+        the page's own <h1> title (e.g. "Financial Results -2026Q2"),
+        which is more reliable to parse than the table's colspan header
+        cells.
+
+        Returns None on any failure (network error, page structure
+        changed, table not found/parseable) — never fatal to the pipeline;
+        callers should fall back to the manually-maintained
+        data/tsmc_guidance.json and/or the FinMind-based approximation.
+        """
+        import re
+        try:
+            from bs4 import BeautifulSoup
+        except ImportError:
+            logger.error("beautifulsoup4 not installed — cannot fetch TSMC official guidance")
+            return None
+
+        def _quarter_end(year: int, q: int) -> str:
+            month_day = {1: (3, 31), 2: (6, 30), 3: (9, 30), 4: (12, 31)}[q]
+            return f"{year}-{month_day[0]:02d}-{month_day[1]:02d}"
+
+        def _next_quarter(year: int, q: int):
+            return (year, q + 1) if q < 4 else (year + 1, 1)
+
+        def _parse_cell(text: str):
+            """Returns (low, high) — a single value comes back as (v, v)."""
+            text = text.replace("%", "").replace(",", "").replace("US$", "").strip()
+            m = re.match(r"^(-?[\d.]+)\s*-\s*(-?[\d.]+)$", text)
+            if m:
+                return float(m.group(1)), float(m.group(2))
+            try:
+                v = float(text)
+                return v, v
+            except ValueError:
+                return None, None
+
+        try:
+            headers = {
+                "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+            }
+            resp = requests.get("https://investor.tsmc.com/english/quarterly-results",
+                                 headers=headers, timeout=15)
+            resp.raise_for_status()
+            soup = BeautifulSoup(resp.text, "html.parser")
+
+            h1 = soup.find("h1")
+            title_text = h1.get_text(strip=True) if h1 else ""
+            m = re.search(r"(\d{4})Q(\d)", title_text)
+            if not m:
+                logger.warning(f"Could not parse reported quarter from TSMC IR page title: {title_text!r}")
+                return None
+            reported_year, reported_q = int(m.group(1)), int(m.group(2))
+            next_year, next_q = _next_quarter(reported_year, reported_q)
+
+            guidance_heading = None
+            for tag in soup.find_all(["h2", "h3"]):
+                if "guidance" in tag.get_text(strip=True).lower():
+                    guidance_heading = tag
+                    break
+            table = guidance_heading.find_next("table") if guidance_heading else soup.find("table")
+            if table is None:
+                logger.warning("Could not find TSMC IR Guidance table on page")
+                return None
+
+            row_label_map = {
+                "net revenue": "revenue",
+                "exchange rate": "fx",
+                "gross margin": "gross_margin",
+                "operating margin": "operating_margin",
+            }
+            parsed = {}
+            for tr in table.find_all("tr"):
+                cells = tr.find_all(["td", "th"])
+                if not cells:
+                    continue
+                label = cells[0].get_text(strip=True).lower()
+                key = next((v for k, v in row_label_map.items() if k in label), None)
+                if key is None:
+                    continue
+                values = [c.get_text(strip=True) for c in cells[1:]]
+                if len(values) < 3:
+                    continue
+                actual_lo, _ = _parse_cell(values[0])
+                g_this_lo, g_this_hi = _parse_cell(values[1])
+                g_next_lo, g_next_hi = _parse_cell(values[2])
+                parsed[key] = {
+                    "actual": actual_lo,
+                    "guidance_this_low": g_this_lo, "guidance_this_high": g_this_hi,
+                    "guidance_next_low": g_next_lo, "guidance_next_high": g_next_hi,
+                }
+
+            if "revenue" not in parsed:
+                logger.warning("TSMC IR Guidance table found but revenue row missing/unparsed "
+                                "— page structure may have changed")
+                return None
+
+            def _get(key, field):
+                return parsed.get(key, {}).get(field)
+
+            return {
+                "source": "investor.tsmc.com",
+                "fetched_url": resp.url,
+                "reported_quarter": f"{reported_year}Q{reported_q}",
+                "reported_quarter_end": _quarter_end(reported_year, reported_q),
+                "next_quarter": f"{next_year}Q{next_q}",
+                "next_quarter_end": _quarter_end(next_year, next_q),
+                "actual": {
+                    "revenue_usd_b": _get("revenue", "actual"),
+                    "exchange_rate_usdtwd": _get("fx", "actual"),
+                    "gross_margin_pct": _get("gross_margin", "actual"),
+                    "operating_margin_pct": _get("operating_margin", "actual"),
+                },
+                "guidance_for_reported_quarter": {
+                    "revenue_low_usd_b": _get("revenue", "guidance_this_low"),
+                    "revenue_high_usd_b": _get("revenue", "guidance_this_high"),
+                    "exchange_rate_assumed": _get("fx", "guidance_this_low"),
+                    "gross_margin_low_pct": _get("gross_margin", "guidance_this_low"),
+                    "gross_margin_high_pct": _get("gross_margin", "guidance_this_high"),
+                    "operating_margin_low_pct": _get("operating_margin", "guidance_this_low"),
+                    "operating_margin_high_pct": _get("operating_margin", "guidance_this_high"),
+                },
+                "guidance_for_next_quarter": {
+                    "revenue_low_usd_b": _get("revenue", "guidance_next_low"),
+                    "revenue_high_usd_b": _get("revenue", "guidance_next_high"),
+                    "exchange_rate_assumed": _get("fx", "guidance_next_low"),
+                    "gross_margin_low_pct": _get("gross_margin", "guidance_next_low"),
+                    "gross_margin_high_pct": _get("gross_margin", "guidance_next_high"),
+                    "operating_margin_low_pct": _get("operating_margin", "guidance_next_low"),
+                    "operating_margin_high_pct": _get("operating_margin", "guidance_next_high"),
+                },
+            }
+        except Exception as e:
+            logger.error(f"Error fetching TSMC official guidance from investor.tsmc.com: {e}")
+            return None
+
     def backfill_macro_history(self, days_back: int = 35) -> Dict[str, Dict]:
         """
         One-time historical backfill for the signal-confluence model, so a user

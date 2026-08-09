@@ -77,6 +77,10 @@ const INFO_TEXT = {
         title: '市場狀態 (Market Regime)',
         body: '依 TAIEX 相對長天期均線的位置與斜率、VIX 是否急升/見頂回落、外資資金流向是否反轉，將目前大盤狀態分類為「多頭趨勢」「多頭回檔」「空頭趨勢」「恐慌急殺」「築底回穩」五種之一。同樣的訊號（例如個股 KD 超賣）在不同市場狀態下代表的意義不同：多頭回檔時的超賣通常是加碼機會，空頭趨勢或恐慌時的超賣則可能只是持續破底的開始。本專案的個股警示會依目前市場狀態調整確認門檻（詳見警示卡片內的說明），但這仍是規則式分類，並非對未來走勢的預測。'
     },
+    tsmc_analysis: {
+        title: '台積電 (2330) 投資決策分析',
+        body: '台積電是本站監控名單中最大的持股，其股價通常提前反應「未來獲利預期的變化」而非落後反應已公布的財報，因此不適合單純用 KD/MACD 等技術指標判斷。此模型把 2330 拆成 10 個構面（各自獨立加總，滿分100）：營收動能15分、毛利率/EPS趨勢10分、法說會財測指引15分、技術趨勢15分（均線多頭排列）、動能綜合10分（KD/RSI/MACD取平均而非加總，避免三個高度相關指標重複計分）、相對強弱10分（相對台股/費半/那斯達克）、外資籌碼10分、ADR溢折價5分、大盤環境5分（引用市場狀態模組）、估值5分（本益比歷史百分位）。三種買點設定（基本面回撤／趨勢突破／恐慌反轉）皆同時要求基本面門檻與市場時機觸發，避免「好公司壞價格」或「純粹接刀」。最大限制：分析師市場共識預期與台積電正式財測指引數字，目前沒有免費、可自動抓取的資料源，法說會指引的部分是人工每季更新（data/tsmc_guidance.json），並非即時抓取；本分數同樣尚未經過歷史回測驗證統計勝率。'
+    },
     kd_state: {
         title: 'KD 狀態 (KD State)',
         body: '比單純「超買/超賣」更細緻的 KD 判讀，同時參考昨日的 K/D 位置：黃金交叉／死亡交叉＝K、D 今日剛交叉；超買中·動能未歇＝K-D 差距仍在擴大，多頭動能尚未停歇（此時的「超買」較可能只是鈍化，非賣出訊號）；超買轉弱＝K-D 差距開始收斂，動能停滯，較可能是真正的高點；超賣反轉／超賣回升中＝同樣邏輯用在低檔。多頭/空頭動能則是 K、D 未進入極端區間時的方向判斷。這仍是規則式分類，並非預測。'
@@ -270,6 +274,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateChipStats();
     renderSignalScore();
     renderSignalConfluence();
+    renderTsmcAnalysis();
     renderStockGrid();
     renderAlertHistory();
     updateLastUpdated();
@@ -787,6 +792,99 @@ function renderSignalScore() {
         `;
     } catch (e) {
         console.error("Error rendering signal score:", e);
+    }
+}
+
+/**
+ * Render the 台積電 (2330) Investment Score panel. Backed by
+ * src/tsmc_analyzer.py — see that module's docstring for the full 10-
+ * dimension model and why 2330 gets a dedicated fundamentals-aware score
+ * instead of being treated like any other KD-only ticker.
+ */
+const TSMC_DIM_LABELS = {
+    revenue_momentum: '營收動能', margin_eps_trend: '毛利率/EPS趨勢', guidance: '法說會財測指引',
+    technical_trend: '技術趨勢', momentum_composite: '動能綜合(KD/RSI/MACD)', relative_strength: '相對強弱',
+    institutional: '外資籌碼', adr_premium: 'ADR溢折價', market_regime: '大盤環境', valuation: '估值(本益比百分位)'
+};
+const TSMC_RECOMMENDATION_STYLE = {
+    '強勢加碼區': 'bg-kd-red/20 text-kd-red', '偏多持有': 'bg-kd-red/10 text-kd-red',
+    '中性持有': 'bg-kd-yellow/15 text-kd-yellow', '減碼/等待': 'bg-kd-green/10 text-kd-green',
+    '防守': 'bg-kd-green/20 text-kd-green'
+};
+function renderTsmcAnalysis() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const t = summary.tsmc_analysis || { available: false };
+        const dateEl = document.getElementById('tsmc-date');
+        const body = document.getElementById('tsmc-body');
+        if (!body) return;
+
+        if (!t.available) {
+            if (dateEl) dateEl.textContent = '';
+            body.innerHTML = `
+                <div class="text-center py-4 text-dark-text2 text-sm">
+                    <i class="fas fa-hourglass-half mr-1"></i>
+                    資料尚不足以計算台積電投資決策分數（${t.reason || '請稍候，資料會隨每日執行自動累積'}）
+                </div>
+            `;
+            return;
+        }
+        if (dateEl) dateEl.textContent = `(涵蓋 ${t.coverage} 項構面)`;
+
+        const recStyle = TSMC_RECOMMENDATION_STYLE[t.recommendation] || 'bg-dark-bg text-dark-text2';
+        const buyPointsHtml = (t.buy_points && t.buy_points.length)
+            ? t.buy_points.map(bp => `
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-accent/15 text-accent mr-2 mb-1" title="${bp.detail}">
+                    <i class="fas fa-crosshairs"></i> ${bp.label}
+                </span>
+            `).join('')
+            : '<span class="text-xs text-dark-text2">目前未觸發任一設定買點</span>';
+
+        const dimsHtml = t.dimensions.map(d => {
+            if (!d.available) {
+                return `
+                    <div class="py-1.5 opacity-50">
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="text-dark-text">${TSMC_DIM_LABELS[d.name] || d.name}</span>
+                            <span class="font-mono text-dark-text2">資料不足</span>
+                        </div>
+                        <div class="text-[10px] text-dark-text2">${(d.notes || []).join('；')}</div>
+                    </div>
+                `;
+            }
+            const pct = d.cap > 0 ? Math.round((d.score / d.cap) * 100) : 0;
+            const barClass = pct >= 60 ? 'bg-kd-red' : pct >= 30 ? 'bg-kd-yellow' : 'bg-kd-green';
+            const notesHtml = (d.notes || []).length
+                ? `<div class="mt-1 space-y-0.5">${d.notes.map(n => `<div class="text-[10px] text-dark-text2 leading-snug">・${n}</div>`).join('')}</div>`
+                : '';
+            return `
+                <div class="py-1.5">
+                    <div class="flex items-center justify-between text-[11px] mb-1">
+                        <span class="text-dark-text">${TSMC_DIM_LABELS[d.name] || d.name}</span>
+                        <span class="font-mono text-dark-text">${d.score} / ${d.cap}</span>
+                    </div>
+                    <div class="h-1.5 rounded-full bg-dark-bg overflow-hidden">
+                        <div class="h-full ${barClass} rounded-full" style="width: ${pct}%"></div>
+                    </div>
+                    ${notesHtml}
+                </div>
+            `;
+        }).join('');
+
+        body.innerHTML = `
+            <div class="flex items-center justify-between flex-wrap gap-3 mt-2 mb-3">
+                <div class="flex items-baseline gap-3">
+                    <span class="text-3xl font-bold font-mono text-white">${t.total}<span class="text-sm text-dark-text2">/100</span></span>
+                    <span class="px-3 py-1 rounded-full text-sm font-semibold ${recStyle}">${t.recommendation}</span>
+                </div>
+                <div>${buyPointsHtml}</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 divide-y divide-dark-border/50 md:divide-y-0">
+                ${dimsHtml}
+            </div>
+        `;
+    } catch (e) {
+        console.error("Error rendering TSMC analysis:", e);
     }
 }
 
@@ -1409,6 +1507,7 @@ async function refreshData() {
     updateChipStats();
     renderSignalScore();
     renderSignalConfluence();
+    renderTsmcAnalysis();
     renderStockGrid();
     renderAlertHistory();
     updateLastUpdated();

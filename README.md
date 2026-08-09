@@ -139,10 +139,38 @@ The project's threshold-based conditions (T1–T5 / B1–B3 above, and the per-s
 
   ⚠️ **What this score is *not***: it is still a hand-tuned rule-based weighting, exactly like every other threshold in this project — reusing signal_confluence.py's own condition thresholds so the two never silently drift apart. Nothing here has been back-tested against historical TAIEX returns. A score of "82/100" means "82 points' worth of this project's hand-picked bottom-supportive conditions are currently present" — **not** "82% probability of a bounce". The dashboard repeats this caveat next to the score, not just here.
 
+### 🔬 TSMC (2330) Investment Score
+2330 is the largest, most-watched holding in this project's watchlist, and it behaves differently from an ordinary ticker: TSMC's stock price usually trades *ahead* of its own reported results, on revisions to future earnings expectations (the monthly revenue trend, and the forward guidance given at each quarterly earnings call) — not on the trailing quarter's numbers in isolation. A pure KD/MACD/institutional-flow read, treated the same as any other stock in the watchlist, is structurally blind to that. `src/tsmc_analyzer.py` scores 2330 across 10 dimensions (100 points total), each degrading independently to "insufficient data" rather than guessing:
+
+| Dimension | Points | What it measures |
+|---|---|---|
+| Revenue Momentum | 15 | Monthly revenue YoY (FinMind `TaiwanStockMonthRevenue`) — 3-month average and whether it's accelerating or decelerating, not just the latest single month |
+| Margin / EPS Trend | 10 | Quarterly gross-margin momentum + EPS YoY (FinMind `TaiwanStockFinancialStatements`) — revenue growth ≠ profit quality |
+| Guidance | 15 | See below — auto-fetched from TSMC's own IR site, no manual data entry needed anymore |
+| Technical Trend | 15 | MA20/60/120 stack structure (price > MA20 > MA60 > MA120 = full bullish alignment) |
+| Momentum (composite) | 10 | KD + RSI + MACD scores **averaged, not summed** — see caveat below |
+| Relative Strength | 10 | 2330's own N-day return vs. TAIEX / SOX / NDX over the same window |
+| Institutional / Chip | 10 | Per-stock foreign flow (already fetched — see "Per-Stock Institutional Flow" above) cross-referenced against price direction: confirmation, divergence, or possible absorption |
+| ADR Premium/Discount | 5 | TSM (NYSE ADR, 1 ADR = 5 ordinary shares) implied 2330 price vs. 2330's actual price, via USD/TWD |
+| Market Regime | 5 | Reuses `market_regime.py`'s classification directly |
+| Valuation | 5 | Trailing PER percentile within 2330's own 3-year history (FinMind `TaiwanStockPER`) — a good company isn't automatically a good price |
+
+⚠️ **The Momentum dimension is deliberately an average, not a sum**: KD, RSI, and MACD are all derived from the same underlying price series and are highly correlated — summing three correlated readings as if they were three independent confirmations overstates confidence. "Three indicators agree" isn't three times more reliable than one when the three aren't actually independent.
+
+**Guidance — auto-fetched from TSMC's own official IR site.** An earlier version of this dimension used a fully hand-maintained file on the assumption that TSMC's structured guidance figures simply weren't available for free. That assumption was wrong: `fetcher.fetch_tsmc_official_guidance()` scrapes `investor.tsmc.com/english/quarterly-results` (which auto-redirects to whichever quarter was most recently reported) and reads its "Guidance" table directly — Actual, Guidance-given-for-that-quarter, and newly-issued Guidance-for-next-quarter, for Net Revenue, Exchange Rate, Gross Margin, and Operating Margin, **already in USD** (no NTD/USD conversion approximation needed). `main.py`'s `_update_tsmc_guidance_auto()` persists this into `data/tsmc_guidance_auto.json` append-only (each quarter's entry is frozen the first time it's seen, never rewritten later, to avoid backfill/look-ahead bias), building three sub-scores: **Guidance Revision** (0-6, this quarter's newly-issued guidance vs. the company's own prior guidance), **Revenue Actual vs. Guidance** (0-5, beat/miss vs. the guidance given for that exact quarter), and **Margin Actual vs. Guidance** (0-4, gross + operating margin each scored beat/in-line/miss — not possible at all in the old approach). What genuinely still has no free, point-in-time-safe source is third-party analyst **Consensus** — that's a deliberately different, harder problem (scattered sources, no reliable historical snapshots, and a real look-ahead-bias risk if queried naively for a past quarter) and stays out of scope here; every figure this dimension uses is tagged `benchmark_type="GUIDANCE"` and is never mixed with Consensus. `data/tsmc_guidance.json` remains as a small manually-seeded fallback covering the quarters before the auto-fetch existed — the auto-fetched value always wins when both exist for the same quarter.
+
+**Three named buy-point setups**, each requiring both a fundamental-quality gate AND a market-timing trigger (so a good company at a stretched price, or a falling knife with no fundamental support, qualifies for neither):
+- **基本面回撤買點 (Fundamental Pullback)**: fundamentals still strong, but price/KD show a short-term oversold overreaction.
+- **趨勢突破買點 (Trend Breakout)**: fundamentals + technical structure + volume + foreign buying all confirm together — a "chase the confirmed move" setup.
+- **恐慌反轉買點 (Panic Reversal)**: fundamentals hold up while the broader market panics — this one explicitly reuses Signal Confluence's B1-B3 bottom conditions (VIX reversal, margin capitulation, foreign short-covering) rather than re-deriving its own panic logic, per the same reasoning as the Market Regime dimension: 2330 is this project's best single lens on "is this a real crisis or a market-wide overreaction that fundamentals don't support."
+
+Same caveat as everywhere else in this project: this is a hand-tuned rule-based weighting, not a back-tested statistical model.
+
 ### 🚧 Roadmap | 尚待開發
 Ordered by where the next quantitative-rigor gain is largest, per two architecture reviews of this project (2026-08-09). Items 1-4 came out of the second review (code-level read of `kd_calculator.py`/`signal_confluence.py`) — Phase 1 of that review (date-alignment correctness) and the KD State engine are now **done** (see "KD Engine & Data-Integrity Fixes" above); everything below is what's still open, in the reviewer's own suggested order:
 1. **Signal Confluence: boolean thresholds → graduated 0-100 sub-scores per condition**: T1-T5/B1-B3 in `signal_confluence.py` still evaluate as hard AND/OR booleans (e.g. "US 10Y 5-day change ≥ 0.15pp" is a cliff — 0.14pp and 0.15pp are barely different market states but flip the condition from 0 to 1 with nothing in between). `signal_score.py` already restructures the *rollup* of these conditions into a 0-100 score, but each individual contributing check inside it is still binary before being summed. The suggested fix is a graduated scale per indicator (e.g. US10Y 5D change: <0.00→0, 0.00-0.05→20, 0.05-0.10→40, 0.10-0.15→60, 0.15-0.25→80, >0.25→100) feeding into both modules, plus specifically upgrading B3 (FX stabilization + foreign flow reversal + futures covering) into its own weighted 0-100 "Bottom Reversal Score" (30/35/35 split) as a concrete worked example. Not yet started — the largest remaining design change from the second review.
-2. **Signal History + Backtest**: log every signal-confluence/score event with the market state at the time, then automatically compute forward 1D/3D/5D/10D/20D returns, win rate, average return, expectancy, max drawdown, and Sharpe per signal type — the concrete next step that turns Signal Score from "how many conditions are met" into an actual back-tested statistic. Not yet started.
+2. **Signal History + Backtest**: log every signal-confluence/score event with the market state at the time, then automatically compute forward 1D/3D/5D/10D/20D returns, win rate, average return, expectancy, max drawdown, and Sharpe per signal type — the concrete next step that turns Signal Score from "how many conditions are met" into an actual back-tested statistic. Should eventually cover `tsmc_analyzer.py`'s score/buy-point setups too, not just Signal Score/Confluence — 2330's 10-dimension weights (15/10/15/15/10/10/10/5/5/5) are just as un-validated as everything else in this project. Not yet started.
+   *   ℹ️ Note: `data/tsmc_guidance.json`'s manual-maintenance burden is now gone — Guidance is auto-fetched each run (see "TSMC (2330) Investment Score" above). No more quarterly hand-updates needed; the manual file is a fallback only.
 3. **Flow normalization (Z-score / percentile / ratio)**: the per-stock institutional flow filter currently uses a flat 500-張 threshold on 3-day cumulative foreign net buy/sell, which treats a mega-cap like 2330 the same as a small-cap — normalizing against each stock's own 20-day average volume (or a 60-day Z-score) would make the threshold comparable across stocks. Not yet started.
 4. **Data Freshness + source-specific scheduling**: most of this project's data (institutional flow, margin balance, TAIFEX futures, options P/C ratio) is EOD, not intraday, so the current blanket hourly cron does a lot of redundant fetching against unchanged data; splitting the schedule by source (US market data hourly, TW EOD data once/trading day) and surfacing a 🟢/🟡/🔴 freshness badge per indicator (so it's clear TAIEX is "today" while foreign flow might be "yesterday's report") are both still open. Not yet started.
 5. **CPI/PCE, Non-Farm Payrolls & Unemployment Rate | CPI/PCE、非農就業與失業率**: Fetchable for free via FRED's no-key CSV endpoint, but these are monthly releases (not continuous prices) — they need a different "latest value + release date + countdown" UI treatment rather than the hourly ticker-card style, so they're deferred rather than shoehorned in. Lower priority than the quantitative-rigor items above.
@@ -151,6 +179,9 @@ Ordered by where the next quantitative-rigor gain is largest, per two architectu
    *   不在計畫內——ISM 已於 2016 年收回 FRED 的資料授權，目前沒有可靠的官方免費來源（即時 PMI 多半來自付費資料商）。
 7. **Git repository housekeeping | Git 倉庫維護**: `docs/data/` was added to `.gitignore` (it's a deploy-time build artifact and shouldn't be version-controlled), but the already-tracked copy still needs a one-time `git rm -r --cached docs/data` to actually stop tracking it.
    *   `docs/data/` 已加入 `.gitignore`（這是部署時才產生的建置產物，不該進版控），但既有已追蹤的檔案還需要手動跑一次 `git rm -r --cached docs/data` 才會真正停止追蹤。
+8. **TSMC earnings-call transcript → structured extraction**: `investor.tsmc.com` also publishes each quarter's earnings-conference transcript PDF for free, which contains richer color (customer/platform revenue mix commentary, capex rationale, AI/HPC demand commentary) than the numeric Guidance table alone. An LLM-based structured-extraction pass over the transcript (a fixed JSON schema: revenue by platform, key qualitative guidance callouts, analyst Q&A themes) was floated as a strong follow-on but is lower priority than the backtest/normalization items above. Not started.
+9. **Self-built "TSMC Market Expectation Index"**: as a longer-run substitute for true Street Consensus (which remains out of scope — see the Guidance section above), combine TSMC's own guidance + monthly revenue trend + supply-chain proxies (NVDA/AVGO/AMD/ASML) + SOX + TSM ADR direction into a single composite "is the market's implicit expectation for TSMC rising or falling" index. Lower priority, explicitly deferred by the project owner's own ranking. Not started.
+10. **Analyst Consensus API (e.g. Financial Modeling Prep) — deferred**: a real Consensus data source exists but was deliberately deprioritized over reliability/licensing/point-in-time concerns — see the look-ahead-bias risk noted in the Guidance section above (querying "today's" consensus for a historical quarter already reflects information the market didn't have at that time, which is more dangerous for backtesting than having no consensus data at all). If pursued, would need explicit point-in-time snapshot handling, not a naive "fetch latest" call. Lowest priority, last in the project owner's own ranking.
 
 ---
 
@@ -268,15 +299,46 @@ KD 是一個「震盪型指標」，假設股價會在箱型區間內來回波�
 
   ⚠️ **這個分數不是什麼**：它仍然是人工設定權重的規則式評分，跟本專案其他所有門檻一樣——並重用 `signal_confluence.py` 本身的條件門檻，確保兩個模組不會悄悄產生分歧。目前尚未對 TAIEX 歷史報酬進行任何回測驗證。「82分」的意思是「目前有82分權重的已知底部支撐條件成立」，**不是**「82%機率會反彈」。儀表板上會在分數旁邊重複這個警語，而不只是寫在這裡。
 
+### 🔬 台積電 (2330) 投資決策分數
+2330 是本專案監控名單中最大、最受關注的持股，而且它的行為跟一般個股不一樣：台積電股價通常會**提前**反應「未來獲利預期的變化」（月營收趨勢、每季法說會給出的財測指引），而不是單純落後反應已公布的上一季數字。若把它跟名單中其他股票一樣，只用 KD/MACD/外資買賣超各自判斷，結構上就完全看不到這一塊。`src/tsmc_analyzer.py` 把 2330 拆成 10 個構面（總分100），每個構面各自獨立地在資料不足時回報「資料不足」，而不是用猜的：
+
+| 構面 | 分數 | 衡量內容 |
+|---|---|---|
+| 營收動能 | 15 | 月營收年增率（FinMind `TaiwanStockMonthRevenue`）——採3個月均值並判斷是否加速/減速，而非只看單月 |
+| 毛利率/EPS趨勢 | 10 | 季度毛利率動能 + EPS年增（FinMind `TaiwanStockFinancialStatements`）——營收成長不等於獲利品質 |
+| 法說會財測指引 | 15 | 見下方說明——現已改為自動從台積電官方IR網站抓取，不再需要人工維護資料 |
+| 技術趨勢 | 15 | MA20/60/120排列結構（股價>MA20>MA60>MA120＝完整多頭排列） |
+| 動能綜合 | 10 | KD + RSI + MACD 分數**取平均而非加總**——原因見下方警語 |
+| 相對強弱 | 10 | 2330自身N日報酬 vs. 同期台股大盤/費半/那斯達克100 |
+| 外資籌碼 | 10 | 個股外資買賣超（已有此資料，見上方「個股外資買賣超」）與股價方向交叉比對：確認、背離、或可能吸收賣壓 |
+| ADR溢折價 | 5 | TSM（紐約證交所ADR，1 ADR=5股普通股）換算的2330隱含價格 vs. 2330實際價格，透過USD/TWD換算 |
+| 大盤環境 | 5 | 直接引用 `market_regime.py` 的市場狀態分類 |
+| 估值 | 5 | 本益比在2330自身近3年歷史中的百分位（FinMind `TaiwanStockPER`）——好公司不代表好價格 |
+
+⚠️ **動能構面刻意採「平均」而非「加總」**：KD、RSI、MACD 三者都源自同一條價格序列，彼此高度相關——把三個高度相關的讀值當成三個獨立的確認訊號直接加總，會高估其可信度。「三個指標同時看多」在三者本來就不是真正獨立的情況下，並不代表可信度是單一指標的三倍。
+
+**法說會財測指引——現已自動從台積電官方IR網站抓取。** 早期版本因為誤判「台積電結構化財測指引無免費資料源」而採全人工維護，這個前提其實是錯的：`fetcher.fetch_tsmc_official_guidance()` 會抓取 `investor.tsmc.com/english/quarterly-results`（會自動導向最新一期公布的季別），直接讀取其「Guidance」表格——包含 Actual（實際數字）、Guidance-for-that-quarter（該季當初給的指引）、以及新公布的 Guidance-for-next-quarter（下一季新指引），涵蓋營收、匯率假設、毛利率、營益率四項，**且原始資料本身就是美元計價**（不再需要用USD/TWD快照匯率概略換算NT$實際值）。`main.py` 的 `_update_tsmc_guidance_auto()` 會把這些資料以 append-only 方式寫入 `data/tsmc_guidance_auto.json`（每一季的資料在第一次被看到時就凍結，之後不會被覆寫，避免回填/未來函數偏誤），並拆成三個子分數：**Guidance Revision**（0-6分，本季新公布的指引 vs. 公司自己上一筆指引的QoQ變化）、**Revenue Actual vs. Guidance**（0-5分，實際營收 vs. 當初該季指引的beat/miss）、以及**Margin Actual vs. Guidance**（0-4分，毛利率+營益率分別評估beat/in-line/miss——這在舊作法中完全無法計算）。真正還是沒有免費、時間點安全（point-in-time-safe）資料源的，是第三方分析師的**市場共識（Consensus）**——這是刻意區分開、更困難的另一個問題（來源零散、沒有可靠的歷史快照、且若對歷史某一季天真地查詢「現在的」共識，會有真實的未來函數偏誤風險），因此不在此構面範圍內；本構面所有數字都標記為 `benchmark_type="GUIDANCE"`，絕不與Consensus混用。`data/tsmc_guidance.json` 仍保留作為自動抓取涵蓋範圍之前季別的人工種子備援——同一季別若兩者都有資料，永遠以自動抓取版本為準。
+
+**三種具名買點設定**，每一種都同時要求「基本面門檻」與「市場時機觸發」兩個條件都成立（避免「好公司但價格已過度反應」或「純粹接刀、基本面沒有支撐」都被誤判為買點）：
+- **基本面回撤買點**：基本面仍強，但股價/KD顯示短線出現超賣式的錯殺。
+- **趨勢突破買點**：基本面＋技術面排列＋量能＋外資買超同步確認——「確認後追價」的設定。
+- **恐慌反轉買點**：大盤恐慌但2330基本面沒有同步惡化——這一項刻意直接重用「訊號共振」的 B1-B3 底部條件（VIX反轉、融資斷頭、外資空單回補），而非另外重造一套恐慌邏輯，理由跟「大盤環境」構面一致：2330 是本專案觀察「這是真正的危機，還是基本面沒有支撐的市場過度反應」最好的單一觀察標的。
+
+跟本專案其他所有地方一樣的警語：這是人工設定權重的規則式評分，並非經過回測驗證的統計模型。
+
 ### 🚧 尚待開發
 依兩次架構審查（2026-08-09）評估下一步量化嚴謹度效益最大的項目排序。第 1-4 項來自第二次審查（對 `kd_calculator.py`/`signal_confluence.py` 的程式碼層級審查）——該次審查的 Phase 1（時間軸對齊正確性）與 KD 狀態引擎現在**已完成**（見上方「KD 引擎與資料完整性修正」），以下是照審查者建議順序排列、尚未完成的項目：
 1. **訊號共振：布林值門檻 → 每項條件獨立的 0-100 漸進式評分**：`signal_confluence.py` 中的 T1-T5/B1-B3 目前仍是硬性 AND/OR 布林判斷（例如「美債10Y 5日變動 ≥ 0.15pp」是一個斷崖式門檻——0.14pp 跟 0.15pp 幾乎是同一個市場狀態，但條件會直接從 0 跳到 1，中間沒有過渡）。`signal_score.py` 已經把這些條件的「彙總方式」改成 0-100 分數，但內部每一個獨立的判斷條件加總前仍然是二元的。建議做法是為每個指標建立漸進式量表（例如美債10Y 5日變動：<0.00→0、0.00~0.05→20、0.05~0.10→40、0.10~0.15→60、0.15~0.25→80、>0.25→100），同時餵入兩個模組；並具體把 B3（匯率止穩＋外資轉買＋期貨回補）升級成獨立的加權 0-100「底部反轉分數」（30/35/35 拆分）作為具體範例。尚未開始——這是第二次審查中最大的待完成設計變更。
-2. **訊號事後績效追蹤 + 回測（Signal History + Backtest）**：記錄每次訊號共振/評分事件發生當下的市場狀態，之後自動計算後續 1D/3D/5D/10D/20D 報酬率、勝率、平均報酬、期望值、最大回撤與 Sharpe——這是讓「訊號評分」從「目前有多少條件成立」進化成真正經過回測驗證的統計數據的具體下一步。尚未開始。
+2. **訊號事後績效追蹤 + 回測（Signal History + Backtest）**：記錄每次訊號共振/評分事件發生當下的市場狀態，之後自動計算後續 1D/3D/5D/10D/20D 報酬率、勝率、平均報酬、期望值、最大回撤與 Sharpe——這是讓「訊號評分」從「目前有多少條件成立」進化成真正經過回測驗證的統計數據的具體下一步。未來也應該涵蓋 `tsmc_analyzer.py` 的分數/買點設定，不只是訊號評分/共振——2330 的10個構面權重（15/10/15/15/10/10/10/5/5/5）跟本專案其他所有權重一樣，目前都還沒經過驗證。尚未開始。
+   *   ℹ️ 備註：`data/tsmc_guidance.json` 的人工維護負擔現已解除——法說會財測指引現在每次執行都會自動抓取（見上方「台積電 (2330) 投資決策分數」）。不再需要每季手動更新，人工檔案僅作為備援。
 3. **籌碼流量標準化（Z-score / 百分位 / 比率）**：目前個股法人流向濾網對 3 日累計外資買賣超採用固定 500 張門檻，會把台積電這種大型權值股跟小型股一視同仁；改為以個股自身 20 日均量正規化（或 60 日 Z-score）才能讓門檻在不同股票間具有可比性。尚未開始。
 4. **資料時效 + 依資料源分別排程**：本專案多數資料（法人買賣超、融資餘額、台指期、選擇權 P/C 比）本質上是收盤後（EOD）資料而非盤中即時資料，目前每小時統一執行的排程對未變動的資料做了大量重複抓取；將排程依資料源拆分（美股資料每小時、台股 EOD 資料每個交易日一次）並在每項指標旁顯示 🟢/🟡/🔴 資料新鮮度標示（讓使用者清楚 TAIEX 是「今天」的資料、而外資買賣超可能是「昨天」的報告），這兩項都還未開始。
 5. **CPI/PCE、非農就業與失業率**：可透過 FRED 免金鑰 CSV 端點免費取得，但這些是月度公布數據（非連續價格），需要另一種「最新公布值+公布日期+倒數」的呈現方式，而非現有的每小時卡片樣式，因此先不做。優先度低於上述量化嚴謹度相關項目。
 6. **ISM 製造業 PMI**：不在計畫內——ISM 已於 2016 年收回 FRED 的資料授權，目前沒有可靠的官方免費來源（即時 PMI 多半來自付費資料商）。
 7. **Git 倉庫維護**：`docs/data/` 已加入 `.gitignore`（這是部署時才產生的建置產物，不該進版控），但既有已追蹤的檔案還需要手動跑一次 `git rm -r --cached docs/data` 才會真正停止追蹤。
+8. **台積電法說會逐字稿 → 結構化擷取**：`investor.tsmc.com` 也免費公布每季法說會逐字稿PDF，內容比純數字財測指引表更豐富（客戶/平台營收結構評論、資本支出理由、AI/HPC需求評論等）。用LLM對逐字稿做結構化擷取（固定JSON schema：分平台營收、關鍵定性財測描述、法人問答主題）是一個被提出的強力延伸方向，但優先度低於上方回測/正規化項目。尚未開始。
+9. **自建「台積電市場預期指數」**：作為真正市場共識（Consensus，見上方財測指引說明，仍不在範圍內）的長期替代方案，將台積電自身財測＋月營收趨勢＋供應鏈代理指標（NVDA/AVGO/AMD/ASML）＋SOX＋TSM ADR方向整合成單一「市場對台積電的隱含預期正在上升或下降」綜合指數。優先度較低，依專案擁有者自己的排序明確列為延後項目。尚未開始。
+10. **分析師市場共識API（例如Financial Modeling Prep）——延後**：確實存在真正的Consensus資料源，但因可靠性/授權/時間點完整性考量而刻意降低優先度——見上方財測指引說明中提到的未來函數偏誤風險（對歷史某一季查詢「今天的」共識，其實已經包含當時市場還不知道的後續資訊，這比完全沒有共識資料更危險，尤其用於回測時）。若真要做，需要明確處理「時間點快照」而非天真地「抓最新」。優先度最低，依專案擁有者自己的排序列為最後一項。
 
 ---
 
