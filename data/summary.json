@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-09T11:40:01.988979",
+  "timestamp": "2026-08-09T11:47:26.740033",
   "date": "2026-08-09",
   "macro": {
     "taiex": {
@@ -22,10 +22,10 @@
       "change": -0.25,
       "change_pct": -1.65,
       "label": "VIX Index",
-      "timestamp": "2026-08-09T11:38:20.184456"
+      "timestamp": "2026-08-09T11:46:12.792059"
     },
     "btc": {
-      "value": 64723.0,
+      "value": 64752.0,
       "change": 0,
       "change_pct": 0
     },
@@ -204,10 +204,112 @@
       "triggered_partial_count": 0
     }
   },
+  "market_regime": {
+    "available": false,
+    "as_of_date": "2026-08-07",
+    "regime": "UNKNOWN",
+    "regime_label": "資料不足",
+    "ma_period_used": null,
+    "detail": "TAIEX 歷史資料僅 1 天（且/或期間內有缺漏），尚不足以判斷任何均線週期的市場狀態（資料會隨每日執行自動累積）",
+    "metrics": {}
+  },
+  "signal_score": {
+    "available": true,
+    "as_of_date": "2026-08-07",
+    "history_days": 45,
+    "bottom": {
+      "total": 18.0,
+      "dimensions": [
+        {
+          "name": "macro",
+          "score": 10.0,
+          "cap": 25,
+          "notes": [
+            "DXY 99.60 未創近20日新高（美元壓力未加劇，+10）"
+          ]
+        },
+        {
+          "name": "chip_flow",
+          "score": 0,
+          "cap": 25,
+          "notes": []
+        },
+        {
+          "name": "derivative",
+          "score": 8.0,
+          "cap": 20,
+          "notes": [
+            "P/C Ratio 106.5% 偏高（避險需求濃厚，具反向支撐意涵，+8）"
+          ]
+        },
+        {
+          "name": "technical",
+          "score": 0,
+          "cap": 20,
+          "notes": []
+        },
+        {
+          "name": "sentiment",
+          "score": 0,
+          "cap": 10,
+          "notes": [
+            "VIX 處於近43筆歷史樣本的第 2 百分位（愈高愈恐慌，滿分門檻80）"
+          ]
+        }
+      ]
+    },
+    "top": {
+      "total": 37.0,
+      "dimensions": [
+        {
+          "name": "macro",
+          "score": 0,
+          "cap": 25,
+          "notes": []
+        },
+        {
+          "name": "chip_flow",
+          "score": 15.0,
+          "cap": 25,
+          "notes": [
+            "外資今日賣超，融資餘額5日未回落（散戶尚未離場，+15）"
+          ]
+        },
+        {
+          "name": "derivative",
+          "score": 12.0,
+          "cap": 20,
+          "notes": [
+            "外資台指期淨空單 -87911口，達 -30000口門檻（+12）"
+          ]
+        },
+        {
+          "name": "technical",
+          "score": 0,
+          "cap": 20,
+          "notes": []
+        },
+        {
+          "name": "sentiment",
+          "score": 10,
+          "cap": 10,
+          "notes": [
+            "VIX 處於近43筆歷史樣本的第 2 百分位（愈低愈自滿，滿分門檻20）"
+          ]
+        }
+      ]
+    },
+    "caveat": "本分數為規則式加權評分，尚未經過歷史資料回測驗證統計勝率，僅供比較「目前有多少項已知條件成立」，並非機率或勝率——回測與訊號事後績效追蹤為下一階段規劃項目。"
+  },
   "news": [
     {
       "title": "算力ETF開募搶先布局 AI雙雄法說會",
       "url": "https://tw.stock.yahoo.com/news/%E7%AE%97%E5%8A%9Betf%E6%90%B6%E5%85%88%E5%B8%83%E5%B1%80%EF%BC%81009827%EF%BC%8B00409a%E5%90%8C%E5%91%A8%E9%96%8B%E5%8B%9F-%E5%8F%B0%E7%81%A3ai%E9%9B%99%E9%9B%84%E5%90%8C%E5%91%A8%E6%B3%95%E8%AA%AA%EF%BC%81%E9%80%9A%E8%86%A8%E8%B6%85%E7%B4%9A%E5%91%A8%EF%BC%817%E6%9C%88%E7%BE%8E%E5%9C%8B%E6%95%B8%E6%93%9A%E9%80%A3%E7%99%BC-%E5%8F%B0%E7%81%A3%E4%B8%AD%E6%B2%B9%E6%B2%B9%E5%83%B9%E5%86%8D%E5%87%8D%E6%BC%B2-%EF%BD%9C%E6%8A%95%E8%B3%87%E6%97%A9%E7%9F%A5%E9%81%93-005252552.html",
+      "meta": null
+    },
+    {
+      "title": "先進封裝需求助攻！「這檔」Q2獲利暴增401%、EPS 0.78元　H1營運同步創高",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9D%E9%9C%80%E6%B1%82%E5%8A%A9%E6%94%BB-%E9%80%99%E6%AA%94-q2%E7%8D%B2%E5%88%A9%E6%9A%B4%E5%A2%9E401-eps-0-033500211.html",
       "meta": null
     },
     {
@@ -248,11 +350,6 @@
     {
       "title": "上半年EPS達23元！「散熱大廠」Q2再賺1股本　輝達GB拉貨、ASIC量產Q3營運樂觀",
       "url": "https://tw.stock.yahoo.com/news/%E4%B8%8A%E5%8D%8A%E5%B9%B4eps%E9%81%9423%E5%85%83-%E6%95%A3%E7%86%B1%E5%A4%A7%E5%BB%A0-q2%E5%86%8D%E8%B3%BA1%E8%82%A1%E6%9C%AC-%E8%BC%9D%E9%81%94gb%E6%8B%89%E8%B2%A8-asic%E9%87%8F%E7%94%A2q3%E7%87%9F%E9%81%8B%E6%A8%82%E8%A7%80-022000110.html",
-      "meta": null
-    },
-    {
-      "title": "馬斯克矽帝國》台積電的客戶要變對手　Terafab賭上1太瓦算力",
-      "url": "https://tw.stock.yahoo.com/news/%E9%A6%AC%E6%96%AF%E5%85%8B%E6%99%B6%E7%89%87%E5%A4%A2-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%9A%84%E5%AE%A2%E6%88%B6%E8%A6%81%E8%AE%8A%E5%B0%8D%E6%89%8B-terafab%E8%B3%AD%E4%B8%8A1%E5%A4%AA%E7%93%A6%E7%AE%97%E5%8A%9B-021200295.html",
       "meta": null
     }
   ],
