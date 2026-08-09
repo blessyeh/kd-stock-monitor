@@ -65,6 +65,10 @@ const INFO_TEXT = {
         title: '台指期夜盤',
         body: '台指期夜盤跳空幅度，與前一交易日日盤收盤價比較。這是收盤後回溯性資料（約台北時間16:30才更新，隨當天籌碼面資料一起發布），並非盤中即時報價，主要用來輔助觀察隔夜國際盤氣氛，判斷隔天台股開盤可能的跳空方向與幅度。'
     },
+    market_news: {
+        title: '重大財經新聞',
+        body: '每小時自動從 Yahoo奇摩股市（tw.stock.yahoo.com）財經新聞頁面抓取的繁體中文頭條，涵蓋台股盤勢、美股、陸港股、黃金、外匯等大盤／宏觀新聞，點擊可開啟原始新聞頁面。這是本專案資料來源中最容易失效的一項——Yahoo 並未提供正式的新聞 API，抓取邏輯依賴新聞頁面的網址格式，若 Yahoo 改版可能暫時抓不到新聞（此時此區塊會顯示暫無新聞，不影響其他功能）。'
+    },
     signal_confluence: {
         title: '訊號共振：大盤轉折觀察',
         body: '整合多項技術面與籌碼面條件（如 VIX 反轉、融資斷頭、外資回補空單、費半/那斯達克跌破支撐、美債殖利率急升等），尋找台股大盤「可能出現短線頂部或底部」的訊號共振時刻。當愈多條件同時成立，代表出現轉折的機率愈高——但這是機率參考工具，並非即時買賣訊號，也不是放空建議，請勿單獨依賴、更不建議因短線訊號打斷既有的定期定額投資紀律。'
@@ -249,6 +253,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Initialize UI
     updateStats();
     updateTaiexSection();
+    renderMarketNews();
     updateChipStats();
     renderSignalConfluence();
     renderStockGrid();
@@ -506,6 +511,33 @@ function updateChipStats() {
     } catch (e) {
         console.error("Error updating chip stats:", e);
     }
+}
+
+/**
+ * Render the 重大財經新聞 (major financial news) panel. Best-effort data —
+ * see the panel's info popover (market_news in INFO_TEXT above) for why this
+ * can legitimately come back empty sometimes (Yahoo has no public news API;
+ * this is scraped, the most fragile source in the pipeline).
+ */
+function renderMarketNews() {
+    const container = document.getElementById('news-list');
+    if (!container) return;
+
+    const summary = DataManager.getSummary() || {};
+    const news = Array.isArray(summary.news) ? summary.news : [];
+
+    if (news.length === 0) {
+        container.innerHTML = '<p class="text-xs text-dark-text2">暫無新聞（資料來源暫時無法取得，不影響其他功能）</p>';
+        return;
+    }
+
+    container.innerHTML = news.map(item => `
+        <a href="${item.url}" target="_blank" rel="noopener noreferrer"
+           class="block px-2 py-1.5 rounded hover:bg-white/5 transition">
+            <p class="text-sm text-dark-text hover:text-accent leading-snug">${item.title}</p>
+            ${item.meta ? `<p class="text-[10px] text-dark-text2 mt-0.5">${item.meta}</p>` : ''}
+        </a>
+    `).join('');
 }
 
 /**
@@ -1208,6 +1240,7 @@ async function refreshData() {
     await DataManager.loadData();
     updateStats();
     updateTaiexSection();
+    renderMarketNews();
     updateChipStats();
     renderSignalConfluence();
     renderStockGrid();

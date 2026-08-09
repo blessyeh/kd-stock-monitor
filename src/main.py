@@ -126,12 +126,22 @@ class KDStockMonitor:
                     "night_session": {"close": 23100, "prev_close": 23180, "gap": -80,
                                        "gap_pct": -0.35, "date": "2026-08-08", "prev_date": "2026-08-07"}
                 }
+                market_news = [
+                    {"title": "台股收盤大漲逾千點！台積電收2410元 聯發科飆8.5%領軍反攻", "url": "https://tw.stock.yahoo.com/news/example-103500002.html", "meta": "2小時前"},
+                    {"title": "美股拉警報？華爾街示警：今夏恐爆三波大修正", "url": "https://tw.stock.yahoo.com/news/example-095923224.html", "meta": "4小時前"},
+                    {"title": "日圓兌美元貶破162關口 創40年新低", "url": "https://tw.stock.yahoo.com/news/example-104500542.html", "meta": "6小時前"}
+                ]
                 logger.info("Using mock data (test mode)")
             else:
                 stock_data = self.fetcher.fetch_all_stocks()
                 macro_indicators = self.fetcher.fetch_macro_indicators()
                 tw_chip_indicators = self.fetcher.fetch_tw_chip_indicators()
-            
+                try:
+                    market_news = self.fetcher.fetch_market_news()
+                except Exception as e:
+                    logger.error(f"Market news fetch failed (non-fatal, continuing): {e}")
+                    market_news = []
+
             stocks_fetched = sum(len(stocks) for stocks in stock_data.values())
             logger.info(f"Fetched data for {stocks_fetched} stocks and macro indicators")
             
@@ -182,7 +192,7 @@ class KDStockMonitor:
             # Step 4: Generate summary report
             logger.info("\n[Step 4/4] Generating summary report...")
             summary = self._generate_summary(stocks_with_kd, alert_result, macro_indicators,
-                                              tw_chip_indicators, confluence_result)
+                                              tw_chip_indicators, confluence_result, market_news)
             
             # Save run log
             self._save_run_log(summary)
@@ -247,7 +257,8 @@ class KDStockMonitor:
         return mock_data
     
     def _generate_summary(self, stocks_data: Dict, alert_result: Dict, macro_indicators: Dict = None,
-                           tw_chip_indicators: Dict = None, confluence_result: Dict = None) -> Dict:
+                           tw_chip_indicators: Dict = None, confluence_result: Dict = None,
+                           market_news: list = None) -> Dict:
         """Generate a summary of the run."""
         all_stocks = []
         for market in ["TW", "US"]:
@@ -296,6 +307,7 @@ class KDStockMonitor:
             "macro": macro_indicators or {},
             "chip": tw_chip_indicators or {},
             "signal_confluence": confluence_result or {"available": False},
+            "news": market_news or [],
             "stocks_processed": len(all_stocks),
             "stocks_successful": len([s for s in all_stocks if "error" not in s]),
             "stocks_failed": len(errors),

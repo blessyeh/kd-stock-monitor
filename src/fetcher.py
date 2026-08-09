@@ -755,6 +755,106 @@ class StockFetcher:
 
         return chip_data
 
+    def fetch_market_news(self, max_items: int = 10) -> List[Dict]:
+        """
+        Best-effort scrape of top macro/financial headlines from
+        tw.stock.yahoo.com/news (Yahoo奇摩股市), for the dashboard's "重大財經新聞"
+        panel.
+
+        Uses the Traditional Chinese Yahoo奇摩股市 site rather than the
+        English finance.yahoo.com — this is a genuinely separate, natively
+        Chinese-language news operation (not a machine translation of the
+        English site), and its 財經新聞 section already covers everything the
+        English one did (Fed/macro, US markets, HK/China markets, gold, FX)
+        plus Taiwan-specific market news the English site doesn't have. This
+        was chosen over adding a translation step (extra API dependency,
+        cost, and translation-quality risk) after confirming the URL-pattern
+        scraping approach below works identically against this site.
+
+        Why scraping instead of an API at all: Yahoo doesn't offer a working
+        public news feed anymore — yfinance's own news lookup and Yahoo's
+        legacy RSS feed (feeds.finance.yahoo.com/rss/2.0/headline?...) both
+        returned empty/blocked responses when tested (2026-08). Scraping the
+        news page directly was the only thing that actually returned
+        content, so that's what this does — with the explicit understanding
+        (confirmed with the project owner) that this is the most fragile
+        data source in the whole pipeline: it can break silently if Yahoo
+        changes their page markup, and could in principle get
+        rate-limited/blocked from a cloud IP range (GitHub Actions runners)
+        even though it works fine from other networks.
+
+        Parses by URL PATTERN rather than CSS class names — every Yahoo
+        Finance/Yahoo奇摩股市 article URL observed ends in "-<6+ digit numeric
+        ID>.html" (e.g. ".../%E9%9F%AD%E8%8F%9C%E7%BF%BB%E8%BB%8A...-103250943.html"),
+        which is a much more stable target than styling/component markup
+        that changes on every redesign. Titles are taken from the link text
+        of matching <a> tags, deduplicated by URL, in document order (Yahoo
+        puts its most prominent/top stories first).
+
+        Returns an empty list on any failure (network error, no matches
+        found, structure completely changed) — this must never take down
+        the rest of the pipeline, same as every other best-effort fetch in
+        this module.
+        """
+        import re
+        try:
+            from bs4 import BeautifulSoup
+        except ImportError:
+            logger.error("beautifulsoup4 not installed — cannot scrape market news")
+            return []
+
+        try:
+            headers = {
+                "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+            }
+            resp = requests.get("https://tw.stock.yahoo.com/news/", headers=headers, timeout=15)
+            resp.raise_for_status()
+            soup = BeautifulSoup(resp.text, "html.parser")
+
+            article_url_pattern = re.compile(r"-\d{6,}\.html$")
+            seen_urls = set()
+            items = []
+            for a in soup.find_all("a", href=True):
+                href = a["href"]
+                if not article_url_pattern.search(href.split("?")[0]):
+                    continue
+                title = a.get_text(strip=True)
+                # Chinese headlines pack far more meaning per character than
+                # English ones, so the noise-filtering length threshold needs
+                # to be much lower than it would be for an English site.
+                if len(title) < 10:  # filters out icon/nav links that happen to match the URL pattern
+                    continue
+                url = href if href.startswith("http") else f"https://tw.stock.yahoo.com{href}"
+                if url in seen_urls:
+                    continue
+                seen_urls.add(url)
+
+                # Best-effort: look for a nearby <time> element (publisher/timestamp)
+                # within the same story container. Optional — a miss here just
+                # means the UI shows the headline without a timestamp, it's not
+                # worth failing the whole item over.
+                meta = None
+                try:
+                    container = a.find_parent(["li", "div"])
+                    if container:
+                        time_tag = container.find("time")
+                        if time_tag:
+                            meta = time_tag.get_text(strip=True)
+                except Exception:
+                    pass
+
+                items.append({"title": title, "url": url, "meta": meta})
+                if len(items) >= max_items:
+                    break
+
+            if not items:
+                logger.warning("Market news scrape returned 0 items — Yahoo's page structure may have changed")
+            return items
+        except Exception as e:
+            logger.error(f"Error fetching market news from Yahoo Finance: {e}")
+            return []
+
     def _fetch_finmind(self, dataset: str, data_id: str, days_back: int = 7) -> Optional[List[Dict]]:
         """
         Fetch a dataset from FinMind's free open-data API (https://finmindtrade.com/).
