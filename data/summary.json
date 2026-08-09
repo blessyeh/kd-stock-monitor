@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-09T11:40:01.988979",
+  "timestamp": "2026-08-09T21:48:29.561303",
   "date": "2026-08-09",
   "macro": {
     "taiex": {
@@ -14,30 +14,30 @@
     },
     "dxy": {
       "value": 99.6,
-      "change": -0.37,
-      "change_pct": -0.37
+      "change": 0.0,
+      "change_pct": 0.0
     },
     "fear_greed": {
       "value": 14.9,
       "change": -0.25,
       "change_pct": -1.65,
       "label": "VIX Index",
-      "timestamp": "2026-08-09T11:38:20.184456"
+      "timestamp": "2026-08-09T21:46:22.912199"
     },
     "btc": {
-      "value": 64723.0,
-      "change": 0,
-      "change_pct": 0
+      "value": 65180.0,
+      "change": 275.0,
+      "change_pct": 0.42
     },
     "oil": {
       "value": 78.18,
-      "change": 0.89,
-      "change_pct": 1.15
+      "change": 0.0,
+      "change_pct": 0.0
     },
     "gold": {
-      "value": 4340.7,
-      "change": 98.7,
-      "change_pct": 2.33
+      "value": 4399.7,
+      "change": 0.0,
+      "change_pct": 0.0
     },
     "sox": {
       "value": 12356.79,
@@ -204,6 +204,103 @@
       "triggered_partial_count": 0
     }
   },
+  "market_regime": {
+    "available": false,
+    "as_of_date": "2026-08-07",
+    "regime": "UNKNOWN",
+    "regime_label": "資料不足",
+    "ma_period_used": null,
+    "detail": "TAIEX 歷史資料僅 1 天（且/或期間內有缺漏），尚不足以判斷任何均線週期的市場狀態（資料會隨每日執行自動累積）",
+    "metrics": {}
+  },
+  "signal_score": {
+    "available": true,
+    "as_of_date": "2026-08-07",
+    "history_days": 45,
+    "bottom": {
+      "total": 18.0,
+      "dimensions": [
+        {
+          "name": "macro",
+          "score": 10.0,
+          "cap": 25,
+          "notes": [
+            "DXY 99.60 未創近20日新高（美元壓力未加劇，+10）"
+          ]
+        },
+        {
+          "name": "chip_flow",
+          "score": 0,
+          "cap": 25,
+          "notes": []
+        },
+        {
+          "name": "derivative",
+          "score": 8.0,
+          "cap": 20,
+          "notes": [
+            "P/C Ratio 106.5% 偏高（避險需求濃厚，具反向支撐意涵，+8）"
+          ]
+        },
+        {
+          "name": "technical",
+          "score": 0,
+          "cap": 20,
+          "notes": []
+        },
+        {
+          "name": "sentiment",
+          "score": 0,
+          "cap": 10,
+          "notes": [
+            "VIX 處於近43筆歷史樣本的第 2 百分位（愈高愈恐慌，滿分門檻80）"
+          ]
+        }
+      ]
+    },
+    "top": {
+      "total": 37.0,
+      "dimensions": [
+        {
+          "name": "macro",
+          "score": 0,
+          "cap": 25,
+          "notes": []
+        },
+        {
+          "name": "chip_flow",
+          "score": 15.0,
+          "cap": 25,
+          "notes": [
+            "外資今日賣超，融資餘額5日未回落（散戶尚未離場，+15）"
+          ]
+        },
+        {
+          "name": "derivative",
+          "score": 12.0,
+          "cap": 20,
+          "notes": [
+            "外資台指期淨空單 -87911口，達 -30000口門檻（+12）"
+          ]
+        },
+        {
+          "name": "technical",
+          "score": 0,
+          "cap": 20,
+          "notes": []
+        },
+        {
+          "name": "sentiment",
+          "score": 10,
+          "cap": 10,
+          "notes": [
+            "VIX 處於近43筆歷史樣本的第 2 百分位（愈低愈自滿，滿分門檻20）"
+          ]
+        }
+      ]
+    },
+    "caveat": "本分數為規則式加權評分，尚未經過歷史資料回測驗證統計勝率，僅供比較「目前有多少項已知條件成立」，並非機率或勝率——回測與訊號事後績效追蹤為下一階段規劃項目。"
+  },
   "news": [
     {
       "title": "算力ETF開募搶先布局 AI雙雄法說會",
@@ -211,48 +308,48 @@
       "meta": null
     },
     {
-      "title": "評台灣上半年經濟期中考「破百分」　謝金河曝2數據輾壓中韓：關鍵在這項產業",
-      "url": "https://tw.stock.yahoo.com/news/%E8%A9%95%E5%8F%B0%E7%81%A3%E4%B8%8A%E5%8D%8A%E5%B9%B4%E7%B6%93%E6%BF%9F%E6%9C%9F%E4%B8%AD%E8%80%83-%E7%A0%B4%E7%99%BE%E5%88%86-%E8%AC%9D%E9%87%91%E6%B2%B3%E6%9B%9D2%E6%95%B8%E6%93%9A%E8%BC%BE%E5%A3%93%E4%B8%AD%E9%9F%93-%E9%97%9C%E9%8D%B5%E5%9C%A8%E9%80%99%E9%A0%85%E7%94%A2%E6%A5%AD-033142943.html",
+      "title": "AI伺服器需求旺！「這2檔代工大廠」單周被外資狂掃14.5萬張　鴻海法說前夕獲挹注158億元",
+      "url": "https://tw.stock.yahoo.com/news/ai%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%9C%80%E6%B1%82%E6%97%BA-%E9%80%992%E6%AA%94%E4%BB%A3%E5%B7%A5%E5%A4%A7%E5%BB%A0-%E5%96%AE%E5%91%A8%E8%A2%AB%E5%A4%96%E8%B3%87%E7%8B%82%E6%8E%8314-5%E8%90%AC%E5%BC%B5-%E9%B4%BB%E6%B5%B7%E6%B3%95%E8%AA%AA%E5%89%8D%E5%A4%95%E7%8D%B2%E6%8C%B9%E6%B3%A8158%E5%84%84%E5%85%83-133000148.html",
       "meta": null
     },
     {
-      "title": "輝達砸30億美元搶「電」！傳入股Lancium 20%　AI資料中心下一戰開打",
-      "url": "https://tw.stock.yahoo.com/news/%E8%BC%9D%E9%81%94%E7%A0%B830%E5%84%84%E7%BE%8E%E5%85%83%E6%90%B6-%E9%9B%BB-%E5%82%B3%E5%85%A5%E8%82%A1lancium-20-ai%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E4%B8%8B-032000029.html",
+      "title": "滿手訂單、產能滿載！「半導體廠務工程廠」前7月營收創新高　量子電腦業務同步開花",
+      "url": "https://tw.stock.yahoo.com/news/%E6%BB%BF%E6%89%8B%E8%A8%82%E5%96%AE-%E7%94%A2%E8%83%BD%E6%BB%BF%E8%BC%89-%E5%8D%8A%E5%B0%8E%E9%AB%94%E5%BB%A0%E5%8B%99%E5%B7%A5%E7%A8%8B%E5%BB%A0-%E5%89%8D7%E6%9C%88%E7%87%9F%E6%94%B6%E5%89%B5%E6%96%B0%E9%AB%98-%E9%87%8F%E5%AD%90%E9%9B%BB%E8%85%A6%E6%A5%AD%E5%8B%99%E5%90%8C%E6%AD%A5%E9%96%8B%E8%8A%B1-131000557.html",
       "meta": null
     },
     {
-      "title": "機器人大軍要起飛了！2035年出貨上看1300萬台　自動化展倒數「3檔飆逾2成」法人搶先卡位",
-      "url": "https://tw.stock.yahoo.com/news/%E6%A9%9F%E5%99%A8%E4%BA%BA%E5%A4%A7%E8%BB%8D%E8%A6%81%E8%B5%B7%E9%A3%9B%E4%BA%86-2035%E5%B9%B4%E5%87%BA%E8%B2%A8%E4%B8%8A%E7%9C%8B1300%E8%90%AC%E5%8F%B0-%E8%87%AA%E5%8B%95%E5%8C%96%E5%B1%95%E5%80%92%E6%95%B8-3%E6%AA%94%E9%A3%86%E9%80%BE2%E6%88%90-%E6%B3%95%E4%BA%BA%E6%90%B6%E5%85%88%E5%8D%A1%E4%BD%8D-030500694.html",
+      "title": "「漁翁島」變「風車島」！綠能開發商狠插49座巨型風機 澎湖西嶼全鄉炸鍋：我們的祖先還在這裡！",
+      "url": "https://tw.stock.yahoo.com/news/%E3%80%8C%E6%BC%81%E7%BF%81%E5%B3%B6%E3%80%8D%E8%AE%8A%E3%80%8C%E9%A2%A8%E8%BB%8A%E5%B3%B6%E3%80%8D%EF%BC%81%E7%B6%A0%E8%83%BD%E9%96%8B%E7%99%BC%E5%95%86%E7%8B%A0%E6%8F%9249%E5%BA%A7%E5%B7%A8%E5%9E%8B%E9%A2%A8%E6%A9%9F-%E6%BE%8E%E6%B9%96%E8%A5%BF%E5%B6%BC%E5%85%A8%E9%84%89%E7%82%B8%E9%8D%8B%EF%BC%9A%E6%88%91%E5%80%91%E7%9A%84%E7%A5%96%E5%85%88%E9%82%84%E5%9C%A8%E9%80%99%E8%A3%A1%EF%BC%81-130000747.html",
       "meta": null
     },
     {
-      "title": "不用熬夜操盤！　納斯達克拍板「23小時交易」",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%8D%E7%94%A8%E7%86%AC%E5%A4%9C%E6%93%8D%E7%9B%A4-%E7%B4%8D%E6%96%AF%E9%81%94%E5%85%8B%E6%8B%8D%E6%9D%BF-23%E5%B0%8F%E6%99%82%E4%BA%A4%E6%98%93-025009101.html",
+      "title": "裝修板材怎麼選？廚房、浴室、衣櫃、書櫃不能全部用同一種",
+      "url": "https://tw.stock.yahoo.com/news/%E8%A3%9D%E4%BF%AE%E6%9D%BF%E6%9D%90%E6%80%8E%E9%BA%BC%E9%81%B8%EF%BC%9F%E5%BB%9A%E6%88%BF%E3%80%81%E6%B5%B4%E5%AE%A4%E3%80%81%E8%A1%A3%E6%AB%83%E3%80%81%E6%9B%B8%E6%AB%83%E4%B8%8D%E8%83%BD%E5%85%A8%E9%83%A8%E7%94%A8%E5%90%8C%E4%B8%80%E7%A8%AE-125823953.html",
       "meta": null
     },
     {
-      "title": "上半年EPS衝6元！「重電大廠」手握破百億元訂單　奪美系電纜專案＋台電強韌電網加持營運",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%8A%E5%8D%8A%E5%B9%B4eps%E8%A1%9D6%E5%85%83-%E9%87%8D%E9%9B%BB%E5%A4%A7%E5%BB%A0-%E6%89%8B%E6%8F%A1%E7%A0%B4%E7%99%BE%E5%84%84%E5%85%83%E8%A8%82%E5%96%AE-%E5%A5%AA%E7%BE%8E%E7%B3%BB%E9%9B%BB%E7%BA%9C%E5%B0%88%E6%A1%88-%E5%8F%B0%E9%9B%BB%E5%BC%B7%E9%9F%8C%E9%9B%BB%E7%B6%B2%E5%8A%A0%E6%8C%81%E7%87%9F%E9%81%8B-025000856.html",
+      "title": "外資狂倒、國家隊強勢護盤！單週猛掃聯電、群創4萬張　補貨名單一次看",
+      "url": "https://tw.stock.yahoo.com/news/%E5%A4%96%E8%B3%87%E7%8B%82%E5%80%92-%E5%9C%8B%E5%AE%B6%E9%9A%8A%E5%BC%B7%E5%8B%A2%E8%AD%B7%E7%9B%A4-%E5%96%AE%E9%80%B1%E7%8C%9B%E6%8E%83%E8%81%AF%E9%9B%BB-%E7%BE%A4%E5%89%B54%E8%90%AC%E5%BC%B5-%E8%A3%9C%E8%B2%A8%E5%90%8D%E5%96%AE-123000548.html",
       "meta": null
     },
     {
-      "title": "AOP稱藥華藥欠款1億歐元？藥華藥急發重訊澄清：是AOP積欠近億歐元",
-      "url": "https://tw.stock.yahoo.com/news/aop%E7%A8%B1%E8%97%A5%E8%8F%AF%E8%97%A5%E6%AC%A0%E6%AC%BE1%E5%84%84%E6%AD%90%E5%85%83-%E8%97%A5%E8%8F%AF%E8%97%A5%E6%80%A5%E7%99%BC%E9%87%8D%E8%A8%8A%E6%BE%84%E6%B8%85-%E6%98%AFaop%E7%A9%8D%E6%AC%A0%E8%BF%91%E5%84%84%E6%AD%90%E5%85%83-023500854.html",
+      "title": "美股創高《大賣空》本尊卻喊要股災了！專家酸：唱衰成癮整天只會嚇人",
+      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E8%82%A1%E5%89%B5%E9%AB%98-%E5%A4%A7%E8%B3%A3%E7%A9%BA-%E6%9C%AC%E5%B0%8A%E5%8D%BB%E5%96%8A%E8%A6%81%E8%82%A1%E7%81%BD%E4%BA%86-%E5%B0%88%E5%AE%B6%E9%85%B8-%E5%94%B1%E8%A1%B0%E6%88%90%E7%99%AE%E6%95%B4%E5%A4%A9%E5%8F%AA%E6%9C%83%E5%9A%87%E4%BA%BA-122518823.html",
       "meta": null
     },
     {
-      "title": "周末精選｜擄獲蘋果、惠普等大廠芳心　陸廠長鑫能挑戰記憶體3雄？這點成最大罩門",
-      "url": "https://tw.stock.yahoo.com/news/%E5%91%A8%E6%9C%AB%E7%B2%BE%E9%81%B8-%E6%93%84%E7%8D%B2%E8%98%8B%E6%9E%9C-%E6%83%A0%E6%99%AE%E7%AD%89%E5%A4%A7%E5%BB%A0%E8%8A%B3%E5%BF%83-%E9%99%B8%E5%BB%A0%E9%95%B7%E9%91%AB%E8%83%BD%E6%8C%91%E6%88%B0%E8%A8%98%E6%86%B6%E9%AB%943%E9%9B%84-%E9%80%99%E9%BB%9E%E6%88%90%E6%9C%80%E5%A4%A7%E7%BD%A9%E9%96%80-022800062.html",
+      "title": "台股反攻號角響！夜盤狂漲站上4.5萬點　法人點名本周聚焦「2大焦點」",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E5%8F%8D%E6%94%BB%E8%99%9F%E8%A7%92%E9%9F%BF-%E5%A4%9C%E7%9B%A4%E7%8B%82%E6%BC%B2%E7%AB%99%E4%B8%8A4-5%E8%90%AC%E9%BB%9E-%E6%B3%95%E4%BA%BA%E9%BB%9E%E5%90%8D%E6%9C%AC%E5%91%A8%E8%81%9A%E7%84%A6-2%E5%A4%A7%E7%84%A6%E9%BB%9E-121035798.html",
       "meta": null
     },
     {
-      "title": "上半年EPS達23元！「散熱大廠」Q2再賺1股本　輝達GB拉貨、ASIC量產Q3營運樂觀",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%8A%E5%8D%8A%E5%B9%B4eps%E9%81%9423%E5%85%83-%E6%95%A3%E7%86%B1%E5%A4%A7%E5%BB%A0-q2%E5%86%8D%E8%B3%BA1%E8%82%A1%E6%9C%AC-%E8%BC%9D%E9%81%94gb%E6%8B%89%E8%B2%A8-asic%E9%87%8F%E7%94%A2q3%E7%87%9F%E9%81%8B%E6%A8%82%E8%A7%80-022000110.html",
+      "title": "「銅箔大廠」Q2每股賺2.16元、H1EPS衝4.22元　7月營收再報捷、迎年月雙增",
+      "url": "https://tw.stock.yahoo.com/news/%E9%8A%85%E7%AE%94%E5%A4%A7%E5%BB%A0-q2%E6%AF%8F%E8%82%A1%E8%B3%BA2-16%E5%85%83-h1eps%E8%A1%9D4-22%E5%85%83-121000466.html",
       "meta": null
     },
     {
-      "title": "馬斯克矽帝國》台積電的客戶要變對手　Terafab賭上1太瓦算力",
-      "url": "https://tw.stock.yahoo.com/news/%E9%A6%AC%E6%96%AF%E5%85%8B%E6%99%B6%E7%89%87%E5%A4%A2-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%9A%84%E5%AE%A2%E6%88%B6%E8%A6%81%E8%AE%8A%E5%B0%8D%E6%89%8B-terafab%E8%B3%AD%E4%B8%8A1%E5%A4%AA%E7%93%A6%E7%AE%97%E5%8A%9B-021200295.html",
+      "title": "投顧：台股短線已反彈5000點  第四季逢低布局",
+      "url": "https://tw.stock.yahoo.com/news/%E6%8A%95%E9%A1%A7-%E5%8F%B0%E8%82%A1%E7%9F%AD%E7%B7%9A%E5%B7%B2%E5%8F%8D%E5%BD%885000%E9%BB%9E-%E7%AC%AC%E5%9B%9B%E5%AD%A3%E9%80%A2%E4%BD%8E%E5%B8%83%E5%B1%80-120313025.html",
       "meta": null
     }
   ],
