@@ -1,5 +1,29 @@
 [
   {
+    "id": "NVDL_20260811_overbought",
+    "symbol": "NVDL",
+    "name": "GraniteShares 2x Long NVDA Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.11,
+    "kd_d": 71.41,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 34.595,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ NVDL (GraniteShares 2x Long NVDA Daily ETF) is OVERBOUGHT! KD-K: 81.11, KD-D: 71.41 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-11T01:52:13.607302",
+    "date": "2026-08-11",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260811_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2572,33 +2596,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00635U.TW (期元大S&P黃金) is OVERBOUGHT! KD-K: 82.68, KD-D: 68.22 (>= 80)",
     "timestamp": "2026-08-10T09:24:35.325036",
-    "date": "2026-08-10",
-    "acknowledged": false
-  },
-  {
-    "id": "00662.TW_20260810_overbought",
-    "symbol": "00662.TW",
-    "name": "富邦NASDAQ",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 83.4,
-    "kd_d": 70.86,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 123.15,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "個股外資近3日轉為賣超 2644 張（籌碼面轉弱，超買可能對應真正高點）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00662.TW (富邦NASDAQ) is OVERBOUGHT! KD-K: 83.4, KD-D: 70.86 (>= 80)",
-    "timestamp": "2026-08-10T09:24:35.326303",
     "date": "2026-08-10",
     "acknowledged": false
   }
