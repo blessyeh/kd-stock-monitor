@@ -1,5 +1,57 @@
 [
   {
+    "id": "NFLX_20260810_overbought",
+    "symbol": "NFLX",
+    "name": "Netflix Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 84.11,
+    "kd_d": 80.46,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 75.08,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ NFLX (Netflix Inc.) is OVERBOUGHT! KD-K: 84.11, KD-D: 80.46 (>= 80)",
+    "timestamp": "2026-08-10T23:59:59.887244",
+    "date": "2026-08-10",
+    "acknowledged": false
+  },
+  {
+    "id": "NFXL_20260810_overbought",
+    "symbol": "NFXL",
+    "name": "Direxion Daily NFLX Bull 2X Shares",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 83.45,
+    "kd_d": 79.59,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 16.7999,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ NFXL (Direxion Daily NFLX Bull 2X Shares) is OVERBOUGHT! KD-K: 83.45, KD-D: 79.59 (>= 80)",
+    "timestamp": "2026-08-10T23:59:59.889033",
+    "date": "2026-08-10",
+    "acknowledged": false
+  },
+  {
     "id": "CRWD_20260810_overbought",
     "symbol": "CRWD",
     "name": "CrowdStrike Holdings Inc.",
@@ -2399,38 +2451,6 @@
     "threshold": 80,
     "message": "⚠️ 00918.TW (大華優利高填息30) is OVERBOUGHT! KD-K: 85.63, KD-D: 81.42 (>= 80)",
     "timestamp": "2026-08-09T00:02:58.594969",
-    "date": "2026-08-09",
-    "acknowledged": false
-  },
-  {
-    "id": "00921.TW_20260809_overbought",
-    "symbol": "00921.TW",
-    "name": "兆豐龍頭等權重",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 82.65,
-    "kd_d": 66.58,
-    "current_price": 23.45,
-    "threshold": 80,
-    "message": "⚠️ 00921.TW (兆豐龍頭等權重) is OVERBOUGHT! KD-K: 82.65, KD-D: 66.58 (>= 80)",
-    "timestamp": "2026-08-09T00:02:58.595072",
-    "date": "2026-08-09",
-    "acknowledged": false
-  },
-  {
-    "id": "00922.TW_20260809_overbought",
-    "symbol": "00922.TW",
-    "name": "國泰台灣領袖50",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.79,
-    "kd_d": 68.9,
-    "current_price": 39.55,
-    "threshold": 80,
-    "message": "⚠️ 00922.TW (國泰台灣領袖50) is OVERBOUGHT! KD-K: 80.79, KD-D: 68.9 (>= 80)",
-    "timestamp": "2026-08-09T00:02:58.595128",
     "date": "2026-08-09",
     "acknowledged": false
   }
