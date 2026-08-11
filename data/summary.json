@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-12T04:41:17.396031",
+  "timestamp": "2026-08-12T05:45:28.898709",
   "date": "2026-08-12",
   "macro": {
     "taiex": {
@@ -13,8 +13,8 @@
       "change_pct": -0.32
     },
     "dxy": {
-      "value": 99.82,
-      "change": 0.01,
+      "value": 99.83,
+      "change": 0.02,
       "change_pct": 0.02
     },
     "fear_greed": {
@@ -22,22 +22,22 @@
       "change": -0.18,
       "change_pct": -1.16,
       "label": "VIX Index",
-      "timestamp": "2026-08-12T04:39:08.482186"
+      "timestamp": "2026-08-12T05:42:00.719041"
     },
     "btc": {
-      "value": 63633.0,
-      "change": -277.0,
-      "change_pct": -0.43
+      "value": 63612.0,
+      "change": -299.0,
+      "change_pct": -0.47
     },
     "oil": {
-      "value": 83.36,
-      "change": 1.23,
-      "change_pct": 1.5
+      "value": 83.23,
+      "change": 1.1,
+      "change_pct": 1.34
     },
     "gold": {
-      "value": 4429.1,
-      "change": 67.3,
-      "change_pct": 1.54
+      "value": 4427.8,
+      "change": 66.0,
+      "change_pct": 1.51
     },
     "sox": {
       "value": 12098.47,
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 32.217,
-      "change": -0.018,
-      "change_pct": -0.06
+      "value": 32.226,
+      "change": -0.009,
+      "change_pct": -0.03
     },
     "foreign_futures_net": {
       "value": -88924,
@@ -110,17 +110,19 @@
       "change_pct": 0.31
     },
     "put_call_ratio": {
-      "value": 123.58,
+      "value": null,
+      "change": null,
+      "change_pct": null,
       "unit": "%",
-      "date": "2026-08-11"
+      "date": null
     },
     "night_session": {
-      "close": 44719.0,
-      "prev_close": 44987.0,
-      "gap": -268.0,
-      "gap_pct": -0.6,
-      "date": "2026-08-11",
-      "prev_date": "2026-08-10"
+      "close": 45279.0,
+      "prev_close": 45090.0,
+      "gap": 189.0,
+      "gap_pct": 0.42,
+      "date": "2026-08-12",
+      "prev_date": "2026-08-11"
     }
   },
   "signal_confluence": {
@@ -134,14 +136,14 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.82 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.06pp（未達 0.15pp）"
+          "detail": "DXY 99.83 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.06pp（未達 0.15pp）"
         },
         {
           "id": "twd_depreciation",
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.179（貶值門檻 0.3）"
+          "detail": "USD/TWD 5日變動 -0.170（貶值門檻 0.3）"
         },
         {
           "id": "foreign_dual_short",
@@ -153,9 +155,9 @@
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": false,
+          "status": null,
           "completeness": "full",
-          "detail": "今日外資買超；融資餘額5日未回落（5442億元）；P/C Ratio 123.6%（>= 100%門檻）"
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷"
         },
         {
           "id": "tech_capital_retreat",
@@ -166,7 +168,7 @@
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 5,
+      "evaluated_count": 4,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0
@@ -192,7 +194,7 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.179（止穩/升值）；外資今日轉買超，近期均值 +195.2億元；台指期淨部位5日變動 -1066口（未回補）"
+          "detail": "USD/TWD 5日變動 -0.170（止穩/升值）；外資今日轉買超，近期均值 +195.2億元；台指期淨部位5日變動 -1066口（未回補）"
         }
       ],
       "total_conditions": 3,
@@ -216,14 +218,14 @@
     "as_of_date": "2026-08-11",
     "history_days": 47,
     "bottom": {
-      "total": 18.0,
+      "total": 10.0,
       "dimensions": [
         {
           "name": "macro",
           "score": 10.0,
           "cap": 25,
           "notes": [
-            "DXY 99.82 未創近20日新高（美元壓力未加劇，+10）"
+            "DXY 99.83 未創近20日新高（美元壓力未加劇，+10）"
           ]
         },
         {
@@ -234,11 +236,9 @@
         },
         {
           "name": "derivative",
-          "score": 8.0,
+          "score": 0,
           "cap": 20,
-          "notes": [
-            "P/C Ratio 123.6% 偏高（避險需求濃厚，具反向支撐意涵，+8）"
-          ]
+          "notes": []
         },
         {
           "name": "technical",
@@ -378,7 +378,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $422.1 換算2330隱含價 2719.5元，2330現價 2395.0元（折價 11.9%）",
+          "TSM ADR $422.1 換算2330隱含價 2720.3元，2330現價 2395.0元（折價 12.0%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -1270,7 +1270,7 @@
       "extra_data": {
         "regular_market_price": 503.81,
         "pre_market_price": null,
-        "post_market_price": 502.59,
+        "post_market_price": 501.96,
         "prev_close": 506.06
       },
       "kd_k": 91.2,
@@ -1284,7 +1284,7 @@
       "extra_data": {
         "regular_market_price": 217.5,
         "pre_market_price": null,
-        "post_market_price": 217.82,
+        "post_market_price": 217.81,
         "prev_close": 217.55
       },
       "kd_k": 80.55,
@@ -1298,7 +1298,7 @@
       "extra_data": {
         "regular_market_price": 416.08,
         "pre_market_price": null,
-        "post_market_price": 416.75,
+        "post_market_price": 416.16,
         "prev_close": 422.4
       },
       "kd_k": 80.32,
@@ -1312,7 +1312,7 @@
       "extra_data": {
         "regular_market_price": 74.79,
         "pre_market_price": null,
-        "post_market_price": 74.8877,
+        "post_market_price": 74.91,
         "prev_close": 76.29
       },
       "kd_k": 79.28,
@@ -1326,7 +1326,7 @@
       "extra_data": {
         "regular_market_price": 174.94,
         "pre_market_price": null,
-        "post_market_price": 174.2316,
+        "post_market_price": 173.53,
         "prev_close": 175.23
       },
       "kd_k": 86.98,
@@ -1340,7 +1340,7 @@
       "extra_data": {
         "regular_market_price": 221.9,
         "pre_market_price": null,
-        "post_market_price": 221.7925,
+        "post_market_price": 222.0988,
         "prev_close": 225.16
       },
       "kd_k": 86.25,
@@ -1354,7 +1354,7 @@
       "extra_data": {
         "regular_market_price": 422.06,
         "pre_market_price": null,
-        "post_market_price": 422.3,
+        "post_market_price": 422.06,
         "prev_close": 418.47
       },
       "kd_k": 83.69,
@@ -1368,7 +1368,7 @@
       "extra_data": {
         "regular_market_price": 160.82,
         "pre_market_price": null,
-        "post_market_price": 161.2483,
+        "post_market_price": 161.02,
         "prev_close": 160.97
       },
       "kd_k": 85.65,
@@ -1382,7 +1382,7 @@
       "extra_data": {
         "regular_market_price": 708.42,
         "pre_market_price": null,
-        "post_market_price": 708.8342,
+        "post_market_price": 708.81,
         "prev_close": 710.65
       },
       "kd_k": 86.23,
@@ -1396,7 +1396,7 @@
       "extra_data": {
         "regular_market_price": 770.56,
         "pre_market_price": null,
-        "post_market_price": 771.09,
+        "post_market_price": 770.8349,
         "prev_close": 773.03
       },
       "kd_k": 86.25,
@@ -1410,7 +1410,7 @@
       "extra_data": {
         "regular_market_price": 718.45,
         "pre_market_price": null,
-        "post_market_price": 719.1895,
+        "post_market_price": 718.8031,
         "prev_close": 720.87
       },
       "kd_k": 82.48,
@@ -1424,7 +1424,7 @@
       "extra_data": {
         "regular_market_price": 38.83,
         "pre_market_price": null,
-        "post_market_price": 38.63,
+        "post_market_price": 38.52,
         "prev_close": 39.18
       },
       "kd_k": 90.2,
@@ -1438,7 +1438,7 @@
       "extra_data": {
         "regular_market_price": 79.28,
         "pre_market_price": null,
-        "post_market_price": 79.3438,
+        "post_market_price": 79.25,
         "prev_close": 78.0
       },
       "kd_k": 82.31,
@@ -1452,7 +1452,7 @@
       "extra_data": {
         "regular_market_price": 80.0588,
         "pre_market_price": null,
-        "post_market_price": 80.0588,
+        "post_market_price": 80.06,
         "prev_close": 80.7907
       },
       "kd_k": 88.18,
@@ -1466,7 +1466,7 @@
       "extra_data": {
         "regular_market_price": 263.142,
         "pre_market_price": null,
-        "post_market_price": 263.1422,
+        "post_market_price": 262.9,
         "prev_close": 268.228
       },
       "kd_k": 87.46,
@@ -1480,7 +1480,7 @@
       "extra_data": {
         "regular_market_price": 197.47,
         "pre_market_price": null,
-        "post_market_price": 197.41,
+        "post_market_price": 197.6,
         "prev_close": 197.51
       },
       "kd_k": 89.42,
@@ -1508,7 +1508,7 @@
       "extra_data": {
         "regular_market_price": 263.71,
         "pre_market_price": null,
-        "post_market_price": 263.66,
+        "post_market_price": 263.9466,
         "prev_close": 272.96
       },
       "kd_k": 81.84,
@@ -1522,7 +1522,7 @@
       "extra_data": {
         "regular_market_price": 145.48,
         "pre_market_price": null,
-        "post_market_price": 146.75,
+        "post_market_price": 146.85,
         "prev_close": 151.05
       },
       "kd_k": 86.27,
@@ -1536,7 +1536,7 @@
       "extra_data": {
         "regular_market_price": 21.64,
         "pre_market_price": null,
-        "post_market_price": 22.11,
+        "post_market_price": 22.14,
         "prev_close": 23.41
       },
       "kd_k": 84.25,
