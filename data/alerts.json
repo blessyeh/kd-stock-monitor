@@ -1,5 +1,109 @@
 [
   {
+    "id": "TSLA_20260811_overbought",
+    "symbol": "TSLA",
+    "name": "Tesla Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.33,
+    "kd_d": 64.55,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 335.085,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ TSLA (Tesla Inc.) is OVERBOUGHT! KD-K: 82.33, KD-D: 64.55 (>= 80)",
+    "timestamp": "2026-08-11T22:26:45.771048",
+    "date": "2026-08-11",
+    "acknowledged": false
+  },
+  {
+    "id": "META_20260811_overbought",
+    "symbol": "META",
+    "name": "Meta Platforms Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.21,
+    "kd_d": 67.33,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 610.1982,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ META (Meta Platforms Inc.) is OVERBOUGHT! KD-K: 82.21, KD-D: 67.33 (>= 80)",
+    "timestamp": "2026-08-11T22:26:45.771453",
+    "date": "2026-08-11",
+    "acknowledged": false
+  },
+  {
+    "id": "FBL_20260811_overbought",
+    "symbol": "FBL",
+    "name": "GraniteShares 2x Long META Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.06,
+    "kd_d": 64.35,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 23.515,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ FBL (GraniteShares 2x Long META Daily ETF) is OVERBOUGHT! KD-K: 80.06, KD-D: 64.35 (>= 80)",
+    "timestamp": "2026-08-11T22:26:45.773188",
+    "date": "2026-08-11",
+    "acknowledged": false
+  },
+  {
+    "id": "TSLL_20260811_overbought",
+    "symbol": "TSLL",
+    "name": "Direxion Daily TSLA Bull 2X Shares",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.61,
+    "kd_d": 62.03,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 8.4201,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ TSLL (Direxion Daily TSLA Bull 2X Shares) is OVERBOUGHT! KD-K: 80.61, KD-D: 62.03 (>= 80)",
+    "timestamp": "2026-08-11T22:26:45.774554",
+    "date": "2026-08-11",
+    "acknowledged": false
+  },
+  {
     "id": "00888.TWO_20260811_overbought",
     "symbol": "00888.TWO",
     "name": "永豐台灣半導體",
@@ -2486,113 +2590,6 @@
     "market_regime_label": null,
     "message": "⚠️ RKLX (Defiance Daily Target 2X Long RKLB ETF) is OVERBOUGHT! KD-K: 81.89, KD-D: 69.5 (>= 80)",
     "timestamp": "2026-08-10T22:27:56.188093",
-    "date": "2026-08-10",
-    "acknowledged": false
-  },
-  {
-    "id": "00731.TW_20260810_overbought",
-    "symbol": "00731.TW",
-    "name": "復華富時高息低波",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.08,
-    "kd_d": 76.11,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 91.3,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00731.TW (復華富時高息低波) is OVERBOUGHT! KD-K: 80.08, KD-D: 76.11 (>= 80)",
-    "timestamp": "2026-08-10T11:52:03.833713",
-    "date": "2026-08-10",
-    "acknowledged": false
-  },
-  {
-    "id": "00733.TW_20260810_overbought",
-    "symbol": "00733.TW",
-    "name": "富邦臺灣中小",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.96,
-    "kd_d": 62.74,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 64.7,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00733.TW (富邦臺灣中小) is OVERBOUGHT! KD-K: 80.96, KD-D: 62.74 (>= 80)",
-    "timestamp": "2026-08-10T11:52:03.833869",
-    "date": "2026-08-10",
-    "acknowledged": false
-  },
-  {
-    "id": "00919.TW_20260810_overbought",
-    "symbol": "00919.TW",
-    "name": "群益台灣精選高息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.19,
-    "kd_d": 73.35,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 29.94,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）",
-      "個股外資近3日轉為賣超 10414 張（籌碼面轉弱，超買可能對應真正高點）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00919.TW (群益台灣精選高息) is OVERBOUGHT! KD-K: 80.19, KD-D: 73.35 (>= 80)",
-    "timestamp": "2026-08-10T11:52:03.836117",
-    "date": "2026-08-10",
-    "acknowledged": false
-  },
-  {
-    "id": "00403A.TW_20260810_overbought",
-    "symbol": "00403A.TW",
-    "name": "主動統一升級50",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 84.04,
-    "kd_d": 69.68,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 9.88,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超 106679 張（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00403A.TW (主動統一升級50) is OVERBOUGHT! KD-K: 84.04, KD-D: 69.68 (>= 80)",
-    "timestamp": "2026-08-10T09:24:35.324233",
     "date": "2026-08-10",
     "acknowledged": false
   }
