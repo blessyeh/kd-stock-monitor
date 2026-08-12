@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-13T04:02:29.319899",
+  "timestamp": "2026-08-13T05:44:29.060453",
   "date": "2026-08-13",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -0.04
     },
     "dxy": {
-      "value": 100.01,
-      "change": 0.19,
-      "change_pct": 0.19
+      "value": 99.98,
+      "change": 0.16,
+      "change_pct": 0.16
     },
     "fear_greed": {
-      "value": 14.41,
-      "change": -0.87,
-      "change_pct": -5.69,
+      "value": 14.55,
+      "change": -0.73,
+      "change_pct": -4.78,
       "label": "VIX Index",
-      "timestamp": "2026-08-13T04:01:01.810314"
+      "timestamp": "2026-08-13T05:41:15.883454"
     },
     "btc": {
-      "value": 63370.0,
-      "change": -182.0,
-      "change_pct": -0.29
+      "value": 63438.0,
+      "change": -114.0,
+      "change_pct": -0.18
     },
     "oil": {
-      "value": 82.98,
-      "change": -0.22,
-      "change_pct": -0.26
+      "value": 82.58,
+      "change": -0.62,
+      "change_pct": -0.75
     },
     "gold": {
-      "value": 4471.2,
-      "change": 88.2,
-      "change_pct": 2.01
+      "value": 4469.0,
+      "change": 86.0,
+      "change_pct": 1.96
     },
     "sox": {
       "value": 12399.38,
@@ -50,8 +50,8 @@
       "change_pct": 0.74
     },
     "sp500": {
-      "value": 7748.53,
-      "change": 20.33,
+      "value": 7748.5,
+      "change": 20.3,
       "change_pct": 0.26
     }
   },
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 32.225,
-      "change": -0.002,
-      "change_pct": -0.01
+      "value": 32.217,
+      "change": -0.01,
+      "change_pct": -0.03
     },
     "foreign_futures_net": {
       "value": -86633,
@@ -110,17 +110,19 @@
       "change_pct": 2.58
     },
     "put_call_ratio": {
-      "value": 121.26,
+      "value": null,
+      "change": null,
+      "change_pct": null,
       "unit": "%",
-      "date": "2026-08-12"
+      "date": null
     },
     "night_session": {
-      "close": 45279.0,
-      "prev_close": 45090.0,
-      "gap": 189.0,
-      "gap_pct": 0.42,
-      "date": "2026-08-12",
-      "prev_date": "2026-08-11"
+      "close": 46117.0,
+      "prev_close": 45528.0,
+      "gap": 589.0,
+      "gap_pct": 1.29,
+      "date": "2026-08-13",
+      "prev_date": "2026-08-12"
     }
   },
   "signal_confluence": {
@@ -134,14 +136,14 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 100.01 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.07pp（未達 0.15pp）"
+          "detail": "DXY 99.98 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.07pp（未達 0.15pp）"
         },
         {
           "id": "twd_depreciation",
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.170（貶值門檻 0.3）"
+          "detail": "USD/TWD 5日變動 -0.178（貶值門檻 0.3）"
         },
         {
           "id": "foreign_dual_short",
@@ -153,9 +155,9 @@
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": false,
+          "status": null,
           "completeness": "full",
-          "detail": "今日外資買超；融資餘額5日未回落（5481億元）；P/C Ratio 121.3%（>= 100%門檻）"
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷"
         },
         {
           "id": "tech_capital_retreat",
@@ -166,7 +168,7 @@
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 5,
+      "evaluated_count": 4,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0
@@ -178,7 +180,7 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 17.1（<= 30.0門檻）；目前 14.4（較高點回落 16%，門檻 15%）"
+          "detail": "近10日VIX高點 17.1（<= 30.0門檻）；目前 14.6（較高點回落 15%，門檻 15%）"
         },
         {
           "id": "margin_capitulation",
@@ -192,7 +194,7 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.170（止穩/升值）；外資今日轉買超，近期均值 +251.4億元；台指期淨部位5日變動 +566口（未回補）"
+          "detail": "USD/TWD 5日變動 -0.178（止穩/升值）；外資今日轉買超，近期均值 +251.4億元；台指期淨部位5日變動 +566口（未回補）"
         }
       ],
       "total_conditions": 3,
@@ -216,14 +218,14 @@
     "as_of_date": "2026-08-12",
     "history_days": 48,
     "bottom": {
-      "total": 18.0,
+      "total": 10.0,
       "dimensions": [
         {
           "name": "macro",
           "score": 10.0,
           "cap": 25,
           "notes": [
-            "DXY 100.01 未創近20日新高（美元壓力未加劇，+10）"
+            "DXY 99.98 未創近20日新高（美元壓力未加劇，+10）"
           ]
         },
         {
@@ -234,11 +236,9 @@
         },
         {
           "name": "derivative",
-          "score": 8.0,
+          "score": 0,
           "cap": 20,
-          "notes": [
-            "P/C Ratio 121.3% 偏高（避險需求濃厚，具反向支撐意涵，+8）"
-          ]
+          "notes": []
         },
         {
           "name": "technical",
@@ -378,7 +378,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $429.1 換算2330隱含價 2765.4元，2330現價 2415.0元（折價 12.7%）",
+          "TSM ADR $429.1 換算2330隱含價 2765.2元，2330現價 2415.0元（折價 12.7%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -1242,7 +1242,7 @@
       "extra_data": {
         "regular_market_price": 492.43,
         "pre_market_price": null,
-        "post_market_price": 492.43,
+        "post_market_price": 491.59,
         "prev_close": 503.81
       },
       "kd_k": 83.11,
@@ -1256,7 +1256,7 @@
       "extra_data": {
         "regular_market_price": 224.09,
         "pre_market_price": null,
-        "post_market_price": 224.0869,
+        "post_market_price": 223.71,
         "prev_close": 217.5
       },
       "kd_k": 85.91,
@@ -1270,7 +1270,7 @@
       "extra_data": {
         "regular_market_price": 171.04,
         "pre_market_price": null,
-        "post_market_price": 171.2,
+        "post_market_price": 171.0,
         "prev_close": 174.94
       },
       "kd_k": 86.56,
@@ -1284,7 +1284,7 @@
       "extra_data": {
         "regular_market_price": 221.78,
         "pre_market_price": null,
-        "post_market_price": 221.78,
+        "post_market_price": 221.62,
         "prev_close": 221.9
       },
       "kd_k": 86.84,
@@ -1293,57 +1293,57 @@
     {
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Company Ltd.",
-      "current_price": 429.07,
-      "change_pct": 1.66,
+      "current_price": 429.15,
+      "change_pct": 1.68,
       "extra_data": {
-        "regular_market_price": 429.07,
+        "regular_market_price": 429.15,
         "pre_market_price": null,
-        "post_market_price": 429.15,
+        "post_market_price": 430.4899,
         "prev_close": 422.06
       },
-      "kd_k": 85.13,
-      "kd_d": 79.0
+      "kd_k": 85.2,
+      "kd_d": 79.02
     },
     {
       "symbol": "VT",
       "name": "Vanguard Total World Stock ETF",
-      "current_price": 161.5549,
-      "change_pct": 0.46,
+      "current_price": 161.53,
+      "change_pct": 0.44,
       "extra_data": {
-        "regular_market_price": 161.5549,
+        "regular_market_price": 161.53,
         "pre_market_price": null,
-        "post_market_price": 161.4,
+        "post_market_price": 161.4904,
         "prev_close": 160.82
       },
-      "kd_k": 88.52,
-      "kd_d": 83.34
+      "kd_k": 88.41,
+      "kd_d": 83.31
     },
     {
       "symbol": "VOO",
       "name": "Vanguard S&P 500 ETF",
-      "current_price": 710.12,
-      "change_pct": 0.24,
+      "current_price": 710.17,
+      "change_pct": 0.25,
       "extra_data": {
-        "regular_market_price": 710.12,
+        "regular_market_price": 710.17,
         "pre_market_price": null,
-        "post_market_price": 710.32,
+        "post_market_price": 710.44,
         "prev_close": 708.42
       },
-      "kd_k": 87.09,
-      "kd_d": 83.01
+      "kd_k": 87.13,
+      "kd_d": 83.02
     },
     {
       "symbol": "SPY",
       "name": "SPDR S&P 500 ETF Trust",
-      "current_price": 772.47,
+      "current_price": 772.49,
       "change_pct": 0.25,
       "extra_data": {
-        "regular_market_price": 772.47,
+        "regular_market_price": 772.49,
         "pre_market_price": null,
-        "post_market_price": 772.73,
+        "post_market_price": 772.55,
         "prev_close": 770.56
       },
-      "kd_k": 87.11,
+      "kd_k": 87.13,
       "kd_d": 83.06
     },
     {
@@ -1354,7 +1354,7 @@
       "extra_data": {
         "regular_market_price": 723.7,
         "pre_market_price": null,
-        "post_market_price": 723.8023,
+        "post_market_price": 723.1982,
         "prev_close": 718.45
       },
       "kd_k": 85.0,
@@ -1368,7 +1368,7 @@
       "extra_data": {
         "regular_market_price": 584.83,
         "pre_market_price": null,
-        "post_market_price": 585.27,
+        "post_market_price": 586.0,
         "prev_close": 572.93
       },
       "kd_k": 82.86,
@@ -1377,16 +1377,16 @@
     {
       "symbol": "USD",
       "name": "ProShares Ultra Semiconductors",
-      "current_price": 93.77,
-      "change_pct": 5.02,
+      "current_price": 93.83,
+      "change_pct": 5.08,
       "extra_data": {
-        "regular_market_price": 93.77,
+        "regular_market_price": 93.83,
         "pre_market_price": null,
-        "post_market_price": 93.83,
+        "post_market_price": 93.43,
         "prev_close": 89.29
       },
-      "kd_k": 83.72,
-      "kd_d": 76.66
+      "kd_k": 83.82,
+      "kd_d": 76.69
     },
     {
       "symbol": "MSFU",
@@ -1396,7 +1396,7 @@
       "extra_data": {
         "regular_market_price": 37.08,
         "pre_market_price": null,
-        "post_market_price": 37.08,
+        "post_market_price": 36.9501,
         "prev_close": 38.83
       },
       "kd_k": 81.58,
@@ -1410,7 +1410,7 @@
       "extra_data": {
         "regular_market_price": 36.39,
         "pre_market_price": null,
-        "post_market_price": 36.39,
+        "post_market_price": 36.2004,
         "prev_close": 34.31
       },
       "kd_k": 84.69,
@@ -1424,7 +1424,7 @@
       "extra_data": {
         "regular_market_price": 81.68,
         "pre_market_price": null,
-        "post_market_price": 81.68,
+        "post_market_price": 82.08,
         "prev_close": 79.28
       },
       "kd_k": 84.61,
@@ -1433,16 +1433,16 @@
     {
       "symbol": "FNGS",
       "name": "MicroSectors FANG+ Index ETN",
-      "current_price": 79.55,
-      "change_pct": -0.64,
+      "current_price": 79.5844,
+      "change_pct": -0.59,
       "extra_data": {
-        "regular_market_price": 79.55,
+        "regular_market_price": 79.5844,
         "pre_market_price": null,
         "post_market_price": 79.5844,
         "prev_close": 80.0588
       },
-      "kd_k": 84.46,
-      "kd_d": 82.53
+      "kd_k": 84.6,
+      "kd_d": 82.58
     },
     {
       "symbol": "FNGG",
@@ -1461,16 +1461,16 @@
     {
       "symbol": "CRM",
       "name": "Salesforce, Inc.",
-      "current_price": 193.28,
-      "change_pct": -2.12,
+      "current_price": 193.32,
+      "change_pct": -2.1,
       "extra_data": {
-        "regular_market_price": 193.28,
+        "regular_market_price": 193.32,
         "pre_market_price": null,
-        "post_market_price": 193.32,
+        "post_market_price": 193.5,
         "prev_close": 197.47
       },
-      "kd_k": 83.84,
-      "kd_d": 85.08
+      "kd_k": 83.89,
+      "kd_d": 85.1
     },
     {
       "symbol": "CRMG",
@@ -1480,7 +1480,7 @@
       "extra_data": {
         "regular_market_price": 5.96,
         "pre_market_price": null,
-        "post_market_price": 5.96,
+        "post_market_price": 5.9547,
         "prev_close": 6.22
       },
       "kd_k": 81.9,
@@ -1489,16 +1489,16 @@
     {
       "symbol": "ORCL",
       "name": "Oracle Corporation",
-      "current_price": 153.23,
-      "change_pct": 5.33,
+      "current_price": 153.28,
+      "change_pct": 5.36,
       "extra_data": {
-        "regular_market_price": 153.23,
+        "regular_market_price": 153.28,
         "pre_market_price": null,
-        "post_market_price": 153.3,
+        "post_market_price": 153.004,
         "prev_close": 145.48
       },
-      "kd_k": 88.95,
-      "kd_d": 84.76
+      "kd_k": 89.0,
+      "kd_d": 84.78
     },
     {
       "symbol": "ORCX",
@@ -1508,7 +1508,7 @@
       "extra_data": {
         "regular_market_price": 23.99,
         "pre_market_price": null,
-        "post_market_price": 23.75,
+        "post_market_price": 23.99,
         "prev_close": 21.64
       },
       "kd_k": 87.55,
@@ -1524,7 +1524,7 @@
       "extra_data": {
         "regular_market_price": 302.25,
         "pre_market_price": null,
-        "post_market_price": 302.0502,
+        "post_market_price": 302.18,
         "prev_close": 304.91
       },
       "kd_k": 19.16,
