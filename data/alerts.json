@@ -1,5 +1,106 @@
 [
   {
+    "id": "AAPL_20260812_oversold",
+    "symbol": "AAPL",
+    "name": "Apple Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.78,
+    "kd_d": 25.65,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 302.545,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ AAPL (Apple Inc.) is OVERSOLD! KD-K: 19.78, KD-D: 25.65 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-12T22:25:46.221239",
+    "date": "2026-08-12",
+    "acknowledged": false
+  },
+  {
+    "id": "SMH_20260812_overbought",
+    "symbol": "SMH",
+    "name": "VanEck Semiconductor ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 84.52,
+    "kd_d": 75.85,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 588.11,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ SMH (VanEck Semiconductor ETF) is OVERBOUGHT! KD-K: 84.52, KD-D: 75.85 (>= 80)",
+    "timestamp": "2026-08-12T22:25:46.222888",
+    "date": "2026-08-12",
+    "acknowledged": false
+  },
+  {
+    "id": "USD_20260812_overbought",
+    "symbol": "USD",
+    "name": "ProShares Ultra Semiconductors",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 85.65,
+    "kd_d": 77.3,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 94.59,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ USD (ProShares Ultra Semiconductors) is OVERBOUGHT! KD-K: 85.65, KD-D: 77.3 (>= 80)",
+    "timestamp": "2026-08-12T22:25:46.223052",
+    "date": "2026-08-12",
+    "acknowledged": false
+  },
+  {
+    "id": "NVDL_20260812_overbought",
+    "symbol": "NVDL",
+    "name": "GraniteShares 2x Long NVDA Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 84.09,
+    "kd_d": 77.17,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 36.21,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ NVDL (GraniteShares 2x Long NVDA Daily ETF) is OVERBOUGHT! KD-K: 84.09, KD-D: 77.17 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-12T22:25:46.223359",
+    "date": "2026-08-12",
+    "acknowledged": false
+  },
+  {
     "id": "2330.TW_20260812_overbought",
     "symbol": "2330.TW",
     "name": "台積電",
@@ -2443,108 +2544,6 @@
     "market_regime_label": null,
     "message": "⚠️ 006208.TW (富邦台50) is OVERBOUGHT! KD-K: 85.3, KD-D: 73.87 (>= 80)",
     "timestamp": "2026-08-11T00:56:16.933150",
-    "date": "2026-08-11",
-    "acknowledged": false
-  },
-  {
-    "id": "00631L.TW_20260811_overbought",
-    "symbol": "00631L.TW",
-    "name": "元大台灣50正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 83.15,
-    "kd_d": 69.64,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 34.7,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超 13973 張（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00631L.TW (元大台灣50正2) is OVERBOUGHT! KD-K: 83.15, KD-D: 69.64 (>= 80)",
-    "timestamp": "2026-08-11T00:56:16.933292",
-    "date": "2026-08-11",
-    "acknowledged": false
-  },
-  {
-    "id": "00635U.TW_20260811_overbought",
-    "symbol": "00635U.TW",
-    "name": "期元大S&P黃金",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 82.58,
-    "kd_d": 68.19,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 45.03,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00635U.TW (期元大S&P黃金) is OVERBOUGHT! KD-K: 82.58, KD-D: 68.19 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-11T00:56:16.933413",
-    "date": "2026-08-11",
-    "acknowledged": false
-  },
-  {
-    "id": "00640L.TW_20260811_overbought",
-    "symbol": "00640L.TW",
-    "name": "富邦日本正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 86.07,
-    "kd_d": 72.28,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 108.85,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00640L.TW (富邦日本正2) is OVERBOUGHT! KD-K: 86.07, KD-D: 72.28 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-11T00:56:16.933541",
-    "date": "2026-08-11",
-    "acknowledged": false
-  },
-  {
-    "id": "00645.TW_20260811_overbought",
-    "symbol": "00645.TW",
-    "name": "富邦日本",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.93,
-    "kd_d": 72.42,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 58.0,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00645.TW (富邦日本) is OVERBOUGHT! KD-K: 85.93, KD-D: 72.42 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-11T00:56:16.933661",
     "date": "2026-08-11",
     "acknowledged": false
   }
