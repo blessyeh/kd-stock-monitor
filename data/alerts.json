@@ -1,5 +1,82 @@
 [
   {
+    "id": "00885.TW_20260813_overbought",
+    "symbol": "00885.TW",
+    "name": "富邦越南",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.26,
+    "kd_d": 78.74,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 18.49,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00885.TW (富邦越南) is OVERBOUGHT! KD-K: 80.26, KD-D: 78.74 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-13T09:40:55.184173",
+    "date": "2026-08-13",
+    "acknowledged": false
+  },
+  {
+    "id": "00911.TW_20260813_overbought",
+    "symbol": "00911.TW",
+    "name": "兆豐洲際半導體",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.71,
+    "kd_d": 74.47,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 55.7,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00911.TW (兆豐洲際半導體) is OVERBOUGHT! KD-K: 82.71, KD-D: 74.47 (>= 80)",
+    "timestamp": "2026-08-13T09:40:55.185053",
+    "date": "2026-08-13",
+    "acknowledged": false
+  },
+  {
+    "id": "00988A.TW_20260813_overbought",
+    "symbol": "00988A.TW",
+    "name": "主動統一全球創新",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.44,
+    "kd_d": 72.43,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 17.42,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超 16223 張（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00988A.TW (主動統一全球創新) is OVERBOUGHT! KD-K: 80.44, KD-D: 72.43 (>= 80)",
+    "timestamp": "2026-08-13T09:40:55.187257",
+    "date": "2026-08-13",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260813_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2476,81 +2553,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00685L.TW (群益臺灣加權正2) is OVERBOUGHT! KD-K: 88.07, KD-D: 75.64 (>= 80)",
     "timestamp": "2026-08-12T00:04:44.662470",
-    "date": "2026-08-12",
-    "acknowledged": false
-  },
-  {
-    "id": "00692.TW_20260812_overbought",
-    "symbol": "00692.TW",
-    "name": "富邦公司治理",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 88.59,
-    "kd_d": 78.69,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 89.55,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00692.TW (富邦公司治理) is OVERBOUGHT! KD-K: 88.59, KD-D: 78.69 (>= 80)",
-    "timestamp": "2026-08-12T00:04:44.662595",
-    "date": "2026-08-12",
-    "acknowledged": false
-  },
-  {
-    "id": "00708L.TW_20260812_overbought",
-    "symbol": "00708L.TW",
-    "name": "期元大S&P黃金正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 84.94,
-    "kd_d": 73.8,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 82.1,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00708L.TW (期元大S&P黃金正2) is OVERBOUGHT! KD-K: 84.94, KD-D: 73.8 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-12T00:04:44.662718",
-    "date": "2026-08-12",
-    "acknowledged": false
-  },
-  {
-    "id": "00731.TW_20260812_overbought",
-    "symbol": "00731.TW",
-    "name": "復華富時高息低波",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.61,
-    "kd_d": 77.92,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 91.1,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00731.TW (復華富時高息低波) is OVERBOUGHT! KD-K: 80.61, KD-D: 77.92 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-12T00:04:44.662854",
     "date": "2026-08-12",
     "acknowledged": false
   }
