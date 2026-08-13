@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-13T18:01:57.241388",
+  "timestamp": "2026-08-13T19:07:19.005822",
   "date": "2026-08-13",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -0.04
     },
     "dxy": {
-      "value": 99.93,
-      "change": -0.08,
-      "change_pct": -0.08
+      "value": 99.9,
+      "change": -0.11,
+      "change_pct": -0.11
     },
     "fear_greed": {
-      "value": 14.66,
-      "change": 0.11,
-      "change_pct": 0.76,
+      "value": 14.59,
+      "change": 0.04,
+      "change_pct": 0.27,
       "label": "VIX Index",
-      "timestamp": "2026-08-13T18:00:27.770587"
+      "timestamp": "2026-08-13T19:06:05.636215"
     },
     "btc": {
-      "value": 63736.0,
-      "change": 334.0,
-      "change_pct": 0.53
+      "value": 63564.0,
+      "change": 162.0,
+      "change_pct": 0.26
     },
     "oil": {
-      "value": 81.71,
-      "change": -1.56,
-      "change_pct": -1.87
+      "value": 81.5,
+      "change": -1.77,
+      "change_pct": -2.13
     },
     "gold": {
-      "value": 4436.4,
-      "change": 27.5,
-      "change_pct": 0.62
+      "value": 4449.9,
+      "change": 41.0,
+      "change_pct": 0.93
     },
     "sox": {
       "value": 12399.38,
@@ -98,16 +98,16 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 32.114,
-      "change": -0.095,
-      "change_pct": -0.3
+      "value": 32.116,
+      "change": -0.093,
+      "change_pct": -0.29
     },
     "foreign_futures_net": {
-      "value": -86249,
+      "value": null,
+      "change": null,
+      "change_pct": null,
       "unit": "口",
-      "date": "2026-08-13",
-      "change": 384,
-      "change_pct": 0.44
+      "date": null
     },
     "put_call_ratio": {
       "value": 112.03,
@@ -134,21 +134,21 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.93 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.01pp（未達 0.15pp）"
+          "detail": "DXY 99.90 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.01pp（未達 0.15pp）"
         },
         {
           "id": "twd_depreciation",
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.151（貶值門檻 0.3）"
+          "detail": "USD/TWD 5日變動 -0.149（貶值門檻 0.3）"
         },
         {
           "id": "foreign_dual_short",
           "label": "外資期現貨雙空",
-          "status": false,
+          "status": null,
           "completeness": "full",
-          "detail": "外資現貨連續3日賣超：否（[223.3, 110.2, 757.0]億元）；台指期淨部位 -86249口（達 -30000口門檻）"
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷"
         },
         {
           "id": "retail_holding_bag",
@@ -166,7 +166,7 @@
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 5,
+      "evaluated_count": 4,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0
@@ -178,7 +178,7 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 16.5（<= 30.0門檻）；目前 14.7（較高點回落 11%，門檻 15%）"
+          "detail": "近10日VIX高點 16.5（<= 30.0門檻）；目前 14.6（較高點回落 12%，門檻 15%）"
         },
         {
           "id": "margin_capitulation",
@@ -190,13 +190,13 @@
         {
           "id": "foreign_short_covering",
           "label": "外資空單回補與匯率止穩",
-          "status": false,
+          "status": null,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.151（止穩/升值）；外資今日轉買超，近期均值 +92.8億元；台指期淨部位5日變動 +3134口（未回補）"
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷"
         }
       ],
       "total_conditions": 3,
-      "evaluated_count": 3,
+      "evaluated_count": 2,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0
@@ -223,7 +223,7 @@
           "score": 10.0,
           "cap": 25,
           "notes": [
-            "DXY 99.93 未創近20日新高（美元壓力未加劇，+10）"
+            "DXY 99.90 未創近20日新高（美元壓力未加劇，+10）"
           ]
         },
         {
@@ -257,7 +257,7 @@
       ]
     },
     "top": {
-      "total": 22.0,
+      "total": 10,
       "dimensions": [
         {
           "name": "macro",
@@ -273,11 +273,9 @@
         },
         {
           "name": "derivative",
-          "score": 12.0,
+          "score": 0,
           "cap": 20,
-          "notes": [
-            "外資台指期淨空單 -86249口，達 -30000口門檻（+12）"
-          ]
+          "notes": []
         },
         {
           "name": "technical",
@@ -378,7 +376,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $429.1 換算2330隱含價 2756.3元，2330現價 2435.0元（折價 11.7%）",
+          "TSM ADR $429.1 換算2330隱含價 2756.5元，2330現價 2435.0元（折價 11.7%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -406,53 +404,53 @@
   },
   "news": [
     {
+      "title": "台股兆元行情回歸 國巨華碩接力吹漲風",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E9%87%8D%E8%BF%94%E3%80%8C%E5%85%86%E5%85%83%E9%87%8F%E3%80%8D%EF%BC%81%E5%9C%8B%E5%B7%A8%E5%BC%95%E9%A0%98%E8%A2%AB%E5%8B%95%E5%85%83%E4%BB%B6%E9%A3%86%E9%A2%A8%E5%86%8D%E8%B5%B7-%E8%8F%AF%E7%A2%A9%E8%B2%A1%E5%A0%B1%E9%BB%9E%E7%81%AB%E3%80%8C%E9%9B%99%E7%A2%A9%E3%80%8D%E6%BC%B2%E5%81%9C%EF%BD%9Cyahoo%E8%B2%A1%E7%B6%93%E6%8E%83%E6%8F%8F-092305167.html",
+      "meta": null
+    },
+    {
+      "title": "00981A狂砍南亞科 分析師看記憶體還有戲",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8D%97%E4%BA%9E%E7%A7%91%E4%BA%AE%E7%87%88%E7%A7%92%E9%81%AD%E5%87%BA%E8%B2%A8-00981a%E8%BE%A3%E6%89%8B%E7%8B%82%E7%A0%8D-%E5%8F%AA%E7%95%991%E5%BC%B5-%E5%B0%88%E5%AE%B6%E7%9C%8B%E8%A8%98%E6%86%B6%E9%AB%94%E9%80%99%E6%A8%A3%E8%AA%AA-101500609.html",
+      "meta": null
+    },
+    {
+      "title": "泰山喊搶標5千萬股 街口稱還沒開賣",
+      "url": "https://tw.stock.yahoo.com/news/%E6%B3%B0%E5%B1%B1%E6%93%AC%E6%90%B6%E6%A8%99%E8%A1%97%E5%8F%A3%E6%94%AF%E4%BB%985%E5%8D%83%E8%90%AC%E8%82%A1%EF%BC%81%E8%A1%97%E5%8F%A3%E5%9B%9E%E6%87%89%E4%BA%86%EF%BC%9A%E5%B0%9A%E6%9C%AA%E9%80%B2%E5%85%A5%E4%BB%BB%E4%BD%95%E6%8B%8D%E8%B3%A3%E7%A8%8B%E5%BA%8F-102231267.html",
+      "meta": null
+    },
+    {
+      "title": "想領息還是拚價差？高股息市值型ETF對決",
+      "url": "https://tw.stock.yahoo.com/news/%E9%AB%98%E8%82%A1%E6%81%AF-etf-%E7%9C%9F%E7%9A%84%E6%98%AF%E5%B7%A6%E6%89%8B%E6%8F%9B%E5%8F%B3%E6%89%8B%E5%97%8E%EF%BC%9F7-%E6%9C%88%E8%82%A1%E5%B8%82%E9%87%8D%E6%8C%AB%E9%AB%98%E8%82%A1%E6%81%AF%E6%9C%80%E6%8A%97%E8%B7%8C%EF%BC%9F%E9%AB%98%E8%82%A1%E6%81%AF%E8%88%87%E5%B8%82%E5%80%BC%E5%9E%8B-etf-%E6%80%8E%E9%BA%BC%E9%81%B8%EF%BC%9F%EF%BD%9C%E6%8A%95%E8%B3%87%E8%A8%BA%E8%81%8A%E5%AE%A4-100000219.html",
+      "meta": null
+    },
+    {
       "title": "泰山風波不斷 重訊揭上半年大虧近8億",
       "url": "https://tw.stock.yahoo.com/news/%E6%B3%B0%E5%B1%B1%E4%BB%8A%E5%81%9C%E7%89%8C%E6%8F%AD%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%A4%A7%E8%99%A7787%E5%84%84%E5%85%83%EF%BC%81%E5%95%8F%E9%A1%8C%E6%B2%B9%E5%90%9E4%E5%84%84%E3%80%81%E8%A1%97%E5%8F%A3%E5%86%8D%E6%B8%9B%E6%90%8D52%E5%84%84-084353238.html",
       "meta": null
     },
     {
-      "title": "預售市場買氣持續探底 連續18個月走下坡",
-      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E7%94%A2-%E9%A0%90%E5%94%AE%E5%B8%82%E5%A0%B4%E8%B2%B7%E6%B0%A3%E9%80%A3%E7%BA%8C18%E5%80%8B%E6%9C%88%E6%8E%A2%E5%BA%95-6%E6%9C%88%E6%8F%AD%E9%9C%B2%E9%87%8F%E5%83%85%E5%89%A9%E9%AB%98%E5%B3%B0%E6%9C%9F2%E6%88%90-080106904.html",
+      "title": "別上當！證交所董座遭詐騙假冒 緊急澄清",
+      "url": "https://tw.stock.yahoo.com/news/%E5%88%A5%E4%B8%8A%E7%95%B6%EF%BC%81%E8%AD%89%E4%BA%A4%E6%89%80%E8%91%A3%E5%BA%A7%E9%81%AD%E8%A9%90%E9%A8%99%E5%81%87%E5%86%92-%E7%B7%8A%E6%80%A5%E6%BE%84%E6%B8%85-110315023.html",
       "meta": null
     },
     {
-      "title": "狂賺半個股本 國泰金上半年獲利寫新高",
-      "url": "https://tw.stock.yahoo.com/news/%E8%B3%BA%E5%8D%8A%E5%80%8B%E8%82%A1%E6%9C%AC%EF%BC%81%E5%9C%8B%E6%B3%B0%E9%87%91%E4%B8%8A%E5%8D%8A%E5%B9%B4%E7%8D%B2%E5%88%A9873%E5%84%84%E5%85%83-%E7%BA%8C%E5%AF%AB%E6%96%B0%E9%AB%98-090009633.html",
+      "title": "廣達上半年賺破1股本...網歎「肉鬆300真的很委屈」 分析師：明股價看2關鍵",
+      "url": "https://tw.stock.yahoo.com/news/%E5%BB%A3%E9%81%94%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%B3%BA%E7%A0%B41%E8%82%A1%E6%9C%AC%E7%B6%B2%E6%AD%8E%E3%80%8C%E8%82%89%E9%AC%86300%E7%9C%9F%E7%9A%84%E5%BE%88%E5%A7%94%E5%B1%88%E3%80%8D-%E5%88%86%E6%9E%90%E5%B8%AB%EF%BC%9A%E6%98%8E%E8%82%A1%E5%83%B9%E7%9C%8B2%E9%97%9C%E9%8D%B5-104030085.html",
       "meta": null
     },
     {
-      "title": "洗錢防制修法 兩類未登記業者納特定犯罪",
-      "url": "https://tw.stock.yahoo.com/news/%E6%94%BF%E9%99%A2%E6%8B%8D%E6%9D%BF-%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E6%B3%95-%E4%BF%AE%E6%B3%95-%E5%B0%87%E8%99%9B%E6%93%AC%E8%B3%87%E7%94%A2-%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98%E6%A5%AD%E8%80%85%E7%B4%8D%E5%85%A5%E7%89%B9%E5%AE%9A%E7%8A%AF%E7%BD%AA-064200461.html",
+      "title": "長榮海運上半年每股賺11.24元 年減36%",
+      "url": "https://tw.stock.yahoo.com/news/%E9%95%B7%E6%A6%AE%E6%B5%B7%E9%81%8B%E4%B8%8A%E5%8D%8A%E5%B9%B4%E6%AF%8F%E8%82%A1%E8%B3%BA1124%E5%85%83-%E5%B9%B4%E6%B8%9B36-101112169.html",
       "meta": null
     },
     {
-      "title": "法人連4買狂掃台股 分析師看多卻說先別追",
-      "url": "https://tw.stock.yahoo.com/news/%E3%80%90follow%E6%B3%95%E4%BA%BA%E3%80%91%E5%A4%96%E8%B3%87%E7%8B%82%E6%8E%83%E8%A8%98%E6%86%B6%E9%AB%94%EF%BC%81%E8%B2%B7%E8%B6%85%E5%8A%9B%E7%A9%8D%E9%9B%BB%E3%80%81%E5%8D%97%E4%BA%9E%E7%A7%91%E8%BF%9110%E8%90%AC%E5%BC%B5-%E9%B4%BB%E6%B5%B7%E6%88%90%E6%9C%80%E5%A4%A7%E8%8B%A6%E4%B8%BB%E9%81%AD%E7%A0%8D33%E8%90%AC%E5%BC%B5-070541054.html",
+      "title": "玉山金法說4》黃男州談下半年經濟有3大變數 央行升息「有條件但不急迫」",
+      "url": "https://tw.stock.yahoo.com/news/%E7%8E%89%E5%B1%B1%E9%87%91%E6%B3%95%E8%AA%AA4%E3%80%8B%E9%BB%83%E7%94%B7%E5%B7%9E%E8%AB%87%E4%B8%8B%E5%8D%8A%E5%B9%B4%E7%B6%93%E6%BF%9F%E6%9C%893%E5%A4%A7%E8%AE%8A%E6%95%B8-%E5%A4%AE%E8%A1%8C%E5%8D%87%E6%81%AF%E3%80%8C%E6%9C%89%E6%A2%9D%E4%BB%B6%E4%BD%86%E4%B8%8D%E6%80%A5%E8%BF%AB%E3%80%8D-100900075.html",
       "meta": null
     },
     {
       "title": "上半年「無人繼承遺產」7385萬元歸國庫 單筆最高2605萬元",
       "url": "https://tw.stock.yahoo.com/news/%E4%B8%8A%E5%8D%8A%E5%B9%B4%E3%80%8C%E7%84%A1%E4%BA%BA%E7%B9%BC%E6%89%BF%E9%81%BA%E7%94%A2%E3%80%8D7385%E8%90%AC%E5%85%83%E6%AD%B8%E5%9C%8B%E5%BA%AB-%E5%96%AE%E7%AD%86%E6%9C%80%E9%AB%982605%E8%90%AC%E5%85%83-095633013.html",
-      "meta": null
-    },
-    {
-      "title": "東元上半年賺破38億元！年增逾4成 樂看下半年更好",
-      "url": "https://tw.stock.yahoo.com/news/%E6%9D%B1%E5%85%83%E4%B8%8A%E5%8D%8A%E5%B9%B4%E8%B3%BA%E7%A0%B438%E5%84%84%E5%85%83%EF%BC%81%E5%B9%B4%E5%A2%9E%E9%80%BE4%E6%88%90-%E6%A8%82%E7%9C%8B%E4%B8%8B%E5%8D%8A%E5%B9%B4%E6%9B%B4%E5%A5%BD-094817922.html",
-      "meta": null
-    },
-    {
-      "title": "新人事！星展銀台灣總經理黃思翰明年調任香港 接任人選出爐",
-      "url": "https://tw.stock.yahoo.com/news/%E6%96%B0%E4%BA%BA%E4%BA%8B%EF%BC%81%E6%98%9F%E5%B1%95%E9%8A%80%E5%8F%B0%E7%81%A3%E7%B8%BD%E7%B6%93%E7%90%86%E9%BB%83%E6%80%9D%E7%BF%B0%E6%98%8E%E5%B9%B4%E8%AA%BF%E4%BB%BB%E9%A6%99%E6%B8%AF-%E6%8E%A5%E4%BB%BB%E4%BA%BA%E9%81%B8%E5%87%BA%E7%88%90-094758893.html",
-      "meta": null
-    },
-    {
-      "title": "薪水漲太慢？8成上班族進場買股 82%獲利仍輸月薪",
-      "url": "https://tw.stock.yahoo.com/news/%E8%96%AA%E6%B0%B4%E6%BC%B2%E5%A4%AA%E6%85%A2%EF%BC%9F8%E6%88%90%E4%B8%8A%E7%8F%AD%E6%97%8F%E9%80%B2%E5%A0%B4%E8%B2%B7%E8%82%A1-82%E7%8D%B2%E5%88%A9%E4%BB%8D%E8%BC%B8%E6%9C%88%E8%96%AA-094500774.html",
-      "meta": null
-    },
-    {
-      "title": "廣達法說2》筆電下半年「旺季不旺」 第三季出貨恐季減逾2成",
-      "url": "https://tw.stock.yahoo.com/news/%E5%BB%A3%E9%81%94%E6%B3%95%E8%AA%AA2%E3%80%8B%E7%AD%86%E9%9B%BB%E4%B8%8B%E5%8D%8A%E5%B9%B4%E3%80%8C%E6%97%BA%E5%AD%A3%E4%B8%8D%E6%97%BA%E3%80%8D-%E7%AC%AC%E4%B8%89%E5%AD%A3%E5%87%BA%E8%B2%A8%E6%81%90%E5%AD%A3%E6%B8%9B%E9%80%BE2%E6%88%90-093727471.html",
       "meta": null
     }
   ],
@@ -1269,7 +1267,7 @@
       "change_pct": -2.26,
       "extra_data": {
         "regular_market_price": 492.43,
-        "pre_market_price": 492.1612,
+        "pre_market_price": 493.0894,
         "post_market_price": null,
         "prev_close": 503.81
       },
@@ -1283,7 +1281,7 @@
       "change_pct": 3.03,
       "extra_data": {
         "regular_market_price": 224.09,
-        "pre_market_price": 224.22,
+        "pre_market_price": 224.2315,
         "post_market_price": null,
         "prev_close": 217.5
       },
@@ -1297,7 +1295,7 @@
       "change_pct": -2.23,
       "extra_data": {
         "regular_market_price": 171.04,
-        "pre_market_price": 171.5,
+        "pre_market_price": 171.34,
         "post_market_price": null,
         "prev_close": 174.94
       },
@@ -1311,7 +1309,7 @@
       "change_pct": -0.05,
       "extra_data": {
         "regular_market_price": 221.78,
-        "pre_market_price": 221.956,
+        "pre_market_price": 224.5,
         "post_market_price": null,
         "prev_close": 221.9
       },
@@ -1325,7 +1323,7 @@
       "change_pct": 1.68,
       "extra_data": {
         "regular_market_price": 429.15,
-        "pre_market_price": 428.97,
+        "pre_market_price": 429.3464,
         "post_market_price": null,
         "prev_close": 422.06
       },
@@ -1339,7 +1337,7 @@
       "change_pct": 0.44,
       "extra_data": {
         "regular_market_price": 161.53,
-        "pre_market_price": 161.9817,
+        "pre_market_price": 162.0,
         "post_market_price": null,
         "prev_close": 160.82
       },
@@ -1353,7 +1351,7 @@
       "change_pct": 0.25,
       "extra_data": {
         "regular_market_price": 710.17,
-        "pre_market_price": 711.4988,
+        "pre_market_price": 711.4925,
         "post_market_price": null,
         "prev_close": 708.42
       },
@@ -1367,7 +1365,7 @@
       "change_pct": 0.25,
       "extra_data": {
         "regular_market_price": 772.49,
-        "pre_market_price": 773.97,
+        "pre_market_price": 773.9913,
         "post_market_price": null,
         "prev_close": 770.56
       },
@@ -1395,7 +1393,7 @@
       "change_pct": 2.08,
       "extra_data": {
         "regular_market_price": 584.83,
-        "pre_market_price": 585.4,
+        "pre_market_price": 586.25,
         "post_market_price": null,
         "prev_close": 572.93
       },
@@ -1409,7 +1407,7 @@
       "change_pct": 5.08,
       "extra_data": {
         "regular_market_price": 93.83,
-        "pre_market_price": 93.4386,
+        "pre_market_price": 93.81,
         "post_market_price": null,
         "prev_close": 89.29
       },
@@ -1423,7 +1421,7 @@
       "change_pct": -4.51,
       "extra_data": {
         "regular_market_price": 37.08,
-        "pre_market_price": 37.0504,
+        "pre_market_price": 37.18,
         "post_market_price": null,
         "prev_close": 38.83
       },
@@ -1437,7 +1435,7 @@
       "change_pct": 6.06,
       "extra_data": {
         "regular_market_price": 36.39,
-        "pre_market_price": 36.44,
+        "pre_market_price": 36.445,
         "post_market_price": null,
         "prev_close": 34.31
       },
@@ -1451,7 +1449,7 @@
       "change_pct": 3.03,
       "extra_data": {
         "regular_market_price": 81.68,
-        "pre_market_price": 81.4,
+        "pre_market_price": 81.6,
         "post_market_price": null,
         "prev_close": 79.28
       },
@@ -1465,7 +1463,7 @@
       "change_pct": -0.59,
       "extra_data": {
         "regular_market_price": 79.5844,
-        "pre_market_price": null,
+        "pre_market_price": 79.58,
         "post_market_price": null,
         "prev_close": 80.0588
       },
@@ -1493,7 +1491,7 @@
       "change_pct": -2.1,
       "extra_data": {
         "regular_market_price": 193.32,
-        "pre_market_price": 197.34,
+        "pre_market_price": 195.75,
         "post_market_price": null,
         "prev_close": 197.47
       },
@@ -1507,7 +1505,7 @@
       "change_pct": -4.18,
       "extra_data": {
         "regular_market_price": 5.96,
-        "pre_market_price": 6.2,
+        "pre_market_price": 6.1195,
         "post_market_price": null,
         "prev_close": 6.22
       },
@@ -1521,7 +1519,7 @@
       "change_pct": 5.36,
       "extra_data": {
         "regular_market_price": 153.28,
-        "pre_market_price": 152.29,
+        "pre_market_price": 152.41,
         "post_market_price": null,
         "prev_close": 145.48
       },
@@ -1535,7 +1533,7 @@
       "change_pct": 10.86,
       "extra_data": {
         "regular_market_price": 23.99,
-        "pre_market_price": 23.66,
+        "pre_market_price": 23.6755,
         "post_market_price": null,
         "prev_close": 21.64
       },
@@ -1551,7 +1549,7 @@
       "change_pct": -0.87,
       "extra_data": {
         "regular_market_price": 302.25,
-        "pre_market_price": 303.5,
+        "pre_market_price": 303.21,
         "post_market_price": null,
         "prev_close": 304.91
       },
