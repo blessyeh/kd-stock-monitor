@@ -1,5 +1,29 @@
 [
   {
+    "id": "CRMG_20260814_overbought",
+    "symbol": "CRMG",
+    "name": "Leverage Shares 2X Long CRM Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.29,
+    "kd_d": 82.64,
+    "kd_state": "OVERBOUGHT_REVERSAL",
+    "current_price": 6.315,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ CRMG (Leverage Shares 2X Long CRM Daily ETF) is OVERBOUGHT! KD-K: 81.29, KD-D: 82.64 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-14T02:59:18.670171",
+    "date": "2026-08-14",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260814_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2532,30 +2556,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00647L.TW (元大S&P500正2) is OVERBOUGHT! KD-K: 88.61, KD-D: 85.21 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-13T00:56:33.755328",
-    "date": "2026-08-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00662.TW_20260813_overbought",
-    "symbol": "00662.TW",
-    "name": "富邦NASDAQ",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 83.75,
-    "kd_d": 78.7,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 122.3,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00662.TW (富邦NASDAQ) is OVERBOUGHT! KD-K: 83.75, KD-D: 78.7 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-13T00:56:33.755548",
     "date": "2026-08-13",
     "acknowledged": false
   }
