@@ -30,6 +30,7 @@ from signal_confluence import evaluate_signal_confluence
 from market_regime import detect_market_regime
 from signal_score import calculate_signal_scores
 from tsmc_analyzer import calculate_tsmc_score
+from signal_backtest import record_signal_snapshot, compute_backtest_stats
 
 
 class NumpyJSONEncoder(json.JSONEncoder):
@@ -102,6 +103,9 @@ class KDStockMonitor:
         try:
             # Step 1: Fetch stock data and macro indicators
             logger.info("\n[Step 1/4] Fetching stock data and macro indicators...")
+            tw_eod_fresh = False
+            cached_institutional_by_symbol = None
+            today_str = datetime.now().strftime("%Y-%m-%d")
             if test_mode:
                 stock_data = self._get_mock_data()
                 macro_indicators = {
@@ -162,24 +166,46 @@ class KDStockMonitor:
             else:
                 stock_data = self.fetcher.fetch_all_stocks()
                 macro_indicators = self.fetcher.fetch_macro_indicators()
-                tw_chip_indicators = self.fetcher.fetch_tw_chip_indicators()
+
+                # TW EOD sources (chip flow, per-stock institutional flow,
+                # TSMC fundamentals) are published once per TW trading day —
+                # re-fetching them every hour just re-hits TWSE/FinMind with
+                # the same answer up to ~24x/day (roadmap item 4a). Reuse a
+                # same-calendar-day cache instead; US stock prices and macro
+                # indicators above stay unconditional every run since those
+                # ARE genuinely intraday-relevant. See _load_tw_eod_cache()'s
+                # docstring for the cache-freshness rule.
+                tw_eod_cache = self._load_tw_eod_cache()
+                tw_eod_fresh = tw_eod_cache is not None and tw_eod_cache.get("date") == today_str
+
+                if tw_eod_fresh:
+                    logger.info(f"TW EOD sources already fetched today ({today_str}) — reusing cached values")
+                    tw_chip_indicators = tw_eod_cache["tw_chip_indicators"]
+                    tsmc_monthly_revenue = tw_eod_cache["tsmc_monthly_revenue"]
+                    tsmc_quarterly_financials = tw_eod_cache["tsmc_quarterly_financials"]
+                    tsmc_valuation = tw_eod_cache["tsmc_valuation"]
+                    tsmc_official_guidance = tw_eod_cache["tsmc_official_guidance"]
+                    cached_institutional_by_symbol = tw_eod_cache.get("institutional_by_symbol") or {}
+                else:
+                    tw_chip_indicators = self.fetcher.fetch_tw_chip_indicators()
+                    try:
+                        tsmc_monthly_revenue = self.fetcher.fetch_tsmc_monthly_revenue()
+                        tsmc_quarterly_financials = self.fetcher.fetch_tsmc_quarterly_financials()
+                        tsmc_valuation = self.fetcher.fetch_tsmc_valuation()
+                    except Exception as e:
+                        logger.error(f"TSMC fundamentals fetch failed (non-fatal, continuing): {e}")
+                        tsmc_monthly_revenue, tsmc_quarterly_financials, tsmc_valuation = [], [], []
+                    try:
+                        tsmc_official_guidance = self.fetcher.fetch_tsmc_official_guidance()
+                    except Exception as e:
+                        logger.error(f"TSMC official guidance fetch failed (non-fatal, continuing): {e}")
+                        tsmc_official_guidance = None
+
                 try:
                     market_news = self.fetcher.fetch_market_news()
                 except Exception as e:
                     logger.error(f"Market news fetch failed (non-fatal, continuing): {e}")
                     market_news = []
-                try:
-                    tsmc_monthly_revenue = self.fetcher.fetch_tsmc_monthly_revenue()
-                    tsmc_quarterly_financials = self.fetcher.fetch_tsmc_quarterly_financials()
-                    tsmc_valuation = self.fetcher.fetch_tsmc_valuation()
-                except Exception as e:
-                    logger.error(f"TSMC fundamentals fetch failed (non-fatal, continuing): {e}")
-                    tsmc_monthly_revenue, tsmc_quarterly_financials, tsmc_valuation = [], [], []
-                try:
-                    tsmc_official_guidance = self.fetcher.fetch_tsmc_official_guidance()
-                except Exception as e:
-                    logger.error(f"TSMC official guidance fetch failed (non-fatal, continuing): {e}")
-                    tsmc_official_guidance = None
 
             stocks_fetched = sum(len(stocks) for stocks in stock_data.values())
             logger.info(f"Fetched data for {stocks_fetched} stocks and macro indicators")
@@ -204,8 +230,36 @@ class KDStockMonitor:
                         "date": "2026-08-07", "foreign_net": 850000, "foreign_net_prev": -320000,
                         "trust_net": 120000, "dealer_net": -45000, "foreign_net_3d": 1560000
                     }
+            elif tw_eod_fresh:
+                # Reuse today's cached per-stock flow instead of re-hitting
+                # FinMind once per TW ticker per hour (same reasoning as the
+                # tw_chip_indicators cache above).
+                for market in stocks_with_kd:
+                    for stock in stocks_with_kd[market]:
+                        cached = cached_institutional_by_symbol.get(stock.get("symbol"))
+                        if cached is not None:
+                            stock["institutional"] = cached
             else:
                 self.fetcher.attach_stock_institutional_flow(stocks_with_kd)
+                cached_institutional_by_symbol = {
+                    stock["symbol"]: stock["institutional"]
+                    for market in stocks_with_kd for stock in stocks_with_kd[market]
+                    if stock.get("institutional") is not None
+                }
+
+            # Persist today's TW EOD fetch (chip indicators, TSMC fundamentals,
+            # per-stock institutional flow) so the remaining hourly runs today
+            # reuse it instead of re-fetching (see Step 1's tw_eod_fresh check).
+            if not test_mode and not tw_eod_fresh:
+                self._save_tw_eod_cache({
+                    "date": today_str,
+                    "tw_chip_indicators": tw_chip_indicators,
+                    "tsmc_monthly_revenue": tsmc_monthly_revenue,
+                    "tsmc_quarterly_financials": tsmc_quarterly_financials,
+                    "tsmc_valuation": tsmc_valuation,
+                    "tsmc_official_guidance": tsmc_official_guidance,
+                    "institutional_by_symbol": cached_institutional_by_symbol,
+                })
 
             # Step 2.5: Calculate multi-dimensional scores
             logger.info("\n[Step 2.5/4] Calculating multi-dimensional scores...")
@@ -250,6 +304,7 @@ class KDStockMonitor:
             # entries are never overwritten (avoids look-ahead/backfill
             # bias — each entry is frozen at what was true when first seen).
             logger.info("\n[Step 2.85/4] Calculating TSMC (2330) investment score...")
+            stock_2330 = None
             try:
                 stock_2330 = next((s for s in stocks_with_kd.get("TW", []) if s.get("symbol") == "2330.TW" and "error" not in s), None)
                 stock_tsm = next((s for s in stocks_with_kd.get("US", []) if s.get("symbol") == "TSM" and "error" not in s), None)
@@ -269,6 +324,28 @@ class KDStockMonitor:
                 logger.error(f"TSMC score calculation failed (non-fatal, continuing): {e}", exc_info=True)
                 tsmc_analysis = {"available": False, "reason": str(e)}
 
+            # Step 2.9: Log today's signal state to the backtest history, then
+            # recompute forward-return statistics against the accumulated log.
+            # See signal_backtest.py's module docstring for the cold-start
+            # caveat — this can only accumulate forward from today, it cannot
+            # retroactively backtest history from before this shipped.
+            logger.info("\n[Step 2.9/4] Recording signal snapshot and computing backtest stats...")
+            try:
+                signal_log = self._load_signal_history()
+                snapshot_date = macro_history[-1]["date"] if macro_history else datetime.now().strftime("%Y-%m-%d")
+                taiex_today = macro_history[-1].get("taiex") if macro_history else None
+                stock_2330_close = stock_2330.get("current_price") if stock_2330 else None
+                signal_log = record_signal_snapshot(
+                    signal_log, snapshot_date, taiex_today, stock_2330_close,
+                    confluence_result, signal_score_result, regime_result, tsmc_analysis
+                )
+                self._save_signal_history(signal_log)
+                signal_backtest_result = compute_backtest_stats(signal_log)
+                logger.info(f"Signal backtest: log_days={signal_backtest_result.get('log_days')}")
+            except Exception as e:
+                logger.error(f"Signal backtest recording failed (non-fatal, continuing): {e}", exc_info=True)
+                signal_backtest_result = {"available": False, "reason": str(e)}
+
             # Step 3: Check for alerts (regime-aware — see Step 2.75 note above)
             logger.info("\n[Step 3/4] Checking for alerts...")
             current_regime = regime_result.get("regime") if regime_result.get("available") else None
@@ -276,9 +353,23 @@ class KDStockMonitor:
 
             # Step 4: Generate summary report
             logger.info("\n[Step 4/4] Generating summary report...")
+            # data_freshness (roadmap item 4b): which sources were freshly
+            # fetched this run vs. reused from today's TW EOD cache, and what
+            # trading day each is actually for — feeds the dashboard's
+            # 🟢/🟡/🔴 freshness badges. tw_chip's as_of_date prefers the
+            # report's own embedded date (may lag today_str if TWSE hasn't
+            # published yet) over the run's calendar date.
+            tw_chip_as_of = tw_chip_indicators.get("foreign_net", {}).get("date") or today_str
+            data_freshness = {
+                "us_stocks": {"as_of_date": today_str, "fetched": True},
+                "macro": {"as_of_date": today_str, "fetched": True},
+                "tw_chip": {"as_of_date": tw_chip_as_of, "fetched": not tw_eod_fresh},
+                "tsmc_fundamentals": {"as_of_date": tw_chip_as_of, "fetched": not tw_eod_fresh},
+            }
             summary = self._generate_summary(stocks_with_kd, alert_result, macro_indicators,
                                               tw_chip_indicators, confluence_result, market_news,
-                                              regime_result, signal_score_result, tsmc_analysis)
+                                              regime_result, signal_score_result, tsmc_analysis,
+                                              signal_backtest_result, data_freshness)
             
             # Save run log
             self._save_run_log(summary)
@@ -345,7 +436,8 @@ class KDStockMonitor:
     def _generate_summary(self, stocks_data: Dict, alert_result: Dict, macro_indicators: Dict = None,
                            tw_chip_indicators: Dict = None, confluence_result: Dict = None,
                            market_news: list = None, regime_result: Dict = None,
-                           signal_score_result: Dict = None, tsmc_analysis: Dict = None) -> Dict:
+                           signal_score_result: Dict = None, tsmc_analysis: Dict = None,
+                           signal_backtest_result: Dict = None, data_freshness: Dict = None) -> Dict:
         """Generate a summary of the run."""
         all_stocks = []
         for market in ["TW", "US"]:
@@ -397,6 +489,8 @@ class KDStockMonitor:
             "market_regime": regime_result or {"available": False},
             "signal_score": signal_score_result or {"available": False},
             "tsmc_analysis": tsmc_analysis or {"available": False},
+            "signal_backtest": signal_backtest_result or {"available": False},
+            "data_freshness": data_freshness or {},
             "news": market_news or [],
             "stocks_processed": len(all_stocks),
             "stocks_successful": len([s for s in all_stocks if "error" not in s]),
@@ -617,6 +711,46 @@ class KDStockMonitor:
             except Exception as e:
                 logger.warning(f"Could not load macro_history.json: {e}")
         return []
+
+    def _load_signal_history(self) -> list:
+        """Load the persisted daily signal-state log (see signal_backtest.py)."""
+        history_file = os.path.join(self.data_dir, 'signal_history.json')
+        if os.path.exists(history_file):
+            try:
+                with open(history_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                logger.warning(f"Could not load signal_history.json: {e}")
+        return []
+
+    def _save_signal_history(self, signal_log: list):
+        history_file = os.path.join(self.data_dir, 'signal_history.json')
+        with open(history_file, 'w', encoding='utf-8') as f:
+            json.dump(signal_log, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
+
+    def _load_tw_eod_cache(self) -> Optional[Dict]:
+        """
+        Load the same-calendar-day cache of TW EOD sources (chip indicators,
+        TSMC fundamentals, per-stock institutional flow) written by
+        run()'s Step 1/2.25 — roadmap item 4a. These sources are published
+        once per TW trading day; re-fetching them on every hourly run just
+        re-hits TWSE/FinMind with the same answer. Returns None (never a
+        stale/partial cache) if the file is missing or unreadable — callers
+        always fall back to a real fetch in that case.
+        """
+        cache_file = os.path.join(self.data_dir, '.tw_eod_cache.json')
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                logger.warning(f"Could not load .tw_eod_cache.json: {e}")
+        return None
+
+    def _save_tw_eod_cache(self, cache: Dict):
+        cache_file = os.path.join(self.data_dir, '.tw_eod_cache.json')
+        with open(cache_file, 'w', encoding='utf-8') as f:
+            json.dump(cache, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
 
     @staticmethod
     def _to_native(value):

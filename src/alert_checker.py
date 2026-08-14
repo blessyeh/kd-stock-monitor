@@ -22,6 +22,14 @@ from market_regime import oversold_bias, overbought_bias, REGIME_LABELS
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# Per-stock institutional-flow filter threshold (roadmap item 3): 3-day
+# cumulative foreign net buy/sell, as a fraction of the stock's own 20-day
+# average daily trading volume. 0.3 = 3-day net flow exceeding 30% of one
+# day's average volume — tunable, same style as signal_confluence.py's
+# documented thresholds. See _evaluate_filters()'s comment for why this
+# replaced a flat 500,000-share threshold.
+FOREIGN_FLOW_VOLUME_RATIO_THRESHOLD = 0.3
+
 
 class AlertChecker:
     """Checks KD values and generates alerts for overbought/oversold conditions."""
@@ -144,13 +152,28 @@ class AlertChecker:
         # Per-stock 外資買賣超 (individual-holding foreign flow, from
         # fetch_stock_institutional_flow — not the market-wide foreign_net
         # already covered in signal_confluence.py). Uses the 3-day cumulative
-        # net rather than a single day to cut down single-day noise; a small
-        # threshold (500 張 = 500,000 股) avoids treating negligible flow as a
-        # meaningful signal either way.
+        # net rather than a single day to cut down single-day noise.
+        #
+        # Normalized against the stock's own 20-day average trading volume
+        # (roadmap item 3) rather than a flat 500,000-share threshold — a
+        # flat threshold treats a mega-cap like 2330 (tens of millions of
+        # shares/day) the same as a thinly-traded small-cap, so the same raw
+        # share count means wildly different things stock to stock. Volume
+        # was chosen over a Z-score against the stock's own institutional-
+        # flow history because that history isn't persisted anywhere yet
+        # (fetch_stock_institutional_flow only keeps the last 3 days) — a
+        # Z-score would need weeks of new data collection before it produced
+        # anything, whereas 20-day trading volume is already sitting on
+        # stock_data["history"], so this ships immediately with no cold start.
         institutional = stock_data.get("institutional") or {}
         foreign_net_3d = institutional.get("foreign_net_3d")
-        foreign_buying = foreign_net_3d is not None and foreign_net_3d > 500_000
-        foreign_selling = foreign_net_3d is not None and foreign_net_3d < -500_000
+        volumes = [h.get("volume") for h in (stock_data.get("history") or []) if h.get("volume") is not None]
+        avg_vol_20d = sum(volumes[-20:]) / len(volumes[-20:]) if len(volumes) >= 20 else None
+        foreign_flow_ratio = (
+            foreign_net_3d / avg_vol_20d if foreign_net_3d is not None and avg_vol_20d else None
+        )
+        foreign_buying = foreign_flow_ratio is not None and foreign_flow_ratio > FOREIGN_FLOW_VOLUME_RATIO_THRESHOLD
+        foreign_selling = foreign_flow_ratio is not None and foreign_flow_ratio < -FOREIGN_FLOW_VOLUME_RATIO_THRESHOLD
 
         passed, cautions = [], []
         regime_label = REGIME_LABELS.get(regime) if regime else None
@@ -166,9 +189,9 @@ class AlertChecker:
             if macd_diverging_down:
                 cautions.append("MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）")
             if foreign_buying:
-                passed.append(f"個股外資近3日同步買超 {foreign_net_3d/1000:.0f} 張（籌碼面轉強，非籌碼出走）")
+                passed.append(f"個股外資近3日買超達20日均量的{foreign_flow_ratio*100:.0f}%（籌碼面轉強，非籌碼出走）")
             elif foreign_selling:
-                cautions.append(f"個股外資近3日仍賣超 {abs(foreign_net_3d)/1000:.0f} 張（籌碼仍在流出，KD超賣可能持續鈍化）")
+                cautions.append(f"個股外資近3日仍賣超達20日均量的{abs(foreign_flow_ratio)*100:.0f}%（籌碼仍在流出，KD超賣可能持續鈍化）")
             base_confirmed = (bullish_regime or bollinger_touch or foreign_buying) and not macd_diverging_down
 
             bias = oversold_bias(regime) if regime else "neutral"
@@ -200,9 +223,9 @@ class AlertChecker:
             if macd_diverging_up:
                 cautions.append("MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）")
             if foreign_selling:
-                passed.append(f"個股外資近3日轉為賣超 {abs(foreign_net_3d)/1000:.0f} 張（籌碼面轉弱，超買可能對應真正高點）")
+                passed.append(f"個股外資近3日轉為賣超達20日均量的{abs(foreign_flow_ratio)*100:.0f}%（籌碼面轉弱，超買可能對應真正高點）")
             elif foreign_buying:
-                cautions.append(f"個股外資近3日仍買超 {foreign_net_3d/1000:.0f} 張（籌碼面仍強，超買可能只是鈍化）")
+                cautions.append(f"個股外資近3日仍買超達20日均量的{foreign_flow_ratio*100:.0f}%（籌碼面仍強，超買可能只是鈍化）")
             base_confirmed = (not bullish_regime) or (bollinger_touch and not volume_confirmed) or foreign_selling
 
             bias = overbought_bias(regime) if regime else "neutral"

@@ -43,24 +43,33 @@ from typing import Dict, List, Optional
 from signal_confluence import (
     _window,
     _lookback,
+    _graduated,
+    _avg,
+    _weighted,
+    bottom_reversal_score,
     DXY_BREAKOUT_LOOKBACK_DAYS,
     US10Y_FAST_RISE_LOOKBACK_DAYS,
-    US10Y_FAST_RISE_THRESHOLD,
     TWD_DEPRECIATION_LOOKBACK_DAYS,
-    TWD_DEPRECIATION_THRESHOLD,
     TWD_ROUND_NUMBER_STEP,
     MARGIN_NOT_RETREATING_LOOKBACK_DAYS,
     VIX_PEAK_LOOKBACK_DAYS,
-    VIX_PEAK_THRESHOLD,
-    VIX_ROLLOVER_RATIO,
     MARGIN_CAPITULATION_LOOKBACK_DAYS,
-    MARGIN_CAPITULATION_DROP_NTB,
-    FOREIGN_FUTURES_NET_SHORT_THRESHOLD,
-    PUT_CALL_RATIO_LOW_THRESHOLD,
     FUTURES_COVERING_LOOKBACK_DAYS,
-    FUTURES_COVERING_THRESHOLD,
     TECH_BREAKDOWN_LOOKBACK_DAYS,
     FOREIGN_RECENT_AVG_WINDOW,
+    US10Y_FAST_RISE_SCALE,
+    DXY_BREAKOUT_PCT_SCALE,
+    TWD_DEPRECIATION_SCALE,
+    FOREIGN_FLOW_AVG_SELL_SCALE,
+    FUTURES_NET_SHORT_SCALE,
+    MARGIN_STUBBORN_SCALE,
+    PUT_CALL_RATIO_COMPLACENCY_SCALE,
+    TECH_BREAKDOWN_PCT_SCALE,
+    VIX_PEAK_SCALE,
+    VIX_ROLLOVER_RATIO_SCALE,
+    MARGIN_CAPITULATION_SCALE,
+    FOREIGN_REVERSAL_DELTA_SCALE,
+    FUTURES_COVERING_AMOUNT_SCALE,
 )
 
 # ── Additional thresholds specific to this module ────────────────────────
@@ -71,6 +80,20 @@ INDEX_RSI_OVERSOLD = 30.0
 INDEX_RSI_OVERBOUGHT = 70.0
 PERCENTILE_WINDOW = 120        # trailing sample size for VIX percentile-rank (Sentiment dimension)
 MIN_HISTORY_DAYS = 21          # matches signal_confluence.py's evaluation gate
+
+# ── Graduated 0-100 scales specific to this module's Technical/Sentiment
+# dimensions (roadmap item 1 — same rationale as signal_confluence.py's own
+# scales: a hard "touched the band" / "RSI<=30" check is a cliff; these
+# replace it with piecewise-linear interpolation via the shared _graduated()
+# helper imported above). Not shared with signal_confluence.py since these
+# TAIEX index-level band/RSI reads don't have a boolean-condition counterpart
+# there — the Technical dimension is a signal_score.py-only construct.
+BAND_TOUCH_BOTTOM_SCALE = [(3.0, 0), (1.0, 20), (0.0, 55), (-1.0, 80), (-3.0, 100)]   # % vs lower band
+BAND_TOUCH_TOP_SCALE = [(-3.0, 0), (-1.0, 20), (0.0, 55), (1.0, 80), (3.0, 100)]      # % vs upper band
+RSI_OVERSOLD_SCALE = [(15, 100), (20, 85), (30, 55), (40, 25), (50, 0)]
+RSI_OVERBOUGHT_SCALE = [(50, 0), (60, 25), (70, 55), (80, 85), (90, 100)]
+SENTIMENT_BOTTOM_PERCENTILE_SCALE = [(40, 0), (60, 40), (80, 70), (95, 100)]  # higher pct = more fear
+SENTIMENT_TOP_PERCENTILE_SCALE = [(5, 100), (20, 70), (40, 40), (60, 0)]      # lower pct = more complacent
 
 
 def _recent_values(history: List[Dict], key: str, limit: int) -> List[float]:
@@ -144,66 +167,88 @@ def _bottom_score(history: List[Dict]) -> Dict:
     vix_today = _lookback(history, "vix", 0)
     dxy_today = _lookback(history, "dxy", 0)
 
-    # ── Macro (0-25): VIX stress/reversal + DXY easing off its recent high
+    # ── Macro (0-25): VIX stress/reversal (graduated, cap 15) + DXY easing off its recent high (cap 10)
     macro_pts, macro_notes = 0.0, []
     vix_peak_window = _window(history, "vix", VIX_PEAK_LOOKBACK_DAYS)
     if vix_peak_window is not None:
         peak, today = max(vix_peak_window), vix_peak_window[-1]
-        if peak > VIX_PEAK_THRESHOLD and today <= peak * VIX_ROLLOVER_RATIO:
-            macro_pts += 15
-            macro_notes.append(f"VIX 已從近{VIX_PEAK_LOOKBACK_DAYS}日高點 {peak:.1f} 回落至 {today:.1f}（+15）")
-        elif today > VIX_PEAK_THRESHOLD:
-            macro_pts += 8
-            macro_notes.append(f"VIX {today:.1f} 仍高於 {VIX_PEAK_THRESHOLD:.0f} 但尚未見頂回落（+8，訊號未完整）")
+        rollover_ratio = today / peak if peak else None
+        vix_score = _avg(_graduated(peak, VIX_PEAK_SCALE), _graduated(rollover_ratio, VIX_ROLLOVER_RATIO_SCALE))
+        if vix_score is not None:
+            pts = 15 * vix_score / 100
+            macro_pts += pts
+            macro_notes.append(f"VIX 近{VIX_PEAK_LOOKBACK_DAYS}日高點 {peak:.1f} → 目前 {today:.1f}（強度 {vix_score:.0f}/100，+{pts:.1f}）")
     dxy_window = _window(history, "dxy", DXY_BREAKOUT_LOOKBACK_DAYS + 1)
     if dxy_window is not None:
         dxy_high = max(dxy_window[:-1])
-        if dxy_window[-1] < dxy_high:
-            macro_pts += 10
-            macro_notes.append(f"DXY {dxy_window[-1]:.2f} 未創近{DXY_BREAKOUT_LOOKBACK_DAYS}日新高（美元壓力未加劇，+10）")
+        dxy_pct = (dxy_window[-1] - dxy_high) / dxy_high * 100 if dxy_high else None
+        dxy_pressure = _graduated(dxy_pct, DXY_BREAKOUT_PCT_SCALE)  # higher = more dollar pressure (bad for bottom)
+        if dxy_pressure is not None:
+            dxy_score = 100 - dxy_pressure
+            pts = 10 * dxy_score / 100
+            macro_pts += pts
+            macro_notes.append(f"DXY {dxy_window[-1]:.2f} 距近{DXY_BREAKOUT_LOOKBACK_DAYS}日高點 {dxy_pct:+.2f}%（美元壓力緩和強度 {dxy_score:.0f}/100，+{pts:.1f}）")
 
-    # ── Chip Flow (0-25): margin capitulation + foreign flow reversal
+    # ── Chip Flow (0-25): margin capitulation (cap 15) + foreign flow reversal (cap 10);
+    # reuses bottom_reversal_score()'s foreign-flow-reversal component so this dimension
+    # and B3's worked example never silently diverge on what "reversal" means.
     chip_pts, chip_notes = 0.0, []
     margin_window = _window(history, "margin_balance_amount", MARGIN_CAPITULATION_LOOKBACK_DAYS + 1)
     if margin_window is not None:
         diffs = [margin_window[i] - margin_window[i - 1] for i in range(1, len(margin_window))]
         worst = min(diffs) if diffs else 0
-        if worst <= -MARGIN_CAPITULATION_DROP_NTB:
-            chip_pts += 15
-            chip_notes.append(f"近{len(diffs)}日融資餘額最大單日減幅 {worst:.0f}億元（斷頭式，+15）")
+        margin_score = _graduated(worst, MARGIN_CAPITULATION_SCALE)
+        if margin_score is not None:
+            pts = 15 * margin_score / 100
+            chip_pts += pts
+            chip_notes.append(f"近{len(diffs)}日融資餘額最大單日減幅 {worst:.0f}億元（斷頭強度 {margin_score:.0f}/100，+{pts:.1f}）")
     foreign_window = _window(history, "foreign_net", FOREIGN_RECENT_AVG_WINDOW + 1)
     if foreign_window is not None:
         foreign_today = foreign_window[-1]
         avg = sum(foreign_window[:-1]) / len(foreign_window[:-1])
-        if foreign_today > 0 and avg < 0:
-            chip_pts += 10
-            chip_notes.append(f"外資今日轉買超，扭轉近{FOREIGN_RECENT_AVG_WINDOW}日均值賣超 {avg:+.1f}億元（+10）")
+        reversal_score = _graduated(foreign_today - avg, FOREIGN_REVERSAL_DELTA_SCALE)
+        if reversal_score is not None:
+            pts = 10 * reversal_score / 100
+            chip_pts += pts
+            chip_notes.append(f"外資今日 {foreign_today:+.1f}億元，較近{FOREIGN_RECENT_AVG_WINDOW}日均值 {avg:+.1f}億元（轉強強度 {reversal_score:.0f}/100，+{pts:.1f}）")
 
-    # ── Derivative (0-20): futures short-covering + elevated PCR (hedging unwind potential)
+    # ── Derivative (0-20): futures short-covering (cap 12) + elevated PCR/hedging unwind potential (cap 8)
     deriv_pts, deriv_notes = 0.0, []
     futures_window = _window(history, "foreign_futures_net", FUTURES_COVERING_LOOKBACK_DAYS + 1)
     if futures_window is not None:
         change = futures_window[-1] - futures_window[0]
-        if change >= FUTURES_COVERING_THRESHOLD:
-            deriv_pts += 12
-            deriv_notes.append(f"台指期淨空單{FUTURES_COVERING_LOOKBACK_DAYS}日回補 {change:+.0f}口（+12）")
+        futures_score = _graduated(change, FUTURES_COVERING_AMOUNT_SCALE)
+        if futures_score is not None:
+            pts = 12 * futures_score / 100
+            deriv_pts += pts
+            deriv_notes.append(f"台指期淨空單{FUTURES_COVERING_LOOKBACK_DAYS}日變動 {change:+.0f}口（回補強度 {futures_score:.0f}/100，+{pts:.1f}）")
     pcr_today = _lookback(history, "put_call_ratio", 0)
-    if pcr_today is not None and pcr_today > PUT_CALL_RATIO_LOW_THRESHOLD:
-        deriv_pts += 8
-        deriv_notes.append(f"P/C Ratio {pcr_today:.1f}% 偏高（避險需求濃厚，具反向支撐意涵，+8）")
+    if pcr_today is not None:
+        pcr_complacency = _graduated(pcr_today, PUT_CALL_RATIO_COMPLACENCY_SCALE)  # higher = more complacent (bad for bottom)
+        if pcr_complacency is not None:
+            pcr_score = 100 - pcr_complacency
+            pts = 8 * pcr_score / 100
+            deriv_pts += pts
+            deriv_notes.append(f"P/C Ratio {pcr_today:.1f}%（避險需求強度 {pcr_score:.0f}/100，+{pts:.1f}）")
 
-    # ── Technical (0-20): TAIEX index-level band touch + RSI oversold
+    # ── Technical (0-20): TAIEX index-level band touch (cap 12) + RSI oversold (cap 8)
     tech_pts, tech_notes = 0.0, []
     band_window = _window(history, "taiex", INDEX_BAND_PERIOD)
     bands = _index_bands(band_window)
-    if bands["lower"] is not None and taiex_today is not None and taiex_today <= bands["lower"] * 1.01:
-        tech_pts += 12
-        tech_notes.append(f"TAIEX {taiex_today:,.0f} 觸及/跌破{INDEX_BAND_PERIOD}日布林下軌 {bands['lower']:,.0f}（+12）")
+    if bands["lower"] is not None and taiex_today is not None:
+        band_pct = (taiex_today - bands["lower"]) / bands["lower"] * 100
+        band_score = _graduated(band_pct, BAND_TOUCH_BOTTOM_SCALE)
+        if band_score is not None:
+            pts = 12 * band_score / 100
+            tech_pts += pts
+            tech_notes.append(f"TAIEX {taiex_today:,.0f} 距{INDEX_BAND_PERIOD}日布林下軌 {bands['lower']:,.0f} {band_pct:+.2f}%（強度 {band_score:.0f}/100，+{pts:.1f}）")
     rsi_window = _window(history, "taiex", INDEX_RSI_PERIOD + 1)
     idx_rsi = _index_rsi(rsi_window)
-    if idx_rsi is not None and idx_rsi <= INDEX_RSI_OVERSOLD:
-        tech_pts += 8
-        tech_notes.append(f"TAIEX {INDEX_RSI_PERIOD}日RSI {idx_rsi:.1f} 進入超賣區（+8）")
+    rsi_score = _graduated(idx_rsi, RSI_OVERSOLD_SCALE)
+    if rsi_score is not None:
+        pts = 8 * rsi_score / 100
+        tech_pts += pts
+        tech_notes.append(f"TAIEX {INDEX_RSI_PERIOD}日RSI {idx_rsi:.1f}（超賣強度 {rsi_score:.0f}/100，+{pts:.1f}）")
 
     # ── Sentiment (0-10): VIX percentile within its own trailing sample
     # (distributional stat — see _recent_values()'s docstring for why gap
@@ -212,12 +257,11 @@ def _bottom_score(history: List[Dict]) -> Dict:
     vix_sample = _recent_values(history, "vix", PERCENTILE_WINDOW)
     if vix_today is not None and len(vix_sample) >= 20:
         pct = _percentile_rank(vix_sample, vix_today)
-        if pct is not None:
-            if pct >= 80:
-                sent_pts += 10
-            elif pct >= 60:
-                sent_pts += 5
-            sent_notes.append(f"VIX 處於近{len(vix_sample)}筆歷史樣本的第 {pct:.0f} 百分位（愈高愈恐慌，滿分門檻80）")
+        sent_score = _graduated(pct, SENTIMENT_BOTTOM_PERCENTILE_SCALE)
+        if sent_score is not None:
+            pts = 10 * sent_score / 100
+            sent_pts += pts
+            sent_notes.append(f"VIX 處於近{len(vix_sample)}筆歷史樣本的第 {pct:.0f} 百分位（恐慌強度 {sent_score:.0f}/100，+{pts:.1f}）")
 
     dims = [
         _dim("macro", 25, macro_pts, macro_notes),
@@ -235,82 +279,113 @@ def _top_score(history: List[Dict]) -> Dict:
     vix_today = _lookback(history, "vix", 0)
 
     us10y_window = _window(history, "us10y", US10Y_FAST_RISE_LOOKBACK_DAYS + 1)
-    us10y_fast_rise = None
+    us10y_change = None
     if us10y_window is not None:
-        us10y_fast_rise = us10y_window[-1] - us10y_window[0]
-    us10y_hot = us10y_fast_rise is not None and us10y_fast_rise >= US10Y_FAST_RISE_THRESHOLD
+        us10y_change = us10y_window[-1] - us10y_window[0]
+    us10y_score = _graduated(us10y_change, US10Y_FAST_RISE_SCALE)
 
-    # ── Macro (0-25): DXY breakout + hot US10Y; SOX/NDX breakdown + hot US10Y
+    # ── Macro (0-25): DXY breakout (cap 15) + SOX/NDX breakdown (cap 10), each
+    # averaged with the graduated US10Y-fast-rise score (mirrors T1/T5 in
+    # signal_confluence.py — no more hard "hot or not" gate on US10Y).
     macro_pts, macro_notes = 0.0, []
     dxy_window = _window(history, "dxy", DXY_BREAKOUT_LOOKBACK_DAYS + 1)
-    if dxy_window is not None and us10y_hot:
+    if dxy_window is not None and us10y_score is not None:
         dxy_high = max(dxy_window[:-1])
-        if dxy_window[-1] > dxy_high:
-            macro_pts += 15
-            macro_notes.append(f"DXY {dxy_window[-1]:.2f} 突破近{DXY_BREAKOUT_LOOKBACK_DAYS}日高點，美債10Y同步急升 {us10y_fast_rise:+.2f}pp（+15）")
-    if us10y_hot:
+        dxy_pct = (dxy_window[-1] - dxy_high) / dxy_high * 100 if dxy_high else None
+        combo = _avg(_graduated(dxy_pct, DXY_BREAKOUT_PCT_SCALE), us10y_score)
+        if combo is not None:
+            pts = 15 * combo / 100
+            macro_pts += pts
+            macro_notes.append(f"DXY {dxy_window[-1]:.2f} 距近{DXY_BREAKOUT_LOOKBACK_DAYS}日高點 {dxy_pct:+.2f}%，美債10Y{US10Y_FAST_RISE_LOOKBACK_DAYS}日變動 {us10y_change:+.2f}pp（強度 {combo:.0f}/100，+{pts:.1f}）")
+    if us10y_score is not None:
         sox_window = _window(history, "sox", TECH_BREAKDOWN_LOOKBACK_DAYS + 1)
         ndx_window = _window(history, "ndx", TECH_BREAKDOWN_LOOKBACK_DAYS + 1)
-        breakdown = False
+        pct_candidates = []
         if sox_window is not None:
-            breakdown = breakdown or sox_window[-1] < min(sox_window[:-1])
+            sox_support = min(sox_window[:-1])
+            if sox_support:
+                pct_candidates.append((sox_window[-1] - sox_support) / sox_support * 100)
         if ndx_window is not None:
-            breakdown = breakdown or ndx_window[-1] < min(ndx_window[:-1])
-        if breakdown:
-            macro_pts += 10
-            macro_notes.append(f"SOX/NDX 跌破近{TECH_BREAKDOWN_LOOKBACK_DAYS}日支撐，美債10Y同步急升（+10）")
+            ndx_support = min(ndx_window[:-1])
+            if ndx_support:
+                pct_candidates.append((ndx_window[-1] - ndx_support) / ndx_support * 100)
+        if pct_candidates:
+            tech_pct = min(pct_candidates)
+            combo = _avg(_graduated(tech_pct, TECH_BREAKDOWN_PCT_SCALE), us10y_score)
+            if combo is not None:
+                pts = 10 * combo / 100
+                macro_pts += pts
+                macro_notes.append(f"SOX/NDX 距近{TECH_BREAKDOWN_LOOKBACK_DAYS}日支撐 {tech_pct:+.2f}%，美債10Y同步變動（強度 {combo:.0f}/100，+{pts:.1f}）")
 
-    # ── Chip Flow (0-25): TWD depreciation + foreign selling while margin stays stubborn
+    # ── Chip Flow (0-25): TWD depreciation (cap 10) + foreign selling while margin stays stubborn (cap 15)
     chip_pts, chip_notes = 0.0, []
     twd_window = _window(history, "usdtwd", TWD_DEPRECIATION_LOOKBACK_DAYS + 1)
     if twd_window is not None:
         change = twd_window[-1] - twd_window[0]
-        if change >= TWD_DEPRECIATION_THRESHOLD or _crossed_round_number(twd_window[-1], twd_window[0]):
-            chip_pts += 10
-            chip_notes.append(f"新台幣{TWD_DEPRECIATION_LOOKBACK_DAYS}日貶值 {change:+.3f}（+10）")
+        crossed = _crossed_round_number(twd_window[-1], twd_window[0])
+        base = _graduated(change, TWD_DEPRECIATION_SCALE)
+        twd_score = max(base, 65) if crossed and base is not None else base
+        if twd_score is not None:
+            pts = 10 * twd_score / 100
+            chip_pts += pts
+            chip_notes.append(f"新台幣{TWD_DEPRECIATION_LOOKBACK_DAYS}日貶值 {change:+.3f}（強度 {twd_score:.0f}/100，+{pts:.1f}）")
     margin_window = _window(history, "margin_balance_amount", MARGIN_NOT_RETREATING_LOOKBACK_DAYS + 1)
     foreign_today = _lookback(history, "foreign_net", 0)
     if margin_window is not None and foreign_today is not None:
-        margin_stubborn = margin_window[-1] >= margin_window[0]
-        if foreign_today < 0 and margin_stubborn:
-            chip_pts += 15
-            chip_notes.append(f"外資今日賣超，融資餘額{MARGIN_NOT_RETREATING_LOOKBACK_DAYS}日未回落（散戶尚未離場，+15）")
+        margin_delta = margin_window[-1] - margin_window[0]
+        combo = _weighted(
+            (_graduated(foreign_today, FOREIGN_FLOW_AVG_SELL_SCALE), 40),
+            (_graduated(margin_delta, MARGIN_STUBBORN_SCALE), 60),
+        )
+        if combo is not None:
+            pts = 15 * combo / 100
+            chip_pts += pts
+            chip_notes.append(f"外資今日 {foreign_today:+.1f}億元，融資餘額{MARGIN_NOT_RETREATING_LOOKBACK_DAYS}日變動 {margin_delta:+.0f}億元（散戶未離場強度 {combo:.0f}/100，+{pts:.1f}）")
 
-    # ── Derivative (0-20): heavy futures net-short + low PCR (complacency)
+    # ── Derivative (0-20): heavy futures net-short (cap 12) + low PCR/complacency (cap 8)
     deriv_pts, deriv_notes = 0.0, []
     futures_today = _lookback(history, "foreign_futures_net", 0)
-    if futures_today is not None and futures_today <= -FOREIGN_FUTURES_NET_SHORT_THRESHOLD:
-        deriv_pts += 12
-        deriv_notes.append(f"外資台指期淨空單 {futures_today:+.0f}口，達 -{FOREIGN_FUTURES_NET_SHORT_THRESHOLD:.0f}口門檻（+12）")
+    futures_score = _graduated(futures_today, FUTURES_NET_SHORT_SCALE)
+    if futures_score is not None:
+        pts = 12 * futures_score / 100
+        deriv_pts += pts
+        deriv_notes.append(f"外資台指期淨空單 {futures_today:+.0f}口（強度 {futures_score:.0f}/100，+{pts:.1f}）")
     pcr_today = _lookback(history, "put_call_ratio", 0)
-    if pcr_today is not None and pcr_today < PUT_CALL_RATIO_LOW_THRESHOLD:
-        deriv_pts += 8
-        deriv_notes.append(f"P/C Ratio {pcr_today:.1f}% 偏低（買權相對擁擠，市場偏樂觀，+8）")
+    pcr_score = _graduated(pcr_today, PUT_CALL_RATIO_COMPLACENCY_SCALE)
+    if pcr_score is not None:
+        pts = 8 * pcr_score / 100
+        deriv_pts += pts
+        deriv_notes.append(f"P/C Ratio {pcr_today:.1f}%（自滿強度 {pcr_score:.0f}/100，+{pts:.1f}）")
 
-    # ── Technical (0-20): TAIEX index-level band touch + RSI overbought
+    # ── Technical (0-20): TAIEX index-level band touch (cap 12) + RSI overbought (cap 8)
     tech_pts, tech_notes = 0.0, []
     band_window = _window(history, "taiex", INDEX_BAND_PERIOD)
     bands = _index_bands(band_window)
-    if bands["upper"] is not None and taiex_today is not None and taiex_today >= bands["upper"] * 0.99:
-        tech_pts += 12
-        tech_notes.append(f"TAIEX {taiex_today:,.0f} 觸及{INDEX_BAND_PERIOD}日布林上軌 {bands['upper']:,.0f}（+12）")
+    if bands["upper"] is not None and taiex_today is not None:
+        band_pct = (taiex_today - bands["upper"]) / bands["upper"] * 100
+        band_score = _graduated(band_pct, BAND_TOUCH_TOP_SCALE)
+        if band_score is not None:
+            pts = 12 * band_score / 100
+            tech_pts += pts
+            tech_notes.append(f"TAIEX {taiex_today:,.0f} 距{INDEX_BAND_PERIOD}日布林上軌 {bands['upper']:,.0f} {band_pct:+.2f}%（強度 {band_score:.0f}/100，+{pts:.1f}）")
     rsi_window = _window(history, "taiex", INDEX_RSI_PERIOD + 1)
     idx_rsi = _index_rsi(rsi_window)
-    if idx_rsi is not None and idx_rsi >= INDEX_RSI_OVERBOUGHT:
-        tech_pts += 8
-        tech_notes.append(f"TAIEX {INDEX_RSI_PERIOD}日RSI {idx_rsi:.1f} 進入超買區（+8）")
+    rsi_score = _graduated(idx_rsi, RSI_OVERBOUGHT_SCALE)
+    if rsi_score is not None:
+        pts = 8 * rsi_score / 100
+        tech_pts += pts
+        tech_notes.append(f"TAIEX {INDEX_RSI_PERIOD}日RSI {idx_rsi:.1f}（超買強度 {rsi_score:.0f}/100，+{pts:.1f}）")
 
     # ── Sentiment (0-10): VIX percentile — low percentile = complacency, a topping precursor
     sent_pts, sent_notes = 0.0, []
     vix_sample = _recent_values(history, "vix", PERCENTILE_WINDOW)
     if vix_today is not None and len(vix_sample) >= 20:
         pct = _percentile_rank(vix_sample, vix_today)
-        if pct is not None:
-            if pct <= 20:
-                sent_pts += 10
-            elif pct <= 40:
-                sent_pts += 5
-            sent_notes.append(f"VIX 處於近{len(vix_sample)}筆歷史樣本的第 {pct:.0f} 百分位（愈低愈自滿，滿分門檻20）")
+        sent_score = _graduated(pct, SENTIMENT_TOP_PERCENTILE_SCALE)
+        if sent_score is not None:
+            pts = 10 * sent_score / 100
+            sent_pts += pts
+            sent_notes.append(f"VIX 處於近{len(vix_sample)}筆歷史樣本的第 {pct:.0f} 百分位（自滿強度 {sent_score:.0f}/100，+{pts:.1f}）")
 
     dims = [
         _dim("macro", 25, macro_pts, macro_notes),

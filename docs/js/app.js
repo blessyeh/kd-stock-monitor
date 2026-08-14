@@ -88,6 +88,10 @@ const INFO_TEXT = {
     market_regime: {
         title: '市場狀態 (Market Regime)',
         body: '將「訊號共振」使用的同一批市場資料，重新拆解為五個面向（總經 Macro／籌碼 Chip Flow／衍生性商品 Derivative／技術面 Technical／情緒面 Sentiment），各自給予權重加總成 0-100 分的「頂部風險分數」與「底部佈局分數」，取代原本非黑即白的「N/5 項共振」表示法，讓強弱程度可以比較。務必注意：這是人工設定權重的規則式評分，並非經過歷史資料回測、驗證過勝率的統計模型——「82分」的意思是「目前有82%權重的已知條件成立」，不是「82%機率會反轉」。事後績效追蹤與回測是規劃中的下一階段功能。'
+    },
+    signal_backtest: {
+        title: '訊號回測：勝率與期望值',
+        body: '本功能上線後，每個交易日都會記錄當天「訊號共振」的各項條件、「訊號評分」的頂部/底部分數、以及台積電買點設定是否成立，之後回頭比對台股加權指數（或 2330 股價）在 1/3/5/10/20 個交易日後的表現，計算樣本數、勝率、平均報酬、期望值、最差單次報酬與類 Sharpe 比率。最重要的限制：這是「上線後才開始累積」的正向回測，無法回溯本功能上線前的歷史資料，因此樣本數在相當長一段時間內都會偏少（樣本不足 10 筆時不顯示統計數字）；「最差報酬」是單一訊號事件中最不利的一次結果，不是投資組合層級的最大回撤（因為訊號事件之間可能重疊，不是連續的交易序列）。'
     }
 };
 
@@ -274,6 +278,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateChipStats();
     renderSignalScore();
     renderSignalConfluence();
+    renderSignalBacktest();
     renderTsmcAnalysis();
     renderStockGrid();
     renderAlertHistory();
@@ -453,7 +458,10 @@ function updateChipStats() {
         const dateEl = document.getElementById('chip-date');
         const anyDate = (chip.foreign_net && chip.foreign_net.date) ||
                          (chip.margin_balance && chip.margin_balance.date);
-        if (dateEl) dateEl.textContent = anyDate ? `(資料日期: ${anyDate})` : '';
+        if (dateEl) {
+            const badge = freshnessBadge((summary.data_freshness || {}).tw_chip, 'eod');
+            dateEl.innerHTML = anyDate ? `(資料日期: ${anyDate})${badge}` : '';
+        }
 
         // 外資買賣超 (億元) — positive = buy = red, negative = sell = green
         const foreignEl = document.getElementById('chip-foreign');
@@ -606,6 +614,58 @@ function updateTaiexSection() {
 }
 
 /**
+ * Build a 🟢/🟡/🔴 data-freshness badge (roadmap item 4b) from a
+ * `data_freshness.<source>` entry in summary.json (see main.py's `run()` —
+ * `{as_of_date, fetched}` per source). `cadence`:
+ *   - 'realtime': as_of_date should be today's calendar date every run
+ *     (macro/US stock prices) — any gap at all is flagged.
+ *   - 'eod': as_of_date is a TW trading-day report published once per
+ *     trading day (chip flow, TSMC fundamentals) — compared against the
+ *     last weekday-aware trading day rather than raw calendar "today", so a
+ *     Monday-morning read of Friday's EOD data still shows fresh, not stale.
+ * Returns '' if there's no freshness entry to render (older cached
+ * summary.json before this field existed, or source not tracked).
+ */
+function freshnessBadge(freshnessEntry, cadence) {
+    if (!freshnessEntry || !freshnessEntry.as_of_date) return '';
+    const asOf = new Date(freshnessEntry.as_of_date + 'T00:00:00');
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    if (isNaN(asOf.getTime())) return '';
+
+    let staleness; // 0 = fresh, 1 = one step stale, 2+ = very stale
+    if (cadence === 'eod') {
+        // "Fresh" means as-of is today OR the last weekday strictly before
+        // today — today's own EOD report isn't expected yet regardless of
+        // what time today it currently is, so today never counts as a
+        // missed day. This is what makes Fri -> Mon read as fresh: Friday
+        // IS "the last weekday before Monday".
+        const lastExpected = new Date(now);
+        do { lastExpected.setDate(lastExpected.getDate() - 1); }
+        while (lastExpected.getDay() === 0 || lastExpected.getDay() === 6);
+
+        if (asOf >= lastExpected) {
+            staleness = 0;
+        } else {
+            let cursor = new Date(asOf);
+            staleness = 0;
+            while (cursor < lastExpected) {
+                cursor.setDate(cursor.getDate() + 1);
+                const day = cursor.getDay();
+                if (day !== 0 && day !== 6) staleness++;
+            }
+        }
+    } else {
+        staleness = Math.round((now - asOf) / 86400000);
+    }
+
+    const level = staleness <= 0 ? 'fresh' : (staleness === 1 ? 'stale' : 'very-stale');
+    const label = staleness <= 0 ? '即時' : (staleness === 1 ? '延遲1日' : `延遲${staleness}日`);
+    const dot = level === 'fresh' ? '🟢' : (level === 'stale' ? '🟡' : '🔴');
+    return `<span class="status-badge ${level} ml-1" title="資料日期: ${freshnessEntry.as_of_date}">${dot} ${label}</span>`;
+}
+
+/**
  * Render the 訊號共振 (signal confluence) top/bottom turning-point panel.
  * Backed by src/signal_confluence.py — see that module's docstring for the
  * exact condition definitions and thresholds. Conditions marked 'partial'
@@ -634,9 +694,9 @@ function renderSignalConfluence() {
             return;
         }
 
-        if (dateEl) dateEl.textContent = `(資料日期: ${sc.as_of_date})`;
+        if (dateEl) dateEl.innerHTML = `(資料日期: ${sc.as_of_date})${freshnessBadge((summary.data_freshness || {}).tw_chip, 'eod')}`;
 
-        const renderGroup = (group, title, colorClass, icon) => {
+        const renderGroup = (group, title, colorClass, icon, extraHtml = '') => {
             if (!group) return '';
             const conditionsHtml = group.conditions.map(c => {
                 let statusIcon, statusColor;
@@ -646,12 +706,26 @@ function renderSignalConfluence() {
                 const partialBadge = c.completeness === 'partial'
                     ? '<span class="ml-1 px-1.5 py-0.5 rounded text-[9px] bg-yellow-500/20 text-yellow-400 align-middle">部分驗證</span>'
                     : '';
+                // Graduated 0-100 "how strong is this condition right now"
+                // score (roadmap item 1) — additive to the boolean status
+                // icon above, not a replacement for it. Shown as a thin bar
+                // so a condition sitting at 55/100 reads as "getting there"
+                // rather than looking identical to a 5/100 miss.
+                const strengthHtml = (c.score !== null && c.score !== undefined) ? `
+                    <div class="flex items-center gap-1.5 mt-1">
+                        <div class="h-1 flex-1 rounded-full bg-dark-bg overflow-hidden">
+                            <div class="h-full ${colorClass.replace('text-', 'bg-')} rounded-full opacity-70" style="width: ${c.score}%"></div>
+                        </div>
+                        <span class="text-[9px] font-mono text-dark-text2">${c.score}/100</span>
+                    </div>
+                ` : '';
                 return `
                     <div class="flex items-start gap-2 py-1.5 border-b border-dark-border/50 last:border-b-0">
                         <i class="fas ${statusIcon} ${statusColor} mt-0.5"></i>
                         <div class="flex-1 min-w-0">
                             <div class="text-xs text-dark-text font-medium">${c.label}${partialBadge}</div>
                             <div class="text-[10px] text-dark-text2 mt-0.5">${c.detail}</div>
+                            ${strengthHtml}
                         </div>
                     </div>
                 `;
@@ -661,21 +735,132 @@ function renderSignalConfluence() {
                 <div class="flex-1 min-w-[280px]">
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-sm font-bold ${colorClass}"><i class="fas ${icon} mr-1"></i>${title}</h3>
-                        <span class="text-xs font-mono ${colorClass}">${group.triggered_count} / ${group.total_conditions} 項共振</span>
+                        <span class="text-xs font-mono ${colorClass}">
+                            ${group.triggered_count} / ${group.total_conditions} 項共振
+                            ${group.avg_score !== null && group.avg_score !== undefined ? `<span class="text-dark-text2 ml-1">(平均強度 ${group.avg_score})</span>` : ''}
+                        </span>
                     </div>
                     <div>${conditionsHtml}</div>
+                    ${extraHtml}
                 </div>
             `;
         };
 
+        // B3's dedicated "Bottom Reversal Score" (30/35/35 split) — a worked
+        // example of turning a 3-metric AND condition into its own weighted
+        // 0-100 score. Rendered as a small breakdown under the bottom group.
+        const br = sc.bottom_reversal_score;
+        const brLabels = { fx_stabilization: '匯率止穩', foreign_flow_reversal: '外資轉強', futures_covering: '期貨回補' };
+        const brHtml = br && br.total !== null ? `
+            <div class="mt-2 pt-2 border-t border-dark-border/50">
+                <div class="flex items-center justify-between text-[11px] mb-1">
+                    <span class="text-dark-text2">外資空單回補與匯率止穩 — Bottom Reversal Score</span>
+                    <span class="font-mono text-kd-green">${br.total}/100</span>
+                </div>
+                <div class="space-y-1">
+                    ${br.components.map(c => `
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[9px] text-dark-text2 w-16 shrink-0">${brLabels[c.name] || c.name} (${c.weight}%)</span>
+                            <div class="h-1 flex-1 rounded-full bg-dark-bg overflow-hidden">
+                                <div class="h-full bg-kd-green rounded-full opacity-70" style="width: ${c.score ?? 0}%"></div>
+                            </div>
+                            <span class="text-[9px] font-mono text-dark-text2 w-8 text-right">${c.score ?? '—'}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        ` : '';
+
         body.innerHTML = `
             <div class="flex flex-col md:flex-row gap-4 mt-2">
                 ${renderGroup(sc.top, '頂部結構與避險啟動', 'text-kd-red', 'fa-triangle-exclamation')}
-                ${renderGroup(sc.bottom, '底部轉折與加碼訊號', 'text-kd-green', 'fa-arrow-trend-up')}
+                ${renderGroup(sc.bottom, '底部轉折與加碼訊號', 'text-kd-green', 'fa-arrow-trend-up', brHtml)}
             </div>
         `;
     } catch (e) {
         console.error("Error rendering signal confluence:", e);
+    }
+}
+
+/**
+ * Render the 訊號回測 (Signal Backtest) panel — forward-return win rate /
+ * avg return / expectancy / worst-case return / Sharpe per signal type, at
+ * five horizons (1/3/5/10/20 trading days). Backed by src/signal_backtest.py.
+ * See that module's docstring for the cold-start caveat repeated in the UI
+ * below: this can only accumulate forward from when it first shipped, it
+ * cannot backtest history from before that.
+ */
+const BACKTEST_SIGNAL_LABELS = {
+    macro_drain: '宏觀資金抽離', twd_depreciation: '匯率表態', foreign_dual_short: '外資期現貨雙空',
+    retail_holding_bag: '籌碼過度樂觀/散戶接刀', tech_capital_retreat: '科技資金退潮',
+    vix_extreme_reversal: '恐慌極值反轉', margin_capitulation: '融資斷頭式大減',
+    foreign_short_covering: '外資空單回補與匯率止穩',
+    top_score_ge_70: '頂部風險分數 ≥ 70', bottom_score_ge_70: '底部佈局分數 ≥ 70',
+    tsmc_fundamental_pullback: 'TSMC 基本面回撤買點', tsmc_trend_breakout: 'TSMC 趨勢突破買點',
+    tsmc_panic_reversal: 'TSMC 恐慌反轉買點',
+};
+function renderSignalBacktest() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const bt = summary.signal_backtest || { available: false };
+        const dateEl = document.getElementById('backtest-date');
+        const body = document.getElementById('backtest-body');
+        if (!body) return;
+
+        if (!bt.available) {
+            if (dateEl) dateEl.textContent = '';
+            body.innerHTML = `
+                <div class="text-center py-4 text-dark-text2 text-sm">
+                    <i class="fas fa-hourglass-half mr-1"></i>
+                    訊號回測記錄累積中，需累積足夠交易日與訊號樣本後才會顯示統計數字
+                </div>
+            `;
+            return;
+        }
+
+        if (dateEl) dateEl.textContent = `(資料日期: ${bt.as_of_date}，已累積 ${bt.log_days} 個交易日)`;
+
+        const rows = Object.entries(bt.signals || {}).map(([id, sig]) => {
+            const colorClass = sig.direction === 'top' ? 'text-kd-red' : 'text-kd-green';
+            const horizonCells = Object.entries(sig.horizons || {}).map(([h, stat]) => {
+                if (stat.insufficient_sample) {
+                    return `<td class="px-2 py-1.5 text-center text-dark-text2 opacity-50 text-[10px]">樣本不足 (${stat.sample_size})</td>`;
+                }
+                const winColor = stat.win_rate >= 50 ? colorClass : 'text-dark-text2';
+                return `
+                    <td class="px-2 py-1.5 text-center text-[10px] leading-tight">
+                        <div class="font-mono ${winColor}">${stat.win_rate}%</div>
+                        <div class="text-dark-text2">n=${stat.sample_size} 平均${stat.avg_return > 0 ? '+' : ''}${stat.avg_return}%</div>
+                    </td>
+                `;
+            }).join('');
+            return `
+                <tr class="border-b border-dark-border/50 last:border-b-0">
+                    <td class="px-2 py-1.5 text-xs text-dark-text whitespace-nowrap">${BACKTEST_SIGNAL_LABELS[id] || id}</td>
+                    ${horizonCells}
+                </tr>
+            `;
+        }).join('');
+
+        body.innerHTML = `
+            <div class="overflow-x-auto mt-2">
+                <table class="w-full text-xs">
+                    <thead>
+                        <tr class="border-b border-dark-border text-dark-text2 text-[10px]">
+                            <th class="px-2 py-1 text-left">訊號</th>
+                            <th class="px-2 py-1 text-center">1日</th>
+                            <th class="px-2 py-1 text-center">3日</th>
+                            <th class="px-2 py-1 text-center">5日</th>
+                            <th class="px-2 py-1 text-center">10日</th>
+                            <th class="px-2 py-1 text-center">20日</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            </div>
+        `;
+    } catch (e) {
+        console.error("Error rendering signal backtest:", e);
     }
 }
 
@@ -745,7 +930,7 @@ function renderSignalScore() {
             return;
         }
 
-        if (dateEl) dateEl.textContent = `(資料日期: ${ss.as_of_date})`;
+        if (dateEl) dateEl.innerHTML = `(資料日期: ${ss.as_of_date})${freshnessBadge((summary.data_freshness || {}).tw_chip, 'eod')}`;
 
         const dimLabels = {
             macro: '總經 Macro', chip_flow: '籌碼 Chip Flow', derivative: '衍生性商品 Derivative',
@@ -829,7 +1014,7 @@ function renderTsmcAnalysis() {
             `;
             return;
         }
-        if (dateEl) dateEl.textContent = `(涵蓋 ${t.coverage} 項構面)`;
+        if (dateEl) dateEl.innerHTML = `(涵蓋 ${t.coverage} 項構面)${freshnessBadge((summary.data_freshness || {}).tsmc_fundamentals, 'eod')}`;
 
         const recStyle = TSMC_RECOMMENDATION_STYLE[t.recommendation] || 'bg-dark-bg text-dark-text2';
         const buyPointsHtml = (t.buy_points && t.buy_points.length)
@@ -1507,6 +1692,7 @@ async function refreshData() {
     updateChipStats();
     renderSignalScore();
     renderSignalConfluence();
+    renderSignalBacktest();
     renderTsmcAnalysis();
     renderStockGrid();
     renderAlertHistory();
