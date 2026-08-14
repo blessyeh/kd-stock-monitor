@@ -1,5 +1,80 @@
 [
   {
+    "id": "TSLA_20260815_overbought",
+    "symbol": "TSLA",
+    "name": "Tesla Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.57,
+    "kd_d": 75.77,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 342.27,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ TSLA (Tesla Inc.) is OVERBOUGHT! KD-K: 80.57, KD-D: 75.77 (>= 80)",
+    "timestamp": "2026-08-15T04:27:10.084903",
+    "date": "2026-08-15",
+    "acknowledged": false
+  },
+  {
+    "id": "SMH_20260815_overbought",
+    "symbol": "SMH",
+    "name": "VanEck Semiconductor ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.91,
+    "kd_d": 79.23,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 587.82,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ SMH (VanEck Semiconductor ETF) is OVERBOUGHT! KD-K: 80.91, KD-D: 79.23 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-15T04:27:10.087081",
+    "date": "2026-08-15",
+    "acknowledged": false
+  },
+  {
+    "id": "USD_20260815_overbought",
+    "symbol": "USD",
+    "name": "ProShares Ultra Semiconductors",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.67,
+    "kd_d": 80.09,
+    "kd_state": "OVERBOUGHT_REVERSAL",
+    "current_price": 94.16,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ USD (ProShares Ultra Semiconductors) is OVERBOUGHT! KD-K: 80.67, KD-D: 80.09 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-15T04:27:10.087271",
+    "date": "2026-08-15",
+    "acknowledged": false
+  },
+  {
     "id": "MU_20260815_overbought",
     "symbol": "MU",
     "name": "Micron Technology Inc.",
@@ -2431,82 +2506,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00692.TW (富邦公司治理) is OVERBOUGHT! KD-K: 92.91, KD-D: 86.26 (>= 80)",
     "timestamp": "2026-08-14T00:55:35.738031",
-    "date": "2026-08-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00708L.TW_20260814_overbought",
-    "symbol": "00708L.TW",
-    "name": "期元大S&P黃金正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 88.0,
-    "kd_d": 81.37,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 82.25,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00708L.TW (期元大S&P黃金正2) is OVERBOUGHT! KD-K: 88.0, KD-D: 81.37 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-14T00:55:35.738200",
-    "date": "2026-08-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00733.TW_20260814_overbought",
-    "symbol": "00733.TW",
-    "name": "富邦臺灣中小",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 89.77,
-    "kd_d": 81.17,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 67.25,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00733.TW (富邦臺灣中小) is OVERBOUGHT! KD-K: 89.77, KD-D: 81.17 (>= 80)",
-    "timestamp": "2026-08-14T00:55:35.738381",
-    "date": "2026-08-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00735.TW_20260814_overbought",
-    "symbol": "00735.TW",
-    "name": "國泰臺韓科技",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 89.57,
-    "kd_d": 80.38,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 103.6,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00735.TW (國泰臺韓科技) is OVERBOUGHT! KD-K: 89.57, KD-D: 80.38 (>= 80)",
-    "timestamp": "2026-08-14T00:55:35.738544",
     "date": "2026-08-14",
     "acknowledged": false
   }
