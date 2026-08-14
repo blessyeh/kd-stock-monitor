@@ -1,5 +1,30 @@
 [
   {
+    "id": "GGLL_20260814_oversold",
+    "symbol": "GGLL",
+    "name": "Direxion Daily GOOGL Bull 2X Shares",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.34,
+    "kd_d": 32.21,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 102.791,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ GGLL (Direxion Daily GOOGL Bull 2X Shares) is OVERSOLD! KD-K: 19.34, KD-D: 32.21 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-14T23:47:30.480543",
+    "date": "2026-08-14",
+    "acknowledged": false
+  },
+  {
     "id": "NFLX_20260814_overbought",
     "symbol": "NFLX",
     "name": "Netflix Inc.",
@@ -2533,32 +2558,6 @@
     "market_regime_label": null,
     "message": "⚠️ 0050.TW (元大台灣50) is OVERBOUGHT! KD-K: 92.6, KD-D: 83.46 (>= 80)",
     "timestamp": "2026-08-13T00:56:33.753997",
-    "date": "2026-08-13",
-    "acknowledged": false
-  },
-  {
-    "id": "0056.TW_20260813_overbought",
-    "symbol": "0056.TW",
-    "name": "元大高股息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 90.3,
-    "kd_d": 82.35,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 52.7,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超 35312 張（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 0056.TW (元大高股息) is OVERBOUGHT! KD-K: 90.3, KD-D: 82.35 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-13T00:56:33.754134",
     "date": "2026-08-13",
     "acknowledged": false
   }
