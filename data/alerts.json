@@ -1,5 +1,30 @@
 [
   {
+    "id": "MU_20260815_overbought",
+    "symbol": "MU",
+    "name": "Micron Technology Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.4,
+    "kd_d": 71.18,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 968.6416,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ MU (Micron Technology Inc.) is OVERBOUGHT! KD-K: 80.4, KD-D: 71.18 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-15T03:45:31.861488",
+    "date": "2026-08-15",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260815_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2482,30 +2507,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00735.TW (國泰臺韓科技) is OVERBOUGHT! KD-K: 89.57, KD-D: 80.38 (>= 80)",
     "timestamp": "2026-08-14T00:55:35.738544",
-    "date": "2026-08-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00757.TW_20260814_overbought",
-    "symbol": "00757.TW",
-    "name": "統一FANG+",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 86.08,
-    "kd_d": 85.64,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 139.85,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00757.TW (統一FANG+) is OVERBOUGHT! KD-K: 86.08, KD-D: 85.64 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-14T00:55:35.738706",
     "date": "2026-08-14",
     "acknowledged": false
   }
