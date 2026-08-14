@@ -1,5 +1,82 @@
 [
   {
+    "id": "NFLX_20260814_overbought",
+    "symbol": "NFLX",
+    "name": "Netflix Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.84,
+    "kd_d": 79.58,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 78.045,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ NFLX (Netflix Inc.) is OVERBOUGHT! KD-K: 82.84, KD-D: 79.58 (>= 80)",
+    "timestamp": "2026-08-14T22:15:37.630907",
+    "date": "2026-08-14",
+    "acknowledged": false
+  },
+  {
+    "id": "MU_20260814_overbought",
+    "symbol": "MU",
+    "name": "Micron Technology Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.36,
+    "kd_d": 71.83,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 977.865,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ MU (Micron Technology Inc.) is OVERBOUGHT! KD-K: 82.36, KD-D: 71.83 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-14T22:15:37.631488",
+    "date": "2026-08-14",
+    "acknowledged": false
+  },
+  {
+    "id": "NFXL_20260814_overbought",
+    "symbol": "NFXL",
+    "name": "Direxion Daily NFLX Bull 2X Shares",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.07,
+    "kd_d": 78.63,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 18.05,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ NFXL (Direxion Daily NFLX Bull 2X Shares) is OVERBOUGHT! KD-K: 82.07, KD-D: 78.63 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-14T22:15:37.633255",
+    "date": "2026-08-14",
+    "acknowledged": false
+  },
+  {
     "id": "00951.TW_20260814_overbought",
     "symbol": "00951.TW",
     "name": "台新日本半導體",
@@ -2482,85 +2559,6 @@
     "market_regime_label": null,
     "message": "⚠️ 0056.TW (元大高股息) is OVERBOUGHT! KD-K: 90.3, KD-D: 82.35 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-13T00:56:33.754134",
-    "date": "2026-08-13",
-    "acknowledged": false
-  },
-  {
-    "id": "006208.TW_20260813_overbought",
-    "symbol": "006208.TW",
-    "name": "富邦台50",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 91.11,
-    "kd_d": 82.97,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 240.9,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 006208.TW (富邦台50) is OVERBOUGHT! KD-K: 91.11, KD-D: 82.97 (>= 80)",
-    "timestamp": "2026-08-13T00:56:33.754262",
-    "date": "2026-08-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00631L.TW_20260813_overbought",
-    "symbol": "00631L.TW",
-    "name": "元大台灣50正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 91.75,
-    "kd_d": 81.12,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 35.45,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超 24539 張（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00631L.TW (元大台灣50正2) is OVERBOUGHT! KD-K: 91.75, KD-D: 81.12 (>= 80)",
-    "timestamp": "2026-08-13T00:56:33.754402",
-    "date": "2026-08-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00635U.TW_20260813_overbought",
-    "symbol": "00635U.TW",
-    "name": "期元大S&P黃金",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 87.25,
-    "kd_d": 78.35,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 45.66,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超 1523 張（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00635U.TW (期元大S&P黃金) is OVERBOUGHT! KD-K: 87.25, KD-D: 78.35 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-13T00:56:33.754555",
     "date": "2026-08-13",
     "acknowledged": false
   }
