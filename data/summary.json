@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-15T23:16:50.607273",
-  "date": "2026-08-15",
+  "timestamp": "2026-08-16T00:20:59.781231",
+  "date": "2026-08-16",
   "macro": {
     "taiex": {
       "value": 45811.01,
@@ -22,12 +22,12 @@
       "change": -0.38,
       "change_pct": -2.6,
       "label": "VIX Index",
-      "timestamp": "2026-08-15T23:16:44.299268"
+      "timestamp": "2026-08-16T00:19:17.445589"
     },
     "btc": {
-      "value": 62986.0,
-      "change": 11.0,
-      "change_pct": 0.02
+      "value": 63007.0,
+      "change": 32.0,
+      "change_pct": 0.05
     },
     "oil": {
       "value": 82.4,
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 31.982,
-      "change": -0.22,
-      "change_pct": -0.68
+      "value": 32.004,
+      "change": -0.12,
+      "change_pct": -0.37
     },
     "foreign_futures_net": {
       "value": -85179,
@@ -142,8 +142,8 @@
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.226（貶值門檻 0.3）",
-          "score": 4.9
+          "detail": "USD/TWD 5日變動 -0.204（貶值門檻 0.3）",
+          "score": 6.4
         },
         {
           "id": "foreign_dual_short",
@@ -175,7 +175,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 42.8
+      "avg_score": 43.1
     },
     "bottom": {
       "conditions": [
@@ -200,8 +200,8 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.226（止穩/升值）；外資今日轉買超，近期均值 +240.1億元；台指期淨部位5日變動 +2732口（未回補）",
-          "score": 72.0
+          "detail": "USD/TWD 5日變動 -0.204（止穩/升值）；外資今日轉買超，近期均值 +240.1億元；台指期淨部位5日變動 +2732口（未回補）",
+          "score": 71.6
         }
       ],
       "total_conditions": 3,
@@ -209,15 +209,15 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 33.4
+      "avg_score": 33.3
     },
     "bottom_reversal_score": {
-      "total": 72.0,
+      "total": 71.6,
       "components": [
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 80.4
+          "score": 78.9
         },
         {
           "name": "foreign_flow_reversal",
@@ -292,7 +292,7 @@
       ]
     },
     "top": {
-      "total": 37.9,
+      "total": 38.0,
       "dimensions": [
         {
           "name": "macro",
@@ -305,10 +305,10 @@
         },
         {
           "name": "chip_flow",
-          "score": 15.5,
+          "score": 15.6,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 -0.226（強度 5/100，+0.5）",
+            "新台幣5日貶值 -0.204（強度 6/100，+0.6）",
             "外資今日 +453.5億元，融資餘額5日變動 +94億元（散戶未離場強度 100/100，+15.0）"
           ]
         },
@@ -420,7 +420,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $426.4 換算2330隱含價 2727.1元，2330現價 2395.0元（折價 12.2%）",
+          "TSM ADR $426.4 換算2330隱含價 2729.0元，2330現價 2395.0元（折價 12.2%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -439,7 +439,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "目前本益比 27.8，位於近731筆歷史資料的第 71 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+          "目前本益比 27.8，位於近730筆歷史資料的第 71 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
         ]
       }
     ],
@@ -794,23 +794,38 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-08-15",
+      "as_of_date": "2026-08-16",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-08-15",
+      "as_of_date": "2026-08-16",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-08-14",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-08-14",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
+    {
+      "title": "今年中秋不送月餅！日月潭溫德姆酒店推出「Back to 1919」五感藝境禮盒　將五星旅宿美學帶回家",
+      "url": "https://tw.stock.yahoo.com/news/%E4%BB%8A%E5%B9%B4%E4%B8%AD%E7%A7%8B%E4%B8%8D%E9%80%81%E6%9C%88%E9%A4%85-%E6%97%A5%E6%9C%88%E6%BD%AD%E6%BA%AB%E5%BE%B7%E5%A7%86%E9%85%92%E5%BA%97%E6%8E%A8%E5%87%BA-back-1919-%E4%BA%94%E6%84%9F%E8%97%9D%E5%A2%83%E7%A6%AE%E7%9B%92-154637657.html",
+      "meta": null
+    },
+    {
+      "title": "「矽晶圓大廠」Q2由虧轉盈、每股賺0.05元　入選MSCI小型指數股價連飆2漲停",
+      "url": "https://tw.stock.yahoo.com/news/%E7%9F%BD%E6%99%B6%E5%9C%93%E5%A4%A7%E5%BB%A0-q2%E7%94%B1%E8%99%A7%E8%BD%89%E7%9B%88-%E6%AF%8F%E8%82%A1%E8%B3%BA0-05%E5%85%83-%E5%85%A5%E9%81%B8msci%E5%B0%8F%E5%9E%8B%E6%8C%87%E6%95%B8%E8%82%A1%E5%83%B9%E9%80%A3%E9%A3%862%E6%BC%B2%E5%81%9C-152000084.html",
+      "meta": null
+    },
+    {
+      "title": "退休金1000萬還不夠？關鍵報告曝8成民眾低估未來開支　專家建議4種資產配置",
+      "url": "https://tw.stock.yahoo.com/news/%E9%80%80%E4%BC%91%E9%87%911000%E8%90%AC%E9%82%84%E4%B8%8D%E5%A4%A0-%E9%97%9C%E9%8D%B5%E5%A0%B1%E5%91%8A%E6%9B%9D8%E6%88%90%E6%B0%91%E7%9C%BE%E4%BD%8E%E4%BC%B0%E6%9C%AA%E4%BE%86%E9%96%8B%E6%94%AF-%E5%B0%88%E5%AE%B6%E5%BB%BA%E8%AD%B04%E7%A8%AE%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE-151643045.html",
+      "meta": null
+    },
     {
       "title": "外資7月大逃殺、8月急轉彎　陳鳳馨揭「隱藏資金」海嘯：新台幣將迎來大升值",
       "url": "https://tw.stock.yahoo.com/news/%E5%A4%96%E8%B3%877%E6%9C%88%E5%A4%A7%E9%80%83%E6%AE%BA-8%E6%9C%88%E6%80%A5%E8%BD%89%E5%BD%8E-%E9%99%B3%E9%B3%B3%E9%A6%A8%E6%8F%AD-%E9%9A%B1%E8%97%8F%E8%B3%87%E9%87%91-%E6%B5%B7%E5%98%AF-150000524.html",
@@ -845,27 +860,12 @@
       "title": "世代交接 廣運迎收成期 今年營收維持雙位數成長",
       "url": "https://tw.stock.yahoo.com/news/%E4%B8%96%E4%BB%A3%E4%BA%A4%E6%8E%A5-%E5%BB%A3%E9%81%8B%E8%BF%8E%E6%94%B6%E6%88%90%E6%9C%9F-%E4%BB%8A%E5%B9%B4%E7%87%9F%E6%94%B6%E7%B6%AD%E6%8C%81%E9%9B%99%E4%BD%8D%E6%95%B8%E6%88%90%E9%95%B7-133000323.html",
       "meta": null
-    },
-    {
-      "title": "恩智浦半導體馬來西亞八打靈再也新封測廠正式動土 擴建智慧工廠強化全球供應鏈韌性",
-      "url": "https://autos.yahoo.com.tw/news/%E6%81%A9%E6%99%BA%E6%B5%A6%E5%8D%8A%E5%B0%8E%E9%AB%94%E9%A6%AC%E4%BE%86%E8%A5%BF%E4%BA%9E%E5%85%AB%E6%89%93%E9%9D%88%E5%86%8D%E4%B9%9F%E6%96%B0%E5%B0%81%E6%B8%AC%E5%BB%A0%E6%AD%A3%E5%BC%8F%E5%8B%95%E5%9C%9F-%E6%93%B4%E5%BB%BA%E6%99%BA%E6%85%A7%E5%B7%A5%E5%BB%A0%E5%BC%B7%E5%8C%96%E5%85%A8%E7%90%83%E4%BE%9B%E6%87%89%E9%8F%88%E9%9F%8C%E6%80%A7-132943819.html",
-      "meta": null
-    },
-    {
-      "title": "LEAP業務拚2027年翻倍！投信卻砍「封測龍頭廠」逾4千張、提款26.4億元",
-      "url": "https://tw.stock.yahoo.com/news/leap%E6%A5%AD%E5%8B%99%E6%8B%9A2027%E5%B9%B4%E7%BF%BB%E5%80%8D-%E6%8A%95%E4%BF%A1%E5%8D%BB%E7%A0%8D-%E5%B0%81%E6%B8%AC%E9%BE%8D%E9%A0%AD%E5%BB%A0-%E9%80%BE4%E5%8D%83%E5%BC%B5-%E6%8F%90%E6%AC%BE26-131000001.html",
-      "meta": null
-    },
-    {
-      "title": "房市只剩兩種人？富人買豪宅、首購擠16坪　最慘是「不上不下」換屋族",
-      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E5%B8%82%E5%8F%AA%E5%89%A9%E5%85%A9%E7%A8%AE%E4%BA%BA%EF%BC%9F%E5%AF%8C%E4%BA%BA%E8%B2%B7%E8%B1%AA%E5%AE%85%E3%80%81%E9%A6%96%E8%B3%BC%E6%93%A016%E5%9D%AA-%E6%9C%80%E6%85%98%E6%98%AF%E3%80%8C%E4%B8%8D%E4%B8%8A%E4%B8%8D%E4%B8%8B%E3%80%8D%E6%8F%9B%E5%B1%8B%E6%97%8F-124500060.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 75,
   "overbought_count": 73,
   "oversold_count": 2,
   "normal_count": 52,
