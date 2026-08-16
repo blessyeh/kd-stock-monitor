@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-16T23:18:11.429496",
-  "date": "2026-08-16",
+  "timestamp": "2026-08-17T00:21:54.911676",
+  "date": "2026-08-17",
   "macro": {
     "taiex": {
       "value": 45811.01,
@@ -22,12 +22,12 @@
       "change": -0.38,
       "change_pct": -2.6,
       "label": "VIX Index",
-      "timestamp": "2026-08-16T23:18:03.916712"
+      "timestamp": "2026-08-17T00:20:02.095596"
     },
     "btc": {
-      "value": 63036.0,
-      "change": 12.0,
-      "change_pct": 0.02
+      "value": 63257.0,
+      "change": 233.0,
+      "change_pct": 0.37
     },
     "oil": {
       "value": 82.4,
@@ -71,30 +71,30 @@
       "change_pct": 630.83
     },
     "margin_balance": {
-      "value": 8918284.0,
-      "change": -51555.0,
-      "change_pct": -0.57,
+      "value": 8969841.0,
+      "change": 8807.0,
+      "change_pct": 0.1,
       "unit": "張",
-      "date": "2026-08-14"
+      "date": "2026-08-13"
     },
     "margin_balance_amount": {
-      "value": 5470.59,
-      "change": -27.21,
-      "change_pct": -0.49,
+      "value": 5497.81,
+      "change": 16.97,
+      "change_pct": 0.31,
       "unit": "億元",
-      "date": "2026-08-14"
+      "date": "2026-08-13"
     },
     "short_balance": {
-      "value": 222827.0,
-      "change": 8781.0,
-      "change_pct": 4.1,
+      "value": 214046.0,
+      "change": 12099.0,
+      "change_pct": 5.99,
       "unit": "張",
-      "date": "2026-08-14"
+      "date": "2026-08-13"
     },
     "margin_short_ratio": {
-      "value": 2.5,
-      "change": 0.11,
-      "change_pct": 4.7,
+      "value": 2.39,
+      "change": 0.13,
+      "change_pct": 5.89,
       "unit": "%"
     },
     "usdtwd": {
@@ -110,17 +110,19 @@
       "change_pct": 1.24
     },
     "put_call_ratio": {
-      "value": 99.19,
+      "value": null,
+      "change": null,
+      "change_pct": null,
       "unit": "%",
-      "date": "2026-08-14"
+      "date": null
     },
     "night_session": {
-      "close": 46389.0,
-      "prev_close": 46005.0,
-      "gap": 384.0,
-      "gap_pct": 0.83,
-      "date": "2026-08-14",
-      "prev_date": "2026-08-13"
+      "close": 45727.0,
+      "prev_close": 45841.0,
+      "gap": -114.0,
+      "gap_pct": -0.25,
+      "date": "2026-08-17",
+      "prev_date": "2026-08-14"
     }
   },
   "signal_confluence": {
@@ -156,10 +158,10 @@
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": false,
+          "status": null,
           "completeness": "full",
-          "detail": "今日外資買超；融資餘額5日未回落（5471億元）；P/C Ratio 99.2%（< 100%門檻）",
-          "score": 83.0
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷",
+          "score": null
         },
         {
           "id": "tech_capital_retreat",
@@ -171,11 +173,11 @@
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 5,
+      "evaluated_count": 4,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 43.1
+      "avg_score": 33.2
     },
     "bottom": {
       "conditions": [
@@ -192,7 +194,7 @@
           "label": "散戶投降/融資斷頭式大減",
           "status": false,
           "completeness": "full",
-          "detail": "近5個交易日融資餘額最大單日減幅 -27億元（斷頭式門檻 -30億元）",
+          "detail": "近5個交易日融資餘額最大單日減幅 -11億元（斷頭式門檻 -30億元）",
           "score": 0.0
         },
         {
@@ -246,7 +248,7 @@
     "as_of_date": "2026-08-14",
     "history_days": 50,
     "bottom": {
-      "total": 32.2,
+      "total": 28.3,
       "dimensions": [
         {
           "name": "macro",
@@ -262,17 +264,16 @@
           "score": 10.0,
           "cap": 25,
           "notes": [
-            "近5日融資餘額最大單日減幅 -27億元（斷頭強度 0/100，+0.0）",
+            "近5日融資餘額最大單日減幅 -11億元（斷頭強度 0/100，+0.0）",
             "外資今日 +453.5億元，較近5日均值 +240.1億元（轉強強度 100/100，+10.0）"
           ]
         },
         {
           "name": "derivative",
-          "score": 8.3,
+          "score": 4.4,
           "cap": 20,
           "notes": [
-            "台指期淨空單5日變動 +2732口（回補強度 37/100，+4.4）",
-            "P/C Ratio 99.2%（避險需求強度 49/100，+3.9）"
+            "台指期淨空單5日變動 +2732口（回補強度 37/100，+4.4）"
           ]
         },
         {
@@ -292,7 +293,7 @@
       ]
     },
     "top": {
-      "total": 38.0,
+      "total": 33.9,
       "dimensions": [
         {
           "name": "macro",
@@ -309,16 +310,15 @@
           "cap": 25,
           "notes": [
             "新台幣5日貶值 -0.204（強度 6/100，+0.6）",
-            "外資今日 +453.5億元，融資餘額5日變動 +94億元（散戶未離場強度 100/100，+15.0）"
+            "外資今日 +453.5億元，融資餘額5日變動 +121億元（散戶未離場強度 100/100，+15.0）"
           ]
         },
         {
           "name": "derivative",
-          "score": 4.1,
+          "score": 0,
           "cap": 20,
           "notes": [
-            "外資台指期淨空單 -85179口（強度 0/100，+0.0）",
-            "P/C Ratio 99.2%（自滿強度 51/100，+4.1）"
+            "外資台指期淨空單 -85179口（強度 0/100，+0.0）"
           ]
         },
         {
@@ -794,23 +794,38 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-08-16",
+      "as_of_date": "2026-08-17",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-08-16",
+      "as_of_date": "2026-08-17",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-08-14",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-08-14",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
+    {
+      "title": "Subaru推動燃油、油電與純電車混線生產　以彈性製造應對市場變化",
+      "url": "https://autos.yahoo.com.tw/news/subaru%E6%8E%A8%E5%8B%95%E7%87%83%E6%B2%B9-%E6%B2%B9%E9%9B%BB%E8%88%87%E7%B4%94%E9%9B%BB%E8%BB%8A%E6%B7%B7%E7%B7%9A%E7%94%9F%E7%94%A2-%E4%BB%A5%E5%BD%88%E6%80%A7%E8%A3%BD%E9%80%A0%E6%87%89%E5%B0%8D%E5%B8%82%E5%A0%B4%E8%AE%8A%E5%8C%96-161635952.html",
+      "meta": null
+    },
+    {
+      "title": "夫妻贈與房產連3年破1.5萬棟！2020-2026一次看　房屋稅、土增稅規劃成資產配置新焦點",
+      "url": "https://tw.stock.yahoo.com/news/%E5%A4%AB%E5%A6%BB%E8%B4%88%E8%88%87%E6%88%BF%E7%94%A2%E9%80%A33%E5%B9%B4%E7%A0%B415%E8%90%AC%E6%A3%9F%EF%BC%812020-2026%E4%B8%80%E6%AC%A1%E7%9C%8B-%E6%88%BF%E5%B1%8B%E7%A8%85%E3%80%81%E5%9C%9F%E5%A2%9E%E7%A8%85%E8%A6%8F%E5%8A%83%E6%88%90%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE%E6%96%B0%E7%84%A6%E9%BB%9E-160000850.html",
+      "meta": null
+    },
+    {
+      "title": "訂單一路排到明年Q2！「傳動元件廠」Q2成功轉盈、毛利率創13季新高　人形機器人零件出貨破千套",
+      "url": "https://tw.stock.yahoo.com/news/%E8%A8%82%E5%96%AE-%E8%B7%AF%E6%8E%92%E5%88%B0%E6%98%8E%E5%B9%B4q2-%E5%82%B3%E5%8B%95%E5%85%83%E4%BB%B6%E5%BB%A0-q2%E6%88%90%E5%8A%9F%E8%BD%89%E7%9B%88-%E6%AF%9B%E5%88%A9%E7%8E%87%E5%89%B513%E5%AD%A3%E6%96%B0%E9%AB%98-154000540.html",
+      "meta": null
+    },
     {
       "title": "金價強勢突破4300美元　瑞銀：2027年上看5200美元",
       "url": "https://tw.stock.yahoo.com/news/%E9%87%91%E5%83%B9%E5%BC%B7%E5%8B%A2%E7%AA%81%E7%A0%B44300%E7%BE%8E%E5%85%83-%E7%91%9E%E9%8A%80-2027%E5%B9%B4%E4%B8%8A%E7%9C%8B5200%E7%BE%8E%E5%85%83-144546210.html",
@@ -845,27 +860,12 @@
       "title": "融資大減能搶反彈嗎？近6年19次回測機率大公開！以熱門ETF為例誰最穩？",
       "url": "https://tw.stock.yahoo.com/news/%E8%9E%8D%E8%B3%87%E5%A4%A7%E6%B8%9B%E8%83%BD%E6%90%B6%E5%8F%8D%E5%BD%88%E5%97%8E-%E8%BF%916%E5%B9%B419%E6%AC%A1%E5%9B%9E%E6%B8%AC%E6%A9%9F%E7%8E%87%E5%A4%A7%E5%85%AC%E9%96%8B-%E4%BB%A5%E7%86%B1%E9%96%80etf%E7%82%BA%E4%BE%8B%E8%AA%B0%E6%9C%80%E7%A9%A9-141500592.html",
       "meta": null
-    },
-    {
-      "title": "訂單滿滿Q3稼動率衝100%！「這檔」再上修全年目標　7月營收年增逾5成、營益率拚34%",
-      "url": "https://tw.stock.yahoo.com/news/%E8%A8%82%E5%96%AE%E6%BB%BF%E6%BB%BFq3%E7%A8%BC%E5%8B%95%E7%8E%87%E8%A1%9D100-%E9%80%99%E6%AA%94-%E5%86%8D%E4%B8%8A%E4%BF%AE%E5%85%A8%E5%B9%B4%E7%9B%AE%E6%A8%99-7%E6%9C%88%E7%87%9F%E6%94%B6%E5%B9%B4%E5%A2%9E%E9%80%BE5%E6%88%90-%E7%87%9F%E7%9B%8A%E7%8E%87%E6%8B%9A34-141000134.html",
-      "meta": null
-    },
-    {
-      "title": "三大法人單週狂買2645億！「記憶體3巨頭」吃下731億　力積電擺脫連10週賣超",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%89%E5%A4%A7%E6%B3%95%E4%BA%BA%E5%96%AE%E9%80%B1%E7%8B%82%E8%B2%B72645%E5%84%84-%E8%A8%98%E6%86%B6%E9%AB%943%E5%B7%A8%E9%A0%AD-%E5%90%83%E4%B8%8B731%E5%84%84-%E5%8A%9B%E7%A9%8D%E9%9B%BB%E6%93%BA%E8%84%AB%E9%80%A310%E9%80%B1%E8%B3%A3%E8%B6%85-135000306.html",
-      "meta": null
-    },
-    {
-      "title": "川湖董座林聰吉變一度新首富 民眾爭相朝聖高雄湖內起家厝",
-      "url": "https://tw.stock.yahoo.com/news/%E5%B7%9D%E6%B9%96%E8%91%A3%E5%BA%A7%E6%9E%97%E8%81%B0%E5%90%89%E8%AE%8A-%E5%BA%A6%E6%96%B0%E9%A6%96%E5%AF%8C-%E6%B0%91%E7%9C%BE%E7%88%AD%E7%9B%B8%E6%9C%9D%E8%81%96%E9%AB%98%E9%9B%84%E5%85%A7%E6%B9%96%E8%B5%B7%E5%AE%B6%E5%8E%9D-105130227.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 75,
   "overbought_count": 73,
   "oversold_count": 2,
   "normal_count": 52,
