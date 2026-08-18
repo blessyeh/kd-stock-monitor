@@ -59,6 +59,33 @@ class NumpyJSONEncoder(json.JSONEncoder):
             return obj.tolist()
         return super().default(obj)
 
+    def iterencode(self, o, _one_shot=False):
+        # json.dump() defaults to allow_nan=True, which happily writes the
+        # bare tokens NaN/Infinity/-Infinity — valid to Python's own decoder,
+        # but NOT valid JSON per spec. Browsers' JSON.parse() rejects the
+        # whole document on one such token, so a single NaN anywhere in
+        # (e.g.) a yfinance-derived macro field breaks the *entire*
+        # dashboard's data load client-side, not just that one field (see
+        # fetcher.py's _yf_latest_prev, which guards the known source — this
+        # is the same "catch anything that slips through" backstop as
+        # default() above, for a class of value default() never sees since
+        # float/np.floating already have a JSON-native encoding).
+        return super().iterencode(_sanitize_nan(o), _one_shot)
+
+
+def _sanitize_nan(obj):
+    """Recursively replace NaN/Infinity/-Infinity floats (plain or numpy)
+    with None. See NumpyJSONEncoder.iterencode's docstring for why."""
+    if isinstance(obj, dict):
+        return {k: _sanitize_nan(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_sanitize_nan(v) for v in obj]
+    if isinstance(obj, np.ndarray):
+        return _sanitize_nan(obj.tolist())
+    if isinstance(obj, (float, np.floating)) and not np.isfinite(obj):
+        return None
+    return obj
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,

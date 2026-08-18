@@ -300,6 +300,29 @@ class StockFetcher:
         df.to_csv(filepath, index=False)
         logger.info(f"Saved raw data to {filepath} ({len(df)} records)")
 
+    @staticmethod
+    def _yf_latest_prev(hist: pd.DataFrame):
+        """
+        Extract (latest_close, prev_close) from a yfinance history() result,
+        or (None, None) if unavailable. yfinance occasionally returns a
+        non-empty frame whose most recent row has a NaN Close (a partial/
+        incomplete session still settling) — checking `.empty` alone misses
+        this. Returning None here (instead of the NaN) matters because
+        json.dump() happily writes a literal `NaN` token (Python's json
+        module allows it by default), which is invalid per the JSON spec:
+        browsers' JSON.parse() rejects the whole file, so one NaN macro
+        field breaks summary.json loading for the entire dashboard.
+        """
+        if hist.empty:
+            return None, None
+        latest = hist['Close'].iloc[-1]
+        if pd.isna(latest):
+            return None, None
+        prev = hist['Close'].iloc[-2] if len(hist) >= 2 else latest
+        if pd.isna(prev):
+            prev = latest
+        return latest, prev
+
     def fetch_macro_indicators(self) -> Dict:
         """Fetch TAIEX (台股加權指數), US10Y yield, Dollar Index, VIX, Bitcoin,
         WTI Crude Oil, Gold, SOX (Philadelphia Semiconductor Index),
@@ -322,9 +345,8 @@ class StockFetcher:
         try:
             ticker_taiex = yf.Ticker("^TWII")
             hist_taiex = ticker_taiex.history(period="2d")
-            if not hist_taiex.empty:
-                latest_val = hist_taiex['Close'].iloc[-1]
-                prev_val = hist_taiex['Close'].iloc[-2] if len(hist_taiex) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_taiex)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["taiex"] = {
@@ -338,9 +360,8 @@ class StockFetcher:
         try:
             ticker_us10y = yf.Ticker("^TNX")
             hist_us10y = ticker_us10y.history(period="2d")
-            if not hist_us10y.empty:
-                latest_val = hist_us10y['Close'].iloc[-1]
-                prev_val = hist_us10y['Close'].iloc[-2] if len(hist_us10y) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_us10y)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["us10y"] = {
@@ -354,9 +375,8 @@ class StockFetcher:
         try:
             ticker_dxy = yf.Ticker("DX-Y.NYB")
             hist_dxy = ticker_dxy.history(period="2d")
-            if not hist_dxy.empty:
-                latest_val = hist_dxy['Close'].iloc[-1]
-                prev_val = hist_dxy['Close'].iloc[-2] if len(hist_dxy) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_dxy)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["dxy"] = {
@@ -371,10 +391,10 @@ class StockFetcher:
             ticker_btc = yf.Ticker("BTC-USD")
             # Use fast_info for current price as it's more reliable for cryptos
             latest_val = ticker_btc.fast_info.get('lastPrice')
-            if latest_val:
+            if latest_val is not None and pd.notna(latest_val):
                 hist_btc = ticker_btc.history(period="2d")
                 change, change_pct = 0, 0
-                if len(hist_btc) >= 2:
+                if len(hist_btc) >= 2 and pd.notna(hist_btc['Close'].iloc[-2]):
                     prev_val = hist_btc['Close'].iloc[-2]
                     change = latest_val - prev_val
                     change_pct = (change / prev_val) * 100
@@ -391,9 +411,8 @@ class StockFetcher:
         try:
             ticker_vix = yf.Ticker("^VIX")
             hist_vix = ticker_vix.history(period="2d")
-            if not hist_vix.empty:
-                latest_val = hist_vix['Close'].iloc[-1]
-                prev_val = hist_vix['Close'].iloc[-2] if len(hist_vix) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_vix)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["fear_greed"] = {
@@ -411,9 +430,8 @@ class StockFetcher:
         try:
             ticker_oil = yf.Ticker("CL=F")
             hist_oil = ticker_oil.history(period="2d")
-            if not hist_oil.empty:
-                latest_val = hist_oil['Close'].iloc[-1]
-                prev_val = hist_oil['Close'].iloc[-2] if len(hist_oil) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_oil)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["oil"] = {
@@ -428,9 +446,8 @@ class StockFetcher:
         try:
             ticker_gold = yf.Ticker("GC=F")
             hist_gold = ticker_gold.history(period="2d")
-            if not hist_gold.empty:
-                latest_val = hist_gold['Close'].iloc[-1]
-                prev_val = hist_gold['Close'].iloc[-2] if len(hist_gold) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_gold)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["gold"] = {
@@ -448,9 +465,8 @@ class StockFetcher:
         try:
             ticker_sox = yf.Ticker("^SOX")
             hist_sox = ticker_sox.history(period="2d")
-            if not hist_sox.empty:
-                latest_val = hist_sox['Close'].iloc[-1]
-                prev_val = hist_sox['Close'].iloc[-2] if len(hist_sox) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_sox)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["sox"] = {
@@ -465,9 +481,8 @@ class StockFetcher:
         try:
             ticker_ndx = yf.Ticker("^NDX")
             hist_ndx = ticker_ndx.history(period="2d")
-            if not hist_ndx.empty:
-                latest_val = hist_ndx['Close'].iloc[-1]
-                prev_val = hist_ndx['Close'].iloc[-2] if len(hist_ndx) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_ndx)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["ndx"] = {
@@ -482,9 +497,8 @@ class StockFetcher:
         try:
             ticker_spx = yf.Ticker("^GSPC")
             hist_spx = ticker_spx.history(period="2d")
-            if not hist_spx.empty:
-                latest_val = hist_spx['Close'].iloc[-1]
-                prev_val = hist_spx['Close'].iloc[-2] if len(hist_spx) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_spx)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 change_pct = (change / prev_val * 100) if prev_val else 0
                 macro_data["sp500"] = {
@@ -663,9 +677,8 @@ class StockFetcher:
         try:
             ticker_twd = yf.Ticker("TWD=X")
             hist_twd = ticker_twd.history(period="5d")
-            if not hist_twd.empty:
-                latest_val = hist_twd['Close'].iloc[-1]
-                prev_val = hist_twd['Close'].iloc[-2] if len(hist_twd) >= 2 else latest_val
+            latest_val, prev_val = self._yf_latest_prev(hist_twd)
+            if latest_val is not None:
                 change = latest_val - prev_val
                 chip_data["usdtwd"] = {
                     "value": round(latest_val, 3), "change": round(change, 3),
