@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-18T21:39:15.935742",
+  "timestamp": "2026-08-18T22:29:35.158632",
   "date": "2026-08-18",
   "macro": {
     "taiex": {
@@ -8,49 +8,49 @@
       "change_pct": 0.0
     },
     "us10y": {
-      "value": 4.74,
+      "value": 4.716,
       "change": 0.0,
       "change_pct": 0.0
     },
     "dxy": {
-      "value": 99.63,
+      "value": 99.54,
       "change": 0.0,
       "change_pct": 0.0
     },
     "fear_greed": {
-      "value": 15.83,
+      "value": 15.88,
       "change": 0.0,
       "change_pct": 0.0,
       "label": "VIX Index",
-      "timestamp": "2026-08-18T21:39:10.129330"
+      "timestamp": "2026-08-18T22:29:28.469862"
     },
     "btc": {
-      "value": 64112.0,
-      "change": -394.0,
-      "change_pct": -0.61
-    },
-    "oil": {
-      "value": 84.63,
-      "change": 0.13,
-      "change_pct": 0.15
-    },
-    "gold": {
-      "value": 4447.7,
-      "change": 29.9,
+      "value": 64948.0,
+      "change": 442.0,
       "change_pct": 0.68
     },
+    "oil": {
+      "value": 84.1,
+      "change": -0.4,
+      "change_pct": -0.47
+    },
+    "gold": {
+      "value": 4459.7,
+      "change": 41.9,
+      "change_pct": 0.95
+    },
     "sox": {
-      "value": 12169.35,
+      "value": 12022.44,
       "change": 0.0,
       "change_pct": 0.0
     },
     "ndx": {
-      "value": 29636.87,
+      "value": 29571.29,
       "change": 0.0,
       "change_pct": 0.0
     },
     "sp500": {
-      "value": 7708.54,
+      "value": 7705.98,
       "change": 0.0,
       "change_pct": 0.0
     }
@@ -134,8 +134,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.63 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.04pp（未達 0.15pp）",
-          "score": 14.7
+          "detail": "DXY 99.54 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
+          "score": 9.0
         },
         {
           "id": "twd_depreciation",
@@ -166,8 +166,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 12169未跌破近20日支撐10447；NDX 29637未跌破近20日支撐27192；美債10Y 5日變動 +0.04pp（未達 0.15pp）",
-          "score": 63.2
+          "detail": "SOX 12022未跌破近20日支撐10447；NDX 29571未跌破近20日支撐27192；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
+          "score": 58.4
         }
       ],
       "total_conditions": 5,
@@ -175,7 +175,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 39.6
+      "avg_score": 37.5
     },
     "bottom": {
       "conditions": [
@@ -184,8 +184,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 16.5（<= 30.0門檻）；目前 15.8（較高點回落 4%，門檻 15%）",
-          "score": 15.4
+          "detail": "近10日VIX高點 16.5（<= 30.0門檻）；目前 15.9（較高點回落 4%，門檻 15%）",
+          "score": 15.0
         },
         {
           "id": "margin_capitulation",
@@ -209,7 +209,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 29.6
+      "avg_score": 29.4
     },
     "bottom_reversal_score": {
       "total": 73.3,
@@ -246,15 +246,15 @@
     "as_of_date": "2026-08-17",
     "history_days": 51,
     "bottom": {
-      "total": 32.3,
+      "total": 32.4,
       "dimensions": [
         {
           "name": "macro",
-          "score": 12.0,
+          "score": 12.1,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 16.5 → 目前 15.8（強度 15/100，+2.3）",
-            "DXY 99.63 距近20日高點 -1.85%（美元壓力緩和強度 97/100，+9.7）"
+            "VIX 近10日高點 16.5 → 目前 15.9（強度 15/100，+2.3）",
+            "DXY 99.54 距近20日高點 -1.94%（美元壓力緩和強度 99/100，+9.9）"
           ]
         },
         {
@@ -286,21 +286,21 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近49筆歷史樣本的第 24 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近49筆歷史樣本的第 29 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 30.8,
+      "total": 28.9,
       "dimensions": [
         {
           "name": "macro",
-          "score": 8.5,
+          "score": 7.2,
           "cap": 25,
           "notes": [
-            "DXY 99.63 距近20日高點 -1.85%，美債10Y5日變動 +0.04pp（強度 15/100，+2.2）",
-            "SOX/NDX 距近20日支撐 +8.99%，美債10Y同步變動（強度 63/100，+6.3）"
+            "DXY 99.54 距近20日高點 -1.94%，美債10Y5日變動 +0.02pp（強度 9/100，+1.3）",
+            "SOX/NDX 距近20日支撐 +8.75%，美債10Y同步變動（強度 58/100，+5.8）"
           ]
         },
         {
@@ -329,10 +329,10 @@
         },
         {
           "name": "sentiment",
-          "score": 6.3,
+          "score": 5.7,
           "cap": 10,
           "notes": [
-            "VIX 處於近49筆歷史樣本的第 24 百分位（自滿強度 63/100，+6.3）"
+            "VIX 處於近49筆歷史樣本的第 29 百分位（自滿強度 57/100，+5.7）"
           ]
         }
       ]
@@ -401,7 +401,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 -1.2%；相對SOX -4.9pp、相對NDX -4.9pp"
+          "2330 近20日漲跌 -1.2%；相對SOX -3.6pp、相對NDX -4.6pp"
         ]
       },
       {
@@ -420,7 +420,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $418.1 換算2330隱含價 2660.8元，2330現價 2380.0元（折價 10.6%）",
+          "TSM ADR $414.9 換算2330隱含價 2640.6元，2330現價 2380.0元（折價 9.9%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -866,9 +866,9 @@
   "stocks_successful": 127,
   "stocks_failed": 0,
   "new_alerts": 0,
-  "overbought_count": 34,
+  "overbought_count": 33,
   "oversold_count": 7,
-  "normal_count": 86,
+  "normal_count": 87,
   "overbought_stocks": [
     {
       "symbol": "00403A.TW",
@@ -1279,72 +1279,58 @@
     {
       "symbol": "PLTR",
       "name": "Palantir Technologies Inc.",
-      "current_price": 173.44,
-      "change_pct": 0.52,
+      "current_price": 173.37,
+      "change_pct": 0.48,
       "extra_data": {
-        "regular_market_price": 173.44,
+        "regular_market_price": 173.37,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 172.55
       },
-      "kd_k": 80.4,
-      "kd_d": 83.0
-    },
-    {
-      "symbol": "VT",
-      "name": "Vanguard Total World Stock ETF",
-      "current_price": 160.89,
-      "change_pct": -0.58,
-      "extra_data": {
-        "regular_market_price": 160.89,
-        "pre_market_price": null,
-        "post_market_price": null,
-        "prev_close": 161.83
-      },
-      "kd_k": 68.36,
-      "kd_d": 80.13
+      "kd_k": 80.29,
+      "kd_d": 82.97
     },
     {
       "symbol": "QQQ",
       "name": "Invesco QQQ Trust",
-      "current_price": 721.155,
-      "change_pct": -1.19,
+      "current_price": 719.59,
+      "change_pct": -1.41,
       "extra_data": {
-        "regular_market_price": 721.155,
+        "regular_market_price": 719.59,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 729.87
       },
-      "kd_k": 73.7,
-      "kd_d": 81.13
+      "kd_k": 71.66,
+      "kd_d": 80.44
     },
     {
       "symbol": "CRCL",
       "name": "Circle Internet Group, Inc.",
-      "current_price": 72.535,
-      "change_pct": -2.86,
+      "current_price": 74.03,
+      "change_pct": -0.75,
       "extra_data": {
-        "regular_market_price": 72.535,
+        "regular_market_price": 74.03,
         "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 74.67
+        "prev_close": 74.59
       },
-      "kd_k": 83.13,
-      "kd_d": 80.92
+      "kd_k": 86.31,
+      "kd_d": 81.98
     },
     {
       "symbol": "SNDK",
       "name": "Sandisk Corporation",
-      "current_price": 1698.315,
-      "change_pct": -4.95,
+      "current_price": 1670.01,
+      "change_pct": -6.54,
       "extra_data": {
-        "regular_market_price": 1698.315,
+        "regular_market_price": 1670.01,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 1786.85
       },
-      "kd_k": 81.51,
-      "kd_d": 73.13
+      "kd_k": 80.05,
+      "kd_d": 72.64
     }
   ],
   "oversold_stocks": [
@@ -1393,58 +1379,58 @@
     {
       "symbol": "GOOGL",
       "name": "Alphabet Inc.",
-      "current_price": 342.28,
-      "change_pct": -0.5,
+      "current_price": 343.7,
+      "change_pct": -0.09,
       "extra_data": {
-        "regular_market_price": 342.28,
+        "regular_market_price": 343.7,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 344.0
       },
-      "kd_k": 14.14,
-      "kd_d": 24.0
+      "kd_k": 16.12,
+      "kd_d": 24.65
     },
     {
       "symbol": "AMZN",
       "name": "Amazon.com Inc.",
-      "current_price": 259.215,
-      "change_pct": -0.8,
+      "current_price": 260.895,
+      "change_pct": -0.16,
       "extra_data": {
-        "regular_market_price": 259.215,
+        "regular_market_price": 260.895,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 261.31
       },
-      "kd_k": 16.67,
-      "kd_d": 31.56
+      "kd_k": 19.23,
+      "kd_d": 32.41
     },
     {
       "symbol": "AMZU",
       "name": "Direxion Daily AMZN Bull 2X Shares",
-      "current_price": 37.74,
-      "change_pct": -1.59,
+      "current_price": 38.24,
+      "change_pct": -0.29,
       "extra_data": {
-        "regular_market_price": 37.74,
+        "regular_market_price": 38.24,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 38.35
       },
-      "kd_k": 15.52,
-      "kd_d": 29.54
+      "kd_k": 17.94,
+      "kd_d": 30.34
     },
     {
       "symbol": "GGLL",
       "name": "Direxion Daily GOOGL Bull 2X Shares",
-      "current_price": 100.69,
-      "change_pct": -1.11,
+      "current_price": 101.62,
+      "change_pct": -0.2,
       "extra_data": {
-        "regular_market_price": 100.69,
+        "regular_market_price": 101.62,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 101.82
       },
-      "kd_k": 12.64,
-      "kd_d": 21.88
+      "kd_k": 14.7,
+      "kd_d": 22.57
     }
   ],
   "errors": []
