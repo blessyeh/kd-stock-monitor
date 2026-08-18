@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-19T02:32:02.603897",
+  "timestamp": "2026-08-19T03:24:30.433869",
   "date": "2026-08-19",
   "macro": {
     "taiex": {
@@ -8,9 +8,9 @@
       "change_pct": 0.0
     },
     "us10y": {
-      "value": 4.704,
-      "change": -0.02,
-      "change_pct": -0.42
+      "value": 4.706,
+      "change": -0.018,
+      "change_pct": -0.38
     },
     "dxy": {
       "value": 99.63,
@@ -18,41 +18,41 @@
       "change_pct": -0.01
     },
     "fear_greed": {
-      "value": 15.69,
-      "change": 0.5,
-      "change_pct": 3.29,
+      "value": 15.63,
+      "change": 0.44,
+      "change_pct": 2.9,
       "label": "VIX Index",
-      "timestamp": "2026-08-19T02:31:55.999376"
+      "timestamp": "2026-08-19T03:24:22.421122"
     },
     "btc": {
-      "value": 64760.0,
-      "change": 253.0,
-      "change_pct": 0.39
+      "value": 64694.0,
+      "change": 187.0,
+      "change_pct": 0.29
     },
     "oil": {
-      "value": 84.04,
-      "change": -0.46,
-      "change_pct": -0.54
+      "value": 84.15,
+      "change": -0.35,
+      "change_pct": -0.41
     },
     "gold": {
-      "value": 4414.1,
-      "change": -3.7,
-      "change_pct": -0.08
+      "value": 4412.5,
+      "change": -5.3,
+      "change_pct": -0.12
     },
     "sox": {
-      "value": 11914.72,
-      "change": -706.28,
-      "change_pct": -5.6
+      "value": 11932.29,
+      "change": -688.71,
+      "change_pct": -5.46
     },
     "ndx": {
-      "value": 29510.88,
-      "change": -484.5,
-      "change_pct": -1.62
+      "value": 29491.78,
+      "change": -503.6,
+      "change_pct": -1.68
     },
     "sp500": {
-      "value": 7703.59,
-      "change": -41.47,
-      "change_pct": -0.54
+      "value": 7699.98,
+      "change": -45.08,
+      "change_pct": -0.58
     }
   },
   "chip": {
@@ -137,7 +137,7 @@
           "status": false,
           "completeness": "full",
           "detail": "DXY 99.63 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
-          "score": 10.5
+          "score": 10.9
         },
         {
           "id": "twd_depreciation",
@@ -168,8 +168,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11915未跌破近20日支撐10447；NDX 29511未跌破近20日支撐27192；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
-          "score": 59.0
+          "detail": "SOX 11932未跌破近20日支撐10447；NDX 29492未跌破近20日支撐27192；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
+          "score": 59.4
         }
       ],
       "total_conditions": 5,
@@ -177,7 +177,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 31.8
+      "avg_score": 32.0
     },
     "bottom": {
       "conditions": [
@@ -186,8 +186,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 15.8（<= 30.0門檻）；目前 15.7（較高點回落 1%，門檻 15%）",
-          "score": 11.2
+          "detail": "近10日VIX高點 15.8（<= 30.0門檻）；目前 15.6（較高點回落 1%，門檻 15%）",
+          "score": 11.7
         },
         {
           "id": "margin_capitulation",
@@ -211,7 +211,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 18.8
+      "avg_score": 19.0
     },
     "bottom_reversal_score": {
       "total": 45.3,
@@ -248,14 +248,14 @@
     "as_of_date": "2026-08-18",
     "history_days": 52,
     "bottom": {
-      "total": 22.9,
+      "total": 23.0,
       "dimensions": [
         {
           "name": "macro",
-          "score": 11.4,
+          "score": 11.5,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 15.8 → 目前 15.7（強度 11/100，+1.7）",
+            "VIX 近10日高點 15.8 → 目前 15.6（強度 12/100，+1.8）",
             "DXY 99.63 距近20日高點 -1.85%（美元壓力緩和強度 97/100，+9.7）"
           ]
         },
@@ -288,21 +288,21 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近50筆歷史樣本的第 22 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近50筆歷史樣本的第 20 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 24.8,
+      "total": 25.2,
       "dimensions": [
         {
           "name": "macro",
-          "score": 7.5,
+          "score": 7.6,
           "cap": 25,
           "notes": [
-            "DXY 99.63 距近20日高點 -1.85%，美債10Y5日變動 +0.02pp（強度 10/100，+1.6）",
-            "SOX/NDX 距近20日支撐 +8.53%，美債10Y同步變動（強度 59/100，+5.9）"
+            "DXY 99.63 距近20日高點 -1.85%，美債10Y5日變動 +0.02pp（強度 11/100，+1.6）",
+            "SOX/NDX 距近20日支撐 +8.46%，美債10Y同步變動（強度 59/100，+5.9）"
           ]
         },
         {
@@ -331,10 +331,10 @@
         },
         {
           "name": "sentiment",
-          "score": 6.7,
+          "score": 7.0,
           "cap": 10,
           "notes": [
-            "VIX 處於近50筆歷史樣本的第 22 百分位（自滿強度 67/100，+6.7）"
+            "VIX 處於近50筆歷史樣本的第 20 百分位（自滿強度 70/100，+7.0）"
           ]
         }
       ]
@@ -403,7 +403,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 -1.2%；相對SOX +2.3pp、相對NDX -2.5pp"
+          "2330 近20日漲跌 -1.2%；相對SOX +2.2pp、相對NDX -2.4pp"
         ]
       },
       {
@@ -422,7 +422,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $412.0 換算2330隱含價 2629.5元，2330現價 2380.0元（折價 9.5%）",
+          "TSM ADR $412.8 換算2330隱含價 2634.9元，2330現價 2380.0元（折價 9.7%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -1281,30 +1281,30 @@
     {
       "symbol": "PLTR",
       "name": "Palantir Technologies Inc.",
-      "current_price": 173.23,
-      "change_pct": 0.39,
+      "current_price": 172.08,
+      "change_pct": -0.27,
       "extra_data": {
-        "regular_market_price": 173.23,
+        "regular_market_price": 172.08,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 172.55
       },
-      "kd_k": 80.12,
-      "kd_d": 82.91
+      "kd_k": 78.73,
+      "kd_d": 82.44
     },
     {
       "symbol": "CRCL",
       "name": "Circle Internet Group, Inc.",
-      "current_price": 72.01,
-      "change_pct": -3.46,
+      "current_price": 72.0997,
+      "change_pct": -3.34,
       "extra_data": {
-        "regular_market_price": 72.01,
+        "regular_market_price": 72.0997,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 74.59
       },
-      "kd_k": 82.01,
-      "kd_d": 80.54
+      "kd_k": 82.26,
+      "kd_d": 80.63
     }
   ],
   "oversold_stocks": [
@@ -1353,58 +1353,58 @@
     {
       "symbol": "GOOGL",
       "name": "Alphabet Inc.",
-      "current_price": 344.59,
-      "change_pct": 0.17,
+      "current_price": 343.86,
+      "change_pct": -0.04,
       "extra_data": {
-        "regular_market_price": 344.59,
+        "regular_market_price": 343.86,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 344.0
       },
-      "kd_k": 17.34,
-      "kd_d": 25.06
+      "kd_k": 16.34,
+      "kd_d": 24.73
     },
     {
       "symbol": "AMZN",
       "name": "Amazon.com Inc.",
-      "current_price": 260.535,
-      "change_pct": -0.3,
+      "current_price": 260.06,
+      "change_pct": -0.48,
       "extra_data": {
-        "regular_market_price": 260.535,
+        "regular_market_price": 260.06,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 261.31
       },
-      "kd_k": 18.7,
-      "kd_d": 32.23
+      "kd_k": 17.98,
+      "kd_d": 32.0
     },
     {
       "symbol": "AMZU",
       "name": "Direxion Daily AMZN Bull 2X Shares",
-      "current_price": 38.1216,
-      "change_pct": -0.6,
+      "current_price": 37.99,
+      "change_pct": -0.94,
       "extra_data": {
-        "regular_market_price": 38.1216,
+        "regular_market_price": 37.99,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 38.35
       },
-      "kd_k": 17.36,
-      "kd_d": 30.15
+      "kd_k": 16.73,
+      "kd_d": 29.94
     },
     {
       "symbol": "GGLL",
       "name": "Direxion Daily GOOGL Bull 2X Shares",
-      "current_price": 102.08,
-      "change_pct": 0.26,
+      "current_price": 101.61,
+      "change_pct": -0.21,
       "extra_data": {
-        "regular_market_price": 102.08,
+        "regular_market_price": 101.61,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 101.82
       },
-      "kd_k": 15.72,
-      "kd_d": 22.91
+      "kd_k": 14.68,
+      "kd_d": 22.56
     }
   ],
   "errors": []
