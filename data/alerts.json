@@ -1,5 +1,32 @@
 [
   {
+    "id": "NFLX_20260818_overbought",
+    "symbol": "NFLX",
+    "name": "Netflix Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.75,
+    "kd_d": 78.59,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 78.875,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ NFLX (Netflix Inc.) is OVERBOUGHT! KD-K: 80.75, KD-D: 78.59 (>= 80)",
+    "timestamp": "2026-08-18T23:27:58.147303",
+    "date": "2026-08-18",
+    "acknowledged": false
+  },
+  {
     "id": "00665L.TW_20260818_oversold",
     "symbol": "00665L.TW",
     "name": "富邦恒生國企正2",
@@ -2469,31 +2496,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00733.TW (富邦臺灣中小) is OVERBOUGHT! KD-K: 86.39, KD-D: 82.91 (>= 80)",
     "timestamp": "2026-08-17T00:21:51.515225",
-    "date": "2026-08-17",
-    "acknowledged": false
-  },
-  {
-    "id": "00735.TW_20260817_overbought",
-    "symbol": "00735.TW",
-    "name": "國泰臺韓科技",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 87.69,
-    "kd_d": 82.81,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 103.1,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00735.TW (國泰臺韓科技) is OVERBOUGHT! KD-K: 87.69, KD-D: 82.81 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-17T00:21:51.515401",
     "date": "2026-08-17",
     "acknowledged": false
   }
