@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-18T11:41:08.961256",
+  "timestamp": "2026-08-18T12:31:57.139457",
   "date": "2026-08-18",
   "macro": {
     "taiex": {
-      "value": 45413.4,
+      "value": 45331.27,
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -13,7 +13,7 @@
       "change_pct": 0.6
     },
     "dxy": {
-      "value": 99.61,
+      "value": 99.67,
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -22,37 +22,37 @@
       "change": 0.94,
       "change_pct": 6.6,
       "label": "VIX Index",
-      "timestamp": "2026-08-18T11:41:01.104647"
+      "timestamp": "2026-08-18T12:31:50.787830"
     },
     "btc": {
-      "value": 64079.0,
+      "value": 64124.0,
       "change": 0,
       "change_pct": 0
     },
     "oil": {
-      "value": 85.08,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 85.23,
+      "change": 0.73,
+      "change_pct": 0.86
     },
     "gold": {
-      "value": 4452.7,
+      "value": 4446.5,
+      "change": 28.7,
+      "change_pct": 0.65
+    },
+    "sox": {
+      "value": 12417.05,
       "change": 0.0,
       "change_pct": 0.0
     },
-    "sox": {
-      "value": 12621.0,
-      "change": 203.96,
-      "change_pct": 1.64
-    },
     "ndx": {
-      "value": 29995.38,
-      "change": -50.76,
-      "change_pct": -0.17
+      "value": NaN,
+      "change": NaN,
+      "change_pct": NaN
     },
     "sp500": {
-      "value": 7745.06,
-      "change": -40.7,
-      "change_pct": -0.52
+      "value": NaN,
+      "change": NaN,
+      "change_pct": NaN
     }
   },
   "chip": {
@@ -134,8 +134,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.61 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.03pp（未達 0.15pp）",
-          "score": 11.3
+          "detail": "DXY 99.67 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.03pp（未達 0.15pp）",
+          "score": 11.9
         },
         {
           "id": "twd_depreciation",
@@ -166,7 +166,7 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 12621未跌破近20日支撐10447；NDX 29995未跌破近20日支撐27192；美債10Y 5日變動 +0.03pp（未達 0.15pp）",
+          "detail": "SOX 12417未跌破近20日支撐10447；NDX nan未跌破近20日支撐27192；美債10Y 5日變動 +0.03pp（未達 0.15pp）",
           "score": 60.0
         }
       ],
@@ -175,7 +175,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 38.3
+      "avg_score": 38.4
     },
     "bottom": {
       "conditions": [
@@ -246,15 +246,15 @@
     "as_of_date": "2026-08-17",
     "history_days": 51,
     "bottom": {
-      "total": 33.1,
+      "total": 33.0,
       "dimensions": [
         {
           "name": "macro",
-          "score": 12.8,
+          "score": 12.7,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 16.5 → 目前 15.2（強度 21/100，+3.1）",
-            "DXY 99.61 距近20日高點 -1.87%（美元壓力緩和強度 97/100，+9.7）"
+            "DXY 99.67 距近20日高點 -1.81%（美元壓力緩和強度 96/100，+9.6）"
           ]
         },
         {
@@ -292,15 +292,15 @@
       ]
     },
     "top": {
-      "total": 31.8,
+      "total": 31.9,
       "dimensions": [
         {
           "name": "macro",
-          "score": 7.7,
+          "score": 7.8,
           "cap": 25,
           "notes": [
-            "DXY 99.61 距近20日高點 -1.87%，美債10Y5日變動 +0.03pp（強度 11/100，+1.7）",
-            "SOX/NDX 距近20日支撐 +10.31%，美債10Y同步變動（強度 60/100，+6.0）"
+            "DXY 99.67 距近20日高點 -1.81%，美債10Y5日變動 +0.03pp（強度 12/100，+1.8）",
+            "SOX/NDX 距近20日支撐 +18.85%，美債10Y同步變動（強度 60/100，+6.0）"
           ]
         },
         {
@@ -401,7 +401,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 -1.2%；相對SOX -8.7pp、相對NDX -6.1pp"
+          "2330 近20日漲跌 -1.2%；相對SOX -7.0pp、相對NDX +nanpp"
         ]
       },
       {
@@ -817,6 +817,11 @@
       "meta": null
     },
     {
+      "title": "杜金龍減碼台積電 改押兩大低基期黑馬",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E7%AB%99%E5%9B%9E46000%E9%BB%9E%EF%BC%81%E6%9D%9C%E9%87%91%E9%BE%8D%E6%B8%9B%E7%A2%BC%E5%8F%B0%E7%A9%8D%E9%9B%BB%EF%BC%9A%E6%94%B9%E6%8A%BC%E9%80%99%E3%80%8C%E5%85%A9%E5%A4%A7%E9%BB%91%E9%A6%AC%E3%80%8D-205600234.html",
+      "meta": null
+    },
+    {
       "title": "連跌兩日失季線 外資壓低結算恐盯上聯發科",
       "url": "https://tw.stock.yahoo.com/news/%E7%84%A6%E9%BB%9E%E8%82%A1-%E8%81%AF%E7%99%BC%E7%A7%91-%E5%A4%96%E8%B3%87%E5%A3%93%E4%BD%8E%E7%B5%90%E7%AE%97%E7%A5%AD%E5%93%81-%E9%80%A3%E5%85%A9%E6%97%A5%E9%87%8D%E6%8C%AB%E6%91%9C%E7%A0%B4%E5%AD%A3%E7%B7%9A-024154209.html",
       "meta": null
@@ -832,33 +837,28 @@
       "meta": null
     },
     {
-      "title": "杜金龍減碼台積電 改押兩大低基期黑馬",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E7%AB%99%E5%9B%9E46000%E9%BB%9E%EF%BC%81%E6%9D%9C%E9%87%91%E9%BE%8D%E6%B8%9B%E7%A2%BC%E5%8F%B0%E7%A9%8D%E9%9B%BB%EF%BC%9A%E6%94%B9%E6%8A%BC%E9%80%99%E3%80%8C%E5%85%A9%E5%A4%A7%E9%BB%91%E9%A6%AC%E3%80%8D-205600234.html",
+      "title": "前10大赴陸最賺台企 鴻海囊括4席 工業富聯1家上半年暴賺716億元",
+      "url": "https://tw.stock.yahoo.com/news/%E5%89%8D10%E5%A4%A7%E8%B5%B4%E9%99%B8%E6%9C%80%E8%B3%BA%E5%8F%B0%E4%BC%81-%E9%B4%BB%E6%B5%B7%E5%9B%8A%E6%8B%AC4%E5%B8%AD-%E5%B7%A5%E6%A5%AD%E5%AF%8C%E8%81%AF1%E5%AE%B6%E4%B8%8A%E5%8D%8A%E5%B9%B4%E6%9A%B4%E8%B3%BA716%E5%84%84%E5%85%83-042353209.html",
       "meta": null
     },
     {
-      "title": "虹光明起恢復正常交易 盤中一度飆逾9%後收斂",
-      "url": "https://tw.stock.yahoo.com/news/%E8%99%B9%E5%85%89%E6%98%8E%E8%B5%B7%E6%81%A2%E5%BE%A9%E6%AD%A3%E5%B8%B8%E4%BA%A4%E6%98%93-%E7%9B%A4%E4%B8%AD%E4%B8%80%E5%BA%A6%E9%A3%86%E9%80%BE9%E5%BE%8C%E6%94%B6%E6%96%82-033451826.html",
+      "title": "赴陸投資收益仍寫新高！台光電超越台積電拿第2 鴻海一家占4成",
+      "url": "https://tw.stock.yahoo.com/news/%E8%B5%B4%E9%99%B8%E6%8A%95%E8%B3%87%E6%94%B6%E7%9B%8A%E4%BB%8D%E5%AF%AB%E6%96%B0%E9%AB%98%EF%BC%81%E5%8F%B0%E5%85%89%E9%9B%BB%E8%B6%85%E8%B6%8A%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%8B%BF%E7%AC%AC2-%E9%B4%BB%E6%B5%B7%E4%B8%80%E5%AE%B6%E5%8D%A04%E6%88%90-041345038.html",
       "meta": null
     },
     {
-      "title": "明年再普發1萬元！中研院揭前次經驗：僅4個月逾8成民眾就花光 擴大內需卻有限",
-      "url": "https://tw.stock.yahoo.com/news/%E6%98%8E%E5%B9%B4%E5%86%8D%E6%99%AE%E7%99%BC1%E8%90%AC%E5%85%83%EF%BC%81%E4%B8%AD%E7%A0%94%E9%99%A2%E6%8F%AD%E5%89%8D%E6%AC%A1%E7%B6%93%E9%A9%97%EF%BC%9A%E5%83%854%E5%80%8B%E6%9C%88%E9%80%BE8%E6%88%90%E6%B0%91%E7%9C%BE%E5%B0%B1%E8%8A%B1%E5%85%89-%E6%93%B4%E5%A4%A7%E5%85%A7%E9%9C%80%E5%8D%BB%E6%9C%89%E9%99%90-033022875.html",
+      "title": "【Hot台股】旺宏重摔半根停板！網歎「可以改名嗎...買入後都是綠的」分析師：等南亞科擴散效應",
+      "url": "https://tw.stock.yahoo.com/news/%E3%80%90hot%E5%8F%B0%E8%82%A1%E3%80%91%E6%97%BA%E5%AE%8F%E9%87%8D%E6%91%94%E5%8D%8A%E6%A0%B9%E5%81%9C%E6%9D%BF%EF%BC%81%E7%B6%B2%E6%AD%8E%E3%80%8C%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%90%8D%E5%97%8E%E8%B2%B7%E5%85%A5%E5%BE%8C%E9%83%BD%E6%98%AF%E7%B6%A0%E7%9A%84%E3%80%8D%E5%88%86%E6%9E%90%E5%B8%AB%EF%BC%9A%E7%AD%89%E5%8D%97%E4%BA%9E%E7%A7%91%E6%93%B4%E6%95%A3%E6%95%88%E6%87%89-040340065.html",
       "meta": null
     },
     {
-      "title": "股匯脫鉤！新台幣衝31.7字頭「1個半月新高」 分析師：恐因美伊停火破局變天",
-      "url": "https://tw.stock.yahoo.com/news/%E8%82%A1%E5%8C%AF%E8%84%AB%E9%89%A4%EF%BC%81%E6%96%B0%E5%8F%B0%E5%B9%A3%E8%A1%9D317%E5%AD%97%E9%A0%AD%E3%80%8C1%E5%80%8B%E5%8D%8A%E6%9C%88%E6%96%B0%E9%AB%98%E3%80%8D-%E5%88%86%E6%9E%90%E5%B8%AB%EF%BC%9A%E6%81%90%E5%9B%A0%E7%BE%8E%E4%BC%8A%E5%81%9C%E7%81%AB%E7%A0%B4%E5%B1%80%E8%AE%8A%E5%A4%A9-032453449.html",
+      "title": "17%年化配息率！最大半導體ETF 00891配息首日暫陷貼息",
+      "url": "https://tw.stock.yahoo.com/news/17%E5%B9%B4%E5%8C%96%E9%85%8D%E6%81%AF%E7%8E%87%EF%BC%81%E6%9C%80%E5%A4%A7%E5%8D%8A%E5%B0%8E%E9%AB%94etf-00891%E9%85%8D%E6%81%AF%E9%A6%96%E6%97%A5%E6%9A%AB%E9%99%B7%E8%B2%BC%E6%81%AF-034546423.html",
       "meta": null
     },
     {
-      "title": "少子化！全台私立幼兒園十年少了376校 何去何從？…建商買走了",
-      "url": "https://tw.stock.yahoo.com/news/%E5%B0%91%E5%AD%90%E5%8C%96%EF%BC%81%E5%85%A8%E5%8F%B0%E7%A7%81%E7%AB%8B%E5%B9%BC%E5%85%92%E5%9C%92%E5%8D%81%E5%B9%B4%E5%B0%91%E4%BA%86376%E6%A0%A1-%E4%BD%95%E5%8E%BB%E4%BD%95%E5%BE%9E%EF%BC%9F%E5%BB%BA%E5%95%86%E8%B2%B7%E8%B5%B0%E4%BA%86-031410814.html",
-      "meta": null
-    },
-    {
-      "title": "房市冷預售屋面臨去化壓力 非七都彰化破千戶居冠",
-      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E5%B8%82%E5%86%B7%E9%A0%90%E5%94%AE%E5%B1%8B%E9%9D%A2%E8%87%A8%E5%8E%BB%E5%8C%96%E5%A3%93%E5%8A%9B-%E9%9D%9E%E4%B8%83%E9%83%BD%E5%BD%B0%E5%8C%96%E7%A0%B4%E5%8D%83%E6%88%B6%E5%B1%85%E5%86%A0-030015565.html",
+      "title": "虹光8/19恢復正常交易 盤中一度飆逾9%後收斂",
+      "url": "https://tw.stock.yahoo.com/news/%E8%99%B9%E5%85%89819%E6%81%A2%E5%BE%A9%E6%AD%A3%E5%B8%B8%E4%BA%A4%E6%98%93-%E7%9B%A4%E4%B8%AD%E4%B8%80%E5%BA%A6%E9%A3%86%E9%80%BE9%E5%BE%8C%E6%94%B6%E6%96%82-033451826.html",
       "meta": null
     }
   ],
@@ -866,199 +866,199 @@
   "stocks_successful": 127,
   "stocks_failed": 0,
   "new_alerts": 0,
-  "overbought_count": 46,
+  "overbought_count": 45,
   "oversold_count": 5,
-  "normal_count": 76,
+  "normal_count": 77,
   "overbought_stocks": [
     {
       "symbol": "00403A.TW",
       "name": "主動統一升級50",
-      "current_price": 10.23,
-      "change_pct": -1.63,
+      "current_price": 10.16,
+      "change_pct": -2.31,
       "extra_data": {
-        "regular_market_price": 10.23,
+        "regular_market_price": 10.16,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 10.4
       },
-      "kd_k": 85.01,
-      "kd_d": 87.41
+      "kd_k": 82.09,
+      "kd_d": 86.44
     },
     {
       "symbol": "0050.TW",
       "name": "元大台灣50",
-      "current_price": 105.15,
-      "change_pct": -1.22,
+      "current_price": 105.1,
+      "change_pct": -1.27,
       "extra_data": {
-        "regular_market_price": 105.15,
+        "regular_market_price": 105.1,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 106.45
       },
-      "kd_k": 77.37,
-      "kd_d": 84.49
+      "kd_k": 77.07,
+      "kd_d": 84.39
     },
     {
       "symbol": "0056.TW",
       "name": "元大高股息",
-      "current_price": 52.55,
-      "change_pct": -0.85,
+      "current_price": 52.5,
+      "change_pct": -0.94,
       "extra_data": {
-        "regular_market_price": 52.55,
+        "regular_market_price": 52.5,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 53.0
       },
-      "kd_k": 71.47,
-      "kd_d": 80.2
+      "kd_k": 70.91,
+      "kd_d": 80.02
     },
     {
       "symbol": "006208.TW",
       "name": "富邦台50",
-      "current_price": 240.55,
-      "change_pct": -1.43,
+      "current_price": 240.05,
+      "change_pct": -1.64,
       "extra_data": {
-        "regular_market_price": 240.55,
+        "regular_market_price": 240.05,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 244.05
       },
-      "kd_k": 77.36,
-      "kd_d": 84.29
+      "kd_k": 76.01,
+      "kd_d": 83.83
     },
     {
       "symbol": "00631L.TW",
       "name": "元大台灣50正2",
-      "current_price": 35.1,
-      "change_pct": -2.36,
+      "current_price": 34.99,
+      "change_pct": -2.67,
       "extra_data": {
-        "regular_market_price": 35.1,
+        "regular_market_price": 34.99,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 35.95
       },
-      "kd_k": 75.84,
-      "kd_d": 82.96
+      "kd_k": 74.74,
+      "kd_d": 82.59
     },
     {
       "symbol": "00635U.TW",
       "name": "期元大S&P黃金",
-      "current_price": 45.54,
-      "change_pct": 0.0,
+      "current_price": 45.45,
+      "change_pct": -0.2,
       "extra_data": {
-        "regular_market_price": 45.54,
+        "regular_market_price": 45.45,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 45.54
       },
-      "kd_k": 81.46,
-      "kd_d": 82.22
+      "kd_k": 79.97,
+      "kd_d": 81.72
     },
     {
       "symbol": "00640L.TW",
       "name": "富邦日本正2",
-      "current_price": 111.7,
-      "change_pct": -0.8,
+      "current_price": 111.6,
+      "change_pct": -0.89,
       "extra_data": {
-        "regular_market_price": 111.7,
+        "regular_market_price": 111.6,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 112.6
       },
-      "kd_k": 83.72,
-      "kd_d": 87.8
+      "kd_k": 83.38,
+      "kd_d": 87.68
     },
     {
       "symbol": "00645.TW",
       "name": "富邦日本",
-      "current_price": 58.65,
-      "change_pct": -0.42,
+      "current_price": 58.6,
+      "change_pct": -0.51,
       "extra_data": {
-        "regular_market_price": 58.65,
+        "regular_market_price": 58.6,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 58.9
       },
-      "kd_k": 83.3,
-      "kd_d": 87.11
+      "kd_k": 82.64,
+      "kd_d": 86.9
     },
     {
       "symbol": "00663L.TW",
       "name": "國泰臺灣加權正2",
-      "current_price": 100.95,
-      "change_pct": -2.75,
+      "current_price": 100.6,
+      "change_pct": -3.08,
       "extra_data": {
-        "regular_market_price": 100.95,
+        "regular_market_price": 100.6,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 103.8
       },
-      "kd_k": 77.81,
-      "kd_d": 84.08
+      "kd_k": 76.73,
+      "kd_d": 83.72
     },
     {
       "symbol": "00670L.TW",
       "name": "富邦NASDAQ",
-      "current_price": 204.5,
-      "change_pct": -2.46,
+      "current_price": 204.65,
+      "change_pct": -2.38,
       "extra_data": {
-        "regular_market_price": 204.5,
+        "regular_market_price": 204.65,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 209.65
       },
-      "kd_k": 78.33,
-      "kd_d": 84.64
+      "kd_k": 78.81,
+      "kd_d": 84.8
     },
     {
       "symbol": "00685L.TW",
       "name": "群益臺灣加權正2",
-      "current_price": 11.56,
-      "change_pct": -2.36,
+      "current_price": 11.51,
+      "change_pct": -2.79,
       "extra_data": {
-        "regular_market_price": 11.56,
+        "regular_market_price": 11.51,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 11.84
       },
-      "kd_k": 78.35,
-      "kd_d": 83.91
+      "kd_k": 76.99,
+      "kd_d": 83.46
     },
     {
       "symbol": "00692.TW",
       "name": "富邦公司治理",
-      "current_price": 90.15,
-      "change_pct": -1.15,
+      "current_price": 90.05,
+      "change_pct": -1.26,
       "extra_data": {
-        "regular_market_price": 90.15,
+        "regular_market_price": 90.05,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 91.2
       },
-      "kd_k": 80.09,
-      "kd_d": 85.69
+      "kd_k": 79.3,
+      "kd_d": 85.43
     },
     {
       "symbol": "00708L.TW",
       "name": "期元大S&P黃金正2",
-      "current_price": 81.55,
-      "change_pct": -0.24,
+      "current_price": 81.45,
+      "change_pct": -0.37,
       "extra_data": {
-        "regular_market_price": 81.55,
+        "regular_market_price": 81.45,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 81.75
       },
-      "kd_k": 79.15,
-      "kd_d": 80.72
+      "kd_k": 78.69,
+      "kd_d": 80.57
     },
     {
       "symbol": "00715L.TW",
       "name": "期街口布蘭特正2",
-      "current_price": 50.6,
-      "change_pct": 6.82,
+      "current_price": 50.8,
+      "change_pct": 7.24,
       "extra_data": {
-        "regular_market_price": 50.6,
+        "regular_market_price": 50.8,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 47.37
@@ -1069,128 +1069,128 @@
     {
       "symbol": "00733.TW",
       "name": "富邦臺灣中小",
-      "current_price": 66.6,
-      "change_pct": -0.52,
+      "current_price": 66.5,
+      "change_pct": -0.67,
       "extra_data": {
-        "regular_market_price": 66.6,
+        "regular_market_price": 66.5,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 66.95
       },
-      "kd_k": 81.71,
-      "kd_d": 82.9
+      "kd_k": 81.19,
+      "kd_d": 82.73
     },
     {
       "symbol": "00735.TW",
       "name": "國泰臺韓科技",
-      "current_price": 102.5,
-      "change_pct": -1.49,
+      "current_price": 102.25,
+      "change_pct": -1.73,
       "extra_data": {
-        "regular_market_price": 102.5,
+        "regular_market_price": 102.25,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 104.05
       },
-      "kd_k": 81.91,
-      "kd_d": 83.84
+      "kd_k": 81.15,
+      "kd_d": 83.59
     },
     {
       "symbol": "00830.TW",
       "name": "國泰費城半導體",
-      "current_price": 87.55,
-      "change_pct": -0.85,
+      "current_price": 87.7,
+      "change_pct": -0.68,
       "extra_data": {
-        "regular_market_price": 87.55,
+        "regular_market_price": 87.7,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 88.3
       },
-      "kd_k": 79.16,
-      "kd_d": 81.8
+      "kd_k": 80.3,
+      "kd_d": 82.18
     },
     {
       "symbol": "00850.TW",
       "name": "元大臺灣ESG永續",
-      "current_price": 90.85,
-      "change_pct": -1.25,
+      "current_price": 90.6,
+      "change_pct": -1.52,
       "extra_data": {
-        "regular_market_price": 90.85,
+        "regular_market_price": 90.6,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 92.0
       },
-      "kd_k": 80.65,
-      "kd_d": 86.06
+      "kd_k": 79.09,
+      "kd_d": 85.54
     },
     {
       "symbol": "00893.TW",
       "name": "國泰智能電動車",
-      "current_price": 44.05,
-      "change_pct": -1.85,
+      "current_price": 44.08,
+      "change_pct": -1.78,
       "extra_data": {
-        "regular_market_price": 44.05,
+        "regular_market_price": 44.08,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 44.88
       },
-      "kd_k": 73.99,
-      "kd_d": 80.65
+      "kd_k": 74.58,
+      "kd_d": 80.85
     },
     {
       "symbol": "00895.TW",
       "name": "富邦未來車",
-      "current_price": 50.5,
-      "change_pct": -1.46,
+      "current_price": 50.55,
+      "change_pct": -1.37,
       "extra_data": {
-        "regular_market_price": 50.5,
+        "regular_market_price": 50.55,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 51.25
       },
-      "kd_k": 76.38,
-      "kd_d": 83.66
+      "kd_k": 77.4,
+      "kd_d": 84.0
     },
     {
       "symbol": "00905.TW",
       "name": "FT臺灣Smart",
-      "current_price": 26.17,
-      "change_pct": -1.25,
+      "current_price": 26.09,
+      "change_pct": -1.55,
       "extra_data": {
-        "regular_market_price": 26.17,
+        "regular_market_price": 26.09,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 26.5
       },
-      "kd_k": 82.87,
-      "kd_d": 86.63
+      "kd_k": 81.17,
+      "kd_d": 86.06
     },
     {
       "symbol": "00910.TW",
       "name": "第一金太空衛星",
-      "current_price": 63.45,
-      "change_pct": -0.78,
+      "current_price": 63.3,
+      "change_pct": -1.02,
       "extra_data": {
-        "regular_market_price": 63.45,
+        "regular_market_price": 63.3,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 63.95
       },
-      "kd_k": 80.4,
-      "kd_d": 85.87
+      "kd_k": 79.21,
+      "kd_d": 85.47
     },
     {
       "symbol": "00911.TW",
       "name": "兆豐洲際半導體",
-      "current_price": 55.9,
-      "change_pct": -0.18,
+      "current_price": 55.85,
+      "change_pct": -0.27,
       "extra_data": {
-        "regular_market_price": 55.9,
+        "regular_market_price": 55.85,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 56.0
       },
-      "kd_k": 86.42,
-      "kd_d": 83.02
+      "kd_k": 85.85,
+      "kd_d": 82.83
     },
     {
       "symbol": "00921.TW",
@@ -1209,100 +1209,86 @@
     {
       "symbol": "00922.TW",
       "name": "國泰台灣領袖50",
-      "current_price": 40.71,
-      "change_pct": -1.29,
+      "current_price": 40.67,
+      "change_pct": -1.38,
       "extra_data": {
-        "regular_market_price": 40.71,
+        "regular_market_price": 40.67,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 41.24
       },
-      "kd_k": 78.6,
-      "kd_d": 85.09
+      "kd_k": 78.04,
+      "kd_d": 84.9
     },
     {
       "symbol": "00934.TW",
       "name": "中信成長高股息",
-      "current_price": 28.42,
-      "change_pct": -2.5,
+      "current_price": 28.37,
+      "change_pct": -2.68,
       "extra_data": {
-        "regular_market_price": 28.42,
+        "regular_market_price": 28.37,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 29.15
       },
-      "kd_k": 68.33,
-      "kd_d": 81.31
-    },
-    {
-      "symbol": "00935.TW",
-      "name": "野村臺灣創新科技50",
-      "current_price": 57.35,
-      "change_pct": -1.71,
-      "extra_data": {
-        "regular_market_price": 57.35,
-        "pre_market_price": null,
-        "post_market_price": null,
-        "prev_close": 58.35
-      },
-      "kd_k": 72.59,
-      "kd_d": 80.5
+      "kd_k": 67.38,
+      "kd_d": 80.99
     },
     {
       "symbol": "00980A.TW",
       "name": "主動野村臺灣優選",
-      "current_price": 24.72,
-      "change_pct": -3.51,
+      "current_price": 24.54,
+      "change_pct": -4.22,
       "extra_data": {
-        "regular_market_price": 24.72,
+        "regular_market_price": 24.54,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 25.62
       },
-      "kd_k": 84.32,
-      "kd_d": 89.2
+      "kd_k": 82.07,
+      "kd_d": 88.45
     },
     {
       "symbol": "00981A.TW",
       "name": "主動統一台股增長",
-      "current_price": 29.91,
-      "change_pct": -1.58,
+      "current_price": 29.65,
+      "change_pct": -2.44,
       "extra_data": {
-        "regular_market_price": 29.91,
+        "regular_market_price": 29.65,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 30.39
       },
-      "kd_k": 86.84,
-      "kd_d": 88.28
+      "kd_k": 83.76,
+      "kd_d": 87.25
     },
     {
       "symbol": "00988A.TW",
       "name": "主動統一全球創新",
-      "current_price": 17.37,
-      "change_pct": -1.81,
+      "current_price": 17.38,
+      "change_pct": -1.75,
       "extra_data": {
-        "regular_market_price": 17.37,
+        "regular_market_price": 17.38,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 17.69
       },
-      "kd_k": 80.4,
-      "kd_d": 79.65
+      "kd_k": 80.6,
+      "kd_d": 79.72
     },
     {
       "symbol": "00992A.TW",
       "name": "主動群益科技創新",
-      "current_price": 18.09,
-      "change_pct": -0.77,
+      "current_price": 17.9,
+      "change_pct": -1.81,
       "extra_data": {
-        "regular_market_price": 18.09,
+        "regular_market_price": 17.9,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 18.23
       },
-      "kd_k": 91.15,
-      "kd_d": 90.79
+      "kd_k": 87.85,
+      "kd_d": 89.69
     },
     {
       "symbol": "NVDA",
@@ -1519,10 +1505,10 @@
     {
       "symbol": "00652.TW",
       "name": "富邦印度",
-      "current_price": 33.19,
-      "change_pct": -0.36,
+      "current_price": 33.17,
+      "change_pct": -0.42,
       "extra_data": {
-        "regular_market_price": 33.19,
+        "regular_market_price": 33.17,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 33.31
@@ -1533,30 +1519,30 @@
     {
       "symbol": "00653L.TW",
       "name": "富邦印度正2",
-      "current_price": 47.16,
-      "change_pct": 0.0,
+      "current_price": 47.01,
+      "change_pct": -0.32,
       "extra_data": {
-        "regular_market_price": 47.16,
+        "regular_market_price": 47.01,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 47.16
       },
-      "kd_k": 12.55,
-      "kd_d": 29.45
+      "kd_k": 11.52,
+      "kd_d": 29.11
     },
     {
       "symbol": "00665L.TW",
       "name": "富邦恒生國企正2",
-      "current_price": 9.26,
-      "change_pct": -2.11,
+      "current_price": 9.27,
+      "change_pct": -2.01,
       "extra_data": {
-        "regular_market_price": 9.26,
+        "regular_market_price": 9.27,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 9.46
       },
-      "kd_k": 18.12,
-      "kd_d": 25.64
+      "kd_k": 18.54,
+      "kd_d": 25.78
     },
     {
       "symbol": "GOOGL",
