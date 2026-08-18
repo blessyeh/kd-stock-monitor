@@ -1,5 +1,55 @@
 [
   {
+    "id": "00665L.TW_20260818_oversold",
+    "symbol": "00665L.TW",
+    "name": "富邦恒生國企正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.4,
+    "kd_d": 26.07,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 9.29,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00665L.TW (富邦恒生國企正2) is OVERSOLD! KD-K: 19.4, KD-D: 26.07 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-18T10:17:59.659597",
+    "date": "2026-08-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00715L.TW_20260818_overbought",
+    "symbol": "00715L.TW",
+    "name": "期街口布蘭特正2",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 84.26,
+    "kd_d": 72.57,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 50.3,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00715L.TW (期街口布蘭特正2) is OVERBOUGHT! KD-K: 84.26, KD-D: 72.57 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-18T10:17:59.660588",
+    "date": "2026-08-18",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260818_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2444,54 +2494,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00735.TW (國泰臺韓科技) is OVERBOUGHT! KD-K: 87.69, KD-D: 82.81 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-17T00:21:51.515401",
-    "date": "2026-08-17",
-    "acknowledged": false
-  },
-  {
-    "id": "00757.TW_20260817_overbought",
-    "symbol": "00757.TW",
-    "name": "統一FANG+",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.96,
-    "kd_d": 85.75,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 141.5,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00757.TW (統一FANG+) is OVERBOUGHT! KD-K: 85.96, KD-D: 85.75 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-17T00:21:51.515586",
-    "date": "2026-08-17",
-    "acknowledged": false
-  },
-  {
-    "id": "00770.TW_20260817_overbought",
-    "symbol": "00770.TW",
-    "name": "國泰北美科技",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 84.59,
-    "kd_d": 82.83,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 70.1,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00770.TW (國泰北美科技) is OVERBOUGHT! KD-K: 84.59, KD-D: 82.83 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-17T00:21:51.515755",
     "date": "2026-08-17",
     "acknowledged": false
   }
