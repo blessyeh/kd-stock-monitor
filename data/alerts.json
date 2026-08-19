@@ -1,5 +1,109 @@
 [
   {
+    "id": "AVGO_20260819_oversold",
+    "symbol": "AVGO",
+    "name": "Broadcom Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.76,
+    "kd_d": 39.03,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 363.92,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ AVGO (Broadcom Inc.) is OVERSOLD! KD-K: 18.76, KD-D: 39.03 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-19T21:41:02.692352",
+    "date": "2026-08-19",
+    "acknowledged": false
+  },
+  {
+    "id": "FBL_20260819_oversold",
+    "symbol": "FBL",
+    "name": "GraniteShares 2x Long META Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.19,
+    "kd_d": 36.19,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 18.38,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ FBL (GraniteShares 2x Long META Daily ETF) is OVERSOLD! KD-K: 19.19, KD-D: 36.19 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-19T21:41:02.693220",
+    "date": "2026-08-19",
+    "acknowledged": false
+  },
+  {
+    "id": "NFXL_20260819_overbought",
+    "symbol": "NFXL",
+    "name": "Direxion Daily NFLX Bull 2X Shares",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.48,
+    "kd_d": 77.49,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 18.4066,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ NFXL (Direxion Daily NFLX Bull 2X Shares) is OVERBOUGHT! KD-K: 81.48, KD-D: 77.49 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-19T21:41:02.693646",
+    "date": "2026-08-19",
+    "acknowledged": false
+  },
+  {
+    "id": "AVGX_20260819_oversold",
+    "symbol": "AVGX",
+    "name": "Defiance Daily Target 2X Long AVGO ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.16,
+    "kd_d": 37.92,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 41.48,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ AVGX (Defiance Daily Target 2X Long AVGO ETF) is OVERSOLD! KD-K: 18.16, KD-D: 37.92 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-19T21:41:02.693852",
+    "date": "2026-08-19",
+    "acknowledged": false
+  },
+  {
     "id": "00907.TW_20260819_overbought",
     "symbol": "00907.TW",
     "name": "永豐優息存股",
@@ -2370,106 +2474,6 @@
     "market_regime_label": null,
     "message": "✅ AMZN (Amazon.com Inc.) is OVERSOLD! KD-K: 18.79, KD-D: 38.01 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-18T00:24:02.558577",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "PLTR_20260818_overbought",
-    "symbol": "PLTR",
-    "name": "Palantir Technologies Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 84.94,
-    "kd_d": 85.01,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 174.305,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ PLTR (Palantir Technologies Inc.) is OVERBOUGHT! KD-K: 84.94, KD-D: 85.01 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-18T00:24:02.558776",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "MU_20260818_overbought",
-    "symbol": "MU",
-    "name": "Micron Technology Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 86.27,
-    "kd_d": 76.35,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 1029.27,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ MU (Micron Technology Inc.) is OVERBOUGHT! KD-K: 86.27, KD-D: 76.35 (>= 80)",
-    "timestamp": "2026-08-18T00:24:02.558980",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "TSM_20260818_overbought",
-    "symbol": "TSM",
-    "name": "Taiwan Semiconductor Manufacturing Company Ltd.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.15,
-    "kd_d": 81.9,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 435.52,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ TSM (Taiwan Semiconductor Manufacturing Company Ltd.) is OVERBOUGHT! KD-K: 85.15, KD-D: 81.9 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-18T00:24:02.559190",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "VT_20260818_overbought",
-    "symbol": "VT",
-    "name": "Vanguard Total World Stock ETF",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 90.13,
-    "kd_d": 88.22,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 162.415,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ VT (Vanguard Total World Stock ETF) is OVERBOUGHT! KD-K: 90.13, KD-D: 88.22 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-18T00:24:02.559367",
     "date": "2026-08-18",
     "acknowledged": false
   }
