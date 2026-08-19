@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-19T14:37:35.241397",
+  "timestamp": "2026-08-19T15:34:48.363902",
   "date": "2026-08-19",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -0.38
     },
     "dxy": {
-      "value": 99.46,
-      "change": -0.19,
-      "change_pct": -0.19
+      "value": 99.49,
+      "change": -0.16,
+      "change_pct": -0.16
     },
     "fear_greed": {
-      "value": 15.84,
-      "change": 0.65,
-      "change_pct": 4.28,
+      "value": 15.95,
+      "change": 0.11,
+      "change_pct": 0.69,
       "label": "VIX Index",
-      "timestamp": "2026-08-19T14:37:26.875684"
+      "timestamp": "2026-08-19T15:34:41.854815"
     },
     "btc": {
-      "value": 64236.0,
-      "change": 0,
-      "change_pct": 0
+      "value": 64323.0,
+      "change": -358.0,
+      "change_pct": -0.55
     },
     "oil": {
-      "value": 84.59,
-      "change": -0.35,
-      "change_pct": -0.41
+      "value": 84.68,
+      "change": -0.26,
+      "change_pct": -0.31
     },
     "gold": {
-      "value": 4396.2,
-      "change": 30.2,
-      "change_pct": 0.69
+      "value": 4407.3,
+      "change": 41.3,
+      "change_pct": 0.95
     },
     "sox": {
       "value": 11992.46,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.46 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
-          "score": 9.4
+          "detail": "DXY 99.49 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
+          "score": 9.5
         },
         {
           "id": "twd_depreciation",
@@ -186,7 +186,7 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 15.8（<= 30.0門檻）；目前 15.8（較高點回落 0%，門檻 15%）",
+          "detail": "近10日VIX高點 15.9（<= 30.0門檻）；目前 15.9（較高點回落 0%，門檻 15%）",
           "score": 10.0
         },
         {
@@ -255,8 +255,8 @@
           "score": 11.5,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 15.8 → 目前 15.8（強度 10/100，+1.5）",
-            "DXY 99.46 距近20日高點 -2.02%（美元壓力緩和強度 100/100，+10.0）"
+            "VIX 近10日高點 15.9 → 目前 15.9（強度 10/100，+1.5）",
+            "DXY 99.49 距近20日高點 -1.99%（美元壓力緩和強度 100/100，+10.0）"
           ]
         },
         {
@@ -288,20 +288,20 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近50筆歷史樣本的第 28 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近50筆歷史樣本的第 30 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 23.8,
+      "total": 23.5,
       "dimensions": [
         {
           "name": "macro",
           "score": 7.4,
           "cap": 25,
           "notes": [
-            "DXY 99.46 距近20日高點 -2.02%，美債10Y5日變動 +0.02pp（強度 9/100，+1.4）",
+            "DXY 99.49 距近20日高點 -1.99%，美債10Y5日變動 +0.02pp（強度 10/100，+1.4）",
             "SOX/NDX 距近20日支撐 +8.45%，美債10Y同步變動（強度 59/100，+5.9）"
           ]
         },
@@ -331,10 +331,10 @@
         },
         {
           "name": "sentiment",
-          "score": 5.8,
+          "score": 5.5,
           "cap": 10,
           "notes": [
-            "VIX 處於近50筆歷史樣本的第 28 百分位（自滿強度 58/100，+5.8）"
+            "VIX 處於近50筆歷史樣本的第 30 百分位（自滿強度 55/100，+5.5）"
           ]
         }
       ]
@@ -815,8 +815,23 @@
   },
   "news": [
     {
-      "title": "已超過2200家 包租代管業者暴增10倍",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8C%85%E7%A7%9F%E4%BB%A3%E7%AE%A1%E4%B8%8D%E5%8F%AA%E6%98%AF%E6%94%B6%E7%A7%9F%EF%BC%81%E6%A5%AD%E8%80%85%E6%9A%B4%E5%A2%9E10%E5%80%8D-%E5%8D%83%E8%90%AC%E4%BA%BA%E5%8A%9B%E6%92%90%E8%B5%B7%E6%9C%8D%E5%8B%99%E6%88%B0-015134044.html",
+      "title": "率宏碁半世紀 施振榮後悔賣股收入分員工",
+      "url": "https://tw.stock.yahoo.com/news/%E5%AE%8F%E7%A2%81%E5%8D%8A%E4%B8%96%E7%B4%80%E5%82%B3%E5%A5%872-%E5%9B%9E%E9%A6%963%E5%BA%A6%E6%94%B9%E9%80%A0%E5%AE%8F%E7%A2%81-%E6%96%BD%E6%8C%AF%E6%A6%AE%E5%9D%A6%E8%A8%80-%E9%81%BA%E6%86%BE-%E5%A4%B1%E6%95%97-222857152.html",
+      "meta": null
+    },
+    {
+      "title": "006208分割「只聞樓梯響」卡在兩關鍵",
+      "url": "https://tw.stock.yahoo.com/news/%E8%82%A1%E5%83%B9%E9%AB%98%E5%88%B0%E5%BF%AB%E8%B2%B7%E4%B8%8D%E8%B5%B7-006208%E6%9C%89%E6%9C%9B%E5%88%86%E5%89%B2-1%E6%8B%864-%E5%B0%88%E5%AE%B6%E6%9B%9D1%E8%A8%8A%E8%99%9F-%E5%85%88%E8%B7%A8%E9%81%8E2%E9%81%93%E9%96%80%E6%AA%BB-064907585.html",
+      "meta": null
+    },
+    {
+      "title": "林百里「金孫」達明 機器人展秀四大應用",
+      "url": "https://tw.stock.yahoo.com/news/%E6%A9%9F%E5%99%A8%E4%BA%BA%E5%B1%95%E9%A9%9A%E8%A6%8B-%E6%9E%97%E7%99%BE%E9%87%8C%E5%B0%8F%E9%87%91%E5%AD%AB-%E6%89%8B%E6%AF%94%E6%84%9B%E5%BF%83%E8%90%8C%E7%88%86-%E9%9B%99%E8%87%82%E4%BD%9C%E6%A5%AD%E8%8D%B7%E9%87%8D%E7%99%BE%E5%85%AC%E6%96%A4%E8%B6%85%E7%8B%82-063200405.html",
+      "meta": null
+    },
+    {
+      "title": "「聽來的明牌最貴」 長線達人揭選股心法",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%94%BB%E9%98%B2%E6%88%B02%EF%BC%8F%E3%80%8C%E5%A4%A7%E5%AE%B6%E7%98%8B%E4%BB%80%E9%BA%BC%E6%88%91%E5%B0%B1%E9%81%BF%E9%96%8B%E3%80%8D-%E9%95%B7%E7%B7%9A%E9%81%94%E4%BA%BA%E6%8F%AD%E9%81%B8%E8%82%A1%E5%8F%8D%E4%BA%BA%E6%80%A7%E5%BF%83%E6%B3%95-035500780.html",
       "meta": null
     },
     {
@@ -825,43 +840,28 @@
       "meta": null
     },
     {
-      "title": "奇鋐狂飆逾4%完成填息 率族群殺出重圍",
-      "url": "https://tw.stock.yahoo.com/news/00403a%E7%8B%82%E7%A0%8D515%E5%BC%B5%E4%B9%9F%E5%A3%93%E4%B8%8D%E4%BD%8F-%E6%95%A3%E7%86%B1%E7%8E%8B-%E7%A7%80-%E6%97%A5%E5%A1%AB%E6%81%AF%E7%8B%82%E9%A3%86%E9%80%BE4-%E7%8E%87%E6%97%8F%E7%BE%A4%E6%AE%BA%E5%87%BA%E5%8D%83%E9%BB%9E%E9%87%8D%E6%8C%AB-052300095.html",
+      "title": "最低工資有望破3萬元！林伯豐挺加薪：本勞效率不輸移工「應該更高」",
+      "url": "https://tw.stock.yahoo.com/news/%E6%9C%80%E4%BD%8E%E5%B7%A5%E8%B3%87%E6%9C%89%E6%9C%9B%E7%A0%B43%E8%90%AC%E5%85%83%EF%BC%81%E6%9E%97%E4%BC%AF%E8%B1%90%E6%8C%BA%E5%8A%A0%E8%96%AA%EF%BC%9A%E6%9C%AC%E5%8B%9E%E6%95%88%E7%8E%87%E4%B8%8D%E8%BC%B8%E7%A7%BB%E5%B7%A5%E3%80%8C%E6%87%89%E8%A9%B2%E6%9B%B4%E9%AB%98%E3%80%8D-071350386.html",
       "meta": null
     },
     {
-      "title": "指數失守4萬5 散熱被動元件逆風亮紅光",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8A%A0%E6%AC%8A%E6%8C%87%E6%95%B8%E8%B7%8C%E7%A0%B4%E5%9B%9B%E8%90%AC%E4%BA%94-%E6%95%A3%E7%86%B1-%E8%A2%AB%E5%8B%95%E5%85%83%E4%BB%B6%E8%82%A1%E9%80%86%E5%8B%A2%E6%8A%97%E8%B7%8C%E6%92%90%E7%9B%A4-042153933.html",
+      "title": "【Follow法人】三大法人大砍708億元！外資續倒貨416億元 分析師：籌碼未極度看空",
+      "url": "https://tw.stock.yahoo.com/news/%E3%80%90follow%E6%B3%95%E4%BA%BA%E3%80%91%E4%B8%89%E5%A4%A7%E6%B3%95%E4%BA%BA%E5%A4%A7%E7%A0%8D708%E5%84%84%E5%85%83%EF%BC%81%E5%A4%96%E8%B3%87%E7%BA%8C%E5%80%92%E8%B2%A8416%E5%84%84%E5%85%83-%E5%88%86%E6%9E%90%E5%B8%AB%EF%BC%9A%E7%B1%8C%E7%A2%BC%E6%9C%AA%E6%A5%B5%E5%BA%A6%E7%9C%8B%E7%A9%BA-070510594.html",
       "meta": null
     },
     {
-      "title": "跌破季線還沒完？投顧董座曝恐打第2隻腳",
-      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E5%82%B5%E6%AE%96%E5%88%A9%E7%8E%87%E9%A3%861-%E5%8F%B0%E8%82%A1%E8%B7%8C%E7%A0%B4%E5%AD%A3%E7%B7%9A%E9%82%84%E6%B2%92%E5%AE%8C-%E6%8A%95%E9%A1%A7%E8%91%A3%E5%BA%A7%E7%A4%BA%E8%AD%A6-%E6%81%90%E6%89%93-%E7%AC%AC2%E9%9A%BB%E8%85%B3-043000410.html",
+      "title": "超過8成長輩每周逛超商！全家董座葉榮廷：成為長輩巷口「那棵大榕樹」",
+      "url": "https://tw.stock.yahoo.com/news/%E8%B6%85%E9%81%8E8%E6%88%90%E9%95%B7%E8%BC%A9%E6%AF%8F%E5%91%A8%E9%80%9B%E8%B6%85%E5%95%86%EF%BC%81%E5%85%A8%E5%AE%B6%E8%91%A3%E5%BA%A7%E8%91%89%E6%A6%AE%E5%BB%B7%EF%BC%9A%E6%88%90%E7%82%BA%E9%95%B7%E8%BC%A9%E5%B7%B7%E5%8F%A3%E3%80%8C%E9%82%A3%E6%A3%B5%E5%A4%A7%E6%A6%95%E6%A8%B9%E3%80%8D-070117754.html",
+      "meta": null
+    },
+    {
+      "title": "普發一萬應加碼變2萬元？林伯豐：民眾若想要就該發",
+      "url": "https://tw.stock.yahoo.com/news/%E6%99%AE%E7%99%BC%E4%B8%80%E8%90%AC%E6%87%89%E5%8A%A0%E7%A2%BC%E8%AE%8A2%E8%90%AC%E5%85%83%EF%BC%9F%E6%9E%97%E4%BC%AF%E8%B1%90%EF%BC%9A%E6%B0%91%E7%9C%BE%E8%8B%A5%E6%83%B3%E8%A6%81%E5%B0%B1%E8%A9%B2%E7%99%BC-063828981.html",
       "meta": null
     },
     {
       "title": "頭獎抱走5萬元！手機報稅今抽獎 中獎名單8/21下午公布",
       "url": "https://tw.stock.yahoo.com/news/%E9%A0%AD%E7%8D%8E%E6%8A%B1%E8%B5%B05%E8%90%AC%E5%85%83%EF%BC%81%E6%89%8B%E6%A9%9F%E5%A0%B1%E7%A8%85%E4%BB%8A%E6%8A%BD%E7%8D%8E-%E4%B8%AD%E7%8D%8E%E5%90%8D%E5%96%AE821%E4%B8%8B%E5%8D%88%E5%85%AC%E5%B8%83-060857330.html",
-      "meta": null
-    },
-    {
-      "title": "要發展AI先給電！ 企業大老林伯豐：核電、綠電必須共生",
-      "url": "https://tw.stock.yahoo.com/news/%E8%A6%81%E7%99%BC%E5%B1%95ai%E5%85%88%E7%B5%A6%E9%9B%BB%EF%BC%81-%E4%BC%81%E6%A5%AD%E5%A4%A7%E8%80%81%E6%9E%97%E4%BC%AF%E8%B1%90%EF%BC%9A%E6%A0%B8%E9%9B%BB%E3%80%81%E7%B6%A0%E9%9B%BB%E5%BF%85%E9%A0%88%E5%85%B1%E7%94%9F-060840823.html",
-      "meta": null
-    },
-    {
-      "title": "千萬預算買宅 竹北只剩9%最低",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8D%83%E8%90%AC%E9%A0%90%E7%AE%97%E8%B2%B7%E5%AE%85-%E7%AB%B9%E5%8C%97%E5%8F%AA%E5%89%A99%E6%9C%80%E4%BD%8E-034838392.html",
-      "meta": null
-    },
-    {
-      "title": "常去小七領包裹注意！7-ELEVEN取件流程有變 全台改「電子簽名」",
-      "url": "https://tw.stock.yahoo.com/news/%E5%B8%B8%E5%8E%BB%E5%B0%8F%E4%B8%83%E9%A0%98%E5%8C%85%E8%A3%B9%E6%B3%A8%E6%84%8F%EF%BC%817-eleven%E5%8F%96%E4%BB%B6%E6%B5%81%E7%A8%8B%E6%9C%89%E8%AE%8A-%E5%85%A8%E5%8F%B0%E6%94%B9%E3%80%8C%E9%9B%BB%E5%AD%90%E7%B0%BD%E5%90%8D%E3%80%8D-033901167.html",
-      "meta": null
-    },
-    {
-      "title": "【Hot台股】陽明翻紅爆量6萬張！網喊「航運現在才想起自己是反一」 分析師：追價審慎",
-      "url": "https://tw.stock.yahoo.com/news/%E3%80%90hot%E5%8F%B0%E8%82%A1%E3%80%91%E9%99%BD%E6%98%8E%E7%BF%BB%E7%B4%85%E7%88%86%E9%87%8F6%E8%90%AC%E5%BC%B5%EF%BC%81%E7%B6%B2%E5%96%8A%E3%80%8C%E8%88%AA%E9%81%8B%E7%8F%BE%E5%9C%A8%E6%89%8D%E6%83%B3%E8%B5%B7%E8%87%AA%E5%B7%B1%E6%98%AF%E5%8F%8D%E4%B8%80%E3%80%8D-%E5%88%86%E6%9E%90%E5%B8%AB%EF%BC%9A%E8%BF%BD%E5%83%B9%E5%AF%A9%E6%85%8E-032830577.html",
       "meta": null
     }
   ],
