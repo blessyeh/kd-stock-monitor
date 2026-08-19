@@ -1,5 +1,30 @@
 [
   {
+    "id": "NFXL_20260820_overbought",
+    "symbol": "NFXL",
+    "name": "Direxion Daily NFLX Bull 2X Shares",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.28,
+    "kd_d": 77.09,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 19.2099,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ NFXL (Direxion Daily NFLX Bull 2X Shares) is OVERBOUGHT! KD-K: 80.28, KD-D: 77.09 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-20T02:28:44.782969",
+    "date": "2026-08-20",
+    "acknowledged": false
+  },
+  {
     "id": "GOOGL_20260820_oversold",
     "symbol": "GOOGL",
     "name": "Alphabet Inc.",
@@ -2448,30 +2473,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00923.TW (群益台ESG低碳50) is OVERBOUGHT! KD-K: 87.12, KD-D: 87.43 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-18T00:24:02.555730",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "00929.TW_20260818_overbought",
-    "symbol": "00929.TW",
-    "name": "復華台灣科技優息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 73.48,
-    "kd_d": 80.77,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 29.2,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00929.TW (復華台灣科技優息) is OVERBOUGHT! KD-K: 73.48, KD-D: 80.77 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-18T00:24:02.555930",
     "date": "2026-08-18",
     "acknowledged": false
   }
