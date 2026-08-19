@@ -1,5 +1,30 @@
 [
   {
+    "id": "00852L.TW_20260819_oversold",
+    "symbol": "00852L.TW",
+    "name": "國泰美國道瓊正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 16.8,
+    "kd_d": 37.1,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 35.55,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00852L.TW (國泰美國道瓊正2) is OVERSOLD! KD-K: 16.8, KD-D: 37.1 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-19T11:42:33.958121",
+    "date": "2026-08-19",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260819_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2442,30 +2467,6 @@
     "market_regime_label": null,
     "message": "⚠️ VOO (Vanguard S&P 500 ETF) is OVERBOUGHT! KD-K: 81.24, KD-D: 84.47 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-18T00:24:02.559587",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "SPY_20260818_overbought",
-    "symbol": "SPY",
-    "name": "SPDR S&P 500 ETF Trust",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 81.26,
-    "kd_d": 84.52,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 775.57,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ SPY (SPDR S&P 500 ETF Trust) is OVERBOUGHT! KD-K: 81.26, KD-D: 84.52 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-18T00:24:02.559768",
     "date": "2026-08-18",
     "acknowledged": false
   }
