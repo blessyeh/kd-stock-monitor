@@ -1,5 +1,56 @@
 [
   {
+    "id": "GOOGL_20260820_oversold",
+    "symbol": "GOOGL",
+    "name": "Alphabet Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.66,
+    "kd_d": 22.48,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 343.8,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ GOOGL (Alphabet Inc.) is OVERSOLD! KD-K: 17.66, KD-D: 22.48 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-20T01:23:04.759992",
+    "date": "2026-08-20",
+    "acknowledged": false
+  },
+  {
+    "id": "AMZU_20260820_oversold",
+    "symbol": "AMZU",
+    "name": "Direxion Daily AMZN Bull 2X Shares",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.38,
+    "kd_d": 26.23,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 39.12,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ AMZU (Direxion Daily AMZN Bull 2X Shares) is OVERSOLD! KD-K: 19.38, KD-D: 26.23 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-20T01:23:04.760230",
+    "date": "2026-08-20",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260820_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2421,54 +2472,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00929.TW (復華台灣科技優息) is OVERBOUGHT! KD-K: 73.48, KD-D: 80.77 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-18T00:24:02.555930",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "00934.TW_20260818_overbought",
-    "symbol": "00934.TW",
-    "name": "中信成長高股息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.07,
-    "kd_d": 87.79,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 29.15,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00934.TW (中信成長高股息) is OVERBOUGHT! KD-K: 85.07, KD-D: 87.79 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-18T00:24:02.556137",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "00935.TW_20260818_overbought",
-    "symbol": "00935.TW",
-    "name": "野村臺灣創新科技50",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 82.47,
-    "kd_d": 84.46,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 58.35,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00935.TW (野村臺灣創新科技50) is OVERBOUGHT! KD-K: 82.47, KD-D: 84.46 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-18T00:24:02.556340",
     "date": "2026-08-18",
     "acknowledged": false
   }
