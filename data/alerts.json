@@ -1,5 +1,32 @@
 [
   {
+    "id": "00907.TW_20260819_overbought",
+    "symbol": "00907.TW",
+    "name": "永豐優息存股",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.6,
+    "kd_d": 72.12,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 17.05,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00907.TW (永豐優息存股) is OVERBOUGHT! KD-K: 82.6, KD-D: 72.12 (>= 80)",
+    "timestamp": "2026-08-19T12:33:01.902440",
+    "date": "2026-08-19",
+    "acknowledged": false
+  },
+  {
     "id": "00852L.TW_20260819_oversold",
     "symbol": "00852L.TW",
     "name": "國泰美國道瓊正2",
@@ -2443,30 +2470,6 @@
     "market_regime_label": null,
     "message": "⚠️ VT (Vanguard Total World Stock ETF) is OVERBOUGHT! KD-K: 90.13, KD-D: 88.22 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-18T00:24:02.559367",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "VOO_20260818_overbought",
-    "symbol": "VOO",
-    "name": "Vanguard S&P 500 ETF",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 81.24,
-    "kd_d": 84.47,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 712.9,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ VOO (Vanguard S&P 500 ETF) is OVERBOUGHT! KD-K: 81.24, KD-D: 84.47 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-18T00:24:02.559587",
     "date": "2026-08-18",
     "acknowledged": false
   }
