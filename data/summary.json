@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-20T19:23:03.275662",
+  "timestamp": "2026-08-20T20:39:32.232864",
   "date": "2026-08-20",
   "macro": {
     "taiex": {
@@ -8,36 +8,36 @@
       "change_pct": 0.48
     },
     "us10y": {
-      "value": 4.653,
-      "change": -0.053,
-      "change_pct": -1.13
+      "value": 4.706,
+      "change": 0.053,
+      "change_pct": 1.14
     },
     "dxy": {
-      "value": 98.73,
-      "change": -0.1,
-      "change_pct": -0.1
+      "value": 98.77,
+      "change": -0.06,
+      "change_pct": -0.06
     },
     "fear_greed": {
-      "value": 15.17,
-      "change": 0.28,
-      "change_pct": 1.88,
+      "value": 15.92,
+      "change": 1.03,
+      "change_pct": 6.92,
       "label": "VIX Index",
-      "timestamp": "2026-08-20T19:22:55.365928"
+      "timestamp": "2026-08-20T20:39:24.627261"
     },
     "btc": {
-      "value": 71949.0,
-      "change": 2683.0,
-      "change_pct": 3.87
+      "value": 71723.0,
+      "change": 2457.0,
+      "change_pct": 3.55
     },
     "oil": {
-      "value": 86.87,
-      "change": 1.04,
-      "change_pct": 1.21
+      "value": 87.61,
+      "change": 1.78,
+      "change_pct": 2.07
     },
     "gold": {
-      "value": 4543.7,
-      "change": 54.3,
-      "change_pct": 1.21
+      "value": 4514.4,
+      "change": 25.0,
+      "change_pct": 0.56
     },
     "sox": {
       "value": 11738.23,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 98.73 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.03pp（未達 0.15pp）",
-          "score": 3.5
+          "detail": "DXY 98.77 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
+          "score": 9.8
         },
         {
           "id": "twd_depreciation",
@@ -168,8 +168,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11738未跌破近20日支撐10447；NDX 29426未跌破近20日支撐27192；美債10Y 5日變動 -0.03pp（未達 0.15pp）",
-          "score": 53.5
+          "detail": "SOX 11738未跌破近20日支撐10447；NDX 29426未跌破近20日支撐27192；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
+          "score": 59.8
         }
       ],
       "total_conditions": 5,
@@ -177,7 +177,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 18.7
+      "avg_score": 21.2
     },
     "bottom": {
       "conditions": [
@@ -186,8 +186,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 15.8（<= 30.0門檻）；目前 15.2（較高點回落 4%，門檻 15%）",
-          "score": 15.6
+          "detail": "近10日VIX高點 15.9（<= 30.0門檻）；目前 15.9（較高點回落 0%，門檻 15%）",
+          "score": 10.0
         },
         {
           "id": "margin_capitulation",
@@ -211,7 +211,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 20.5
+      "avg_score": 18.6
     },
     "bottom_reversal_score": {
       "total": 45.9,
@@ -248,15 +248,15 @@
     "as_of_date": "2026-08-19",
     "history_days": 53,
     "bottom": {
-      "total": 22.1,
+      "total": 21.3,
       "dimensions": [
         {
           "name": "macro",
-          "score": 12.3,
+          "score": 11.5,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 15.8 → 目前 15.2（強度 16/100，+2.3）",
-            "DXY 98.73 距近20日高點 -2.74%（美元壓力緩和強度 100/100，+10.0）"
+            "VIX 近10日高點 15.9 → 目前 15.9（強度 10/100，+1.5）",
+            "DXY 98.77 距近20日高點 -2.70%（美元壓力緩和強度 100/100，+10.0）"
           ]
         },
         {
@@ -288,21 +288,21 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近51筆歷史樣本的第 16 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近51筆歷史樣本的第 31 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 23.2,
+      "total": 22.2,
       "dimensions": [
         {
           "name": "macro",
-          "score": 5.9,
+          "score": 7.5,
           "cap": 25,
           "notes": [
-            "DXY 98.73 距近20日高點 -2.74%，美債10Y5日變動 -0.03pp（強度 4/100，+0.5）",
-            "SOX/NDX 距近20日支撐 +8.21%，美債10Y同步變動（強度 54/100，+5.4）"
+            "DXY 98.77 距近20日高點 -2.70%，美債10Y5日變動 +0.02pp（強度 10/100，+1.5）",
+            "SOX/NDX 距近20日支撐 +8.21%，美債10Y同步變動（強度 60/100，+6.0）"
           ]
         },
         {
@@ -331,10 +331,10 @@
         },
         {
           "name": "sentiment",
-          "score": 7.9,
+          "score": 5.3,
           "cap": 10,
           "notes": [
-            "VIX 處於近51筆歷史樣本的第 16 百分位（自滿強度 79/100，+7.9）"
+            "VIX 處於近51筆歷史樣本的第 31 百分位（自滿強度 53/100，+5.3）"
           ]
         }
       ]
@@ -839,6 +839,11 @@
       "meta": null
     },
     {
+      "title": "年輕人狂出國！第2季旅行收支逆差破千億元 史上第4高",
+      "url": "https://tw.stock.yahoo.com/news/%E5%B9%B4%E8%BC%95%E4%BA%BA%E7%8B%82%E5%87%BA%E5%9C%8B%EF%BC%81%E7%AC%AC2%E5%AD%A3%E6%97%85%E8%A1%8C%E6%94%B6%E6%94%AF%E9%80%86%E5%B7%AE%E7%A0%B4%E5%8D%83%E5%84%84%E5%85%83-%E5%8F%B2%E4%B8%8A%E7%AC%AC4%E9%AB%98-114028490.html",
+      "meta": null
+    },
+    {
       "title": "零股交易新制！9:00與整股同步開盤12/7上路",
       "url": "https://tw.stock.yahoo.com/news/%E9%9B%B6%E8%82%A1%E4%BA%A4%E6%98%93%E6%96%B0%E5%88%B6%EF%BC%81900%E8%88%87%E6%95%B4%E8%82%A1%E5%90%8C%E6%AD%A5%E9%96%8B%E7%9B%A4127%E4%B8%8A%E8%B7%AF-103223305.html",
       "meta": null
@@ -856,11 +861,6 @@
     {
       "title": "普發一萬年前領嗎？國庫署曝至少準備5個月",
       "url": "https://tw.stock.yahoo.com/news/%E6%99%AE%E7%99%BC%E4%B8%80%E8%90%AC%E5%85%83%E8%BE%B2%E6%9B%86%E5%B9%B4%E5%89%8D%E9%A0%98%E4%B8%8D%E5%88%B0%EF%BC%9F%E5%9C%8B%E5%BA%AB%E7%BD%B2%E9%95%B7%EF%BC%9A%E8%87%B3%E5%B0%91%E9%9C%805%E5%80%8B%E6%9C%88%E6%BA%96%E5%82%99-075252623.html",
-      "meta": null
-    },
-    {
-      "title": "才剛漲2%就爆獲利腰斬！中鋼明天會崩？投顧總座：別看便宜就撿",
-      "url": "https://tw.stock.yahoo.com/news/%E6%89%8D%E5%89%9B%E6%BC%B22%E5%B0%B1%E7%88%86%E7%8D%B2%E5%88%A9%E8%85%B0%E6%96%AC%EF%BC%81%E4%B8%AD%E9%8B%BC%E6%98%8E%E5%A4%A9%E6%9C%83%E5%B4%A9%EF%BC%9F%E6%8A%95%E9%A1%A7%E7%B8%BD%E5%BA%A7%EF%BC%9A%E5%88%A5%E7%9C%8B%E4%BE%BF%E5%AE%9C%E5%B0%B1%E6%92%BF-075105120.html",
       "meta": null
     }
   ],
@@ -921,7 +921,7 @@
       "change_pct": 2.13,
       "extra_data": {
         "regular_market_price": 175.19,
-        "pre_market_price": 175.44,
+        "pre_market_price": 174.26,
         "post_market_price": null,
         "prev_close": 171.54
       },
@@ -935,7 +935,7 @@
       "change_pct": 9.56,
       "extra_data": {
         "regular_market_price": 78.59,
-        "pre_market_price": 83.8241,
+        "pre_market_price": 81.82,
         "post_market_price": null,
         "prev_close": 71.73
       },
@@ -993,7 +993,7 @@
       "change_pct": 0.15,
       "extra_data": {
         "regular_market_price": 344.72,
-        "pre_market_price": 344.08,
+        "pre_market_price": 341.79,
         "post_market_price": null,
         "prev_close": 344.2
       },
@@ -1007,7 +1007,7 @@
       "change_pct": 0.4,
       "extra_data": {
         "regular_market_price": 102.17,
-        "pre_market_price": 101.3,
+        "pre_market_price": 100.36,
         "post_market_price": null,
         "prev_close": 101.76
       },
