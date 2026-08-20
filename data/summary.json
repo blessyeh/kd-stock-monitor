@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-20T14:39:13.137667",
+  "timestamp": "2026-08-20T15:37:47.705534",
   "date": "2026-08-20",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -1.13
     },
     "dxy": {
-      "value": 98.82,
-      "change": -0.01,
-      "change_pct": -0.01
+      "value": 98.81,
+      "change": -0.02,
+      "change_pct": -0.02
     },
     "fear_greed": {
-      "value": 14.89,
-      "change": -0.95,
-      "change_pct": -6.0,
+      "value": 14.91,
+      "change": 0.02,
+      "change_pct": 0.13,
       "label": "VIX Index",
-      "timestamp": "2026-08-20T14:39:07.327226"
+      "timestamp": "2026-08-20T15:37:39.931004"
     },
     "btc": {
-      "value": 69705.0,
-      "change": 0,
-      "change_pct": 0
+      "value": 69500.0,
+      "change": 234.0,
+      "change_pct": 0.34
     },
     "oil": {
-      "value": 84.59,
-      "change": -1.24,
-      "change_pct": -1.44
+      "value": 85.59,
+      "change": -0.24,
+      "change_pct": -0.28
     },
     "gold": {
-      "value": 4552.2,
-      "change": 62.8,
-      "change_pct": 1.4
+      "value": 4541.1,
+      "change": 51.7,
+      "change_pct": 1.15
     },
     "sox": {
       "value": 11738.23,
@@ -136,7 +136,7 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 98.82 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.03pp（未達 0.15pp）",
+          "detail": "DXY 98.81 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.03pp（未達 0.15pp）",
           "score": 3.5
         },
         {
@@ -187,7 +187,7 @@
           "status": false,
           "completeness": "full",
           "detail": "近10日VIX高點 15.8（<= 30.0門檻）；目前 14.9（較高點回落 6%，門檻 15%）",
-          "score": 17.9
+          "score": 17.7
         },
         {
           "id": "margin_capitulation",
@@ -211,7 +211,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 21.3
+      "avg_score": 21.2
     },
     "bottom_reversal_score": {
       "total": 45.9,
@@ -256,7 +256,7 @@
           "cap": 25,
           "notes": [
             "VIX 近10日高點 15.8 → 目前 14.9（強度 18/100，+2.7）",
-            "DXY 98.82 距近20日高點 -2.65%（美元壓力緩和強度 100/100，+10.0）"
+            "DXY 98.81 距近20日高點 -2.66%（美元壓力緩和強度 100/100，+10.0）"
           ]
         },
         {
@@ -288,20 +288,20 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近51筆歷史樣本的第 6 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近51筆歷史樣本的第 8 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 25.1,
+      "total": 24.7,
       "dimensions": [
         {
           "name": "macro",
           "score": 5.9,
           "cap": 25,
           "notes": [
-            "DXY 98.82 距近20日高點 -2.65%，美債10Y5日變動 -0.03pp（強度 4/100，+0.5）",
+            "DXY 98.81 距近20日高點 -2.66%，美債10Y5日變動 -0.03pp（強度 4/100，+0.5）",
             "SOX/NDX 距近20日支撐 +8.21%，美債10Y同步變動（強度 54/100，+5.4）"
           ]
         },
@@ -331,10 +331,10 @@
         },
         {
           "name": "sentiment",
-          "score": 9.8,
+          "score": 9.4,
           "cap": 10,
           "notes": [
-            "VIX 處於近51筆歷史樣本的第 6 百分位（自滿強度 98/100，+9.8）"
+            "VIX 處於近51筆歷史樣本的第 8 百分位（自滿強度 94/100，+9.4）"
           ]
         }
       ]
@@ -814,53 +814,53 @@
   },
   "news": [
     {
+      "title": "美首家人形機器人股將掛牌 能率「母憑子貴」",
+      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E5%9C%8B%E9%A6%96%E5%AE%B6%E4%BA%BA%E5%BD%A2%E6%A9%9F%E5%99%A8%E4%BA%BAagility9%E6%9C%88%E4%B8%8A%E5%B8%82-%E4%BC%B0%E5%80%BC3%E5%8D%83%E5%84%84%E5%85%83-%E8%83%BD%E7%8E%87%E4%BA%9E%E6%B4%B2%E3%80%8C%E6%AF%8D%E6%86%91%E5%AD%90%E8%B2%B4%E3%80%8D-065133100.html",
+      "meta": null
+    },
+    {
+      "title": "歐洲航商大幅上修財報 貨櫃三雄目標價同升",
+      "url": "https://tw.stock.yahoo.com/news/%E7%9B%AE%E6%A8%99%E5%83%B9%E6%9C%80%E9%AB%98%E5%96%8A%E5%87%BA280%E5%85%83-maersk-hepag-lloyd%E4%B8%8A%E4%BF%AE%E8%B2%A1%E5%A0%B1%E8%B2%A8%E6%AB%83%E4%B8%89%E9%9B%84%E5%90%83%E9%A6%99-%E6%B3%95%E4%BA%BA%E7%8D%B2%E5%88%A9%E9%A0%90%E4%BC%B0-060000067.html",
+      "meta": null
+    },
+    {
+      "title": "台股去槓桿後 500億「聰明錢」卡位潛力股",
+      "url": "https://tw.stock.yahoo.com/news/500%E5%84%84%E8%9E%8D%E8%B3%87%E5%A4%A7%E6%8F%9B%E6%89%8B-%E4%BB%81%E5%AF%B6%E5%A4%A7%E9%80%B2%E8%A3%9C-063217731.html",
+      "meta": null
+    },
+    {
+      "title": "達人點兵主動式ETF  四強低檔反彈逾12%",
+      "url": "https://tw.stock.yahoo.com/news/%E4%B8%BB%E5%8B%95%E5%BC%8F-etf-%E8%A6%8F%E6%A8%A1%E7%A0%B4%E5%85%86%E5%85%83%EF%BC%81%E3%80%8C%E7%BE%8E%E8%82%A1%E5%A4%A2%E6%83%B3%E5%AE%B6%E3%80%8D%E6%96%BD%E9%9B%85%E6%A3%A0%E9%BB%9E%E5%87%BA-00407a%E4%B8%8A%E6%BC%B21686-%E6%B1%B0%E5%BC%B1%E7%95%99%E5%BC%B7%E9%97%9C%E9%8D%B5-035735789.html",
+      "meta": null
+    },
+    {
       "title": "謝金河點名傳產「鐵工廠」11元漲到682元",
       "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%81%A3%E4%B8%8D%E5%8F%AA%E5%8D%8A%E5%B0%8E%E9%AB%94%EF%BC%81%E8%AC%9D%E9%87%91%E6%B2%B3%E6%9B%9D%E3%80%8C%E9%80%991%E6%AA%94%E3%80%8D%E5%BE%9E11%E5%85%83%E6%BC%B2%E5%88%B0682%E5%85%83-135931929.html",
       "meta": null
     },
     {
-      "title": "權值高價股走跌 台股劇烈震盪逾700點",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E5%8A%87%E7%83%88%E9%9C%87%E7%9B%AA%E9%80%BE700%E9%BB%9E-%E7%B5%82%E5%A0%B4%E6%BC%B2214%E9%BB%9E-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%BC%B225%E5%85%83-010519438.html",
+      "title": "人潮即錢潮！士林夜市屋齡109年老店面月租8萬8 西門町81年老店每坪破萬",
+      "url": "https://tw.stock.yahoo.com/news/%E4%BA%BA%E6%BD%AE%E5%8D%B3%E9%8C%A2%E6%BD%AE%EF%BC%81%E5%A3%AB%E6%9E%97%E5%A4%9C%E5%B8%82%E5%B1%8B%E9%BD%A1109%E5%B9%B4%E8%80%81%E5%BA%97%E9%9D%A2%E6%9C%88%E7%A7%9F8%E8%90%AC8-%E8%A5%BF%E9%96%80%E7%94%BA81%E5%B9%B4%E8%80%81%E5%BA%97%E6%AF%8F%E5%9D%AA%E7%A0%B4%E8%90%AC-072617391.html",
       "meta": null
     },
     {
-      "title": "新興近40億入手3油輪 售後回租賺租金",
-      "url": "https://tw.stock.yahoo.com/news/%E6%96%B0%E8%88%88%E5%A4%A7%E6%89%8B%E7%AD%86%E8%B2%B7%E8%88%B9-%E8%BF%9140%E5%84%84%E5%85%83%E5%85%A5%E6%89%8B3%E8%89%98%E6%B2%B9%E8%BC%AA-%E5%B9%B4%E7%A7%9F%E9%87%91%E9%80%B2%E5%B8%B34-05%E5%84%84%E5%85%83-054500115.html",
+      "title": "中鋼7月獲利腰斬！稅前不到7億元 連3個月賺錢喊卡",
+      "url": "https://tw.stock.yahoo.com/news/%E4%B8%AD%E9%8B%BC7%E6%9C%88%E7%8D%B2%E5%88%A9%E8%85%B0%E6%96%AC%EF%BC%81%E7%A8%85%E5%89%8D%E4%B8%8D%E5%88%B07%E5%84%84%E5%85%83-%E9%80%A33%E5%80%8B%E6%9C%88%E8%B3%BA%E9%8C%A2%E5%96%8A%E5%8D%A1-071201117.html",
       "meta": null
     },
     {
-      "title": "出手砍250張 權王也成瑤池金母減碼標的",
-      "url": "https://tw.stock.yahoo.com/news/%E6%B8%9B%E7%A2%BC%E6%A8%99%E7%9A%84%E5%87%BA%E7%88%90-%E7%91%A4%E6%B1%A0%E9%87%91%E6%AF%8D%E7%A0%8D-%E9%80%99%E6%AC%8A%E5%80%BC%E8%82%A1-250%E5%BC%B5-%E5%AE%83%E9%80%86%E5%8B%A2%E4%B8%8A%E6%BC%B2%E9%A0%98%E8%BB%8Dcowos%E6%97%8F%E7%BE%A4-045400772.html",
+      "title": "【Follow法人】台股量縮！外資終結連2賣回補37億元 投信續站賣方",
+      "url": "https://tw.stock.yahoo.com/news/%E3%80%90follow%E6%B3%95%E4%BA%BA%E3%80%91%E5%8F%B0%E8%82%A1%E9%87%8F%E7%B8%AE%EF%BC%81%E5%A4%96%E8%B3%87%E7%B5%82%E7%B5%90%E9%80%A32%E8%B3%A3%E5%9B%9E%E8%A3%9C37%E5%84%84%E5%85%83-%E6%8A%95%E4%BF%A1%E7%BA%8C%E7%AB%99%E8%B3%A3%E6%96%B9-070744690.html",
       "meta": null
     },
     {
-      "title": "郭哲榮自曝抱1.7億元美債套牢 不停損有原因",
-      "url": "https://tw.stock.yahoo.com/news/%E5%93%B2%E5%93%B2%E5%89%8B%E6%98%9F%E5%87%BA%E7%8F%BE%E4%BA%86%EF%BC%81%E9%83%AD%E5%93%B2%E6%A6%AE%E8%B2%B70050%E8%B3%BA%E5%8D%83%E8%90%AC%E7%A5%9E%E8%A9%B1%E7%A0%B4%E6%BB%85-%E6%8A%B1%E3%80%8C%E9%80%99%E6%AA%94%E3%80%8D%E8%87%AA%E5%98%B2%E8%B3%A0%E6%85%98%E4%BA%86-211300110.html",
+      "title": "普發一萬元快買不起？銀樓黃金飆2個月最高 專家：到手可買小戒指",
+      "url": "https://tw.stock.yahoo.com/news/%E6%99%AE%E7%99%BC%E4%B8%80%E8%90%AC%E5%85%83%E5%BF%AB%E8%B2%B7%E4%B8%8D%E8%B5%B7%EF%BC%9F%E9%8A%80%E6%A8%93%E9%BB%83%E9%87%91%E9%A3%862%E5%80%8B%E6%9C%88%E6%9C%80%E9%AB%98-%E5%B0%88%E5%AE%B6%EF%BC%9A%E5%88%B0%E6%89%8B%E5%8F%AF%E8%B2%B7%E5%B0%8F%E6%88%92%E6%8C%87-065314521.html",
       "meta": null
     },
     {
       "title": "明年證交稅預算編列創新高不怕「台股量縮」短徵？ 財長回應了",
       "url": "https://tw.stock.yahoo.com/news/%E6%98%8E%E5%B9%B4%E8%AD%89%E4%BA%A4%E7%A8%85%E9%A0%90%E7%AE%97%E7%B7%A8%E5%88%97%E5%89%B5%E6%96%B0%E9%AB%98%E4%B8%8D%E6%80%95%E3%80%8C%E5%8F%B0%E8%82%A1%E9%87%8F%E7%B8%AE%E3%80%8D%E7%9F%AD%E5%BE%B5%EF%BC%9F-%E8%B2%A1%E9%95%B7%E5%9B%9E%E6%87%89%E4%BA%86-063200214.html",
-      "meta": null
-    },
-    {
-      "title": "機器人拚當下個護國神山？所羅門董座：沒那麼容易",
-      "url": "https://tw.stock.yahoo.com/news/%E6%A9%9F%E5%99%A8%E4%BA%BA%E6%8B%9A%E7%95%B6%E4%B8%8B%E5%80%8B%E8%AD%B7%E5%9C%8B%E7%A5%9E%E5%B1%B1%EF%BC%9F%E6%89%80%E7%BE%85%E9%96%80%E8%91%A3%E5%BA%A7%EF%BC%9A%E6%B2%92%E9%82%A3%E9%BA%BC%E5%AE%B9%E6%98%93-055654641.html",
-      "meta": null
-    },
-    {
-      "title": "普發一萬元以後年年都有？主計長陳淑姿揭「3大前提」",
-      "url": "https://tw.stock.yahoo.com/news/%E6%99%AE%E7%99%BC%E4%B8%80%E8%90%AC%E5%85%83%E4%BB%A5%E5%BE%8C%E5%B9%B4%E5%B9%B4%E9%83%BD%E6%9C%89%EF%BC%9F%E4%B8%BB%E8%A8%88%E9%95%B7%E9%99%B3%E6%B7%91%E5%A7%BF%E6%8F%AD%E3%80%8C3%E5%A4%A7%E5%89%8D%E6%8F%90%E3%80%8D-055535682.html",
-      "meta": null
-    },
-    {
-      "title": "普發一萬元農曆新年前入帳？財長莊翠雲：總預算三讀後儘速規畫",
-      "url": "https://tw.stock.yahoo.com/news/%E6%99%AE%E7%99%BC%E4%B8%80%E8%90%AC%E5%85%83%E8%BE%B2%E6%9B%86%E6%96%B0%E5%B9%B4%E5%89%8D%E5%85%A5%E5%B8%B3%EF%BC%9F%E8%B2%A1%E9%95%B7%E8%8E%8A%E7%BF%A0%E9%9B%B2%EF%BC%9A%E7%B8%BD%E9%A0%90%E7%AE%97%E4%B8%89%E8%AE%80%E5%BE%8C%E5%84%98%E9%80%9F%E8%A6%8F%E7%95%AB-052435584.html",
-      "meta": null
-    },
-    {
-      "title": "賴清德普發一萬元推升明年經濟？國發會估：GDP將增0.35個百分點",
-      "url": "https://tw.stock.yahoo.com/news/%E8%B3%B4%E6%B8%85%E5%BE%B7%E6%99%AE%E7%99%BC%E4%B8%80%E8%90%AC%E5%85%83%E6%8E%A8%E5%8D%87%E6%98%8E%E5%B9%B4%E7%B6%93%E6%BF%9F%EF%BC%9F%E5%9C%8B%E7%99%BC%E6%9C%83%E4%BC%B0%EF%BC%9Agdp%E5%B0%87%E5%A2%9E035%E5%80%8B%E7%99%BE%E5%88%86%E9%BB%9E-052211448.html",
       "meta": null
     }
   ],
