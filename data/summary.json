@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-20T16:33:34.732503",
+  "timestamp": "2026-08-20T17:29:58.594756",
   "date": "2026-08-20",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -1.13
     },
     "dxy": {
-      "value": 98.7,
-      "change": -0.13,
-      "change_pct": -0.13
+      "value": 98.61,
+      "change": -0.22,
+      "change_pct": -0.22
     },
     "fear_greed": {
-      "value": 15.14,
-      "change": 0.25,
-      "change_pct": 1.68,
+      "value": 15.16,
+      "change": 0.27,
+      "change_pct": 1.81,
       "label": "VIX Index",
-      "timestamp": "2026-08-20T16:33:27.561130"
+      "timestamp": "2026-08-20T17:29:50.376381"
     },
     "btc": {
-      "value": 71288.0,
-      "change": 2022.0,
-      "change_pct": 2.92
+      "value": 71789.0,
+      "change": 2523.0,
+      "change_pct": 3.64
     },
     "oil": {
-      "value": 85.86,
-      "change": 0.03,
-      "change_pct": 0.03
+      "value": 86.49,
+      "change": 0.66,
+      "change_pct": 0.77
     },
     "gold": {
-      "value": 4554.1,
-      "change": 64.7,
-      "change_pct": 1.44
+      "value": 4546.3,
+      "change": 56.9,
+      "change_pct": 1.27
     },
     "sox": {
       "value": 11738.23,
@@ -136,7 +136,7 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 98.70 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.03pp（未達 0.15pp）",
+          "detail": "DXY 98.61 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.03pp（未達 0.15pp）",
           "score": 3.5
         },
         {
@@ -186,8 +186,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 15.8（<= 30.0門檻）；目前 15.1（較高點回落 4%，門檻 15%）",
-          "score": 15.8
+          "detail": "近10日VIX高點 15.8（<= 30.0門檻）；目前 15.2（較高點回落 4%，門檻 15%）",
+          "score": 15.6
         },
         {
           "id": "margin_capitulation",
@@ -211,7 +211,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 20.6
+      "avg_score": 20.5
     },
     "bottom_reversal_score": {
       "total": 45.9,
@@ -248,15 +248,15 @@
     "as_of_date": "2026-08-19",
     "history_days": 53,
     "bottom": {
-      "total": 22.2,
+      "total": 22.1,
       "dimensions": [
         {
           "name": "macro",
-          "score": 12.4,
+          "score": 12.3,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 15.8 → 目前 15.1（強度 16/100，+2.4）",
-            "DXY 98.70 距近20日高點 -2.77%（美元壓力緩和強度 100/100，+10.0）"
+            "VIX 近10日高點 15.8 → 目前 15.2（強度 16/100，+2.3）",
+            "DXY 98.61 距近20日高點 -2.86%（美元壓力緩和強度 100/100，+10.0）"
           ]
         },
         {
@@ -288,20 +288,20 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近51筆歷史樣本的第 12 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近51筆歷史樣本的第 16 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 23.9,
+      "total": 23.2,
       "dimensions": [
         {
           "name": "macro",
           "score": 5.9,
           "cap": 25,
           "notes": [
-            "DXY 98.70 距近20日高點 -2.77%，美債10Y5日變動 -0.03pp（強度 4/100，+0.5）",
+            "DXY 98.61 距近20日高點 -2.86%，美債10Y5日變動 -0.03pp（強度 4/100，+0.5）",
             "SOX/NDX 距近20日支撐 +8.21%，美債10Y同步變動（強度 54/100，+5.4）"
           ]
         },
@@ -331,10 +331,10 @@
         },
         {
           "name": "sentiment",
-          "score": 8.6,
+          "score": 7.9,
           "cap": 10,
           "notes": [
-            "VIX 處於近51筆歷史樣本的第 12 百分位（自滿強度 86/100，+8.6）"
+            "VIX 處於近51筆歷史樣本的第 16 百分位（自滿強度 79/100，+7.9）"
           ]
         }
       ]
@@ -814,8 +814,23 @@
   },
   "news": [
     {
+      "title": "勞退分紅創新高 專家示警非所有人都能領",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8B%9E%E9%80%80%E5%88%86%E7%B4%85%E7%82%B8%E5%87%BA11-8%E8%90%AC%E5%85%83%E5%8F%B2%E4%B8%8A%E6%96%B0%E9%AB%98-1292%E8%90%AC%E4%BA%BA%E7%88%BD%E9%A0%98-6%E4%BD%8D%E6%95%B8-%E5%B0%88%E5%AE%B6%E7%A4%BA%E8%AD%A6-081500966.html",
+      "meta": null
+    },
+    {
+      "title": "三星跟進海力士 傳祭百兆韓元回饋股東",
+      "url": "https://tw.stock.yahoo.com/news/%E8%B7%9F%E9%80%B2%E6%B5%B7%E5%8A%9B%E5%A3%AB-%E4%B8%89%E6%98%9F%E8%A6%81%E7%A0%B8100%E5%85%86%E5%9B%9E%E9%A5%8B%E8%82%A1%E6%9D%B1-%E5%B0%88%E5%AE%B6%E7%AC%91-%E9%81%8E%E5%B9%BE%E5%A4%A9%E6%8F%9B%E5%8D%97%E4%BA%9E%E7%A7%91-071300529.html",
+      "meta": null
+    },
+    {
+      "title": "士林夜市百年老屋齡 月租8萬8刷新紀錄",
+      "url": "https://tw.stock.yahoo.com/news/%E4%BA%BA%E6%BD%AE%E5%8D%B3%E9%8C%A2%E6%BD%AE%EF%BC%81%E5%A3%AB%E6%9E%97%E5%A4%9C%E5%B8%82%E5%B1%8B%E9%BD%A1109%E5%B9%B4%E8%80%81%E5%BA%97%E9%9D%A2%E6%9C%88%E7%A7%9F8%E8%90%AC8-%E8%A5%BF%E9%96%80%E7%94%BA81%E5%B9%B4%E8%80%81%E5%BA%97%E6%AF%8F%E5%9D%AA%E7%A0%B4%E8%90%AC-072617391.html",
+      "meta": null
+    },
+    {
       "title": "台股量縮上攻 外資回補投信持續倒貨",
-      "url": "https://tw.stock.yahoo.com/news/%E3%80%90follow%E6%B3%95%E4%BA%BA%E3%80%91%E5%8F%B0%E8%82%A1%E9%87%8F%E7%B8%AE%EF%BC%81%E5%A4%96%E8%B3%87%E7%B5%82%E7%B5%90%E9%80%A32%E8%B3%A3%E5%9B%9E%E8%A3%9C37%E5%84%84%E5%85%83-%E6%8A%95%E4%BF%A1%E7%BA%8C%E7%AB%99%E8%B3%A3%E6%96%B9-070744690.html",
+      "url": "https://tw.stock.yahoo.com/news/%E3%80%90follow%E6%B3%95%E4%BA%BA%E3%80%91%E5%A4%96%E8%B3%87%E7%98%8B%E8%88%AA%E6%B5%B7%E7%8E%8B%EF%BC%81%E6%95%B2%E9%80%B2%E9%99%BD%E6%98%8E54%E8%90%AC%E5%BC%B5%E5%B1%85%E5%86%A0-%E5%8D%97%E4%BA%9E%E7%A7%91%E8%8F%AF%E9%82%A6%E9%9B%BB%E4%B9%9F%E7%8D%B2%E9%9D%92%E7%9D%9E-070744690.html",
       "meta": null
     },
     {
@@ -824,18 +839,18 @@
       "meta": null
     },
     {
-      "title": "半導體強彈 郭哲榮預言AI醫療領軍攻10萬",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8D%8A%E5%B0%8E%E9%AB%94%E8%82%A1%E5%BC%B7%E5%BD%88%EF%BC%81%E9%83%AD%E5%93%B2%E6%A6%AE%E5%86%8D%E9%A0%90%E8%A8%80%EF%BC%9Aai%E9%86%AB%E7%99%82%E5%A4%AF%E3%80%81%E5%8F%B0%E8%82%A1%E6%8C%91%E6%88%B010%E8%90%AC%E9%BB%9E-073600845.html",
+      "title": "00981A要1拆6、1張5000元就能買？ 統一投信：假的",
+      "url": "https://tw.stock.yahoo.com/news/00981a%E8%A6%811%E6%8B%866%E3%80%811%E5%BC%B55000%E5%85%83%E5%B0%B1%E8%83%BD%E8%B2%B7%EF%BC%9F-%E7%B5%B1%E4%B8%80%E6%8A%95%E4%BF%A1%EF%BC%9A%E5%81%87%E7%9A%84-092508480.html",
       "meta": null
     },
     {
-      "title": "年底電費要調漲？龔明鑫曝物價是關鍵指標",
-      "url": "https://tw.stock.yahoo.com/news/%E5%BF%AB%E8%A8%8A-%E5%B9%B4%E5%BA%95%E9%9B%BB%E8%B2%BB%E8%AA%BF%E6%BC%B2-%E9%BE%94%E6%98%8E%E9%91%AB%E6%9B%9D-%E6%8C%87%E6%A8%99-074200386.html",
+      "title": "景氣過熱？學者示警普發一萬元恐添通膨壓力 籲「3月後」再發",
+      "url": "https://tw.stock.yahoo.com/news/%E6%99%AF%E6%B0%A3%E9%81%8E%E7%86%B1%EF%BC%9F%E5%AD%B8%E8%80%85%E7%A4%BA%E8%AD%A6%E6%99%AE%E7%99%BC%E4%B8%80%E8%90%AC%E5%85%83%E6%81%90%E6%B7%BB%E9%80%9A%E8%86%A8%E5%A3%93%E5%8A%9B-%E7%B1%B2%E3%80%8C3%E6%9C%88%E5%BE%8C%E3%80%8D%E5%86%8D%E7%99%BC-090212309.html",
       "meta": null
     },
     {
-      "title": "台股去槓桿後 500億「聰明錢」卡位潛力股",
-      "url": "https://tw.stock.yahoo.com/news/500%E5%84%84%E8%9E%8D%E8%B3%87%E5%A4%A7%E6%8F%9B%E6%89%8B-%E4%BB%81%E5%AF%B6%E5%A4%A7%E9%80%B2%E8%A3%9C-063217731.html",
+      "title": "台灣錢淹腳目？外商銀行在台資產4.2兆元寫新高 4年來新申設…掛零",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%81%A3%E9%8C%A2%E6%B7%B9%E8%85%B3%E7%9B%AE%EF%BC%9F%E5%A4%96%E5%95%86%E9%8A%80%E8%A1%8C%E5%9C%A8%E5%8F%B0%E8%B3%87%E7%94%A242%E5%85%86%E5%85%83%E5%AF%AB%E6%96%B0%E9%AB%98-4%E5%B9%B4%E4%BE%86%E6%96%B0%E7%94%B3%E8%A8%AD%E6%8E%9B%E9%9B%B6-083539762.html",
       "meta": null
     },
     {
@@ -846,21 +861,6 @@
     {
       "title": "台電喊「多吞千億成本」...預算撥補要多少？龔明鑫曝規畫：不高於1200億元",
       "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E9%9B%BB%E5%96%8A%E3%80%8C%E5%A4%9A%E5%90%9E%E5%8D%83%E5%84%84%E6%88%90%E6%9C%AC%E3%80%8D%E9%A0%90%E7%AE%97%E6%92%A5%E8%A3%9C%E8%A6%81%E5%A4%9A%E5%B0%91%EF%BC%9F%E9%BE%94%E6%98%8E%E9%91%AB%E6%9B%9D%E8%A6%8F%E7%95%AB%EF%BC%9A%E4%B8%8D%E9%AB%98%E6%96%BC1200%E5%84%84%E5%85%83-074153294.html",
-      "meta": null
-    },
-    {
-      "title": "人潮即錢潮！士林夜市屋齡109年老店面月租8萬8 西門町81年老店每坪破萬",
-      "url": "https://tw.stock.yahoo.com/news/%E4%BA%BA%E6%BD%AE%E5%8D%B3%E9%8C%A2%E6%BD%AE%EF%BC%81%E5%A3%AB%E6%9E%97%E5%A4%9C%E5%B8%82%E5%B1%8B%E9%BD%A1109%E5%B9%B4%E8%80%81%E5%BA%97%E9%9D%A2%E6%9C%88%E7%A7%9F8%E8%90%AC8-%E8%A5%BF%E9%96%80%E7%94%BA81%E5%B9%B4%E8%80%81%E5%BA%97%E6%AF%8F%E5%9D%AA%E7%A0%B4%E8%90%AC-072617391.html",
-      "meta": null
-    },
-    {
-      "title": "中鋼7月獲利腰斬！稅前不到7億元 連3個月賺錢喊卡",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%AD%E9%8B%BC7%E6%9C%88%E7%8D%B2%E5%88%A9%E8%85%B0%E6%96%AC%EF%BC%81%E7%A8%85%E5%89%8D%E4%B8%8D%E5%88%B07%E5%84%84%E5%85%83-%E9%80%A33%E5%80%8B%E6%9C%88%E8%B3%BA%E9%8C%A2%E5%96%8A%E5%8D%A1-071201117.html",
-      "meta": null
-    },
-    {
-      "title": "普發一萬元快買不起？銀樓黃金飆2個月最高 專家：到手可買小戒指",
-      "url": "https://tw.stock.yahoo.com/news/%E6%99%AE%E7%99%BC%E4%B8%80%E8%90%AC%E5%85%83%E5%BF%AB%E8%B2%B7%E4%B8%8D%E8%B5%B7%EF%BC%9F%E9%8A%80%E6%A8%93%E9%BB%83%E9%87%91%E9%A3%862%E5%80%8B%E6%9C%88%E6%9C%80%E9%AB%98-%E5%B0%88%E5%AE%B6%EF%BC%9A%E5%88%B0%E6%89%8B%E5%8F%AF%E8%B2%B7%E5%B0%8F%E6%88%92%E6%8C%87-065314521.html",
       "meta": null
     }
   ],
@@ -921,7 +921,7 @@
       "change_pct": 2.13,
       "extra_data": {
         "regular_market_price": 175.19,
-        "pre_market_price": 174.64,
+        "pre_market_price": 174.46,
         "post_market_price": null,
         "prev_close": 171.54
       },
@@ -935,7 +935,7 @@
       "change_pct": 9.56,
       "extra_data": {
         "regular_market_price": 78.59,
-        "pre_market_price": 82.86,
+        "pre_market_price": 83.53,
         "post_market_price": null,
         "prev_close": 71.73
       },
@@ -993,7 +993,7 @@
       "change_pct": 0.15,
       "extra_data": {
         "regular_market_price": 344.72,
-        "pre_market_price": 343.85,
+        "pre_market_price": 343.76,
         "post_market_price": null,
         "prev_close": 344.2
       },
@@ -1007,7 +1007,7 @@
       "change_pct": 0.4,
       "extra_data": {
         "regular_market_price": 102.17,
-        "pre_market_price": 101.8,
+        "pre_market_price": 101.87,
         "post_market_price": null,
         "prev_close": 101.76
       },
