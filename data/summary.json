@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-20T17:29:58.594756",
+  "timestamp": "2026-08-20T18:25:44.263536",
   "date": "2026-08-20",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -1.13
     },
     "dxy": {
-      "value": 98.61,
-      "change": -0.22,
-      "change_pct": -0.22
+      "value": 98.58,
+      "change": -0.25,
+      "change_pct": -0.26
     },
     "fear_greed": {
-      "value": 15.16,
-      "change": 0.27,
-      "change_pct": 1.81,
+      "value": 15.18,
+      "change": 0.29,
+      "change_pct": 1.95,
       "label": "VIX Index",
-      "timestamp": "2026-08-20T17:29:50.376381"
+      "timestamp": "2026-08-20T18:25:37.083955"
     },
     "btc": {
-      "value": 71789.0,
-      "change": 2523.0,
-      "change_pct": 3.64
+      "value": 72088.0,
+      "change": 2822.0,
+      "change_pct": 4.07
     },
     "oil": {
-      "value": 86.49,
-      "change": 0.66,
-      "change_pct": 0.77
+      "value": 86.68,
+      "change": 0.85,
+      "change_pct": 0.99
     },
     "gold": {
-      "value": 4546.3,
-      "change": 56.9,
-      "change_pct": 1.27
+      "value": 4547.6,
+      "change": 58.2,
+      "change_pct": 1.3
     },
     "sox": {
       "value": 11738.23,
@@ -136,7 +136,7 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 98.61 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.03pp（未達 0.15pp）",
+          "detail": "DXY 98.58 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.03pp（未達 0.15pp）",
           "score": 3.5
         },
         {
@@ -187,7 +187,7 @@
           "status": false,
           "completeness": "full",
           "detail": "近10日VIX高點 15.8（<= 30.0門檻）；目前 15.2（較高點回落 4%，門檻 15%）",
-          "score": 15.6
+          "score": 15.5
         },
         {
           "id": "margin_capitulation",
@@ -255,8 +255,8 @@
           "score": 12.3,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 15.8 → 目前 15.2（強度 16/100，+2.3）",
-            "DXY 98.61 距近20日高點 -2.86%（美元壓力緩和強度 100/100，+10.0）"
+            "VIX 近10日高點 15.8 → 目前 15.2（強度 15/100，+2.3）",
+            "DXY 98.58 距近20日高點 -2.89%（美元壓力緩和強度 100/100，+10.0）"
           ]
         },
         {
@@ -301,7 +301,7 @@
           "score": 5.9,
           "cap": 25,
           "notes": [
-            "DXY 98.61 距近20日高點 -2.86%，美債10Y5日變動 -0.03pp（強度 4/100，+0.5）",
+            "DXY 98.58 距近20日高點 -2.89%，美債10Y5日變動 -0.03pp（強度 4/100，+0.5）",
             "SOX/NDX 距近20日支撐 +8.21%，美債10Y同步變動（強度 54/100，+5.4）"
           ]
         },
@@ -839,8 +839,13 @@
       "meta": null
     },
     {
-      "title": "00981A要1拆6、1張5000元就能買？ 統一投信：假的",
-      "url": "https://tw.stock.yahoo.com/news/00981a%E8%A6%811%E6%8B%866%E3%80%811%E5%BC%B55000%E5%85%83%E5%B0%B1%E8%83%BD%E8%B2%B7%EF%BC%9F-%E7%B5%B1%E4%B8%80%E6%8A%95%E4%BF%A1%EF%BC%9A%E5%81%87%E7%9A%84-092508480.html",
+      "title": "南亞科重返500元領記憶體、CPO衝鋒 台股量能急凍收復季線卻丟了45K｜Yahoo財經掃描",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8D%97%E4%BA%9E%E7%A7%91%E9%87%8D%E8%BF%94500%E5%85%83%E9%A0%98%E8%A8%98%E6%86%B6%E9%AB%94%E3%80%81cpo%E8%A1%9D%E9%8B%92-%E5%8F%B0%E8%82%A1%E9%87%8F%E8%83%BD%E6%80%A5%E5%87%8D%E6%94%B6%E5%BE%A9%E5%AD%A3%E7%B7%9A%E5%8D%BB%E4%B8%9F%E4%BA%8645k%EF%BD%9Cyahoo%E8%B2%A1%E7%B6%93%E6%8E%83%E6%8F%8F-094540055.html",
+      "meta": null
+    },
+    {
+      "title": "瑤池金母00981A要「1拆6」、1張5000元就能買？ 統一投信：假的",
+      "url": "https://tw.stock.yahoo.com/news/%E7%91%A4%E6%B1%A0%E9%87%91%E6%AF%8D00981a%E8%A6%81%E3%80%8C1%E6%8B%866%E3%80%8D%E3%80%811%E5%BC%B55000%E5%85%83%E5%B0%B1%E8%83%BD%E8%B2%B7%EF%BC%9F-%E7%B5%B1%E4%B8%80%E6%8A%95%E4%BF%A1%EF%BC%9A%E5%81%87%E7%9A%84-092508480.html",
       "meta": null
     },
     {
@@ -856,11 +861,6 @@
     {
       "title": "才剛漲2%就爆獲利腰斬！中鋼明天會崩？投顧總座：別看便宜就撿",
       "url": "https://tw.stock.yahoo.com/news/%E6%89%8D%E5%89%9B%E6%BC%B22%E5%B0%B1%E7%88%86%E7%8D%B2%E5%88%A9%E8%85%B0%E6%96%AC%EF%BC%81%E4%B8%AD%E9%8B%BC%E6%98%8E%E5%A4%A9%E6%9C%83%E5%B4%A9%EF%BC%9F%E6%8A%95%E9%A1%A7%E7%B8%BD%E5%BA%A7%EF%BC%9A%E5%88%A5%E7%9C%8B%E4%BE%BF%E5%AE%9C%E5%B0%B1%E6%92%BF-075105120.html",
-      "meta": null
-    },
-    {
-      "title": "台電喊「多吞千億成本」...預算撥補要多少？龔明鑫曝規畫：不高於1200億元",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E9%9B%BB%E5%96%8A%E3%80%8C%E5%A4%9A%E5%90%9E%E5%8D%83%E5%84%84%E6%88%90%E6%9C%AC%E3%80%8D%E9%A0%90%E7%AE%97%E6%92%A5%E8%A3%9C%E8%A6%81%E5%A4%9A%E5%B0%91%EF%BC%9F%E9%BE%94%E6%98%8E%E9%91%AB%E6%9B%9D%E8%A6%8F%E7%95%AB%EF%BC%9A%E4%B8%8D%E9%AB%98%E6%96%BC1200%E5%84%84%E5%85%83-074153294.html",
       "meta": null
     }
   ],
@@ -921,7 +921,7 @@
       "change_pct": 2.13,
       "extra_data": {
         "regular_market_price": 175.19,
-        "pre_market_price": 174.46,
+        "pre_market_price": 174.83,
         "post_market_price": null,
         "prev_close": 171.54
       },
@@ -935,7 +935,7 @@
       "change_pct": 9.56,
       "extra_data": {
         "regular_market_price": 78.59,
-        "pre_market_price": 83.53,
+        "pre_market_price": 84.89,
         "post_market_price": null,
         "prev_close": 71.73
       },
@@ -993,7 +993,7 @@
       "change_pct": 0.15,
       "extra_data": {
         "regular_market_price": 344.72,
-        "pre_market_price": 343.76,
+        "pre_market_price": 343.7,
         "post_market_price": null,
         "prev_close": 344.2
       },
@@ -1007,7 +1007,7 @@
       "change_pct": 0.4,
       "extra_data": {
         "regular_market_price": 102.17,
-        "pre_market_price": 101.87,
+        "pre_market_price": 102.0,
         "post_market_price": null,
         "prev_close": 101.76
       },
