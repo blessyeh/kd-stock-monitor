@@ -1,5 +1,30 @@
 [
   {
+    "id": "AMZU_20260821_oversold",
+    "symbol": "AMZU",
+    "name": "Direxion Daily AMZN Bull 2X Shares",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.69,
+    "kd_d": 24.6,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 38.36,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ AMZU (Direxion Daily AMZN Bull 2X Shares) is OVERSOLD! KD-K: 19.69, KD-D: 24.6 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-21T01:25:15.827690",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
     "id": "00652.TW_20260821_oversold",
     "symbol": "00652.TW",
     "name": "富邦印度",
@@ -2460,32 +2485,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00645.TW (富邦日本) is OVERBOUGHT! KD-K: 89.65, KD-D: 89.02 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-18T00:24:02.549766",
-    "date": "2026-08-18",
-    "acknowledged": false
-  },
-  {
-    "id": "00647L.TW_20260818_overbought",
-    "symbol": "00647L.TW",
-    "name": "元大S&P500正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 78.99,
-    "kd_d": 84.32,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 143.35,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "個股外資近3日轉為賣超達20日均量的39%（籌碼面轉弱，超買可能對應真正高點）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00647L.TW (元大S&P500正2) is OVERBOUGHT! KD-K: 78.99, KD-D: 84.32 (>= 80)",
-    "timestamp": "2026-08-18T00:24:02.549992",
     "date": "2026-08-18",
     "acknowledged": false
   }
