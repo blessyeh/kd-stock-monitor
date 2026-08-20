@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-21T04:23:59.789427",
+  "timestamp": "2026-08-21T05:24:18.472097",
   "date": "2026-08-21",
   "macro": {
     "taiex": {
@@ -18,26 +18,26 @@
       "change_pct": 0.05
     },
     "fear_greed": {
-      "value": 16.05,
-      "change": 1.16,
-      "change_pct": 7.79,
+      "value": 16.01,
+      "change": 1.12,
+      "change_pct": 7.52,
       "label": "VIX Index",
-      "timestamp": "2026-08-21T04:23:52.792926"
+      "timestamp": "2026-08-21T05:24:11.951674"
     },
     "btc": {
-      "value": 72778.0,
-      "change": 3512.0,
-      "change_pct": 5.07
+      "value": 72711.0,
+      "change": 3445.0,
+      "change_pct": 4.97
     },
     "oil": {
-      "value": 86.54,
-      "change": 0.71,
-      "change_pct": 0.83
+      "value": 86.21,
+      "change": 0.38,
+      "change_pct": 0.44
     },
     "gold": {
-      "value": 4578.8,
-      "change": 89.4,
-      "change_pct": 1.99
+      "value": 4575.1,
+      "change": 85.7,
+      "change_pct": 1.91
     },
     "sox": {
       "value": 11800.02,
@@ -186,7 +186,7 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 16.1（<= 30.0門檻）；目前 16.1（較高點回落 0%，門檻 15%）",
+          "detail": "近10日VIX高點 16.0（<= 30.0門檻）；目前 16.0（較高點回落 0%，門檻 15%）",
           "score": 10.0
         },
         {
@@ -255,7 +255,7 @@
           "score": 11.5,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 16.1 → 目前 16.1（強度 10/100，+1.5）",
+            "VIX 近10日高點 16.0 → 目前 16.0（強度 10/100，+1.5）",
             "DXY 98.88 距近20日高點 -2.59%（美元壓力緩和強度 100/100，+10.0）"
           ]
         },
@@ -867,7 +867,7 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 1,
+  "new_alerts": 0,
   "overbought_count": 6,
   "oversold_count": 12,
   "normal_count": 109,
@@ -922,7 +922,7 @@
       "extra_data": {
         "regular_market_price": 80.14,
         "pre_market_price": null,
-        "post_market_price": 79.9717,
+        "post_market_price": 80.0,
         "prev_close": 80.22
       },
       "kd_k": 81.65,
@@ -950,7 +950,7 @@
       "extra_data": {
         "regular_market_price": 83.66,
         "pre_market_price": null,
-        "post_market_price": 84.01,
+        "post_market_price": 83.5,
         "prev_close": 78.59
       },
       "kd_k": 85.68,
@@ -1008,7 +1008,7 @@
       "extra_data": {
         "regular_market_price": 340.67,
         "pre_market_price": null,
-        "post_market_price": 340.34,
+        "post_market_price": 340.77,
         "prev_close": 344.72
       },
       "kd_k": 16.54,
@@ -1022,7 +1022,7 @@
       "extra_data": {
         "regular_market_price": 260.11,
         "pre_market_price": null,
-        "post_market_price": 260.35,
+        "post_market_price": 260.51,
         "prev_close": 265.84
       },
       "kd_k": 19.17,
@@ -1036,7 +1036,7 @@
       "extra_data": {
         "regular_market_price": 545.83,
         "pre_market_price": null,
-        "post_market_price": 545.3486,
+        "post_market_price": 545.23,
         "prev_close": 546.03
       },
       "kd_k": 18.67,
@@ -1050,7 +1050,7 @@
       "extra_data": {
         "regular_market_price": 364.03,
         "pre_market_price": null,
-        "post_market_price": 364.4915,
+        "post_market_price": 364.47,
         "prev_close": 362.48
       },
       "kd_k": 16.68,
@@ -1059,16 +1059,16 @@
     {
       "symbol": "DIA",
       "name": "SPDR Dow Jones Industrial Average ETF",
-      "current_price": 527.59,
-      "change_pct": -1.25,
+      "current_price": 527.51,
+      "change_pct": -1.27,
       "extra_data": {
-        "regular_market_price": 527.59,
+        "regular_market_price": 527.51,
         "pre_market_price": null,
-        "post_market_price": 527.21,
+        "post_market_price": 527.895,
         "prev_close": 534.27
       },
-      "kd_k": 16.76,
-      "kd_d": 29.99
+      "kd_k": 16.58,
+      "kd_d": 29.93
     },
     {
       "symbol": "AMZU",
@@ -1078,7 +1078,7 @@
       "extra_data": {
         "regular_market_price": 37.95,
         "pre_market_price": null,
-        "post_market_price": 38.005,
+        "post_market_price": 38.09,
         "prev_close": 39.63
       },
       "kd_k": 17.71,
@@ -1092,7 +1092,7 @@
       "extra_data": {
         "regular_market_price": 18.67,
         "pre_market_price": null,
-        "post_market_price": 18.64,
+        "post_market_price": 18.72,
         "prev_close": 18.71
       },
       "kd_k": 17.52,
@@ -1106,7 +1106,7 @@
       "extra_data": {
         "regular_market_price": 99.68,
         "pre_market_price": null,
-        "post_market_price": 99.609,
+        "post_market_price": 99.61,
         "prev_close": 102.17
       },
       "kd_k": 15.18,
@@ -1120,7 +1120,7 @@
       "extra_data": {
         "regular_market_price": 41.53,
         "pre_market_price": null,
-        "post_market_price": 41.27,
+        "post_market_price": 41.34,
         "prev_close": 41.16
       },
       "kd_k": 16.0,
