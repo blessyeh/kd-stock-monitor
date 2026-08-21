@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-22T02:31:33.300404",
+  "timestamp": "2026-08-22T03:23:20.968334",
   "date": "2026-08-22",
   "macro": {
     "taiex": {
@@ -8,51 +8,51 @@
       "change_pct": 0.0
     },
     "us10y": {
-      "value": 4.74,
-      "change": 0.044,
-      "change_pct": 0.94
+      "value": 4.738,
+      "change": 0.042,
+      "change_pct": 0.89
     },
     "dxy": {
-      "value": 98.81,
-      "change": -0.09,
-      "change_pct": -0.09
+      "value": 98.82,
+      "change": -0.08,
+      "change_pct": -0.08
     },
     "fear_greed": {
-      "value": 15.31,
-      "change": -0.7,
-      "change_pct": -4.37,
+      "value": 15.29,
+      "change": -0.72,
+      "change_pct": -4.5,
       "label": "VIX Index",
-      "timestamp": "2026-08-22T02:31:26.190462"
+      "timestamp": "2026-08-22T03:23:15.648031"
     },
     "btc": {
-      "value": 77373.0,
-      "change": 4340.0,
-      "change_pct": 5.94
+      "value": 77138.0,
+      "change": 4106.0,
+      "change_pct": 5.62
     },
     "oil": {
-      "value": 87.27,
-      "change": -0.56,
-      "change_pct": -0.64
+      "value": 86.8,
+      "change": -1.03,
+      "change_pct": -1.17
     },
     "gold": {
-      "value": 4684.5,
-      "change": 168.2,
-      "change_pct": 3.72
+      "value": 4680.1,
+      "change": 163.8,
+      "change_pct": 3.63
     },
     "sox": {
-      "value": 11721.83,
-      "change": -78.19,
-      "change_pct": -0.66
+      "value": 11753.72,
+      "change": -46.3,
+      "change_pct": -0.39
     },
     "ndx": {
-      "value": 29275.28,
-      "change": 62.12,
-      "change_pct": 0.21
+      "value": 29318.43,
+      "change": 105.27,
+      "change_pct": 0.36
     },
     "sp500": {
-      "value": 7669.8,
-      "change": 28.64,
-      "change_pct": 0.37
+      "value": 7679.98,
+      "change": 38.82,
+      "change_pct": 0.51
     }
   },
   "chip": {
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 98.81 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.04pp（未達 0.15pp）",
-          "score": 13.0
+          "detail": "DXY 98.82 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 +0.04pp（未達 0.15pp）",
+          "score": 12.6
         },
         {
           "id": "twd_depreciation",
@@ -168,8 +168,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11722未跌破近20日支撐10447；NDX 29275未跌破近20日支撐27192；美債10Y 5日變動 +0.04pp（未達 0.15pp）",
-          "score": 63.0
+          "detail": "SOX 11754未跌破近20日支撐10447；NDX 29318未跌破近20日支撐27192；美債10Y 5日變動 +0.04pp（未達 0.15pp）",
+          "score": 62.6
         }
       ],
       "total_conditions": 5,
@@ -177,7 +177,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 25.9
+      "avg_score": 25.7
     },
     "bottom": {
       "conditions": [
@@ -187,7 +187,7 @@
           "status": false,
           "completeness": "full",
           "detail": "近10日VIX高點 15.8（<= 30.0門檻）；目前 15.3（較高點回落 3%，門檻 15%）",
-          "score": 14.4
+          "score": 14.5
         },
         {
           "id": "margin_capitulation",
@@ -255,8 +255,8 @@
           "score": 12.2,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 15.8 → 目前 15.3（強度 14/100，+2.2）",
-            "DXY 98.81 距近20日高點 -2.66%（美元壓力緩和強度 100/100，+10.0）"
+            "VIX 近10日高點 15.8 → 目前 15.3（強度 15/100，+2.2）",
+            "DXY 98.82 距近20日高點 -2.65%（美元壓力緩和強度 100/100，+10.0）"
           ]
         },
         {
@@ -294,15 +294,15 @@
       ]
     },
     "top": {
-      "total": 25.3,
+      "total": 25.2,
       "dimensions": [
         {
           "name": "macro",
-          "score": 8.3,
+          "score": 8.2,
           "cap": 25,
           "notes": [
-            "DXY 98.81 距近20日高點 -2.66%，美債10Y5日變動 +0.04pp（強度 13/100，+2.0）",
-            "SOX/NDX 距近20日支撐 +7.66%，美債10Y同步變動（強度 63/100，+6.3）"
+            "DXY 98.82 距近20日高點 -2.65%，美債10Y5日變動 +0.04pp（強度 13/100，+1.9）",
+            "SOX/NDX 距近20日支撐 +7.82%，美債10Y同步變動（強度 63/100，+6.3）"
           ]
         },
         {
@@ -403,7 +403,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 +2.6%；相對SOX +3.4pp、相對NDX -1.5pp"
+          "2330 近20日漲跌 +2.6%；相對SOX +3.1pp、相對NDX -1.7pp"
         ]
       },
       {
@@ -422,7 +422,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $418.6 換算2330隱含價 2663.8元，2330現價 2410.0元（折價 9.5%）",
+          "TSM ADR $419.3 換算2330隱含價 2668.0元，2330現價 2410.0元（折價 9.7%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -819,6 +819,31 @@
       "meta": null
     },
     {
+      "title": "反應過激的貓人氣爆棚　宏匯辦展土銀找它發卡",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%8D%E6%87%89%E9%81%8E%E6%BF%80%E7%9A%84%E8%B2%93%E4%BA%BA%E6%B0%A3%E7%88%86%E6%A3%9A-%E5%AE%8F%E5%8C%AF%E8%BE%A6%E5%B1%95%E5%9C%9F%E9%8A%80%E6%89%BE%E5%AE%83%E7%99%BC%E5%8D%A1-185443109.html",
+      "meta": null
+    },
+    {
+      "title": "雲端發票加碼500元獎　7~12月期加開50萬組",
+      "url": "https://tw.stock.yahoo.com/news/%E9%9B%B2%E7%AB%AF%E7%99%BC%E7%A5%A8%E5%8A%A0%E7%A2%BC500%E5%85%83%E7%8D%8E-7-12%E6%9C%88%E6%9C%9F%E5%8A%A0%E9%96%8B50%E8%90%AC%E7%B5%84-185433172.html",
+      "meta": null
+    },
+    {
+      "title": "藥妝店吹起韓流熱潮　康是美男團助陣送小卡",
+      "url": "https://tw.stock.yahoo.com/news/%E8%97%A5%E5%A6%9D%E5%BA%97%E5%90%B9%E8%B5%B7%E9%9F%93%E6%B5%81%E7%86%B1%E6%BD%AE-%E5%BA%B7%E6%98%AF%E7%BE%8E%E7%94%B7%E5%9C%98%E5%8A%A9%E9%99%A3%E9%80%81%E5%B0%8F%E5%8D%A1-185414122.html",
+      "meta": null
+    },
+    {
+      "title": "柿子影言》陰兒房再推新作　走老路淪平庸鬼片",
+      "url": "https://tw.stock.yahoo.com/news/%E6%9F%BF%E5%AD%90%E5%BD%B1%E8%A8%80-%E9%99%B0%E5%85%92%E6%88%BF%E5%86%8D%E6%8E%A8%E6%96%B0%E4%BD%9C-%E8%B5%B0%E8%80%81%E8%B7%AF%E6%B7%AA%E5%B9%B3%E5%BA%B8%E9%AC%BC%E7%89%87-185400898.html",
+      "meta": null
+    },
+    {
+      "title": "28家外銀資產、淨值創高　上半年獲利近15年最佳",
+      "url": "https://tw.stock.yahoo.com/news/28%E5%AE%B6%E5%A4%96%E9%8A%80%E8%B3%87%E7%94%A2-%E6%B7%A8%E5%80%BC%E5%89%B5%E9%AB%98-%E4%B8%8A%E5%8D%8A%E5%B9%B4%E7%8D%B2%E5%88%A9%E8%BF%9115%E5%B9%B4%E6%9C%80%E4%BD%B3-185346533.html",
+      "meta": null
+    },
+    {
       "title": "台股還有寶沒挖？專家曝1檔「封死漲停」：很多人覺得冷，法人卻默默布局",
       "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E9%82%84%E6%9C%89%E5%AF%B6%E6%B2%92%E6%8C%96-%E5%B0%88%E5%AE%B6%E6%9B%9D1%E6%AA%94-%E5%B0%81%E6%AD%BB%E6%BC%B2%E5%81%9C-%E5%BE%88%E5%A4%9A%E4%BA%BA%E8%A6%BA%E5%BE%97%E5%86%B7-%E6%B3%95%E4%BA%BA%E5%8D%BB%E9%BB%98%E9%BB%98%E5%B8%83%E5%B1%80-175023611.html",
       "meta": null
@@ -837,31 +862,6 @@
       "title": "IGEL 於澳洲墨爾本舉辦 Now & Next 工作空間與端點安全高峰會",
       "url": "https://tw.stock.yahoo.com/news/igel-%E6%96%BC%E6%BE%B3%E6%B4%B2%E5%A2%A8%E7%88%BE%E6%9C%AC%E8%88%89%E8%BE%A6-now-next-%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%96%93%E8%88%87%E7%AB%AF%E9%BB%9E%E5%AE%89%E5%85%A8%E9%AB%98%E5%B3%B0%E6%9C%83-170200340.html",
       "meta": null
-    },
-    {
-      "title": "高雄楠梓火災兄弟1死1傷！25歲哥跳樓逃生亡　18歲弟重傷搶救中",
-      "url": "https://tw.stock.yahoo.com/news/%E9%AB%98%E9%9B%84%E6%A5%A0%E6%A2%93%E7%81%AB%E7%81%BD%E5%85%84%E5%BC%9F1%E6%AD%BB1%E5%82%B7-25%E6%AD%B2%E5%93%A5%E8%B7%B3%E6%A8%93%E9%80%83%E7%94%9F%E4%BA%A1-18%E6%AD%B2%E5%BC%9F%E9%87%8D%E5%82%B7%E6%90%B6%E6%95%91%E4%B8%AD-160600818.html",
-      "meta": null
-    },
-    {
-      "title": "房子賣不好別急著叫央行救！台灣的錢該進工廠，不是回頭炒資產",
-      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E5%AD%90%E8%B3%A3%E4%B8%8D%E5%A5%BD%E5%88%A5%E6%80%A5%E8%91%97%E5%8F%AB%E5%A4%AE%E8%A1%8C%E6%95%91%EF%BC%81%E5%8F%B0%E7%81%A3%E7%9A%84%E9%8C%A2%E8%A9%B2%E9%80%B2%E5%B7%A5%E5%BB%A0%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%9B%9E%E9%A0%AD%E7%82%92%E8%B3%87%E7%94%A2-160000814.html",
-      "meta": null
-    },
-    {
-      "title": "從叛逆少年到泰拳國手、退伍創業　高奕緯與女友施孟萍共創 TMP FITNESS",
-      "url": "https://tw.stock.yahoo.com/news/%E5%BE%9E%E5%8F%9B%E9%80%86%E5%B0%91%E5%B9%B4%E5%88%B0%E6%B3%B0%E6%8B%B3%E5%9C%8B%E6%89%8B-%E9%80%80%E4%BC%8D%E5%89%B5%E6%A5%AD-%E9%AB%98%E5%A5%95%E7%B7%AF%E8%88%87%E5%A5%B3%E5%8F%8B%E6%96%BD%E5%AD%9F%E8%90%8D%E5%85%B1%E5%89%B5-tmp-fitness-154344873.html",
-      "meta": null
-    },
-    {
-      "title": "瞄準AI基建狂潮！8檔海外產品夯　今年績效漲逾兩位數",
-      "url": "https://tw.stock.yahoo.com/news/%E7%9E%84%E6%BA%96ai%E5%9F%BA%E5%BB%BA%E7%8B%82%E6%BD%AE-8%E6%AA%94%E6%B5%B7%E5%A4%96%E7%94%A2%E5%93%81%E5%A4%AF-%E4%BB%8A%E5%B9%B4%E7%B8%BE%E6%95%88%E6%BC%B2%E9%80%BE%E5%85%A9%E4%BD%8D%E6%95%B8-153000659.html",
-      "meta": null
-    },
-    {
-      "title": "美股又殺費半！台積電ADR小漲、台指期夜盤45K保衛戰　比特幣暴力拉升衝77000美元",
-      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E8%82%A1%E5%8F%88%E6%AE%BA%E8%B2%BB%E5%8D%8A-%E5%8F%B0%E7%A9%8D%E9%9B%BBadr%E5%B0%8F%E6%BC%B2-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A445k%E4%BF%9D%E8%A1%9B%E6%88%B0-%E6%AF%94%E7%89%B9%E5%B9%A3%E6%9A%B4%E5%8A%9B%E6%8B%89%E5%8D%87%E8%A1%9D77000%E7%BE%8E%E5%85%83-150000267.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
@@ -869,8 +869,8 @@
   "stocks_failed": 0,
   "new_alerts": 0,
   "overbought_count": 10,
-  "oversold_count": 18,
-  "normal_count": 99,
+  "oversold_count": 17,
+  "normal_count": 100,
   "overbought_stocks": [
     {
       "symbol": "2850.TW",
@@ -945,72 +945,72 @@
     {
       "symbol": "TSLA",
       "name": "Tesla Inc.",
-      "current_price": 364.24,
-      "change_pct": 5.54,
+      "current_price": 364.1951,
+      "change_pct": 5.52,
       "extra_data": {
-        "regular_market_price": 364.24,
+        "regular_market_price": 364.1951,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 345.13
       },
-      "kd_k": 85.26,
-      "kd_d": 79.69
+      "kd_k": 84.45,
+      "kd_d": 79.42
     },
     {
       "symbol": "NFLX",
       "name": "Netflix Inc.",
-      "current_price": 79.755,
-      "change_pct": -0.48,
+      "current_price": 79.585,
+      "change_pct": -0.69,
       "extra_data": {
-        "regular_market_price": 79.755,
+        "regular_market_price": 79.585,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 80.14
       },
-      "kd_k": 81.6,
-      "kd_d": 79.76
-    },
-    {
-      "symbol": "NFXL",
-      "name": "Direxion Daily NFLX Bull 2X Shares",
-      "current_price": 18.765,
-      "change_pct": -1.13,
-      "extra_data": {
-        "regular_market_price": 18.765,
-        "pre_market_price": null,
-        "post_market_price": null,
-        "prev_close": 18.98
-      },
-      "kd_k": 80.76,
-      "kd_d": 78.92
+      "kd_k": 80.85,
+      "kd_d": 79.51
     },
     {
       "symbol": "CRCL",
       "name": "Circle Internet Group, Inc.",
-      "current_price": 87.715,
-      "change_pct": 4.85,
+      "current_price": 87.775,
+      "change_pct": 4.92,
       "extra_data": {
-        "regular_market_price": 87.715,
+        "regular_market_price": 87.775,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 83.66
       },
-      "kd_k": 83.52,
-      "kd_d": 82.9
+      "kd_k": 83.6,
+      "kd_d": 82.93
+    },
+    {
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "current_price": 208.51,
+      "change_pct": 1.5,
+      "extra_data": {
+        "regular_market_price": 208.51,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 205.43
+      },
+      "kd_k": 80.55,
+      "kd_d": 76.11
     },
     {
       "symbol": "TSLL",
       "name": "Direxion Daily TSLA Bull 2X Shares",
-      "current_price": 9.8501,
-      "change_pct": 10.92,
+      "current_price": 9.845,
+      "change_pct": 10.87,
       "extra_data": {
-        "regular_market_price": 9.8501,
+        "regular_market_price": 9.845,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 8.88
       },
-      "kd_k": 84.29,
-      "kd_d": 78.38
+      "kd_k": 83.42,
+      "kd_d": 78.09
     }
   ],
   "oversold_stocks": [
@@ -1143,128 +1143,114 @@
     {
       "symbol": "AMZN",
       "name": "Amazon.com Inc.",
-      "current_price": 258.245,
-      "change_pct": -0.72,
+      "current_price": 259.26,
+      "change_pct": -0.33,
       "extra_data": {
-        "regular_market_price": 258.245,
+        "regular_market_price": 259.26,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 260.11
       },
-      "kd_k": 14.63,
-      "kd_d": 22.0
+      "kd_k": 16.18,
+      "kd_d": 22.52
     },
     {
       "symbol": "META",
       "name": "Meta Platforms Inc.",
-      "current_price": 549.14,
-      "change_pct": 0.61,
+      "current_price": 550.16,
+      "change_pct": 0.79,
       "extra_data": {
-        "regular_market_price": 549.14,
+        "regular_market_price": 550.16,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 545.83
       },
-      "kd_k": 17.71,
-      "kd_d": 27.26
+      "kd_k": 18.16,
+      "kd_d": 27.41
     },
     {
       "symbol": "AVGO",
       "name": "Broadcom Inc.",
-      "current_price": 365.19,
-      "change_pct": 0.32,
+      "current_price": 367.455,
+      "change_pct": 0.94,
       "extra_data": {
-        "regular_market_price": 365.19,
+        "regular_market_price": 367.455,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 364.03
       },
-      "kd_k": 14.77,
-      "kd_d": 26.27
+      "kd_k": 15.87,
+      "kd_d": 26.64
     },
     {
       "symbol": "AMZU",
       "name": "Direxion Daily AMZN Bull 2X Shares",
-      "current_price": 37.34,
-      "change_pct": -1.61,
+      "current_price": 37.6401,
+      "change_pct": -0.82,
       "extra_data": {
-        "regular_market_price": 37.34,
+        "regular_market_price": 37.6401,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 37.95
       },
-      "kd_k": 13.4,
-      "kd_d": 20.42
+      "kd_k": 14.89,
+      "kd_d": 20.92
     },
     {
       "symbol": "FBL",
       "name": "GraniteShares 2x Long META Daily ETF",
-      "current_price": 18.88,
-      "change_pct": 1.12,
+      "current_price": 18.95,
+      "change_pct": 1.5,
       "extra_data": {
-        "regular_market_price": 18.88,
+        "regular_market_price": 18.95,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 18.67
       },
-      "kd_k": 16.35,
-      "kd_d": 25.72
-    },
-    {
-      "symbol": "GGLL",
-      "name": "Direxion Daily GOOGL Bull 2X Shares",
-      "current_price": 101.91,
-      "change_pct": 2.24,
-      "extra_data": {
-        "regular_market_price": 101.91,
-        "pre_market_price": null,
-        "post_market_price": null,
-        "prev_close": 99.68
-      },
-      "kd_k": 20.43,
-      "kd_d": 19.52
+      "kd_k": 16.77,
+      "kd_d": 25.86
     },
     {
       "symbol": "AVGX",
       "name": "Defiance Daily Target 2X Long AVGO ETF",
-      "current_price": 41.69,
-      "change_pct": 0.39,
+      "current_price": 42.11,
+      "change_pct": 1.4,
       "extra_data": {
-        "regular_market_price": 41.69,
+        "regular_market_price": 42.11,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 41.53
       },
-      "kd_k": 13.86,
-      "kd_d": 25.31
+      "kd_k": 14.66,
+      "kd_d": 25.58
     },
     {
       "symbol": "ARM",
       "name": "Arm Holdings plc",
-      "current_price": 243.865,
-      "change_pct": -2.73,
+      "current_price": 243.845,
+      "change_pct": -2.74,
       "extra_data": {
-        "regular_market_price": 243.865,
+        "regular_market_price": 243.845,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 250.72
       },
-      "kd_k": 18.71,
-      "kd_d": 31.7
+      "kd_k": 18.69,
+      "kd_d": 31.69
     },
     {
       "symbol": "ARMG",
       "name": "Leverage Shares 2X Long ARM Daily ETF",
-      "current_price": 16.37,
-      "change_pct": -5.48,
+      "current_price": 16.33,
+      "change_pct": -5.72,
       "extra_data": {
-        "regular_market_price": 16.37,
+        "regular_market_price": 16.33,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 17.32
       },
-      "kd_k": 17.03,
-      "kd_d": 28.98
+      "kd_k": 16.85,
+      "kd_d": 28.92
     }
   ],
   "errors": []
