@@ -1,5 +1,78 @@
 [
   {
+    "id": "TSLA_20260821_overbought",
+    "symbol": "TSLA",
+    "name": "Tesla Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 83.04,
+    "kd_d": 78.95,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 349.25,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ TSLA (Tesla Inc.) is OVERBOUGHT! KD-K: 83.04, KD-D: 78.95 (>= 80)",
+    "timestamp": "2026-08-21T21:42:11.567707",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
+    "id": "CRMG_20260821_overbought",
+    "symbol": "CRMG",
+    "name": "Leverage Shares 2X Long CRM Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.02,
+    "kd_d": 75.23,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 6.745,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ CRMG (Leverage Shares 2X Long CRM Daily ETF) is OVERBOUGHT! KD-K: 81.02, KD-D: 75.23 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-21T21:42:11.570010",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
+    "id": "TSLL_20260821_overbought",
+    "symbol": "TSLL",
+    "name": "Direxion Daily TSLA Bull 2X Shares",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.53,
+    "kd_d": 77.46,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 9.08,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ TSLL (Direxion Daily TSLA Bull 2X Shares) is OVERBOUGHT! KD-K: 81.53, KD-D: 77.46 (>= 80)",
+    "timestamp": "2026-08-21T21:42:11.570166",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
     "id": "2850.TW_20260821_overbought",
     "symbol": "2850.TW",
     "name": "新光產物保險",
@@ -2422,80 +2495,6 @@
     "market_regime_label": null,
     "message": "⚠️ NFLX (Netflix Inc.) is OVERBOUGHT! KD-K: 80.51, KD-D: 78.51 (>= 80)",
     "timestamp": "2026-08-19T00:28:08.346724",
-    "date": "2026-08-19",
-    "acknowledged": false
-  },
-  {
-    "id": "PLTR_20260819_overbought",
-    "symbol": "PLTR",
-    "name": "Palantir Technologies Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 78.68,
-    "kd_d": 82.43,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 172.04,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ PLTR (Palantir Technologies Inc.) is OVERBOUGHT! KD-K: 78.68, KD-D: 82.43 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-19T00:28:08.346854",
-    "date": "2026-08-19",
-    "acknowledged": false
-  },
-  {
-    "id": "QQQ_20260819_overbought",
-    "symbol": "QQQ",
-    "name": "Invesco QQQ Trust",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 70.66,
-    "kd_d": 80.11,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 718.82,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ QQQ (Invesco QQQ Trust) is OVERBOUGHT! KD-K: 70.66, KD-D: 80.11 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-19T00:28:08.346995",
-    "date": "2026-08-19",
-    "acknowledged": false
-  },
-  {
-    "id": "AMZU_20260819_oversold",
-    "symbol": "AMZU",
-    "name": "Direxion Daily AMZN Bull 2X Shares",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.47,
-    "kd_d": 30.52,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 38.35,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ AMZU (Direxion Daily AMZN Bull 2X Shares) is OVERSOLD! KD-K: 18.47, KD-D: 30.52 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-19T00:28:08.347180",
     "date": "2026-08-19",
     "acknowledged": false
   }
