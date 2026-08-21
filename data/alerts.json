@@ -1,5 +1,30 @@
 [
   {
+    "id": "ADBE_20260821_overbought",
+    "symbol": "ADBE",
+    "name": "Adobe Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.52,
+    "kd_d": 71.63,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 276.23,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ ADBE (Adobe Inc.) is OVERBOUGHT! KD-K: 80.52, KD-D: 71.63 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-21T23:29:05.359150",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
     "id": "FNGG_20260821_oversold",
     "symbol": "FNGG",
     "name": "Direxion Daily NYSE FANG+ Bull 2X Shares",
@@ -2467,31 +2492,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00981A.TW (主動統一台股增長) is OVERBOUGHT! KD-K: 83.15, KD-D: 87.05 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-19T00:28:08.346170",
-    "date": "2026-08-19",
-    "acknowledged": false
-  },
-  {
-    "id": "00992A.TW_20260819_overbought",
-    "symbol": "00992A.TW",
-    "name": "主動群益科技創新",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 88.54,
-    "kd_d": 89.92,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 17.94,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "個股外資近3日仍買超達20日均量的57%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00992A.TW (主動群益科技創新) is OVERBOUGHT! KD-K: 88.54, KD-D: 89.92 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-19T00:28:08.346247",
     "date": "2026-08-19",
     "acknowledged": false
   }
