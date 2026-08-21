@@ -1,5 +1,80 @@
 [
   {
+    "id": "FNGG_20260821_oversold",
+    "symbol": "FNGG",
+    "name": "Direxion Daily NYSE FANG+ Bull 2X Shares",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.52,
+    "kd_d": 34.97,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 254.559,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ FNGG (Direxion Daily NYSE FANG+ Bull 2X Shares) is OVERSOLD! KD-K: 17.52, KD-D: 34.97 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-21T22:30:51.485970",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
+    "id": "ARM_20260821_oversold",
+    "symbol": "ARM",
+    "name": "Arm Holdings plc",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.68,
+    "kd_d": 32.02,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 245.29,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ ARM (Arm Holdings plc) is OVERSOLD! KD-K: 19.68, KD-D: 32.02 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-21T22:30:51.486828",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
+    "id": "ARMG_20260821_oversold",
+    "symbol": "ARMG",
+    "name": "Leverage Shares 2X Long ARM Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.86,
+    "kd_d": 29.26,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 16.5499,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 17.86, KD-D: 29.26 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-21T22:30:51.486989",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
     "id": "TSLA_20260821_overbought",
     "symbol": "TSLA",
     "name": "Tesla Inc.",
@@ -2417,84 +2492,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00992A.TW (主動群益科技創新) is OVERBOUGHT! KD-K: 88.54, KD-D: 89.92 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-19T00:28:08.346247",
-    "date": "2026-08-19",
-    "acknowledged": false
-  },
-  {
-    "id": "GOOGL_20260819_oversold",
-    "symbol": "GOOGL",
-    "name": "Alphabet Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 16.58,
-    "kd_d": 24.81,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 344.03,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ GOOGL (Alphabet Inc.) is OVERSOLD! KD-K: 16.58, KD-D: 24.81 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-19T00:28:08.346421",
-    "date": "2026-08-19",
-    "acknowledged": false
-  },
-  {
-    "id": "AMZN_20260819_oversold",
-    "symbol": "AMZN",
-    "name": "Amazon.com Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.72,
-    "kd_d": 32.58,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 261.23,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ AMZN (Amazon.com Inc.) is OVERSOLD! KD-K: 19.72, KD-D: 32.58 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-19T00:28:08.346581",
-    "date": "2026-08-19",
-    "acknowledged": false
-  },
-  {
-    "id": "NFLX_20260819_overbought",
-    "symbol": "NFLX",
-    "name": "Netflix Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.51,
-    "kd_d": 78.51,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 78.8321,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ NFLX (Netflix Inc.) is OVERBOUGHT! KD-K: 80.51, KD-D: 78.51 (>= 80)",
-    "timestamp": "2026-08-19T00:28:08.346724",
     "date": "2026-08-19",
     "acknowledged": false
   }
