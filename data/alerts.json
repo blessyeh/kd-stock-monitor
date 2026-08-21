@@ -1,5 +1,32 @@
 [
   {
+    "id": "2850.TW_20260821_overbought",
+    "symbol": "2850.TW",
+    "name": "新光產物保險",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.32,
+    "kd_d": 69.85,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 168.5,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 2850.TW (新光產物保險) is OVERBOUGHT! KD-K: 81.32, KD-D: 69.85 (>= 80)",
+    "timestamp": "2026-08-21T14:39:14.618902",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
     "id": "00881.TW_20260821_oversold",
     "symbol": "00881.TW",
     "name": "國泰台灣科技龍頭",
@@ -2469,31 +2496,6 @@
     "market_regime_label": null,
     "message": "✅ AMZU (Direxion Daily AMZN Bull 2X Shares) is OVERSOLD! KD-K: 18.47, KD-D: 30.52 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-19T00:28:08.347180",
-    "date": "2026-08-19",
-    "acknowledged": false
-  },
-  {
-    "id": "GGLL_20260819_oversold",
-    "symbol": "GGLL",
-    "name": "Direxion Daily GOOGL Bull 2X Shares",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 15.08,
-    "kd_d": 22.69,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 101.79,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ GGLL (Direxion Daily GOOGL Bull 2X Shares) is OVERSOLD! KD-K: 15.08, KD-D: 22.69 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-19T00:28:08.347360",
     "date": "2026-08-19",
     "acknowledged": false
   }
