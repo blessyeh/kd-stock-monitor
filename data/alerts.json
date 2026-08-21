@@ -1,5 +1,30 @@
 [
   {
+    "id": "00881.TW_20260821_oversold",
+    "symbol": "00881.TW",
+    "name": "國泰台灣科技龍頭",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.52,
+    "kd_d": 28.83,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 48.58,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00881.TW (國泰台灣科技龍頭) is OVERSOLD! KD-K: 18.52, KD-D: 28.83 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-21T12:34:29.700835",
+    "date": "2026-08-21",
+    "acknowledged": false
+  },
+  {
     "id": "00635U.TW_20260821_overbought",
     "symbol": "00635U.TW",
     "name": "期元大S&P黃金",
@@ -2469,30 +2494,6 @@
     "market_regime_label": null,
     "message": "✅ GGLL (Direxion Daily GOOGL Bull 2X Shares) is OVERSOLD! KD-K: 15.08, KD-D: 22.69 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-19T00:28:08.347360",
-    "date": "2026-08-19",
-    "acknowledged": false
-  },
-  {
-    "id": "CRCL_20260819_overbought",
-    "symbol": "CRCL",
-    "name": "Circle Internet Group, Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 83.37,
-    "kd_d": 81.0,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 72.63,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ CRCL (Circle Internet Group, Inc.) is OVERBOUGHT! KD-K: 83.37, KD-D: 81.0 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-19T00:28:08.347493",
     "date": "2026-08-19",
     "acknowledged": false
   }
