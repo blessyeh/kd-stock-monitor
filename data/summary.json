@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-23T23:18:31.671349",
-  "date": "2026-08-23",
+  "timestamp": "2026-08-24T00:20:58.561075",
+  "date": "2026-08-24",
   "macro": {
     "taiex": {
       "value": 45224.29,
@@ -22,12 +22,12 @@
       "change": -0.88,
       "change_pct": -5.5,
       "label": "VIX Index",
-      "timestamp": "2026-08-23T23:18:23.834770"
+      "timestamp": "2026-08-24T00:19:50.974837"
     },
     "btc": {
-      "value": 77093.0,
-      "change": 10.0,
-      "change_pct": 0.01
+      "value": 77223.0,
+      "change": 139.0,
+      "change_pct": 0.18
     },
     "oil": {
       "value": 87.06,
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 31.82,
-      "change": -0.018,
-      "change_pct": -0.06
+      "value": 31.823,
+      "change": -0.015,
+      "change_pct": -0.05
     },
     "foreign_futures_net": {
       "value": -82594,
@@ -110,19 +110,19 @@
       "change_pct": -0.21
     },
     "put_call_ratio": {
-      "value": 112.3,
+      "value": null,
+      "change": null,
+      "change_pct": null,
       "unit": "%",
-      "date": "2026-08-21",
-      "change": 12.93,
-      "change_pct": 13.01
+      "date": null
     },
     "night_session": {
-      "close": 44804.0,
-      "prev_close": 44868.0,
-      "gap": -64.0,
-      "gap_pct": -0.14,
-      "date": "2026-08-21",
-      "prev_date": "2026-08-20"
+      "close": 45074.0,
+      "prev_close": 45148.0,
+      "gap": -74.0,
+      "gap_pct": -0.16,
+      "date": "2026-08-24",
+      "prev_date": "2026-08-21"
     }
   },
   "signal_confluence": {
@@ -144,8 +144,8 @@
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.184（貶值門檻 0.3）",
-          "score": 7.7
+          "detail": "USD/TWD 5日變動 -0.181（貶值門檻 0.3）",
+          "score": 7.9
         },
         {
           "id": "foreign_dual_short",
@@ -158,10 +158,10 @@
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": false,
+          "status": null,
           "completeness": "full",
-          "detail": "今日外資買超；融資餘額5日已回落（5469億元）；P/C Ratio 112.3%（>= 100%門檻）",
-          "score": 46.1
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷",
+          "score": null
         },
         {
           "id": "tech_capital_retreat",
@@ -173,11 +173,11 @@
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 5,
+      "evaluated_count": 4,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 25.8
+      "avg_score": 20.8
     },
     "bottom": {
       "conditions": [
@@ -202,7 +202,7 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.184（止穩/升值）；外資今日轉買超，近期均值 +89.0億元；台指期淨部位5日變動 +2585口（未回補）",
+          "detail": "USD/TWD 5日變動 -0.181（止穩/升值）；外資今日轉買超，近期均值 +89.0億元；台指期淨部位5日變動 +2585口（未回補）",
           "score": 70.7
         }
       ],
@@ -219,7 +219,7 @@
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 77.4
+          "score": 77.2
         },
         {
           "name": "foreign_flow_reversal",
@@ -248,7 +248,7 @@
     "as_of_date": "2026-08-21",
     "history_days": 55,
     "bottom": {
-      "total": 32.3,
+      "total": 26.7,
       "dimensions": [
         {
           "name": "macro",
@@ -270,11 +270,10 @@
         },
         {
           "name": "derivative",
-          "score": 9.9,
+          "score": 4.3,
           "cap": 20,
           "notes": [
-            "台指期淨空單5日變動 +2585口（回補強度 36/100，+4.3）",
-            "P/C Ratio 112.3%（避險需求強度 70/100，+5.6）"
+            "台指期淨空單5日變動 +2585口（回補強度 36/100，+4.3）"
           ]
         },
         {
@@ -294,7 +293,7 @@
       ]
     },
     "top": {
-      "total": 26.3,
+      "total": 23.9,
       "dimensions": [
         {
           "name": "macro",
@@ -310,17 +309,16 @@
           "score": 7.0,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 -0.184（強度 8/100，+0.8）",
+            "新台幣5日貶值 -0.181（強度 8/100，+0.8）",
             "外資今日 +283.1億元，融資餘額5日變動 -28億元（散戶未離場強度 42/100，+6.2）"
           ]
         },
         {
           "name": "derivative",
-          "score": 2.4,
+          "score": 0,
           "cap": 20,
           "notes": [
-            "外資台指期淨空單 -82594口（強度 0/100，+0.0）",
-            "P/C Ratio 112.3%（自滿強度 30/100，+2.4）"
+            "外資台指期淨空單 -82594口（強度 0/100，+0.0）"
           ]
         },
         {
@@ -422,7 +420,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $418.9 換算2330隱含價 2666.2元，2330現價 2410.0元（折價 9.6%）",
+          "TSM ADR $418.9 換算2330隱含價 2666.4元，2330現價 2410.0元（折價 9.6%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -796,26 +794,31 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-08-23",
+      "as_of_date": "2026-08-24",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-08-23",
+      "as_of_date": "2026-08-24",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-08-21",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-08-21",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
     {
       "title": "MSCI台灣升至新興市場全球第一 輝達財報登場",
       "url": "https://tw.stock.yahoo.com/news/msci%E5%8F%B0%E7%81%A3%E5%8D%87%E8%87%B3%E6%96%B0%E8%88%88%E5%B8%82%E5%A0%B4%E5%85%A8%E7%90%83%E7%AC%AC%E4%B8%80%E5%A4%96%E8%B3%87%E5%A4%A7%E8%AA%BF%E5%80%89%E6%B0%B8%E8%B1%90%E5%84%AA%E6%81%AF%E5%AD%98%E8%82%A1etf%E9%85%8D%E6%81%AF%E9%80%A3%E5%8D%87-%E8%BC%9D%E9%81%94%E8%B2%A1%E5%A0%B1%E5%92%8C%E5%82%91%E5%85%8B%E9%81%9C%E9%9C%8D%E7%88%BE%E7%99%BB%E5%A0%B4-%E4%B8%AD%E6%B2%B9%E5%AE%A3%E5%B8%83%E6%B2%B9%E5%83%B9%E5%87%8D%E6%BC%B2%EF%BD%9C%E6%8A%95%E8%B3%87%E6%97%A9%E7%9F%A5%E9%81%93-052120928.html",
+      "meta": null
+    },
+    {
+      "title": "自動化需求回溫！「氣動元件大廠」H1每股賺29.91元、接單持續高於出貨　法人看全年EPS挑戰59元",
+      "url": "https://tw.stock.yahoo.com/news/%E8%87%AA%E5%8B%95%E5%8C%96%E9%9C%80%E6%B1%82%E5%9B%9E%E6%BA%AB-%E6%B0%A3%E5%8B%95%E5%85%83%E4%BB%B6%E5%A4%A7%E5%BB%A0-h1%E6%AF%8F%E8%82%A1%E8%B3%BA29-91%E5%85%83-%E6%8E%A5%E5%96%AE%E6%8C%81%E7%BA%8C%E9%AB%98%E6%96%BC%E5%87%BA%E8%B2%A8-153000603.html",
       "meta": null
     },
     {
@@ -857,17 +860,12 @@
       "title": "《財富+個琳》寶可夢卡牌淘金術！比股票還賺？　EP.13週二21：00準時開播！",
       "url": "https://tw.stock.yahoo.com/news/%E8%B2%A1%E5%AF%8C-%E5%80%8B%E7%90%B3-%E5%AF%B6%E5%8F%AF%E5%A4%A2%E5%8D%A1%E7%89%8C%E6%B7%98%E9%87%91%E8%A1%93-%E6%AF%94%E8%82%A1%E7%A5%A8%E9%82%84%E8%B3%BA-ep-125943267.html",
       "meta": null
-    },
-    {
-      "title": "591千萬便宜屋藏陷阱？標低價、已售未下架惹議　買房族遇「釣魚廣告」3招自保",
-      "url": "https://tw.stock.yahoo.com/news/591%E5%8D%83%E8%90%AC%E4%BE%BF%E5%AE%9C%E5%B1%8B%E8%97%8F%E9%99%B7%E9%98%B1%EF%BC%9F%E6%A8%99%E4%BD%8E%E5%83%B9%E3%80%81%E5%B7%B2%E5%94%AE%E6%9C%AA%E4%B8%8B%E6%9E%B6%E6%83%B9%E8%AD%B0-%E8%B2%B7%E6%88%BF%E6%97%8F%E9%81%87%E3%80%8C%E9%87%A3%E9%AD%9A%E5%BB%A3%E5%91%8A%E3%80%8D3%E6%8B%9B%E8%87%AA%E4%BF%9D-125900749.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 30,
   "overbought_count": 12,
   "oversold_count": 18,
   "normal_count": 97,
