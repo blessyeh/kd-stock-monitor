@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-24T00:20:58.561075",
+  "timestamp": "2026-08-24T01:17:32.450781",
   "date": "2026-08-24",
   "macro": {
     "taiex": {
@@ -22,11 +22,11 @@
       "change": -0.88,
       "change_pct": -5.5,
       "label": "VIX Index",
-      "timestamp": "2026-08-24T00:19:50.974837"
+      "timestamp": "2026-08-24T01:17:25.579778"
     },
     "btc": {
       "value": 77223.0,
-      "change": 139.0,
+      "change": 140.0,
       "change_pct": 0.18
     },
     "oil": {
@@ -803,11 +803,11 @@
     },
     "tw_chip": {
       "as_of_date": "2026-08-21",
-      "fetched": true
+      "fetched": false
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-08-21",
-      "fetched": true
+      "fetched": false
     }
   },
   "news": [
@@ -817,8 +817,18 @@
       "meta": null
     },
     {
+      "title": "台股本周看國際盤三大變數　　以盤待變伺機突破大箱型格局",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%9C%AC%E5%91%A8%E7%9C%8B%E5%9C%8B%E9%9A%9B%E7%9B%A4%E4%B8%89%E5%A4%A7%E8%AE%8A%E6%95%B8-%E4%BB%A5%E7%9B%A4%E5%BE%85%E8%AE%8A%E4%BC%BA%E6%A9%9F%E7%AA%81%E7%A0%B4%E5%A4%A7%E7%AE%B1%E5%9E%8B%E6%A0%BC%E5%B1%80-163314239.html",
+      "meta": null
+    },
+    {
       "title": "自動化需求回溫！「氣動元件大廠」H1每股賺29.91元、接單持續高於出貨　法人看全年EPS挑戰59元",
       "url": "https://tw.stock.yahoo.com/news/%E8%87%AA%E5%8B%95%E5%8C%96%E9%9C%80%E6%B1%82%E5%9B%9E%E6%BA%AB-%E6%B0%A3%E5%8B%95%E5%85%83%E4%BB%B6%E5%A4%A7%E5%BB%A0-h1%E6%AF%8F%E8%82%A1%E8%B3%BA29-91%E5%85%83-%E6%8E%A5%E5%96%AE%E6%8C%81%E7%BA%8C%E9%AB%98%E6%96%BC%E5%87%BA%E8%B2%A8-153000603.html",
+      "meta": null
+    },
+    {
+      "title": "雨彈狂炸南台灣！高雄紫爆升級超大豪雨　6縣市宣布明天停班停課",
+      "url": "https://tw.stock.yahoo.com/news/%E9%9B%A8%E5%BD%88%E7%8B%82%E7%82%B8%E5%8D%97%E5%8F%B0%E7%81%A3-%E9%AB%98%E9%9B%84%E7%B4%AB%E7%88%86%E5%8D%87%E7%B4%9A%E8%B6%85%E5%A4%A7%E8%B1%AA%E9%9B%A8-6%E7%B8%A3%E5%B8%82%E5%AE%A3%E5%B8%83%E6%98%8E%E5%A4%A9%E5%81%9C%E7%8F%AD%E5%81%9C%E8%AA%B2-150900937.html",
       "meta": null
     },
     {
@@ -829,6 +839,11 @@
     {
       "title": "彰化「求職好事多」就博會第5場　36家企業釋出逾千職缺最高月薪8萬元",
       "url": "https://tw.stock.yahoo.com/news/%E5%BD%B0%E5%8C%96-%E6%B1%82%E8%81%B7%E5%A5%BD%E4%BA%8B%E5%A4%9A-%E5%B0%B1%E5%8D%9A%E6%9C%83%E7%AC%AC5%E5%A0%B4-36%E5%AE%B6%E4%BC%81%E6%A5%AD%E9%87%8B%E5%87%BA%E9%80%BE%E5%8D%83%E8%81%B7%E7%BC%BA%E6%9C%80%E9%AB%98%E6%9C%88%E8%96%AA8%E8%90%AC%E5%85%83-145815190.html",
+      "meta": null
+    },
+    {
+      "title": "24日高雄全市確定停班課！陳其邁：嚴防致災性強降雨",
+      "url": "https://tw.stock.yahoo.com/news/24%E6%97%A5%E9%AB%98%E9%9B%84%E5%85%A8%E5%B8%82%E7%A2%BA%E5%AE%9A%E5%81%9C%E7%8F%AD%E8%AA%B2-%E9%99%B3%E5%85%B6%E9%82%81-%E5%9A%B4%E9%98%B2%E8%87%B4%E7%81%BD%E6%80%A7%E5%BC%B7%E9%99%8D%E9%9B%A8-145500134.html",
       "meta": null
     },
     {
@@ -845,27 +860,12 @@
       "title": "毛利率放眼60%！「PCB大廠」獲法人喊價1010元　三大法人砸670億元連3週掃貨",
       "url": "https://tw.stock.yahoo.com/news/%E6%AF%9B%E5%88%A9%E7%8E%87%E6%94%BE%E7%9C%BC60-pcb%E5%A4%A7%E5%BB%A0-%E7%8D%B2%E6%B3%95%E4%BA%BA%E5%96%8A%E5%83%B91010%E5%85%83-%E4%B8%89%E5%A4%A7%E6%B3%95%E4%BA%BA%E7%A0%B8670%E5%84%84%E5%85%83%E9%80%A33%E9%80%B1%E6%8E%83%E8%B2%A8-140000060.html",
       "meta": null
-    },
-    {
-      "title": "AI伺服器新品一路放量至2027年！「機殼廠」Q2每股賺11.1元　法人看Q3獲利拚雙位數成長",
-      "url": "https://tw.stock.yahoo.com/news/ai%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%96%B0%E5%93%81-%E8%B7%AF%E6%94%BE%E9%87%8F%E8%87%B32027%E5%B9%B4-%E6%A9%9F%E6%AE%BC%E5%BB%A0-q2%E6%AF%8F%E8%82%A1%E8%B3%BA11-1%E5%85%83-134500160.html",
-      "meta": null
-    },
-    {
-      "title": "Q2獲利大漲4倍！「測試介面大廠」上半年EPS達12元　切Google TPU供應鏈前景樂觀",
-      "url": "https://tw.stock.yahoo.com/news/q2%E7%8D%B2%E5%88%A9%E5%A4%A7%E6%BC%B24%E5%80%8D-%E6%B8%AC%E8%A9%A6%E4%BB%8B%E9%9D%A2%E5%A4%A7%E5%BB%A0-%E4%B8%8A%E5%8D%8A%E5%B9%B4eps%E9%81%9412%E5%85%83-%E5%88%87google-tpu%E4%BE%9B%E6%87%89%E9%8F%88%E5%89%8D%E6%99%AF%E6%A8%82%E8%A7%80-130000507.html",
-      "meta": null
-    },
-    {
-      "title": "《財富+個琳》寶可夢卡牌淘金術！比股票還賺？　EP.13週二21：00準時開播！",
-      "url": "https://tw.stock.yahoo.com/news/%E8%B2%A1%E5%AF%8C-%E5%80%8B%E7%90%B3-%E5%AF%B6%E5%8F%AF%E5%A4%A2%E5%8D%A1%E7%89%8C%E6%B7%98%E9%87%91%E8%A1%93-%E6%AF%94%E8%82%A1%E7%A5%A8%E9%82%84%E8%B3%BA-ep-125943267.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 30,
+  "new_alerts": 0,
   "overbought_count": 12,
   "oversold_count": 18,
   "normal_count": 97,
@@ -949,7 +949,7 @@
         "regular_market_price": 362.86,
         "pre_market_price": null,
         "post_market_price": 363.93,
-        "prev_close": 345.13
+        "prev_close": 345.12997
       },
       "kd_k": 83.03,
       "kd_d": 78.95
@@ -977,7 +977,7 @@
         "regular_market_price": 18.7,
         "pre_market_price": null,
         "post_market_price": 18.86,
-        "prev_close": 18.98
+        "prev_close": 18.980001
       },
       "kd_k": 80.11,
       "kd_d": 78.71
@@ -1175,7 +1175,7 @@
         "regular_market_price": 258.63,
         "pre_market_price": null,
         "post_market_price": 259.55,
-        "prev_close": 260.11
+        "prev_close": 260.11002
       },
       "kd_k": 15.21,
       "kd_d": 22.2
