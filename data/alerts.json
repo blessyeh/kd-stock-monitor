@@ -1,5 +1,31 @@
 [
   {
+    "id": "FNGG_20260825_oversold",
+    "symbol": "FNGG",
+    "name": "Direxion Daily NYSE FANG+ Bull 2X Shares",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 20.0,
+    "kd_d": 30.93,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 253.143,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ FNGG (Direxion Daily NYSE FANG+ Bull 2X Shares) is OVERSOLD! KD-K: 20.0, KD-D: 30.93 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-25T05:24:50.579725",
+    "date": "2026-08-25",
+    "acknowledged": false
+  },
+  {
     "id": "AMDL_20260825_oversold",
     "symbol": "AMDL",
     "name": "GraniteShares 2x Long AMD Daily ETF",
@@ -2477,31 +2503,6 @@
     "market_regime_label": null,
     "message": "⚠️ TSLL (Direxion Daily TSLA Bull 2X Shares) is OVERBOUGHT! KD-K: 81.79, KD-D: 77.55 (>= 80)",
     "timestamp": "2026-08-24T00:20:54.166942",
-    "date": "2026-08-24",
-    "acknowledged": false
-  },
-  {
-    "id": "ARM_20260824_oversold",
-    "symbol": "ARM",
-    "name": "Arm Holdings plc",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.33,
-    "kd_d": 31.57,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 243.32,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ARM (Arm Holdings plc) is OVERSOLD! KD-K: 18.33, KD-D: 31.57 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-24T00:20:54.167181",
     "date": "2026-08-24",
     "acknowledged": false
   }

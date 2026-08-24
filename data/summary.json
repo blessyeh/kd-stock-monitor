@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-25T04:25:42.980809",
+  "timestamp": "2026-08-25T05:24:55.089972",
   "date": "2026-08-25",
   "macro": {
     "taiex": {
@@ -13,7 +13,7 @@
       "change_pct": -0.72
     },
     "dxy": {
-      "value": 99.0,
+      "value": 98.99,
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -22,20 +22,20 @@
       "change": 0.72,
       "change_pct": 4.76,
       "label": "VIX Index",
-      "timestamp": "2026-08-25T04:25:36.462867"
+      "timestamp": "2026-08-25T05:24:47.591490"
     },
     "btc": {
-      "value": 78698.0,
-      "change": 942.0,
-      "change_pct": 1.21
+      "value": 78942.0,
+      "change": 1186.0,
+      "change_pct": 1.53
     },
     "oil": {
-      "value": 85.02,
+      "value": 84.98,
       "change": 0.0,
       "change_pct": 0.0
     },
     "gold": {
-      "value": 4707.7,
+      "value": 4710.0,
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -134,7 +134,7 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.00 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.01pp（未達 0.15pp）",
+          "detail": "DXY 98.99 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.01pp（未達 0.15pp）",
           "score": 4.6
         },
         {
@@ -254,7 +254,7 @@
           "cap": 25,
           "notes": [
             "VIX 近10日高點 15.9 → 目前 15.8（強度 10/100，+1.6）",
-            "DXY 99.00 距近20日高點 -2.47%（美元壓力緩和強度 100/100，+10.0）"
+            "DXY 98.99 距近20日高點 -2.48%（美元壓力緩和強度 100/100，+10.0）"
           ]
         },
         {
@@ -299,7 +299,7 @@
           "score": 6.2,
           "cap": 25,
           "notes": [
-            "DXY 99.00 距近20日高點 -2.47%，美債10Y5日變動 -0.01pp（強度 5/100，+0.7）",
+            "DXY 98.99 距近20日高點 -2.48%，美債10Y5日變動 -0.01pp（強度 5/100，+0.7）",
             "SOX/NDX 距近20日支撐 +6.73%，美債10Y同步變動（強度 55/100，+5.5）"
           ]
         },
@@ -865,10 +865,10 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 1,
   "overbought_count": 11,
-  "oversold_count": 33,
-  "normal_count": 83,
+  "oversold_count": 34,
+  "normal_count": 82,
   "overbought_stocks": [
     {
       "symbol": "00635U.TW",
@@ -934,7 +934,7 @@
       "extra_data": {
         "regular_market_price": 80.01,
         "pre_market_price": null,
-        "post_market_price": 80.1657,
+        "post_market_price": 80.16,
         "prev_close": 79.59
       },
       "kd_k": 82.2,
@@ -948,7 +948,7 @@
       "extra_data": {
         "regular_market_price": 18.87,
         "pre_market_price": null,
-        "post_market_price": 18.89,
+        "post_market_price": 18.9,
         "prev_close": 18.7
       },
       "kd_k": 81.15,
@@ -962,7 +962,7 @@
       "extra_data": {
         "regular_market_price": 87.72,
         "pre_market_price": null,
-        "post_market_price": 87.35,
+        "post_market_price": 87.78,
         "prev_close": 87.98
       },
       "kd_k": 82.0,
@@ -976,7 +976,7 @@
       "extra_data": {
         "regular_market_price": 209.06,
         "pre_market_price": null,
-        "post_market_price": 208.56,
+        "post_market_price": 209.18,
         "prev_close": 209.17
       },
       "kd_k": 81.84,
@@ -990,7 +990,7 @@
       "extra_data": {
         "regular_market_price": 6.91,
         "pre_market_price": null,
-        "post_market_price": 6.9,
+        "post_market_price": 6.91,
         "prev_close": 6.91
       },
       "kd_k": 81.08,
@@ -1004,7 +1004,7 @@
       "extra_data": {
         "regular_market_price": 276.27,
         "pre_market_price": null,
-        "post_market_price": 275.9,
+        "post_market_price": 276.27,
         "prev_close": 275.3
       },
       "kd_k": 82.7,
@@ -1018,7 +1018,7 @@
       "extra_data": {
         "regular_market_price": 5.12,
         "pre_market_price": null,
-        "post_market_price": 5.1102,
+        "post_market_price": 5.1293,
         "prev_close": 5.09
       },
       "kd_k": 81.49,
@@ -1300,7 +1300,7 @@
       "extra_data": {
         "regular_market_price": 208.48,
         "pre_market_price": null,
-        "post_market_price": 208.1477,
+        "post_market_price": 208.7054,
         "prev_close": 214.72
       },
       "kd_k": 17.77,
@@ -1314,7 +1314,7 @@
       "extra_data": {
         "regular_market_price": 358.76,
         "pre_market_price": null,
-        "post_market_price": 358.39,
+        "post_market_price": 359.1326,
         "prev_close": 368.45
       },
       "kd_k": 11.45,
@@ -1328,7 +1328,7 @@
       "extra_data": {
         "regular_market_price": 190.68,
         "pre_market_price": null,
-        "post_market_price": 190.89,
+        "post_market_price": 191.38,
         "prev_close": 191.95
       },
       "kd_k": 19.24,
@@ -1342,7 +1342,7 @@
       "extra_data": {
         "regular_market_price": 701.83,
         "pre_market_price": null,
-        "post_market_price": 701.58,
+        "post_market_price": 702.4,
         "prev_close": 703.71
       },
       "kd_k": 19.46,
@@ -1356,7 +1356,7 @@
       "extra_data": {
         "regular_market_price": 763.47,
         "pre_market_price": null,
-        "post_market_price": 763.28,
+        "post_market_price": 764.0003,
         "prev_close": 765.72
       },
       "kd_k": 19.56,
@@ -1370,7 +1370,7 @@
       "extra_data": {
         "regular_market_price": 79.41,
         "pre_market_price": null,
-        "post_market_price": 79.21,
+        "post_market_price": 79.98,
         "prev_close": 84.47
       },
       "kd_k": 17.53,
@@ -1384,7 +1384,7 @@
       "extra_data": {
         "regular_market_price": 38.43,
         "pre_market_price": null,
-        "post_market_price": 38.4339,
+        "post_market_price": 38.66,
         "prev_close": 37.46
       },
       "kd_k": 18.77,
@@ -1398,7 +1398,7 @@
       "extra_data": {
         "regular_market_price": 31.34,
         "pre_market_price": null,
-        "post_market_price": 31.25,
+        "post_market_price": 31.4297,
         "prev_close": 33.29
       },
       "kd_k": 17.1,
@@ -1412,11 +1412,11 @@
       "extra_data": {
         "regular_market_price": 46.05,
         "pre_market_price": null,
-        "post_market_price": 45.919,
+        "post_market_price": 46.04,
         "prev_close": 49.55
       },
-      "kd_k": 19.43,
-      "kd_d": 28.92
+      "kd_k": 19.6,
+      "kd_d": 28.98
     },
     {
       "symbol": "AVGX",
@@ -1426,11 +1426,25 @@
       "extra_data": {
         "regular_market_price": 40.15,
         "pre_market_price": null,
-        "post_market_price": 40.1,
+        "post_market_price": 40.26,
         "prev_close": 42.41
       },
       "kd_k": 10.43,
       "kd_d": 20.65
+    },
+    {
+      "symbol": "FNGG",
+      "name": "Direxion Daily NYSE FANG+ Bull 2X Shares",
+      "current_price": 253.143,
+      "change_pct": -1.41,
+      "extra_data": {
+        "regular_market_price": 253.143,
+        "pre_market_price": null,
+        "post_market_price": 253.1427,
+        "prev_close": 256.762
+      },
+      "kd_k": 20.0,
+      "kd_d": 30.93
     },
     {
       "symbol": "RKLB",
@@ -1440,7 +1454,7 @@
       "extra_data": {
         "regular_market_price": 68.28,
         "pre_market_price": null,
-        "post_market_price": 68.3499,
+        "post_market_price": 68.4,
         "prev_close": 72.57
       },
       "kd_k": 16.78,
@@ -1454,7 +1468,7 @@
       "extra_data": {
         "regular_market_price": 17.33,
         "pre_market_price": null,
-        "post_market_price": 17.3683,
+        "post_market_price": 17.4687,
         "prev_close": 19.68
       },
       "kd_k": 15.51,
@@ -1468,7 +1482,7 @@
       "extra_data": {
         "regular_market_price": 238.78,
         "pre_market_price": null,
-        "post_market_price": 237.64,
+        "post_market_price": 238.6397,
         "prev_close": 243.32
       },
       "kd_k": 15.44,
@@ -1482,7 +1496,7 @@
       "extra_data": {
         "regular_market_price": 15.66,
         "pre_market_price": null,
-        "post_market_price": 15.52,
+        "post_market_price": 15.65,
         "prev_close": 16.29
       },
       "kd_k": 14.11,
