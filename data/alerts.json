@@ -1,5 +1,30 @@
 [
   {
+    "id": "AMDL_20260825_oversold",
+    "symbol": "AMDL",
+    "name": "GraniteShares 2x Long AMD Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.44,
+    "kd_d": 28.93,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 45.98,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ AMDL (GraniteShares 2x Long AMD Daily ETF) is OVERSOLD! KD-K: 19.44, KD-D: 28.93 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-25T03:25:57.897096",
+    "date": "2026-08-25",
+    "acknowledged": false
+  },
+  {
     "id": "VOO_20260825_oversold",
     "symbol": "VOO",
     "name": "Vanguard S&P 500 ETF",
@@ -2477,30 +2502,6 @@
     "market_regime_label": null,
     "message": "✅ ARM (Arm Holdings plc) is OVERSOLD! KD-K: 18.33, KD-D: 31.57 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-24T00:20:54.167181",
-    "date": "2026-08-24",
-    "acknowledged": false
-  },
-  {
-    "id": "ARMG_20260824_oversold",
-    "symbol": "ARMG",
-    "name": "Leverage Shares 2X Long ARM Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 16.67,
-    "kd_d": 28.86,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 16.29,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 16.67, KD-D: 28.86 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-24T00:20:54.167383",
     "date": "2026-08-24",
     "acknowledged": false
   }
