@@ -1,5 +1,31 @@
 [
   {
+    "id": "00647L.TW_20260824_oversold",
+    "symbol": "00647L.TW",
+    "name": "元大S&P500正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.08,
+    "kd_d": 34.47,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 138.4,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的43%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00647L.TW (元大S&P500正2) is OVERSOLD! KD-K: 19.08, KD-D: 34.47 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-24T12:50:52.347597",
+    "date": "2026-08-24",
+    "acknowledged": false
+  },
+  {
     "id": "00830.TW_20260824_oversold",
     "symbol": "00830.TW",
     "name": "國泰費城半導體",
@@ -2490,32 +2516,6 @@
     "market_regime_label": null,
     "message": "⚠️ ADBE (Adobe Inc.) is OVERBOUGHT! KD-K: 80.52, KD-D: 71.63 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-21T23:29:05.359150",
-    "date": "2026-08-21",
-    "acknowledged": false
-  },
-  {
-    "id": "FNGG_20260821_oversold",
-    "symbol": "FNGG",
-    "name": "Direxion Daily NYSE FANG+ Bull 2X Shares",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.52,
-    "kd_d": 34.97,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 254.559,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ FNGG (Direxion Daily NYSE FANG+ Bull 2X Shares) is OVERSOLD! KD-K: 17.52, KD-D: 34.97 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-21T22:30:51.485970",
     "date": "2026-08-21",
     "acknowledged": false
   }
