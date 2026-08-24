@@ -1,5 +1,30 @@
 [
   {
+    "id": "00910.TW_20260824_oversold",
+    "symbol": "00910.TW",
+    "name": "第一金太空衛星",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.47,
+    "kd_d": 40.91,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 59.7,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00910.TW (第一金太空衛星) is OVERSOLD! KD-K: 19.47, KD-D: 40.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-24T13:35:11.713541",
+    "date": "2026-08-24",
+    "acknowledged": false
+  },
+  {
     "id": "00647L.TW_20260824_oversold",
     "symbol": "00647L.TW",
     "name": "元大S&P500正2",
@@ -2492,31 +2517,6 @@
     "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 17.86, KD-D: 29.26 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-22T00:29:55.952335",
     "date": "2026-08-22",
-    "acknowledged": false
-  },
-  {
-    "id": "ADBE_20260821_overbought",
-    "symbol": "ADBE",
-    "name": "Adobe Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.52,
-    "kd_d": 71.63,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 276.23,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ ADBE (Adobe Inc.) is OVERBOUGHT! KD-K: 80.52, KD-D: 71.63 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-21T23:29:05.359150",
-    "date": "2026-08-21",
     "acknowledged": false
   }
 ]
