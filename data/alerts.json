@@ -1,5 +1,55 @@
 [
   {
+    "id": "00830.TW_20260824_oversold",
+    "symbol": "00830.TW",
+    "name": "國泰費城半導體",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.59,
+    "kd_d": 39.66,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 82.25,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的68%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00830.TW (國泰費城半導體) is OVERSOLD! KD-K: 18.59, KD-D: 39.66 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-24T11:58:51.504518",
+    "date": "2026-08-24",
+    "acknowledged": false
+  },
+  {
+    "id": "00911.TW_20260824_oversold",
+    "symbol": "00911.TW",
+    "name": "兆豐洲際半導體",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.74,
+    "kd_d": 39.79,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 52.45,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00911.TW (兆豐洲際半導體) is OVERSOLD! KD-K: 18.74, KD-D: 39.79 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-24T11:58:51.505494",
+    "date": "2026-08-24",
+    "acknowledged": false
+  },
+  {
     "id": "00646.TW_20260824_oversold",
     "symbol": "00646.TW",
     "name": "元大S&P500",
@@ -2466,55 +2516,6 @@
     "market_regime_label": null,
     "message": "✅ FNGG (Direxion Daily NYSE FANG+ Bull 2X Shares) is OVERSOLD! KD-K: 17.52, KD-D: 34.97 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-21T22:30:51.485970",
-    "date": "2026-08-21",
-    "acknowledged": false
-  },
-  {
-    "id": "ARM_20260821_oversold",
-    "symbol": "ARM",
-    "name": "Arm Holdings plc",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.68,
-    "kd_d": 32.02,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 245.29,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ARM (Arm Holdings plc) is OVERSOLD! KD-K: 19.68, KD-D: 32.02 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-21T22:30:51.486828",
-    "date": "2026-08-21",
-    "acknowledged": false
-  },
-  {
-    "id": "ARMG_20260821_oversold",
-    "symbol": "ARMG",
-    "name": "Leverage Shares 2X Long ARM Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.86,
-    "kd_d": 29.26,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 16.5499,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 17.86, KD-D: 29.26 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-21T22:30:51.486989",
     "date": "2026-08-21",
     "acknowledged": false
   }
