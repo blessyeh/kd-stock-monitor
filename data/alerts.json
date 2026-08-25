@@ -1,5 +1,56 @@
 [
   {
+    "id": "AMZU_20260826_oversold",
+    "symbol": "AMZU",
+    "name": "Direxion Daily AMZN Bull 2X Shares",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 20.0,
+    "kd_d": 20.0,
+    "kd_state": "OVERSOLD_REVERSAL",
+    "current_price": 37.88,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ AMZU (Direxion Daily AMZN Bull 2X Shares) is OVERSOLD! KD-K: 20.0, KD-D: 20.0 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-26T02:34:33.228204",
+    "date": "2026-08-26",
+    "acknowledged": false
+  },
+  {
+    "id": "FNGS_20260826_oversold",
+    "symbol": "FNGS",
+    "name": "MicroSectors FANG+ Index ETN",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.37,
+    "kd_d": 28.07,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 78.57,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ FNGS (MicroSectors FANG+ Index ETN) is OVERSOLD! KD-K: 18.37, KD-D: 28.07 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-26T02:34:33.229061",
+    "date": "2026-08-26",
+    "acknowledged": false
+  },
+  {
     "id": "NVDA_20260826_oversold",
     "symbol": "NVDA",
     "name": "NVIDIA Corp.",
@@ -2458,57 +2509,6 @@
     "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 14.11, KD-D: 23.95 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-25T00:33:48.237417",
     "date": "2026-08-25",
-    "acknowledged": false
-  },
-  {
-    "id": "FNGS_20260824_oversold",
-    "symbol": "FNGS",
-    "name": "MicroSectors FANG+ Index ETN",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.48,
-    "kd_d": 32.63,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 78.27,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ FNGS (MicroSectors FANG+ Index ETN) is OVERSOLD! KD-K: 19.48, KD-D: 32.63 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-24T22:38:03.912402",
-    "date": "2026-08-24",
-    "acknowledged": false
-  },
-  {
-    "id": "NVDA_20260824_oversold",
-    "symbol": "NVDA",
-    "name": "NVIDIA Corp.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.41,
-    "kd_d": 36.45,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 210.17,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ NVDA (NVIDIA Corp.) is OVERSOLD! KD-K: 17.41, KD-D: 36.45 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-24T21:47:57.296820",
-    "date": "2026-08-24",
     "acknowledged": false
   }
 ]
