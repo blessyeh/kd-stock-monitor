@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-25T14:39:40.641844",
+  "timestamp": "2026-08-25T15:40:57.156277",
   "date": "2026-08-25",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -0.72
     },
     "dxy": {
-      "value": 99.06,
-      "change": 0.06,
-      "change_pct": 0.06
+      "value": 99.04,
+      "change": 0.04,
+      "change_pct": 0.04
     },
     "fear_greed": {
-      "value": 15.85,
-      "change": 0.72,
-      "change_pct": 4.76,
+      "value": 15.75,
+      "change": -0.1,
+      "change_pct": -0.63,
       "label": "VIX Index",
-      "timestamp": "2026-08-25T14:39:34.086972"
+      "timestamp": "2026-08-25T15:40:50.320412"
     },
     "btc": {
-      "value": 80513.0,
-      "change": 0,
-      "change_pct": 0
+      "value": 80587.0,
+      "change": 1623.0,
+      "change_pct": 2.06
     },
     "oil": {
-      "value": 84.23,
-      "change": -0.78,
-      "change_pct": -0.92
+      "value": 84.49,
+      "change": -0.52,
+      "change_pct": -0.61
     },
     "gold": {
-      "value": 4706.7,
-      "change": 65.9,
-      "change_pct": 1.42
+      "value": 4695.6,
+      "change": 54.8,
+      "change_pct": 1.18
     },
     "sox": {
       "value": 11423.17,
@@ -134,7 +134,7 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.06 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.01pp（未達 0.15pp）",
+          "detail": "DXY 99.04 vs 近20日高點 101.51（未突破）；美債10Y 5日變動 -0.01pp（未達 0.15pp）",
           "score": 4.6
         },
         {
@@ -184,8 +184,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 15.9（<= 30.0門檻）；目前 15.8（較高點回落 0%，門檻 15%）",
-          "score": 10.4
+          "detail": "近10日VIX高點 15.9（<= 30.0門檻）；目前 15.8（較高點回落 1%，門檻 15%）",
+          "score": 11.3
         },
         {
           "id": "margin_capitulation",
@@ -209,7 +209,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 11.7
+      "avg_score": 12.0
     },
     "bottom_reversal_score": {
       "total": 24.6,
@@ -246,15 +246,15 @@
     "as_of_date": "2026-08-24",
     "history_days": 56,
     "bottom": {
-      "total": 17.7,
+      "total": 17.8,
       "dimensions": [
         {
           "name": "macro",
-          "score": 11.6,
+          "score": 11.7,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 15.9 → 目前 15.8（強度 10/100，+1.6）",
-            "DXY 99.06 距近20日高點 -2.41%（美元壓力緩和強度 100/100，+10.0）"
+            "VIX 近10日高點 15.9 → 目前 15.8（強度 11/100，+1.7）",
+            "DXY 99.04 距近20日高點 -2.43%（美元壓力緩和強度 100/100，+10.0）"
           ]
         },
         {
@@ -286,20 +286,20 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近54筆歷史樣本的第 31 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近54筆歷史樣本的第 26 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 18.1,
+      "total": 18.9,
       "dimensions": [
         {
           "name": "macro",
           "score": 6.2,
           "cap": 25,
           "notes": [
-            "DXY 99.06 距近20日高點 -2.41%，美債10Y5日變動 -0.01pp（強度 5/100，+0.7）",
+            "DXY 99.04 距近20日高點 -2.43%，美債10Y5日變動 -0.01pp（強度 5/100，+0.7）",
             "SOX/NDX 距近20日支撐 +6.73%，美債10Y同步變動（強度 55/100，+5.5）"
           ]
         },
@@ -329,10 +329,10 @@
         },
         {
           "name": "sentiment",
-          "score": 5.3,
+          "score": 6.1,
           "cap": 10,
           "notes": [
-            "VIX 處於近54筆歷史樣本的第 31 百分位（自滿強度 53/100，+5.3）"
+            "VIX 處於近54筆歷史樣本的第 26 百分位（自滿強度 61/100，+6.1）"
           ]
         }
       ]
@@ -812,8 +812,13 @@
   },
   "news": [
     {
-      "title": "通膨不是央行最大壓力 孫明德曝資金新警訊",
-      "url": "https://tw.stock.yahoo.com/news/%E6%AF%94%E9%80%9A%E8%86%A8%E6%9B%B4%E9%87%8D%E8%A6%81-%E5%AD%AB%E6%98%8E%E5%BE%B7%E6%9B%9D9%E6%9C%88%E5%A4%AE%E8%A1%8C%E7%90%86%E4%BA%8B%E6%9C%83-%E6%9C%80%E9%87%8D%E5%A4%A7%E8%AD%B0%E9%A1%8C-045547152.html",
+      "title": "光環續攻漲停 矽光子6強棒同步亮紅燈",
+      "url": "https://tw.stock.yahoo.com/news/%E7%9F%BD%E5%85%89%E5%AD%90%E7%8B%82%E5%99%B4-%E9%80%99%E6%AA%94-%E6%8B%89%E7%AC%AC2%E6%A0%B9%E6%94%9C%E4%B8%8A%E8%A9%AE-%E5%85%A8%E6%96%B0-%E8%8F%AF%E6%98%9F%E5%85%89%E7%AD%896%E6%AA%94%E6%BC%B2%E5%81%9C-062000181.html",
+      "meta": null
+    },
+    {
+      "title": "玻璃基板商機逾4000億 台廠設備黑馬先卡位",
+      "url": "https://tw.stock.yahoo.com/news/4000%E5%84%84%E7%8E%BB%E7%92%83%E5%9F%BA%E6%9D%BF%E7%8B%82%E6%BD%AE%E8%A5%B2%E4%BE%86%EF%BC%81%E4%B8%8D%E8%B2%B7%E5%8F%B0%E7%A9%8D%E9%9B%BB%EF%BC%8C%E5%8F%B0%E8%82%A1%E5%93%AA%E5%B9%BE%E6%AA%94%E3%80%8C%E8%A8%AD%E5%82%99%E9%BB%91%E9%A6%AC%E3%80%8D%E8%83%BD%E5%B9%AB%E4%BD%A0%E9%BB%98%E9%BB%98%E8%B3%BA%E7%AC%AC%E4%B8%80%E6%A1%B6%E9%87%91%EF%BC%9F-055000268.html",
       "meta": null
     },
     {
@@ -827,13 +832,18 @@
       "meta": null
     },
     {
-      "title": "暌違3個月新高 比特幣強勢站回8萬美元",
-      "url": "https://tw.stock.yahoo.com/news/%E6%AF%94%E7%89%B9%E5%B9%A31%E9%80%B1%E7%8B%82%E6%BC%B225-%E4%BB%8A%E9%87%8D%E8%BF%948%E8%90%AC%E7%BE%8E%E5%85%83-%E5%89%B53%E5%80%8B%E6%9C%88%E6%96%B0%E9%AB%98-054200788.html",
+      "title": "研調：北美四大CSP今年將衝7450億美元",
+      "url": "https://tw.stock.yahoo.com/news/%E7%A0%94%E8%AA%BF-%E5%8C%97%E7%BE%8E%E5%9B%9B%E5%A4%A7csp%E7%B9%BC%E7%BA%8C%E5%8A%A0%E7%A2%BC-%E4%BB%8A%E5%B9%B4ai%E6%8A%95%E8%B3%87%E9%A1%8D%E5%B0%87%E5%89%B5%E6%96%B0%E9%AB%98-040058794.html",
       "meta": null
     },
     {
-      "title": "陽明上沖下洗人氣不墜 法人喊76元目標價",
-      "url": "https://tw.stock.yahoo.com/news/%E8%88%AA%E6%B5%B7%E7%8E%8B%E7%BF%BB%E8%88%B9-%E9%99%BD%E6%98%8E%E9%9C%87%E7%9B%AA-%E6%B4%97%E5%88%B7%E5%88%B7-%E4%BB%8D%E7%8D%B2%E6%B3%95%E4%BA%BA%E5%96%8A76%E5%85%83%E7%9B%AE%E6%A8%99%E5%83%B9%E7%88%86%E9%87%8F%E8%A1%9D%E5%86%A0-%E9%80%99%E6%AA%94-040000597.html",
+      "title": "泓德小金雞星星電力拚賺贏去年 估年底興櫃明年下半年上櫃",
+      "url": "https://tw.stock.yahoo.com/news/%E6%B3%93%E5%BE%B7%E5%B0%8F%E9%87%91%E9%9B%9E%E6%98%9F%E6%98%9F%E9%9B%BB%E5%8A%9B%E6%8B%9A%E8%B3%BA%E8%B4%8F%E5%8E%BB%E5%B9%B4-%E4%BC%B0%E5%B9%B4%E5%BA%95%E8%88%88%E6%AB%83%E6%98%8E%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E4%B8%8A%E6%AB%83-072140080.html",
+      "meta": null
+    },
+    {
+      "title": "【Follow法人】台股V轉959點外資仍小賣7億元 分析師：並未翻多",
+      "url": "https://tw.stock.yahoo.com/news/%E3%80%90follow%E6%B3%95%E4%BA%BA%E3%80%91%E5%8F%B0%E8%82%A1v%E8%BD%89959%E9%BB%9E%E5%A4%96%E8%B3%87%E4%BB%8D%E5%B0%8F%E8%B3%A37%E5%84%84%E5%85%83-%E5%88%86%E6%9E%90%E5%B8%AB%EF%BC%9A%E4%B8%A6%E6%9C%AA%E7%BF%BB%E5%A4%9A-070650210.html",
       "meta": null
     },
     {
@@ -849,16 +859,6 @@
     {
       "title": "【高雄直飛新商機1】星宇虎航三大航空每周增20班直飛！旅行社：機票銷售增3成",
       "url": "https://tw.stock.yahoo.com/news/%E3%80%90%E9%AB%98%E9%9B%84%E7%9B%B4%E9%A3%9B%E6%96%B0%E5%95%86%E6%A9%9F1%E3%80%91%E6%98%9F%E5%AE%87%E8%99%8E%E8%88%AA%E4%B8%89%E5%A4%A7%E8%88%AA%E7%A9%BA%E6%AF%8F%E5%91%A8%E5%A2%9E20%E7%8F%AD%E7%9B%B4%E9%A3%9B%EF%BC%81%E6%97%85%E8%A1%8C%E7%A4%BE%EF%BC%9A%E6%A9%9F%E7%A5%A8%E9%8A%B7%E5%94%AE%E5%A2%9E3%E6%88%90-060524400.html",
-      "meta": null
-    },
-    {
-      "title": "7月製造業信心飆4年新高！\n\n台經院孫明德：AI有望迎下一波爆發性成長",
-      "url": "https://tw.stock.yahoo.com/news/7%E6%9C%88%E8%A3%BD%E9%80%A0%E6%A5%AD%E4%BF%A1%E5%BF%83%E9%A3%864%E5%B9%B4%E6%96%B0%E9%AB%98%EF%BC%81-%E5%8F%B0%E7%B6%93%E9%99%A2%E5%AD%AB%E6%98%8E%E5%BE%B7%EF%BC%9Aai%E6%9C%89%E6%9C%9B%E8%BF%8E%E4%B8%8B%E4%B8%80%E6%B3%A2%E7%88%86%E7%99%BC%E6%80%A7%E6%88%90%E9%95%B7-055912620.html",
-      "meta": null
-    },
-    {
-      "title": "賣碳權給微軟！長榮航空「綠運輸」減碳1.5萬噸兼賺環保財",
-      "url": "https://tw.stock.yahoo.com/news/%E8%B3%A3%E7%A2%B3%E6%AC%8A%E7%B5%A6%E5%BE%AE%E8%BB%9F%EF%BC%81%E9%95%B7%E6%A6%AE%E8%88%AA%E7%A9%BA%E3%80%8C%E7%B6%A0%E9%81%8B%E8%BC%B8%E3%80%8D%E6%B8%9B%E7%A2%B315%E8%90%AC%E5%99%B8%E5%85%BC%E8%B3%BA%E7%92%B0%E4%BF%9D%E8%B2%A1-040125475.html",
       "meta": null
     }
   ],
