@@ -1,5 +1,29 @@
 [
   {
+    "id": "ADBG_20260827_overbought",
+    "symbol": "ADBG",
+    "name": "Leverage Shares 2X Long ADBE Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.17,
+    "kd_d": 77.25,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 5.0155,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ ADBG (Leverage Shares 2X Long ADBE Daily ETF) is OVERBOUGHT! KD-K: 80.17, KD-D: 77.25 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-27T05:39:50.310533",
+    "date": "2026-08-27",
+    "acknowledged": false
+  },
+  {
     "id": "ADBE_20260827_overbought",
     "symbol": "ADBE",
     "name": "Adobe Inc.",
@@ -2473,31 +2497,6 @@
     "market_regime_label": null,
     "message": "✅ AMZU (Direxion Daily AMZN Bull 2X Shares) is OVERSOLD! KD-K: 18.97, KD-D: 20.07 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-25T01:27:29.337282",
-    "date": "2026-08-25",
-    "acknowledged": false
-  },
-  {
-    "id": "00635U.TW_20260825_overbought",
-    "symbol": "00635U.TW",
-    "name": "期元大S&P黃金",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 87.8,
-    "kd_d": 82.56,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 48.07,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00635U.TW (期元大S&P黃金) is OVERBOUGHT! KD-K: 87.8, KD-D: 82.56 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-25T00:33:48.231674",
     "date": "2026-08-25",
     "acknowledged": false
   }
