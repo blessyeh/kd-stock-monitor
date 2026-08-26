@@ -1,5 +1,58 @@
 [
   {
+    "id": "00757.TW_20260826_oversold",
+    "symbol": "00757.TW",
+    "name": "統一FANG+",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.62,
+    "kd_d": 26.41,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 137.2,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00757.TW (統一FANG+) is OVERSOLD! KD-K: 19.62, KD-D: 26.41 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-26T11:00:50.951238",
+    "date": "2026-08-26",
+    "acknowledged": false
+  },
+  {
+    "id": "00909.TW_20260826_overbought",
+    "symbol": "00909.TW",
+    "name": "國泰數位支付服務",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 86.14,
+    "kd_d": 71.72,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 47.63,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的121%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00909.TW (國泰數位支付服務) is OVERBOUGHT! KD-K: 86.14, KD-D: 71.72 (>= 80)",
+    "timestamp": "2026-08-26T11:00:50.952305",
+    "date": "2026-08-26",
+    "acknowledged": false
+  },
+  {
     "id": "AMZU_20260826_oversold",
     "symbol": "AMZU",
     "name": "Direxion Daily AMZN Bull 2X Shares",
@@ -2459,55 +2512,6 @@
     "market_regime_label": null,
     "message": "✅ RKLX (Defiance Daily Target 2X Long RKLB ETF) is OVERSOLD! KD-K: 16.1, KD-D: 31.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-25T00:33:48.237164",
-    "date": "2026-08-25",
-    "acknowledged": false
-  },
-  {
-    "id": "ARM_20260825_oversold",
-    "symbol": "ARM",
-    "name": "Arm Holdings plc",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 15.32,
-    "kd_d": 26.16,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 238.58,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ARM (Arm Holdings plc) is OVERSOLD! KD-K: 15.32, KD-D: 26.16 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-25T00:33:48.237296",
-    "date": "2026-08-25",
-    "acknowledged": false
-  },
-  {
-    "id": "ARMG_20260825_oversold",
-    "symbol": "ARMG",
-    "name": "Leverage Shares 2X Long ARM Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 14.11,
-    "kd_d": 23.95,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 15.66,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 14.11, KD-D: 23.95 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-25T00:33:48.237417",
     "date": "2026-08-25",
     "acknowledged": false
   }
