@@ -1,5 +1,29 @@
 [
   {
+    "id": "ADBE_20260827_overbought",
+    "symbol": "ADBE",
+    "name": "Adobe Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.76,
+    "kd_d": 78.54,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 272.7501,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ ADBE (Adobe Inc.) is OVERBOUGHT! KD-K: 80.76, KD-D: 78.54 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-27T02:57:19.695308",
+    "date": "2026-08-27",
+    "acknowledged": false
+  },
+  {
     "id": "00635U.TW_20260827_overbought",
     "symbol": "00635U.TW",
     "name": "期元大S&P黃金",
@@ -2474,33 +2498,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00635U.TW (期元大S&P黃金) is OVERBOUGHT! KD-K: 87.8, KD-D: 82.56 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-25T00:33:48.231674",
-    "date": "2026-08-25",
-    "acknowledged": false
-  },
-  {
-    "id": "00637L.TW_20260825_oversold",
-    "symbol": "00637L.TW",
-    "name": "元大滜深300正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.68,
-    "kd_d": 35.89,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 19.67,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00637L.TW (元大滜深300正2) is OVERSOLD! KD-K: 19.68, KD-D: 35.89 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-25T00:33:48.231884",
     "date": "2026-08-25",
     "acknowledged": false
   }
