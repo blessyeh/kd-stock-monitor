@@ -1,5 +1,59 @@
 [
   {
+    "id": "CRM_20260827_overbought",
+    "symbol": "CRM",
+    "name": "Salesforce, Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.52,
+    "kd_d": 78.55,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 239.755,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ CRM (Salesforce, Inc.) is OVERBOUGHT! KD-K: 82.52, KD-D: 78.55 (>= 80)",
+    "timestamp": "2026-08-27T21:41:33.362275",
+    "date": "2026-08-27",
+    "acknowledged": false
+  },
+  {
+    "id": "CRMG_20260827_overbought",
+    "symbol": "CRMG",
+    "name": "Leverage Shares 2X Long CRM Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.0,
+    "kd_d": 77.77,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 8.865,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ CRMG (Leverage Shares 2X Long CRM Daily ETF) is OVERBOUGHT! KD-K: 82.0, KD-D: 77.77 (>= 80)",
+    "timestamp": "2026-08-27T21:41:33.362401",
+    "date": "2026-08-27",
+    "acknowledged": false
+  },
+  {
     "id": "00731.TW_20260827_overbought",
     "symbol": "00731.TW",
     "name": "復華富時高息低波",
@@ -2450,57 +2504,6 @@
     "market_regime_label": null,
     "message": "✅ FNGG (Direxion Daily NYSE FANG+ Bull 2X Shares) is OVERSOLD! KD-K: 20.0, KD-D: 30.93 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-25T05:24:50.579725",
-    "date": "2026-08-25",
-    "acknowledged": false
-  },
-  {
-    "id": "AMDL_20260825_oversold",
-    "symbol": "AMDL",
-    "name": "GraniteShares 2x Long AMD Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.44,
-    "kd_d": 28.93,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 45.98,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ AMDL (GraniteShares 2x Long AMD Daily ETF) is OVERSOLD! KD-K: 19.44, KD-D: 28.93 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-25T03:25:57.897096",
-    "date": "2026-08-25",
-    "acknowledged": false
-  },
-  {
-    "id": "VOO_20260825_oversold",
-    "symbol": "VOO",
-    "name": "Vanguard S&P 500 ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.62,
-    "kd_d": 34.04,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 701.91,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價站上上彎的20日均線之上（回檔至低檔，非空頭趨勢中的破底）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ VOO (Vanguard S&P 500 ETF) is OVERSOLD! KD-K: 19.62, KD-D: 34.04 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-25T01:27:29.336731",
     "date": "2026-08-25",
     "acknowledged": false
   }
