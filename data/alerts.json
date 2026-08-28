@@ -1,5 +1,59 @@
 [
   {
+    "id": "00934.TW_20260828_overbought",
+    "symbol": "00934.TW",
+    "name": "中信成長高股息",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.6,
+    "kd_d": 69.44,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 29.61,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00934.TW (中信成長高股息) is OVERBOUGHT! KD-K: 81.6, KD-D: 69.44 (>= 80)",
+    "timestamp": "2026-08-28T16:49:02.141758",
+    "date": "2026-08-28",
+    "acknowledged": false
+  },
+  {
+    "id": "00940.TW_20260828_overbought",
+    "symbol": "00940.TW",
+    "name": "元大台灣價值高息",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.75,
+    "kd_d": 73.1,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 12.69,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00940.TW (元大台灣價值高息) is OVERBOUGHT! KD-K: 81.75, KD-D: 73.1 (>= 80)",
+    "timestamp": "2026-08-28T16:49:02.141979",
+    "date": "2026-08-28",
+    "acknowledged": false
+  },
+  {
     "id": "00635U.TW_20260828_overbought",
     "symbol": "00635U.TW",
     "name": "期元大S&P黃金",
@@ -2439,56 +2493,6 @@
     "market_regime_label": null,
     "message": "✅ 00924.TW (復華 S&P 500 成長) is OVERSOLD! KD-K: 11.74, KD-D: 20.86 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-26T00:34:17.141505",
-    "date": "2026-08-26",
-    "acknowledged": false
-  },
-  {
-    "id": "00926.TW_20260826_oversold",
-    "symbol": "00926.TW",
-    "name": "凱基全球菁英55",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 9.77,
-    "kd_d": 19.41,
-    "kd_state": "OVERSOLD",
-    "current_price": 26.02,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00926.TW (凱基全球菁英55) is OVERSOLD! KD-K: 9.77, KD-D: 19.41 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-26T00:34:17.141677",
-    "date": "2026-08-26",
-    "acknowledged": false
-  },
-  {
-    "id": "009800.TW_20260826_oversold",
-    "symbol": "009800.TW",
-    "name": "中信NASDAQ",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 14.59,
-    "kd_d": 27.56,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 12.93,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 009800.TW (中信NASDAQ) is OVERSOLD! KD-K: 14.59, KD-D: 27.56 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-26T00:34:17.141855",
     "date": "2026-08-26",
     "acknowledged": false
   }
