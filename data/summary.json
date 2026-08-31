@@ -1,120 +1,118 @@
 {
-  "timestamp": "2026-08-31T18:26:49.521201",
-  "date": "2026-08-31",
+  "timestamp": "2026-09-01T01:51:26.056673",
+  "date": "2026-09-01",
   "macro": {
     "taiex": {
-      "value": 46128.47,
-      "change": -202.98,
-      "change_pct": -0.44
+      "value": 46331.45,
+      "change": 0.0,
+      "change_pct": 0.0
     },
     "us10y": {
-      "value": 4.72,
-      "change": 0.048,
-      "change_pct": 1.03
+      "value": 4.756,
+      "change": 0.036,
+      "change_pct": 0.76
     },
     "dxy": {
-      "value": 99.53,
+      "value": 99.43,
       "change": 0.0,
       "change_pct": 0.0
     },
     "fear_greed": {
-      "value": 15.22,
-      "change": 0.79,
-      "change_pct": 5.47,
+      "value": 15.19,
+      "change": 0.76,
+      "change_pct": 5.27,
       "label": "VIX Index",
-      "timestamp": "2026-08-31T18:26:42.478200"
+      "timestamp": "2026-09-01T01:50:20.318104"
     },
     "btc": {
-      "value": 78421.0,
+      "value": 78861.0,
       "change": 0,
       "change_pct": 0
     },
     "oil": {
-      "value": 86.68,
+      "value": 85.63,
       "change": 0.0,
       "change_pct": 0.0
     },
     "gold": {
-      "value": 4498.8,
+      "value": 4483.2,
       "change": 0.0,
       "change_pct": 0.0
     },
     "sox": {
-      "value": 11469.66,
-      "change": -412.51,
-      "change_pct": -3.47
+      "value": 11500.5,
+      "change": 30.84,
+      "change_pct": 0.27
     },
     "ndx": {
-      "value": 29433.43,
-      "change": -208.13,
-      "change_pct": -0.7
+      "value": 29389.47,
+      "change": -43.96,
+      "change_pct": -0.15
     },
     "sp500": {
-      "value": 7711.76,
-      "change": -19.23,
-      "change_pct": -0.25
+      "value": 7681.9,
+      "change": -29.86,
+      "change_pct": -0.39
     }
   },
   "chip": {
     "foreign_net": {
-      "value": 417.54,
+      "value": -143.92,
       "unit": "億元",
-      "date": "2026-08-28",
-      "change": -73.4,
-      "change_pct": -14.95
+      "date": "2026-08-31",
+      "change": -561.46,
+      "change_pct": -134.47
     },
     "trust_net": {
-      "value": -1.97,
+      "value": -40.0,
       "unit": "億元",
-      "date": "2026-08-28",
-      "change": 12.53,
-      "change_pct": 86.41
+      "date": "2026-08-31",
+      "change": -38.03,
+      "change_pct": -1930.46
     },
     "margin_balance": {
-      "value": 8892723.0,
-      "change": 11169.0,
-      "change_pct": 0.13,
+      "value": 8860863.0,
+      "change": -31858.0,
+      "change_pct": -0.36,
       "unit": "張",
-      "date": "2026-08-28"
+      "date": "2026-08-31"
     },
     "margin_balance_amount": {
-      "value": 5671.78,
-      "change": 72.59,
-      "change_pct": 1.3,
+      "value": 5698.77,
+      "change": 26.99,
+      "change_pct": 0.48,
       "unit": "億元",
-      "date": "2026-08-28"
+      "date": "2026-08-31"
     },
     "short_balance": {
-      "value": 213833.0,
-      "change": 3242.0,
-      "change_pct": 1.54,
+      "value": 217718.0,
+      "change": 3885.0,
+      "change_pct": 1.82,
       "unit": "張",
-      "date": "2026-08-28"
+      "date": "2026-08-31"
     },
     "margin_short_ratio": {
-      "value": 2.4,
-      "change": 0.03,
-      "change_pct": 1.41,
+      "value": 2.46,
+      "change": 0.05,
+      "change_pct": 2.18,
       "unit": "%"
     },
     "usdtwd": {
-      "value": 31.628,
-      "change": -0.033,
-      "change_pct": -0.1
+      "value": 31.677,
+      "change": 0.016,
+      "change_pct": 0.05
     },
     "foreign_futures_net": {
-      "value": -83655,
+      "value": -82970,
       "unit": "口",
-      "date": "2026-08-28",
-      "change": 1181,
-      "change_pct": 1.39
+      "date": "2026-08-31",
+      "change": 685,
+      "change_pct": 0.82
     },
     "put_call_ratio": {
-      "value": null,
-      "change": null,
-      "change_pct": null,
+      "value": 96.12,
       "unit": "%",
-      "date": null
+      "date": "2026-08-31"
     },
     "night_session": {
       "close": 45900.0,
@@ -127,8 +125,8 @@
   },
   "signal_confluence": {
     "available": true,
-    "as_of_date": "2026-08-28",
-    "history_days": 60,
+    "as_of_date": "2026-08-31",
+    "history_days": 61,
     "top": {
       "conditions": [
         {
@@ -136,48 +134,48 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.53 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
-          "score": 25.8
+          "detail": "DXY 99.43 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.11pp（未達 0.15pp）",
+          "score": 41.8
         },
         {
           "id": "twd_depreciation",
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.195（貶值門檻 0.3）",
-          "score": 7.0
+          "detail": "USD/TWD 5日變動 -0.141（貶值門檻 0.3）",
+          "score": 10.6
         },
         {
           "id": "foreign_dual_short",
           "label": "外資期現貨雙空",
           "status": false,
           "completeness": "full",
-          "detail": "外資現貨連續3日賣超：否（[366.1, 490.9, 417.5]億元）；台指期淨部位 -83655口（達 -30000口門檻）",
+          "detail": "外資現貨連續3日賣超：否（[490.9, 417.5, -143.9]億元）；台指期淨部位 -82970口（達 -30000口門檻）",
           "score": 50.0
         },
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": null,
+          "status": true,
           "completeness": "full",
-          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷",
-          "score": null
+          "detail": "今日外資賣超；融資餘額5日未回落（5699億元）；P/C Ratio 96.1%（< 100%門檻）",
+          "score": 49.8
         },
         {
           "id": "tech_capital_retreat",
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11470未跌破近20日支撐11311；NDX 29433未跌破近20日支撐28274；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
-          "score": 51.7
+          "detail": "SOX 11500未跌破近20日支撐11376；NDX 29389未跌破近20日支撐28777；美債10Y 5日變動 +0.11pp（未達 0.15pp）",
+          "score": 67.8
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 4,
-      "triggered_count": 0,
-      "triggered_full_count": 0,
+      "evaluated_count": 5,
+      "triggered_count": 1,
+      "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 33.6
+      "avg_score": 44.0
     },
     "bottom": {
       "conditions": [
@@ -187,23 +185,23 @@
           "status": false,
           "completeness": "full",
           "detail": "近10日VIX高點 15.9（<= 30.0門檻）；目前 15.2（較高點回落 4%，門檻 15%）",
-          "score": 15.7
+          "score": 16.0
         },
         {
           "id": "margin_capitulation",
           "label": "散戶投降/融資斷頭式大減",
           "status": false,
           "completeness": "full",
-          "detail": "近5個交易日融資餘額最大單日減幅 -17億元（斷頭式門檻 -30億元）",
-          "score": 0.0
+          "detail": "近5個交易日融資餘額最大單日減幅 17億元（斷頭式門檻 -30億元）",
+          "score": 100.0
         },
         {
           "id": "foreign_short_covering",
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.195（止穩/升值）；外資今日轉買超，近期均值 +195.0億元；台指期淨部位5日變動 -1061口（未回補）",
-          "score": 62.6
+          "detail": "USD/TWD 5日變動 -0.141（止穩/升值）；外資今日仍賣超，近期均值 +221.9億元；台指期淨部位5日變動 -441口（未回補）",
+          "score": 26.9
         }
       ],
       "total_conditions": 3,
@@ -211,69 +209,70 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 26.1
+      "avg_score": 47.6
     },
     "bottom_reversal_score": {
-      "total": 62.6,
+      "total": 26.9,
       "components": [
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 78.2
+          "score": 73.8
         },
         {
           "name": "foreign_flow_reversal",
           "weight": 35,
-          "score": 100.0
+          "score": 0.0
         },
         {
           "name": "futures_covering",
           "weight": 35,
-          "score": 11.8
+          "score": 13.7
         }
       ]
     }
   },
   "market_regime": {
     "available": false,
-    "as_of_date": "2026-08-28",
+    "as_of_date": "2026-08-31",
     "regime": "UNKNOWN",
     "regime_label": "資料不足",
     "ma_period_used": null,
-    "detail": "TAIEX 歷史資料僅 16 天（且/或期間內有缺漏），尚不足以判斷任何均線週期的市場狀態（資料會隨每日執行自動累積）",
+    "detail": "TAIEX 歷史資料僅 17 天（且/或期間內有缺漏），尚不足以判斷任何均線週期的市場狀態（資料會隨每日執行自動累積）",
     "metrics": {}
   },
   "signal_score": {
     "available": true,
-    "as_of_date": "2026-08-28",
-    "history_days": 60,
+    "as_of_date": "2026-08-31",
+    "history_days": 61,
     "bottom": {
-      "total": 20.4,
+      "total": 29.6,
       "dimensions": [
         {
           "name": "macro",
-          "score": 9.0,
+          "score": 9.5,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 15.9 → 目前 15.2（強度 16/100，+2.4）",
-            "DXY 99.53 距近20日高點 -0.44%（美元壓力緩和強度 66/100，+6.6）"
+            "DXY 99.43 距近20日高點 -0.54%（美元壓力緩和強度 71/100，+7.1）"
           ]
         },
         {
           "name": "chip_flow",
-          "score": 10.0,
+          "score": 15.0,
           "cap": 25,
           "notes": [
-            "近5日融資餘額最大單日減幅 -17億元（斷頭強度 0/100，+0.0）",
-            "外資今日 +417.5億元，較近5日均值 +195.0億元（轉強強度 100/100，+10.0）"
+            "近5日融資餘額最大單日減幅 17億元（斷頭強度 100/100，+15.0）",
+            "外資今日 -143.9億元，較近5日均值 +221.9億元（轉強強度 0/100，+0.0）"
           ]
         },
         {
           "name": "derivative",
-          "score": 1.4,
+          "score": 5.1,
           "cap": 20,
           "notes": [
-            "台指期淨空單5日變動 -1061口（回補強度 12/100，+1.4）"
+            "台指期淨空單5日變動 -441口（回補強度 14/100，+1.6）",
+            "P/C Ratio 96.1%（避險需求強度 44/100，+3.5）"
           ]
         },
         {
@@ -281,7 +280,7 @@
           "score": 0,
           "cap": 20,
           "notes": [
-            "TAIEX 14日RSI 60.4（超賣強度 0/100，+0.0）"
+            "TAIEX 14日RSI 58.4（超賣強度 0/100，+0.0）"
           ]
         },
         {
@@ -289,46 +288,47 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近58筆歷史樣本的第 17 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近59筆歷史樣本的第 17 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 34.4,
+      "total": 37.0,
       "dimensions": [
         {
           "name": "macro",
-          "score": 9.0,
+          "score": 13.1,
           "cap": 25,
           "notes": [
-            "DXY 99.53 距近20日高點 -0.44%，美債10Y5日變動 +0.02pp（強度 26/100，+3.9）",
-            "SOX/NDX 距近20日支撐 +1.40%，美債10Y同步變動（強度 52/100，+5.2）"
+            "DXY 99.43 距近20日高點 -0.54%，美債10Y5日變動 +0.11pp（強度 42/100，+6.3）",
+            "SOX/NDX 距近20日支撐 +1.09%，美債10Y同步變動（強度 68/100，+6.8）"
           ]
         },
         {
           "name": "chip_flow",
-          "score": 15.7,
+          "score": 10.1,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 -0.195（強度 7/100，+0.7）",
-            "外資今日 +417.5億元，融資餘額5日變動 +202億元（散戶未離場強度 100/100，+15.0）"
+            "新台幣5日貶值 -0.141（強度 11/100，+1.1）",
+            "外資今日 -143.9億元，融資餘額5日變動 +246億元（散戶未離場強度 60/100，+9.0）"
           ]
         },
         {
           "name": "derivative",
-          "score": 0,
+          "score": 4.5,
           "cap": 20,
           "notes": [
-            "外資台指期淨空單 -83655口（強度 0/100，+0.0）"
+            "外資台指期淨空單 -82970口（強度 0/100，+0.0）",
+            "P/C Ratio 96.1%（自滿強度 56/100，+4.5）"
           ]
         },
         {
           "name": "technical",
-          "score": 2.1,
+          "score": 1.7,
           "cap": 20,
           "notes": [
-            "TAIEX 14日RSI 60.4（超買強度 26/100，+2.1）"
+            "TAIEX 14日RSI 58.4（超買強度 21/100，+1.7）"
           ]
         },
         {
@@ -336,7 +336,7 @@
           "score": 7.6,
           "cap": 10,
           "notes": [
-            "VIX 處於近58筆歷史樣本的第 17 百分位（自滿強度 76/100，+7.6）"
+            "VIX 處於近59筆歷史樣本的第 17 百分位（自滿強度 76/100，+7.6）"
           ]
         }
       ]
@@ -406,7 +406,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 +1.5%；相對SOX +0.1pp、相對NDX -2.6pp"
+          "2330 近20日漲跌 +1.5%；相對SOX +0.9pp、相對NDX -0.7pp"
         ]
       },
       {
@@ -415,7 +415,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "近3日累計外資 +12737 張，同期股價下跌",
+          "近3日累計外資 +2978 張，同期股價下跌",
           "價跌但外資買，可能正在吸收賣壓（非絕對，僅供參考）"
         ]
       },
@@ -425,7 +425,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $417.5 換算2330隱含價 2641.1元，2330現價 2405.0元（折價 8.9%）",
+          "TSM ADR $416.8 換算2330隱含價 2640.6元，2330現價 2405.0元（折價 8.9%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -444,7 +444,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "目前本益比 28.1，位於近730筆歷史資料的第 74 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+          "目前本益比 27.9，位於近731筆歷史資料的第 72 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
         ]
       }
     ],
@@ -459,8 +459,8 @@
   },
   "signal_backtest": {
     "available": true,
-    "as_of_date": "2026-08-28",
-    "log_days": 11,
+    "as_of_date": "2026-08-31",
+    "log_days": 12,
     "signals": {
       "macro_drain": {
         "label": "macro_drain",
@@ -631,7 +631,7 @@
             "insufficient_sample": true
           },
           "5": {
-            "sample_size": 4,
+            "sample_size": 5,
             "insufficient_sample": true
           },
           "10": {
@@ -753,7 +753,7 @@
         "direction": "bottom",
         "horizons": {
           "1": {
-            "sample_size": 0,
+            "sample_size": 1,
             "insufficient_sample": true
           },
           "3": {
@@ -805,41 +805,41 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-08-31",
+      "as_of_date": "2026-09-01",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-08-31",
+      "as_of_date": "2026-09-01",
       "fetched": true
     },
     "tw_chip": {
-      "as_of_date": "2026-08-28",
-      "fetched": false
+      "as_of_date": "2026-08-31",
+      "fetched": true
     },
     "tsmc_fundamentals": {
-      "as_of_date": "2026-08-28",
-      "fetched": false
+      "as_of_date": "2026-08-31",
+      "fetched": true
     }
   },
   "news": [
     {
-      "title": "40萬股東關心股利 合庫金：審慎規畫",
-      "url": "https://tw.stock.yahoo.com/news/%E5%90%88%E5%BA%AB%E9%87%91%E6%B3%95%E8%AA%AA2%E3%80%8B40%E8%90%AC%E8%82%A1%E6%9D%B1%E9%97%9C%E5%BF%83%E6%98%8E%E5%B9%B4%E8%82%A1%E5%88%A9%E6%9C%89%E6%9C%9B%E5%84%AA%E6%96%BC%E4%BB%8A%E5%B9%B4%EF%BC%9F-%E5%85%AC%E5%8F%B8%E9%80%99%E6%A8%A3%E5%9B%9E-082650842.html",
+      "title": "MSCI調整甩尾台股寫最強8月 欣興鎖跌停摔下千金",
+      "url": "https://tw.stock.yahoo.com/news/msci%E8%AA%BF%E6%95%B4%E5%B0%BE%E7%9B%A4%E7%88%86%E9%87%8F%EF%BC%81%E5%8F%B0%E8%82%A18%E6%9C%88%E7%8B%82%E9%A3%863%E5%8D%83%E9%BB%9E%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%BC%B7-%E6%AC%A3%E8%88%88%E8%B7%8C%E5%81%9C%E6%91%94%E4%B8%8B%E5%8D%83%E9%87%91%E3%80%81%E5%A4%A7%E7%AB%8B%E5%85%89%E8%A1%9D%E9%AB%98%E9%A3%867650%E5%85%83%E6%96%B0%E5%A4%A9%E5%83%B9%EF%BD%9Cyahoo%E8%B2%A1%E7%B6%93%E6%8E%83%E6%8F%8F-091648351.html",
       "meta": null
     },
     {
-      "title": "13張發票大獎還沒領 5張千萬快到期",
-      "url": "https://tw.stock.yahoo.com/news/21%E5%85%83%E8%B2%B7%E9%A3%B2%E5%93%81%E4%B8%AD%E5%8D%83%E8%90%AC-5%E5%BC%B5%E5%8D%83%E8%90%AC%E7%99%BC%E7%A5%A8%E6%B2%92%E4%BA%BA%E9%A0%98-9-7%E5%B0%B1%E5%88%B0%E6%9C%9F-074500392.html",
+      "title": "永冠-KY財報連三季卡關 11月恐下市淪壁紙",
+      "url": "https://tw.stock.yahoo.com/news/%E6%9C%80%E5%BF%AB11%E6%9C%88%E4%B8%8B%E5%B8%82%E6%B7%AA%E5%A3%81%E7%B4%99%EF%BC%81%E6%B0%B8%E5%86%A0-ky%E7%AC%AC2%E5%AD%A3%E8%B2%A1%E5%A0%B1%E4%B9%9F%E6%B2%92%E4%BA%A4-%E3%80%8C%E9%80%A3%E4%B8%89%E5%AD%A3%E5%8D%A1%E9%97%9C%E3%80%8D-105139313.html",
       "meta": null
     },
     {
-      "title": "8月全台房市交易量成長 台中暴增30%",
-      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E5%B8%828%E6%9C%88%E3%80%8C%E4%B8%83%E9%83%BD%E5%85%A8%E7%B4%85%E3%80%8D%EF%BC%81%E6%B0%B8%E6%85%B6%EF%BC%9A%E5%85%A8%E5%8F%B0%E4%BA%A4%E6%98%93%E9%87%8F%E5%B9%B4%E5%A2%9E17%E3%80%81%E5%8F%B0%E4%B8%AD%E6%9A%B4%E5%A2%9E30%E6%9C%80%E7%8C%9B-071619469.html",
+      "title": "主動ETF前7強全是「台股隊」00981A今年飆85%奪冠",
+      "url": "https://tw.stock.yahoo.com/news/%E3%80%90%E4%B8%BB%E5%8B%95etf-pk%E3%80%91%E5%8F%B0%E8%82%A1%E5%9E%8B%E4%BB%8A%E5%B9%B4%E5%A4%A7%E5%8B%9D%EF%BC%8100981a%E7%8B%82%E8%B3%BA85%E7%A8%B1%E9%9C%B8-%E5%89%8D7%E5%BC%B7%E5%85%A8%E5%8C%85%E4%BA%86-095455970.html",
       "meta": null
     },
     {
-      "title": "3大法人集體站賣方 分析師看外資沒退不用慌",
-      "url": "https://tw.stock.yahoo.com/news/%E3%80%90follow%E6%B3%95%E4%BA%BA%E3%80%91%E5%A4%96%E8%B3%87%E7%BF%BB%E8%87%89%E8%B3%A3143%E5%84%84%E5%85%83%EF%BC%81%E6%8F%90%E6%AC%BE%E5%8F%B0%E7%A9%8D%E9%9B%BB110%E5%84%84%E5%85%83-%E6%AC%A3%E8%88%88%E8%B7%8C%E5%81%9C%E5%8D%BB%E7%8D%B2%E5%8A%A0%E7%A2%BC22%E5%84%84%E5%85%83-071040167.html",
+      "title": "干預日圓被國會盯上 貝森特回擊親授外匯入門課",
+      "url": "https://tw.stock.yahoo.com/news/%E8%B2%9D%E6%A3%AE%E7%89%B9%E5%98%B2%E8%AB%B7%E8%A6%81%E9%96%8B-%E5%82%BB%E7%93%9C%E5%A4%96%E5%8C%AF%E8%AA%B2-%E7%82%BA-%E5%B9%B2%E9%A0%90%E6%97%A5%E5%9C%93-%E6%8F%90%E5%87%BA%E8%BE%AF%E8%AD%B7-101710442.html",
       "meta": null
     },
     {
@@ -848,13 +848,13 @@
       "meta": null
     },
     {
-      "title": "比00919還狂！00918配1.75元創新高、年息破 20%  27萬人開心",
-      "url": "https://tw.stock.yahoo.com/news/%E6%AF%9400919%E9%82%84%E7%8B%82%EF%BC%8100918%E9%85%8D175%E5%85%83%E5%89%B5%E6%96%B0%E9%AB%98%E3%80%81%E5%B9%B4%E6%81%AF%E7%A0%B4-20-27%E8%90%AC%E4%BA%BA%E9%96%8B%E5%BF%83-101435002.html",
+      "title": "黃仁勳出手了！輝達首度重金投資台灣公司 認購聯發科35億美元海外可轉債",
+      "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E5%87%BA%E6%89%8B%E4%BA%86%EF%BC%81%E8%BC%9D%E9%81%94%E9%A6%96%E5%BA%A6%E9%87%8D%E9%87%91%E6%8A%95%E8%B3%87%E5%8F%B0%E7%81%A3%E5%85%AC%E5%8F%B8-%E8%AA%8D%E8%B3%BC%E8%81%AF%E7%99%BC%E7%A7%9135%E5%84%84%E7%BE%8E%E5%85%83%E6%B5%B7%E5%A4%96%E5%8F%AF%E8%BD%89%E5%82%B5-132628060.html",
       "meta": null
     },
     {
-      "title": "【主動ETF PK】台股型今年大勝！00981A狂賺85%稱霸 前7強全包了",
-      "url": "https://tw.stock.yahoo.com/news/%E3%80%90%E4%B8%BB%E5%8B%95etf-pk%E3%80%91%E5%8F%B0%E8%82%A1%E5%9E%8B%E4%BB%8A%E5%B9%B4%E5%A4%A7%E5%8B%9D%EF%BC%8100981a%E7%8B%82%E8%B3%BA85%E7%A8%B1%E9%9C%B8-%E5%89%8D7%E5%BC%B7%E5%85%A8%E5%8C%85%E4%BA%86-095455970.html",
+      "title": "比00919還狂！00918配1.75元創新高、年息破 20%  27萬人開心",
+      "url": "https://tw.stock.yahoo.com/news/%E6%AF%9400919%E9%82%84%E7%8B%82%EF%BC%8100918%E9%85%8D175%E5%85%83%E5%89%B5%E6%96%B0%E9%AB%98%E3%80%81%E5%B9%B4%E6%81%AF%E7%A0%B4-20-27%E8%90%AC%E4%BA%BA%E9%96%8B%E5%BF%83-101435002.html",
       "meta": null
     },
     {
@@ -876,10 +876,10 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 2,
-  "overbought_count": 16,
+  "new_alerts": 24,
+  "overbought_count": 17,
   "oversold_count": 7,
-  "normal_count": 104,
+  "normal_count": 103,
   "overbought_stocks": [
     {
       "symbol": "00713.TW",
@@ -1010,100 +1010,114 @@
     {
       "symbol": "NFLX",
       "name": "Netflix Inc.",
-      "current_price": 81.72,
-      "change_pct": 2.35,
+      "current_price": 81.545,
+      "change_pct": -0.21,
       "extra_data": {
-        "regular_market_price": 81.72,
-        "pre_market_price": 81.17,
+        "regular_market_price": 81.545,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 79.84
+        "prev_close": 81.72
       },
-      "kd_k": 81.68,
-      "kd_d": 81.99
+      "kd_k": 80.79,
+      "kd_d": 81.59
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "current_price": 186.26,
+      "change_pct": -0.02,
+      "extra_data": {
+        "regular_market_price": 186.26,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 186.29
+      },
+      "kd_k": 80.05,
+      "kd_d": 72.05
     },
     {
       "symbol": "NFXL",
       "name": "Direxion Daily NFLX Bull 2X Shares",
-      "current_price": 19.62,
-      "change_pct": 4.64,
+      "current_price": 19.545,
+      "change_pct": -0.38,
       "extra_data": {
-        "regular_market_price": 19.62,
-        "pre_market_price": 19.35,
+        "regular_market_price": 19.545,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 18.75
+        "prev_close": 19.62
       },
-      "kd_k": 80.22,
-      "kd_d": 80.94
+      "kd_k": 78.87,
+      "kd_d": 80.25
     },
     {
       "symbol": "CRCL",
       "name": "Circle Internet Group, Inc.",
-      "current_price": 87.14,
-      "change_pct": -7.53,
+      "current_price": 93.06,
+      "change_pct": 6.79,
       "extra_data": {
-        "regular_market_price": 87.14,
-        "pre_market_price": 87.7233,
+        "regular_market_price": 93.06,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 94.24
+        "prev_close": 87.14
       },
-      "kd_k": 79.58,
-      "kd_d": 83.49
+      "kd_k": 81.69,
+      "kd_d": 82.89
     },
     {
       "symbol": "CRM",
       "name": "Salesforce, Inc.",
-      "current_price": 256.0,
-      "change_pct": 1.57,
+      "current_price": 260.44,
+      "change_pct": 1.73,
       "extra_data": {
-        "regular_market_price": 256.0,
-        "pre_market_price": 253.91,
+        "regular_market_price": 260.44,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 252.05
+        "prev_close": 256.0
       },
-      "kd_k": 84.02,
-      "kd_d": 80.12
+      "kd_k": 87.86,
+      "kd_d": 82.7
     },
     {
       "symbol": "CRMG",
       "name": "Leverage Shares 2X Long CRM Daily ETF",
-      "current_price": 9.99,
-      "change_pct": 3.2,
+      "current_price": 10.315,
+      "change_pct": 3.25,
       "extra_data": {
-        "regular_market_price": 9.99,
-        "pre_market_price": 9.84,
+        "regular_market_price": 10.315,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 9.68
+        "prev_close": 9.99
       },
-      "kd_k": 83.33,
-      "kd_d": 79.41
+      "kd_k": 87.16,
+      "kd_d": 81.99
     },
     {
       "symbol": "ADBE",
       "name": "Adobe Inc.",
-      "current_price": 291.52,
-      "change_pct": 0.82,
+      "current_price": 291.7,
+      "change_pct": 0.06,
       "extra_data": {
-        "regular_market_price": 291.52,
-        "pre_market_price": 288.76,
+        "regular_market_price": 291.7,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 289.15
+        "prev_close": 291.52
       },
-      "kd_k": 88.32,
-      "kd_d": 83.6
+      "kd_k": 89.75,
+      "kd_d": 85.65
     },
     {
       "symbol": "ADBG",
       "name": "Leverage Shares 2X Long ADBE Daily ETF",
-      "current_price": 5.67,
-      "change_pct": 1.61,
+      "current_price": 5.6701,
+      "change_pct": 0.0,
       "extra_data": {
-        "regular_market_price": 5.67,
-        "pre_market_price": 5.58,
+        "regular_market_price": 5.6701,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 5.58
+        "prev_close": 5.67
       },
-      "kd_k": 87.31,
-      "kd_d": 82.31
+      "kd_k": 88.64,
+      "kd_d": 84.42
     }
   ],
   "oversold_stocks": [
@@ -1164,46 +1178,46 @@
       "kd_d": 18.29
     },
     {
-      "symbol": "AVGX",
-      "name": "Defiance Daily Target 2X Long AVGO ETF",
-      "current_price": 42.26,
-      "change_pct": -1.61,
-      "extra_data": {
-        "regular_market_price": 42.26,
-        "pre_market_price": 42.32,
-        "post_market_price": null,
-        "prev_close": 42.95
-      },
-      "kd_k": 28.17,
-      "kd_d": 19.32
-    },
-    {
       "symbol": "RKLB",
       "name": "Rocket Lab USA, Inc.",
-      "current_price": 64.39,
-      "change_pct": -4.65,
+      "current_price": 63.8,
+      "change_pct": -0.92,
       "extra_data": {
-        "regular_market_price": 64.39,
-        "pre_market_price": 63.7488,
+        "regular_market_price": 63.8,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 67.53
+        "prev_close": 64.39
       },
-      "kd_k": 7.85,
-      "kd_d": 13.85
+      "kd_k": 7.51,
+      "kd_d": 11.74
     },
     {
       "symbol": "RKLX",
       "name": "Defiance Daily Target 2X Long RKLB ETF",
-      "current_price": 15.31,
-      "change_pct": -9.19,
+      "current_price": 14.98,
+      "change_pct": -2.16,
       "extra_data": {
-        "regular_market_price": 15.31,
-        "pre_market_price": 14.7775,
+        "regular_market_price": 14.98,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 16.86
+        "prev_close": 15.31
       },
-      "kd_k": 6.96,
-      "kd_d": 12.64
+      "kd_k": 6.51,
+      "kd_d": 10.6
+    },
+    {
+      "symbol": "ARMG",
+      "name": "Leverage Shares 2X Long ARM Daily ETF",
+      "current_price": 15.67,
+      "change_pct": 0.64,
+      "extra_data": {
+        "regular_market_price": 15.67,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 15.57
+      },
+      "kd_k": 19.67,
+      "kd_d": 21.02
     }
   ],
   "errors": []
