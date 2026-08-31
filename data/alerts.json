@@ -1,5 +1,274 @@
 [
   {
+    "id": "00652.TW_20260831_oversold",
+    "symbol": "00652.TW",
+    "name": "富邦印度",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.93,
+    "kd_d": 24.65,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 32.89,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00652.TW (富邦印度) is OVERSOLD! KD-K: 18.93, KD-D: 24.65 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-31T11:17:47.387944",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "00662.TW_20260831_oversold",
+    "symbol": "00662.TW",
+    "name": "富邦NASDAQ",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.12,
+    "kd_d": 19.89,
+    "kd_state": "DEATH_CROSS",
+    "current_price": 118.95,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00662.TW (富邦NASDAQ) is OVERSOLD! KD-K: 17.12, KD-D: 19.89 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-31T11:17:47.388155",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "00830.TW_20260831_oversold",
+    "symbol": "00830.TW",
+    "name": "國泰費城半導體",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 16.04,
+    "kd_d": 21.92,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 80.1,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的103%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00830.TW (國泰費城半導體) is OVERSOLD! KD-K: 16.04, KD-D: 21.92 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-31T11:17:47.388821",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "00885.TW_20260831_overbought",
+    "symbol": "00885.TW",
+    "name": "富邦越南",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.05,
+    "kd_d": 70.21,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 18.52,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "個股外資近3日仍買超達20日均量的106%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00885.TW (富邦越南) is OVERBOUGHT! KD-K: 80.05, KD-D: 70.21 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-31T11:17:47.389268",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "00893.TW_20260831_oversold",
+    "symbol": "00893.TW",
+    "name": "國泰智能電動車",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.38,
+    "kd_d": 24.14,
+    "kd_state": "DEATH_CROSS",
+    "current_price": 41.84,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）",
+      "個股外資近3日買超達20日均量的52%（籌碼面轉強，非籌碼出走）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00893.TW (國泰智能電動車) is OVERSOLD! KD-K: 19.38, KD-D: 24.14 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-31T11:17:47.389480",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "00911.TW_20260831_oversold",
+    "symbol": "00911.TW",
+    "name": "兆豐洲際半導體",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 15.4,
+    "kd_d": 21.71,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 50.7,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00911.TW (兆豐洲際半導體) is OVERSOLD! KD-K: 15.4, KD-D: 21.71 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-31T11:17:47.389893",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "00939.TW_20260831_overbought",
+    "symbol": "00939.TW",
+    "name": "統一台灣高息動能",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 85.3,
+    "kd_d": 76.78,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 22.94,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00939.TW (統一台灣高息動能) is OVERBOUGHT! KD-K: 85.3, KD-D: 76.78 (>= 80)",
+    "timestamp": "2026-08-31T11:17:47.390498",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "00951.TW_20260831_oversold",
+    "symbol": "00951.TW",
+    "name": "台新日本半導體",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.53,
+    "kd_d": 24.48,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 16.5,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00951.TW (台新日本半導體) is OVERSOLD! KD-K: 19.53, KD-D: 24.48 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-31T11:17:47.390987",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "00954.TW_20260831_oversold",
+    "symbol": "00954.TW",
+    "name": "中信日本半導體",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.25,
+    "kd_d": 24.83,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 17.56,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00954.TW (中信日本半導體) is OVERSOLD! KD-K: 19.25, KD-D: 24.83 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-31T11:17:47.391202",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "009800.TW_20260831_oversold",
+    "symbol": "009800.TW",
+    "name": "中信NASDAQ",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 15.83,
+    "kd_d": 19.17,
+    "kd_state": "OVERSOLD",
+    "current_price": 12.88,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的64%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 009800.TW (中信NASDAQ) is OVERSOLD! KD-K: 15.83, KD-D: 19.17 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-08-31T11:17:47.391378",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
     "id": "00635U.TW_20260831_overbought",
     "symbol": "00635U.TW",
     "name": "期元大S&P黃金",
@@ -2266,257 +2535,6 @@
     "message": "⚠️ NFLX (Netflix Inc.) is OVERBOUGHT! KD-K: 78.57, KD-D: 82.15 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-08-28T07:33:52.534205",
     "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "NFXL_20260828_overbought",
-    "symbol": "NFXL",
-    "name": "Direxion Daily NFLX Bull 2X Shares",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 77.4,
-    "kd_d": 81.29,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 18.75,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ NFXL (Direxion Daily NFLX Bull 2X Shares) is OVERBOUGHT! KD-K: 77.4, KD-D: 81.29 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-28T07:33:52.534385",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "AVGX_20260828_oversold",
-    "symbol": "AVGX",
-    "name": "Defiance Daily Target 2X Long AVGO ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.06,
-    "kd_d": 14.9,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 42.9,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ AVGX (Defiance Daily Target 2X Long AVGO ETF) is OVERSOLD! KD-K: 18.06, KD-D: 14.9 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-28T07:33:52.534551",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "CRCL_20260828_overbought",
-    "symbol": "CRCL",
-    "name": "Circle Internet Group, Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 87.69,
-    "kd_d": 85.45,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 94.24,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ CRCL (Circle Internet Group, Inc.) is OVERBOUGHT! KD-K: 87.69, KD-D: 85.45 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-28T07:33:52.534691",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "CRM_20260828_overbought",
-    "symbol": "CRM",
-    "name": "Salesforce, Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 81.38,
-    "kd_d": 78.18,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 252.05,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ CRM (Salesforce, Inc.) is OVERBOUGHT! KD-K: 81.38, KD-D: 78.18 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-28T07:33:52.534845",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "CRMG_20260828_overbought",
-    "symbol": "CRMG",
-    "name": "Leverage Shares 2X Long CRM Daily ETF",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 81.04,
-    "kd_d": 77.45,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 9.68,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ CRMG (Leverage Shares 2X Long CRM Daily ETF) is OVERBOUGHT! KD-K: 81.04, KD-D: 77.45 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-28T07:33:52.534976",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "ADBE_20260828_overbought",
-    "symbol": "ADBE",
-    "name": "Adobe Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 86.06,
-    "kd_d": 81.24,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 289.15,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ ADBE (Adobe Inc.) is OVERBOUGHT! KD-K: 86.06, KD-D: 81.24 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-28T07:33:52.535133",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "ADBG_20260828_overbought",
-    "symbol": "ADBG",
-    "name": "Leverage Shares 2X Long ADBE Daily ETF",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 84.9,
-    "kd_d": 79.81,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 5.58,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ ADBG (Leverage Shares 2X Long ADBE Daily ETF) is OVERBOUGHT! KD-K: 84.9, KD-D: 79.81 (>= 80)",
-    "timestamp": "2026-08-28T07:33:52.535268",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "RKLB_20260828_oversold",
-    "symbol": "RKLB",
-    "name": "Rocket Lab USA, Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 9.23,
-    "kd_d": 16.85,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 67.53,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ RKLB (Rocket Lab USA, Inc.) is OVERSOLD! KD-K: 9.23, KD-D: 16.85 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-28T07:33:52.535438",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "RKLX_20260828_oversold",
-    "symbol": "RKLX",
-    "name": "Defiance Daily Target 2X Long RKLB ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 8.15,
-    "kd_d": 15.49,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 16.86,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ RKLX (Defiance Daily Target 2X Long RKLB ETF) is OVERSOLD! KD-K: 8.15, KD-D: 15.49 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-28T07:33:52.535584",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "CRM_20260827_overbought",
-    "symbol": "CRM",
-    "name": "Salesforce, Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 82.52,
-    "kd_d": 78.55,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 239.755,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ CRM (Salesforce, Inc.) is OVERBOUGHT! KD-K: 82.52, KD-D: 78.55 (>= 80)",
-    "timestamp": "2026-08-27T21:41:33.362275",
-    "date": "2026-08-27",
     "acknowledged": false
   }
 ]
