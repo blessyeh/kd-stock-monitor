@@ -1,5 +1,58 @@
 [
   {
+    "id": "00878.TW_20260831_overbought",
+    "symbol": "00878.TW",
+    "name": "國泰永續高股息",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.22,
+    "kd_d": 63.88,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 33.18,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的44%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00878.TW (國泰永續高股息) is OVERBOUGHT! KD-K: 80.22, KD-D: 63.88 (>= 80)",
+    "timestamp": "2026-08-31T18:26:45.042658",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
+    "id": "00915.TW_20260831_overbought",
+    "symbol": "00915.TW",
+    "name": "凱基優選高股息30",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.54,
+    "kd_d": 69.08,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 31.89,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00915.TW (凱基優選高股息30) is OVERBOUGHT! KD-K: 82.54, KD-D: 69.08 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-08-31T18:26:45.043206",
+    "date": "2026-08-31",
+    "acknowledged": false
+  },
+  {
     "id": "00652.TW_20260831_oversold",
     "symbol": "00652.TW",
     "name": "富邦印度",
@@ -2486,54 +2539,6 @@
     "market_regime_label": null,
     "message": "✅ 009819.TW (中信數據及電力) is OVERSOLD! KD-K: 14.98, KD-D: 16.82 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-08-28T07:33:52.533850",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "AVGO_20260828_oversold",
-    "symbol": "AVGO",
-    "name": "Broadcom Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 20.19,
-    "kd_d": 16.28,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 371.54,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ AVGO (Broadcom Inc.) is OVERSOLD! KD-K: 20.19, KD-D: 16.28 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-28T07:33:52.534035",
-    "date": "2026-08-28",
-    "acknowledged": false
-  },
-  {
-    "id": "NFLX_20260828_overbought",
-    "symbol": "NFLX",
-    "name": "Netflix Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 78.57,
-    "kd_d": 82.15,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 79.84,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ NFLX (Netflix Inc.) is OVERBOUGHT! KD-K: 78.57, KD-D: 82.15 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-08-28T07:33:52.534205",
     "date": "2026-08-28",
     "acknowledged": false
   }
