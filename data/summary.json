@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-02T04:28:33.317858",
+  "timestamp": "2026-09-02T06:58:24.279590",
   "date": "2026-09-02",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": 0.8
     },
     "dxy": {
-      "value": 99.69,
-      "change": 0.26,
-      "change_pct": 0.26
+      "value": 99.65,
+      "change": 0.22,
+      "change_pct": 0.23
     },
     "fear_greed": {
-      "value": 16.35,
-      "change": 1.43,
-      "change_pct": 9.58,
+      "value": 16.34,
+      "change": 1.42,
+      "change_pct": 9.52,
       "label": "VIX Index",
-      "timestamp": "2026-09-02T04:28:26.037628"
+      "timestamp": "2026-09-02T06:58:16.642781"
     },
     "btc": {
-      "value": 77324.0,
-      "change": -1225.0,
-      "change_pct": -1.56
+      "value": 77245.0,
+      "change": -1303.0,
+      "change_pct": -1.66
     },
     "oil": {
-      "value": 90.77,
-      "change": 5.01,
-      "change_pct": 5.84
+      "value": 90.81,
+      "change": 5.05,
+      "change_pct": 5.89
     },
     "gold": {
-      "value": 4374.5,
-      "change": -56.6,
-      "change_pct": -1.28
+      "value": 4373.8,
+      "change": -57.3,
+      "change_pct": -1.29
     },
     "sox": {
       "value": 11288.61,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.69 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.13pp（未達 0.15pp）",
-          "score": 53.0
+          "detail": "DXY 99.65 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.13pp（未達 0.15pp）",
+          "score": 51.8
         },
         {
           "id": "twd_depreciation",
@@ -177,7 +177,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 46.0
+      "avg_score": 45.8
     },
     "bottom": {
       "conditions": [
@@ -186,7 +186,7 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 16.4（<= 30.0門檻）；目前 16.4（較高點回落 0%，門檻 15%）",
+          "detail": "近10日VIX高點 16.3（<= 30.0門檻）；目前 16.3（較高點回落 0%，門檻 15%）",
           "score": 10.0
         },
         {
@@ -248,15 +248,15 @@
     "as_of_date": "2026-09-01",
     "history_days": 62,
     "bottom": {
-      "total": 43.6,
+      "total": 43.8,
       "dimensions": [
         {
           "name": "macro",
-          "score": 7.2,
+          "score": 7.4,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 16.4 → 目前 16.4（強度 10/100，+1.5）",
-            "DXY 99.69 距近20日高點 -0.28%（美元壓力緩和強度 57/100，+5.7）"
+            "VIX 近10日高點 16.3 → 目前 16.3（強度 10/100，+1.5）",
+            "DXY 99.65 距近20日高點 -0.32%（美元壓力緩和強度 59/100，+5.9）"
           ]
         },
         {
@@ -296,14 +296,14 @@
       ]
     },
     "top": {
-      "total": 33.2,
+      "total": 33.0,
       "dimensions": [
         {
           "name": "macro",
-          "score": 12.1,
+          "score": 11.9,
           "cap": 25,
           "notes": [
-            "DXY 99.69 距近20日高點 -0.28%，美債10Y5日變動 +0.13pp（強度 53/100，+7.9）",
+            "DXY 99.65 距近20日高點 -0.32%，美債10Y5日變動 +0.13pp（強度 52/100，+7.8）",
             "SOX/NDX 距近20日支撐 -0.77%，美債10Y同步變動（強度 42/100，+4.2）"
           ]
         },
@@ -450,13 +450,7 @@
         ]
       }
     ],
-    "buy_points": [
-      {
-        "id": "trend_breakout",
-        "label": "趨勢突破買點",
-        "detail": "基本面與技術面同步確認：均線多頭排列＋量能放大＋外資買超"
-      }
-    ],
+    "buy_points": [],
     "caveat": "本分數為規則式加權評分，且法說會財測指引為人工維護資料（非分析師市場共識），尚未經歷史回測驗證統計勝率，僅供比較「目前有多少項已知條件成立」，並非機率或投資建議。"
   },
   "signal_backtest": {
@@ -1241,7 +1235,7 @@
       "extra_data": {
         "regular_market_price": 89.48,
         "pre_market_price": null,
-        "post_market_price": 89.1667,
+        "post_market_price": 88.75,
         "prev_close": 95.55
       },
       "kd_k": 76.44,
@@ -1255,7 +1249,7 @@
       "extra_data": {
         "regular_market_price": 258.11,
         "pre_market_price": null,
-        "post_market_price": 257.496,
+        "post_market_price": 256.65,
         "prev_close": 257.54
       },
       "kd_k": 88.18,
@@ -1269,7 +1263,7 @@
       "extra_data": {
         "regular_market_price": 10.13,
         "pre_market_price": null,
-        "post_market_price": 10.0,
+        "post_market_price": 9.99,
         "prev_close": 10.1
       },
       "kd_k": 87.12,
@@ -1283,7 +1277,7 @@
       "extra_data": {
         "regular_market_price": 286.08,
         "pre_market_price": null,
-        "post_market_price": 285.8,
+        "post_market_price": 285.25,
         "prev_close": 292.79
       },
       "kd_k": 84.34,
@@ -1297,7 +1291,7 @@
       "extra_data": {
         "regular_market_price": 5.45,
         "pre_market_price": null,
-        "post_market_price": 5.43,
+        "post_market_price": 5.42,
         "prev_close": 5.72
       },
       "kd_k": 82.92,
@@ -1425,7 +1419,7 @@
       "extra_data": {
         "regular_market_price": 62.54,
         "pre_market_price": null,
-        "post_market_price": 62.55,
+        "post_market_price": 62.0797,
         "prev_close": 63.92
       },
       "kd_k": 6.7,
@@ -1439,7 +1433,7 @@
       "extra_data": {
         "regular_market_price": 14.38,
         "pre_market_price": null,
-        "post_market_price": 14.4186,
+        "post_market_price": 14.2489,
         "prev_close": 15.08
       },
       "kd_k": 5.83,
@@ -1453,7 +1447,7 @@
       "extra_data": {
         "regular_market_price": 14.94,
         "pre_market_price": null,
-        "post_market_price": 14.82,
+        "post_market_price": 14.88,
         "prev_close": 15.9
       },
       "kd_k": 18.45,
