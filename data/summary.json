@@ -1,43 +1,43 @@
 {
-  "timestamp": "2026-09-01T15:10:52.613936",
+  "timestamp": "2026-09-01T21:01:39.686490",
   "date": "2026-09-01",
   "macro": {
     "taiex": {
-      "value": 46128.47,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 46948.72,
+      "change": 820.25,
+      "change_pct": 1.78
     },
     "us10y": {
-      "value": 4.758,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 4.786,
+      "change": 0.028,
+      "change_pct": 0.59
     },
     "dxy": {
-      "value": 99.52,
-      "change": 0.09,
-      "change_pct": 0.09
+      "value": 99.61,
+      "change": 0.18,
+      "change_pct": 0.18
     },
     "fear_greed": {
-      "value": 14.92,
-      "change": 0.0,
-      "change_pct": 0.0,
+      "value": 15.92,
+      "change": 1.0,
+      "change_pct": 6.7,
       "label": "VIX Index",
-      "timestamp": "2026-09-01T15:10:47.003829"
+      "timestamp": "2026-09-01T21:01:34.440329"
     },
     "btc": {
-      "value": 78720.0,
-      "change": 171.0,
-      "change_pct": 0.22
+      "value": 77930.0,
+      "change": -619.0,
+      "change_pct": -0.79
     },
     "oil": {
-      "value": 86.49,
-      "change": 0.73,
-      "change_pct": 0.85
+      "value": 88.03,
+      "change": 2.27,
+      "change_pct": 2.65
     },
     "gold": {
-      "value": 4478.2,
-      "change": 47.1,
-      "change_pct": 1.06
+      "value": 4413.4,
+      "change": -17.7,
+      "change_pct": -0.4
     },
     "sox": {
       "value": 11535.05,
@@ -134,8 +134,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.52 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.11pp（未達 0.15pp）",
-          "score": 44.1
+          "detail": "DXY 99.61 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.14pp（未達 0.15pp）",
+          "score": 52.4
         },
         {
           "id": "twd_depreciation",
@@ -166,8 +166,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11535未跌破近20日支撐11376；NDX 29457未跌破近20日支撐28777；美債10Y 5日變動 +0.11pp（未達 0.15pp）",
-          "score": 70.2
+          "detail": "SOX 11535未跌破近20日支撐11376；NDX 29457未跌破近20日支撐28777；美債10Y 5日變動 +0.14pp（未達 0.15pp）",
+          "score": 75.8
         }
       ],
       "total_conditions": 5,
@@ -175,7 +175,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 44.9
+      "avg_score": 47.7
     },
     "bottom": {
       "conditions": [
@@ -184,8 +184,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 15.9（<= 30.0門檻）；目前 14.9（較高點回落 6%，門檻 15%）",
-          "score": 18.2
+          "detail": "近10日VIX高點 15.9（<= 30.0門檻）；目前 15.9（較高點回落 0%，門檻 15%）",
+          "score": 10.0
         },
         {
           "id": "margin_capitulation",
@@ -209,7 +209,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 48.4
+      "avg_score": 45.6
     },
     "bottom_reversal_score": {
       "total": 26.9,
@@ -246,15 +246,15 @@
     "as_of_date": "2026-08-31",
     "history_days": 61,
     "bottom": {
-      "total": 29.5,
+      "total": 27.9,
       "dimensions": [
         {
           "name": "macro",
-          "score": 9.4,
+          "score": 7.7,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 15.9 → 目前 14.9（強度 18/100，+2.7）",
-            "DXY 99.52 距近20日高點 -0.45%（美元壓力緩和強度 67/100，+6.7）"
+            "VIX 近10日高點 15.9 → 目前 15.9（強度 10/100，+1.5）",
+            "DXY 99.61 距近20日高點 -0.36%（美元壓力緩和強度 62/100，+6.2）"
           ]
         },
         {
@@ -280,29 +280,29 @@
           "score": 0,
           "cap": 20,
           "notes": [
-            "TAIEX 14日RSI 56.6（超賣強度 0/100，+0.0）"
+            "TAIEX 14日RSI 63.1（超賣強度 0/100，+0.0）"
           ]
         },
         {
           "name": "sentiment",
-          "score": 0,
+          "score": 0.1,
           "cap": 10,
           "notes": [
-            "VIX 處於近59筆歷史樣本的第 8 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近59筆歷史樣本的第 41 百分位（恐慌強度 1/100，+0.1）"
           ]
         }
       ]
     },
     "top": {
-      "total": 38.8,
+      "total": 36.6,
       "dimensions": [
         {
           "name": "macro",
-          "score": 13.6,
+          "score": 15.4,
           "cap": 25,
           "notes": [
-            "DXY 99.52 距近20日高點 -0.45%，美債10Y5日變動 +0.11pp（強度 44/100，+6.6）",
-            "SOX/NDX 距近20日支撐 +1.40%，美債10Y同步變動（強度 70/100，+7.0）"
+            "DXY 99.61 距近20日高點 -0.36%，美債10Y5日變動 +0.14pp（強度 52/100，+7.9）",
+            "SOX/NDX 距近20日支撐 +1.40%，美債10Y同步變動（強度 76/100，+7.6）"
           ]
         },
         {
@@ -325,18 +325,18 @@
         },
         {
           "name": "technical",
-          "score": 1.3,
+          "score": 2.7,
           "cap": 20,
           "notes": [
-            "TAIEX 14日RSI 56.6（超買強度 16/100，+1.3）"
+            "TAIEX 14日RSI 63.1（超買強度 34/100，+2.7）"
           ]
         },
         {
           "name": "sentiment",
-          "score": 9.3,
+          "score": 3.9,
           "cap": 10,
           "notes": [
-            "VIX 處於近59筆歷史樣本的第 8 百分位（自滿強度 93/100，+9.3）"
+            "VIX 處於近59筆歷史樣本的第 41 百分位（自滿強度 39/100，+3.9）"
           ]
         }
       ]
@@ -823,60 +823,60 @@
   },
   "news": [
     {
-      "title": "台新新光金總座有信心 股利「明年比今年好」",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E6%96%B0%E6%96%B0%E5%85%89%E9%87%91%E6%B3%95%E8%AA%AA%E3%80%8B%E8%AB%87%E8%82%A1%E5%88%A9-%E7%B8%BD%E5%BA%A7%E6%9E%97%E7%B6%AD%E4%BF%8A%E6%9C%89%E4%BF%A1%E5%BF%83%E3%80%8C%E6%98%8E%E5%B9%B4%E6%AF%94%E4%BB%8A%E5%B9%B4%E5%A5%BD%E3%80%8D-064250851.html",
+      "title": "輝達千億投資點火 聯發科漲停帶台股直逼47K",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A19%E6%9C%88%E9%96%8B%E5%B1%80%E5%99%B4820%E9%BB%9E%E7%9B%B4%E9%80%BC4%E8%90%AC7%E5%A4%A7%E9%97%9C%EF%BC%81%E8%BC%9D%E9%81%94%E5%8D%83%E5%84%84%E6%8A%95%E8%B3%87%E5%B8%B6%E9%A3%9B%E8%81%AF%E7%99%BC%E7%A7%91-etf%E5%8F%97%E7%9B%8A%E8%BB%8D%E5%9C%98%E6%95%B4%E6%8E%92%E8%B5%B7%E9%A3%9B%EF%BD%9Cyahoo%E8%B2%A1%E7%B6%93%E6%8E%83%E6%8F%8F-092700893.html",
       "meta": null
     },
     {
-      "title": "3家外資力挺聯發科 目標價最高喊上萬元",
-      "url": "https://tw.stock.yahoo.com/news/%E8%81%AF%E7%99%BC%E7%A7%91cb%E7%8D%B2%E8%BC%9D%E9%81%94%E8%AA%8D%E8%B3%BC-%E4%B8%89%E5%A4%96%E8%B3%87%E5%8A%9B%E6%8C%BA-%E4%BA%9E%E7%B3%BB%E5%A4%96%E8%B3%87%E7%9B%AE%E6%A8%99%E5%83%B9%E4%B8%8A%E7%9C%8B%E8%90%AC%E5%85%83-043632811.html",
+      "title": "月配季配主動全上桌 9月ETF配息率最高近20%",
+      "url": "https://tw.stock.yahoo.com/news/9%E6%9C%88%E9%AB%98%E8%82%A1%E6%81%AFetf%E9%99%A4%E6%81%AF%E7%99%BD%E7%86%B1%E5%8C%96-%E9%85%8D%E6%81%AF%E7%8E%87%E6%9C%80%E9%AB%9819-8-102615527.html",
       "meta": null
     },
     {
-      "title": "最猛漲22% 矽晶圓「全尺寸漲價」3年多首見",
-      "url": "https://tw.stock.yahoo.com/news/%E7%9F%BD%E6%99%B6%E5%9C%933%E5%B9%B4%E5%A4%9A%E4%BE%86%E9%A6%96%E8%A6%8B6-8-12%E5%90%8B%E5%85%A8%E9%9D%A2%E6%BC%B2%E5%83%B9-ai%E7%AE%97%E5%8A%9B%E9%9C%80%E6%B1%82%E7%88%86%E7%99%BC-051441914.html",
+      "title": "台股「第二隻腳」在哪？一圖看懂台股築底訊號",
+      "url": "https://tw.stock.yahoo.com/news/%E5%88%86%E6%9E%90%E5%B8%AB%E3%80%81%E8%82%A1%E6%B0%91%E9%83%BD%E5%9C%A8%E6%89%BE%E5%8F%B0%E8%82%A1%E7%9A%84%E3%80%8C%E7%AC%AC%E4%BA%8C%E9%9A%BB%E8%85%B3%E3%80%8D%E2%8B%AF%E7%AC%AC%E4%BA%8C%E9%9A%BB%E8%85%B3%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E5%BE%9E%E5%BD%A2%E6%85%8B%E5%AD%B8%E7%9C%8B%E6%87%82%E8%82%A1%E5%B8%82%E6%80%8E%E9%BA%BC%E8%B5%B0%EF%BC%81%EF%BD%9C%E7%9C%8B%E5%9C%96%E8%AA%AA%E8%82%A1%E5%B8%82-100000823.html",
       "meta": null
     },
     {
-      "title": "AI功耗大增6倍 台積電揭下世代系統兩大關鍵",
-      "url": "https://tw.stock.yahoo.com/news/semicon-%E5%8F%B0%E7%A9%8D%E9%9B%BB-ai%E5%8A%9F%E8%80%97%E5%A4%A7%E5%A2%9E6%E5%80%8D-%E4%BE%9B%E9%9B%BB-%E6%95%A3%E7%86%B1%E6%88%90%E4%B8%8B%E4%B8%96%E4%BB%A3%E7%B3%BB%E7%B5%B1%E5%85%A9%E5%A4%A7%E9%97%9C%E9%8D%B5-061342680.html",
+      "title": "央行9月會放寬房市嗎？土銀董座看不會更緊但難鬆",
+      "url": "https://tw.stock.yahoo.com/news/%E5%A4%AE%E8%A1%8C9%E6%9C%88%E9%AC%86%E7%B6%81%E6%88%BF%E5%B8%82%EF%BC%9F%E5%9C%9F%E9%8A%80%E8%91%A3%E5%BA%A7%EF%BC%9A%E4%B8%8D%E6%9C%83%E8%AE%8A%E7%B7%8A-%E4%BD%86%E6%94%BE%E5%AF%AC%E9%9B%A3%E5%BA%A6%E7%9B%B8%E7%95%B6%E9%AB%98-101746420.html",
       "meta": null
     },
     {
-      "title": "市場恐慌跌停僅一天 揭「欣興洗盤」真相",
-      "url": "https://tw.stock.yahoo.com/news/%E6%AC%A3%E8%88%88%E8%B7%8C%E5%81%9C%E5%83%85-%E5%A4%A9-%E5%88%86%E6%9E%90%E5%B8%AB%E6%8F%AD-%E6%B4%97%E7%9B%A4-%E7%9C%9F%E7%9B%B8-054700256.html",
+      "title": "金管鐵拳教育「罰到最高」重懲郭明鑑兼職",
+      "url": "https://tw.stock.yahoo.com/news/%E9%83%AD%E6%98%8E%E9%91%91%E5%85%BC%E8%81%B7%E9%A2%A8%E6%B3%A2%E7%BD%B0%E4%BA%86%EF%BC%81%E9%87%91%E7%AE%A1%E6%9C%83%E9%87%8D%E7%BD%B0600%E8%90%AC%E5%85%83%E3%80%8C%E7%BD%B0%E5%88%B0%E6%9C%80%E9%AB%98%E3%80%8D%E4%B8%BB%E8%A6%81%E7%BC%BA%E5%A4%B1%E5%9C%A8%E5%9C%8B%E6%B3%B0%E6%8A%95%E4%BF%A1%E3%80%8C%E5%85%A7%E6%8E%A7%E5%AE%8C%E5%85%A8%E5%A4%B1%E9%9D%88%E3%80%8D-081721045.html",
       "meta": null
     },
     {
-      "title": "房市寒冬吹進就業端！超過5成企業員工人數下降 「遇缺不補」最常見",
-      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E5%B8%82%E5%AF%92%E5%86%AC%E5%90%B9%E9%80%B2%E5%B0%B1%E6%A5%AD%E7%AB%AF%EF%BC%81%E8%B6%85%E9%81%8E5%E6%88%90%E4%BC%81%E6%A5%AD%E5%93%A1%E5%B7%A5%E4%BA%BA%E6%95%B8%E4%B8%8B%E9%99%8D-%E3%80%8C%E9%81%87%E7%BC%BA%E4%B8%8D%E8%A3%9C%E3%80%8D%E6%9C%80%E5%B8%B8%E8%A6%8B-070533112.html",
+      "title": "又有KY股恐淪壁紙？康控-KY被列「經營不確定」繼續全額交割",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%88%E6%9C%89ky%E8%82%A1%E6%81%90%E6%B7%AA%E5%A3%81%E7%B4%99%EF%BC%9F%E5%BA%B7%E6%8E%A7-ky%E8%A2%AB%E5%88%97%E3%80%8C%E7%B6%93%E7%87%9F%E4%B8%8D%E7%A2%BA%E5%AE%9A%E3%80%8D%E7%B9%BC%E7%BA%8C%E5%85%A8%E9%A1%8D%E4%BA%A4%E5%89%B2-125327485.html",
       "meta": null
     },
     {
-      "title": "【Follow法人】土洋同買！外資由賣轉買 回頭砸267億元掃貨台股",
-      "url": "https://tw.stock.yahoo.com/news/%E3%80%90follow%E6%B3%95%E4%BA%BA%E3%80%91%E5%9C%9F%E6%B4%8B%E5%90%8C%E8%B2%B7%EF%BC%81%E5%A4%96%E8%B3%87%E7%94%B1%E8%B3%A3%E8%BD%89%E8%B2%B7-%E5%9B%9E%E9%A0%AD%E7%A0%B8267%E5%84%84%E5%85%83%E6%8E%83%E8%B2%A8%E5%8F%B0%E8%82%A1-070043462.html",
+      "title": "高雄今彩539「800萬元頭獎」得主還是沒來領！ 直接充公",
+      "url": "https://tw.stock.yahoo.com/news/%E9%AB%98%E9%9B%84%E4%BB%8A%E5%BD%A9539%E3%80%8C800%E8%90%AC%E5%85%83%E9%A0%AD%E7%8D%8E%E3%80%8D%E5%BE%97%E4%B8%BB%E9%82%84%E6%98%AF%E6%B2%92%E4%BE%86%E9%A0%98%EF%BC%81-%E7%9B%B4%E6%8E%A5%E5%85%85%E5%85%AC-092215487.html",
       "meta": null
     },
     {
-      "title": "仁寶進軍中東AI！攜手沙國國家隊攻輝達資料中心智慧醫療",
-      "url": "https://tw.stock.yahoo.com/news/%E4%BB%81%E5%AF%B6%E9%80%B2%E8%BB%8D%E4%B8%AD%E6%9D%B1ai%EF%BC%81%E6%94%9C%E6%89%8B%E6%B2%99%E5%9C%8B%E5%9C%8B%E5%AE%B6%E9%9A%8A%E6%94%BB%E8%BC%9D%E9%81%94%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E6%99%BA%E6%85%A7%E9%86%AB%E7%99%82-065013963.html",
+      "title": "台灣8月製造業連11個月擴張！AI需求續旺 中經院長連賢明示警記憶體缺貨隱憂",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%81%A38%E6%9C%88%E8%A3%BD%E9%80%A0%E6%A5%AD%E9%80%A311%E5%80%8B%E6%9C%88%E6%93%B4%E5%BC%B5%EF%BC%81ai%E9%9C%80%E6%B1%82%E7%BA%8C%E6%97%BA-%E4%B8%AD%E7%B6%93%E9%99%A2%E9%95%B7%E9%80%A3%E8%B3%A2%E6%98%8E%E7%A4%BA%E8%AD%A6%E8%A8%98%E6%86%B6%E9%AB%94%E7%BC%BA%E8%B2%A8%E9%9A%B1%E6%86%82-091121686.html",
       "meta": null
     },
     {
-      "title": "賴政府首位部長赴中！勞長洪申翰證實9月下旬赴南京：不擔心安全問題",
-      "url": "https://tw.stock.yahoo.com/news/%E8%B3%B4%E6%94%BF%E5%BA%9C%E9%A6%96%E4%BD%8D%E9%83%A8%E9%95%B7%E8%B5%B4%E4%B8%AD%EF%BC%81%E5%8B%9E%E9%95%B7%E6%B4%AA%E7%94%B3%E7%BF%B0%E8%AD%89%E5%AF%A69%E6%9C%88%E4%B8%8B%E6%97%AC%E8%B5%B4%E5%8D%97%E4%BA%AC%EF%BC%9A%E4%B8%8D%E6%93%94%E5%BF%83%E5%AE%89%E5%85%A8%E5%95%8F%E9%A1%8C-063855074.html",
+      "title": "南部豪雨衝擊房市交易 台南寫14年最慘8月成績",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8D%97%E9%83%A8%E8%B1%AA%E9%9B%A8%E8%A1%9D%E6%93%8A%E6%88%BF%E5%B8%82%E4%BA%A4%E6%98%93-%E5%8F%B0%E5%8D%97%E5%AF%AB14%E5%B9%B4%E6%9C%80%E6%85%988%E6%9C%88%E6%88%90%E7%B8%BE-090341864.html",
       "meta": null
     },
     {
-      "title": "輝達千億挺聯發科 00403A等逾10檔ETF暴衝",
-      "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E4%B9%9F%E8%AE%8A00403a%E3%80%8100406a%E5%AF%8C%E7%88%B8%E7%88%B8%EF%BC%81%E9%80%BE10%E6%AA%94%E3%80%8C%E8%81%AF%E7%99%BC%E7%A7%91etf%E3%80%8D%E6%9A%B4%E8%A1%9D-%E6%9C%80%E7%8C%9B%E6%BC%B2%E8%BF%916-042656382.html",
+      "title": "群創搶攻AI封裝商機！首發新技術平台 2027年下半年量產",
+      "url": "https://tw.stock.yahoo.com/news/%E7%BE%A4%E5%89%B5%E6%90%B6%E6%94%BBai%E5%B0%81%E8%A3%9D%E5%95%86%E6%A9%9F%EF%BC%81%E9%A6%96%E7%99%BC%E6%96%B0%E6%8A%80%E8%A1%93%E5%B9%B3%E5%8F%B0-2027%E5%B9%B4%E4%B8%8B%E5%8D%8A%E5%B9%B4%E9%87%8F%E7%94%A2-085737277.html",
       "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 3,
+  "new_alerts": 0,
   "overbought_count": 32,
   "oversold_count": 10,
   "normal_count": 85,
@@ -1186,8 +1186,8 @@
         "post_market_price": null,
         "prev_close": 23.17
       },
-      "kd_k": 90.96,
-      "kd_d": 81.76
+      "kd_k": 89.36,
+      "kd_d": 79.21
     },
     {
       "symbol": "00940.TW",
@@ -1238,8 +1238,8 @@
       "change_pct": -0.82,
       "extra_data": {
         "regular_market_price": 81.05,
-        "pre_market_price": null,
-        "post_market_price": 81.1,
+        "pre_market_price": 80.7278,
+        "post_market_price": null,
         "prev_close": 81.72
       },
       "kd_k": 77.01,
@@ -1252,8 +1252,8 @@
       "change_pct": 0.05,
       "extra_data": {
         "regular_market_price": 186.38,
-        "pre_market_price": null,
-        "post_market_price": 186.55,
+        "pre_market_price": 182.45,
+        "post_market_price": null,
         "prev_close": 186.29
       },
       "kd_k": 80.33,
@@ -1266,8 +1266,8 @@
       "change_pct": 9.65,
       "extra_data": {
         "regular_market_price": 95.55,
-        "pre_market_price": null,
-        "post_market_price": 94.97,
+        "pre_market_price": 91.87,
+        "post_market_price": null,
         "prev_close": 87.14
       },
       "kd_k": 85.14,
@@ -1280,8 +1280,8 @@
       "change_pct": 0.6,
       "extra_data": {
         "regular_market_price": 257.54,
-        "pre_market_price": null,
-        "post_market_price": 258.0595,
+        "pre_market_price": 253.7,
+        "post_market_price": null,
         "prev_close": 256.0
       },
       "kd_k": 86.47,
@@ -1294,8 +1294,8 @@
       "change_pct": 1.1,
       "extra_data": {
         "regular_market_price": 10.1,
-        "pre_market_price": null,
-        "post_market_price": 10.1202,
+        "pre_market_price": 9.78,
+        "post_market_price": null,
         "prev_close": 9.99
       },
       "kd_k": 85.58,
@@ -1308,8 +1308,8 @@
       "change_pct": 0.44,
       "extra_data": {
         "regular_market_price": 292.79,
-        "pre_market_price": null,
-        "post_market_price": 293.385,
+        "pre_market_price": 285.83,
+        "post_market_price": null,
         "prev_close": 291.52
       },
       "kd_k": 90.83,
@@ -1322,8 +1322,8 @@
       "change_pct": 0.88,
       "extra_data": {
         "regular_market_price": 5.72,
-        "pre_market_price": null,
-        "post_market_price": 5.7454,
+        "pre_market_price": 5.47,
+        "post_market_price": null,
         "prev_close": 5.67
       },
       "kd_k": 90.09,
@@ -1450,8 +1450,8 @@
       "change_pct": -0.73,
       "extra_data": {
         "regular_market_price": 63.92,
-        "pre_market_price": null,
-        "post_market_price": 64.09,
+        "pre_market_price": 62.09,
+        "post_market_price": null,
         "prev_close": 64.39
       },
       "kd_k": 7.78,
@@ -1464,8 +1464,8 @@
       "change_pct": -1.5,
       "extra_data": {
         "regular_market_price": 15.08,
-        "pre_market_price": null,
-        "post_market_price": 15.16,
+        "pre_market_price": 14.21,
+        "post_market_price": null,
         "prev_close": 15.31
       },
       "kd_k": 6.93,
