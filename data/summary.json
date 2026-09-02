@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-03T02:26:51.030386",
+  "timestamp": "2026-09-03T05:33:13.015189",
   "date": "2026-09-03",
   "macro": {
     "taiex": {
@@ -8,51 +8,51 @@
       "change_pct": 0.0
     },
     "us10y": {
-      "value": 4.794,
-      "change": -0.002,
-      "change_pct": -0.04
+      "value": 4.796,
+      "change": 0.0,
+      "change_pct": 0.0
     },
     "dxy": {
-      "value": 99.6,
-      "change": -0.07,
-      "change_pct": -0.08
+      "value": 99.55,
+      "change": -0.12,
+      "change_pct": -0.12
     },
     "fear_greed": {
-      "value": 15.25,
-      "change": -1.09,
-      "change_pct": -6.67,
+      "value": 15.2,
+      "change": -1.14,
+      "change_pct": -6.98,
       "label": "VIX Index",
-      "timestamp": "2026-09-03T02:25:34.665207"
+      "timestamp": "2026-09-03T05:33:05.701767"
     },
     "btc": {
-      "value": 77437.0,
-      "change": 34.0,
-      "change_pct": 0.04
+      "value": 77229.0,
+      "change": -174.0,
+      "change_pct": -0.23
     },
     "oil": {
-      "value": 91.31,
-      "change": 1.09,
-      "change_pct": 1.21
+      "value": 90.63,
+      "change": 0.41,
+      "change_pct": 0.45
     },
     "gold": {
-      "value": 4416.7,
-      "change": 68.7,
-      "change_pct": 1.58
+      "value": 4434.3,
+      "change": 86.3,
+      "change_pct": 1.98
     },
     "sox": {
-      "value": 11324.32,
-      "change": 35.71,
-      "change_pct": 0.32
+      "value": 11339.25,
+      "change": 50.64,
+      "change_pct": 0.45
     },
     "ndx": {
-      "value": 29126.61,
-      "change": 49.39,
-      "change_pct": 0.17
+      "value": 29143.33,
+      "change": 66.11,
+      "change_pct": 0.23
     },
     "sp500": {
-      "value": 7671.41,
-      "change": 39.94,
-      "change_pct": 0.52
+      "value": 7666.6,
+      "change": 35.13,
+      "change_pct": 0.46
     }
   },
   "chip": {
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.60 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.13pp（未達 0.15pp）",
-          "score": 50.7
+          "detail": "DXY 99.55 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.14pp（未達 0.15pp）",
+          "score": 49.6
         },
         {
           "id": "twd_depreciation",
@@ -168,8 +168,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11324未跌破近20日支撐11299；NDX 29127未跌破近20日支撐29059；美債10Y 5日變動 +0.13pp（未達 0.15pp）",
-          "score": 62.1
+          "detail": "SOX 11339未跌破近20日支撐11299；NDX 29143未跌破近20日支撐29059；美債10Y 5日變動 +0.14pp（未達 0.15pp）",
+          "score": 63.3
         }
       ],
       "total_conditions": 5,
@@ -186,8 +186,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 15.9（<= 30.0門檻）；目前 15.2（較高點回落 4%，門檻 15%）",
-          "score": 15.6
+          "detail": "近10日VIX高點 15.9（<= 30.0門檻）；目前 15.2（較高點回落 5%，門檻 15%）",
+          "score": 16.0
         },
         {
           "id": "margin_capitulation",
@@ -211,7 +211,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 46.5
+      "avg_score": 46.6
     },
     "bottom_reversal_score": {
       "total": 23.8,
@@ -248,15 +248,15 @@
     "as_of_date": "2026-09-02",
     "history_days": 63,
     "bottom": {
-      "total": 25.3,
+      "total": 25.6,
       "dimensions": [
         {
           "name": "macro",
-          "score": 8.6,
+          "score": 8.9,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 15.9 → 目前 15.2（強度 16/100，+2.3）",
-            "DXY 99.60 距近20日高點 -0.37%（美元壓力緩和強度 62/100，+6.2）"
+            "VIX 近10日高點 15.9 → 目前 15.2（強度 16/100，+2.4）",
+            "DXY 99.55 距近20日高點 -0.42%（美元壓力緩和強度 65/100，+6.5）"
           ]
         },
         {
@@ -290,21 +290,21 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近61筆歷史樣本的第 18 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近61筆歷史樣本的第 16 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 40.8,
+      "total": 41.1,
       "dimensions": [
         {
           "name": "macro",
           "score": 13.8,
           "cap": 25,
           "notes": [
-            "DXY 99.60 距近20日高點 -0.37%，美債10Y5日變動 +0.13pp（強度 51/100，+7.6）",
-            "SOX/NDX 距近20日支撐 +0.22%，美債10Y同步變動（強度 62/100，+6.2）"
+            "DXY 99.55 距近20日高點 -0.42%，美債10Y5日變動 +0.14pp（強度 50/100，+7.4）",
+            "SOX/NDX 距近20日支撐 +0.29%，美債10Y同步變動（強度 63/100，+6.3）"
           ]
         },
         {
@@ -335,10 +335,10 @@
         },
         {
           "name": "sentiment",
-          "score": 7.4,
+          "score": 7.7,
           "cap": 10,
           "notes": [
-            "VIX 處於近61筆歷史樣本的第 18 百分位（自滿強度 74/100，+7.4）"
+            "VIX 處於近61筆歷史樣本的第 16 百分位（自滿強度 77/100，+7.7）"
           ]
         }
       ]
@@ -408,7 +408,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 -0.8%；相對SOX +4.9pp、相對NDX +0.4pp"
+          "2330 近20日漲跌 -0.8%；相對SOX +4.7pp、相對NDX +0.3pp"
         ]
       },
       {
@@ -427,7 +427,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $413.6 換算2330隱含價 2625.9元，2330現價 2385.0元（折價 9.2%）",
+          "TSM ADR $415.5 換算2330隱含價 2638.3元，2330現價 2385.0元（折價 9.6%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -810,11 +810,11 @@
     },
     "tw_chip": {
       "as_of_date": "2026-09-02",
-      "fetched": true
+      "fetched": false
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-09-02",
-      "fetched": true
+      "fetched": false
     }
   },
   "news": [
@@ -872,10 +872,10 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 33,
-  "overbought_count": 20,
+  "new_alerts": 0,
+  "overbought_count": 19,
   "oversold_count": 13,
-  "normal_count": 94,
+  "normal_count": 95,
   "overbought_stocks": [
     {
       "symbol": "0056.TW",
@@ -1104,58 +1104,44 @@
     {
       "symbol": "CRM",
       "name": "Salesforce, Inc.",
-      "current_price": 256.425,
-      "change_pct": -0.65,
+      "current_price": 256.93,
+      "change_pct": -0.46,
       "extra_data": {
-        "regular_market_price": 256.425,
+        "regular_market_price": 256.93,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 257.6,
         "prev_close": 258.11
       },
-      "kd_k": 88.01,
-      "kd_d": 85.48
+      "kd_k": 88.27,
+      "kd_d": 85.57
     },
     {
       "symbol": "CRMG",
       "name": "Leverage Shares 2X Long CRM Daily ETF",
-      "current_price": 10.005,
-      "change_pct": -1.23,
+      "current_price": 10.05,
+      "change_pct": -0.79,
       "extra_data": {
-        "regular_market_price": 10.005,
+        "regular_market_price": 10.05,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 10.11,
         "prev_close": 10.13
       },
-      "kd_k": 86.65,
-      "kd_d": 84.45
+      "kd_k": 86.99,
+      "kd_d": 84.56
     },
     {
       "symbol": "ADBE",
       "name": "Adobe Inc.",
-      "current_price": 282.475,
-      "change_pct": -1.26,
+      "current_price": 279.79,
+      "change_pct": -2.2,
       "extra_data": {
-        "regular_market_price": 282.475,
+        "regular_market_price": 279.79,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 281.0585,
         "prev_close": 286.08
       },
-      "kd_k": 75.93,
-      "kd_d": 82.28
-    },
-    {
-      "symbol": "ADBG",
-      "name": "Leverage Shares 2X Long ADBE Daily ETF",
-      "current_price": 5.32,
-      "change_pct": -2.39,
-      "extra_data": {
-        "regular_market_price": 5.32,
-        "pre_market_price": null,
-        "post_market_price": null,
-        "prev_close": 5.45
-      },
-      "kd_k": 74.01,
-      "kd_d": 80.83
+      "kd_k": 72.9,
+      "kd_d": 81.27
     }
   ],
   "oversold_stocks": [
@@ -1288,58 +1274,58 @@
     {
       "symbol": "RKLB",
       "name": "Rocket Lab USA, Inc.",
-      "current_price": 62.79,
-      "change_pct": 0.4,
+      "current_price": 63.1,
+      "change_pct": 0.9,
       "extra_data": {
-        "regular_market_price": 62.79,
+        "regular_market_price": 63.1,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 63.2987,
         "prev_close": 62.54
       },
-      "kd_k": 7.77,
-      "kd_d": 9.34
+      "kd_k": 8.54,
+      "kd_d": 9.59
     },
     {
       "symbol": "RKLX",
       "name": "Defiance Daily Target 2X Long RKLB ETF",
-      "current_price": 14.47,
-      "change_pct": 0.63,
+      "current_price": 14.61,
+      "change_pct": 1.6,
       "extra_data": {
-        "regular_market_price": 14.47,
+        "regular_market_price": 14.61,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 14.73,
         "prev_close": 14.38
       },
-      "kd_k": 6.52,
-      "kd_d": 8.25
+      "kd_k": 7.19,
+      "kd_d": 8.47
     },
     {
       "symbol": "ARM",
       "name": "Arm Holdings plc",
-      "current_price": 233.835,
-      "change_pct": -0.42,
+      "current_price": 234.86,
+      "change_pct": 0.02,
       "extra_data": {
-        "regular_market_price": 233.835,
+        "regular_market_price": 234.86,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 234.81,
         "prev_close": 234.82
       },
-      "kd_k": 17.91,
-      "kd_d": 21.3
+      "kd_k": 18.8,
+      "kd_d": 21.6
     },
     {
       "symbol": "ARMG",
       "name": "Leverage Shares 2X Long ARM Daily ETF",
-      "current_price": 14.83,
-      "change_pct": -0.74,
+      "current_price": 14.99,
+      "change_pct": 0.33,
       "extra_data": {
-        "regular_market_price": 14.83,
+        "regular_market_price": 14.99,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 15.11,
         "prev_close": 14.94
       },
-      "kd_k": 15.87,
-      "kd_d": 18.97
+      "kd_k": 16.89,
+      "kd_d": 19.31
     }
   ],
   "errors": []
