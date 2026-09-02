@@ -1,5 +1,30 @@
 [
   {
+    "id": "ARM_20260902_oversold",
+    "symbol": "ARM",
+    "name": "Arm Holdings plc",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 14.66,
+    "kd_d": 20.22,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 230.1,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ ARM (Arm Holdings plc) is OVERSOLD! KD-K: 14.66, KD-D: 20.22 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-02T22:56:50.501120",
+    "date": "2026-09-02",
+    "acknowledged": false
+  },
+  {
     "id": "00830.TW_20260902_oversold",
     "symbol": "00830.TW",
     "name": "國泰費城半導體",
@@ -2571,33 +2596,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00939.TW (統一台灣高息動能) is OVERBOUGHT! KD-K: 85.3, KD-D: 76.78 (>= 80)",
     "timestamp": "2026-08-31T11:17:47.390498",
-    "date": "2026-08-31",
-    "acknowledged": false
-  },
-  {
-    "id": "00951.TW_20260831_oversold",
-    "symbol": "00951.TW",
-    "name": "台新日本半導體",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.53,
-    "kd_d": 24.48,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 16.5,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00951.TW (台新日本半導體) is OVERSOLD! KD-K: 19.53, KD-D: 24.48 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-08-31T11:17:47.390987",
     "date": "2026-08-31",
     "acknowledged": false
   }
