@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-03T05:33:13.015189",
+  "timestamp": "2026-09-03T07:49:34.442823",
   "date": "2026-09-03",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": 0.0
     },
     "dxy": {
-      "value": 99.55,
-      "change": -0.12,
-      "change_pct": -0.12
+      "value": 99.6,
+      "change": -0.07,
+      "change_pct": -0.07
     },
     "fear_greed": {
       "value": 15.2,
       "change": -1.14,
       "change_pct": -6.98,
       "label": "VIX Index",
-      "timestamp": "2026-09-03T05:33:05.701767"
+      "timestamp": "2026-09-03T07:49:29.178219"
     },
     "btc": {
-      "value": 77229.0,
-      "change": -174.0,
-      "change_pct": -0.23
+      "value": 77188.0,
+      "change": -215.0,
+      "change_pct": -0.28
     },
     "oil": {
-      "value": 90.63,
-      "change": 0.41,
-      "change_pct": 0.45
+      "value": 90.65,
+      "change": 0.43,
+      "change_pct": 0.48
     },
     "gold": {
-      "value": 4434.3,
-      "change": 86.3,
-      "change_pct": 1.98
+      "value": 4428.1,
+      "change": 80.1,
+      "change_pct": 1.84
     },
     "sox": {
       "value": 11339.25,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.55 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.14pp（未達 0.15pp）",
-          "score": 49.6
+          "detail": "DXY 99.60 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.14pp（未達 0.15pp）",
+          "score": 51.1
         },
         {
           "id": "twd_depreciation",
@@ -177,7 +177,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 37.8
+      "avg_score": 38.1
     },
     "bottom": {
       "conditions": [
@@ -248,15 +248,15 @@
     "as_of_date": "2026-09-02",
     "history_days": 63,
     "bottom": {
-      "total": 25.6,
+      "total": 25.3,
       "dimensions": [
         {
           "name": "macro",
-          "score": 8.9,
+          "score": 8.6,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 15.9 → 目前 15.2（強度 16/100，+2.4）",
-            "DXY 99.55 距近20日高點 -0.42%（美元壓力緩和強度 65/100，+6.5）"
+            "DXY 99.60 距近20日高點 -0.37%（美元壓力緩和強度 62/100，+6.2）"
           ]
         },
         {
@@ -296,14 +296,14 @@
       ]
     },
     "top": {
-      "total": 41.1,
+      "total": 41.3,
       "dimensions": [
         {
           "name": "macro",
-          "score": 13.8,
+          "score": 14.0,
           "cap": 25,
           "notes": [
-            "DXY 99.55 距近20日高點 -0.42%，美債10Y5日變動 +0.14pp（強度 50/100，+7.4）",
+            "DXY 99.60 距近20日高點 -0.37%，美債10Y5日變動 +0.14pp（強度 51/100，+7.7）",
             "SOX/NDX 距近20日支撐 +0.29%，美債10Y同步變動（強度 63/100，+6.3）"
           ]
         },
@@ -1109,7 +1109,7 @@
       "extra_data": {
         "regular_market_price": 256.93,
         "pre_market_price": null,
-        "post_market_price": 257.6,
+        "post_market_price": 258.5,
         "prev_close": 258.11
       },
       "kd_k": 88.27,
@@ -1137,7 +1137,7 @@
       "extra_data": {
         "regular_market_price": 279.79,
         "pre_market_price": null,
-        "post_market_price": 281.0585,
+        "post_market_price": 281.1,
         "prev_close": 286.08
       },
       "kd_k": 72.9,
@@ -1279,7 +1279,7 @@
       "extra_data": {
         "regular_market_price": 63.1,
         "pre_market_price": null,
-        "post_market_price": 63.2987,
+        "post_market_price": 63.98,
         "prev_close": 62.54
       },
       "kd_k": 8.54,
@@ -1293,7 +1293,7 @@
       "extra_data": {
         "regular_market_price": 14.61,
         "pre_market_price": null,
-        "post_market_price": 14.73,
+        "post_market_price": 15.05,
         "prev_close": 14.38
       },
       "kd_k": 7.19,
@@ -1307,7 +1307,7 @@
       "extra_data": {
         "regular_market_price": 234.86,
         "pre_market_price": null,
-        "post_market_price": 234.81,
+        "post_market_price": 235.77,
         "prev_close": 234.82
       },
       "kd_k": 18.8,
@@ -1321,7 +1321,7 @@
       "extra_data": {
         "regular_market_price": 14.99,
         "pre_market_price": null,
-        "post_market_price": 15.11,
+        "post_market_price": 14.93,
         "prev_close": 14.94
       },
       "kd_k": 16.89,
