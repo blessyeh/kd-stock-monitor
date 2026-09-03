@@ -1,5 +1,54 @@
 [
   {
+    "id": "00988A.TW_20260903_oversold",
+    "symbol": "00988A.TW",
+    "name": "主動統一全球創新",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.61,
+    "kd_d": 23.73,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 15.68,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00988A.TW (主動統一全球創新) is OVERSOLD! KD-K: 17.61, KD-D: 23.73 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-03T10:44:37.941587",
+    "date": "2026-09-03",
+    "acknowledged": false
+  },
+  {
+    "id": "6026.TWO_20260903_overbought",
+    "symbol": "6026.TWO",
+    "name": "福邦證",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.12,
+    "kd_d": 77.43,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 15.15,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 6026.TWO (福邦證) is OVERBOUGHT! KD-K: 80.12, KD-D: 77.43 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-09-03T10:44:37.941793",
+    "date": "2026-09-03",
+    "acknowledged": false
+  },
+  {
     "id": "0056.TW_20260903_overbought",
     "symbol": "0056.TW",
     "name": "元大高股息",
@@ -2540,56 +2589,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00946.TW (群益科技高息成長) is OVERBOUGHT! KD-K: 80.93, KD-D: 69.07 (>= 80)",
     "timestamp": "2026-09-01T09:35:41.871642",
-    "date": "2026-09-01",
-    "acknowledged": false
-  },
-  {
-    "id": "00955.TWO_20260901_overbought",
-    "symbol": "00955.TWO",
-    "name": "中信日本商社",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 83.87,
-    "kd_d": 73.83,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 15.78,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "個股外資近3日仍買超達20日均量的38%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00955.TWO (中信日本商社) is OVERBOUGHT! KD-K: 83.87, KD-D: 73.83 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-01T09:35:41.871874",
-    "date": "2026-09-01",
-    "acknowledged": false
-  },
-  {
-    "id": "00992A.TW_20260901_overbought",
-    "symbol": "00992A.TW",
-    "name": "主動群益科技創新",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 82.17,
-    "kd_d": 75.97,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 18.67,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "個股外資近3日仍買超達20日均量的88%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00992A.TW (主動群益科技創新) is OVERBOUGHT! KD-K: 82.17, KD-D: 75.97 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-01T09:35:41.872090",
     "date": "2026-09-01",
     "acknowledged": false
   }
