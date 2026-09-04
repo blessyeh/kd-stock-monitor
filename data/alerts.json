@@ -1,5 +1,84 @@
 [
   {
+    "id": "META_20260905_overbought",
+    "symbol": "META",
+    "name": "Meta Platforms Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 83.01,
+    "kd_d": 71.03,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 616.77,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ META (Meta Platforms Inc.) is OVERBOUGHT! KD-K: 83.01, KD-D: 71.03 (>= 80)",
+    "timestamp": "2026-09-05T05:12:12.698047",
+    "date": "2026-09-05",
+    "acknowledged": false
+  },
+  {
+    "id": "FBL_20260905_overbought",
+    "symbol": "FBL",
+    "name": "GraniteShares 2x Long META Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.4,
+    "kd_d": 70.03,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 23.65,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ FBL (GraniteShares 2x Long META Daily ETF) is OVERBOUGHT! KD-K: 82.4, KD-D: 70.03 (>= 80)",
+    "timestamp": "2026-09-05T05:12:12.698256",
+    "date": "2026-09-05",
+    "acknowledged": false
+  },
+  {
+    "id": "CRCL_20260905_overbought",
+    "symbol": "CRCL",
+    "name": "Circle Internet Group, Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.35,
+    "kd_d": 77.32,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 102.05,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ CRCL (Circle Internet Group, Inc.) is OVERBOUGHT! KD-K: 81.35, KD-D: 77.32 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-09-05T05:12:12.698419",
+    "date": "2026-09-05",
+    "acknowledged": false
+  },
+  {
     "id": "2850.TW_20260905_oversold",
     "symbol": "2850.TW",
     "name": "新光產物保險",
@@ -2484,79 +2563,6 @@
     "market_regime_label": null,
     "message": "✅ RKLB (Rocket Lab USA, Inc.) is OVERSOLD! KD-K: 7.77, KD-D: 9.34 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-09-03T02:26:47.590220",
-    "date": "2026-09-03",
-    "acknowledged": false
-  },
-  {
-    "id": "RKLX_20260903_oversold",
-    "symbol": "RKLX",
-    "name": "Defiance Daily Target 2X Long RKLB ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 6.52,
-    "kd_d": 8.25,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 14.47,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ RKLX (Defiance Daily Target 2X Long RKLB ETF) is OVERSOLD! KD-K: 6.52, KD-D: 8.25 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-03T02:26:47.590357",
-    "date": "2026-09-03",
-    "acknowledged": false
-  },
-  {
-    "id": "ARM_20260903_oversold",
-    "symbol": "ARM",
-    "name": "Arm Holdings plc",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.91,
-    "kd_d": 21.3,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 233.835,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ARM (Arm Holdings plc) is OVERSOLD! KD-K: 17.91, KD-D: 21.3 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-03T02:26:47.590506",
-    "date": "2026-09-03",
-    "acknowledged": false
-  },
-  {
-    "id": "ARMG_20260903_oversold",
-    "symbol": "ARMG",
-    "name": "Leverage Shares 2X Long ARM Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 15.87,
-    "kd_d": 18.97,
-    "kd_state": "OVERSOLD",
-    "current_price": 14.83,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 15.87, KD-D: 18.97 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-03T02:26:47.590648",
     "date": "2026-09-03",
     "acknowledged": false
   }
