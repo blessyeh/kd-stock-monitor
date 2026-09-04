@@ -1,5 +1,31 @@
 [
   {
+    "id": "2850.TW_20260904_oversold",
+    "symbol": "2850.TW",
+    "name": "新光產物保險",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.51,
+    "kd_d": 27.53,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 159.0,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的98%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 2850.TW (新光產物保險) is OVERSOLD! KD-K: 18.51, KD-D: 27.53 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-04T18:29:39.210885",
+    "date": "2026-09-04",
+    "acknowledged": false
+  },
+  {
     "id": "00715L.TW_20260904_overbought",
     "symbol": "00715L.TW",
     "name": "期街口布蘭特正2",
@@ -2539,33 +2565,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00919.TW (群益台灣精選高息) is OVERBOUGHT! KD-K: 94.26, KD-D: 88.86 (>= 80)",
     "timestamp": "2026-09-02T01:34:44.462518",
-    "date": "2026-09-02",
-    "acknowledged": false
-  },
-  {
-    "id": "00921.TW_20260902_overbought",
-    "symbol": "00921.TW",
-    "name": "兆豐龍頭等權重",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 84.18,
-    "kd_d": 77.0,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 24.76,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "個股外資近3日轉為賣超達20日均量的33%（籌碼面轉弱，超買可能對應真正高點）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00921.TW (兆豐龍頭等權重) is OVERBOUGHT! KD-K: 84.18, KD-D: 77.0 (>= 80)",
-    "timestamp": "2026-09-02T01:34:44.462669",
     "date": "2026-09-02",
     "acknowledged": false
   }
