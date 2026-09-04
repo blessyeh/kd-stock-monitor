@@ -1,5 +1,32 @@
 [
   {
+    "id": "META_20260904_overbought",
+    "symbol": "META",
+    "name": "Meta Platforms Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.18,
+    "kd_d": 70.09,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 611.39,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ META (Meta Platforms Inc.) is OVERBOUGHT! KD-K: 80.18, KD-D: 70.09 (>= 80)",
+    "timestamp": "2026-09-04T22:44:58.673832",
+    "date": "2026-09-04",
+    "acknowledged": false
+  },
+  {
     "id": "2850.TW_20260904_oversold",
     "symbol": "2850.TW",
     "name": "新光產物保險",
@@ -2538,33 +2565,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00918.TW (大華優利高填息30) is OVERBOUGHT! KD-K: 84.98, KD-D: 73.25 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-09-02T01:34:44.462369",
-    "date": "2026-09-02",
-    "acknowledged": false
-  },
-  {
-    "id": "00919.TW_20260902_overbought",
-    "symbol": "00919.TW",
-    "name": "群益台灣精選高息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 94.26,
-    "kd_d": 88.86,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 32.31,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "個股外資近3日轉為賣超達20日均量的41%（籌碼面轉弱，超買可能對應真正高點）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00919.TW (群益台灣精選高息) is OVERBOUGHT! KD-K: 94.26, KD-D: 88.86 (>= 80)",
-    "timestamp": "2026-09-02T01:34:44.462518",
     "date": "2026-09-02",
     "acknowledged": false
   }
