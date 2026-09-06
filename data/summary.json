@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-06T22:51:17.366977",
-  "date": "2026-09-06",
+  "timestamp": "2026-09-07T01:30:39.400808",
+  "date": "2026-09-07",
   "macro": {
     "taiex": {
       "value": 46551.13,
@@ -22,11 +22,11 @@
       "change": 0.21,
       "change_pct": 1.47,
       "label": "VIX Index",
-      "timestamp": "2026-09-06T22:51:09.751821"
+      "timestamp": "2026-09-07T01:29:16.929366"
     },
     "btc": {
       "value": 79686.0,
-      "change": -138.0,
+      "change": -137.0,
       "change_pct": -0.17
     },
     "oil": {
@@ -110,19 +110,19 @@
       "change_pct": -1.0
     },
     "put_call_ratio": {
-      "value": 96.56,
+      "value": null,
+      "change": null,
+      "change_pct": null,
       "unit": "%",
-      "date": "2026-09-04",
-      "change": 19.4,
-      "change_pct": 25.14
+      "date": null
     },
     "night_session": {
-      "close": 46487.0,
-      "prev_close": 45837.0,
-      "gap": 650.0,
-      "gap_pct": 1.42,
-      "date": "2026-09-04",
-      "prev_date": "2026-09-03"
+      "close": 47182.0,
+      "prev_close": 46704.0,
+      "gap": 478.0,
+      "gap_pct": 1.02,
+      "date": "2026-09-07",
+      "prev_date": "2026-09-04"
     }
   },
   "signal_confluence": {
@@ -158,10 +158,10 @@
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": false,
+          "status": null,
           "completeness": "full",
-          "detail": "今日外資買超；融資餘額5日未回落（5819億元）；P/C Ratio 96.6%（< 100%門檻）",
-          "score": 84.5
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷",
+          "score": null
         },
         {
           "id": "tech_capital_retreat",
@@ -173,11 +173,11 @@
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 5,
+      "evaluated_count": 4,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 39.2
+      "avg_score": 27.9
     },
     "bottom": {
       "conditions": [
@@ -248,7 +248,7 @@
     "as_of_date": "2026-09-04",
     "history_days": 65,
     "bottom": {
-      "total": 39.5,
+      "total": 35.9,
       "dimensions": [
         {
           "name": "macro",
@@ -270,11 +270,10 @@
         },
         {
           "name": "derivative",
-          "score": 6.6,
+          "score": 3.0,
           "cap": 20,
           "notes": [
-            "台指期淨空單5日變動 +1266口（回補強度 25/100，+3.0）",
-            "P/C Ratio 96.6%（避險需求強度 44/100，+3.5）"
+            "台指期淨空單5日變動 +1266口（回補強度 25/100，+3.0）"
           ]
         },
         {
@@ -297,7 +296,7 @@
       ]
     },
     "top": {
-      "total": 47.1,
+      "total": 42.6,
       "dimensions": [
         {
           "name": "macro",
@@ -319,11 +318,10 @@
         },
         {
           "name": "derivative",
-          "score": 4.5,
+          "score": 0,
           "cap": 20,
           "notes": [
-            "外資台指期淨空單 -82389口（強度 0/100，+0.0）",
-            "P/C Ratio 96.6%（自滿強度 56/100，+4.5）"
+            "外資台指期淨空單 -82389口（強度 0/100，+0.0）"
           ]
         },
         {
@@ -803,26 +801,36 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-09-06",
+      "as_of_date": "2026-09-07",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-09-06",
+      "as_of_date": "2026-09-07",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-09-04",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-09-04",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
     {
       "title": "台積電8月營收揭曉 蘋果秋季發表會",
       "url": "https://tw.stock.yahoo.com/news/copy-%E5%85%AC%E8%82%A1%E9%8A%80%E8%A1%8C20%E5%B9%B4%E9%80%A3%E9%85%8D%E6%96%B0%E9%AB%98%EF%BC%81%E5%BD%B0%E9%8A%80%E5%8F%B0%E4%B8%AD%E9%8A%80%E5%8F%B0%E4%BC%81%E9%8A%80%E5%90%8C%E6%AD%A5%E4%B8%89%E9%80%A3%E9%99%A4%E6%81%AF-%E5%87%BA%E5%8F%A3%E9%9B%99%E5%85%AC%E5%B8%83-%E5%8F%B0%E7%81%A3%E6%99%AF%E6%B0%A3%E7%9C%9F%E5%AF%A6%E6%BA%AB%E5%BA%A6%E5%87%BA%E7%88%90-%E7%BE%8E%E8%82%A1%E8%B6%85%E7%B4%9A%E5%91%A8%E4%BE%86%E4%BA%86%E4%B8%AD%E6%B2%B9%E5%AE%A3%E5%B8%83%E6%B2%B9%E5%83%B9%E5%87%8D%E6%BC%B2%EF%BD%9C%E6%8A%95%E8%B3%87%E6%97%A9%E7%9F%A5%E9%81%93-042928708.html",
+      "meta": null
+    },
+    {
+      "title": "台指期先衝四萬七了！　台股本周突破四萬八高點要看兩關鍵",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%85%88%E8%A1%9D%E5%9B%9B%E8%90%AC%E4%B8%83%E4%BA%86-%E5%8F%B0%E8%82%A1%E6%9C%AC%E5%91%A8%E7%AA%81%E7%A0%B4%E5%9B%9B%E8%90%AC%E5%85%AB%E9%AB%98%E9%BB%9E%E8%A6%81%E7%9C%8B%E5%85%A9%E9%97%9C%E9%8D%B5-163000289.html",
+      "meta": null
+    },
+    {
+      "title": "「39億美元可轉債」獲輝達等AI夥伴認購！聯發科攜手輝達再攻雲端伺服器　AI ASIC成長動能升溫",
+      "url": "https://tw.stock.yahoo.com/news/39%E5%84%84%E7%BE%8E%E5%85%83%E5%8F%AF%E8%BD%89%E5%82%B5-%E7%8D%B2%E8%BC%9D%E9%81%94%E7%AD%89ai%E5%A4%A5%E4%BC%B4%E8%AA%8D%E8%B3%BC-%E8%81%AF%E7%99%BC%E7%A7%91%E6%94%9C%E6%89%8B%E8%BC%9D%E9%81%94%E5%86%8D%E6%94%BB%E9%9B%B2%E7%AB%AF%E4%BC%BA%E6%9C%8D%E5%99%A8-ai-asic%E6%88%90%E9%95%B7%E5%8B%95%E8%83%BD%E5%8D%87%E6%BA%AB-152500007.html",
       "meta": null
     },
     {
@@ -859,22 +867,12 @@
       "title": "股市遇拋售潮不要慌！外媒點名台積電、Alphabet與亞馬遜超能挺",
       "url": "https://tw.stock.yahoo.com/news/%E8%82%A1%E5%B8%82%E9%81%87%E6%8B%8B%E5%94%AE%E6%BD%AE%E4%B8%8D%E8%A6%81%E6%85%8C-%E5%A4%96%E5%AA%92%E9%BB%9E%E5%90%8D%E5%8F%B0%E7%A9%8D%E9%9B%BB-alphabet%E8%88%87%E4%BA%9E%E9%A6%AC%E9%81%9C%E8%B6%85%E8%83%BD%E6%8C%BA-134337317.html",
       "meta": null
-    },
-    {
-      "title": "台股週一怎麼走？台指期夜盤衝上4萬7　 財經專家「揭秘」最新風向",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E9%80%B1-%E6%80%8E%E9%BA%BC%E8%B5%B0-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E8%A1%9D%E4%B8%8A4%E8%90%AC7-%E8%B2%A1%E7%B6%93%E5%B0%88%E5%AE%B6-%E6%8F%AD%E7%A7%98-133000961.html",
-      "meta": null
-    },
-    {
-      "title": "目標價100元 ！美伊交火油價續飆　台塑化獲利獲上修、投顧喊「買進」",
-      "url": "https://tw.stock.yahoo.com/news/%E7%9B%AE%E6%A8%99%E5%83%B9100%E5%85%83-%E7%BE%8E%E4%BC%8A%E4%BA%A4%E7%81%AB%E6%B2%B9%E5%83%B9%E7%BA%8C%E9%A3%86-%E5%8F%B0%E5%A1%91%E5%8C%96%E7%8D%B2%E5%88%A9%E7%8D%B2%E4%B8%8A%E4%BF%AE-%E6%8A%95%E9%A1%A7%E5%96%8A-%E8%B2%B7%E9%80%B2-131500095.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 31,
   "overbought_count": 22,
   "oversold_count": 9,
   "normal_count": 96,
