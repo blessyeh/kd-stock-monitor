@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-08T02:36:36.484918",
+  "timestamp": "2026-09-08T05:53:48.871104",
   "date": "2026-09-08",
   "macro": {
     "taiex": {
@@ -13,21 +13,21 @@
       "change_pct": 0.46
     },
     "dxy": {
-      "value": 98.91,
-      "change": -0.25,
-      "change_pct": -0.25
+      "value": 99.18,
+      "change": 0.02,
+      "change_pct": 0.02
     },
     "fear_greed": {
       "value": 15.3,
       "change": 0.77,
       "change_pct": 5.3,
       "label": "VIX Index",
-      "timestamp": "2026-09-08T02:35:05.321076"
+      "timestamp": "2026-09-08T05:53:42.566090"
     },
     "btc": {
-      "value": 79104.0,
-      "change": -1246.0,
-      "change_pct": -1.55
+      "value": 79179.0,
+      "change": -1171.0,
+      "change_pct": -1.46
     },
     "oil": {
       "value": 91.48,
@@ -134,8 +134,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 98.91 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 -0.00pp（未達 0.15pp）",
-          "score": 14.3
+          "detail": "DXY 99.18 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 -0.00pp（未達 0.15pp）",
+          "score": 17.0
         },
         {
           "id": "twd_depreciation",
@@ -175,7 +175,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 39.7
+      "avg_score": 40.2
     },
     "bottom": {
       "conditions": [
@@ -246,15 +246,15 @@
     "as_of_date": "2026-09-07",
     "history_days": 66,
     "bottom": {
-      "total": 43.2,
+      "total": 42.7,
       "dimensions": [
         {
           "name": "macro",
-          "score": 10.4,
+          "score": 9.9,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 15.9 → 目前 15.3（強度 15/100，+2.3）",
-            "DXY 98.91 距近20日高點 -1.06%（美元壓力緩和強度 81/100，+8.1）"
+            "DXY 99.18 距近20日高點 -0.79%（美元壓力緩和強度 76/100，+7.6）"
           ]
         },
         {
@@ -295,14 +295,14 @@
       ]
     },
     "top": {
-      "total": 36.8,
+      "total": 37.2,
       "dimensions": [
         {
           "name": "macro",
-          "score": 7.1,
+          "score": 7.5,
           "cap": 25,
           "notes": [
-            "DXY 98.91 距近20日高點 -1.06%，美債10Y5日變動 -0.00pp（強度 14/100，+2.1）",
+            "DXY 99.18 距近20日高點 -0.79%，美債10Y5日變動 -0.00pp（強度 17/100，+2.5）",
             "SOX/NDX 距近20日支撐 +1.67%，美債10Y同步變動（強度 49/100，+4.9）"
           ]
         },
@@ -816,11 +816,11 @@
     },
     "tw_chip": {
       "as_of_date": "2026-09-07",
-      "fetched": true
+      "fetched": false
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-09-07",
-      "fetched": true
+      "fetched": false
     }
   },
   "news": [
@@ -878,7 +878,7 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 38,
+  "new_alerts": 0,
   "overbought_count": 31,
   "oversold_count": 7,
   "normal_count": 89,
