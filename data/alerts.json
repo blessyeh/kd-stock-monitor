@@ -1,5 +1,32 @@
 [
   {
+    "id": "00652.TW_20260907_oversold",
+    "symbol": "00652.TW",
+    "name": "富邦印度",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.59,
+    "kd_d": 22.13,
+    "kd_state": "DEATH_CROSS",
+    "current_price": 32.81,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00652.TW (富邦印度) is OVERSOLD! KD-K: 19.59, KD-D: 22.13 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-07T15:52:14.886150",
+    "date": "2026-09-07",
+    "acknowledged": false
+  },
+  {
     "id": "0050.TW_20260907_overbought",
     "symbol": "0050.TW",
     "name": "元大台灣50",
@@ -2550,30 +2577,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00955.TWO (中信日本商社) is OVERBOUGHT! KD-K: 84.43, KD-D: 81.06 (>= 80)",
     "timestamp": "2026-09-05T02:03:58.303827",
-    "date": "2026-09-05",
-    "acknowledged": false
-  },
-  {
-    "id": "009819.TW_20260905_oversold",
-    "symbol": "009819.TW",
-    "name": "中信數據及電力",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.41,
-    "kd_d": 16.24,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 9.74,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 009819.TW (中信數據及電力) is OVERSOLD! KD-K: 19.41, KD-D: 16.24 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-05T02:03:58.303921",
     "date": "2026-09-05",
     "acknowledged": false
   }
