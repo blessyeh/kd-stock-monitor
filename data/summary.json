@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-10T01:02:23.604277",
+  "timestamp": "2026-09-10T03:41:34.106906",
   "date": "2026-09-10",
   "macro": {
     "taiex": {
@@ -8,51 +8,51 @@
       "change_pct": 0.0
     },
     "us10y": {
-      "value": 4.845,
-      "change": 0.039,
-      "change_pct": 0.81
+      "value": 4.837,
+      "change": 0.031,
+      "change_pct": 0.65
     },
     "dxy": {
-      "value": 98.74,
-      "change": -0.1,
-      "change_pct": -0.1
+      "value": 98.83,
+      "change": -0.01,
+      "change_pct": -0.01
     },
     "fear_greed": {
-      "value": 16.31,
-      "change": 0.59,
-      "change_pct": 3.75,
+      "value": 16.27,
+      "change": 0.55,
+      "change_pct": 3.5,
       "label": "VIX Index",
-      "timestamp": "2026-09-10T01:00:40.199563"
+      "timestamp": "2026-09-10T03:41:26.327368"
     },
     "btc": {
-      "value": 78769.0,
-      "change": 331.0,
-      "change_pct": 0.42
+      "value": 78332.0,
+      "change": -107.0,
+      "change_pct": -0.14
     },
     "oil": {
-      "value": 95.69,
-      "change": 2.66,
-      "change_pct": 2.86
+      "value": 96.3,
+      "change": 3.27,
+      "change_pct": 3.51
     },
     "gold": {
-      "value": 4451.5,
-      "change": 57.6,
-      "change_pct": 1.31
+      "value": 4445.7,
+      "change": 51.8,
+      "change_pct": 1.18
     },
     "sox": {
-      "value": 11931.24,
-      "change": 43.37,
-      "change_pct": 0.36
+      "value": 11911.36,
+      "change": 23.49,
+      "change_pct": 0.2
     },
     "ndx": {
-      "value": 29427.27,
-      "change": -80.43,
-      "change_pct": -0.27
+      "value": 29415.27,
+      "change": -92.43,
+      "change_pct": -0.31
     },
     "sp500": {
-      "value": 7639.62,
-      "change": -33.9,
-      "change_pct": -0.44
+      "value": 7642.43,
+      "change": -31.09,
+      "change_pct": -0.41
     }
   },
   "chip": {
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 98.74 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.05pp（未達 0.15pp）",
-          "score": 22.5
+          "detail": "DXY 98.83 vs 近20日高點 99.97（未突破）；美債10Y 5日變動 +0.04pp（未達 0.15pp）",
+          "score": 21.8
         },
         {
           "id": "twd_depreciation",
@@ -168,8 +168,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11931未跌破近20日支撐11299；NDX 29427未跌破近20日支撐29059；美債10Y 5日變動 +0.05pp（未達 0.15pp）",
-          "score": 56.6
+          "detail": "SOX 11911未跌破近20日支撐11299；NDX 29415未跌破近20日支撐29059；美債10Y 5日變動 +0.04pp（未達 0.15pp）",
+          "score": 54.7
         }
       ],
       "total_conditions": 5,
@@ -177,7 +177,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 40.4
+      "avg_score": 39.9
     },
     "bottom": {
       "conditions": [
@@ -187,7 +187,7 @@
           "status": false,
           "completeness": "full",
           "detail": "近10日VIX高點 16.5（<= 30.0門檻）；目前 16.3（較高點回落 1%，門檻 15%）",
-          "score": 11.6
+          "score": 11.9
         },
         {
           "id": "margin_capitulation",
@@ -211,7 +211,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 29.7
+      "avg_score": 29.8
     },
     "bottom_reversal_score": {
       "total": 77.4,
@@ -248,15 +248,15 @@
     "as_of_date": "2026-09-09",
     "history_days": 68,
     "bottom": {
-      "total": 44.5,
+      "total": 44.4,
       "dimensions": [
         {
           "name": "macro",
-          "score": 10.2,
+          "score": 10.1,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 16.5 → 目前 16.3（強度 12/100，+1.7）",
-            "DXY 98.74 距近20日高點 -1.23%（美元壓力緩和強度 85/100，+8.5）"
+            "VIX 近10日高點 16.5 → 目前 16.3（強度 12/100，+1.8）",
+            "DXY 98.83 距近20日高點 -1.14%（美元壓力緩和強度 83/100，+8.3）"
           ]
         },
         {
@@ -297,15 +297,15 @@
       ]
     },
     "top": {
-      "total": 32.2,
+      "total": 31.9,
       "dimensions": [
         {
           "name": "macro",
-          "score": 9.0,
+          "score": 8.7,
           "cap": 25,
           "notes": [
-            "DXY 98.74 距近20日高點 -1.23%，美債10Y5日變動 +0.05pp（強度 22/100，+3.4）",
-            "SOX/NDX 距近20日支撐 +1.27%，美債10Y同步變動（強度 57/100，+5.7）"
+            "DXY 98.83 距近20日高點 -1.14%，美債10Y5日變動 +0.04pp（強度 22/100，+3.3）",
+            "SOX/NDX 距近20日支撐 +1.22%，美債10Y同步變動（強度 55/100，+5.5）"
           ]
         },
         {
@@ -410,7 +410,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 +2.1%；相對TAIEX -0.3pp、相對SOX +5.8pp、相對NDX +3.1pp"
+          "2330 近20日漲跌 +2.1%；相對TAIEX -0.3pp、相對SOX +6.0pp、相對NDX +3.2pp"
         ]
       },
       {
@@ -429,7 +429,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $434.5 換算2330隱含價 2734.6元，2330現價 2465.0元（折價 9.9%）",
+          "TSM ADR $433.9 換算2330隱含價 2730.7元，2330現價 2465.0元（折價 9.7%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -812,11 +812,11 @@
     },
     "tw_chip": {
       "as_of_date": "2026-09-09",
-      "fetched": true
+      "fetched": false
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-09-09",
-      "fetched": true
+      "fetched": false
     }
   },
   "news": [
@@ -874,10 +874,10 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 33,
-  "overbought_count": 28,
+  "new_alerts": 0,
+  "overbought_count": 26,
   "oversold_count": 5,
-  "normal_count": 94,
+  "normal_count": 96,
   "overbought_stocks": [
     {
       "symbol": "0050.TW",
@@ -1190,86 +1190,58 @@
     {
       "symbol": "META",
       "name": "Meta Platforms Inc.",
-      "current_price": 651.345,
-      "change_pct": 6.17,
+      "current_price": 655.1704,
+      "change_pct": 6.8,
       "extra_data": {
-        "regular_market_price": 651.345,
+        "regular_market_price": 655.1704,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 613.48
       },
-      "kd_k": 86.65,
-      "kd_d": 78.94
+      "kd_k": 87.9,
+      "kd_d": 79.35
     },
     {
       "symbol": "FBL",
       "name": "GraniteShares 2x Long META Daily ETF",
-      "current_price": 26.3,
-      "change_pct": 12.44,
+      "current_price": 26.56,
+      "change_pct": 13.55,
       "extra_data": {
-        "regular_market_price": 26.3,
+        "regular_market_price": 26.56,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 23.39
       },
-      "kd_k": 86.29,
-      "kd_d": 78.22
+      "kd_k": 87.45,
+      "kd_d": 78.61
     },
     {
       "symbol": "CRM",
       "name": "Salesforce, Inc.",
-      "current_price": 247.59,
-      "change_pct": -0.61,
+      "current_price": 244.83,
+      "change_pct": -1.72,
       "extra_data": {
-        "regular_market_price": 247.59,
+        "regular_market_price": 244.83,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 249.12
       },
-      "kd_k": 71.02,
-      "kd_d": 81.29
-    },
-    {
-      "symbol": "SNDK",
-      "name": "Sandisk Corporation",
-      "current_price": 1775.57,
-      "change_pct": 2.16,
-      "extra_data": {
-        "regular_market_price": 1775.57,
-        "pre_market_price": null,
-        "post_market_price": null,
-        "prev_close": 1737.99
-      },
-      "kd_k": 80.64,
-      "kd_d": 68.75
+      "kd_k": 68.62,
+      "kd_d": 80.48
     },
     {
       "symbol": "DELL",
       "name": "Dell Technologies Inc.",
-      "current_price": 544.535,
-      "change_pct": 2.0,
+      "current_price": 534.348,
+      "change_pct": 0.09,
       "extra_data": {
-        "regular_market_price": 544.535,
+        "regular_market_price": 534.348,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 533.88
       },
-      "kd_k": 83.19,
-      "kd_d": 72.42
-    },
-    {
-      "symbol": "DLLL",
-      "name": "GraniteShares 2x Long DELL Daily ETF",
-      "current_price": 34.6153,
-      "change_pct": 4.33,
-      "extra_data": {
-        "regular_market_price": 34.6153,
-        "pre_market_price": null,
-        "post_market_price": null,
-        "prev_close": 33.18
-      },
-      "kd_k": 81.73,
-      "kd_d": 70.53
+      "kd_k": 80.78,
+      "kd_d": 71.62
     }
   ],
   "oversold_stocks": [
