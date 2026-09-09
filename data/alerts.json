@@ -1,5 +1,303 @@
 [
   {
+    "id": "00631L.TW_20260909_overbought",
+    "symbol": "00631L.TW",
+    "name": "元大台灣50正2",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 83.96,
+    "kd_d": 78.51,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 38.07,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00631L.TW (元大台灣50正2) is OVERBOUGHT! KD-K: 83.96, KD-D: 78.51 (>= 80)",
+    "timestamp": "2026-09-09T10:51:50.824949",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00640L.TW_20260909_oversold",
+    "symbol": "00640L.TW",
+    "name": "富邦日本正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.67,
+    "kd_d": 35.65,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 105.55,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00640L.TW (富邦日本正2) is OVERSOLD! KD-K: 19.67, KD-D: 35.65 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-09T10:51:50.825129",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00663L.TW_20260909_overbought",
+    "symbol": "00663L.TW",
+    "name": "國泰臺灣加權正2",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 85.18,
+    "kd_d": 79.34,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 109.8,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的40%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00663L.TW (國泰臺灣加權正2) is OVERBOUGHT! KD-K: 85.18, KD-D: 79.34 (>= 80)",
+    "timestamp": "2026-09-09T10:51:50.825703",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00685L.TW_20260909_overbought",
+    "symbol": "00685L.TW",
+    "name": "群益臺灣加權正2",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 85.0,
+    "kd_d": 79.23,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 12.54,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00685L.TW (群益臺灣加權正2) is OVERBOUGHT! KD-K: 85.0, KD-D: 79.23 (>= 80)",
+    "timestamp": "2026-09-09T10:51:50.825889",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00858.TWO_20260909_oversold",
+    "symbol": "00858.TWO",
+    "name": "永豐美國500大",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.53,
+    "kd_d": 20.05,
+    "kd_state": "DEATH_CROSS",
+    "current_price": 35.59,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00858.TWO (永豐美國500大) is OVERSOLD! KD-K: 17.53, KD-D: 20.05 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-09T10:51:50.827128",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00881.TW_20260909_overbought",
+    "symbol": "00881.TW",
+    "name": "國泰台灣科技龍頭",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.93,
+    "kd_d": 74.7,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 51.4,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）",
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的31%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00881.TW (國泰台灣科技龍頭) is OVERBOUGHT! KD-K: 80.93, KD-D: 74.7 (>= 80)",
+    "timestamp": "2026-09-09T10:51:50.827468",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00888.TWO_20260909_overbought",
+    "symbol": "00888.TWO",
+    "name": "永豐台灣半導體",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.08,
+    "kd_d": 77.06,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 34.82,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的111%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00888.TWO (永豐台灣半導體) is OVERBOUGHT! KD-K: 82.08, KD-D: 77.06 (>= 80)",
+    "timestamp": "2026-09-09T10:51:50.827667",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00905.TW_20260909_overbought",
+    "symbol": "00905.TW",
+    "name": "FT臺灣Smart",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.19,
+    "kd_d": 75.55,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 27.05,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00905.TW (FT臺灣Smart) is OVERBOUGHT! KD-K: 82.19, KD-D: 75.55 (>= 80)",
+    "timestamp": "2026-09-09T10:51:50.828019",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00909.TW_20260909_overbought",
+    "symbol": "00909.TW",
+    "name": "國泰數位支付服務",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 85.64,
+    "kd_d": 72.94,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 49.06,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的182%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00909.TW (國泰數位支付服務) is OVERBOUGHT! KD-K: 85.64, KD-D: 72.94 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-09-09T10:51:50.828338",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00923.TW_20260909_overbought",
+    "symbol": "00923.TW",
+    "name": "群益台ESG低碳50",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 84.68,
+    "kd_d": 78.39,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 40.94,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）",
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的34%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00923.TW (群益台ESG低碳50) is OVERBOUGHT! KD-K: 84.68, KD-D: 78.39 (>= 80)",
+    "timestamp": "2026-09-09T10:51:50.829482",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
+    "id": "00935.TW_20260909_overbought",
+    "symbol": "00935.TW",
+    "name": "野村臺灣創新科技50",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 83.41,
+    "kd_d": 76.27,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 60.65,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的69%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00935.TW (野村臺灣創新科技50) is OVERBOUGHT! KD-K: 83.41, KD-D: 76.27 (>= 80)",
+    "timestamp": "2026-09-09T10:51:50.829744",
+    "date": "2026-09-09",
+    "acknowledged": false
+  },
+  {
     "id": "2850.TW_20260909_oversold",
     "symbol": "2850.TW",
     "name": "新光產物保險",
@@ -2325,291 +2623,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00923.TW (群益台ESG低碳50) is OVERBOUGHT! KD-K: 83.64, KD-D: 73.86 (>= 80)",
     "timestamp": "2026-09-07T10:38:52.650918",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "00929.TW_20260907_overbought",
-    "symbol": "00929.TW",
-    "name": "復華台灣科技優息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.86,
-    "kd_d": 76.67,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 29.41,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）",
-      "個股外資近3日轉為賣超達20日均量的32%（籌碼面轉弱，超買可能對應真正高點）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00929.TW (復華台灣科技優息) is OVERBOUGHT! KD-K: 80.86, KD-D: 76.67 (>= 80)",
-    "timestamp": "2026-09-07T10:38:52.651143",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "2454.TW_20260907_overbought",
-    "symbol": "2454.TW",
-    "name": "聯發科",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 83.26,
-    "kd_d": 72.27,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 4835.0,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 2454.TW (聯發科) is OVERBOUGHT! KD-K: 83.26, KD-D: 72.27 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-07T10:38:52.652339",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "2850.TW_20260907_oversold",
-    "symbol": "2850.TW",
-    "name": "新光產物保險",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.51,
-    "kd_d": 27.53,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 159.0,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的101%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 2850.TW (新光產物保險) is OVERSOLD! KD-K: 18.51, KD-D: 27.53 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-07T01:30:35.081592",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "0056.TW_20260907_overbought",
-    "symbol": "0056.TW",
-    "name": "元大高股息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 83.55,
-    "kd_d": 79.19,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 55.4,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 0056.TW (元大高股息) is OVERBOUGHT! KD-K: 83.55, KD-D: 79.19 (>= 80)",
-    "timestamp": "2026-09-07T01:30:35.081823",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "00653L.TW_20260907_oversold",
-    "symbol": "00653L.TW",
-    "name": "富邦印度正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.93,
-    "kd_d": 19.72,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 45.88,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "個股外資近3日仍賣超達20日均量的153%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00653L.TW (富邦印度正2) is OVERSOLD! KD-K: 17.93, KD-D: 19.72 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-07T01:30:35.082037",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "00713.TW_20260907_overbought",
-    "symbol": "00713.TW",
-    "name": "元大台灣高息低波",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 94.81,
-    "kd_d": 91.22,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 63.45,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00713.TW (元大台灣高息低波) is OVERBOUGHT! KD-K: 94.81, KD-D: 91.22 (>= 80)",
-    "timestamp": "2026-09-07T01:30:35.082257",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "00715L.TW_20260907_overbought",
-    "symbol": "00715L.TW",
-    "name": "期街口布蘭特正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.07,
-    "kd_d": 71.61,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 57.0,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超達20日均量的93%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00715L.TW (期街口布蘭特正2) is OVERBOUGHT! KD-K: 80.07, KD-D: 71.61 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-07T01:30:35.082444",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "00731.TW_20260907_overbought",
-    "symbol": "00731.TW",
-    "name": "復華富時高息低波",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 95.41,
-    "kd_d": 91.39,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 98.4,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00731.TW (復華富時高息低波) is OVERBOUGHT! KD-K: 95.41, KD-D: 91.39 (>= 80)",
-    "timestamp": "2026-09-07T01:30:35.082629",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "00830.TW_20260907_oversold",
-    "symbol": "00830.TW",
-    "name": "國泰費城半導體",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 21.71,
-    "kd_d": 19.89,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 80.95,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "個股外資近3日仍賣超達20日均量的65%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00830.TW (國泰費城半導體) is OVERSOLD! KD-K: 21.71, KD-D: 19.89 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-07T01:30:35.082823",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "00858.TWO_20260907_oversold",
-    "symbol": "00858.TWO",
-    "name": "永豐美國500大",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 26.42,
-    "kd_d": 18.69,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 36.12,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00858.TWO (永豐美國500大) is OVERSOLD! KD-K: 26.42, KD-D: 18.69 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-07T01:30:35.083023",
-    "date": "2026-09-07",
-    "acknowledged": false
-  },
-  {
-    "id": "00878.TW_20260907_overbought",
-    "symbol": "00878.TW",
-    "name": "國泰永續高股息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 88.62,
-    "kd_d": 82.09,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 34.11,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超達20日均量的42%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00878.TW (國泰永續高股息) is OVERBOUGHT! KD-K: 88.62, KD-D: 82.09 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-07T01:30:35.083226",
     "date": "2026-09-07",
     "acknowledged": false
   }
