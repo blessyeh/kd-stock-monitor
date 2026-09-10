@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-11T05:22:11.741505",
+  "timestamp": "2026-09-11T07:40:24.331085",
   "date": "2026-09-11",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": 2.21
     },
     "dxy": {
-      "value": 99.08,
-      "change": 0.31,
-      "change_pct": 0.31
+      "value": 99.09,
+      "change": 0.32,
+      "change_pct": 0.32
     },
     "fear_greed": {
       "value": 17.84,
       "change": 1.38,
       "change_pct": 8.38,
       "label": "VIX Index",
-      "timestamp": "2026-09-11T05:22:08.055344"
+      "timestamp": "2026-09-11T07:40:17.745512"
     },
     "btc": {
-      "value": 77169.0,
-      "change": -1091.0,
-      "change_pct": -1.39
+      "value": 76727.0,
+      "change": -1533.0,
+      "change_pct": -1.96
     },
     "oil": {
-      "value": 103.93,
-      "change": 7.88,
-      "change_pct": 8.2
+      "value": 103.83,
+      "change": 7.78,
+      "change_pct": 8.1
     },
     "gold": {
-      "value": 4358.5,
-      "change": -57.5,
-      "change_pct": -1.3
+      "value": 4358.3,
+      "change": -57.7,
+      "change_pct": -1.31
     },
     "sox": {
       "value": 11614.17,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.08 vs 近20日高點 99.82（未突破）；美債10Y 5日變動 +0.18pp（達標 0.15pp）",
-          "score": 52.4
+          "detail": "DXY 99.09 vs 近20日高點 99.82（未突破）；美債10Y 5日變動 +0.18pp（達標 0.15pp）",
+          "score": 52.5
         },
         {
           "id": "twd_depreciation",
@@ -177,7 +177,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 39.0
+      "avg_score": 39.1
     },
     "bottom": {
       "conditions": [
@@ -256,7 +256,7 @@
           "cap": 25,
           "notes": [
             "VIX 近10日高點 17.8 → 目前 17.8（強度 10/100，+1.5）",
-            "DXY 99.08 距近20日高點 -0.74%（美元壓力緩和強度 75/100，+7.5）"
+            "DXY 99.09 距近20日高點 -0.73%（美元壓力緩和強度 75/100，+7.5）"
           ]
         },
         {
@@ -304,7 +304,7 @@
           "score": 14.8,
           "cap": 25,
           "notes": [
-            "DXY 99.08 距近20日高點 -0.74%，美債10Y5日變動 +0.18pp（強度 52/100，+7.9）",
+            "DXY 99.09 距近20日高點 -0.73%，美債10Y5日變動 +0.18pp（強度 52/100，+7.9）",
             "SOX/NDX 距近20日支撐 +0.15%，美債10Y同步變動（強度 69/100，+6.9）"
           ]
         },
@@ -1150,7 +1150,7 @@
       "extra_data": {
         "regular_market_price": 644.38,
         "pre_market_price": null,
-        "post_market_price": 643.24,
+        "post_market_price": 641.99,
         "prev_close": 653.69
       },
       "kd_k": 85.68,
@@ -1164,7 +1164,7 @@
       "extra_data": {
         "regular_market_price": 25.68,
         "pre_market_price": null,
-        "post_market_price": 25.5776,
+        "post_market_price": 25.42,
         "prev_close": 26.41
       },
       "kd_k": 84.63,
@@ -1278,7 +1278,7 @@
       "extra_data": {
         "regular_market_price": 248.83,
         "pre_market_price": null,
-        "post_market_price": 243.2769,
+        "post_market_price": 242.9,
         "prev_close": 254.86
       },
       "kd_k": 17.65,
@@ -1292,7 +1292,7 @@
       "extra_data": {
         "regular_market_price": 4.075,
         "pre_market_price": null,
-        "post_market_price": 3.9194,
+        "post_market_price": 3.88,
         "prev_close": 4.28
       },
       "kd_k": 16.58,
