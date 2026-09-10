@@ -1,5 +1,55 @@
 [
   {
+    "id": "ADBE_20260910_oversold",
+    "symbol": "ADBE",
+    "name": "Adobe Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.55,
+    "kd_d": 37.87,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 253.6354,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ ADBE (Adobe Inc.) is OVERSOLD! KD-K: 19.55, KD-D: 37.87 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-10T22:46:13.414547",
+    "date": "2026-09-10",
+    "acknowledged": false
+  },
+  {
+    "id": "ADBG_20260910_oversold",
+    "symbol": "ADBG",
+    "name": "Leverage Shares 2X Long ADBE Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.31,
+    "kd_d": 36.43,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 4.24,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ ADBG (Leverage Shares 2X Long ADBE Daily ETF) is OVERSOLD! KD-K: 18.31, KD-D: 36.43 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-10T22:46:13.414665",
+    "date": "2026-09-10",
+    "acknowledged": false
+  },
+  {
     "id": "00665L.TW_20260910_oversold",
     "symbol": "00665L.TW",
     "name": "富邦恒生國企正2",
@@ -2557,58 +2607,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00713.TW (元大台灣高息低波) is OVERBOUGHT! KD-K: 94.32, KD-D: 92.25 (>= 80)",
     "timestamp": "2026-09-08T02:36:32.172835",
-    "date": "2026-09-08",
-    "acknowledged": false
-  },
-  {
-    "id": "00715L.TW_20260908_overbought",
-    "symbol": "00715L.TW",
-    "name": "期街口布蘭特正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 86.71,
-    "kd_d": 76.64,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 59.15,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超達20日均量的47%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00715L.TW (期街口布蘭特正2) is OVERBOUGHT! KD-K: 86.71, KD-D: 76.64 (>= 80)",
-    "timestamp": "2026-09-08T02:36:32.173060",
-    "date": "2026-09-08",
-    "acknowledged": false
-  },
-  {
-    "id": "00731.TW_20260908_overbought",
-    "symbol": "00731.TW",
-    "name": "復華富時高息低波",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 89.68,
-    "kd_d": 90.82,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 97.4,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00731.TW (復華富時高息低波) is OVERBOUGHT! KD-K: 89.68, KD-D: 90.82 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-08T02:36:32.173298",
     "date": "2026-09-08",
     "acknowledged": false
   }
