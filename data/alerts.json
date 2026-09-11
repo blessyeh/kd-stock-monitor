@@ -1,5 +1,30 @@
 [
   {
+    "id": "DLLL_20260912_overbought",
+    "symbol": "DLLL",
+    "name": "GraniteShares 2x Long DELL Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.28,
+    "kd_d": 73.49,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 36.79,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ DLLL (GraniteShares 2x Long DELL Daily ETF) is OVERBOUGHT! KD-K: 80.28, KD-D: 73.49 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-09-12T06:11:51.960694",
+    "date": "2026-09-12",
+    "acknowledged": false
+  },
+  {
     "id": "0056.TW_20260912_overbought",
     "symbol": "0056.TW",
     "name": "元大高股息",
@@ -2540,34 +2565,6 @@
     "market_regime_label": null,
     "message": "✅ 00858.TWO (永豐美國500大) is OVERSOLD! KD-K: 17.53, KD-D: 20.05 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-09-09T10:51:50.827128",
-    "date": "2026-09-09",
-    "acknowledged": false
-  },
-  {
-    "id": "00881.TW_20260909_overbought",
-    "symbol": "00881.TW",
-    "name": "國泰台灣科技龍頭",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.93,
-    "kd_d": 74.7,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 51.4,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）",
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超達20日均量的31%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00881.TW (國泰台灣科技龍頭) is OVERBOUGHT! KD-K: 80.93, KD-D: 74.7 (>= 80)",
-    "timestamp": "2026-09-09T10:51:50.827468",
     "date": "2026-09-09",
     "acknowledged": false
   }
