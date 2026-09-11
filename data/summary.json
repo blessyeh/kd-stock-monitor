@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-12T00:53:43.657622",
+  "timestamp": "2026-09-12T03:25:44.525751",
   "date": "2026-09-12",
   "macro": {
     "taiex": {
@@ -8,51 +8,51 @@
       "change_pct": 0.0
     },
     "us10y": {
-      "value": 4.95,
-      "change": 0.006,
-      "change_pct": 0.12
+      "value": 4.975,
+      "change": 0.031,
+      "change_pct": 0.63
     },
     "dxy": {
-      "value": 99.09,
-      "change": -0.0,
-      "change_pct": -0.0
+      "value": 99.11,
+      "change": 0.02,
+      "change_pct": 0.02
     },
     "fear_greed": {
-      "value": 15.83,
-      "change": -2.01,
-      "change_pct": -11.27,
+      "value": 15.91,
+      "change": -1.93,
+      "change_pct": -10.82,
       "label": "VIX Index",
-      "timestamp": "2026-09-12T00:52:28.253560"
+      "timestamp": "2026-09-12T03:25:37.123660"
     },
     "btc": {
-      "value": 77851.0,
-      "change": 1283.0,
-      "change_pct": 1.68
-    },
-    "oil": {
-      "value": 99.96,
-      "change": -2.52,
-      "change_pct": -2.46
-    },
-    "gold": {
-      "value": 4404.6,
-      "change": 40.1,
+      "value": 77270.0,
+      "change": 702.0,
       "change_pct": 0.92
     },
+    "oil": {
+      "value": 100.45,
+      "change": -2.03,
+      "change_pct": -1.98
+    },
+    "gold": {
+      "value": 4394.4,
+      "change": 29.9,
+      "change_pct": 0.69
+    },
     "sox": {
-      "value": 11866.67,
-      "change": 252.5,
-      "change_pct": 2.17
+      "value": 11830.17,
+      "change": 216.0,
+      "change_pct": 1.86
     },
     "ndx": {
-      "value": 29402.32,
-      "change": 298.81,
-      "change_pct": 1.03
+      "value": 29399.67,
+      "change": 296.16,
+      "change_pct": 1.02
     },
     "sp500": {
-      "value": 7666.67,
-      "change": 74.97,
-      "change_pct": 0.99
+      "value": 7665.16,
+      "change": 73.46,
+      "change_pct": 0.97
     }
   },
   "chip": {
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.09 vs 近20日高點 99.62（未突破）；美債10Y 5日變動 +0.17pp（達標 0.15pp）",
-          "score": 52.1
+          "detail": "DXY 99.11 vs 近20日高點 99.62（未突破）；美債10Y 5日變動 +0.19pp（達標 0.15pp）",
+          "score": 56.0
         },
         {
           "id": "twd_depreciation",
@@ -168,8 +168,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11867未跌破近20日支撐11299；NDX 29402未跌破近20日支撐29059；美債10Y 5日變動 +0.17pp（達標 0.15pp）",
-          "score": 78.6
+          "detail": "SOX 11830未跌破近20日支撐11299；NDX 29400未跌破近20日支撐29059；美債10Y 5日變動 +0.19pp（達標 0.15pp）",
+          "score": 82.3
         }
       ],
       "total_conditions": 5,
@@ -177,7 +177,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 41.7
+      "avg_score": 43.2
     },
     "bottom": {
       "conditions": [
@@ -186,8 +186,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 17.4（<= 30.0門檻）；目前 15.8（較高點回落 9%，門檻 15%）",
-          "score": 22.2
+          "detail": "近10日VIX高點 17.4（<= 30.0門檻）；目前 15.9（較高點回落 9%，門檻 15%）",
+          "score": 21.6
         },
         {
           "id": "margin_capitulation",
@@ -211,7 +211,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 13.9
+      "avg_score": 13.7
     },
     "bottom_reversal_score": {
       "total": 19.5,
@@ -248,15 +248,15 @@
     "as_of_date": "2026-09-11",
     "history_days": 70,
     "bottom": {
-      "total": 24.7,
+      "total": 25.1,
       "dimensions": [
         {
           "name": "macro",
-          "score": 10.4,
+          "score": 10.3,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 17.4 → 目前 15.8（強度 22/100，+3.3）",
-            "DXY 99.09 距近20日高點 -0.53%（美元壓力緩和強度 71/100，+7.1）"
+            "VIX 近10日高點 17.4 → 目前 15.9（強度 22/100，+3.2）",
+            "DXY 99.11 距近20日高點 -0.51%（美元壓力緩和強度 70/100，+7.0）"
           ]
         },
         {
@@ -288,24 +288,24 @@
         },
         {
           "name": "sentiment",
-          "score": 0,
+          "score": 0.5,
           "cap": 10,
           "notes": [
-            "VIX 處於近68筆歷史樣本的第 38 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近68筆歷史樣本的第 43 百分位（恐慌強度 5/100，+0.5）"
           ]
         }
       ]
     },
     "top": {
-      "total": 41.9,
+      "total": 42.0,
       "dimensions": [
         {
           "name": "macro",
-          "score": 15.7,
+          "score": 16.6,
           "cap": 25,
           "notes": [
-            "DXY 99.09 距近20日高點 -0.53%，美債10Y5日變動 +0.17pp（強度 52/100，+7.8）",
-            "SOX/NDX 距近20日支撐 +1.18%，美債10Y同步變動（強度 79/100，+7.9）"
+            "DXY 99.11 距近20日高點 -0.51%，美債10Y5日變動 +0.19pp（強度 56/100，+8.4）",
+            "SOX/NDX 距近20日支撐 +1.17%，美債10Y同步變動（強度 82/100，+8.2）"
           ]
         },
         {
@@ -337,10 +337,10 @@
         },
         {
           "name": "sentiment",
-          "score": 4.3,
+          "score": 3.5,
           "cap": 10,
           "notes": [
-            "VIX 處於近68筆歷史樣本的第 38 百分位（自滿強度 43/100，+4.3）"
+            "VIX 處於近68筆歷史樣本的第 43 百分位（自滿強度 35/100，+3.5）"
           ]
         }
       ]
@@ -410,7 +410,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 +0.6%；相對TAIEX -1.7pp、相對SOX +6.6pp、相對NDX +2.9pp"
+          "2330 近20日漲跌 +0.6%；相對TAIEX -1.7pp、相對SOX +6.9pp、相對NDX +2.9pp"
         ]
       },
       {
@@ -429,7 +429,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $432.8 換算2330隱含價 2735.9元，2330現價 2410.0元（折價 11.9%）",
+          "TSM ADR $432.2 換算2330隱含價 2731.8元，2330現價 2410.0元（折價 11.8%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -817,17 +817,47 @@
     },
     "tw_chip": {
       "as_of_date": "2026-09-11",
-      "fetched": true
+      "fetched": false
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-09-11",
-      "fetched": true
+      "fetched": false
     }
   },
   "news": [
     {
       "title": "外資892億巨刀狂砍 金融航運聯手守住46K",
       "url": "https://tw.stock.yahoo.com/news/%E5%A4%96%E8%B3%87892%E5%84%84%E5%B7%A8%E5%88%80%E8%90%BD%E4%B8%8B%E5%8F%B0%E8%82%A1755%E9%BB%9E%E8%B7%B3%E6%B0%B4%E9%9A%AA%E5%AE%8846k-%E6%AC%8A%E5%80%BC%E8%82%A1%E9%9B%86%E9%AB%94%E7%86%84%E7%81%AB-%E9%87%91%E8%9E%8D%E6%94%9C%E8%88%AA%E9%81%8B%E7%B6%A0%E5%9C%B0%E9%96%8B%E7%B4%85%E8%8A%B1%EF%BD%9Cyahoo%E8%B2%A1%E7%B6%93%E6%8E%83%E6%8F%8F-091639471.html",
+      "meta": null
+    },
+    {
+      "title": "重電與AI終端量產潮接力 這檔ETF攻守兼備",
+      "url": "https://tw.stock.yahoo.com/news/%E9%87%8D%E9%9B%BB%E8%88%87ai%E7%B5%82%E7%AB%AF%E9%87%8F%E7%94%A2%E6%BD%AE%E6%8E%A5%E5%8A%9B-%E9%80%99%E6%AA%94etf%E6%94%BB%E5%AE%88%E5%85%BC%E5%82%99-183453656.html",
+      "meta": null
+    },
+    {
+      "title": "iPhone價格史上最大調漲 這檔ETF成全場新寵",
+      "url": "https://tw.stock.yahoo.com/news/iphone%E5%83%B9%E6%A0%BC%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%A4%A7%E8%AA%BF%E6%BC%B2-%E9%80%99%E6%AA%94etf%E6%88%90%E5%85%A8%E5%A0%B4%E6%96%B0%E5%AF%B5-183123967.html",
+      "meta": null
+    },
+    {
+      "title": "美股3大指數盤初漲逾1%！投資人評估最新通膨數據",
+      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E8%82%A13%E5%A4%A7%E6%8C%87%E6%95%B8%E7%9B%A4%E5%88%9D%E6%BC%B2%E9%80%BE1-%E6%8A%95%E8%B3%87%E4%BA%BA%E8%A9%95%E4%BC%B0%E6%9C%80%E6%96%B0%E9%80%9A%E8%86%A8%E6%95%B8%E6%93%9A-174014397.html",
+      "meta": null
+    },
+    {
+      "title": "油價破百、美債殖利率攀升　阮慕驊點出科技股3大壓力",
+      "url": "https://tw.stock.yahoo.com/news/%E6%B2%B9%E5%83%B9%E7%A0%B4%E7%99%BE-%E7%BE%8E%E5%82%B5%E6%AE%96%E5%88%A9%E7%8E%87%E6%94%80%E5%8D%87-%E9%98%AE%E6%85%95%E9%A9%8A%E9%BB%9E%E5%87%BA%E7%A7%91%E6%8A%80%E8%82%A13%E5%A4%A7%E5%A3%93%E5%8A%9B-173543453.html",
+      "meta": null
+    },
+    {
+      "title": "不是中國、美國！謝金河曝「AI競賽最大贏家」：輝達最新AI機櫃9成來自這裡",
+      "url": "https://tw.stock.yahoo.com/news/%E4%B8%8D%E6%98%AF%E4%B8%AD%E5%9C%8B-%E7%BE%8E%E5%9C%8B-%E8%AC%9D%E9%87%91%E6%B2%B3%E6%9B%9D-ai%E7%AB%B6%E8%B3%BD%E6%9C%80%E5%A4%A7%E8%B4%8F%E5%AE%B6-%E8%BC%9D%E9%81%94%E6%9C%80%E6%96%B0ai%E6%A9%9F%E6%AB%839%E6%88%90%E4%BE%86%E8%87%AA%E9%80%99%E8%A3%A1-170828266.html",
+      "meta": null
+    },
+    {
+      "title": "瑞銀：AI投資熱潮持續　投資人請適應5%以上30年期美債殖利率",
+      "url": "https://tw.stock.yahoo.com/news/%E7%91%9E%E9%8A%80-ai%E6%8A%95%E8%B3%87%E7%86%B1%E6%BD%AE%E6%8C%81%E7%BA%8C-%E6%8A%95%E8%B3%87%E4%BA%BA%E8%AB%8B%E9%81%A9%E6%87%895-%E4%BB%A5%E4%B8%8A30%E5%B9%B4%E6%9C%9F%E7%BE%8E%E5%82%B5%E6%AE%96%E5%88%A9%E7%8E%87-163040730.html",
       "meta": null
     },
     {
@@ -844,45 +874,15 @@
       "title": "台股重挫755點守住4萬6　專家曝美國CPI是短線小關卡：「它」才是真正大魔王",
       "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E9%87%8D%E6%8C%AB755%E9%BB%9E%E5%AE%88%E4%BD%8F4%E8%90%AC6-%E5%B0%88%E5%AE%B6%E6%9B%9D%E7%BE%8E%E5%9C%8Bcpi%E6%98%AF%E7%9F%AD%E7%B7%9A%E5%B0%8F%E9%97%9C%E5%8D%A1-%E5%AE%83-%E6%89%8D%E6%98%AF%E7%9C%9F%E6%AD%A3%E5%A4%A7%E9%AD%94%E7%8E%8B-145744997.html",
       "meta": null
-    },
-    {
-      "title": "8月營收年增達38.57%！「光電元件廠」今逆風收紅漲1.04%　自營商補貨295張、投入2891萬元",
-      "url": "https://tw.stock.yahoo.com/news/8%E6%9C%88%E7%87%9F%E6%94%B6%E5%B9%B4%E5%A2%9E%E9%81%9438-57-%E5%85%89%E9%9B%BB%E5%85%83%E4%BB%B6%E5%BB%A0-%E4%BB%8A%E9%80%86%E9%A2%A8%E6%94%B6%E7%B4%85%E6%BC%B21-04-144500500.html",
-      "meta": null
-    },
-    {
-      "title": "油價回落與科技股拉抬打贏CPI　美股開盤全面上漲",
-      "url": "https://tw.stock.yahoo.com/news/%E6%B2%B9%E5%83%B9%E5%9B%9E%E8%90%BD%E8%88%87%E7%A7%91%E6%8A%80%E8%82%A1%E6%8B%89%E6%8A%AC%E6%89%93%E8%B4%8Fcpi-%E7%BE%8E%E8%82%A1%E9%96%8B%E7%9B%A4%E5%85%A8%E9%9D%A2%E4%B8%8A%E6%BC%B2-144206474.html",
-      "meta": null
-    },
-    {
-      "title": "不懼升息壓力！美股開盤四大指數齊漲　台指期夜盤上漲234點",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%8D%E6%87%BC%E5%8D%87%E6%81%AF%E5%A3%93%E5%8A%9B-%E7%BE%8E%E8%82%A1%E9%96%8B%E7%9B%A4%E5%9B%9B%E5%A4%A7%E6%8C%87%E6%95%B8%E9%BD%8A%E6%BC%B2-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E4%B8%8A%E6%BC%B2234%E9%BB%9E-143805706.html",
-      "meta": null
-    },
-    {
-      "title": "國際能源總署調降今年石油需求激勵　美股三大指數開盤上揚",
-      "url": "https://tw.stock.yahoo.com/news/%E5%9C%8B%E9%9A%9B%E8%83%BD%E6%BA%90%E7%B8%BD%E7%BD%B2%E8%AA%BF%E9%99%8D%E4%BB%8A%E5%B9%B4%E7%9F%B3%E6%B2%B9%E9%9C%80%E6%B1%82%E6%BF%80%E5%8B%B5-%E7%BE%8E%E8%82%A1%E4%B8%89%E5%A4%A7%E6%8C%87%E6%95%B8%E9%96%8B%E7%9B%A4%E4%B8%8A%E6%8F%9A-143315838.html",
-      "meta": null
-    },
-    {
-      "title": "8月淨利年增40%、EPS達0.57元！中華電信單月獲利創近15年新高　八大公股反手提款4億元",
-      "url": "https://tw.stock.yahoo.com/news/8%E6%9C%88%E6%B7%A8%E5%88%A9%E5%B9%B4%E5%A2%9E40-eps%E9%81%940-57%E5%85%83-%E4%B8%AD%E8%8F%AF%E9%9B%BB%E4%BF%A1%E5%96%AE%E6%9C%88%E7%8D%B2%E5%88%A9%E5%89%B5%E8%BF%9115%E5%B9%B4%E6%96%B0%E9%AB%98-%E5%85%AB%E5%A4%A7%E5%85%AC%E8%82%A1%E5%8F%8D%E6%89%8B%E6%8F%90%E6%AC%BE4%E5%84%84%E5%85%83-143000007.html",
-      "meta": null
-    },
-    {
-      "title": "美國公布8月CPI「符合預期」主要指數強彈！道瓊開飆600點　台積電ADR、台指期夜盤齊揚",
-      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E5%9C%8B%E5%85%AC%E5%B8%838%E6%9C%88cpi-%E7%AC%A6%E5%90%88%E9%A0%90%E6%9C%9F-%E4%B8%BB%E8%A6%81%E6%8C%87%E6%95%B8%E5%BC%B7%E5%BD%88-%E9%81%93%E7%93%8A%E9%96%8B%E9%A3%86600%E9%BB%9E-%E5%8F%B0%E7%A9%8D%E9%9B%BBadr-142200515.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 21,
+  "new_alerts": 0,
   "overbought_count": 10,
-  "oversold_count": 11,
-  "normal_count": 106,
+  "oversold_count": 10,
+  "normal_count": 107,
   "overbought_stocks": [
     {
       "symbol": "0056.TW",
@@ -985,44 +985,44 @@
     {
       "symbol": "META",
       "name": "Meta Platforms Inc.",
-      "current_price": 648.345,
-      "change_pct": 0.62,
+      "current_price": 650.7,
+      "change_pct": 0.98,
       "extra_data": {
-        "regular_market_price": 648.345,
+        "regular_market_price": 650.7,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 644.38
       },
-      "kd_k": 85.55,
-      "kd_d": 82.75
+      "kd_k": 86.28,
+      "kd_d": 83.0
     },
     {
       "symbol": "FBL",
       "name": "GraniteShares 2x Long META Daily ETF",
-      "current_price": 26.05,
-      "change_pct": 1.44,
+      "current_price": 26.17,
+      "change_pct": 1.91,
       "extra_data": {
-        "regular_market_price": 26.05,
+        "regular_market_price": 26.17,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 25.68
       },
-      "kd_k": 84.74,
-      "kd_d": 81.88
+      "kd_k": 85.24,
+      "kd_d": 82.05
     },
     {
       "symbol": "DELL",
       "name": "Dell Technologies Inc.",
-      "current_price": 557.78,
-      "change_pct": 10.1,
+      "current_price": 560.415,
+      "change_pct": 10.62,
       "extra_data": {
-        "regular_market_price": 557.78,
+        "regular_market_price": 560.415,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 506.62
       },
-      "kd_k": 80.4,
-      "kd_d": 75.11
+      "kd_k": 81.0,
+      "kd_d": 75.31
     }
   ],
   "oversold_stocks": [
@@ -1065,8 +1065,8 @@
         "post_market_price": null,
         "prev_close": 32.03
       },
-      "kd_k": 4.45,
-      "kd_d": 10.09
+      "kd_k": 4.7,
+      "kd_d": 10.18
     },
     {
       "symbol": "00653L.TW",
@@ -1139,46 +1139,32 @@
       "kd_d": 15.86
     },
     {
-      "symbol": "PLTR",
-      "name": "Palantir Technologies Inc.",
-      "current_price": 166.6787,
-      "change_pct": 0.49,
-      "extra_data": {
-        "regular_market_price": 166.6787,
-        "pre_market_price": null,
-        "post_market_price": null,
-        "prev_close": 165.86
-      },
-      "kd_k": 19.24,
-      "kd_d": 32.93
-    },
-    {
       "symbol": "ADBE",
       "name": "Adobe Inc.",
-      "current_price": 251.765,
-      "change_pct": 1.18,
+      "current_price": 252.84,
+      "change_pct": 1.61,
       "extra_data": {
-        "regular_market_price": 251.765,
+        "regular_market_price": 252.84,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 248.83
       },
-      "kd_k": 18.21,
-      "kd_d": 30.89
+      "kd_k": 18.89,
+      "kd_d": 31.12
     },
     {
       "symbol": "ADBG",
       "name": "Leverage Shares 2X Long ADBE Daily ETF",
-      "current_price": 4.1699,
-      "change_pct": 2.33,
+      "current_price": 4.2,
+      "change_pct": 3.07,
       "extra_data": {
-        "regular_market_price": 4.1699,
+        "regular_market_price": 4.2,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 4.075
       },
-      "kd_k": 16.65,
-      "kd_d": 29.45
+      "kd_k": 17.17,
+      "kd_d": 29.63
     }
   ],
   "errors": []
