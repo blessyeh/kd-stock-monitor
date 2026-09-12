@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-12T21:31:35.735694",
-  "date": "2026-09-12",
+  "timestamp": "2026-09-13T00:44:08.978494",
+  "date": "2026-09-13",
   "macro": {
     "taiex": {
       "value": 46184.85,
@@ -22,12 +22,12 @@
       "change": -2.0,
       "change_pct": -11.21,
       "label": "VIX Index",
-      "timestamp": "2026-09-12T21:31:28.301661"
+      "timestamp": "2026-09-13T00:42:45.513865"
     },
     "btc": {
-      "value": 77287.0,
-      "change": 113.0,
-      "change_pct": 0.15
+      "value": 77357.0,
+      "change": 183.0,
+      "change_pct": 0.24
     },
     "oil": {
       "value": 100.05,
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 31.605,
-      "change": 0.141,
-      "change_pct": 0.45
+      "value": 31.627,
+      "change": -0.008,
+      "change_pct": -0.03
     },
     "foreign_futures_net": {
       "value": -85067,
@@ -144,8 +144,8 @@
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.015（貶值門檻 0.3）",
-          "score": 19.0
+          "detail": "USD/TWD 5日變動 +0.007（貶值門檻 0.3）",
+          "score": 20.9
         },
         {
           "id": "foreign_dual_short",
@@ -177,7 +177,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 43.1
+      "avg_score": 43.5
     },
     "bottom": {
       "conditions": [
@@ -202,8 +202,8 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.015（止穩/升值）；外資今日仍賣超，近期均值 +280.8億元；台指期淨部位5日變動 -2678口（未回補）",
-          "score": 19.5
+          "detail": "USD/TWD 5日變動 +0.007（仍在貶值）；外資今日仍賣超，近期均值 +280.8億元；台指期淨部位5日變動 -2678口（未回補）",
+          "score": 18.6
         }
       ],
       "total_conditions": 3,
@@ -211,15 +211,15 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 13.9
+      "avg_score": 13.6
     },
     "bottom_reversal_score": {
-      "total": 19.5,
+      "total": 18.6,
       "components": [
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 57.0
+          "score": 53.8
         },
         {
           "name": "foreign_flow_reversal",
@@ -297,7 +297,7 @@
       ]
     },
     "top": {
-      "total": 39.8,
+      "total": 40.0,
       "dimensions": [
         {
           "name": "macro",
@@ -310,10 +310,10 @@
         },
         {
           "name": "chip_flow",
-          "score": 10.9,
+          "score": 11.1,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 -0.015（強度 19/100，+1.9）",
+            "新台幣5日貶值 +0.007（強度 21/100，+2.1）",
             "外資今日 -892.7億元，融資餘額5日變動 +60億元（散戶未離場強度 60/100，+9.0）"
           ]
         },
@@ -429,7 +429,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $433.2 換算2330隱含價 2738.5元，2330現價 2410.0元（折價 12.0%）",
+          "TSM ADR $433.2 換算2330隱含價 2740.4元，2330現價 2410.0元（折價 12.1%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -448,7 +448,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "目前本益比 27.9，位於近731筆歷史資料的第 72 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+          "目前本益比 27.9，位於近730筆歷史資料的第 72 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
         ]
       }
     ],
@@ -808,23 +808,53 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-09-12",
+      "as_of_date": "2026-09-13",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-09-12",
+      "as_of_date": "2026-09-13",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-09-11",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-09-11",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
+    {
+      "title": "台中港酒店攜手M.M小舖辦陀螺賽　近90選手海線競技",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E4%B8%AD%E6%B8%AF%E9%85%92%E5%BA%97%E6%94%9C%E6%89%8Bm-m%E5%B0%8F%E8%88%96%E8%BE%A6%E9%99%80%E8%9E%BA%E8%B3%BD-%E8%BF%9190%E9%81%B8%E6%89%8B%E6%B5%B7%E7%B7%9A%E7%AB%B6%E6%8A%80-155259026.html",
+      "meta": null
+    },
+    {
+      "title": "城市新未來特展逢甲大學登場　產官學攜手讓世界看見臺中宜居與建築實力",
+      "url": "https://tw.stock.yahoo.com/news/%E5%9F%8E%E5%B8%82%E6%96%B0%E6%9C%AA%E4%BE%86%E7%89%B9%E5%B1%95%E9%80%A2%E7%94%B2%E5%A4%A7%E5%AD%B8%E7%99%BB%E5%A0%B4-%E7%94%A2%E5%AE%98%E5%AD%B8%E6%94%9C%E6%89%8B%E8%AE%93%E4%B8%96%E7%95%8C%E7%9C%8B%E8%A6%8B%E8%87%BA%E4%B8%AD%E5%AE%9C%E5%B1%85%E8%88%87%E5%BB%BA%E7%AF%89%E5%AF%A6%E5%8A%9B-145040334.html",
+      "meta": null
+    },
+    {
+      "title": "德情報機關：俄羅斯特工參與對萊比錫機場的未遂襲擊",
+      "url": "https://tw.stock.yahoo.com/news/%E5%BE%B7%E6%83%85%E5%A0%B1%E6%A9%9F%E9%97%9C-%E4%BF%84%E7%BE%85%E6%96%AF%E7%89%B9%E5%B7%A5%E5%8F%83%E8%88%87%E5%B0%8D%E8%90%8A%E6%AF%94%E9%8C%AB%E6%A9%9F%E5%A0%B4%E7%9A%84%E6%9C%AA%E9%81%82%E8%A5%B2%E6%93%8A-142700034.html",
+      "meta": null
+    },
+    {
+      "title": "力積電黃崇仁告別式！賴清德親頒褒揚令",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8A%9B%E7%A9%8D%E9%9B%BB%E9%BB%83%E5%B4%87%E4%BB%81%E5%91%8A%E5%88%A5%E5%BC%8F-%E8%B3%B4%E6%B8%85%E5%BE%B7%E8%A6%AA%E9%A0%92%E8%A4%92%E6%8F%9A%E4%BB%A4-142038612.html",
+      "meta": null
+    },
+    {
+      "title": "工料雙漲.央行限貸! 都更案建商喊卡 地主住戶成孤兒",
+      "url": "https://tw.stock.yahoo.com/news/%E5%B7%A5%E6%96%99%E9%9B%99%E6%BC%B2-%E5%A4%AE%E8%A1%8C%E9%99%90%E8%B2%B8-%E9%83%BD%E6%9B%B4%E6%A1%88%E5%BB%BA%E5%95%86%E5%96%8A%E5%8D%A1-%E5%9C%B0%E4%B8%BB%E4%BD%8F%E6%88%B6%E6%88%90%E5%AD%A4%E5%85%92-142029348.html",
+      "meta": null
+    },
+    {
+      "title": "記憶體備受青睞！外資本週搶買「這4檔」17.8萬張　狂砸153億元搜刮南亞科",
+      "url": "https://tw.stock.yahoo.com/news/%E8%A8%98%E6%86%B6%E9%AB%94%E5%82%99%E5%8F%97%E9%9D%92%E7%9D%9E-%E5%A4%96%E8%B3%87%E6%9C%AC%E9%80%B1%E6%90%B6%E8%B2%B7-%E9%80%994%E6%AA%94-17-8%E8%90%AC%E5%BC%B5-135000462.html",
+      "meta": null
+    },
     {
       "title": "黃崇仁告別式 賴清德親頒褒揚令",
       "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E5%B4%87%E4%BB%81%E5%91%8A%E5%88%A5%E5%BC%8F-%E8%B3%B4%E6%B8%85%E5%BE%B7%E8%A6%AA%E9%A0%92%E8%A4%92%E6%8F%9A%E4%BB%A4-124719891.html",
@@ -844,42 +874,12 @@
       "title": "新北文旦柚展售會開跑　40個攤位、加倍券邀民眾八里嚐美味",
       "url": "https://tw.stock.yahoo.com/news/%E6%96%B0%E5%8C%97%E6%96%87%E6%97%A6%E6%9F%9A%E5%B1%95%E5%94%AE%E6%9C%83%E9%96%8B%E8%B7%91-40%E5%80%8B%E6%94%A4%E4%BD%8D-%E5%8A%A0%E5%80%8D%E5%88%B8%E9%82%80%E6%B0%91%E7%9C%BE%E5%85%AB%E9%87%8C%E5%9A%90%E7%BE%8E%E5%91%B3-120239521.html",
       "meta": null
-    },
-    {
-      "title": "金薪獎歌唱比賽邁入第10屆　「響樂99影音節」打造中華路影音街新品牌",
-      "url": "https://tw.stock.yahoo.com/news/%E9%87%91%E8%96%AA%E7%8D%8E%E6%AD%8C%E5%94%B1%E6%AF%94%E8%B3%BD%E9%82%81%E5%85%A5%E7%AC%AC10%E5%B1%86-%E9%9F%BF%E6%A8%8299%E5%BD%B1%E9%9F%B3%E7%AF%80-%E6%89%93%E9%80%A0%E4%B8%AD%E8%8F%AF%E8%B7%AF%E5%BD%B1%E9%9F%B3%E8%A1%97%E6%96%B0%E5%93%81%E7%89%8C-115011468.html",
-      "meta": null
-    },
-    {
-      "title": "EPS賺4.68元！「晶圓代工大廠」有望打入台積電CPO平台　外資卻連賣2週帶走90.67億元",
-      "url": "https://tw.stock.yahoo.com/news/eps%E8%B3%BA4-68%E5%85%83-%E6%99%B6%E5%9C%93%E4%BB%A3%E5%B7%A5%E5%A4%A7%E5%BB%A0-%E6%9C%89%E6%9C%9B%E6%89%93%E5%85%A5%E5%8F%B0%E7%A9%8D%E9%9B%BBcpo%E5%B9%B3%E5%8F%B0-%E5%A4%96%E8%B3%87%E5%8D%BB%E9%80%A3%E8%B3%A32%E9%80%B1%E5%B8%B6%E8%B5%B090-115000615.html",
-      "meta": null
-    },
-    {
-      "title": "無人機要成台灣「第二座護國神山」！鄭麗君揭442億布局、出口暴增　力挺何欣純讓產業「從台中起飛」",
-      "url": "https://tw.stock.yahoo.com/news/%E7%84%A1%E4%BA%BA%E6%A9%9F%E8%A6%81%E6%88%90%E5%8F%B0%E7%81%A3-%E7%AC%AC%E4%BA%8C%E5%BA%A7%E8%AD%B7%E5%9C%8B%E7%A5%9E%E5%B1%B1-%E9%84%AD%E9%BA%97%E5%90%9B%E6%8F%AD442%E5%84%84%E5%B8%83%E5%B1%80-%E5%87%BA%E5%8F%A3%E6%9A%B4%E5%A2%9E-%E5%8A%9B%E6%8C%BA%E4%BD%95%E6%AC%A3%E7%B4%94%E8%AE%93%E7%94%A2%E6%A5%AD-113904920.html",
-      "meta": null
-    },
-    {
-      "title": "南韓砸36兆拚半導體仍卡關！「這1項優勢」讓韓媒羨慕台灣　台積電＋工研院成關鍵",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8D%97%E9%9F%93%E7%A0%B836%E5%85%86%E6%8B%9A%E5%8D%8A%E5%B0%8E%E9%AB%94%E4%BB%8D%E5%8D%A1%E9%97%9C-%E9%80%991%E9%A0%85%E5%84%AA%E5%8B%A2-%E8%AE%93%E9%9F%93%E5%AA%92%E7%BE%A8%E6%85%95%E5%8F%B0%E7%81%A3-%E5%8F%B0%E7%A9%8D%E9%9B%BB-%E5%B7%A5%E7%A0%94%E9%99%A2%E6%88%90%E9%97%9C%E9%8D%B5-112500930.html",
-      "meta": null
-    },
-    {
-      "title": "美國公布8月CPI高於預期 外界預料美聯準會將升息",
-      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E5%9C%8B%E5%85%AC%E5%B8%838%E6%9C%88cpi%E9%AB%98%E6%96%BC%E9%A0%90%E6%9C%9F-%E5%A4%96%E7%95%8C%E9%A0%90%E6%96%99%E7%BE%8E%E8%81%AF%E6%BA%96%E6%9C%83%E5%B0%87%E5%8D%87%E6%81%AF-112009624.html",
-      "meta": null
-    },
-    {
-      "title": "轉投資效應超猛！「玻纖布大廠」獲法人喊價320元　投信撒128億元連6週掃貨",
-      "url": "https://tw.stock.yahoo.com/news/%E8%BD%89%E6%8A%95%E8%B3%87%E6%95%88%E6%87%89%E8%B6%85%E7%8C%9B-%E7%8E%BB%E7%BA%96%E5%B8%83%E5%A4%A7%E5%BB%A0-%E7%8D%B2%E6%B3%95%E4%BA%BA%E5%96%8A%E5%83%B9320%E5%85%83-%E6%8A%95%E4%BF%A1%E6%92%92128%E5%84%84%E5%85%83%E9%80%A36%E9%80%B1%E6%8E%83%E8%B2%A8-111000321.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 21,
   "overbought_count": 11,
   "oversold_count": 10,
   "normal_count": 106,
