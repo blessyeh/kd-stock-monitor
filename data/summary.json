@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-13T21:11:33.125058",
-  "date": "2026-09-13",
+  "timestamp": "2026-09-14T01:14:00.927879",
+  "date": "2026-09-14",
   "macro": {
     "taiex": {
       "value": 46184.85,
@@ -22,12 +22,12 @@
       "change": -2.0,
       "change_pct": -11.21,
       "label": "VIX Index",
-      "timestamp": "2026-09-13T21:11:25.019255"
+      "timestamp": "2026-09-14T01:12:47.859635"
     },
     "btc": {
-      "value": 76711.0,
-      "change": -559.0,
-      "change_pct": -0.72
+      "value": 77383.0,
+      "change": 113.0,
+      "change_pct": 0.15
     },
     "oil": {
       "value": 100.05,
@@ -110,19 +110,19 @@
       "change_pct": -1.37
     },
     "put_call_ratio": {
-      "value": 80.77,
+      "value": null,
+      "change": null,
+      "change_pct": null,
       "unit": "%",
-      "date": "2026-09-11",
-      "change": -1.9,
-      "change_pct": -2.3
+      "date": null
     },
     "night_session": {
-      "close": 46072.0,
-      "prev_close": 46870.0,
-      "gap": -798.0,
-      "gap_pct": -1.7,
-      "date": "2026-09-11",
-      "prev_date": "2026-09-10"
+      "close": 46588.0,
+      "prev_close": 46218.0,
+      "gap": 370.0,
+      "gap_pct": 0.8,
+      "date": "2026-09-14",
+      "prev_date": "2026-09-11"
     }
   },
   "signal_confluence": {
@@ -158,10 +158,10 @@
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": true,
+          "status": null,
           "completeness": "full",
-          "detail": "今日外資賣超；融資餘額5日未回落（5879億元）；P/C Ratio 80.8%（< 100%門檻）",
-          "score": 58.7
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷",
+          "score": null
         },
         {
           "id": "tech_capital_retreat",
@@ -173,11 +173,11 @@
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 5,
-      "triggered_count": 1,
-      "triggered_full_count": 1,
+      "evaluated_count": 4,
+      "triggered_count": 0,
+      "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 43.5
+      "avg_score": 39.6
     },
     "bottom": {
       "conditions": [
@@ -248,7 +248,7 @@
     "as_of_date": "2026-09-11",
     "history_days": 70,
     "bottom": {
-      "total": 24.6,
+      "total": 23.1,
       "dimensions": [
         {
           "name": "macro",
@@ -270,11 +270,10 @@
         },
         {
           "name": "derivative",
-          "score": 2.3,
+          "score": 0.8,
           "cap": 20,
           "notes": [
-            "台指期淨空單5日變動 -2678口（回補強度 7/100，+0.8）",
-            "P/C Ratio 80.8%（避險需求強度 18/100，+1.4）"
+            "台指期淨空單5日變動 -2678口（回補強度 7/100，+0.8）"
           ]
         },
         {
@@ -297,7 +296,7 @@
       ]
     },
     "top": {
-      "total": 40.0,
+      "total": 33.4,
       "dimensions": [
         {
           "name": "macro",
@@ -319,11 +318,10 @@
         },
         {
           "name": "derivative",
-          "score": 6.6,
+          "score": 0,
           "cap": 20,
           "notes": [
-            "外資台指期淨空單 -85067口（強度 0/100，+0.0）",
-            "P/C Ratio 80.8%（自滿強度 82/100，+6.6）"
+            "外資台指期淨空單 -85067口（強度 0/100，+0.0）"
           ]
         },
         {
@@ -808,20 +806,20 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-09-13",
+      "as_of_date": "2026-09-14",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-09-13",
+      "as_of_date": "2026-09-14",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-09-11",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-09-11",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
@@ -831,55 +829,55 @@
       "meta": null
     },
     {
-      "title": "退休日期選錯就慘了！勞保退保差1天　恐讓你少領一個月",
-      "url": "https://tw.stock.yahoo.com/news/%E9%80%80%E4%BC%91%E6%97%A5%E6%9C%9F%E9%81%B8%E9%8C%AF%E5%B0%B1%E6%85%98%E4%BA%86-%E5%8B%9E%E4%BF%9D%E9%80%80%E4%BF%9D%E5%B7%AE1%E5%A4%A9-%E6%81%90%E8%AE%93%E4%BD%A0%E5%B0%91%E9%A0%98-%E5%80%8B%E6%9C%88-125915838.html",
+      "title": "超級央行周登場！　台指期夜盤翻漲4百點、台股四萬六大關多空交戰",
+      "url": "https://tw.stock.yahoo.com/news/%E8%B6%85%E7%B4%9A%E5%A4%AE%E8%A1%8C%E5%91%A8%E7%99%BB%E5%A0%B4-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E7%BF%BB%E6%BC%B24%E7%99%BE%E9%BB%9E-%E5%8F%B0%E8%82%A1%E5%9B%9B%E8%90%AC%E5%85%AD%E5%A4%A7%E9%97%9C%E5%A4%9A%E7%A9%BA%E4%BA%A4%E6%88%B0-163055416.html",
       "meta": null
     },
     {
-      "title": "非PC營收占比年底拚40%！仁寶AI雲端訂單遍及歐美亞　八大公股砸5.8億元搶進1.5萬張",
-      "url": "https://tw.stock.yahoo.com/news/%E9%9D%9Epc%E7%87%9F%E6%94%B6%E5%8D%A0%E6%AF%94%E5%B9%B4%E5%BA%95%E6%8B%9A40-%E4%BB%81%E5%AF%B6ai%E9%9B%B2%E7%AB%AF%E8%A8%82%E5%96%AE%E9%81%8D%E5%8F%8A%E6%AD%90%E7%BE%8E%E4%BA%9E-%E5%85%AB%E5%A4%A7%E5%85%AC%E8%82%A1%E7%A0%B85-8%E5%84%84%E5%85%83%E6%90%B6%E9%80%B21-5%E8%90%AC%E5%BC%B5-123000396.html",
+      "title": "輝達、AMD都離不開它！外媒喊台積電仍遭低估　華爾街分析師看好股價衝「 這數字」",
+      "url": "https://tw.stock.yahoo.com/news/%E8%BC%9D%E9%81%94-amd%E9%83%BD%E9%9B%A2%E4%B8%8D%E9%96%8B%E5%AE%83-%E5%A4%96%E5%AA%92%E5%96%8A%E5%8F%B0%E7%A9%8D%E9%9B%BB%E4%BB%8D%E9%81%AD%E4%BD%8E%E4%BC%B0-%E8%8F%AF%E7%88%BE%E8%A1%97%E5%88%86%E6%9E%90%E5%B8%AB%E7%9C%8B%E5%A5%BD%E8%82%A1%E5%83%B9%E8%A1%9D-%E9%80%99%E6%95%B8%E5%AD%97-153000219.html",
       "meta": null
     },
     {
-      "title": "AI資料中心營收爆發！「電源管理IC廠」第二季獲利狂增149%、EPS達4.02元　Q3會更好",
-      "url": "https://tw.stock.yahoo.com/news/ai%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E7%87%9F%E6%94%B6%E7%88%86%E7%99%BC-%E9%9B%BB%E6%BA%90%E7%AE%A1%E7%90%86ic%E5%BB%A0-%E7%AC%AC%E4%BA%8C%E5%AD%A3%E7%8D%B2%E5%88%A9%E7%8B%82%E5%A2%9E149-eps%E9%81%944-02%E5%85%83-121500189.html",
+      "title": "參訪宜蘭長照機構 卓揆：住宿式加碼補助年最高18萬14日起跑",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%83%E8%A8%AA%E5%AE%9C%E8%98%AD%E9%95%B7%E7%85%A7%E6%A9%9F%E6%A7%8B-%E5%8D%93%E6%8F%86-%E4%BD%8F%E5%AE%BF%E5%BC%8F%E5%8A%A0%E7%A2%BC%E8%A3%9C%E5%8A%A9%E5%B9%B4%E6%9C%80%E9%AB%9818%E8%90%AC14%E6%97%A5%E8%B5%B7%E8%B7%91-144758515.html",
       "meta": null
     },
     {
-      "title": "1歲娃「爽領股息93萬台幣」　南韓未成年「世襲富豪」逾1600人",
-      "url": "https://tw.stock.yahoo.com/news/1%E6%AD%B2%E5%A8%83-%E7%88%BD%E9%A0%98%E8%82%A1%E6%81%AF93%E8%90%AC%E5%8F%B0%E5%B9%A3-%E5%8D%97%E9%9F%93%E6%9C%AA%E6%88%90%E5%B9%B4-%E4%B8%96%E8%A5%B2%E5%AF%8C%E8%B1%AA-%E9%80%BE1600%E4%BA%BA-120611622.html",
+      "title": "半導體光罩夯！這「關鍵載具廠」搶進先進封裝領域　 2027迎獲利爆發年",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8D%8A%E5%B0%8E%E9%AB%94%E5%85%89%E7%BD%A9%E5%A4%AF-%E9%80%99-%E9%97%9C%E9%8D%B5%E8%BC%89%E5%85%B7%E5%BB%A0-%E6%90%B6%E9%80%B2%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9D%E9%A0%98%E5%9F%9F-2027%E8%BF%8E%E7%8D%B2%E5%88%A9%E7%88%86%E7%99%BC%E5%B9%B4-143000055.html",
       "meta": null
     },
     {
-      "title": "台股明天又要大爆崩？專家揭台股下一波布局方向：別把反彈當反轉",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%98%8E%E5%A4%A9%E5%8F%88%E8%A6%81%E5%A4%A7%E7%88%86%E5%B4%A9-%E5%B0%88%E5%AE%B6%E6%8F%AD%E5%8F%B0%E8%82%A1%E4%B8%8B-%E6%B3%A2%E5%B8%83%E5%B1%80%E6%96%B9%E5%90%91-%E5%88%A5%E6%8A%8A%E5%8F%8D%E5%BD%88%E7%95%B6%E5%8F%8D%E8%BD%89-120441147.html",
+      "title": "台股反攻4萬8千點大關？富邦投顧董事長親曝「黃金交叉」：10月有望再破新高",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E5%8F%8D%E6%94%BB4%E8%90%AC8%E5%8D%83%E9%BB%9E%E5%A4%A7%E9%97%9C-%E5%AF%8C%E9%82%A6%E6%8A%95%E9%A1%A7%E8%91%A3%E4%BA%8B%E9%95%B7%E8%A6%AA%E6%9B%9D-%E9%BB%83%E9%87%91%E4%BA%A4%E5%8F%89-10%E6%9C%88%E6%9C%89%E6%9C%9B%E5%86%8D%E7%A0%B4%E6%96%B0%E9%AB%98-142000850.html",
       "meta": null
     },
     {
-      "title": "PCB缺貨動能還是很強！Panasonic又傳價格喊漲　法人點名4大CCL大廠、3大PCB龍頭受惠",
-      "url": "https://tw.stock.yahoo.com/news/pcb%E7%BC%BA%E8%B2%A8%E5%8B%95%E8%83%BD%E9%82%84%E6%98%AF%E5%BE%88%E5%BC%B7-panasonic%E5%8F%88%E5%82%B3%E5%83%B9%E6%A0%BC%E5%96%8A%E6%BC%B2-%E6%B3%95%E4%BA%BA%E9%BB%9E%E5%90%8D4%E5%A4%A7ccl%E5%A4%A7%E5%BB%A0-3%E5%A4%A7pcb%E9%BE%8D%E9%A0%AD%E5%8F%97%E6%83%A0-120000252.html",
+      "title": "搶攻AI先進封裝！群創獲法人目標價上看54元　八大公股卻狂倒9千張、提款4.7億元",
+      "url": "https://tw.stock.yahoo.com/news/%E6%90%B6%E6%94%BBai%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9D-%E7%BE%A4%E5%89%B5%E7%8D%B2%E6%B3%95%E4%BA%BA%E7%9B%AE%E6%A8%99%E5%83%B9%E4%B8%8A%E7%9C%8B54%E5%85%83-%E5%85%AB%E5%A4%A7%E5%85%AC%E8%82%A1%E5%8D%BB%E7%8B%82%E5%80%929%E5%8D%83%E5%BC%B5-%E6%8F%90%E6%AC%BE4-7%E5%84%84%E5%85%83-142000449.html",
       "meta": null
     },
     {
-      "title": "8月營收暴增132%創新高！「設備廠」半導體營收占比達58%　訂單看到2027年、再搶人形機器人商機",
-      "url": "https://tw.stock.yahoo.com/news/8%E6%9C%88%E7%87%9F%E6%94%B6%E6%9A%B4%E5%A2%9E132-%E5%89%B5%E6%96%B0%E9%AB%98-%E8%A8%AD%E5%82%99%E5%BB%A0-%E5%8D%8A%E5%B0%8E%E9%AB%94%E7%87%9F%E6%94%B6%E5%8D%A0%E6%AF%94%E9%81%9458-%E8%A8%82%E5%96%AE%E7%9C%8B%E5%88%B02027%E5%B9%B4-114500202.html",
+      "title": "HYROX北京賽場「屎一片」！澳洲女失禁硬拼奪冠　網撻伐：器材都排泄物",
+      "url": "https://tw.stock.yahoo.com/news/hyrox%E5%8C%97%E4%BA%AC%E8%B3%BD%E5%A0%B4-%E5%B1%8E-%E7%89%87-%E6%BE%B3%E6%B4%B2%E5%A5%B3%E5%A4%B1%E7%A6%81%E7%A1%AC%E6%8B%BC%E5%A5%AA%E5%86%A0-%E7%B6%B2%E6%92%BB%E4%BC%90-140600283.html",
       "meta": null
     },
     {
-      "title": "成交量創10年新低，代表什麼？專家「想買的人已經買了，不想買的人永遠不會買」",
-      "url": "https://tw.stock.yahoo.com/news/%E6%88%90%E4%BA%A4%E9%87%8F%E5%89%B510%E5%B9%B4%E6%96%B0%E4%BD%8E%EF%BC%8C%E4%BB%A3%E8%A1%A8%E4%BB%80%E9%BA%BC%EF%BC%9F%E5%B0%88%E5%AE%B6%E3%80%8C%E6%83%B3%E8%B2%B7%E7%9A%84%E4%BA%BA%E5%B7%B2%E7%B6%93%E8%B2%B7%E4%BA%86%EF%BC%8C%E4%B8%8D%E6%83%B3%E8%B2%B7%E7%9A%84%E4%BA%BA%E6%B0%B8%E9%81%A0%E4%B8%8D%E6%9C%83%E8%B2%B7%E3%80%8D-114200970.html",
+      "title": "聯準會利率決策在即　川普：美國應享有全球最低的利率",
+      "url": "https://tw.stock.yahoo.com/news/%E8%81%AF%E6%BA%96%E6%9C%83%E5%88%A9%E7%8E%87%E6%B1%BA%E7%AD%96%E5%9C%A8%E5%8D%B3-%E5%B7%9D%E6%99%AE-%E7%BE%8E%E5%9C%8B%E6%87%89%E4%BA%AB%E6%9C%89%E5%85%A8%E7%90%83%E6%9C%80%E4%BD%8E%E7%9A%84%E5%88%A9%E7%8E%87-140413189.html",
       "meta": null
     },
     {
-      "title": "月產60萬片直逼一線廠 陸記憶體龍頭長鑫存儲啟動設備招標",
-      "url": "https://tw.stock.yahoo.com/news/%E6%9C%88%E7%94%A260%E8%90%AC%E7%89%87%E7%9B%B4%E9%80%BC-%E7%B7%9A%E5%BB%A0-%E9%99%B8%E8%A8%98%E6%86%B6%E9%AB%94%E9%BE%8D%E9%A0%AD%E9%95%B7%E9%91%AB%E5%AD%98%E5%84%B2%E5%95%9F%E5%8B%95%E8%A8%AD%E5%82%99%E6%8B%9B%E6%A8%99-113326614.html",
+      "title": "賣超386億元卻搶進1題材！三大法人71.8億元、19.8億元瘋掃「2擋」　年底旺季＋需求季增加持",
+      "url": "https://tw.stock.yahoo.com/news/%E8%B3%A3%E8%B6%85386%E5%84%84%E5%85%83%E5%8D%BB%E6%90%B6%E9%80%B21%E9%A1%8C%E6%9D%90-%E4%B8%89%E5%A4%A7%E6%B3%95%E4%BA%BA71-8%E5%84%84%E5%85%83-19-8%E5%84%84%E5%85%83%E7%98%8B%E6%8E%83-135000420.html",
       "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 21,
   "overbought_count": 11,
   "oversold_count": 10,
   "normal_count": 106,
