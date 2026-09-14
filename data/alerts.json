@@ -1,5 +1,86 @@
 [
   {
+    "id": "00757.TW_20260914_oversold",
+    "symbol": "00757.TW",
+    "name": "統一FANG+",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 15.98,
+    "kd_d": 30.48,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 137.0,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00757.TW (統一FANG+) is OVERSOLD! KD-K: 15.98, KD-D: 30.48 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-14T13:44:07.618127",
+    "date": "2026-09-14",
+    "acknowledged": false
+  },
+  {
+    "id": "00907.TW_20260914_overbought",
+    "symbol": "00907.TW",
+    "name": "永豐優息存股",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.23,
+    "kd_d": 77.81,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 17.85,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00907.TW (永豐優息存股) is OVERBOUGHT! KD-K: 80.23, KD-D: 77.81 (>= 80)",
+    "timestamp": "2026-09-14T13:44:07.618908",
+    "date": "2026-09-14",
+    "acknowledged": false
+  },
+  {
+    "id": "00924.TW_20260914_oversold",
+    "symbol": "00924.TW",
+    "name": "復華 S&P 500 成長",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.69,
+    "kd_d": 31.26,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 32.54,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00924.TW (復華 S&P 500 成長) is OVERSOLD! KD-K: 19.69, KD-D: 31.26 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-14T13:44:07.619391",
+    "date": "2026-09-14",
+    "acknowledged": false
+  },
+  {
     "id": "0056.TW_20260914_overbought",
     "symbol": "0056.TW",
     "name": "元大高股息",
@@ -2478,83 +2559,6 @@
     "message": "✅ ADBE (Adobe Inc.) is OVERSOLD! KD-K: 17.08, KD-D: 37.04 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-09-11T02:03:24.294464",
     "date": "2026-09-11",
-    "acknowledged": false
-  },
-  {
-    "id": "ADBG_20260911_oversold",
-    "symbol": "ADBG",
-    "name": "Leverage Shares 2X Long ADBE Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 16.29,
-    "kd_d": 35.76,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 4.07,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ADBG (Leverage Shares 2X Long ADBE Daily ETF) is OVERSOLD! KD-K: 16.29, KD-D: 35.76 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-11T02:03:24.294576",
-    "date": "2026-09-11",
-    "acknowledged": false
-  },
-  {
-    "id": "ADBE_20260910_oversold",
-    "symbol": "ADBE",
-    "name": "Adobe Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.55,
-    "kd_d": 37.87,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 253.6354,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ADBE (Adobe Inc.) is OVERSOLD! KD-K: 19.55, KD-D: 37.87 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-10T22:46:13.414547",
-    "date": "2026-09-10",
-    "acknowledged": false
-  },
-  {
-    "id": "ADBG_20260910_oversold",
-    "symbol": "ADBG",
-    "name": "Leverage Shares 2X Long ADBE Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.31,
-    "kd_d": 36.43,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 4.24,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ ADBG (Leverage Shares 2X Long ADBE Daily ETF) is OVERSOLD! KD-K: 18.31, KD-D: 36.43 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-10T22:46:13.414665",
-    "date": "2026-09-10",
     "acknowledged": false
   }
 ]
