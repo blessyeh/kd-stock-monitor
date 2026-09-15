@@ -471,10 +471,10 @@
   },
   {
     "date": "2026-09-14",
-    "taiex": 46184.85,
-    "stock_2330_close": 2380.0,
+    "taiex": 45527.0,
+    "stock_2330_close": 2385.0,
     "top_conditions": {
-      "macro_drain": false,
+      "macro_drain": true,
       "twd_depreciation": false,
       "foreign_dual_short": true,
       "retail_holding_bag": false,
@@ -486,9 +486,11 @@
       "foreign_short_covering": false
     },
     "top_score": 26.6,
-    "bottom_score": 26.9,
+    "bottom_score": 14.6,
     "regime": "UNKNOWN",
-    "tsmc_total": 54.7,
-    "tsmc_buy_points": []
+    "tsmc_total": 55.2,
+    "tsmc_buy_points": [
+      "fundamental_pullback"
+    ]
   }
 ]
