@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-15T05:23:36.037561",
+  "timestamp": "2026-09-15T08:13:27.113994",
   "date": "2026-09-15",
   "macro": {
     "taiex": {
@@ -13,7 +13,7 @@
       "change_pct": -0.28
     },
     "dxy": {
-      "value": 99.44,
+      "value": 99.5,
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -22,20 +22,20 @@
       "change": 1.26,
       "change_pct": 7.95,
       "label": "VIX Index",
-      "timestamp": "2026-09-15T05:23:28.438477"
+      "timestamp": "2026-09-15T08:13:19.858399"
     },
     "btc": {
-      "value": 78973.0,
-      "change": 2135.0,
-      "change_pct": 2.78
+      "value": 78131.0,
+      "change": 0,
+      "change_pct": 0
     },
     "oil": {
-      "value": 101.89,
+      "value": 102.29,
       "change": 0.0,
       "change_pct": 0.0
     },
     "gold": {
-      "value": 4340.0,
+      "value": 4327.7,
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -134,8 +134,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 99.44 vs 近20日高點 99.62（未突破）；美債10Y 5日變動 +0.20pp（達標 0.15pp）",
-          "score": 66.6
+          "detail": "DXY 99.50 vs 近20日高點 99.62（未突破）；美債10Y 5日變動 +0.20pp（達標 0.15pp）",
+          "score": 68.4
         },
         {
           "id": "twd_depreciation",
@@ -175,7 +175,7 @@
       "triggered_count": 2,
       "triggered_full_count": 2,
       "triggered_partial_count": 0,
-      "avg_score": 38.4
+      "avg_score": 38.8
     },
     "bottom": {
       "conditions": [
@@ -246,15 +246,15 @@
     "as_of_date": "2026-09-14",
     "history_days": 71,
     "bottom": {
-      "total": 27.3,
+      "total": 26.9,
       "dimensions": [
         {
           "name": "macro",
-          "score": 7.1,
+          "score": 6.7,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 17.5 → 目前 17.1（強度 13/100，+2.0）",
-            "DXY 99.44 距近20日高點 -0.18%（美元壓力緩和強度 51/100，+5.1）"
+            "DXY 99.50 距近20日高點 -0.12%（美元壓力緩和強度 47/100，+4.7）"
           ]
         },
         {
@@ -295,14 +295,14 @@
       ]
     },
     "top": {
-      "total": 26.3,
+      "total": 26.6,
       "dimensions": [
         {
           "name": "macro",
-          "score": 14.6,
+          "score": 14.9,
           "cap": 25,
           "notes": [
-            "DXY 99.44 距近20日高點 -0.18%，美債10Y5日變動 +0.20pp（強度 67/100，+10.0）",
+            "DXY 99.50 距近20日高點 -0.12%，美債10Y5日變動 +0.20pp（強度 68/100，+10.3）",
             "SOX/NDX 距近20日支撐 -1.49%，美債10Y同步變動（強度 46/100，+4.6）"
           ]
         },
@@ -854,28 +854,28 @@
       "meta": null
     },
     {
-      "title": "台股旺季攻堅可期 這檔ETF可留意",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%97%BA%E5%AD%A3%E6%94%BB%E5%A0%85%E5%8F%AF%E6%9C%9F-%E9%80%99%E6%AA%94etf%E5%8F%AF%E7%95%99%E6%84%8F-205655183.html",
+      "title": "4日狂飆27.15%奪強勢股王！「光罩廠」上半年成功轉盈　40奈米下半年量產、28奈米拚年底驗證",
+      "url": "https://tw.stock.yahoo.com/news/4%E6%97%A5%E7%8B%82%E9%A3%8627-15-%E5%A5%AA%E5%BC%B7%E5%8B%A2%E8%82%A1%E7%8E%8B-%E5%85%89%E7%BD%A9%E5%BB%A0-%E4%B8%8A%E5%8D%8A%E5%B9%B4%E6%88%90%E5%8A%9F%E8%BD%89%E7%9B%88-000000694.html",
       "meta": null
     },
     {
-      "title": "交棒危機 蔡鴻青：近千家上市櫃公司「傳不下去」",
-      "url": "https://tw.stock.yahoo.com/news/%E4%BA%A4%E6%A3%92%E5%8D%B1%E6%A9%9F-%E8%94%A1%E9%B4%BB%E9%9D%92-%E8%BF%91%E5%8D%83%E5%AE%B6%E4%B8%8A%E5%B8%82%E6%AB%83%E5%85%AC%E5%8F%B8-%E5%82%B3%E4%B8%8D%E4%B8%8B%E5%8E%BB-204852982.html",
+      "title": "搶進矽光子與CPO領域加持！「光電半導體巨頭」亮燈奪量價雙增王　金居與「功率半導體廠」奪榜眼探花",
+      "url": "https://tw.stock.yahoo.com/news/%E6%90%B6%E9%80%B2%E7%9F%BD%E5%85%89%E5%AD%90%E8%88%87cpo%E9%A0%98%E5%9F%9F%E5%8A%A0%E6%8C%81-%E5%85%89%E9%9B%BB%E5%8D%8A%E5%B0%8E%E9%AB%94%E5%B7%A8%E9%A0%AD-%E4%BA%AE%E7%87%88%E5%A5%AA%E9%87%8F%E5%83%B9%E9%9B%99%E5%A2%9E%E7%8E%8B-%E9%87%91%E5%B1%85%E8%88%87-%E5%8A%9F%E7%8E%87%E5%8D%8A%E5%B0%8E%E9%AB%94%E5%BB%A0-235500760.html",
       "meta": null
     },
     {
-      "title": "富強鑫取得中科先峰台灣、東南亞獨家代理權",
-      "url": "https://tw.stock.yahoo.com/news/%E5%AF%8C%E5%BC%B7%E9%91%AB%E5%8F%96%E5%BE%97%E4%B8%AD%E7%A7%91%E5%85%88%E5%B3%B0%E5%8F%B0%E7%81%A3-%E6%9D%B1%E5%8D%97%E4%BA%9E%E7%8D%A8%E5%AE%B6%E4%BB%A3%E7%90%86%E6%AC%8A-201716883.html",
+      "title": "蘋果iPhone 18系列「光學雙雄」吃補！大摩降評潑冷水　法人曝布局時機",
+      "url": "https://tw.stock.yahoo.com/news/%E8%98%8B%E6%9E%9Ciphone-18%E7%B3%BB%E5%88%97-%E5%85%89%E5%AD%B8%E9%9B%99%E9%9B%84-%E5%90%83%E8%A3%9C-%E5%A4%A7%E6%91%A9%E9%99%8D%E8%A9%95%E6%BD%91%E5%86%B7%E6%B0%B4-234000868.html",
       "meta": null
     },
     {
-      "title": "精粹台股核心50強 群益00415A 9/30開募",
-      "url": "https://tw.stock.yahoo.com/news/%E7%B2%BE%E7%B2%B9%E5%8F%B0%E8%82%A1%E6%A0%B8%E5%BF%8350%E5%BC%B7-%E7%BE%A4%E7%9B%8A00415a-9-30%E9%96%8B%E5%8B%9F-200856286.html",
+      "title": "AI巨頭示警放慢發展！全球科技股震盪　黃仁勳反駁末日論",
+      "url": "https://tw.stock.yahoo.com/news/ai%E5%B7%A8%E9%A0%AD%E7%A4%BA%E8%AD%A6%E6%94%BE%E6%85%A2%E7%99%BC%E5%B1%95-%E5%85%A8%E7%90%83%E7%A7%91%E6%8A%80%E8%82%A1%E9%9C%87%E7%9B%AA-%E9%BB%83%E4%BB%81%E5%8B%B3%E5%8F%8D%E9%A7%81%E6%9C%AB%E6%97%A5%E8%AB%96-233126387.html",
       "meta": null
     },
     {
-      "title": "存款利率輸通膨苦哈哈　銀行大賺利差笑哈哈",
-      "url": "https://tw.stock.yahoo.com/news/%E5%AD%98%E6%AC%BE%E5%88%A9%E7%8E%871-14-%E8%B7%91%E8%BC%B8%E9%80%9A%E8%86%A8-%E9%8C%A2%E6%94%BE%E9%8A%80%E8%A1%8C%E8%B3%BC%E8%B2%B7%E5%8A%9B%E4%BB%8D%E7%B8%AE%E6%B0%B4-194759033.html",
+      "title": "說好的本田精神？Honda找印度Tata Technologies開發平台 原因竟然是．．．",
+      "url": "https://autos.yahoo.com.tw/news/%E8%AA%AA%E5%A5%BD%E7%9A%84%E6%9C%AC%E7%94%B0%E7%B2%BE%E7%A5%9E%EF%BC%9Fhonda%E6%89%BE%E5%8D%B0%E5%BA%A6tata-technologies%E9%96%8B%E7%99%BC%E5%B9%B3%E5%8F%B0-%E5%8E%9F%E5%9B%A0%E7%AB%9F%E7%84%B6%E6%98%AF%EF%BC%8E%EF%BC%8E%EF%BC%8E-233000723.html",
       "meta": null
     }
   ],
@@ -979,7 +979,7 @@
       "extra_data": {
         "regular_market_price": 665.6,
         "pre_market_price": null,
-        "post_market_price": 665.0,
+        "post_market_price": 664.88,
         "prev_close": 648.03
       },
       "kd_k": 89.42,
@@ -993,7 +993,7 @@
       "extra_data": {
         "regular_market_price": 27.36,
         "pre_market_price": null,
-        "post_market_price": 27.24,
+        "post_market_price": 27.26,
         "prev_close": 25.95
       },
       "kd_k": 88.66,
@@ -1007,7 +1007,7 @@
       "extra_data": {
         "regular_market_price": 534.28,
         "pre_market_price": null,
-        "post_market_price": 537.84,
+        "post_market_price": 537.31,
         "prev_close": 567.29
       },
       "kd_k": 80.73,
