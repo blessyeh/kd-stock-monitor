@@ -1,5 +1,108 @@
 [
   {
+    "id": "DIA_20260915_oversold",
+    "symbol": "DIA",
+    "name": "SPDR Dow Jones Industrial Average ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.98,
+    "kd_d": 27.01,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 520.02,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ DIA (SPDR Dow Jones Industrial Average ETF) is OVERSOLD! KD-K: 18.98, KD-D: 27.01 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-15T23:28:35.004261",
+    "date": "2026-09-15",
+    "acknowledged": false
+  },
+  {
+    "id": "DLLL_20260915_overbought",
+    "symbol": "DLLL",
+    "name": "GraniteShares 2x Long DELL Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.33,
+    "kd_d": 76.65,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 34.92,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ DLLL (GraniteShares 2x Long DELL Daily ETF) is OVERBOUGHT! KD-K: 80.33, KD-D: 76.65 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-09-15T23:28:35.004828",
+    "date": "2026-09-15",
+    "acknowledged": false
+  },
+  {
+    "id": "QCOM_20260915_overbought",
+    "symbol": "QCOM",
+    "name": "QUALCOMM Incorporated",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.81,
+    "kd_d": 77.68,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 188.38,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ QCOM (QUALCOMM Incorporated) is OVERBOUGHT! KD-K: 82.81, KD-D: 77.68 (>= 80)",
+    "timestamp": "2026-09-15T23:28:35.005001",
+    "date": "2026-09-15",
+    "acknowledged": false
+  },
+  {
+    "id": "QCML_20260915_overbought",
+    "symbol": "QCML",
+    "name": "GraniteShares 2x Long QCOM Daily ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 82.32,
+    "kd_d": 77.12,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 19.5621,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ QCML (GraniteShares 2x Long QCOM Daily ETF) is OVERBOUGHT! KD-K: 82.32, KD-D: 77.12 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-09-15T23:28:35.005247",
+    "date": "2026-09-15",
+    "acknowledged": false
+  },
+  {
     "id": "2850.TW_20260915_oversold",
     "symbol": "2850.TW",
     "name": "新光產物保險",
@@ -2473,113 +2576,6 @@
     "market_regime_label": null,
     "message": "⚠️ 0056.TW (元大高股息) is OVERBOUGHT! KD-K: 86.01, KD-D: 85.01 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-09-11T02:03:24.290933",
-    "date": "2026-09-11",
-    "acknowledged": false
-  },
-  {
-    "id": "00640L.TW_20260911_oversold",
-    "symbol": "00640L.TW",
-    "name": "富邦日本正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.72,
-    "kd_d": 29.62,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 104.65,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00640L.TW (富邦日本正2) is OVERSOLD! KD-K: 17.72, KD-D: 29.62 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-11T02:03:24.291122",
-    "date": "2026-09-11",
-    "acknowledged": false
-  },
-  {
-    "id": "00652.TW_20260911_oversold",
-    "symbol": "00652.TW",
-    "name": "富邦印度",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 7.05,
-    "kd_d": 12.91,
-    "kd_state": "OVERSOLD",
-    "current_price": 32.03,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的97%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00652.TW (富邦印度) is OVERSOLD! KD-K: 7.05, KD-D: 12.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-11T02:03:24.291283",
-    "date": "2026-09-11",
-    "acknowledged": false
-  },
-  {
-    "id": "00653L.TW_20260911_oversold",
-    "symbol": "00653L.TW",
-    "name": "富邦印度正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 6.8,
-    "kd_d": 10.91,
-    "kd_state": "OVERSOLD",
-    "current_price": 43.68,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00653L.TW (富邦印度正2) is OVERSOLD! KD-K: 6.8, KD-D: 10.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-11T02:03:24.291426",
-    "date": "2026-09-11",
-    "acknowledged": false
-  },
-  {
-    "id": "00665L.TW_20260911_oversold",
-    "symbol": "00665L.TW",
-    "name": "富邦恒生國企正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.02,
-    "kd_d": 27.68,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 8.98,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00665L.TW (富邦恒生國企正2) is OVERSOLD! KD-K: 19.02, KD-D: 27.68 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-11T02:03:24.291586",
     "date": "2026-09-11",
     "acknowledged": false
   }
