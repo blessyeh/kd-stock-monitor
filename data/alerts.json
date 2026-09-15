@@ -1,5 +1,32 @@
 [
   {
+    "id": "00936.TW_20260916_oversold",
+    "symbol": "00936.TW",
+    "name": "台新永續高息中小",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.89,
+    "kd_d": 29.9,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 20.89,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00936.TW (台新永續高息中小) is OVERSOLD! KD-K: 18.89, KD-D: 29.9 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-16T06:41:32.990055",
+    "date": "2026-09-16",
+    "acknowledged": false
+  },
+  {
     "id": "2850.TW_20260916_oversold",
     "symbol": "2850.TW",
     "name": "新光產物保險",
@@ -2566,30 +2593,6 @@
     "market_regime_label": null,
     "message": "✅ 00665L.TW (富邦恒生國企正2) is OVERSOLD! KD-K: 19.34, KD-D: 24.9 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-09-12T00:53:39.110736",
-    "date": "2026-09-12",
-    "acknowledged": false
-  },
-  {
-    "id": "00713.TW_20260912_overbought",
-    "symbol": "00713.TW",
-    "name": "元大台灣高息低波",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 90.49,
-    "kd_d": 92.07,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 63.85,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00713.TW (元大台灣高息低波) is OVERBOUGHT! KD-K: 90.49, KD-D: 92.07 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-12T00:53:39.110910",
     "date": "2026-09-12",
     "acknowledged": false
   }
