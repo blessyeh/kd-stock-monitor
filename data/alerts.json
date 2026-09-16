@@ -1,5 +1,30 @@
 [
   {
+    "id": "NVDL_20260917_oversold",
+    "symbol": "NVDL",
+    "name": "GraniteShares 2x Long NVDA Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.65,
+    "kd_d": 28.92,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 32.39,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ NVDL (GraniteShares 2x Long NVDA Daily ETF) is OVERSOLD! KD-K: 19.65, KD-D: 28.92 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-17T04:50:58.184781",
+    "date": "2026-09-17",
+    "acknowledged": false
+  },
+  {
     "id": "00637L.TW_20260917_oversold",
     "symbol": "00637L.TW",
     "name": "元大滜深300正2",
@@ -2581,30 +2606,6 @@
     "market_regime_label": null,
     "message": "⚠️ 00915.TW (凱基優選高股息30) is OVERBOUGHT! KD-K: 90.13, KD-D: 89.19 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-09-14T01:13:56.551067",
-    "date": "2026-09-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00939.TW_20260914_overbought",
-    "symbol": "00939.TW",
-    "name": "統一台灣高息動能",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 82.16,
-    "kd_d": 85.94,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 23.78,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00939.TW (統一台灣高息動能) is OVERBOUGHT! KD-K: 82.16, KD-D: 85.94 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-14T01:13:56.551230",
     "date": "2026-09-14",
     "acknowledged": false
   }
