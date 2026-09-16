@@ -1,5 +1,84 @@
 [
   {
+    "id": "00770.TW_20260917_oversold",
+    "symbol": "00770.TW",
+    "name": "國泰北美科技",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 8.91,
+    "kd_d": 19.52,
+    "kd_state": "OVERSOLD",
+    "current_price": 61.7,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00770.TW (國泰北美科技) is OVERSOLD! KD-K: 8.91, KD-D: 19.52 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-17T07:30:49.957705",
+    "date": "2026-09-17",
+    "acknowledged": false
+  },
+  {
+    "id": "00921.TW_20260917_oversold",
+    "symbol": "00921.TW",
+    "name": "兆豐龍頭等權重",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 13.08,
+    "kd_d": 26.13,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 23.0,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00921.TW (兆豐龍頭等權重) is OVERSOLD! KD-K: 13.08, KD-D: 26.13 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-17T07:30:49.958712",
+    "date": "2026-09-17",
+    "acknowledged": false
+  },
+  {
+    "id": "00981A.TW_20260917_oversold",
+    "symbol": "00981A.TW",
+    "name": "主動統一台股增長",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.87,
+    "kd_d": 29.7,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 28.33,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的70%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00981A.TW (主動統一台股增長) is OVERSOLD! KD-K: 19.87, KD-D: 29.7 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-17T07:30:49.959377",
+    "date": "2026-09-17",
+    "acknowledged": false
+  },
+  {
     "id": "NVDL_20260917_oversold",
     "symbol": "NVDL",
     "name": "GraniteShares 2x Long NVDA Daily ETF",
@@ -2531,81 +2610,6 @@
     "market_regime_label": null,
     "message": "✅ 00852L.TW (國泰美國道瓊正2) is OVERSOLD! KD-K: 16.02, KD-D: 28.21 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-09-14T01:13:56.550556",
-    "date": "2026-09-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00858.TWO_20260914_oversold",
-    "symbol": "00858.TWO",
-    "name": "永豐美國500大",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 11.46,
-    "kd_d": 15.86,
-    "kd_state": "OVERSOLD",
-    "current_price": 35.41,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00858.TWO (永豐美國500大) is OVERSOLD! KD-K: 11.46, KD-D: 15.86 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-14T01:13:56.550734",
-    "date": "2026-09-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00878.TW_20260914_overbought",
-    "symbol": "00878.TW",
-    "name": "國泰永續高股息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 73.86,
-    "kd_d": 81.05,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 34.0,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00878.TW (國泰永續高股息) is OVERBOUGHT! KD-K: 73.86, KD-D: 81.05 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-14T01:13:56.550894",
-    "date": "2026-09-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00915.TW_20260914_overbought",
-    "symbol": "00915.TW",
-    "name": "凱基優選高股息30",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 90.13,
-    "kd_d": 89.19,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 32.92,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 00915.TW (凱基優選高股息30) is OVERBOUGHT! KD-K: 90.13, KD-D: 89.19 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-14T01:13:56.551067",
     "date": "2026-09-14",
     "acknowledged": false
   }
