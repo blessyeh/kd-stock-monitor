@@ -1,5 +1,138 @@
 [
   {
+    "id": "00665L.TW_20260916_oversold",
+    "symbol": "00665L.TW",
+    "name": "富邦恒生國企正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.32,
+    "kd_d": 21.57,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 8.87,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00665L.TW (富邦恒生國企正2) is OVERSOLD! KD-K: 18.32, KD-D: 21.57 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-16T15:08:44.342830",
+    "date": "2026-09-16",
+    "acknowledged": false
+  },
+  {
+    "id": "00670L.TW_20260916_oversold",
+    "symbol": "00670L.TW",
+    "name": "富邦NASDAQ",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.48,
+    "kd_d": 33.58,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 192.7,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00670L.TW (富邦NASDAQ) is OVERSOLD! KD-K: 19.48, KD-D: 33.58 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-16T15:08:44.343009",
+    "date": "2026-09-16",
+    "acknowledged": false
+  },
+  {
+    "id": "00753L.TW_20260916_oversold",
+    "symbol": "00753L.TW",
+    "name": "中信中國50正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.81,
+    "kd_d": 20.04,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 8.82,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 00753L.TW (中信中國50正2) is OVERSOLD! KD-K: 18.81, KD-D: 20.04 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-16T15:08:44.343596",
+    "date": "2026-09-16",
+    "acknowledged": false
+  },
+  {
+    "id": "00878.TW_20260916_overbought",
+    "symbol": "00878.TW",
+    "name": "國泰永續高股息",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.64,
+    "kd_d": 77.97,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 34.47,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "個股外資近3日轉為賣超達20日均量的87%（籌碼面轉弱，超買可能對應真正高點）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ 00878.TW (國泰永續高股息) is OVERBOUGHT! KD-K: 80.64, KD-D: 77.97 (>= 80)",
+    "timestamp": "2026-09-16T15:08:44.344137",
+    "date": "2026-09-16",
+    "acknowledged": false
+  },
+  {
+    "id": "009819.TW_20260916_oversold",
+    "symbol": "009819.TW",
+    "name": "中信數據及電力",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.05,
+    "kd_d": 30.43,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 9.42,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的79%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ 009819.TW (中信數據及電力) is OVERSOLD! KD-K: 19.05, KD-D: 30.43 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-16T15:08:44.344824",
+    "date": "2026-09-16",
+    "acknowledged": false
+  },
+  {
     "id": "2330.TW_20260916_oversold",
     "symbol": "2330.TW",
     "name": "台積電",
@@ -2458,140 +2591,6 @@
     "market_regime_label": null,
     "message": "⚠️ DLLL (GraniteShares 2x Long DELL Daily ETF) is OVERBOUGHT! KD-K: 80.28, KD-D: 73.49 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-09-12T06:11:51.960694",
-    "date": "2026-09-12",
-    "acknowledged": false
-  },
-  {
-    "id": "0056.TW_20260912_overbought",
-    "symbol": "0056.TW",
-    "name": "元大高股息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 74.0,
-    "kd_d": 81.34,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 55.3,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 0056.TW (元大高股息) is OVERBOUGHT! KD-K: 74.0, KD-D: 81.34 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-12T00:53:39.109663",
-    "date": "2026-09-12",
-    "acknowledged": false
-  },
-  {
-    "id": "00640L.TW_20260912_oversold",
-    "symbol": "00640L.TW",
-    "name": "富邦日本正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 15.05,
-    "kd_d": 24.77,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 103.45,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00640L.TW (富邦日本正2) is OVERSOLD! KD-K: 15.05, KD-D: 24.77 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-12T00:53:39.109927",
-    "date": "2026-09-12",
-    "acknowledged": false
-  },
-  {
-    "id": "00645.TW_20260912_oversold",
-    "symbol": "00645.TW",
-    "name": "富邦日本",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.57,
-    "kd_d": 28.89,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 56.9,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的33%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00645.TW (富邦日本) is OVERSOLD! KD-K: 19.57, KD-D: 28.89 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-12T00:53:39.110146",
-    "date": "2026-09-12",
-    "acknowledged": false
-  },
-  {
-    "id": "00652.TW_20260912_oversold",
-    "symbol": "00652.TW",
-    "name": "富邦印度",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 4.45,
-    "kd_d": 10.09,
-    "kd_state": "OVERSOLD",
-    "current_price": 31.86,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的94%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00652.TW (富邦印度) is OVERSOLD! KD-K: 4.45, KD-D: 10.09 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-12T00:53:39.110354",
-    "date": "2026-09-12",
-    "acknowledged": false
-  },
-  {
-    "id": "00653L.TW_20260912_oversold",
-    "symbol": "00653L.TW",
-    "name": "富邦印度正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 6.85,
-    "kd_d": 9.56,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 43.1,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "✅ 00653L.TW (富邦印度正2) is OVERSOLD! KD-K: 6.85, KD-D: 9.56 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-09-12T00:53:39.110546",
     "date": "2026-09-12",
     "acknowledged": false
   }
