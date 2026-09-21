@@ -1,120 +1,118 @@
 {
-  "timestamp": "2026-09-21T19:52:34.115245",
-  "date": "2026-09-21",
+  "timestamp": "2026-09-22T01:48:33.615650",
+  "date": "2026-09-22",
   "macro": {
     "taiex": {
-      "value": 47718.84,
-      "change": 538.09,
-      "change_pct": 1.14
+      "value": 47180.75,
+      "change": 0.0,
+      "change_pct": 0.0
     },
     "us10y": {
-      "value": 4.998,
-      "change": 0.051,
-      "change_pct": 1.03
+      "value": 4.965,
+      "change": -0.033,
+      "change_pct": -0.66
     },
     "dxy": {
-      "value": 100.26,
+      "value": 100.41,
       "change": 0.0,
       "change_pct": 0.0
     },
     "fear_greed": {
-      "value": 14.86,
-      "change": 0.05,
-      "change_pct": 0.34,
+      "value": 15.04,
+      "change": 0.23,
+      "change_pct": 1.55,
       "label": "VIX Index",
-      "timestamp": "2026-09-21T19:52:26.536580"
+      "timestamp": "2026-09-22T01:47:17.104197"
     },
     "btc": {
-      "value": 84893.0,
-      "change": 3750.0,
-      "change_pct": 4.62
+      "value": 85845.0,
+      "change": 4703.0,
+      "change_pct": 5.8
     },
     "oil": {
-      "value": 93.43,
+      "value": 92.05,
       "change": 0.0,
       "change_pct": 0.0
     },
     "gold": {
-      "value": 4400.8,
+      "value": 4378.1,
       "change": 0.0,
       "change_pct": 0.0
     },
     "sox": {
-      "value": 11921.69,
-      "change": 322.2,
-      "change_pct": 2.78
+      "value": 12367.46,
+      "change": 445.77,
+      "change_pct": 3.74
     },
     "ndx": {
-      "value": 29644.17,
-      "change": 197.19,
-      "change_pct": 0.67
+      "value": 30415.84,
+      "change": 771.67,
+      "change_pct": 2.6
     },
     "sp500": {
-      "value": 7650.5,
-      "change": 12.74,
-      "change_pct": 0.17
+      "value": 7761.03,
+      "change": 110.53,
+      "change_pct": 1.44
     }
   },
   "chip": {
     "foreign_net": {
-      "value": 869.94,
+      "value": 204.79,
       "unit": "億元",
-      "date": "2026-09-18",
-      "change": 748.09,
-      "change_pct": 613.94
+      "date": "2026-09-21",
+      "change": -665.15,
+      "change_pct": -76.46
     },
     "trust_net": {
-      "value": 81.53,
+      "value": 45.96,
       "unit": "億元",
-      "date": "2026-09-18",
-      "change": -35.5,
-      "change_pct": -30.33
+      "date": "2026-09-21",
+      "change": -35.57,
+      "change_pct": -43.63
     },
     "margin_balance": {
-      "value": 9279815.0,
-      "change": 18022.0,
-      "change_pct": 0.19,
+      "value": 9330477.0,
+      "change": 53272.0,
+      "change_pct": 0.57,
       "unit": "張",
-      "date": "2026-09-18"
+      "date": "2026-09-21"
     },
     "margin_balance_amount": {
-      "value": 5940.39,
-      "change": 46.42,
-      "change_pct": 0.79,
+      "value": 6030.38,
+      "change": 89.98,
+      "change_pct": 1.51,
       "unit": "億元",
-      "date": "2026-09-18"
+      "date": "2026-09-21"
     },
     "short_balance": {
-      "value": 222965.0,
-      "change": 6677.0,
-      "change_pct": 3.09,
+      "value": 231582.0,
+      "change": 8619.0,
+      "change_pct": 3.87,
       "unit": "張",
-      "date": "2026-09-18"
+      "date": "2026-09-21"
     },
     "margin_short_ratio": {
-      "value": 2.4,
-      "change": 0.07,
-      "change_pct": 2.89,
+      "value": 2.48,
+      "change": 0.08,
+      "change_pct": 3.27,
       "unit": "%"
     },
     "usdtwd": {
-      "value": 31.763,
-      "change": -0.088,
-      "change_pct": -0.28
+      "value": 31.718,
+      "change": -0.133,
+      "change_pct": -0.42
     },
     "foreign_futures_net": {
-      "value": -76110,
+      "value": -74081,
       "unit": "口",
-      "date": "2026-09-18",
-      "change": 2564,
-      "change_pct": 3.26
+      "date": "2026-09-21",
+      "change": 2029,
+      "change_pct": 2.67
     },
     "put_call_ratio": {
-      "value": null,
-      "change": null,
-      "change_pct": null,
+      "value": 96.2,
       "unit": "%",
-      "date": null
+      "date": "2026-09-21"
     },
     "night_session": {
       "close": 47405.0,
@@ -127,8 +125,8 @@
   },
   "signal_confluence": {
     "available": true,
-    "as_of_date": "2026-09-18",
-    "history_days": 75,
+    "as_of_date": "2026-09-21",
+    "history_days": 76,
     "top": {
       "conditions": [
         {
@@ -136,48 +134,48 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 100.26 vs 近20日高點 100.47（未突破）；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
-          "score": 33.3
+          "detail": "DXY 100.41 vs 近20日高點 100.47（未突破）；美債10Y 5日變動 -0.04pp（未達 0.15pp）",
+          "score": 31.5
         },
         {
           "id": "twd_depreciation",
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.136（貶值門檻 0.3）",
-          "score": 38.1
+          "detail": "USD/TWD 5日變動 -0.019（貶值門檻 0.3）",
+          "score": 18.7
         },
         {
           "id": "foreign_dual_short",
           "label": "外資期現貨雙空",
           "status": false,
           "completeness": "full",
-          "detail": "外資現貨連續3日賣超：否（[-179.8, 121.8, 869.9]億元）；台指期淨部位 -76110口（達 -30000口門檻）",
+          "detail": "外資現貨連續3日賣超：否（[121.8, 869.9, 204.8]億元）；台指期淨部位 -74081口（達 -30000口門檻）",
           "score": 50.0
         },
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": null,
+          "status": false,
           "completeness": "full",
-          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷",
-          "score": null
+          "detail": "今日外資買超；融資餘額5日未回落（6030億元）；P/C Ratio 96.2%（< 100%門檻）",
+          "score": 84.7
         },
         {
           "id": "tech_capital_retreat",
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11922未跌破近20日支撐11176；NDX 29644未跌破近20日支撐28938；美債10Y 5日變動 +0.02pp（未達 0.15pp）",
-          "score": 59.2
+          "detail": "SOX 12367未跌破近20日支撐11176；NDX 30416未跌破近20日支撐28938；美債10Y 5日變動 -0.04pp（未達 0.15pp）",
+          "score": 53.2
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 4,
+      "evaluated_count": 5,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 45.2
+      "avg_score": 47.6
     },
     "bottom": {
       "conditions": [
@@ -186,24 +184,24 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 17.8（<= 30.0門檻）；目前 14.9（較高點回落 16%，門檻 15%）",
-          "score": 31.2
+          "detail": "近10日VIX高點 17.8（<= 30.0門檻）；目前 15.0（較高點回落 15%，門檻 15%）",
+          "score": 30.3
         },
         {
           "id": "margin_capitulation",
           "label": "散戶投降/融資斷頭式大減",
-          "status": true,
+          "status": false,
           "completeness": "full",
-          "detail": "近5個交易日融資餘額最大單日減幅 -40億元（斷頭式門檻 -30億元）",
+          "detail": "近5個交易日融資餘額最大單日減幅 -16億元（斷頭式門檻 -30億元）",
           "score": 0.0
         },
         {
           "id": "foreign_short_covering",
           "label": "外資空單回補與匯率止穩",
-          "status": false,
+          "status": true,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.136（仍在貶值）；外資今日轉買超，近期均值 -389.5億元；台指期淨部位5日變動 +8957口（回補中）",
-          "score": 67.4
+          "detail": "USD/TWD 5日變動 -0.019（止穩/升值）；外資今日轉買超，近期均值 -36.9億元；台指期淨部位5日變動 +8577口（回補中）",
+          "score": 74.6
         }
       ],
       "total_conditions": 3,
@@ -211,15 +209,15 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 32.9
+      "avg_score": 35.0
     },
     "bottom_reversal_score": {
-      "total": 67.4,
+      "total": 74.6,
       "components": [
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 32.3
+          "score": 57.5
         },
         {
           "name": "foreign_flow_reversal",
@@ -229,34 +227,34 @@
         {
           "name": "futures_covering",
           "weight": 35,
-          "score": 64.9
+          "score": 63.9
         }
       ]
     }
   },
   "market_regime": {
     "available": false,
-    "as_of_date": "2026-09-18",
+    "as_of_date": "2026-09-21",
     "regime": "UNKNOWN",
     "regime_label": "資料不足",
     "ma_period_used": null,
-    "detail": "TAIEX 歷史資料僅 31 天（且/或期間內有缺漏），尚不足以判斷任何均線週期的市場狀態（資料會隨每日執行自動累積）",
+    "detail": "TAIEX 歷史資料僅 32 天（且/或期間內有缺漏），尚不足以判斷任何均線週期的市場狀態（資料會隨每日執行自動累積）",
     "metrics": {}
   },
   "signal_score": {
     "available": true,
-    "as_of_date": "2026-09-18",
-    "history_days": 75,
+    "as_of_date": "2026-09-21",
+    "history_days": 76,
     "bottom": {
-      "total": 39.7,
+      "total": 42.1,
       "dimensions": [
         {
           "name": "macro",
-          "score": 9.9,
+          "score": 8.9,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 17.8 → 目前 14.9（強度 31/100，+4.7）",
-            "DXY 100.26 距近20日高點 -0.21%（美元壓力緩和強度 53/100，+5.3）"
+            "VIX 近10日高點 17.8 → 目前 15.0（強度 30/100，+4.6）",
+            "DXY 100.41 距近20日高點 -0.06%（美元壓力緩和強度 44/100，+4.4）"
           ]
         },
         {
@@ -264,16 +262,17 @@
           "score": 10.0,
           "cap": 25,
           "notes": [
-            "近5日融資餘額最大單日減幅 -40億元（斷頭強度 0/100，+0.0）",
-            "外資今日 +869.9億元，較近5日均值 -389.5億元（轉強強度 100/100，+10.0）"
+            "近5日融資餘額最大單日減幅 -16億元（斷頭強度 0/100，+0.0）",
+            "外資今日 +204.8億元，較近5日均值 -36.9億元（轉強強度 100/100，+10.0）"
           ]
         },
         {
           "name": "derivative",
-          "score": 7.8,
+          "score": 11.2,
           "cap": 20,
           "notes": [
-            "台指期淨空單5日變動 +8957口（回補強度 65/100，+7.8）"
+            "台指期淨空單5日變動 +8577口（回補強度 64/100，+7.7）",
+            "P/C Ratio 96.2%（避險需求強度 44/100，+3.5）"
           ]
         },
         {
@@ -281,8 +280,8 @@
           "score": 12.0,
           "cap": 20,
           "notes": [
-            "TAIEX 47,719 距20日布林下軌 45,077 +5.86%（強度 100/100，+12.0）",
-            "TAIEX 14日RSI 55.7（超賣強度 0/100，+0.0）"
+            "TAIEX 47,181 距20日布林下軌 45,266 +4.23%（強度 100/100，+12.0）",
+            "TAIEX 14日RSI 57.8（超賣強度 0/100，+0.0）"
           ]
         },
         {
@@ -290,55 +289,56 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近73筆歷史樣本的第 7 百分位（恐慌強度 0/100，+0.0）"
+            "VIX 處於近74筆歷史樣本的第 14 百分位（恐慌強度 0/100，+0.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 46.9,
+      "total": 43.4,
       "dimensions": [
         {
           "name": "macro",
-          "score": 10.9,
+          "score": 10.0,
           "cap": 25,
           "notes": [
-            "DXY 100.26 距近20日高點 -0.21%，美債10Y5日變動 +0.02pp（強度 33/100，+5.0）",
-            "SOX/NDX 距近20日支撐 +2.44%，美債10Y同步變動（強度 59/100，+5.9）"
+            "DXY 100.41 距近20日高點 -0.06%，美債10Y5日變動 -0.04pp（強度 31/100，+4.7）",
+            "SOX/NDX 距近20日支撐 +5.11%，美債10Y同步變動（強度 53/100，+5.3）"
           ]
         },
         {
           "name": "chip_flow",
-          "score": 18.8,
+          "score": 16.9,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 +0.136（強度 38/100，+3.8）",
-            "外資今日 +869.9億元，融資餘額5日變動 +62億元（散戶未離場強度 100/100，+15.0）"
+            "新台幣5日貶值 -0.019（強度 19/100，+1.9）",
+            "外資今日 +204.8億元，融資餘額5日變動 +192億元（散戶未離場強度 100/100，+15.0）"
           ]
         },
         {
           "name": "derivative",
-          "score": 0,
+          "score": 4.5,
           "cap": 20,
           "notes": [
-            "外資台指期淨空單 -76110口（強度 0/100，+0.0）"
+            "外資台指期淨空單 -74081口（強度 0/100，+0.0）",
+            "P/C Ratio 96.2%（自滿強度 56/100，+4.5）"
           ]
         },
         {
           "name": "technical",
-          "score": 7.6,
+          "score": 3.7,
           "cap": 20,
           "notes": [
-            "TAIEX 47,719 距20日布林上軌 47,734 -0.03%（強度 54/100，+6.5）",
-            "TAIEX 14日RSI 55.7（超買強度 14/100，+1.1）"
+            "TAIEX 47,181 距20日布林上軌 47,746 -1.18%（強度 18/100，+2.2）",
+            "TAIEX 14日RSI 57.8（超買強度 20/100，+1.6）"
           ]
         },
         {
           "name": "sentiment",
-          "score": 9.6,
+          "score": 8.3,
           "cap": 10,
           "notes": [
-            "VIX 處於近73筆歷史樣本的第 7 百分位（自滿強度 96/100，+9.6）"
+            "VIX 處於近74筆歷史樣本的第 14 百分位（自滿強度 83/100，+8.3）"
           ]
         }
       ]
@@ -408,7 +408,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 +3.3%；相對TAIEX -3.3pp、相對SOX -1.5pp、相對NDX +1.3pp"
+          "2330 近20日漲跌 +3.3%；相對TAIEX -1.1pp、相對SOX -3.3pp、相對NDX -0.8pp"
         ]
       },
       {
@@ -417,7 +417,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "近3日累計外資 +2089 張，同期股價上漲",
+          "近3日累計外資 +13523 張，同期股價上漲",
           "趨勢確認（價漲＋外資買）"
         ]
       },
@@ -427,7 +427,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $434.7 換算2330隱含價 2761.3元，2330現價 2480.0元（折價 10.2%）",
+          "TSM ADR $442.7 換算2330隱含價 2808.6元，2330現價 2480.0元（折價 11.7%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -446,7 +446,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "目前本益比 28.5，位於近730筆歷史資料的第 77 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+          "目前本益比 28.8，位於近731筆歷史資料的第 78 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
         ]
       }
     ],
@@ -455,8 +455,8 @@
   },
   "signal_backtest": {
     "available": true,
-    "as_of_date": "2026-09-18",
-    "log_days": 26,
+    "as_of_date": "2026-09-21",
+    "log_days": 27,
     "signals": {
       "macro_drain": {
         "label": "macro_drain",
@@ -493,7 +493,7 @@
             "insufficient_sample": true
           },
           "3": {
-            "sample_size": 1,
+            "sample_size": 2,
             "insufficient_sample": true
           },
           "5": {
@@ -519,11 +519,11 @@
             "insufficient_sample": true
           },
           "3": {
-            "sample_size": 2,
+            "sample_size": 3,
             "insufficient_sample": true
           },
           "5": {
-            "sample_size": 0,
+            "sample_size": 1,
             "insufficient_sample": true
           },
           "10": {
@@ -575,7 +575,7 @@
             "insufficient_sample": true
           },
           "5": {
-            "sample_size": 0,
+            "sample_size": 1,
             "insufficient_sample": true
           },
           "10": {
@@ -619,38 +619,38 @@
         "direction": "bottom",
         "horizons": {
           "1": {
-            "sample_size": 15,
+            "sample_size": 16,
             "insufficient_sample": false,
-            "win_rate": 66.7,
-            "avg_return": 0.38,
-            "expectancy": 0.38,
+            "win_rate": 62.5,
+            "avg_return": 0.29,
+            "expectancy": 0.29,
             "worst_case_return": -1.61,
-            "sharpe": 0.38
+            "sharpe": 0.27
           },
           "3": {
-            "sample_size": 13,
+            "sample_size": 14,
             "insufficient_sample": false,
-            "win_rate": 69.2,
-            "avg_return": 0.67,
-            "expectancy": 0.67,
+            "win_rate": 71.4,
+            "avg_return": 0.76,
+            "expectancy": 0.76,
             "worst_case_return": -3.04,
-            "sharpe": 0.3
+            "sharpe": 0.35
           },
           "5": {
-            "sample_size": 11,
+            "sample_size": 12,
             "insufficient_sample": false,
-            "win_rate": 54.5,
-            "avg_return": 0.62,
-            "expectancy": 0.62,
+            "win_rate": 58.3,
+            "avg_return": 0.87,
+            "expectancy": 0.87,
             "worst_case_return": -3.38,
-            "sharpe": 0.22
+            "sharpe": 0.31
           },
           "10": {
-            "sample_size": 7,
+            "sample_size": 8,
             "insufficient_sample": true
           },
           "20": {
-            "sample_size": 4,
+            "sample_size": 5,
             "insufficient_sample": true
           }
         }
@@ -746,7 +746,7 @@
             "insufficient_sample": true
           },
           "5": {
-            "sample_size": 0,
+            "sample_size": 1,
             "insufficient_sample": true
           },
           "10": {
@@ -776,7 +776,7 @@
             "insufficient_sample": true
           },
           "10": {
-            "sample_size": 2,
+            "sample_size": 3,
             "insufficient_sample": true
           },
           "20": {
@@ -816,20 +816,20 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-09-21",
+      "as_of_date": "2026-09-22",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-09-21",
+      "as_of_date": "2026-09-22",
       "fetched": true
     },
     "tw_chip": {
-      "as_of_date": "2026-09-18",
-      "fetched": false
+      "as_of_date": "2026-09-21",
+      "fetched": true
     },
     "tsmc_fundamentals": {
-      "as_of_date": "2026-09-18",
-      "fetched": false
+      "as_of_date": "2026-09-21",
+      "fetched": true
     }
   },
   "news": [
@@ -859,38 +859,38 @@
       "meta": null
     },
     {
-      "title": "本業虧損近5億！西日本新聞靠「不動產、賣魚板」活下來  日本百年報紙生存啟示錄",
-      "url": "https://tw.stock.yahoo.com/news/%E6%9C%AC%E6%A5%AD%E8%99%A7%E6%90%8D%E8%BF%915%E5%84%84-%E8%A5%BF%E6%97%A5%E6%9C%AC%E6%96%B0%E8%81%9E%E9%9D%A0-%E4%B8%8D%E5%8B%95%E7%94%A2-%E8%B3%A3%E9%AD%9A%E6%9D%BF-%E6%B4%BB%E4%B8%8B%E4%BE%86-114318739.html",
+      "title": "台股中秋恐遇變盤魔咒？杜金龍破解「今年不一樣」：連假前可先布局這6檔",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E4%B8%AD%E7%A7%8B%E6%81%90%E9%81%87%E8%AE%8A%E7%9B%A4%E9%AD%94%E5%92%92-%E6%9D%9C%E9%87%91%E9%BE%8D%E7%A0%B4%E8%A7%A3-%E4%BB%8A%E5%B9%B4%E4%B8%8D-%E6%A8%A3-%E9%80%A3%E5%81%87%E5%89%8D%E5%8F%AF%E5%85%88%E5%B8%83%E5%B1%80%E9%80%996%E6%AA%94-163000922.html",
       "meta": null
     },
     {
-      "title": "iPhone舊機估價有撇步? 擦乾淨後回收估價竟多5千元",
-      "url": "https://tw.stock.yahoo.com/news/iphone%E8%88%8A%E6%A9%9F%E4%BC%B0%E5%83%B9%E6%9C%89%E6%92%87%E6%AD%A5-%E6%93%A6%E4%B9%BE%E6%B7%A8%E5%BE%8C%E5%9B%9E%E6%94%B6%E4%BC%B0%E5%83%B9%E7%AB%9F%E5%A4%9A5%E5%8D%83%E5%85%83-113712863.html",
+      "title": "頸、腿、手、胸全中刀！人壽大樓喋血2男送醫　富邦急發聲明",
+      "url": "https://tw.stock.yahoo.com/news/%E9%A0%B8-%E8%85%BF-%E6%89%8B-%E8%83%B8%E5%85%A8%E4%B8%AD%E5%88%80-%E4%BA%BA%E5%A3%BD%E5%A4%A7%E6%A8%93%E5%96%8B%E8%A1%802%E7%94%B7%E9%80%81%E9%86%AB-054043806.html",
       "meta": null
     },
     {
-      "title": "國姓鄉農會「北港溪農創工場」開幕　許淑華期許成為觀光農業發展的火車頭",
-      "url": "https://tw.stock.yahoo.com/news/%E5%9C%8B%E5%A7%93%E9%84%89%E8%BE%B2%E6%9C%83-%E5%8C%97%E6%B8%AF%E6%BA%AA%E8%BE%B2%E5%89%B5%E5%B7%A5%E5%A0%B4-%E9%96%8B%E5%B9%95-%E8%A8%B1%E6%B7%91%E8%8F%AF%E6%9C%9F%E8%A8%B1%E6%88%90%E7%82%BA%E8%A7%80%E5%85%89%E8%BE%B2%E6%A5%AD%E7%99%BC%E5%B1%95%E7%9A%84%E7%81%AB%E8%BB%8A%E9%A0%AD-113511629.html",
+      "title": "不滿分紅! 美光勞資協調正式破局 工會啟動罷工程序",
+      "url": "https://tw.stock.yahoo.com/news/%E4%B8%8D%E6%BB%BF%E5%88%86%E7%B4%85-%E7%BE%8E%E5%85%89%E5%8B%9E%E8%B3%87%E5%8D%94%E8%AA%BF%E6%AD%A3%E5%BC%8F%E7%A0%B4%E5%B1%80-%E5%B7%A5%E6%9C%83%E5%95%9F%E5%8B%95%E7%BD%B7%E5%B7%A5%E7%A8%8B%E5%BA%8F-150339534.html",
       "meta": null
     },
     {
-      "title": "黃仁勳千份潤餅成絕響! \"萊客潤餅捲\"創始店原址頂讓",
-      "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E5%8D%83%E4%BB%BD%E6%BD%A4%E9%A4%85%E6%88%90%E7%B5%95%E9%9F%BF-%E8%90%8A%E5%AE%A2%E6%BD%A4%E9%A4%85%E6%8D%B2-%E5%89%B5%E5%A7%8B%E5%BA%97%E5%8E%9F%E5%9D%80%E9%A0%82%E8%AE%93-113402174.html",
+      "title": "FQ-42「復仇者」在克里奇空軍基地找到新家",
+      "url": "https://tw.stock.yahoo.com/news/fq-42-%E5%BE%A9%E4%BB%87%E8%80%85-%E5%9C%A8%E5%85%8B%E9%87%8C%E5%A5%87%E7%A9%BA%E8%BB%8D%E5%9F%BA%E5%9C%B0%E6%89%BE%E5%88%B0%E6%96%B0%E5%AE%B6-150000266.html",
       "meta": null
     },
     {
-      "title": "美光賺翻! 台灣員工\"不滿獎金不公\" 工會不排除罷工",
-      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E5%85%89%E8%B3%BA%E7%BF%BB-%E5%8F%B0%E7%81%A3%E5%93%A1%E5%B7%A5-%E4%B8%8D%E6%BB%BF%E7%8D%8E%E9%87%91%E4%B8%8D%E5%85%AC-%E5%B7%A5%E6%9C%83%E4%B8%8D%E6%8E%92%E9%99%A4%E7%BD%B7%E5%B7%A5-113100143.html",
+      "title": "全年EPS挑戰4股本！「電供大廠」今大漲8%、成交金額衝破300億元　自營商撒12.8億元加碼698張",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%A8%E5%B9%B4eps%E6%8C%91%E6%88%B04%E8%82%A1%E6%9C%AC-%E9%9B%BB%E4%BE%9B%E5%A4%A7%E5%BB%A0-%E4%BB%8A%E5%A4%A7%E6%BC%B28-%E6%88%90%E4%BA%A4%E9%87%91%E9%A1%8D%E8%A1%9D%E7%A0%B4300%E5%84%84%E5%85%83-%E8%87%AA%E7%87%9F%E5%95%86%E6%92%9212-145000073.html",
       "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
-  "overbought_count": 9,
+  "new_alerts": 15,
+  "overbought_count": 11,
   "oversold_count": 4,
-  "normal_count": 114,
+  "normal_count": 112,
   "overbought_stocks": [
     {
       "symbol": "00713.TW",
@@ -935,88 +935,116 @@
       "kd_d": 88.28
     },
     {
+      "symbol": "00940.TW",
+      "name": "元大台灣價值高息",
+      "current_price": 13.1,
+      "change_pct": 1.31,
+      "extra_data": {
+        "regular_market_price": 13.1,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 12.93
+      },
+      "kd_k": 81.75,
+      "kd_d": 73.9
+    },
+    {
       "symbol": "AAPL",
       "name": "Apple Inc.",
-      "current_price": 336.13,
-      "change_pct": -0.26,
+      "current_price": 338.7299,
+      "change_pct": 0.77,
       "extra_data": {
-        "regular_market_price": 336.13,
-        "pre_market_price": 336.0701,
+        "regular_market_price": 338.7299,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 337.0
+        "prev_close": 336.13
       },
-      "kd_k": 87.17,
-      "kd_d": 80.47
+      "kd_k": 90.84,
+      "kd_d": 83.93
     },
     {
       "symbol": "META",
       "name": "Meta Platforms Inc.",
-      "current_price": 665.75,
-      "change_pct": -2.43,
+      "current_price": 742.62,
+      "change_pct": 11.63,
       "extra_data": {
-        "regular_market_price": 665.75,
-        "pre_market_price": 681.82,
+        "regular_market_price": 742.62,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 682.31
+        "prev_close": 665.225
       },
-      "kd_k": 83.93,
-      "kd_d": 87.0
+      "kd_k": 88.7,
+      "kd_d": 87.57
     },
     {
       "symbol": "AMD",
       "name": "Advanced Micro Devices Inc.",
-      "current_price": 559.82,
-      "change_pct": 2.7,
+      "current_price": 607.4,
+      "change_pct": 8.5,
       "extra_data": {
-        "regular_market_price": 559.82,
-        "pre_market_price": 575.34,
+        "regular_market_price": 607.4,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 545.09
+        "prev_close": 559.82
       },
-      "kd_k": 87.76,
-      "kd_d": 79.07
+      "kd_k": 89.73,
+      "kd_d": 82.62
+    },
+    {
+      "symbol": "CRWD",
+      "name": "CrowdStrike Holdings Inc.",
+      "current_price": 247.785,
+      "change_pct": 4.26,
+      "extra_data": {
+        "regular_market_price": 247.785,
+        "pre_market_price": null,
+        "post_market_price": null,
+        "prev_close": 237.65
+      },
+      "kd_k": 83.02,
+      "kd_d": 74.47
     },
     {
       "symbol": "FBL",
       "name": "GraniteShares 2x Long META Daily ETF",
-      "current_price": 27.3,
-      "change_pct": -5.01,
+      "current_price": 33.665,
+      "change_pct": 23.32,
       "extra_data": {
-        "regular_market_price": 27.3,
-        "pre_market_price": 28.6739,
+        "regular_market_price": 33.665,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 28.74
+        "prev_close": 27.3
       },
-      "kd_k": 83.11,
-      "kd_d": 86.29
+      "kd_k": 88.36,
+      "kd_d": 86.98
     },
     {
       "symbol": "AMDL",
       "name": "GraniteShares 2x Long AMD Daily ETF",
-      "current_price": 67.015,
-      "change_pct": 5.35,
+      "current_price": 78.534,
+      "change_pct": 17.19,
       "extra_data": {
-        "regular_market_price": 67.015,
-        "pre_market_price": 70.88,
+        "regular_market_price": 78.534,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 63.61
+        "prev_close": 67.015
       },
-      "kd_k": 86.04,
-      "kd_d": 76.78
+      "kd_k": 88.52,
+      "kd_d": 80.69
     },
     {
       "symbol": "DELL",
       "name": "Dell Technologies Inc.",
-      "current_price": 568.06,
-      "change_pct": -3.46,
+      "current_price": 577.205,
+      "change_pct": 1.61,
       "extra_data": {
-        "regular_market_price": 568.06,
-        "pre_market_price": 580.7396,
+        "regular_market_price": 577.205,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 588.4
+        "prev_close": 568.06
       },
-      "kd_k": 80.68,
-      "kd_d": 81.66
+      "kd_k": 80.29,
+      "kd_d": 81.2
     }
   ],
   "oversold_stocks": [
@@ -1049,32 +1077,32 @@
       "kd_d": 11.04
     },
     {
-      "symbol": "NFLX",
-      "name": "Netflix Inc.",
-      "current_price": 71.79,
-      "change_pct": -4.67,
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "current_price": 237.775,
+      "change_pct": -0.06,
       "extra_data": {
-        "regular_market_price": 71.79,
-        "pre_market_price": 71.7599,
+        "regular_market_price": 237.775,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 75.31
+        "prev_close": 237.92
       },
-      "kd_k": 18.78,
-      "kd_d": 25.37
+      "kd_k": 16.7,
+      "kd_d": 30.01
     },
     {
-      "symbol": "NFXL",
-      "name": "Direxion Daily NFLX Bull 2X Shares",
-      "current_price": 14.93,
-      "change_pct": -9.35,
+      "symbol": "CRMG",
+      "name": "Leverage Shares 2X Long CRM Daily ETF",
+      "current_price": 8.515,
+      "change_pct": -0.18,
       "extra_data": {
-        "regular_market_price": 14.93,
-        "pre_market_price": 14.9096,
+        "regular_market_price": 8.515,
+        "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 16.47
+        "prev_close": 8.53
       },
-      "kd_k": 16.67,
-      "kd_d": 22.99
+      "kd_k": 15.3,
+      "kd_d": 28.02
     }
   ],
   "errors": []
