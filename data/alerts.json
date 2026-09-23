@@ -1,5 +1,30 @@
 [
   {
+    "id": "FNGS_20260924_overbought",
+    "symbol": "FNGS",
+    "name": "MicroSectors FANG+ Index ETN",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 84.66,
+    "kd_d": 70.31,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 83.55,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ FNGS (MicroSectors FANG+ Index ETN) is OVERBOUGHT! KD-K: 84.66, KD-D: 70.31 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-09-24T06:00:13.121910",
+    "date": "2026-09-24",
+    "acknowledged": false
+  },
+  {
     "id": "00640L.TW_20260924_overbought",
     "symbol": "00640L.TW",
     "name": "富邦日本正2",
@@ -2525,31 +2550,6 @@
     "market_regime_label": null,
     "message": "⚠️ AMD (Advanced Micro Devices Inc.) is OVERBOUGHT! KD-K: 89.73, KD-D: 82.62 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-09-22T01:48:30.153572",
-    "date": "2026-09-22",
-    "acknowledged": false
-  },
-  {
-    "id": "CRWD_20260922_overbought",
-    "symbol": "CRWD",
-    "name": "CrowdStrike Holdings Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 83.02,
-    "kd_d": 74.47,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 247.785,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ CRWD (CrowdStrike Holdings Inc.) is OVERBOUGHT! KD-K: 83.02, KD-D: 74.47 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-22T01:48:30.153735",
     "date": "2026-09-22",
     "acknowledged": false
   }
