@@ -1,5 +1,81 @@
 [
   {
+    "id": "MU_20260925_overbought",
+    "symbol": "MU",
+    "name": "Micron Technology Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.47,
+    "kd_d": 71.19,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 1080.53,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ MU (Micron Technology Inc.) is OVERBOUGHT! KD-K: 81.47, KD-D: 71.19 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-09-25T04:15:32.507745",
+    "date": "2026-09-25",
+    "acknowledged": false
+  },
+  {
+    "id": "FNGG_20260925_overbought",
+    "symbol": "FNGG",
+    "name": "Direxion Daily NYSE FANG+ Bull 2X Shares",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.79,
+    "kd_d": 70.46,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 281.6845,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "⚠️ FNGG (Direxion Daily NYSE FANG+ Bull 2X Shares) is OVERBOUGHT! KD-K: 80.79, KD-D: 70.46 (>= 80)",
+    "timestamp": "2026-09-25T04:15:32.509246",
+    "date": "2026-09-25",
+    "acknowledged": false
+  },
+  {
+    "id": "CRMG_20260925_oversold",
+    "symbol": "CRMG",
+    "name": "Leverage Shares 2X Long CRM Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.69,
+    "kd_d": 19.9,
+    "kd_state": "OVERSOLD_REVERSAL",
+    "current_price": 8.53,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ CRMG (Leverage Shares 2X Long CRM Daily ETF) is OVERSOLD! KD-K: 18.69, KD-D: 19.9 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-09-25T04:15:32.509394",
+    "date": "2026-09-25",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20260925_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2489,81 +2565,6 @@
     "market_regime_label": null,
     "message": "⚠️ 009815.TWO (大華美國MAG7+) is OVERBOUGHT! KD-K: 81.73, KD-D: 69.65 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-09-23T03:33:50.960778",
-    "date": "2026-09-23",
-    "acknowledged": false
-  },
-  {
-    "id": "6026.TWO_20260923_overbought",
-    "symbol": "6026.TWO",
-    "name": "福邦證",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.2,
-    "kd_d": 72.01,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 15.95,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超達20日均量的154%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ 6026.TWO (福邦證) is OVERBOUGHT! KD-K: 80.2, KD-D: 72.01 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-23T03:33:50.960870",
-    "date": "2026-09-23",
-    "acknowledged": false
-  },
-  {
-    "id": "AAPL_20260923_overbought",
-    "symbol": "AAPL",
-    "name": "Apple Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 88.22,
-    "kd_d": 85.33,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 340.5,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ AAPL (Apple Inc.) is OVERBOUGHT! KD-K: 88.22, KD-D: 85.33 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-23T03:33:50.960917",
-    "date": "2026-09-23",
-    "acknowledged": false
-  },
-  {
-    "id": "META_20260923_overbought",
-    "symbol": "META",
-    "name": "Meta Platforms Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.49,
-    "kd_d": 86.21,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 739.825,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ META (Meta Platforms Inc.) is OVERBOUGHT! KD-K: 85.49, KD-D: 86.21 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-23T03:33:50.961002",
     "date": "2026-09-23",
     "acknowledged": false
   }
