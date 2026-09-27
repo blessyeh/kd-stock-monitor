@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-27T20:41:37.473268",
-  "date": "2026-09-27",
+  "timestamp": "2026-09-28T01:27:41.673482",
+  "date": "2026-09-28",
   "macro": {
     "taiex": {
       "value": 48024.6,
@@ -22,12 +22,12 @@
       "change": -0.8,
       "change_pct": -5.11,
       "label": "VIX Index",
-      "timestamp": "2026-09-27T20:41:29.194357"
+      "timestamp": "2026-09-28T01:26:27.483026"
     },
     "btc": {
-      "value": 84991.0,
-      "change": 584.0,
-      "change_pct": 0.69
+      "value": 84425.0,
+      "change": 18.0,
+      "change_pct": 0.02
     },
     "oil": {
       "value": 92.41,
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 31.695,
-      "change": -0.094,
-      "change_pct": -0.3
+      "value": 31.708,
+      "change": -0.098,
+      "change_pct": -0.31
     },
     "foreign_futures_net": {
       "value": -77031,
@@ -144,8 +144,8 @@
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.168（貶值門檻 0.3）",
-          "score": 8.8
+          "detail": "USD/TWD 5日變動 -0.155（貶值門檻 0.3）",
+          "score": 9.7
         },
         {
           "id": "foreign_dual_short",
@@ -177,7 +177,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 54.6
+      "avg_score": 54.7
     },
     "bottom": {
       "conditions": [
@@ -202,8 +202,8 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 -0.168（止穩/升值）；外資今日仍賣超，近期均值 +404.6億元；台指期淨部位5日變動 +1643口（未回補）",
-          "score": 32.7
+          "detail": "USD/TWD 5日變動 -0.155（止穩/升值）；外資今日仍賣超，近期均值 +404.6億元；台指期淨部位5日變動 +1643口（未回補）",
+          "score": 32.5
         }
       ],
       "total_conditions": 3,
@@ -211,15 +211,15 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 54.6
+      "avg_score": 54.5
     },
     "bottom_reversal_score": {
-      "total": 32.7,
+      "total": 32.5,
       "components": [
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 76.3
+          "score": 75.4
         },
         {
           "name": "foreign_flow_reversal",
@@ -297,7 +297,7 @@
       ]
     },
     "top": {
-      "total": 48.0,
+      "total": 48.1,
       "dimensions": [
         {
           "name": "macro",
@@ -310,10 +310,10 @@
         },
         {
           "name": "chip_flow",
-          "score": 9.9,
+          "score": 10.0,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 -0.168（強度 9/100，+0.9）",
+            "新台幣5日貶值 -0.155（強度 10/100，+1.0）",
             "外資今日 -329.6億元，融資餘額5日變動 +257億元（散戶未離場強度 60/100，+9.0）"
           ]
         },
@@ -429,7 +429,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "TSM ADR $450.6 換算2330隱含價 2856.4元，2330現價 2475.0元（折價 13.4%）",
+          "TSM ADR $450.6 換算2330隱含價 2857.6元，2330現價 2475.0元（折價 13.4%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -823,78 +823,78 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-09-27",
+      "as_of_date": "2026-09-28",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-09-27",
+      "as_of_date": "2026-09-28",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-09-24",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-09-24",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
     {
-      "title": "房貸綁約期與提前清償違約金｜最多綁3年！提前還款、轉貸前先算這筆成本",
-      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E8%B2%B8%E7%B6%81%E7%B4%84%E6%9C%9F%E8%88%87%E6%8F%90%E5%89%8D%E6%B8%85%E5%84%9F%E9%81%95%E7%B4%84%E9%87%91%EF%BD%9C%E6%9C%80%E5%A4%9A%E7%B6%813%E5%B9%B4%EF%BC%81%E6%8F%90%E5%89%8D%E9%82%84%E6%AC%BE%E3%80%81%E8%BD%89%E8%B2%B8%E5%89%8D%E5%85%88%E7%AE%97%E9%80%99%E7%AD%86%E6%88%90%E6%9C%AC-120700027.html",
+      "title": "【美期中選舉變數】該減碼或卡位?　提前佈局多為正報酬、勝率100%",
+      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E6%9C%9F%E4%B8%AD%E9%81%B8%E8%88%89%E8%AE%8A%E6%95%B8-%E8%A9%B2%E6%B8%9B%E7%A2%BC%E6%88%96%E5%8D%A1%E4%BD%8D-%E6%8F%90%E5%89%8D%E4%BD%88%E5%B1%80%E5%A4%9A%E7%82%BA%E6%AD%A3%E5%A0%B1%E9%85%AC-%E5%8B%9D%E7%8E%87100-165000139.html",
       "meta": null
     },
     {
-      "title": "友達54萬張爆量翻黑！國家隊一周狠砍3.4萬張「甩開南茂4倍」日月光遭提款近27億",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%8B%E9%81%9454%E8%90%AC%E5%BC%B5%E7%88%86%E9%87%8F%E7%BF%BB%E9%BB%91-%E5%9C%8B%E5%AE%B6%E9%9A%8A-%E5%91%A8%E7%8B%A0%E7%A0%8D3-4%E8%90%AC%E5%BC%B5-%E7%94%A9%E9%96%8B%E5%8D%97%E8%8C%824%E5%80%8D-120000153.html",
+      "title": "【中秋變盤】台股節後電子、創新科技報酬佳　多頭擴散格局來了",
+      "url": "https://tw.stock.yahoo.com/news/%E4%B8%AD%E7%A7%8B%E8%AE%8A%E7%9B%A4-%E5%8F%B0%E8%82%A1%E7%AF%80%E5%BE%8C%E9%9B%BB%E5%AD%90-%E5%89%B5%E6%96%B0%E7%A7%91%E6%8A%80%E5%A0%B1%E9%85%AC%E4%BD%B3-%E5%A4%9A%E9%A0%AD%E6%93%B4%E6%95%A3%E6%A0%BC%E5%B1%80%E4%BE%86%E4%BA%86-163004014.html",
       "meta": null
     },
     {
-      "title": "中古屋驗屋近8成有漏水！「現況交屋」可甩鍋 專家：不驗就等著砍價30萬",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%AD%E5%8F%A4%E5%B1%8B%E9%A9%97%E5%B1%8B%E8%BF%918%E6%88%90%E6%9C%89%E6%BC%8F%E6%B0%B4%EF%BC%81%E3%80%8C%E7%8F%BE%E6%B3%81%E4%BA%A4%E5%B1%8B%E3%80%8D%E5%8F%AF%E7%94%A9%E9%8D%8B-%E5%B0%88%E5%AE%B6%EF%BC%9A%E4%B8%8D%E9%A9%97%E5%B0%B1%E7%AD%89%E8%91%97%E7%A0%8D%E5%83%B930%E8%90%AC-115600929.html",
+      "title": "台灣辨識來電APP營收破10億! 泰國廣告爆紅",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%81%A3%E8%BE%A8%E8%AD%98%E4%BE%86%E9%9B%BBapp%E7%87%9F%E6%94%B6%E7%A0%B410%E5%84%84-%E6%B3%B0%E5%9C%8B%E5%BB%A3%E5%91%8A%E7%88%86%E7%B4%85-152521532.html",
       "meta": null
     },
     {
-      "title": "AI晶片「翹曲」救星！外資連11天買進這檔「先進封裝設備大廠」前8月營收狂增83%",
-      "url": "https://tw.stock.yahoo.com/news/ai%E6%99%B6%E7%89%87-%E7%BF%B9%E6%9B%B2-%E6%95%91%E6%98%9F-%E5%A4%96%E8%B3%87%E9%80%A311%E5%A4%A9%E8%B2%B7%E9%80%B2%E9%80%99%E6%AA%94-%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9D%E8%A8%AD%E5%82%99%E5%A4%A7%E5%BB%A0-114000711.html",
+      "title": "吃AWS、Meta ASIC大單！「連接器廠」目標價上看170元　BE訂單看到明年8月、營收拚倍增",
+      "url": "https://tw.stock.yahoo.com/news/%E5%90%83aws-meta-asic%E5%A4%A7%E5%96%AE-%E9%80%A3%E6%8E%A5%E5%99%A8%E5%BB%A0-%E7%9B%AE%E6%A8%99%E5%83%B9%E4%B8%8A%E7%9C%8B170%E5%85%83-150600276.html",
       "meta": null
     },
     {
-      "title": "美股重量級數據週　關鍵通膨指標、就業報告都將在本週出爐",
-      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E8%82%A1%E9%87%8D%E9%87%8F%E7%B4%9A%E6%95%B8%E6%93%9A%E9%80%B1-%E9%97%9C%E9%8D%B5%E9%80%9A%E8%86%A8%E6%8C%87%E6%A8%99-%E5%B0%B1%E6%A5%AD%E5%A0%B1%E5%91%8A%E9%83%BD%E5%B0%87%E5%9C%A8%E6%9C%AC%E9%80%B1%E5%87%BA%E7%88%90-112315992.html",
+      "title": "「台股年底前有機會衝5萬點！」第一金投顧董事長：近期下跌就是買進點",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E5%B9%B4%E5%BA%95%E5%89%8D%E6%9C%89%E6%A9%9F%E6%9C%83%E8%A1%9D5%E8%90%AC%E9%BB%9E-%E7%AC%AC-%E9%87%91%E6%8A%95%E9%A1%A7%E8%91%A3%E4%BA%8B%E9%95%B7-%E8%BF%91%E6%9C%9F%E4%B8%8B%E8%B7%8C%E5%B0%B1%E6%98%AF%E8%B2%B7%E9%80%B2%E9%BB%9E-150000799.html",
       "meta": null
     },
     {
-      "title": "面積利用率81%！台積電CoPoS題材引爆　這2檔「濕製程設備供應商」一起漲　外資卻逆勢倒貨",
-      "url": "https://tw.stock.yahoo.com/news/%E9%9D%A2%E7%A9%8D%E5%88%A9%E7%94%A8%E7%8E%8781-%E5%8F%B0%E7%A9%8D%E9%9B%BBcopos%E9%A1%8C%E6%9D%90%E5%BC%95%E7%88%86-%E9%80%992%E6%AA%94-%E6%BF%95%E8%A3%BD%E7%A8%8B%E8%A8%AD%E5%82%99%E4%BE%9B%E6%87%89%E5%95%86-%E8%B5%B7%E6%BC%B2-112200772.html",
+      "title": "8月國銀房貸逾放逼百億！1家銀行報錯近十年 高逾放提前15個月浮現",
+      "url": "https://tw.stock.yahoo.com/news/8%E6%9C%88%E5%9C%8B%E9%8A%80%E6%88%BF%E8%B2%B8%E9%80%BE%E6%94%BE%E9%80%BC%E7%99%BE%E5%84%84-1%E5%AE%B6%E9%8A%80%E8%A1%8C%E5%A0%B1%E9%8C%AF%E8%BF%91%E5%8D%81%E5%B9%B4-%E9%AB%98%E9%80%BE%E6%94%BE%E6%8F%90%E5%89%8D15%E5%80%8B%E6%9C%88%E6%B5%AE%E7%8F%BE-145715786.html",
       "meta": null
     },
     {
-      "title": "買房不如買美債？阮慕驊揭「高利率時代」房市投資2警訊：傳統收租邏輯失靈",
-      "url": "https://tw.stock.yahoo.com/news/%E8%B2%B7%E6%88%BF%E4%B8%8D%E5%A6%82%E8%B2%B7%E7%BE%8E%E5%82%B5-%E9%98%AE%E6%85%95%E9%A9%8A%E6%8F%AD-%E9%AB%98%E5%88%A9%E7%8E%87%E6%99%82%E4%BB%A3-%E6%88%BF%E5%B8%82%E6%8A%95%E8%B3%872%E8%AD%A6%E8%A8%8A-%E5%82%B3%E7%B5%B1%E6%94%B6%E7%A7%9F%E9%82%8F%E8%BC%AF%E5%A4%B1%E9%9D%88-111558138.html",
+      "title": "每天都在清iPhone後台？　Apple揭迷思：這動作不會更省電",
+      "url": "https://tw.stock.yahoo.com/news/%E6%AF%8F%E5%A4%A9%E9%83%BD%E5%9C%A8%E6%B8%85iphone%E5%BE%8C%E5%8F%B0-apple%E6%8F%AD%E8%BF%B7%E6%80%9D-%E9%80%99%E5%8B%95%E4%BD%9C%E4%B8%8D%E6%9C%83%E6%9B%B4%E7%9C%81%E9%9B%BB-144608960.html",
       "meta": null
     },
     {
-      "title": "三大法人狂砸52.4億元逾4.9萬張！「封測大廠」DDR5放量添動能　再攻AI ASIC、矽光子商機",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%89%E5%A4%A7%E6%B3%95%E4%BA%BA%E7%8B%82%E7%A0%B852-4%E5%84%84%E5%85%83%E9%80%BE4-9%E8%90%AC%E5%BC%B5-%E5%B0%81%E6%B8%AC%E5%A4%A7%E5%BB%A0-ddr5%E6%94%BE%E9%87%8F%E6%B7%BB%E5%8B%95%E8%83%BD-110500625.html",
+      "title": "房東收益輸無風險美債！阮慕驊揭房市投資2警訊：傳統邏輯失靈",
+      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E6%9D%B1%E6%94%B6%E7%9B%8A%E8%BC%B8%E7%84%A1%E9%A2%A8%E9%9A%AA%E7%BE%8E%E5%82%B5-%E9%98%AE%E6%85%95%E9%A9%8A%E6%8F%AD%E6%88%BF%E5%B8%82%E6%8A%95%E8%B3%872%E8%AD%A6%E8%A8%8A-%E5%82%B3%E7%B5%B1%E9%82%8F%E8%BC%AF%E5%A4%B1%E9%9D%88-143707878.html",
       "meta": null
     },
     {
-      "title": "投資賠光3800萬退休金！76歲父賣屋投靠兒家庭　親子關係險決裂",
-      "url": "https://tw.stock.yahoo.com/news/%E6%8A%95%E8%B3%87%E8%B3%A0%E5%85%893800%E8%90%AC%E9%80%80%E4%BC%91%E9%87%91-76%E6%AD%B2%E7%88%B6%E8%B3%A3%E5%B1%8B%E6%8A%95%E9%9D%A0%E5%85%92%E5%AE%B6%E5%BA%AD-%E8%A6%AA%E5%AD%90%E9%97%9C%E4%BF%82%E9%9A%AA%E6%B1%BA%E8%A3%82-104500506.html",
+      "title": "AI伺服器擴產加速！仁寶明年營收占比拚4成、美國雙廠Q1量產　三大法人卻狂倒4.5萬張提款16.9億元",
+      "url": "https://tw.stock.yahoo.com/news/ai%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%93%B4%E7%94%A2%E5%8A%A0%E9%80%9F-%E4%BB%81%E5%AF%B6%E6%98%8E%E5%B9%B4%E7%87%9F%E6%94%B6%E5%8D%A0%E6%AF%94%E6%8B%9A4%E6%88%90-%E7%BE%8E%E5%9C%8B%E9%9B%99%E5%BB%A0q1%E9%87%8F%E7%94%A2-%E4%B8%89%E5%A4%A7%E6%B3%95%E4%BA%BA%E5%8D%BB%E7%8B%82%E5%80%924-5%E8%90%AC%E5%BC%B5%E6%8F%90%E6%AC%BE16-133600816.html",
       "meta": null
     },
     {
-      "title": "逾百萬股東一度被套牢！這「主動式ETF」股價5連升　外資單週猛敲54萬張入袋",
-      "url": "https://tw.stock.yahoo.com/news/%E9%80%BE%E7%99%BE%E8%90%AC%E8%82%A1%E6%9D%B1-%E5%BA%A6%E8%A2%AB%E5%A5%97%E7%89%A2-%E9%80%99-%E4%B8%BB%E5%8B%95%E5%BC%8Fetf-%E8%82%A1%E5%83%B95%E9%80%A3%E5%8D%87-103000201.html",
+      "title": "擴產搶AI大單！這「被動元件廠」手握技術與市占優勢　 今年EPS上看近1.5個股本",
+      "url": "https://tw.stock.yahoo.com/news/%E6%93%B4%E7%94%A2%E6%90%B6ai%E5%A4%A7%E5%96%AE-%E9%80%99-%E8%A2%AB%E5%8B%95%E5%85%83%E4%BB%B6%E5%BB%A0-%E6%89%8B%E6%8F%A1%E6%8A%80%E8%A1%93%E8%88%87%E5%B8%82%E5%8D%A0%E5%84%AA%E5%8B%A2-%E4%BB%8A%E5%B9%B4eps%E4%B8%8A%E7%9C%8B%E8%BF%911-131800021.html",
       "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 42,
   "overbought_count": 34,
   "oversold_count": 8,
   "normal_count": 85,
