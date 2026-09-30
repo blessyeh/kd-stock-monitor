@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python -c \"import signal_score\")"
+      "Bash(python -c \"import signal_score\")",
+      "WebFetch(domain:blessyeh.github.io)"
     ]
   }
 }
