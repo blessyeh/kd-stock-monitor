@@ -1,5 +1,53 @@
 [
   {
+    "id": "CRM_20261001_oversold",
+    "symbol": "CRM",
+    "name": "Salesforce, Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 22.53,
+    "kd_d": 19.95,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 228.85,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ CRM (Salesforce, Inc.) is OVERSOLD! KD-K: 22.53, KD-D: 19.95 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-01T02:48:53.923536",
+    "date": "2026-10-01",
+    "acknowledged": false
+  },
+  {
+    "id": "CRMG_20261001_oversold",
+    "symbol": "CRMG",
+    "name": "Leverage Shares 2X Long CRM Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 21.26,
+    "kd_d": 18.61,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 7.83,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": null,
+    "market_regime_label": null,
+    "message": "✅ CRMG (Leverage Shares 2X Long CRM Daily ETF) is OVERSOLD! KD-K: 21.26, KD-D: 18.61 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-01T02:48:53.923719",
+    "date": "2026-10-01",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20261001_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2464,54 +2512,6 @@
     "market_regime_label": null,
     "message": "✅ NFXL (Direxion Daily NFLX Bull 2X Shares) is OVERSOLD! KD-K: 8.8, KD-D: 13.65 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-09-29T02:25:25.396965",
-    "date": "2026-09-29",
-    "acknowledged": false
-  },
-  {
-    "id": "AMDL_20260929_overbought",
-    "symbol": "AMDL",
-    "name": "GraniteShares 2x Long AMD Daily ETF",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 86.54,
-    "kd_d": 89.96,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 77.3,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ AMDL (GraniteShares 2x Long AMD Daily ETF) is OVERBOUGHT! KD-K: 86.54, KD-D: 89.96 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-29T02:25:25.397140",
-    "date": "2026-09-29",
-    "acknowledged": false
-  },
-  {
-    "id": "TSMX_20260929_overbought",
-    "symbol": "TSMX",
-    "name": "Direxion Daily TSM Bull 2X Shares",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 89.16,
-    "kd_d": 80.87,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 89.14,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": null,
-    "market_regime_label": null,
-    "message": "⚠️ TSMX (Direxion Daily TSM Bull 2X Shares) is OVERBOUGHT! KD-K: 89.16, KD-D: 80.87 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-09-29T02:25:25.397308",
     "date": "2026-09-29",
     "acknowledged": false
   }
