@@ -302,6 +302,24 @@
             </p>
         </div>
 
+        <!-- TSMC (2330) Fundamentals Summary -->
+        <div class="dark-card rounded-lg border border-dark-border mb-6 p-4">
+            <h2 class="text-sm font-bold text-white mb-1 flex items-center">
+                <i class="fas fa-file-invoice-dollar mr-2 text-accent"></i>台積電 (2330) 基本面摘要
+                <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer ml-2" data-info="tsmc_fundamentals_summary"></i>
+                <span id="tsmc-fundamentals-date" class="text-xs text-dark-text2 font-normal ml-2"></span>
+            </h2>
+            <div id="tsmc-fundamentals-body">
+                <!-- filled by JS -->
+            </div>
+            <p class="text-[10px] text-dark-text2 opacity-70 mt-3 border-t border-dark-border pt-2 leading-relaxed">
+                免責聲明：新聞為網頁標題擷取，非法說會逐字稿或AI摘要；同業比較僅限台股掛牌之聯電、聯發科；利多/利空三點直接取自上方投資決策分數的10個構面排序，並非另一組獨立判斷，亦非投資建議。
+            </p>
+        </div>
+
+        <!-- Additional per-stock analysis (2850 新光產物保險 / 1232 大統益 / …) — dynamically populated by JS -->
+        <div id="additional-stock-analysis-container"></div>
+
         <!-- Filter Tabs -->
         <div class="dark-card rounded-lg border border-dark-border mb-6 overflow-hidden">
             <div class="border-b border-dark-border">

@@ -1,18 +1,30 @@
 #!/usr/bin/env python3
 """
-TSMC (2330) Investment Score — 五層模型：基本面 × 市場預期(以自身財測代理) × 技術面 × 籌碼 × 大盤環境
+Single-Stock Investment Score — 五層模型：基本面 × 市場預期(以自身財測代理) × 技術面 × 籌碼 × 大盤環境
 
-Rationale: 2330 is this project's single largest, most-watched holding, and
-treating it like any other ticker — KD/MACD/institutional-flow each judged
-in isolation — misses the thing that actually moves its price most: TSMC
-usually trades *ahead* of its own reported results, on revisions to future
-earnings expectations (monthly revenue trend, and the forward guidance given
-at each quarterly earnings call), not on the trailing quarter's numbers
-alone. A pure technical/KD read of 2330 is structurally blind to that.
+Originally built for TSMC (2330) alone — this project's single largest,
+most-watched holding, where treating it like any other ticker (KD/MACD/
+institutional-flow each judged in isolation) misses the thing that actually
+moves its price most: TSMC usually trades *ahead* of its own reported
+results, on revisions to future earnings expectations (monthly revenue
+trend, and the forward guidance given at each quarterly earnings call), not
+on the trailing quarter's numbers alone. A pure technical/KD read of 2330 is
+structurally blind to that.
 
-This module scores 2330 across 10 dimensions (100 points total), each
-gracefully degrading to "insufficient data" rather than crashing or
-guessing when a data source is short:
+calculate_stock_investment_score() below generalizes the same 10-dimension
+model to any tracked stock with FinMind fundamentals coverage (see
+calculate_tsmc_score() for 2330's own thin wrapper, and the module-level
+has_adr/relative_strength_benchmarks docs on calculate_stock_investment_score()
+for what does/doesn't carry over to a non-2330 name). Two dimensions stay
+structurally TSMC-only and cleanly degrade to "not applicable" elsewhere:
+Guidance (no other tracked company has a free, automatable official-guidance
+source integrated) and ADR Premium/Discount (no other tracked company has a
+US ADR sister listing in this project's watchlist).
+
+Scores 8-10 dimensions (100 points total; Guidance/ADR unavailable = "not
+applicable" for a non-2330 stock, same graceful degrade as any other thin
+data source), each independently degrading to "insufficient data" rather
+than crashing or guessing when a data source is short:
 
     Revenue Momentum       15   monthly revenue YoY + 3-month trend/acceleration
     Margin / EPS Trend     10   gross margin momentum + EPS growth (quality, not just growth)
@@ -355,12 +367,24 @@ def _score_momentum_composite(stock_2330: Dict) -> Dict:
     return _dim("momentum_composite", 10, pts, notes)
 
 
-# ── Dimension 6: Relative Strength (0-10) — 2330 vs TAIEX/SOX/NDX ───────────
-def _score_relative_strength(stock_2330: Dict, macro_history: List[Dict]) -> Dict:
-    closes = [h.get("close") for h in (stock_2330.get("history") or []) if h.get("close") is not None]
+# ── Dimension 6: Relative Strength (0-10) — stock vs its benchmark index/indices ─
+# Default benchmark is just TAIEX (broad market) — appropriate for a generic
+# stock. TSMC additionally benchmarks against SOX/NDX (see TSMC_RS_BENCHMARKS
+# below) since semiconductor-sector turns genuinely lead its price; comparing
+# an insurer or food processor against SOX/NDX would be a meaningless
+# benchmark, so calculate_stock_investment_score() callers for non-tech
+# names should pass the default (TAIEX-only) instead.
+DEFAULT_RS_BENCHMARKS = [("TAIEX", "taiex")]
+TSMC_RS_BENCHMARKS = [("TAIEX", "taiex"), ("SOX", "sox"), ("NDX", "ndx")]
+
+
+def _score_relative_strength(stock: Dict, macro_history: List[Dict], symbol_label: str,
+                              benchmarks: Optional[List[tuple]] = None) -> Dict:
+    benchmarks = benchmarks or DEFAULT_RS_BENCHMARKS
+    closes = [h.get("close") for h in (stock.get("history") or []) if h.get("close") is not None]
     if len(closes) < RS_LOOKBACK_DAYS + 1:
-        return _dim("relative_strength", 10, None, ["2330價格歷史不足"])
-    tsmc_chg = (closes[-1] - closes[-(RS_LOOKBACK_DAYS + 1)]) / closes[-(RS_LOOKBACK_DAYS + 1)] * 100
+        return _dim("relative_strength", 10, None, [f"{symbol_label}價格歷史不足"])
+    stock_chg = (closes[-1] - closes[-(RS_LOOKBACK_DAYS + 1)]) / closes[-(RS_LOOKBACK_DAYS + 1)] * 100
 
     def index_chg(key: str) -> Optional[float]:
         vals = [h.get(key) for h in macro_history if h.get(key) is not None]
@@ -368,14 +392,14 @@ def _score_relative_strength(stock_2330: Dict, macro_history: List[Dict]) -> Dic
             return None
         return (vals[-1] - vals[-(RS_LOOKBACK_DAYS + 1)]) / vals[-(RS_LOOKBACK_DAYS + 1)] * 100
 
-    rs_pairs = [("TAIEX", index_chg("taiex")), ("SOX", index_chg("sox")), ("NDX", index_chg("ndx"))]
-    rs_deltas = [(name, tsmc_chg - idx_chg) for name, idx_chg in rs_pairs if idx_chg is not None]
+    rs_pairs = [(label, index_chg(key)) for label, key in benchmarks]
+    rs_deltas = [(name, stock_chg - idx_chg) for name, idx_chg in rs_pairs if idx_chg is not None]
     if not rs_deltas:
-        return _dim("relative_strength", 10, None, ["缺大盤/SOX/NDX對照資料"])
+        return _dim("relative_strength", 10, None, ["缺對照指數資料"])
 
     positive_count = sum(1 for _, d in rs_deltas if d > 0)
     avg_delta = sum(d for _, d in rs_deltas) / len(rs_deltas)
-    notes = [f"2330 近{RS_LOOKBACK_DAYS}日漲跌 {tsmc_chg:+.1f}%；" +
+    notes = [f"{symbol_label} 近{RS_LOOKBACK_DAYS}日漲跌 {stock_chg:+.1f}%；" +
              "、".join(f"相對{n} {d:+.1f}pp" for n, d in rs_deltas)]
 
     if positive_count == len(rs_deltas) and avg_delta > 5:
@@ -417,17 +441,25 @@ def _score_institutional(stock_2330: Dict) -> Dict:
 
 
 # ── Dimension 8: ADR Premium/Discount (0-5) ─────────────────────────────────
-def _score_adr(stock_2330: Dict, stock_tsm: Optional[Dict], usdtwd: Optional[float]) -> Dict:
-    if not stock_tsm or not usdtwd:
-        return _dim("adr_premium", 5, None, ["缺TSM ADR價格或USD/TWD匯率"])
-    tsm_price = stock_tsm.get("current_price")
-    price_2330 = stock_2330.get("current_price")
-    if not tsm_price or not price_2330:
-        return _dim("adr_premium", 5, None, ["缺TSM或2330最新價格"])
+# Only applicable to a handful of Taiwan large-caps with an actual US ADR
+# sister listing (TSMC/TSM being this project's only current example).
+# has_adr=False short-circuits straight to "not applicable" for everything
+# else, distinct from the ordinary "data missing" degrade path below — a
+# stock with no ADR isn't a data gap, it structurally has no ADR to compare.
+def _score_adr(stock: Dict, adr_stock: Optional[Dict], usdtwd: Optional[float], symbol_label: str,
+                adr_ratio: float = ADR_RATIO, has_adr: bool = True) -> Dict:
+    if not has_adr:
+        return _dim("adr_premium", 5, None, [f"{symbol_label}無海外ADR對照掛牌，此構面不適用（非資料缺漏）"])
+    if not adr_stock or not usdtwd:
+        return _dim("adr_premium", 5, None, ["缺ADR價格或USD/TWD匯率"])
+    adr_price = adr_stock.get("current_price")
+    stock_price = stock.get("current_price")
+    if not adr_price or not stock_price:
+        return _dim("adr_premium", 5, None, [f"缺ADR或{symbol_label}最新價格"])
 
-    implied = tsm_price / ADR_RATIO * usdtwd
-    premium_pct = (price_2330 - implied) / implied * 100
-    notes = [f"TSM ADR ${tsm_price:.1f} 換算2330隱含價 {implied:.1f}元，2330現價 {price_2330:.1f}元"
+    implied = adr_price / adr_ratio * usdtwd
+    premium_pct = (stock_price - implied) / implied * 100
+    notes = [f"ADR ${adr_price:.1f} 換算{symbol_label}隱含價 {implied:.1f}元，{symbol_label}現價 {stock_price:.1f}元"
              f"（{'溢價' if premium_pct >= 0 else '折價'} {abs(premium_pct):.1f}%）"]
 
     if abs(premium_pct) < 2:
@@ -474,7 +506,8 @@ def _score_valuation(valuation: List[Dict]) -> Dict:
 
 
 # ── Buy-point setups ─────────────────────────────────────────────────────
-def _classify_buy_points(dims_by_name: Dict[str, Dict], stock_2330: Dict, confluence_result: Optional[Dict]) -> List[Dict]:
+def _classify_buy_points(dims_by_name: Dict[str, Dict], stock: Dict, confluence_result: Optional[Dict],
+                          symbol_label: str) -> List[Dict]:
     """
     Three named setups per the user's framework — deliberately more specific
     than "score is high": each combines a fundamental-quality gate with a
@@ -492,12 +525,11 @@ def _classify_buy_points(dims_by_name: Dict[str, Dict], stock_2330: Dict, conflu
     fundamental_sum = sum(fundamentals_available) if fundamentals_available else None
     fundamental_cap = sum(d for n, d in [("revenue_momentum", 15), ("margin_eps_trend", 10), ("guidance", 15)])
 
-    kd_state = stock_2330.get("kd_state")
-    kd_k = stock_2330.get("kd_k")
+    kd_state = stock.get("kd_state")
+    kd_k = stock.get("kd_k")
     tech = dim_score("technical_trend")
-    volume_ratio = ((stock_2330.get("score") or {}).get("raw") or {}).get("volume_ratio")
-    foreign_net_3d = (stock_2330.get("institutional") or {}).get("foreign_net_3d")
-    adr_dim = dim_score("adr_premium")
+    volume_ratio = ((stock.get("score") or {}).get("raw") or {}).get("volume_ratio")
+    foreign_net_3d = (stock.get("institutional") or {}).get("foreign_net_3d")
 
     # A. 基本面回撤買點 Fundamental Pullback
     if (fundamental_sum is not None and fundamental_sum >= fundamental_cap * 0.75
@@ -530,41 +562,55 @@ def _classify_buy_points(dims_by_name: Dict[str, Dict], stock_2330: Dict, conflu
         setups.append({
             "id": "panic_reversal",
             "label": "恐慌反轉買點",
-            "detail": f"大盤恐慌訊號共振（{bottom_triggered}項底部條件觸發）疊加2330基本面未同步惡化"
+            "detail": f"大盤恐慌訊號共振（{bottom_triggered}項底部條件觸發）疊加{symbol_label}基本面未同步惡化"
         })
 
     return setups
 
 
-def calculate_tsmc_score(monthly_revenue: List[Dict], quarterly_financials: List[Dict],
-                          valuation: List[Dict], guidance_entries: List[Dict],
-                          stock_2330: Dict, stock_tsm: Optional[Dict],
-                          macro_history: List[Dict], regime_result: Optional[Dict],
-                          confluence_result: Optional[Dict], usdtwd: Optional[float],
-                          actual_vs_guidance: Optional[Dict] = None) -> Dict:
+def calculate_stock_investment_score(symbol_label: str, monthly_revenue: List[Dict],
+                                      quarterly_financials: List[Dict], valuation: List[Dict],
+                                      guidance_entries: List[Dict], stock: Dict, adr_stock: Optional[Dict],
+                                      macro_history: List[Dict], regime_result: Optional[Dict],
+                                      confluence_result: Optional[Dict], usdtwd: Optional[float],
+                                      actual_vs_guidance: Optional[Dict] = None,
+                                      relative_strength_benchmarks: Optional[List[tuple]] = None,
+                                      has_adr: bool = False, adr_ratio: float = ADR_RATIO) -> Dict:
     """
-    Compute the full 2330 Investment Score. Every dimension degrades
-    independently (available=False + explanatory note) rather than failing
-    the whole score when one data source is thin — matches this project's
-    established convention (signal_confluence.py / signal_score.py) of
-    never silently guessing.
+    Compute the same 10-dimension Investment Score TSMC (2330) gets (see
+    module docstring), generalized to any single tracked stock. Every
+    dimension degrades independently (available=False + explanatory note)
+    rather than failing the whole score when one data source is thin —
+    matches this project's established convention (signal_confluence.py /
+    signal_score.py) of never silently guessing.
+
+    Two dimensions are structurally TSMC-specific and degrade to "not
+    applicable" (not "data missing") for everything else unless the caller
+    opts in:
+      - Guidance: pass guidance_entries=[] (the normal case for a stock with
+        no official-guidance data source integrated) and it shows "尚無任何
+        財測指引資料", same wording as any other cold-start data gap.
+      - ADR Premium/Discount: has_adr=False (the default) skips straight to
+        "此構面不適用" — see _score_adr()'s docstring for why that's a
+        different message than a data gap.
+    relative_strength_benchmarks defaults to TAIEX-only (DEFAULT_RS_BENCHMARKS)
+    — comparing a non-tech stock against SOX/NDX the way TSMC's own wrapper
+    does would be a meaningless benchmark.
 
     actual_vs_guidance: optional, auto-fetched (main.py's
-    _update_tsmc_guidance_auto) record of the realized actual vs. the
-    guidance given for that same quarter, already in USD straight from
-    TSMC's own IR site — when present, this is preferred over the older
-    FinMind-NTD + USD/TWD-snapshot approximation for the beat/miss
-    calculation. See _score_guidance()'s docstring.
+    _update_tsmc_guidance_auto, TSMC-only today) record of the realized
+    actual vs. the guidance given for that same quarter — see
+    _score_guidance()'s docstring.
     """
     dims = [
         _score_revenue_momentum(monthly_revenue),
         _score_margin_eps(quarterly_financials),
         _score_guidance(guidance_entries, quarterly_financials, usdtwd, actual_vs_guidance),
-        _score_technical_trend(stock_2330),
-        _score_momentum_composite(stock_2330),
-        _score_relative_strength(stock_2330, macro_history),
-        _score_institutional(stock_2330),
-        _score_adr(stock_2330, stock_tsm, usdtwd),
+        _score_technical_trend(stock),
+        _score_momentum_composite(stock),
+        _score_relative_strength(stock, macro_history, symbol_label, relative_strength_benchmarks),
+        _score_institutional(stock),
+        _score_adr(stock, adr_stock, usdtwd, symbol_label, adr_ratio, has_adr),
         _score_market_regime(regime_result),
         _score_valuation(valuation),
     ]
@@ -574,7 +620,7 @@ def calculate_tsmc_score(monthly_revenue: List[Dict], quarterly_financials: List
     total = round(sum(scored), 1) if scored else None
     coverage = f"{len(scored)}/{len(dims)}"
 
-    buy_points = _classify_buy_points(dims_by_name, stock_2330, confluence_result)
+    buy_points = _classify_buy_points(dims_by_name, stock, confluence_result, symbol_label)
 
     return {
         "available": total is not None,
@@ -585,4 +631,162 @@ def calculate_tsmc_score(monthly_revenue: List[Dict], quarterly_financials: List
         "buy_points": buy_points,
         "caveat": ("本分數為規則式加權評分，且法說會財測指引為人工維護資料（非分析師市場共識），"
                    "尚未經歷史回測驗證統計勝率，僅供比較「目前有多少項已知條件成立」，並非機率或投資建議。"),
+    }
+
+
+def calculate_tsmc_score(monthly_revenue: List[Dict], quarterly_financials: List[Dict],
+                          valuation: List[Dict], guidance_entries: List[Dict],
+                          stock_2330: Dict, stock_tsm: Optional[Dict],
+                          macro_history: List[Dict], regime_result: Optional[Dict],
+                          confluence_result: Optional[Dict], usdtwd: Optional[float],
+                          actual_vs_guidance: Optional[Dict] = None) -> Dict:
+    """
+    TSMC (2330)'s own thin wrapper around calculate_stock_investment_score()
+    — kept as a separate entry point (rather than inlining these arguments
+    at every call site) since 2330 is the only tracked stock with a real ADR
+    sister listing and a genuine semiconductor-cycle rationale for
+    benchmarking against SOX/NDX in addition to TAIEX (see module docstring).
+    """
+    return calculate_stock_investment_score(
+        "2330", monthly_revenue, quarterly_financials, valuation, guidance_entries, stock_2330, stock_tsm,
+        macro_history, regime_result, confluence_result, usdtwd, actual_vs_guidance=actual_vs_guidance,
+        relative_strength_benchmarks=TSMC_RS_BENCHMARKS, has_adr=True, adr_ratio=ADR_RATIO,
+    )
+
+
+# ── Fundamentals Summary — quarterly highlights / news / valuation / bull-bear ─
+#
+# A separate, human-readable companion to calculate_tsmc_score() above: that
+# function produces a 100-point rule-based score for internal comparison
+# across time; this one answers four concrete questions a reader actually
+# asks about 2330 ("this quarter's numbers vs last year", "what's in the
+# news", "is it cheap or expensive right now", "what's the bull/bear case").
+#
+# The bull/bear points are NOT a separate judgment call or LLM summary —
+# deliberately, to stay consistent with this project's no-guessing rule-based
+# philosophy (see module docstring). They're derived mechanically from the
+# SAME 10 dimensions calculate_tsmc_score() already computed: the top-3
+# highest-scoring (as a fraction of each dimension's cap) become 利多, the
+# bottom-3 become 利空, reusing each dimension's own first note as the
+# bullet text. Two dimensions are excluded from this ranking on purpose —
+# market_regime (a macro context modifier, not evidence about 2330 itself)
+# and adr_premium (its own scoring note explicitly says a large ADR/local
+# price gap "非直接看多看空訊號" / is not a directional signal) — including
+# either would risk mislabeling a neutral reading as a bull or bear point.
+_BULL_BEAR_ELIGIBLE_DIMS = {
+    "revenue_momentum", "margin_eps_trend", "guidance", "technical_trend",
+    "momentum_composite", "relative_strength", "institutional", "valuation",
+}
+
+NEWS_CAVEAT = ("新聞為即時網頁擷取之標題列表（Yahoo奇摩股市個股新聞頁），並非法說會逐字稿或內容摘要；"
+               "頁面本身不保證僅涵蓋近一個月或提供可靠發布日期，僅供快速瀏覽近期話題，詳細內容請點閱原文查證。")
+
+
+def _quarter_label(date_str: str) -> str:
+    year, month = int(date_str[:4]), int(date_str[5:7])
+    quarter = {3: 1, 6: 2, 9: 3, 12: 4}.get(month)
+    return f"{year}Q{quarter}" if quarter else date_str
+
+
+def _gross_margin_pct(q: Dict) -> Optional[float]:
+    revenue, gross_profit = q.get("revenue_ntd"), q.get("gross_profit_ntd")
+    return (gross_profit / revenue * 100) if revenue and gross_profit is not None else None
+
+
+def _quarterly_highlights(quarterly: List[Dict]) -> Dict:
+    """
+    近一季財報重點：營收、毛利率、EPS，與去年同期比較。Reuses the same
+    year/month-matched YoY lookup as _score_margin_eps() above (kept
+    separate rather than sharing code — that function only needs the
+    single-quarter momentum delta, this needs the full YoY comparison set).
+    """
+    if not quarterly:
+        return {"available": False, "reason": "缺季度財報資料（FinMind尚未有資料或抓取失敗）"}
+
+    latest = quarterly[-1]
+    yoy_match = next(
+        (q for q in quarterly
+         if q["date"][:4] == str(int(latest["date"][:4]) - 1) and q["date"][5:7] == latest["date"][5:7]),
+        None
+    )
+
+    revenue, eps = latest.get("revenue_ntd"), latest.get("eps")
+    gross_margin = _gross_margin_pct(latest)
+    revenue_yoy_pct = gross_margin_yoy_pp = eps_yoy_pct = None
+    if yoy_match:
+        prev_revenue = yoy_match.get("revenue_ntd")
+        if revenue is not None and prev_revenue:
+            revenue_yoy_pct = (revenue - prev_revenue) / prev_revenue * 100
+        prev_gross_margin = _gross_margin_pct(yoy_match)
+        if gross_margin is not None and prev_gross_margin is not None:
+            gross_margin_yoy_pp = gross_margin - prev_gross_margin
+        prev_eps = yoy_match.get("eps")
+        if eps is not None and prev_eps:
+            eps_yoy_pct = (eps - prev_eps) / abs(prev_eps) * 100
+
+    return {
+        "available": True,
+        "quarter": _quarter_label(latest["date"]),
+        "yoy_quarter": _quarter_label(yoy_match["date"]) if yoy_match else None,
+        "revenue_ntd": revenue,
+        "revenue_yoy_pct": round(revenue_yoy_pct, 1) if revenue_yoy_pct is not None else None,
+        "gross_margin_pct": round(gross_margin, 1) if gross_margin is not None else None,
+        "gross_margin_yoy_pp": round(gross_margin_yoy_pp, 1) if gross_margin_yoy_pp is not None else None,
+        "eps": eps,
+        "eps_yoy_pct": round(eps_yoy_pct, 1) if eps_yoy_pct is not None else None,
+    }
+
+
+def _valuation_summary(stock_2330: Optional[Dict], valuation: List[Dict], peer_valuation: List[Dict]) -> Dict:
+    """目前股價、本益比，和同業比較（見 fetcher.TSMC_PEER_SYMBOLS 的同業選取說明）。"""
+    current_price = (stock_2330 or {}).get("current_price")
+    latest_per = valuation[-1]["per"] if valuation else None
+    peers = [p for p in (peer_valuation or []) if p.get("per") is not None]
+    peer_avg_per = sum(p["per"] for p in peers) / len(peers) if peers else None
+    vs_peer_avg_pct = ((latest_per - peer_avg_per) / peer_avg_per * 100
+                        if latest_per is not None and peer_avg_per else None)
+    return {
+        "available": current_price is not None or latest_per is not None,
+        "current_price": current_price,
+        "per": latest_per,
+        "peers": [{"symbol": p["symbol"], "name": p["name"], "per": p["per"]} for p in peers],
+        "peer_avg_per": round(peer_avg_per, 1) if peer_avg_per is not None else None,
+        "vs_peer_avg_pct": round(vs_peer_avg_pct, 1) if vs_peer_avg_pct is not None else None,
+    }
+
+
+def _bull_bear_points(dimensions: List[Dict], top_n: int = 3) -> Dict:
+    eligible = [d for d in dimensions
+                if d.get("available") and d.get("cap") and d["name"] in _BULL_BEAR_ELIGIBLE_DIMS]
+    ranked = sorted(eligible, key=lambda d: d["score"] / d["cap"])
+
+    def _point(d: Dict) -> Dict:
+        return {"dimension": d["name"], "score": d["score"], "cap": d["cap"],
+                "detail": d["notes"][0] if d.get("notes") else None}
+
+    bear = [_point(d) for d in ranked[:top_n]]
+    bull = [_point(d) for d in reversed(ranked[-top_n:])] if ranked else []
+    return {"bull_points": bull, "bear_points": bear}
+
+
+def build_fundamentals_summary(quarterly_financials: List[Dict], valuation: List[Dict],
+                                peer_valuation: List[Dict], stock_2330: Optional[Dict],
+                                news_items: List[Dict], tsmc_analysis: Optional[Dict]) -> Dict:
+    """
+    2330 基本面摘要卡：近一季財報重點 / 近期新聞 / 股價與本益比同業比較 / 利多利空各三點。
+
+    Deliberately takes the already-computed `tsmc_analysis` (calculate_tsmc_score()'s
+    return value) rather than recomputing its own scoring pass — bull/bear
+    points must always be read off the SAME dimension scores shown elsewhere
+    on the dashboard, never a second independently-derived number that could
+    silently drift out of sync with them.
+    """
+    dims = (tsmc_analysis or {}).get("dimensions") or []
+    return {
+        "available": True,
+        "quarterly_highlights": _quarterly_highlights(quarterly_financials),
+        "news": (news_items or [])[:8],
+        "news_caveat": NEWS_CAVEAT,
+        "valuation": _valuation_summary(stock_2330, valuation, peer_valuation),
+        **_bull_bear_points(dims),
     }

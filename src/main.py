@@ -29,7 +29,7 @@ from scoring_engine import ScoringEngine
 from signal_confluence import evaluate_signal_confluence
 from market_regime import detect_market_regime
 from signal_score import calculate_signal_scores
-from tsmc_analyzer import calculate_tsmc_score
+from tsmc_analyzer import calculate_tsmc_score, calculate_stock_investment_score, build_fundamentals_summary
 from signal_backtest import record_signal_snapshot, compute_backtest_stats
 
 
@@ -99,7 +99,22 @@ logger = logging.getLogger(__name__)
 
 class KDStockMonitor:
     """Main orchestrator for the KD Stock Monitoring system."""
-    
+
+    # Additional individually-tracked stocks that get the same TSMC-style
+    # 10-dimension investment score + fundamentals summary (see
+    # tsmc_analyzer.calculate_stock_investment_score() / build_fundamentals_summary()).
+    # Neither has an official-guidance data source or a US ADR sister listing
+    # integrated, so those two dimensions cleanly degrade to "not applicable"
+    # for them (see calculate_stock_investment_score()'s docstring) — this is
+    # the generalized core model, not TSMC's own bespoke extras (SOX/NDX
+    # benchmarking, ADR premium, investor.tsmc.com guidance scrape).
+    ADDITIONAL_STOCK_ANALYSIS = [
+        {"symbol": "2850.TW", "bare_code": "2850", "label": "新光產物保險",
+         "peer_symbols_attr": "SHIN_KONG_PROPERTY_PEER_SYMBOLS"},
+        {"symbol": "1232.TW", "bare_code": "1232", "label": "大統益",
+         "peer_symbols_attr": "TA_TONG_PEER_SYMBOLS"},
+    ]
+
     def __init__(self, config_path: str = "config.json"):
         """Initialize the monitor with configuration."""
         self.config_path = config_path
@@ -174,6 +189,29 @@ class KDStockMonitor:
                     {"date": "2026-06-30", "revenue_ntd": 1.270e12, "gross_profit_ntd": 8.598e11, "operating_income_ntd": 7.658e11, "eps": 27.25},
                 ]
                 tsmc_valuation = [{"date": f"2026-mock-{i}", "per": 28 + (i % 6), "pbr": 10, "dividend_yield": 0.9} for i in range(120)]
+                tsmc_peer_valuation = [
+                    {"symbol": "2303", "name": "聯電(UMC，晶圓代工同業)", "per": 18.2, "date": "2026-mock"},
+                    {"symbol": "2454", "name": "聯發科(MediaTek，IC設計，非晶圓代工同業)", "per": 24.5, "date": "2026-mock"},
+                ]
+                tsmc_news = [
+                    {"title": "台積電法說會：3奈米產能持續滿載，展望第四季營收動能", "url": "https://tw.stock.yahoo.com/news/example-103500099.html", "meta": "1天前"},
+                ]
+                additional_stock_fundamentals = {
+                    cfg["symbol"]: {
+                        "monthly_revenue": [
+                            {"year": 2026, "month": m, "revenue_ntd": 5.0e9 + m * 1.0e8, "report_date": f"2026-{(m % 12) + 1:02d}-10"}
+                            for m in range(1, 19)
+                        ],
+                        "quarterly_financials": [
+                            {"date": "2026-03-31", "revenue_ntd": 1.5e10, "gross_profit_ntd": 3.0e9, "operating_income_ntd": 2.0e9, "eps": 2.1},
+                            {"date": "2026-06-30", "revenue_ntd": 1.6e10, "gross_profit_ntd": 3.2e9, "operating_income_ntd": 2.1e9, "eps": 2.3},
+                        ],
+                        "valuation": [{"date": f"2026-mock-{i}", "per": 15 + (i % 4), "pbr": 1.2, "dividend_yield": 4.5} for i in range(120)],
+                        "peer_valuation": [],
+                    }
+                    for cfg in self.ADDITIONAL_STOCK_ANALYSIS
+                }
+                additional_stock_news = {cfg["symbol"]: [] for cfg in self.ADDITIONAL_STOCK_ANALYSIS}
                 tsmc_official_guidance = {
                     "source": "mock", "fetched_url": "mock",
                     "reported_quarter": "2026Q2", "reported_quarter_end": "2026-06-30",
@@ -211,7 +249,9 @@ class KDStockMonitor:
                     tsmc_monthly_revenue = tw_eod_cache["tsmc_monthly_revenue"]
                     tsmc_quarterly_financials = tw_eod_cache["tsmc_quarterly_financials"]
                     tsmc_valuation = tw_eod_cache["tsmc_valuation"]
+                    tsmc_peer_valuation = tw_eod_cache.get("tsmc_peer_valuation") or []
                     tsmc_official_guidance = tw_eod_cache["tsmc_official_guidance"]
+                    additional_stock_fundamentals = tw_eod_cache.get("additional_stock_fundamentals") or {}
                     cached_institutional_by_symbol = tw_eod_cache.get("institutional_by_symbol") or {}
                 else:
                     tw_chip_indicators = self.fetcher.fetch_tw_chip_indicators()
@@ -223,16 +263,57 @@ class KDStockMonitor:
                         logger.error(f"TSMC fundamentals fetch failed (non-fatal, continuing): {e}")
                         tsmc_monthly_revenue, tsmc_quarterly_financials, tsmc_valuation = [], [], []
                     try:
+                        tsmc_peer_valuation = self.fetcher.fetch_tsmc_peer_valuation()
+                    except Exception as e:
+                        logger.error(f"TSMC peer valuation fetch failed (non-fatal, continuing): {e}")
+                        tsmc_peer_valuation = []
+                    try:
                         tsmc_official_guidance = self.fetcher.fetch_tsmc_official_guidance()
                     except Exception as e:
                         logger.error(f"TSMC official guidance fetch failed (non-fatal, continuing): {e}")
                         tsmc_official_guidance = None
+
+                    # Same daily-cached fundamentals fetch as TSMC above, for
+                    # ADDITIONAL_STOCK_ANALYSIS's other individually-scored
+                    # stocks (see calculate_stock_investment_score()).
+                    additional_stock_fundamentals = {}
+                    for cfg in self.ADDITIONAL_STOCK_ANALYSIS:
+                        symbol, bare_code = cfg["symbol"], cfg["bare_code"]
+                        try:
+                            monthly_revenue = self.fetcher.fetch_stock_monthly_revenue(bare_code)
+                            quarterly_financials = self.fetcher.fetch_stock_quarterly_financials(bare_code)
+                            valuation = self.fetcher.fetch_stock_valuation(bare_code)
+                        except Exception as e:
+                            logger.error(f"{symbol} fundamentals fetch failed (non-fatal, continuing): {e}")
+                            monthly_revenue, quarterly_financials, valuation = [], [], []
+                        try:
+                            peer_symbols = getattr(self.fetcher, cfg["peer_symbols_attr"])
+                            peer_valuation = self.fetcher.fetch_peer_valuation(peer_symbols)
+                        except Exception as e:
+                            logger.error(f"{symbol} peer valuation fetch failed (non-fatal, continuing): {e}")
+                            peer_valuation = []
+                        additional_stock_fundamentals[symbol] = {
+                            "monthly_revenue": monthly_revenue, "quarterly_financials": quarterly_financials,
+                            "valuation": valuation, "peer_valuation": peer_valuation,
+                        }
 
                 try:
                     market_news = self.fetcher.fetch_market_news()
                 except Exception as e:
                     logger.error(f"Market news fetch failed (non-fatal, continuing): {e}")
                     market_news = []
+                try:
+                    tsmc_news = self.fetcher.fetch_stock_news("2330.TW")
+                except Exception as e:
+                    logger.error(f"TSMC stock news fetch failed (non-fatal, continuing): {e}")
+                    tsmc_news = []
+                additional_stock_news = {}
+                for cfg in self.ADDITIONAL_STOCK_ANALYSIS:
+                    try:
+                        additional_stock_news[cfg["symbol"]] = self.fetcher.fetch_stock_news(cfg["symbol"])
+                    except Exception as e:
+                        logger.error(f"{cfg['symbol']} news fetch failed (non-fatal, continuing): {e}")
+                        additional_stock_news[cfg["symbol"]] = []
 
             stocks_fetched = sum(len(stocks) for stocks in stock_data.values())
             logger.info(f"Fetched data for {stocks_fetched} stocks and macro indicators")
@@ -284,7 +365,9 @@ class KDStockMonitor:
                     "tsmc_monthly_revenue": tsmc_monthly_revenue,
                     "tsmc_quarterly_financials": tsmc_quarterly_financials,
                     "tsmc_valuation": tsmc_valuation,
+                    "tsmc_peer_valuation": tsmc_peer_valuation,
                     "tsmc_official_guidance": tsmc_official_guidance,
+                    "additional_stock_fundamentals": additional_stock_fundamentals,
                     "institutional_by_symbol": cached_institutional_by_symbol,
                 })
 
@@ -351,6 +434,63 @@ class KDStockMonitor:
                 logger.error(f"TSMC score calculation failed (non-fatal, continuing): {e}", exc_info=True)
                 tsmc_analysis = {"available": False, "reason": str(e)}
 
+            # Step 2.86: 2330 基本面摘要卡 — quarterly highlights/news/valuation/
+            # bull-bear, built from the SAME data just fetched/scored above
+            # (never a second independent fetch or judgment call — see
+            # build_fundamentals_summary()'s docstring for why the bull/bear
+            # points specifically must be read off tsmc_analysis's own
+            # dimension scores).
+            try:
+                tsmc_fundamentals_summary = build_fundamentals_summary(
+                    tsmc_quarterly_financials, tsmc_valuation, tsmc_peer_valuation,
+                    stock_2330, tsmc_news, tsmc_analysis
+                )
+            except Exception as e:
+                logger.error(f"TSMC fundamentals summary failed (non-fatal, continuing): {e}", exc_info=True)
+                tsmc_fundamentals_summary = {"available": False, "reason": str(e)}
+
+            # Step 2.87: Same two-part analysis (10-dimension investment score
+            # + fundamentals summary) as 2330 above, for ADDITIONAL_STOCK_ANALYSIS
+            # — the generalized core model (calculate_stock_investment_score()),
+            # not TSMC's own bespoke extras. has_adr=False and guidance_entries=[]
+            # are the defaults, so Guidance/ADR degrade to "not applicable" rather
+            # than "data missing" (see that function's docstring).
+            logger.info("\n[Step 2.87/4] Calculating additional per-stock analysis...")
+            additional_stock_analysis = {}
+            for cfg in self.ADDITIONAL_STOCK_ANALYSIS:
+                symbol, label = cfg["symbol"], cfg["label"]
+                try:
+                    stock = next((s for s in stocks_with_kd.get("TW", []) if s.get("symbol") == symbol and "error" not in s), None)
+                    fundamentals = additional_stock_fundamentals.get(symbol) or {}
+                    monthly_revenue = fundamentals.get("monthly_revenue") or []
+                    quarterly_financials = fundamentals.get("quarterly_financials") or []
+                    valuation = fundamentals.get("valuation") or []
+                    peer_valuation = fundamentals.get("peer_valuation") or []
+                    news = additional_stock_news.get(symbol) or []
+                    if stock is None:
+                        logger.warning(f"{symbol} not found in watchlist results — skipping its analysis")
+                        investment_score = {"available": False, "reason": f"{symbol} not in stocks_with_kd"}
+                    else:
+                        investment_score = calculate_stock_investment_score(
+                            label, monthly_revenue, quarterly_financials, valuation, [], stock, None,
+                            macro_history, regime_result, confluence_result, usdtwd,
+                        )
+                    fundamentals_summary = build_fundamentals_summary(
+                        quarterly_financials, valuation, peer_valuation, stock, news, investment_score
+                    )
+                    additional_stock_analysis[symbol] = {
+                        "label": label, "investment_score": investment_score,
+                        "fundamentals_summary": fundamentals_summary,
+                    }
+                    logger.info(f"{symbol} ({label}) score: available={investment_score.get('available')}, "
+                                f"total={investment_score.get('total')}")
+                except Exception as e:
+                    logger.error(f"{symbol} analysis failed (non-fatal, continuing): {e}", exc_info=True)
+                    additional_stock_analysis[symbol] = {
+                        "label": label, "investment_score": {"available": False, "reason": str(e)},
+                        "fundamentals_summary": {"available": False, "reason": str(e)},
+                    }
+
             # Step 2.9: Log today's signal state to the backtest history, then
             # recompute forward-return statistics against the accumulated log.
             # See signal_backtest.py's module docstring for the cold-start
@@ -396,7 +536,9 @@ class KDStockMonitor:
             summary = self._generate_summary(stocks_with_kd, alert_result, macro_indicators,
                                               tw_chip_indicators, confluence_result, market_news,
                                               regime_result, signal_score_result, tsmc_analysis,
-                                              signal_backtest_result, data_freshness)
+                                              signal_backtest_result, data_freshness,
+                                              tsmc_fundamentals_summary=tsmc_fundamentals_summary,
+                                              additional_stock_analysis=additional_stock_analysis)
             
             # Save run log
             self._save_run_log(summary)
@@ -464,7 +606,9 @@ class KDStockMonitor:
                            tw_chip_indicators: Dict = None, confluence_result: Dict = None,
                            market_news: list = None, regime_result: Dict = None,
                            signal_score_result: Dict = None, tsmc_analysis: Dict = None,
-                           signal_backtest_result: Dict = None, data_freshness: Dict = None) -> Dict:
+                           signal_backtest_result: Dict = None, data_freshness: Dict = None,
+                           tsmc_fundamentals_summary: Dict = None,
+                           additional_stock_analysis: Dict = None) -> Dict:
         """Generate a summary of the run."""
         all_stocks = []
         for market in ["TW", "US"]:
@@ -516,6 +660,8 @@ class KDStockMonitor:
             "market_regime": regime_result or {"available": False},
             "signal_score": signal_score_result or {"available": False},
             "tsmc_analysis": tsmc_analysis or {"available": False},
+            "tsmc_fundamentals_summary": tsmc_fundamentals_summary or {"available": False},
+            "additional_stock_analysis": additional_stock_analysis or {},
             "signal_backtest": signal_backtest_result or {"available": False},
             "data_freshness": data_freshness or {},
             "news": market_news or [],

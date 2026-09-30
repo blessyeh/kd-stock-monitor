@@ -809,11 +809,41 @@ class StockFetcher:
         the rest of the pipeline, same as every other best-effort fetch in
         this module.
         """
+        return self._scrape_yahoo_news_page("https://tw.stock.yahoo.com/news/", max_items,
+                                             error_context="market news")
+
+    def fetch_stock_news(self, symbol: str, max_items: int = 8) -> List[Dict]:
+        """
+        Best-effort scrape of ticker-specific headlines from
+        tw.stock.yahoo.com/quote/<symbol>/news (e.g. "2330.TW"), for a
+        single stock's fundamentals-summary news section. Same scrape
+        approach and fragility caveats as fetch_market_news() above — this
+        just points the identical URL-pattern parser at a per-stock page
+        instead of the general news index.
+
+        The page markup doesn't expose a reliable per-article publish date
+        (see fetch_market_news()'s "best-effort <time> lookup" — often
+        misses here too), so this cannot guarantee a strict "last 30 days"
+        window; it returns whatever Yahoo currently has featured for the
+        ticker, which in practice skews recent. Callers/UI should caveat
+        this as "近期新聞", not promise an exact date cutoff.
+        """
+        return self._scrape_yahoo_news_page(f"https://tw.stock.yahoo.com/quote/{symbol}/news", max_items,
+                                             error_context=f"{symbol} news")
+
+    def _scrape_yahoo_news_page(self, url: str, max_items: int, error_context: str) -> List[Dict]:
+        """
+        Shared scraper behind fetch_market_news() and fetch_stock_news() —
+        both are the same Yahoo奇摩股市 URL-pattern-based parse (see
+        fetch_market_news()'s docstring for the full rationale/caveats),
+        just aimed at different pages. Returns an empty list on any failure;
+        must never take down the rest of the pipeline.
+        """
         import re
         try:
             from bs4 import BeautifulSoup
         except ImportError:
-            logger.error("beautifulsoup4 not installed — cannot scrape market news")
+            logger.error(f"beautifulsoup4 not installed — cannot scrape {error_context}")
             return []
 
         try:
@@ -821,7 +851,7 @@ class StockFetcher:
                 "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                                 "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
             }
-            resp = requests.get("https://tw.stock.yahoo.com/news/", headers=headers, timeout=15)
+            resp = requests.get(url, headers=headers, timeout=15)
             resp.raise_for_status()
             soup = BeautifulSoup(resp.text, "html.parser")
 
@@ -838,10 +868,10 @@ class StockFetcher:
                 # to be much lower than it would be for an English site.
                 if len(title) < 10:  # filters out icon/nav links that happen to match the URL pattern
                     continue
-                url = href if href.startswith("http") else f"https://tw.stock.yahoo.com{href}"
-                if url in seen_urls:
+                article_url = href if href.startswith("http") else f"https://tw.stock.yahoo.com{href}"
+                if article_url in seen_urls:
                     continue
-                seen_urls.add(url)
+                seen_urls.add(article_url)
 
                 # Best-effort: look for a nearby <time> element (publisher/timestamp)
                 # within the same story container. Optional — a miss here just
@@ -857,15 +887,15 @@ class StockFetcher:
                 except Exception:
                     pass
 
-                items.append({"title": title, "url": url, "meta": meta})
+                items.append({"title": title, "url": article_url, "meta": meta})
                 if len(items) >= max_items:
                     break
 
             if not items:
-                logger.warning("Market news scrape returned 0 items — Yahoo's page structure may have changed")
+                logger.warning(f"{error_context} scrape returned 0 items — Yahoo's page structure may have changed")
             return items
         except Exception as e:
-            logger.error(f"Error fetching market news from Yahoo Finance: {e}")
+            logger.error(f"Error fetching {error_context} from Yahoo Finance: {e}")
             return []
 
     def _fetch_finmind(self, dataset: str, data_id: str, days_back: int = 7) -> Optional[List[Dict]]:
@@ -1018,17 +1048,20 @@ class StockFetcher:
             if i < len(tw_stocks) - 1:
                 time.sleep(0.15)
 
-    # ── 2330 (TSMC) fundamental data — feeds src/tsmc_analyzer.py ──────────
-    # These three datasets were each confirmed against live FinMind data on
-    # 2026-08-09 to exactly match TSMC's own publicly disclosed figures
-    # (e.g. June 2026 single-month revenue NT$442.68B, 1Q25 EPS 13.95,
-    # 2Q25 EPS 15.36) — see tsmc_analyzer.py's module docstring for why 2330
-    # gets its own dedicated fundamentals model instead of being treated
-    # like any other KD/technical-only ticker.
+    # ── Per-stock fundamental data — feeds src/tsmc_analyzer.py ─────────────
+    # Originally 2330 (TSMC)-only (these three datasets were confirmed
+    # against live FinMind data on 2026-08-09 to exactly match TSMC's own
+    # publicly disclosed figures — e.g. June 2026 single-month revenue
+    # NT$442.68B, 1Q25 EPS 13.95, 2Q25 EPS 15.36); now generalized to any
+    # tracked stock with FinMind fundamentals coverage (see
+    # calculate_stock_investment_score() in tsmc_analyzer.py). Each generic
+    # fetch_stock_*() takes a bare FinMind data_id (e.g. "2330", "2850",
+    # "1232" — no ".TW"/".TWO" suffix); fetch_tsmc_*() are thin 2330-specific
+    # wrappers kept for backward compatibility with existing call sites.
 
-    def fetch_tsmc_monthly_revenue(self, months_back: int = 18) -> List[Dict]:
+    def fetch_stock_monthly_revenue(self, symbol: str, months_back: int = 18) -> List[Dict]:
         """
-        2330 monthly revenue (月營收) via FinMind's TaiwanStockMonthRevenue.
+        Monthly revenue (月營收) via FinMind's TaiwanStockMonthRevenue.
         Returns ascending-by-month list of:
             {"year": int, "month": int, "revenue_ntd": float, "report_date": "YYYY-MM-DD"}
         `report_date` is when TWSE/the company actually disclosed that
@@ -1036,9 +1069,9 @@ class StockFetcher:
         month the revenue is for.
         """
         try:
-            rows = self._fetch_finmind("TaiwanStockMonthRevenue", "2330", days_back=months_back * 31)
+            rows = self._fetch_finmind("TaiwanStockMonthRevenue", symbol, days_back=months_back * 31)
         except Exception as e:
-            logger.error(f"Error fetching TSMC monthly revenue: {e}")
+            logger.error(f"Error fetching monthly revenue for {symbol}: {e}")
             return []
         if not rows:
             return []
@@ -1051,12 +1084,14 @@ class StockFetcher:
         out.sort(key=lambda x: (x["year"], x["month"]))
         return out
 
-    def fetch_tsmc_quarterly_financials(self, quarters_back: int = 8) -> List[Dict]:
+    def fetch_tsmc_monthly_revenue(self, months_back: int = 18) -> List[Dict]:
+        return self.fetch_stock_monthly_revenue("2330", months_back=months_back)
+
+    def fetch_stock_quarterly_financials(self, symbol: str, quarters_back: int = 8) -> List[Dict]:
         """
-        2330 quarterly Revenue / GrossProfit / OperatingIncome / EPS via
-        FinMind's TaiwanStockFinancialStatements — these are single-quarter
-        actuals (not cumulative year-to-date figures), confirmed against
-        real reported TSMC quarterly results.
+        Quarterly Revenue / GrossProfit / OperatingIncome / EPS via FinMind's
+        TaiwanStockFinancialStatements — these are single-quarter actuals
+        (not cumulative year-to-date figures).
         Returns ascending-by-quarter-end-date list of:
             {"date": "YYYY-MM-DD" (quarter end), "revenue_ntd", "gross_profit_ntd",
              "operating_income_ntd", "eps"}
@@ -1066,9 +1101,9 @@ class StockFetcher:
         an error.
         """
         try:
-            rows = self._fetch_finmind("TaiwanStockFinancialStatements", "2330", days_back=quarters_back * 100)
+            rows = self._fetch_finmind("TaiwanStockFinancialStatements", symbol, days_back=quarters_back * 100)
         except Exception as e:
-            logger.error(f"Error fetching TSMC quarterly financials: {e}")
+            logger.error(f"Error fetching quarterly financials for {symbol}: {e}")
             return []
         if not rows:
             return []
@@ -1082,21 +1117,24 @@ class StockFetcher:
             by_date.setdefault(d, {"date": d})[field_map[t]] = float(v)
         return sorted(by_date.values(), key=lambda x: x["date"])
 
-    def fetch_tsmc_valuation(self, days_back: int = 1100) -> List[Dict]:
+    def fetch_tsmc_quarterly_financials(self, quarters_back: int = 8) -> List[Dict]:
+        return self.fetch_stock_quarterly_financials("2330", quarters_back=quarters_back)
+
+    def fetch_stock_valuation(self, symbol: str, days_back: int = 1100) -> List[Dict]:
         """
-        2330 daily trailing PER / PBR / dividend yield via FinMind's
+        Daily trailing PER / PBR / dividend yield via FinMind's
         TaiwanStockPER. Used to build a historical percentile rank rather
         than an absolute "PE > 30 = expensive" cutoff, since a fixed number
-        drifts out of relevance as the market re-rates the whole
-        semiconductor sector over multi-year periods — default window is
-        ~3 years (1100 calendar days) specifically to span more than one
-        market cycle. Returns ascending-by-date list of:
+        drifts out of relevance as the market re-rates a whole sector over
+        multi-year periods — default window is ~3 years (1100 calendar
+        days) specifically to span more than one market cycle. Returns
+        ascending-by-date list of:
             {"date", "per", "pbr", "dividend_yield"}
         """
         try:
-            rows = self._fetch_finmind("TaiwanStockPER", "2330", days_back=days_back)
+            rows = self._fetch_finmind("TaiwanStockPER", symbol, days_back=days_back)
         except Exception as e:
-            logger.error(f"Error fetching TSMC valuation (PER/PBR): {e}")
+            logger.error(f"Error fetching valuation (PER/PBR) for {symbol}: {e}")
             return []
         if not rows:
             return []
@@ -1108,6 +1146,62 @@ class StockFetcher:
             out.append({"date": d, "per": float(per), "pbr": r.get("PBR"), "dividend_yield": r.get("dividend_yield")})
         out.sort(key=lambda x: x["date"])
         return out
+
+    def fetch_tsmc_valuation(self, days_back: int = 1100) -> List[Dict]:
+        return self.fetch_stock_valuation("2330", days_back=days_back)
+
+    # Closest TWSE-listed reference points for each covered stock's
+    # fundamentals-summary 同業比較 (peer comparison). Global/foreign peers
+    # (e.g. Samsung, Intel for 2330) aren't TWSE-listed and have no FinMind
+    # coverage, so they're out of scope for this automated comparison.
+    #
+    # 2330 台積電: 2303 聯電/UMC is the only other major pure-play foundry
+    # listed in Taiwan (true business-model peer); 2454 聯發科/MediaTek is a
+    # fabless IC designer, not a foundry, but is the other half of Taiwan's
+    # "護國神山" duo and commonly quoted alongside 2330 — kept in but labeled
+    # as a non-foundry peer so the UI doesn't imply an apples-to-apples compare.
+    TSMC_PEER_SYMBOLS = [("2303", "聯電(UMC，晶圓代工同業)"), ("2454", "聯發科(MediaTek，IC設計，非晶圓代工同業)")]
+
+    # 2850 新光產物保險: 2851 中再保(中央再保險) is the closest true peer —
+    # a domestic property & casualty (re)insurer on TWSE. (2867 三商壽 is a
+    # life insurer, a different line of business, so left out.)
+    SHIN_KONG_PROPERTY_PEER_SYMBOLS = [("2851", "中再保(產物再保險同業)")]
+
+    # 1232 大統益: 1225 福懋油 is Taiwan's other major listed edible-oil/
+    # soybean processor — the standard pairwise comparison for this stock.
+    TA_TONG_PEER_SYMBOLS = [("1225", "福懋油(食用油加工同業)")]
+
+    def fetch_peer_valuation(self, peer_symbols: List[tuple]) -> List[Dict]:
+        """
+        Latest trailing PER snapshot (not full history — the fundamentals
+        summary only needs a current-value comparison, unlike
+        fetch_stock_valuation()'s percentile-rank use case) for the given
+        [(symbol, name), ...] pairs, via the same FinMind TaiwanStockPER
+        dataset. Each peer's fetch is independently wrapped so one bad/
+        delisted symbol can't take down the rest. Returns:
+            [{"symbol", "name", "per", "date"}, ...]
+        Silently skips a peer with no recent PER data rather than erroring —
+        callers should treat a short/empty list as "peer comparison
+        unavailable", not a failure.
+        """
+        out = []
+        for symbol, name in peer_symbols:
+            try:
+                rows = self._fetch_finmind("TaiwanStockPER", symbol, days_back=10)
+            except Exception as e:
+                logger.warning(f"Peer valuation fetch failed for {symbol}: {e}")
+                continue
+            if not rows:
+                continue
+            latest = max(rows, key=lambda r: r.get("date") or "")
+            per = latest.get("PER")
+            if per is None:
+                continue
+            out.append({"symbol": symbol, "name": name, "per": float(per), "date": latest.get("date")})
+        return out
+
+    def fetch_tsmc_peer_valuation(self) -> List[Dict]:
+        return self.fetch_peer_valuation(self.TSMC_PEER_SYMBOLS)
 
     def fetch_tsmc_official_guidance(self) -> Optional[Dict]:
         """

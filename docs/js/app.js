@@ -92,6 +92,14 @@ const INFO_TEXT = {
     signal_backtest: {
         title: '訊號回測：勝率與期望值',
         body: '本功能上線後，每個交易日都會記錄當天「訊號共振」的各項條件、「訊號評分」的頂部/底部分數、以及台積電買點設定是否成立，之後回頭比對台股加權指數（或 2330 股價）在 1/3/5/10/20 個交易日後的表現，計算樣本數、勝率、平均報酬、期望值、最差單次報酬與類 Sharpe 比率。最重要的限制：這是「上線後才開始累積」的正向回測，無法回溯本功能上線前的歷史資料，因此樣本數在相當長一段時間內都會偏少（樣本不足 10 筆時不顯示統計數字）；「最差報酬」是單一訊號事件中最不利的一次結果，不是投資組合層級的最大回撤（因為訊號事件之間可能重疊，不是連續的交易序列）。'
+    },
+    tsmc_fundamentals_summary: {
+        title: '台積電 (2330) 基本面摘要',
+        body: '四個區塊：①近一季財報重點（營收/毛利率/EPS，與去年同期比較，來自FinMind季報資料）；②近期新聞（即時擷取自Yahoo奇摩股市2330個股新聞頁的標題列表，非法說會逐字稿或AI摘要，頁面不保證僅涵蓋一個月或提供可靠發布日期）；③目前股價、本益比，與聯電(UMC，同為晶圓代工)、聯發科(MediaTek，IC設計非代工)兩檔台股同業比較（Samsung/Intel等海外同業未在台股掛牌，無免費可自動抓取資料源，不在比較範圍）；④利多/利空各三點——這不是另一次獨立判斷或AI生成文字，而是直接取自「台積電投資決策分析」已計算好的10個構面分數，依「得分/滿分」比例排序後取最高3項、最低3項（大盤環境與ADR溢折價兩構面本身不具方向性，已排除在排序之外），確保與上方投資決策分數永遠一致，不會出現兩套互相矛盾的說法。'
+    },
+    additional_stock_analysis: {
+        title: '個股投資決策分析（比照台積電模型）',
+        body: '套用與台積電(2330)完全相同的規則式10構面評分＋基本面摘要模型（見「台積電投資決策分析」「台積電基本面摘要」說明），差別只在於：此股票沒有官方法說會財測指引資料源、也沒有海外ADR對照掛牌，因此「法說會財測指引」「ADR溢折價」這兩個構面固定顯示「不適用」（滿分自動排除，不計入總分分母），總分改以剩餘構面加總；相對強弱構面僅比較大盤加權指數（不像台積電額外比較費半/那斯達克，因為那對非半導體股沒有意義）；同業比較對象依產業另外選定（見卡片內容）。同樣是人為設定權重的規則式評分，並非經過回測驗證的統計模型，也不是投資建議。'
     }
 };
 
@@ -280,6 +288,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderSignalConfluence();
     renderSignalBacktest();
     renderTsmcAnalysis();
+    renderTsmcFundamentalsSummary();
+    renderAdditionalStockAnalysis();
     renderStockGrid();
     renderAlertHistory();
     updateLastUpdated();
@@ -1074,6 +1084,346 @@ function renderTsmcAnalysis() {
 }
 
 /**
+ * Render the 台積電 (2330) Fundamentals Summary panel — a companion to
+ * renderTsmcAnalysis() above, aimed at four concrete reader questions
+ * rather than the 10-dimension score. Backed by
+ * tsmc_analyzer.build_fundamentals_summary(); the bull/bear points there
+ * are read directly off tsmc_analysis's own dimension scores (see that
+ * function's docstring), so this panel always agrees with the score panel
+ * above it — never a second, independently-derived verdict.
+ */
+function renderTsmcFundamentalsSummary() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const fs = summary.tsmc_fundamentals_summary || { available: false };
+        const dateEl = document.getElementById('tsmc-fundamentals-date');
+        const body = document.getElementById('tsmc-fundamentals-body');
+        if (!body) return;
+
+        if (!fs.available) {
+            if (dateEl) dateEl.textContent = '';
+            body.innerHTML = `
+                <div class="text-center py-4 text-dark-text2 text-sm">
+                    <i class="fas fa-hourglass-half mr-1"></i>
+                    資料尚不足以產生台積電基本面摘要（${fs.reason || '請稍候，資料會隨每日執行自動累積'}）
+                </div>
+            `;
+            return;
+        }
+        if (dateEl) dateEl.innerHTML = freshnessBadge((summary.data_freshness || {}).tsmc_fundamentals, 'eod');
+
+        const qh = fs.quarterly_highlights || {};
+        const quarterlyHtml = !qh.available ? `
+            <div class="text-xs text-dark-text2">${qh.reason || '缺季度財報資料'}</div>
+        ` : (() => {
+            const revenueYi = qh.revenue_ntd != null ? (qh.revenue_ntd / 1e8) : null;
+            const yoyRow = (label, val, suffix, invertColor) => {
+                if (val == null) return `<span class="text-dark-text2">（缺去年同期資料）</span>`;
+                const positive = invertColor ? val <= 0 : val >= 0;
+                const cls = positive ? 'text-kd-red' : 'text-kd-green';
+                return `<span class="font-mono ${cls}">${val > 0 ? '+' : ''}${val}${suffix}</span>`;
+            };
+            return `
+                <div class="text-xs text-dark-text2 mb-1.5">最新季度：${qh.quarter}${qh.yoy_quarter ? `（較 ${qh.yoy_quarter} 同期比較）` : ''}</div>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="bg-dark-bg rounded p-2">
+                        <div class="text-[10px] text-dark-text2 mb-0.5">營收</div>
+                        <div class="font-mono text-sm text-dark-text">${revenueYi != null ? revenueYi.toLocaleString('zh-TW', {maximumFractionDigits: 0}) + '億' : '--'}</div>
+                        <div class="text-[10px] mt-0.5">YoY ${yoyRow('rev', qh.revenue_yoy_pct, '%')}</div>
+                    </div>
+                    <div class="bg-dark-bg rounded p-2">
+                        <div class="text-[10px] text-dark-text2 mb-0.5">毛利率</div>
+                        <div class="font-mono text-sm text-dark-text">${qh.gross_margin_pct != null ? qh.gross_margin_pct + '%' : '--'}</div>
+                        <div class="text-[10px] mt-0.5">YoY ${yoyRow('gm', qh.gross_margin_yoy_pp, 'pp')}</div>
+                    </div>
+                    <div class="bg-dark-bg rounded p-2">
+                        <div class="text-[10px] text-dark-text2 mb-0.5">EPS</div>
+                        <div class="font-mono text-sm text-dark-text">${qh.eps != null ? qh.eps : '--'}</div>
+                        <div class="text-[10px] mt-0.5">YoY ${yoyRow('eps', qh.eps_yoy_pct, '%')}</div>
+                    </div>
+                </div>
+            `;
+        })();
+
+        const newsHtml = (fs.news && fs.news.length)
+            ? `<ul class="space-y-1.5">${fs.news.map(n => `
+                <li class="text-xs leading-snug">
+                    <a href="${n.url}" target="_blank" rel="noopener noreferrer" class="text-dark-text hover:text-accent">
+                        <i class="fas fa-newspaper opacity-50 mr-1"></i>${n.title}
+                    </a>
+                    ${n.meta ? `<span class="text-dark-text2 text-[10px] ml-1">${n.meta}</span>` : ''}
+                </li>
+            `).join('')}</ul>`
+            : `<div class="text-xs text-dark-text2">暫無擷取到相關新聞</div>`;
+
+        const val = fs.valuation || {};
+        const vsColorClass = val.vs_peer_avg_pct != null ? (val.vs_peer_avg_pct >= 0 ? 'text-kd-red' : 'text-kd-green') : '';
+        const valuationHtml = !val.available ? `
+            <div class="text-xs text-dark-text2">缺股價或本益比資料</div>
+        ` : `
+            <div class="flex items-baseline gap-3 mb-2">
+                <span class="font-mono text-lg text-white">${val.current_price != null ? val.current_price.toFixed(1) : '--'}</span>
+                <span class="text-xs text-dark-text2">本益比 <span class="font-mono text-dark-text">${val.per != null ? val.per : '--'}</span></span>
+            </div>
+            ${(val.peers && val.peers.length) ? `
+                <div class="space-y-1">
+                    ${val.peers.map(p => `
+                        <div class="flex items-center justify-between text-[11px]">
+                            <span class="text-dark-text2">${p.name}</span>
+                            <span class="font-mono text-dark-text">${p.per}</span>
+                        </div>
+                    `).join('')}
+                    ${val.peer_avg_per != null ? `
+                        <div class="flex items-center justify-between text-[11px] pt-1 border-t border-dark-border/50 mt-1">
+                            <span class="text-dark-text2">同業平均 vs 2330</span>
+                            <span class="font-mono ${vsColorClass}">${val.vs_peer_avg_pct > 0 ? '+' : ''}${val.vs_peer_avg_pct}%</span>
+                        </div>
+                    ` : ''}
+                </div>
+            ` : `<div class="text-[11px] text-dark-text2">同業本益比資料暫缺</div>`}
+        `;
+
+        const pointsHtml = (points, colorClass, icon) => (points && points.length)
+            ? `<ul class="space-y-1.5">${points.map(p => `
+                <li class="text-[11px] leading-snug flex items-start gap-1.5">
+                    <i class="fas ${icon} ${colorClass} mt-0.5"></i>
+                    <span class="text-dark-text2">${p.detail || TSMC_DIM_LABELS[p.dimension] || p.dimension}</span>
+                </li>
+            `).join('')}</ul>`
+            : `<div class="text-[11px] text-dark-text2">資料不足</div>`;
+
+        body.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                <div>
+                    <div class="text-xs font-semibold text-dark-text mb-2"><i class="fas fa-file-lines mr-1 opacity-60"></i>近一季財報重點</div>
+                    ${quarterlyHtml}
+                </div>
+                <div>
+                    <div class="text-xs font-semibold text-dark-text mb-2"><i class="fas fa-scale-balanced mr-1 opacity-60"></i>股價 / 本益比同業比較</div>
+                    ${valuationHtml}
+                </div>
+                <div>
+                    <div class="text-xs font-semibold text-dark-text mb-2"><i class="fas fa-newspaper mr-1 opacity-60"></i>近期新聞</div>
+                    ${newsHtml}
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <div class="text-xs font-semibold text-kd-red mb-2"><i class="fas fa-arrow-trend-up mr-1"></i>利多 3 點</div>
+                        ${pointsHtml(fs.bull_points, 'text-kd-red', 'fa-circle-plus')}
+                    </div>
+                    <div>
+                        <div class="text-xs font-semibold text-kd-green mb-2"><i class="fas fa-arrow-trend-down mr-1"></i>利空 3 點</div>
+                        ${pointsHtml(fs.bear_points, 'text-kd-green', 'fa-circle-minus')}
+                    </div>
+                </div>
+            </div>
+            ${fs.news_caveat ? `<p class="text-[10px] text-dark-text2 opacity-60 mt-3">${fs.news_caveat}</p>` : ''}
+        `;
+    } catch (e) {
+        console.error("Error rendering TSMC fundamentals summary:", e);
+    }
+}
+
+/**
+ * Render one card per entry in summary.additional_stock_analysis — the same
+ * two-part analysis TSMC (2330) gets above (10-dimension investment score +
+ * fundamentals summary), generalized to other individually-tracked stocks
+ * (see src/main.py's ADDITIONAL_STOCK_ANALYSIS and
+ * tsmc_analyzer.calculate_stock_investment_score()). Unlike the TSMC cards
+ * above (fixed HTML containers filled by JS), these stocks are data-driven:
+ * the container itself is built here, one dark-card per symbol, so adding
+ * another stock to ADDITIONAL_STOCK_ANALYSIS needs no HTML changes.
+ */
+function renderAdditionalStockAnalysis() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const analysis = summary.additional_stock_analysis || {};
+        const container = document.getElementById('additional-stock-analysis-container');
+        if (!container) return;
+
+        const symbols = Object.keys(analysis);
+        if (!symbols.length) {
+            container.innerHTML = '';
+            return;
+        }
+
+        container.innerHTML = symbols.map(symbol => {
+            const entry = analysis[symbol] || {};
+            const label = entry.label || symbol;
+            const score = entry.investment_score || { available: false };
+            const fs = entry.fundamentals_summary || { available: false };
+
+            if (!score.available && !fs.available) {
+                return `
+                    <div class="dark-card rounded-lg border border-dark-border mb-6 p-4">
+                        <h2 class="text-sm font-bold text-white mb-1 flex items-center">
+                            <i class="fas fa-building mr-2 text-accent"></i>${label} (${symbol}) 投資決策分析
+                        </h2>
+                        <div class="text-center py-4 text-dark-text2 text-sm">
+                            <i class="fas fa-hourglass-half mr-1"></i>
+                            資料尚不足以計算${label}的分析（${score.reason || fs.reason || '請稍候，資料會隨每日執行自動累積'}）
+                        </div>
+                    </div>
+                `;
+            }
+
+            const recStyle = TSMC_RECOMMENDATION_STYLE[score.recommendation] || 'bg-dark-bg text-dark-text2';
+            const scoreHeaderHtml = score.available ? `
+                <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
+                    <div class="flex items-baseline gap-3">
+                        <span class="text-2xl font-bold font-mono text-white">${score.total}<span class="text-xs text-dark-text2">/100（涵蓋${score.coverage}項構面）</span></span>
+                        <span class="px-2.5 py-1 rounded-full text-xs font-semibold ${recStyle}">${score.recommendation}</span>
+                    </div>
+                    <div>${(score.buy_points && score.buy_points.length)
+                        ? score.buy_points.map(bp => `
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-accent/15 text-accent mr-1.5 mb-1" title="${bp.detail}">
+                                <i class="fas fa-crosshairs"></i> ${bp.label}
+                            </span>
+                        `).join('')
+                        : '<span class="text-[11px] text-dark-text2">目前未觸發任一設定買點</span>'}</div>
+                </div>
+            ` : `<div class="text-xs text-dark-text2 mb-3">投資決策分數資料不足（${score.reason || ''}）</div>`;
+
+            const dimsHtml = score.available ? `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 divide-y divide-dark-border/50 md:divide-y-0 mb-3">
+                    ${score.dimensions.map(d => {
+                        if (!d.available) {
+                            return `
+                                <div class="py-1 opacity-50">
+                                    <div class="flex items-center justify-between text-[10px]">
+                                        <span class="text-dark-text">${TSMC_DIM_LABELS[d.name] || d.name}</span>
+                                        <span class="font-mono text-dark-text2">${(d.notes || []).some(n => n.includes('不適用')) ? '不適用' : '資料不足'}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        const pct = d.cap > 0 ? Math.round((d.score / d.cap) * 100) : 0;
+                        const barClass = pct >= 60 ? 'bg-kd-red' : pct >= 30 ? 'bg-kd-yellow' : 'bg-kd-green';
+                        return `
+                            <div class="py-1">
+                                <div class="flex items-center justify-between text-[10px] mb-0.5">
+                                    <span class="text-dark-text">${TSMC_DIM_LABELS[d.name] || d.name}</span>
+                                    <span class="font-mono text-dark-text">${d.score} / ${d.cap}</span>
+                                </div>
+                                <div class="h-1 rounded-full bg-dark-bg overflow-hidden">
+                                    <div class="h-full ${barClass} rounded-full" style="width: ${pct}%"></div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            ` : '';
+
+            const qh = fs.quarterly_highlights || {};
+            const quarterlyHtml = qh.available ? `
+                <div class="text-[10px] text-dark-text2 mb-1">最新季度：${qh.quarter}</div>
+                <div class="grid grid-cols-3 gap-1.5 text-center">
+                    <div class="bg-dark-bg rounded p-1.5">
+                        <div class="text-[9px] text-dark-text2">營收</div>
+                        <div class="font-mono text-xs text-dark-text">${qh.revenue_ntd != null ? (qh.revenue_ntd / 1e8).toLocaleString('zh-TW', {maximumFractionDigits: 0}) + '億' : '--'}</div>
+                    </div>
+                    <div class="bg-dark-bg rounded p-1.5">
+                        <div class="text-[9px] text-dark-text2">毛利率</div>
+                        <div class="font-mono text-xs text-dark-text">${qh.gross_margin_pct != null ? qh.gross_margin_pct + '%' : '--'}</div>
+                    </div>
+                    <div class="bg-dark-bg rounded p-1.5">
+                        <div class="text-[9px] text-dark-text2">EPS</div>
+                        <div class="font-mono text-xs text-dark-text">${qh.eps != null ? qh.eps : '--'}</div>
+                    </div>
+                </div>
+            ` : `<div class="text-[11px] text-dark-text2">${qh.reason || '缺季度財報資料'}</div>`;
+
+            const val = fs.valuation || {};
+            const vsColorClass = val.vs_peer_avg_pct != null ? (val.vs_peer_avg_pct >= 0 ? 'text-kd-red' : 'text-kd-green') : '';
+            const valuationHtml = val.available ? `
+                <div class="flex items-baseline gap-2 mb-1">
+                    <span class="font-mono text-base text-white">${val.current_price != null ? val.current_price.toFixed(1) : '--'}</span>
+                    <span class="text-[11px] text-dark-text2">本益比 <span class="font-mono text-dark-text">${val.per != null ? val.per : '--'}</span></span>
+                </div>
+                ${(val.peers && val.peers.length) ? `
+                    ${val.peers.map(p => `
+                        <div class="flex items-center justify-between text-[10px]">
+                            <span class="text-dark-text2">${p.name}</span>
+                            <span class="font-mono text-dark-text">${p.per}</span>
+                        </div>
+                    `).join('')}
+                    ${val.peer_avg_per != null ? `
+                        <div class="flex items-center justify-between text-[10px] pt-0.5 border-t border-dark-border/50 mt-0.5">
+                            <span class="text-dark-text2">同業平均 vs ${label}</span>
+                            <span class="font-mono ${vsColorClass}">${val.vs_peer_avg_pct > 0 ? '+' : ''}${val.vs_peer_avg_pct}%</span>
+                        </div>
+                    ` : ''}
+                ` : `<div class="text-[10px] text-dark-text2">同業本益比資料暫缺</div>`}
+            ` : `<div class="text-[11px] text-dark-text2">缺股價或本益比資料</div>`;
+
+            const newsHtml = (fs.news && fs.news.length) ? `
+                <ul class="space-y-1">${fs.news.map(n => `
+                    <li class="text-[11px] leading-snug">
+                        <a href="${n.url}" target="_blank" rel="noopener noreferrer" class="text-dark-text hover:text-accent">
+                            <i class="fas fa-newspaper opacity-50 mr-1"></i>${n.title}
+                        </a>
+                        ${n.meta ? `<span class="text-dark-text2 text-[9px] ml-1">${n.meta}</span>` : ''}
+                    </li>
+                `).join('')}</ul>
+            ` : `<div class="text-[11px] text-dark-text2">暫無擷取到相關新聞</div>`;
+
+            const pointsHtml = (points, colorClass, icon) => (points && points.length)
+                ? `<ul class="space-y-1">${points.map(p => `
+                    <li class="text-[10px] leading-snug flex items-start gap-1.5">
+                        <i class="fas ${icon} ${colorClass} mt-0.5"></i>
+                        <span class="text-dark-text2">${p.detail || TSMC_DIM_LABELS[p.dimension] || p.dimension}</span>
+                    </li>
+                `).join('')}</ul>`
+                : `<div class="text-[10px] text-dark-text2">資料不足</div>`;
+
+            const fundamentalsHtml = fs.available ? `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-dark-border/50">
+                    <div>
+                        <div class="text-[11px] font-semibold text-dark-text mb-1.5"><i class="fas fa-file-lines mr-1 opacity-60"></i>近一季財報重點</div>
+                        ${quarterlyHtml}
+                    </div>
+                    <div>
+                        <div class="text-[11px] font-semibold text-dark-text mb-1.5"><i class="fas fa-scale-balanced mr-1 opacity-60"></i>股價 / 本益比同業比較</div>
+                        ${valuationHtml}
+                    </div>
+                    <div>
+                        <div class="text-[11px] font-semibold text-dark-text mb-1.5"><i class="fas fa-newspaper mr-1 opacity-60"></i>近期新聞</div>
+                        ${newsHtml}
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <div class="text-[11px] font-semibold text-kd-red mb-1.5"><i class="fas fa-arrow-trend-up mr-1"></i>利多 3 點</div>
+                            ${pointsHtml(fs.bull_points, 'text-kd-red', 'fa-circle-plus')}
+                        </div>
+                        <div>
+                            <div class="text-[11px] font-semibold text-kd-green mb-1.5"><i class="fas fa-arrow-trend-down mr-1"></i>利空 3 點</div>
+                            ${pointsHtml(fs.bear_points, 'text-kd-green', 'fa-circle-minus')}
+                        </div>
+                    </div>
+                </div>
+            ` : '';
+
+            return `
+                <div class="dark-card rounded-lg border border-dark-border mb-6 p-4">
+                    <h2 class="text-sm font-bold text-white mb-2 flex items-center">
+                        <i class="fas fa-building mr-2 text-accent"></i>${label} (${symbol}) 投資決策分析
+                        <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer ml-2" data-info="additional_stock_analysis"></i>
+                    </h2>
+                    ${scoreHeaderHtml}
+                    ${dimsHtml}
+                    ${fundamentalsHtml}
+                    <p class="text-[10px] text-dark-text2 opacity-70 mt-3 border-t border-dark-border pt-2 leading-relaxed">
+                        免責聲明：本卡採與台積電(2330)相同的規則式評分模型，但${label}無官方財測指引與海外ADR對照，因此「法說會財測指引」「ADR溢折價」兩構面固定顯示不適用；新聞為網頁標題擷取，非逐字稿或AI摘要；利多/利空三點直接取自上方10個構面排序，並非另一組獨立判斷，亦非投資建議。
+                    </p>
+                </div>
+            `;
+        }).join('');
+    } catch (e) {
+        console.error("Error rendering additional stock analysis:", e);
+    }
+}
+
+/**
  * Update last updated timestamp
  */
 function updateLastUpdated() {
@@ -1694,6 +2044,8 @@ async function refreshData() {
     renderSignalConfluence();
     renderSignalBacktest();
     renderTsmcAnalysis();
+    renderTsmcFundamentalsSummary();
+    renderAdditionalStockAnalysis();
     renderStockGrid();
     renderAlertHistory();
     updateLastUpdated();
