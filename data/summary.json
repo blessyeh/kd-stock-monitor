@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-03T09:42:20.295310",
+  "timestamp": "2026-10-03T15:32:00.794874",
   "date": "2026-10-03",
   "macro": {
     "taiex": {
@@ -13,8 +13,8 @@
       "change_pct": 0.76
     },
     "dxy": {
-      "value": 101.92,
-      "change": -0.18,
+      "value": 101.93,
+      "change": -0.17,
       "change_pct": -0.17
     },
     "fear_greed": {
@@ -22,22 +22,22 @@
       "change": -1.08,
       "change_pct": -6.59,
       "label": "VIX Index",
-      "timestamp": "2026-10-03T09:42:12.889255"
+      "timestamp": "2026-10-03T15:31:50.201597"
     },
     "btc": {
-      "value": 84613.0,
-      "change": 0,
-      "change_pct": 0
+      "value": 84637.0,
+      "change": 139.0,
+      "change_pct": 0.17
     },
     "oil": {
-      "value": 91.26,
-      "change": -1.61,
-      "change_pct": -1.73
+      "value": 91.11,
+      "change": -1.76,
+      "change_pct": -1.9
     },
     "gold": {
-      "value": 4172.1,
-      "change": -30.2,
-      "change_pct": -0.72
+      "value": 4162.3,
+      "change": -40.0,
+      "change_pct": -0.95
     },
     "sox": {
       "value": 13136.67,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 101.92 vs 近20日高點 102.01（未突破）；美債10Y 5日變動 +0.16pp（達標 0.15pp）",
-          "score": 64.3
+          "detail": "DXY 101.93 vs 近20日高點 102.01（未突破）；美債10Y 5日變動 +0.16pp（達標 0.15pp）",
+          "score": 64.6
         },
         {
           "id": "twd_depreciation",
@@ -256,7 +256,7 @@
           "cap": 25,
           "notes": [
             "VIX 近10日高點 17.3 → 目前 15.3（強度 25/100，+3.8）",
-            "DXY 101.92 距近20日高點 -0.09%（美元壓力緩和強度 45/100，+4.5）"
+            "DXY 101.93 距近20日高點 -0.08%（美元壓力緩和強度 45/100，+4.5）"
           ]
         },
         {
@@ -297,14 +297,14 @@
       ]
     },
     "top": {
-      "total": 56.8,
+      "total": 56.9,
       "dimensions": [
         {
           "name": "macro",
-          "score": 18.3,
+          "score": 18.4,
           "cap": 25,
           "notes": [
-            "DXY 101.92 距近20日高點 -0.09%，美債10Y5日變動 +0.16pp（強度 64/100，+9.6）",
+            "DXY 101.93 距近20日高點 -0.08%，美債10Y5日變動 +0.16pp（強度 65/100，+9.7）",
             "SOX/NDX 距近20日支撐 +17.55%，美債10Y同步變動（強度 87/100，+8.7）"
           ]
         },
@@ -470,6 +470,26 @@
     },
     "news": [
       {
+        "title": "台積電傳與馬斯克Terafab探索合作  考慮美國第二園區",
+        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%82%B3%E8%88%87%E9%A6%AC%E6%96%AF%E5%85%8Bterafab%E6%8E%A2%E7%B4%A2%E5%90%88%E4%BD%9C-%E8%80%83%E6%85%AE%E7%BE%8E%E5%9C%8B%E7%AC%AC%E4%BA%8C%E5%9C%92%E5%8D%80-050004734.html",
+        "meta": null
+      },
+      {
+        "title": "台股夜盤狂噴677點！下周直攻5萬 「矽光子」為何有望續飆？",
+        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E5%A4%9C%E7%9B%A4%E7%8B%82%E5%99%B4677%E9%BB%9E-%E4%B8%8B%E5%91%A8%E6%94%BB5%E8%90%AC%E5%8F%AA%E5%B7%AE-%E6%AD%A5-%E7%9F%BD%E5%85%89%E5%AD%90-%E5%8F%88%E6%9A%B4%E8%B5%B0%E6%88%90%E6%9C%80%E5%BC%B7%E7%81%AB%E7%A8%AE-020125539.html",
+        "meta": null
+      },
+      {
+        "title": "赴德州建第2園區？台積電15日法說聚焦先進製程與擴產",
+        "url": "https://tw.stock.yahoo.com/news/%E8%B5%B4%E5%BE%B7%E5%B7%9E%E5%BB%BA%E7%AC%AC2%E5%9C%92%E5%8D%80-%E5%8F%B0%E7%A9%8D%E9%9B%BB15%E6%97%A5%E6%B3%95%E8%AA%AA%E8%81%9A%E7%84%A6%E5%85%88%E9%80%B2%E8%A3%BD%E7%A8%8B%E8%88%87%E6%93%B4%E7%94%A2-015540614.html",
+        "meta": null
+      },
+      {
+        "title": "無懼高檔震盪！0050季增逾30萬投資人 吸金力更勝台積電",
+        "url": "https://tw.stock.yahoo.com/news/%E7%84%A1%E6%87%BC%E9%AB%98%E6%AA%94%E9%9C%87%E7%9B%AA-0050%E5%AD%A3%E5%A2%9E%E9%80%BE30%E8%90%AC%E6%8A%95%E8%B3%87%E4%BA%BA-%E5%90%B8%E9%87%91%E5%8A%9B%E6%9B%B4%E5%8B%9D%E5%8F%B0%E7%A9%8D%E9%9B%BB-005003924.html",
+        "meta": null
+      },
+      {
         "title": "衝向5萬點？美股全面收高　台指期夜盤飆漲677點",
         "url": "https://tw.stock.yahoo.com/news/%E8%A1%9D%E5%90%915%E8%90%AC%E9%BB%9E-%E7%BE%8E%E8%82%A1%E5%85%A8%E9%9D%A2%E6%94%B6%E9%AB%98-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E9%A3%86%E6%BC%B2677%E9%BB%9E-223255680.html",
         "meta": null
@@ -487,26 +507,6 @@
       {
         "title": "〈美股早盤〉非農爆冷變利多！美債殖利率下滑 主要指數開高",
         "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E8%82%A1%E6%97%A9%E7%9B%A4-%E9%9D%9E%E8%BE%B2%E7%88%86%E5%86%B7%E8%AE%8A%E5%88%A9%E5%A4%9A-%E7%BE%8E%E5%82%B5%E6%AE%96%E5%88%A9%E7%8E%87%E4%B8%8B%E6%BB%91-%E4%B8%BB%E8%A6%81%E6%8C%87%E6%95%B8%E9%96%8B%E9%AB%98-133851234.html",
-        "meta": null
-      },
-      {
-        "title": "下週台股繼續上攻？台指期夜盤「一度站上49K大關」",
-        "url": "https://tw.stock.yahoo.com/news/%E4%B8%8B%E9%80%B1%E5%8F%B0%E8%82%A1%E7%B9%BC%E7%BA%8C%E4%B8%8A%E6%94%BB-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4-%E5%BA%A6%E7%AB%99%E4%B8%8A49k%E5%A4%A7%E9%97%9C-122532886.html",
-        "meta": null
-      },
-      {
-        "title": "台積電加碼美國德州？經部表態協助全球布局 但核心技術「根留台灣」",
-        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%8A%A0%E7%A2%BC%E7%BE%8E%E5%9C%8B%E5%BE%B7%E5%B7%9E-%E7%B6%93%E9%83%A8%E8%A1%A8%E6%85%8B%E5%8D%94%E5%8A%A9%E5%85%A8%E7%90%83%E5%B8%83%E5%B1%80-%E4%BD%86%E6%A0%B8%E5%BF%83%E6%8A%80%E8%A1%93-%E6%A0%B9%E7%95%99%E5%8F%B0%E7%81%A3-112728702.html",
-        "meta": null
-      },
-      {
-        "title": "聯發科天璣9500獲三星平板採用　攻裝置端AI與高階市場",
-        "url": "https://tw.stock.yahoo.com/news/%E8%81%AF%E7%99%BC%E7%A7%91%E5%A4%A9%E7%92%A39500%E7%8D%B2%E4%B8%89%E6%98%9F%E5%B9%B3%E6%9D%BF%E6%8E%A1%E7%94%A8-%E6%94%BB%E8%A3%9D%E7%BD%AE%E7%AB%AFai%E8%88%87%E9%AB%98%E9%9A%8E%E5%B8%82%E5%A0%B4-103716839.html",
-        "meta": null
-      },
-      {
-        "title": "川普曝\"台灣神秘大廠\"砸重金赴美 經濟部:台積電關鍵技術留台",
-        "url": "https://tw.stock.yahoo.com/news/%E5%B7%9D%E6%99%AE%E6%9B%9D-%E5%8F%B0%E7%81%A3%E7%A5%9E%E7%A7%98%E5%A4%A7%E5%BB%A0-%E7%A0%B8%E9%87%8D%E9%87%91%E8%B5%B4%E7%BE%8E-%E7%B6%93%E6%BF%9F%E9%83%A8-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E9%97%9C%E9%8D%B5%E6%8A%80%E8%A1%93%E7%95%99%E5%8F%B0-103103765.html",
         "meta": null
       }
     ],
@@ -1394,53 +1394,53 @@
   },
   "news": [
     {
-      "title": "台積休兵誰扛新高？臻鼎亮燈 ABF揪矽晶圓開派對",
-      "url": "https://tw.stock.yahoo.com/news/%E6%AC%8A%E5%80%BC%E7%86%84%E7%81%AB%E5%8F%B0%E8%82%A1%E7%BA%8C%E5%89%B5%E9%AB%98%E9%9D%A0%E8%AA%B0%E6%89%9B%EF%BC%9F%E8%87%BB%E9%BC%8E-ky%E6%BC%B2%E5%81%9C%E3%80%81abf%E6%8F%AA%E7%9F%BD%E6%99%B6%E5%9C%93%E6%9A%B4%E8%B5%B0%E7%8B%82%E6%AD%A1%EF%BD%9Cyahoo%E8%B2%A1%E7%B6%93%E6%8E%83%E6%8F%8F-085945117.html",
+      "title": "中環兩天狂賣5檔科技股！國巨一檔賺逾1700萬　這2檔光通訊反吞虧損",
+      "url": "https://tw.stock.yahoo.com/news/%E4%B8%AD%E7%92%B0%E5%85%A9%E5%A4%A9%E7%8B%82%E8%B3%A35%E6%AA%94%E7%A7%91%E6%8A%80%E8%82%A1-%E5%9C%8B%E5%B7%A8-%E6%AA%94%E8%B3%BA%E9%80%BE1700%E8%90%AC-%E9%80%992%E6%AA%94%E5%85%89%E9%80%9A%E8%A8%8A%E5%8F%8D%E5%90%9E%E8%99%A7%E6%90%8D-071000892.html",
       "meta": null
     },
     {
-      "title": "【宜蘭買房超夯？專家驚揭4大地雷 沒注意小心賠慘】",
-      "url": "https://tw.stock.yahoo.com/news/%E3%80%90%E5%AE%9C%E8%98%AD%E8%B2%B7%E6%88%BF%E8%B6%85%E5%A4%AF%EF%BC%9F%E5%B0%88%E5%AE%B6%E9%A9%9A%E6%8F%AD4%E5%A4%A7%E5%9C%B0%E9%9B%B7-%E6%B2%92%E6%B3%A8%E6%84%8F%E5%B0%8F%E5%BF%83%E8%B3%A0%E6%85%98%E3%80%91-013056645.html",
+      "title": "沒好劇可以看？　Netflix自今年高點暴跌36%",
+      "url": "https://tw.stock.yahoo.com/news/%E6%B2%92%E5%A5%BD%E5%8A%87%E5%8F%AF%E4%BB%A5%E7%9C%8B-netflix%E8%87%AA%E4%BB%8A%E5%B9%B4%E9%AB%98%E9%BB%9E%E6%9A%B4%E8%B7%8C36-070613402.html",
       "meta": null
     },
     {
-      "title": "手握300萬該加盟超商還是買0050？他好奇問會怎麼選　網答案一面倒：水很深",
-      "url": "https://tw.stock.yahoo.com/news/%E6%89%8B%E6%8F%A1300%E8%90%AC%E8%A9%B2%E5%8A%A0%E7%9B%9F%E8%B6%85%E5%95%86%E9%82%84%E6%98%AF%E8%B2%B70050-%E4%BB%96%E5%A5%BD%E5%A5%87%E5%95%8F%E6%9C%83%E6%80%8E%E9%BA%BC%E9%81%B8-%E7%B6%B2%E7%AD%94%E6%A1%88-%E9%9D%A2%E5%80%92-%E6%B0%B4%E5%BE%88%E6%B7%B1-012400522.html",
+      "title": "AI記憶體競爭升溫！三星HBM4報價逼近前代3倍　拚效能挑戰SK海力士",
+      "url": "https://tw.stock.yahoo.com/news/ai%E8%A8%98%E6%86%B6%E9%AB%94%E7%AB%B6%E7%88%AD%E5%8D%87%E6%BA%AB-%E4%B8%89%E6%98%9Fhbm4%E5%A0%B1%E5%83%B9%E9%80%BC%E8%BF%91%E5%89%8D%E4%BB%A33%E5%80%8D-%E6%8B%9A%E6%95%88%E8%83%BD%E6%8C%91%E6%88%B0sk%E6%B5%B7%E5%8A%9B%E5%A3%AB-064000075.html",
       "meta": null
     },
     {
-      "title": "獨家／千禧年BBS小說家！18年後為何變「紅豆哥」？吳啟慎揭關鍵....",
-      "url": "https://tw.stock.yahoo.com/news/%E7%8D%A8%E5%AE%B6-%E5%8D%83%E7%A6%A7%E5%B9%B4bbs%E5%B0%8F%E8%AA%AA%E5%AE%B6-18%E5%B9%B4%E5%BE%8C%E7%82%BA%E4%BD%95%E8%AE%8A-%E7%B4%85%E8%B1%86%E5%93%A5-%E5%90%B3%E5%95%9F%E6%85%8E%E6%8F%AD%E9%97%9C%E9%8D%B5-010000958.html",
+      "title": "台電借錢變貴！公司債利率重返2字頭 中油靠3千億專案融資降發債規模",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E9%9B%BB%E5%80%9F%E9%8C%A2%E8%AE%8A%E8%B2%B4-%E5%85%AC%E5%8F%B8%E5%82%B5%E5%88%A9%E7%8E%87%E9%87%8D%E8%BF%942%E5%AD%97%E9%A0%AD-%E4%B8%AD%E6%B2%B9%E9%9D%A03%E5%8D%83%E5%84%84%E5%B0%88%E6%A1%88%E8%9E%8D%E8%B3%87%E9%99%8D%E7%99%BC%E5%82%B5%E8%A6%8F%E6%A8%A1-062957913.html",
       "meta": null
     },
     {
-      "title": "非農數據爆冷！　美股收紅、台積電ADR勁揚2.96%",
-      "url": "https://tw.stock.yahoo.com/news/%E9%9D%9E%E8%BE%B2%E6%95%B8%E6%93%9A%E7%88%86%E5%86%B7-%E7%BE%8E%E8%82%A1%E6%94%B6%E7%B4%85-%E5%8F%B0%E7%A9%8D%E9%9B%BBadr%E5%8B%81%E6%8F%9A2-96-005016471.html",
+      "title": "80萬股利拚破120萬！全押00919真的比較香？  存股達人揭「關鍵」",
+      "url": "https://tw.stock.yahoo.com/news/80%E8%90%AC%E8%82%A1%E5%88%A9%E6%8B%9A%E7%A0%B4120%E8%90%AC-%E5%85%A8%E6%8A%BC00919%E7%9C%9F%E7%9A%84%E6%AF%94%E8%BC%83%E9%A6%99-%E5%AD%98%E8%82%A1%E9%81%94%E4%BA%BA%E6%8F%AD-%E9%97%9C%E9%8D%B5-062500826.html",
       "meta": null
     },
     {
-      "title": "傳攜手imec搶矽光子商機！力積電擴大AI高速傳輸布局　八大公股砸1.5億元掃逾2千張",
-      "url": "https://tw.stock.yahoo.com/news/%E5%82%B3%E6%94%9C%E6%89%8Bimec%E6%90%B6%E7%9F%BD%E5%85%89%E5%AD%90%E5%95%86%E6%A9%9F-%E5%8A%9B%E7%A9%8D%E9%9B%BB%E6%93%B4%E5%A4%A7ai%E9%AB%98%E9%80%9F%E5%82%B3%E8%BC%B8%E5%B8%83%E5%B1%80-%E5%85%AB%E5%A4%A7%E5%85%AC%E8%82%A1%E7%A0%B81-5%E5%84%84%E5%85%83%E6%8E%83%E9%80%BE2%E5%8D%83%E5%BC%B5-004000503.html",
+      "title": "分析｜傳台積電砸千億赴德州蓋廠？　專家解讀：恐成爭取美方支持談判籌碼",
+      "url": "https://tw.stock.yahoo.com/news/%E5%88%86%E6%9E%90-%E5%82%B3%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%A0%B8%E5%8D%83%E5%84%84%E8%B5%B4%E5%BE%B7%E5%B7%9E%E8%93%8B%E5%BB%A0-%E5%B0%88%E5%AE%B6%E8%A7%A3%E8%AE%80-%E6%81%90%E6%88%90%E7%88%AD%E5%8F%96%E7%BE%8E%E6%96%B9%E6%94%AF%E6%8C%81%E8%AB%87%E5%88%A4%E7%B1%8C%E7%A2%BC-061000809.html",
       "meta": null
     },
     {
-      "title": "工會喊無期限罷工　乖乖公司給4承諾：2年內絕不裁員",
-      "url": "https://tw.stock.yahoo.com/news/%E5%B7%A5%E6%9C%83%E5%96%8A%E7%84%A1%E6%9C%9F%E9%99%90%E7%BD%B7%E5%B7%A5-%E4%B9%96%E4%B9%96%E5%85%AC%E5%8F%B8%E7%B5%A64%E6%89%BF%E8%AB%BE-2%E5%B9%B4%E5%85%A7%E7%B5%95%E4%B8%8D%E8%A3%81%E5%93%A1-003021256.html",
+      "title": "周末精選｜一文看懂富崴與台電的3大關鍵爭議點　雙方對簿公堂已成最後之路",
+      "url": "https://tw.stock.yahoo.com/news/%E5%91%A8%E6%9C%AB%E7%B2%BE%E9%81%B8-%E6%96%87%E7%9C%8B%E6%87%82%E5%AF%8C%E5%B4%B4%E8%88%87%E5%8F%B0%E9%9B%BB%E7%9A%843%E5%A4%A7%E9%97%9C%E9%8D%B5%E7%88%AD%E8%AD%B0%E9%BB%9E-%E9%9B%99%E6%96%B9%E5%B0%8D%E7%B0%BF%E5%85%AC%E5%A0%82%E5%B7%B2%E6%88%90%E6%9C%80%E5%BE%8C%E4%B9%8B%E8%B7%AF-000000301.html",
       "meta": null
     },
     {
-      "title": "中鋼出貨創近50個月新高！鋼市復甦了嗎？兩大投顧看法不一、目標價曝光",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%AD%E9%8B%BC%E5%87%BA%E8%B2%A8%E5%89%B5%E8%BF%9150%E5%80%8B%E6%9C%88%E6%96%B0%E9%AB%98-%E9%8B%BC%E5%B8%82%E5%BE%A9%E7%94%A6%E4%BA%86%E5%97%8E-%E5%85%A9%E5%A4%A7%E6%8A%95%E9%A1%A7%E7%9C%8B%E6%B3%95%E4%B8%8D-%E7%9B%AE%E6%A8%99%E5%83%B9%E6%9B%9D%E5%85%89-002000445.html",
+      "title": "LINE訊息編輯台灣開測！秋季還有3大新功能　「通話錄音」亮點曝光",
+      "url": "https://tw.stock.yahoo.com/news/line%E8%A8%8A%E6%81%AF%E7%B7%A8%E8%BC%AF%E5%8F%B0%E7%81%A3%E9%96%8B%E6%B8%AC-%E7%A7%8B%E5%AD%A3%E9%82%84%E6%9C%893%E5%A4%A7%E6%96%B0%E5%8A%9F%E8%83%BD-%E9%80%9A%E8%A9%B1%E9%8C%84%E9%9F%B3-%E4%BA%AE%E9%BB%9E%E6%9B%9D%E5%85%89-055543413.html",
       "meta": null
     },
     {
-      "title": "房東公益出租收入每月享1.5萬免稅額　卻因房客這行為遭補稅",
-      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E6%9D%B1%E5%85%AC%E7%9B%8A%E5%87%BA%E7%A7%9F%E6%94%B6%E5%85%A5%E6%AF%8F%E6%9C%88%E4%BA%AB1-5%E8%90%AC%E5%85%8D%E7%A8%85%E9%A1%8D-%E5%8D%BB%E5%9B%A0%E6%88%BF%E5%AE%A2%E9%80%99%E8%A1%8C%E7%82%BA%E9%81%AD%E8%A3%9C%E7%A8%85-001000451.html",
+      "title": "0050還是0056？財經作家曝「心態差很大」：享受當下或累積資產",
+      "url": "https://tw.stock.yahoo.com/news/0050%E9%82%84%E6%98%AF0056-%E8%B2%A1%E7%B6%93%E4%BD%9C%E5%AE%B6%E6%9B%9D-%E5%BF%83%E6%85%8B%E5%B7%AE%E5%BE%88%E5%A4%A7-%E4%BA%AB%E5%8F%97%E7%95%B6%E4%B8%8B%E6%88%96%E7%B4%AF%E7%A9%8D%E8%B3%87%E7%94%A2-055500353.html",
       "meta": null
     },
     {
-      "title": "連漲6天狂飆25.61%奪強勢股王！「石英元件廠」AI光通訊訂單看到2027年　3.2T新品已送樣",
-      "url": "https://tw.stock.yahoo.com/news/%E9%80%A3%E6%BC%B26%E5%A4%A9%E7%8B%82%E9%A3%8625-61-%E5%A5%AA%E5%BC%B7%E5%8B%A2%E8%82%A1%E7%8E%8B-%E7%9F%B3%E8%8B%B1%E5%85%83%E4%BB%B6%E5%BB%A0-ai%E5%85%89%E9%80%9A%E8%A8%8A%E8%A8%82%E5%96%AE%E7%9C%8B%E5%88%B02027%E5%B9%B4-000000711.html",
+      "title": "被動元件瘋漲！　分析師：「這檔」股價走強成首選",
+      "url": "https://tw.stock.yahoo.com/news/%E8%A2%AB%E5%8B%95%E5%85%83%E4%BB%B6%E7%98%8B%E6%BC%B2-%E5%88%86%E6%9E%90%E5%B8%AB-%E9%80%99%E6%AA%94-%E8%82%A1%E5%83%B9%E8%B5%B0%E5%BC%B7%E6%88%90%E9%A6%96%E9%81%B8-055016371.html",
       "meta": null
     }
   ],
