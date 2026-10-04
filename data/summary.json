@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-04T23:38:53.287275",
-  "date": "2026-10-04",
+  "timestamp": "2026-10-05T03:01:07.589641",
+  "date": "2026-10-05",
   "macro": {
     "taiex": {
       "value": 48475.74,
@@ -22,12 +22,12 @@
       "change": -1.08,
       "change_pct": -6.59,
       "label": "VIX Index",
-      "timestamp": "2026-10-04T23:38:42.633087"
+      "timestamp": "2026-10-05T02:59:53.251638"
     },
     "btc": {
-      "value": 85297.0,
-      "change": 533.0,
-      "change_pct": 0.63
+      "value": 85325.0,
+      "change": 561.0,
+      "change_pct": 0.66
     },
     "oil": {
       "value": 91.11,
@@ -99,8 +99,8 @@
     },
     "usdtwd": {
       "value": 31.796,
-      "change": -0.072,
-      "change_pct": -0.23
+      "change": -0.091,
+      "change_pct": -0.28
     },
     "foreign_futures_net": {
       "value": -80304,
@@ -110,19 +110,19 @@
       "change_pct": -0.94
     },
     "put_call_ratio": {
-      "value": 85.24,
+      "value": null,
+      "change": null,
+      "change_pct": null,
       "unit": "%",
-      "date": "2026-10-02",
-      "change": 2.7,
-      "change_pct": 3.27
+      "date": null
     },
     "night_session": {
-      "close": 48475.0,
-      "prev_close": 48685.0,
-      "gap": -210.0,
-      "gap_pct": -0.43,
-      "date": "2026-10-02",
-      "prev_date": "2026-10-01"
+      "close": 49346.0,
+      "prev_close": 48671.0,
+      "gap": 675.0,
+      "gap_pct": 1.39,
+      "date": "2026-10-05",
+      "prev_date": "2026-10-02"
     }
   },
   "signal_confluence": {
@@ -158,10 +158,10 @@
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": false,
+          "status": null,
           "completeness": "full",
-          "detail": "今日外資買超；融資餘額5日未回落（6351億元）；P/C Ratio 85.2%（< 100%門檻）",
-          "score": 91.1
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷",
+          "score": null
         },
         {
           "id": "tech_capital_retreat",
@@ -173,11 +173,11 @@
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 5,
+      "evaluated_count": 4,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 63.1
+      "avg_score": 56.1
     },
     "bottom": {
       "conditions": [
@@ -248,7 +248,7 @@
     "as_of_date": "2026-10-02",
     "history_days": 83,
     "bottom": {
-      "total": 44.3,
+      "total": 42.3,
       "dimensions": [
         {
           "name": "macro",
@@ -270,11 +270,10 @@
         },
         {
           "name": "derivative",
-          "score": 2.3,
+          "score": 0.3,
           "cap": 20,
           "notes": [
-            "台指期淨空單5日變動 -4220口（回補強度 2/100，+0.3）",
-            "P/C Ratio 85.2%（避險需求強度 25/100，+2.0）"
+            "台指期淨空單5日變動 -4220口（回補強度 2/100，+0.3）"
           ]
         },
         {
@@ -297,7 +296,7 @@
       ]
     },
     "top": {
-      "total": 56.3,
+      "total": 50.3,
       "dimensions": [
         {
           "name": "macro",
@@ -319,11 +318,10 @@
         },
         {
           "name": "derivative",
-          "score": 6.0,
+          "score": 0,
           "cap": 20,
           "notes": [
-            "外資台指期淨空單 -80304口（強度 0/100，+0.0）",
-            "P/C Ratio 85.2%（自滿強度 75/100，+6.0）"
+            "外資台指期淨空單 -80304口（強度 0/100，+0.0）"
           ]
         },
         {
@@ -1376,20 +1374,20 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-10-04",
+      "as_of_date": "2026-10-05",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-10-04",
+      "as_of_date": "2026-10-05",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-10-02",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-10-02",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
@@ -1447,7 +1445,7 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 44,
   "overbought_count": 30,
   "oversold_count": 14,
   "normal_count": 83,
