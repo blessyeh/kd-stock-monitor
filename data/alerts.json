@@ -1,5 +1,29 @@
 [
   {
+    "id": "SMH_20261009_overbought",
+    "symbol": "SMH",
+    "name": "VanEck Semiconductor ETF",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 66.07,
+    "kd_d": 80.07,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 607.27,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": "BULL_TREND",
+    "market_regime_label": "多頭趨勢",
+    "message": "⚠️ SMH (VanEck Semiconductor ETF) is OVERBOUGHT! KD-K: 66.07, KD-D: 80.07 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-10-09T06:49:05.375683",
+    "date": "2026-10-09",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20261009_overbought",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2476,30 +2500,6 @@
     "market_regime_label": "多頭趨勢",
     "message": "✅ NFXL (Direxion Daily NFLX Bull 2X Shares) is OVERSOLD! KD-K: 30.32, KD-D: 18.77 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-08T01:13:50.461428",
-    "date": "2026-10-08",
-    "acknowledged": false
-  },
-  {
-    "id": "TSMX_20261008_overbought",
-    "symbol": "TSMX",
-    "name": "Direxion Daily TSM Bull 2X Shares",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 83.13,
-    "kd_d": 87.69,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 96.8,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ TSMX (Direxion Daily TSM Bull 2X Shares) is OVERBOUGHT! KD-K: 83.13, KD-D: 87.69 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-08T01:13:50.461583",
     "date": "2026-10-08",
     "acknowledged": false
   }
