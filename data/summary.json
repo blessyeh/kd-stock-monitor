@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-10T23:00:28.225391",
-  "date": "2026-10-10",
+  "timestamp": "2026-10-11T03:15:10.516226",
+  "date": "2026-10-11",
   "macro": {
     "taiex": {
       "value": 49313.44,
@@ -22,12 +22,12 @@
       "change": -0.57,
       "change_pct": -3.7,
       "label": "VIX Index",
-      "timestamp": "2026-10-10T23:00:17.863701"
+      "timestamp": "2026-10-11T03:13:46.258742"
     },
     "btc": {
-      "value": 82895.0,
-      "change": 349.0,
-      "change_pct": 0.42
+      "value": 82957.0,
+      "change": 411.0,
+      "change_pct": 0.5
     },
     "oil": {
       "value": 91.85,
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 31.941,
-      "change": 0.093,
-      "change_pct": 0.29
+      "value": 31.916,
+      "change": -0.009,
+      "change_pct": -0.03
     },
     "foreign_futures_net": {
       "value": -83194,
@@ -144,8 +144,8 @@
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.052（貶值門檻 0.3）",
-          "score": 26.9
+          "detail": "USD/TWD 5日變動 +0.027（貶值門檻 0.3）",
+          "score": 23.6
         },
         {
           "id": "foreign_dual_short",
@@ -177,7 +177,7 @@
       "triggered_count": 2,
       "triggered_full_count": 2,
       "triggered_partial_count": 0,
-      "avg_score": 38.3
+      "avg_score": 37.6
     },
     "bottom": {
       "conditions": [
@@ -202,8 +202,8 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.052（仍在貶值）；外資今日仍賣超，近期均值 +153.5億元；台指期淨部位5日變動 -3640口（未回補）",
-          "score": 15.3
+          "detail": "USD/TWD 5日變動 +0.027（仍在貶值）；外資今日仍賣超，近期均值 +153.5億元；台指期淨部位5日變動 -3640口（未回補）",
+          "score": 16.6
         }
       ],
       "total_conditions": 3,
@@ -211,15 +211,15 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 14.7
+      "avg_score": 15.1
     },
     "bottom_reversal_score": {
-      "total": 15.3,
+      "total": 16.6,
       "components": [
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 46.3
+          "score": 50.5
         },
         {
           "name": "foreign_flow_reversal",
@@ -309,7 +309,7 @@
       ]
     },
     "top": {
-      "total": 47.8,
+      "total": 47.5,
       "dimensions": [
         {
           "name": "macro",
@@ -322,10 +322,10 @@
         },
         {
           "name": "chip_flow",
-          "score": 11.7,
+          "score": 11.4,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 +0.052（強度 27/100，+2.7）",
+            "新台幣5日貶值 +0.027（強度 24/100，+2.4）",
             "外資今日 -758.5億元，融資餘額5日變動 +165億元（散戶未離場強度 60/100，+9.0）"
           ]
         },
@@ -442,7 +442,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "ADR $453.3 換算2330隱含價 2895.8元，2330現價 2550.0元（折價 11.9%）",
+          "ADR $453.3 換算2330隱含價 2893.6元，2330現價 2550.0元（折價 11.9%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -461,7 +461,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "目前本益比 29.6，位於近729筆歷史資料的第 83 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+          "目前本益比 29.6，位於近728筆歷史資料的第 83 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
         ]
       }
     ],
@@ -683,7 +683,7 @@
             "cap": 5,
             "available": true,
             "notes": [
-              "目前本益比 10.7，位於近729筆歷史資料的第 85 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+              "目前本益比 10.7，位於近728筆歷史資料的第 85 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
             ]
           }
         ],
@@ -785,7 +785,7 @@
             "dimension": "valuation",
             "score": 0,
             "cap": 5,
-            "detail": "目前本益比 10.7，位於近729筆歷史資料的第 85 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+            "detail": "目前本益比 10.7，位於近728筆歷史資料的第 85 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
           },
           {
             "dimension": "relative_strength",
@@ -900,7 +900,7 @@
             "cap": 5,
             "available": true,
             "notes": [
-              "目前本益比 17.1，位於近729筆歷史資料的第 8 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+              "目前本益比 17.1，位於近728筆歷史資料的第 8 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
             ]
           }
         ],
@@ -982,7 +982,7 @@
             "dimension": "valuation",
             "score": 5,
             "cap": 5,
-            "detail": "目前本益比 17.1，位於近729筆歷史資料的第 8 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+            "detail": "目前本益比 17.1，位於近728筆歷史資料的第 8 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
           },
           {
             "dimension": "revenue_momentum",
@@ -1388,20 +1388,20 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-10-10",
+      "as_of_date": "2026-10-11",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-10-10",
+      "as_of_date": "2026-10-11",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-10-08",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-10-08",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
@@ -1459,7 +1459,7 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 47,
   "overbought_count": 33,
   "oversold_count": 14,
   "normal_count": 80,
