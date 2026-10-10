@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-10T09:28:45.946446",
+  "timestamp": "2026-10-10T16:02:42.634964",
   "date": "2026-10-10",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": 0.25
     },
     "dxy": {
-      "value": 102.23,
-      "change": 0.09,
-      "change_pct": 0.09
+      "value": 102.21,
+      "change": 0.07,
+      "change_pct": 0.07
     },
     "fear_greed": {
       "value": 14.84,
       "change": -0.57,
       "change_pct": -3.7,
       "label": "VIX Index",
-      "timestamp": "2026-10-10T09:28:37.537215"
+      "timestamp": "2026-10-10T16:02:32.399097"
     },
     "btc": {
-      "value": 82584.0,
-      "change": 0,
-      "change_pct": 0
+      "value": 82740.0,
+      "change": 194.0,
+      "change_pct": 0.24
     },
     "oil": {
-      "value": 91.66,
-      "change": 0.17,
-      "change_pct": 0.19
+      "value": 91.85,
+      "change": 0.36,
+      "change_pct": 0.39
     },
     "gold": {
-      "value": 4220.3,
-      "change": 63.3,
-      "change_pct": 1.52
+      "value": 4216.3,
+      "change": 59.3,
+      "change_pct": 1.43
     },
     "sox": {
       "value": 12572.42,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 102.23 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 +0.05pp（未達 0.15pp）",
-          "score": 40.8
+          "detail": "DXY 102.21 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 +0.05pp（未達 0.15pp）",
+          "score": 40.2
         },
         {
           "id": "twd_depreciation",
@@ -177,7 +177,7 @@
       "triggered_count": 2,
       "triggered_full_count": 2,
       "triggered_partial_count": 0,
-      "avg_score": 38.4
+      "avg_score": 38.3
     },
     "bottom": {
       "conditions": [
@@ -260,15 +260,15 @@
     "as_of_date": "2026-10-08",
     "history_days": 87,
     "bottom": {
-      "total": 23.0,
+      "total": 23.1,
       "dimensions": [
         {
           "name": "macro",
-          "score": 9.2,
+          "score": 9.3,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 17.3 → 目前 14.8（強度 29/100，+4.3）",
-            "DXY 102.23 距近20日高點 -0.15%（美元壓力緩和強度 49/100，+4.9）"
+            "DXY 102.21 距近20日高點 -0.17%（美元壓力緩和強度 50/100，+5.0）"
           ]
         },
         {
@@ -316,7 +316,7 @@
           "score": 12.6,
           "cap": 25,
           "notes": [
-            "DXY 102.23 距近20日高點 -0.15%，美債10Y5日變動 +0.05pp（強度 41/100，+6.1）",
+            "DXY 102.21 距近20日高點 -0.17%，美債10Y5日變動 +0.05pp（強度 40/100，+6.0）",
             "SOX/NDX 距近20日支撐 +12.50%，美債10Y同步變動（強度 65/100，+6.5）"
           ]
         },
@@ -483,6 +483,11 @@
     },
     "news": [
       {
+        "title": "台積領先優勢還能守幾年？傳輝達2028下半年評估採英特爾Foveros封裝",
+        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%A0%98%E5%85%88%E5%84%AA%E5%8B%A2%E9%82%84%E8%83%BD%E5%AE%88%E5%B9%BE%E5%B9%B4-%E5%82%B3%E8%BC%9D%E9%81%942028%E4%B8%8B%E5%8D%8A%E5%B9%B4%E8%A9%95%E4%BC%B0%E6%8E%A1%E8%8B%B1%E7%89%B9%E7%88%BEfoveros%E5%B0%81%E8%A3%9D-040006135.html",
+        "meta": null
+      },
+      {
         "title": "台積電ADR9日下跌4.68美元跌幅1.02%折台股2889.85元",
         "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BBadr9%E6%97%A5%E4%B8%8B%E8%B7%8C4-68%E7%BE%8E%E5%85%83%E8%B7%8C%E5%B9%851-02-%E6%8A%98%E5%8F%B0%E8%82%A12889-85%E5%85%83-215054307.html",
         "meta": null
@@ -515,11 +520,6 @@
       {
         "title": "赴德州設廠、結盟馬斯克？台積電15日法說聚焦營運擴產",
         "url": "https://tw.stock.yahoo.com/news/%E8%B5%B4%E5%BE%B7%E5%B7%9E%E8%A8%AD%E5%BB%A0-%E7%B5%90%E7%9B%9F%E9%A6%AC%E6%96%AF%E5%85%8B-%E5%8F%B0%E7%A9%8D%E9%9B%BB15%E6%97%A5%E6%B3%95%E8%AA%AA%E8%81%9A%E7%84%A6%E7%87%9F%E9%81%8B%E6%93%B4%E7%94%A2-034456866.html",
-        "meta": null
-      },
-      {
-        "title": "台積電Q3營收1.49兆元創單季高、大立光攻CPO、9月進出口連35紅 本周大事回顧",
-        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BBq3%E7%87%9F%E6%94%B61-49%E5%85%86%E5%85%83%E5%89%B5%E5%96%AE%E5%AD%A3%E9%AB%98-%E5%A4%A7%E7%AB%8B%E5%85%89%E6%94%BBcpo-9%E6%9C%88%E9%80%B2%E5%87%BA%E5%8F%A3%E9%80%A335%E7%B4%85-%E6%9C%AC%E5%91%A8%E5%A4%A7%E4%BA%8B%E5%9B%9E%E9%A1%A7-023734093.html",
         "meta": null
       }
     ],
@@ -1406,6 +1406,16 @@
   },
   "news": [
     {
+      "title": "Q4 EPS衝刺25元！「這連接線大廠」併購Interplex效益出爐　9月、Q3、累計營收全創高法人看好",
+      "url": "https://tw.stock.yahoo.com/news/q4-eps%E8%A1%9D%E5%88%BA25%E5%85%83-%E9%80%99%E9%80%A3%E6%8E%A5%E7%B7%9A%E5%A4%A7%E5%BB%A0-%E4%BD%B5%E8%B3%BCinterplex%E6%95%88%E7%9B%8A%E5%87%BA%E7%88%90-9%E6%9C%88-055200817.html",
+      "meta": null
+    },
+    {
+      "title": "台灣65歲以上突破2成！專家：老房子也能變退休金　高齡換居3條路一次看",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%81%A365%E6%AD%B2%E4%BB%A5%E4%B8%8A%E7%AA%81%E7%A0%B42%E6%88%90%EF%BC%81%E5%B0%88%E5%AE%B6%EF%BC%9A%E8%80%81%E6%88%BF%E5%AD%90%E4%B9%9F%E8%83%BD%E8%AE%8A%E9%80%80%E4%BC%91%E9%87%91-%E9%AB%98%E9%BD%A1%E6%8F%9B%E5%B1%853%E6%A2%9D%E8%B7%AF%E4%B8%80%E6%AC%A1%E7%9C%8B-035500357.html",
+      "meta": null
+    },
+    {
       "title": "兩岸繼承｜大陸親人繼承台灣遺產　3年期限、200萬上限、不動產限制一次看",
       "url": "https://tw.stock.yahoo.com/news/%E5%85%A9%E5%B2%B8%E7%B9%BC%E6%89%BF%EF%BD%9C%E5%A4%A7%E9%99%B8%E8%A6%AA%E4%BA%BA%E7%B9%BC%E6%89%BF%E5%8F%B0%E7%81%A3%E9%81%BA%E7%94%A2-3%E5%B9%B4%E6%9C%9F%E9%99%90%E3%80%81200%E8%90%AC%E4%B8%8A%E9%99%90%E3%80%81%E4%B8%8D%E5%8B%95%E7%94%A2%E9%99%90%E5%88%B6%E4%B8%80%E6%AC%A1%E7%9C%8B-233600758.html",
       "meta": null
@@ -1443,16 +1453,6 @@
     {
       "title": "台股殖利率跌破2%！「這5檔ETF」配息率衝20%、1檔績效飆120%　分析師這樣看",
       "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%AE%96%E5%88%A9%E7%8E%87%E8%B7%8C%E7%A0%B42-%E9%80%995%E6%AA%94etf-%E9%85%8D%E6%81%AF%E7%8E%87%E8%A1%9D20-1%E6%AA%94%E7%B8%BE%E6%95%88%E9%A3%86120-%E5%88%86%E6%9E%90%E5%B8%AB%E9%80%99%E6%A8%A3%E7%9C%8B-001500355.html",
-      "meta": null
-    },
-    {
-      "title": "【電力人才2-2】台電去年逾百人被中華電信挖走　「AI時代不會被淘汰就是水電工」",
-      "url": "https://tw.stock.yahoo.com/news/%E9%9B%BB%E5%8A%9B%E4%BA%BA%E6%89%8D2-2-%E5%8F%B0%E9%9B%BB%E5%8E%BB%E5%B9%B4%E9%80%BE%E7%99%BE%E4%BA%BA%E8%A2%AB%E4%B8%AD%E8%8F%AF%E9%9B%BB%E4%BF%A1%E6%8C%96%E8%B5%B0-ai%E6%99%82%E4%BB%A3%E4%B8%8D%E6%9C%83%E8%A2%AB%E6%B7%98%E6%B1%B0%E5%B0%B1%E6%98%AF%E6%B0%B4%E9%9B%BB%E5%B7%A5-000000951.html",
-      "meta": null
-    },
-    {
-      "title": "低軌衛星題材點火！「網通廠」連漲8天飆40%奪強勢股王　9月營收年增76.8%",
-      "url": "https://tw.stock.yahoo.com/news/%E4%BD%8E%E8%BB%8C%E8%A1%9B%E6%98%9F%E9%A1%8C%E6%9D%90%E9%BB%9E%E7%81%AB-%E7%B6%B2%E9%80%9A%E5%BB%A0-%E9%80%A3%E6%BC%B28%E5%A4%A9%E9%A3%8640-%E5%A5%AA%E5%BC%B7%E5%8B%A2%E8%82%A1%E7%8E%8B-9%E6%9C%88%E7%87%9F%E6%94%B6%E5%B9%B4%E5%A2%9E76-000000308.html",
       "meta": null
     }
   ],
@@ -1895,8 +1895,8 @@
         "post_market_price": 535.0,
         "prev_close": 522.61
       },
-      "kd_k": 80.89,
-      "kd_d": 77.22
+      "kd_k": 80.87,
+      "kd_d": 77.21
     },
     {
       "symbol": "PLTR",
@@ -1909,8 +1909,8 @@
         "post_market_price": 208.65,
         "prev_close": 198.78
       },
-      "kd_k": 82.17,
-      "kd_d": 75.08
+      "kd_k": 81.8,
+      "kd_d": 74.96
     },
     {
       "symbol": "MSFU",
