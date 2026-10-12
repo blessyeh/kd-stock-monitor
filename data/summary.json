@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-12T04:45:57.162531",
+  "timestamp": "2026-10-12T08:10:50.558960",
   "date": "2026-10-12",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": 0.25
     },
     "dxy": {
-      "value": 102.21,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 102.2,
+      "change": -0.01,
+      "change_pct": -0.01
     },
     "fear_greed": {
       "value": 14.84,
       "change": -0.57,
       "change_pct": -3.7,
       "label": "VIX Index",
-      "timestamp": "2026-10-12T04:45:48.115643"
+      "timestamp": "2026-10-12T08:10:41.456470"
     },
     "btc": {
-      "value": 83597.0,
-      "change": 684.0,
-      "change_pct": 0.83
+      "value": 83621.0,
+      "change": 0,
+      "change_pct": 0
     },
     "oil": {
-      "value": 91.85,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 90.83,
+      "change": -1.02,
+      "change_pct": -1.11
     },
     "gold": {
-      "value": 4216.3,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 4213.7,
+      "change": -2.6,
+      "change_pct": -0.06
     },
     "sox": {
       "value": 12572.42,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 102.21 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 +0.05pp（未達 0.15pp）",
-          "score": 40.2
+          "detail": "DXY 102.20 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 +0.05pp（未達 0.15pp）",
+          "score": 39.9
         },
         {
           "id": "twd_depreciation",
@@ -260,15 +260,15 @@
     "as_of_date": "2026-10-08",
     "history_days": 87,
     "bottom": {
-      "total": 21.8,
+      "total": 21.9,
       "dimensions": [
         {
           "name": "macro",
-          "score": 9.3,
+          "score": 9.4,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 17.3 → 目前 14.8（強度 29/100，+4.3）",
-            "DXY 102.21 距近20日高點 -0.17%（美元壓力緩和強度 50/100，+5.0）"
+            "DXY 102.20 距近20日高點 -0.18%（美元壓力緩和強度 51/100，+5.1）"
           ]
         },
         {
@@ -308,14 +308,14 @@
       ]
     },
     "top": {
-      "total": 40.9,
+      "total": 40.8,
       "dimensions": [
         {
           "name": "macro",
-          "score": 12.6,
+          "score": 12.5,
           "cap": 25,
           "notes": [
-            "DXY 102.21 距近20日高點 -0.17%，美債10Y5日變動 +0.05pp（強度 40/100，+6.0）",
+            "DXY 102.20 距近20日高點 -0.18%，美債10Y5日變動 +0.05pp（強度 40/100，+6.0）",
             "SOX/NDX 距近20日支撐 +12.50%，美債10Y同步變動（強度 65/100，+6.5）"
           ]
         },
@@ -481,6 +481,11 @@
     },
     "news": [
       {
+        "title": "〈台股盤前要聞〉台積電Q3營收1.49兆元寫新猷、長榮法說釋利多貨櫃旺到明年春節",
+        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E7%9B%A4%E5%89%8D%E8%A6%81%E8%81%9E-%E5%8F%B0%E7%A9%8D%E9%9B%BBq3%E7%87%9F%E6%94%B61-49%E5%85%86%E5%85%83%E5%AF%AB%E6%96%B0%E7%8C%B7-%E9%95%B7%E6%A6%AE%E6%B3%95%E8%AA%AA%E9%87%8B%E5%88%A9%E5%A4%9A%E8%B2%A8%E6%AB%83%E6%97%BA%E5%88%B0%E6%98%8E%E5%B9%B4%E6%98%A5%E7%AF%80-211003841.html",
+        "meta": null
+      },
+      {
         "title": "台股12日開盤恐重挫千點？ 投資達人示警：3大壓力齊發",
         "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A112%E6%97%A5%E9%96%8B%E7%9B%A4%E6%81%90%E9%87%8D%E6%8C%AB%E5%8D%83%E9%BB%9E-%E6%8A%95%E8%B3%87%E9%81%94%E4%BA%BA%E7%A4%BA%E8%AD%A6-3%E5%A4%A7%E5%A3%93%E5%8A%9B%E9%BD%8A%E7%99%BC-150351348.html",
         "meta": null
@@ -513,11 +518,6 @@
       {
         "title": "美科技股壓回　投顧：台股本週聚焦台積電法說會",
         "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E7%A7%91%E6%8A%80%E8%82%A1%E5%A3%93%E5%9B%9E-%E6%8A%95%E9%A1%A7-%E5%8F%B0%E8%82%A1%E6%9C%AC%E9%80%B1%E8%81%9A%E7%84%A6%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%B3%95%E8%AA%AA%E6%9C%83-070115683.html",
-        "meta": null
-      },
-      {
-        "title": "大盤創高後拉回 這12檔台股ETF規模仍創高 00927今年來漲幅翻倍居冠",
-        "url": "https://tw.stock.yahoo.com/news/%E5%A4%A7%E7%9B%A4%E5%89%B5%E9%AB%98%E5%BE%8C%E6%8B%89%E5%9B%9E-%E9%80%9912%E6%AA%94%E5%8F%B0%E8%82%A1etf%E8%A6%8F%E6%A8%A1%E4%BB%8D%E5%89%B5%E9%AB%98-00927%E4%BB%8A%E5%B9%B4%E4%BE%86%E6%BC%B2%E5%B9%85%E7%BF%BB%E5%80%8D%E5%B1%85%E5%86%A0-034003278.html",
         "meta": null
       }
     ],
