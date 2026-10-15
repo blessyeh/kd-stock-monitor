@@ -1,5 +1,59 @@
 [
   {
+    "id": "NVDA_20261016_oversold",
+    "symbol": "NVDA",
+    "name": "NVIDIA Corp.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.73,
+    "kd_d": 31.42,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 217.23,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BULL_TREND",
+    "market_regime_label": "多頭趨勢",
+    "message": "✅ NVDA (NVIDIA Corp.) is OVERSOLD! KD-K: 19.73, KD-D: 31.42 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-16T05:08:26.416653",
+    "date": "2026-10-16",
+    "acknowledged": false
+  },
+  {
+    "id": "NVDL_20261016_oversold",
+    "symbol": "NVDL",
+    "name": "GraniteShares 2x Long NVDA Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.08,
+    "kd_d": 30.46,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 32.98,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BULL_TREND",
+    "market_regime_label": "多頭趨勢",
+    "message": "✅ NVDL (GraniteShares 2x Long NVDA Daily ETF) is OVERSOLD! KD-K: 19.08, KD-D: 30.46 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-16T05:08:26.417242",
+    "date": "2026-10-16",
+    "acknowledged": false
+  },
+  {
     "id": "2850.TW_20261016_overbought",
     "symbol": "2850.TW",
     "name": "新光產物保險",
@@ -2562,58 +2616,6 @@
     "market_regime_label": "多頭趨勢",
     "message": "✅ 00909.TW (國泰數位支付服務) is OVERSOLD! KD-K: 10.1, KD-D: 16.45 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-14T04:04:09.427948",
-    "date": "2026-10-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00910.TW_20261014_oversold",
-    "symbol": "00910.TW",
-    "name": "第一金太空衛星",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 12.89,
-    "kd_d": 22.68,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 53.0,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的168%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ 00910.TW (第一金太空衛星) is OVERSOLD! KD-K: 12.89, KD-D: 22.68 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-14T04:04:09.428050",
-    "date": "2026-10-14",
-    "acknowledged": false
-  },
-  {
-    "id": "00924.TW_20261014_overbought",
-    "symbol": "00924.TW",
-    "name": "復華 S&P 500 成長",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 86.7,
-    "kd_d": 90.99,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 34.4,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00924.TW (復華 S&P 500 成長) is OVERBOUGHT! KD-K: 86.7, KD-D: 90.99 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-14T04:04:09.428151",
     "date": "2026-10-14",
     "acknowledged": false
   }
