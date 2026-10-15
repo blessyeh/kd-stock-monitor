@@ -1,5 +1,111 @@
 [
   {
+    "id": "NVDA_20261015_oversold",
+    "symbol": "NVDA",
+    "name": "NVIDIA Corp.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 15.22,
+    "kd_d": 29.91,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 213.38,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ NVDA (NVIDIA Corp.) is OVERSOLD! KD-K: 15.22, KD-D: 29.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-15T21:54:09.597279",
+    "date": "2026-10-15",
+    "acknowledged": false
+  },
+  {
+    "id": "AMD_20261015_oversold",
+    "symbol": "AMD",
+    "name": "Advanced Micro Devices Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.39,
+    "kd_d": 33.41,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 531.64,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ AMD (Advanced Micro Devices Inc.) is OVERSOLD! KD-K: 17.39, KD-D: 33.41 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-15T21:54:09.597434",
+    "date": "2026-10-15",
+    "acknowledged": false
+  },
+  {
+    "id": "CRWD_20261015_oversold",
+    "symbol": "CRWD",
+    "name": "CrowdStrike Holdings Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.58,
+    "kd_d": 34.51,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 243.37,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ CRWD (CrowdStrike Holdings Inc.) is OVERSOLD! KD-K: 17.58, KD-D: 34.51 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-15T21:54:09.597598",
+    "date": "2026-10-15",
+    "acknowledged": false
+  },
+  {
+    "id": "AMDL_20261015_oversold",
+    "symbol": "AMDL",
+    "name": "GraniteShares 2x Long AMD Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 16.44,
+    "kd_d": 31.78,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 58.59,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ AMDL (GraniteShares 2x Long AMD Daily ETF) is OVERSOLD! KD-K: 16.44, KD-D: 31.78 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-15T21:54:09.598631",
+    "date": "2026-10-15",
+    "acknowledged": false
+  },
+  {
     "id": "00637L.TW_20261015_oversold",
     "symbol": "00637L.TW",
     "name": "元大滜深300正2",
@@ -2489,107 +2595,6 @@
     "market_regime_label": "多頭趨勢",
     "message": "⚠️ 00646.TW (元大S&P500) is OVERBOUGHT! KD-K: 89.28, KD-D: 82.1 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-10-13T00:28:18.815225",
-    "date": "2026-10-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00647L.TW_20261013_overbought",
-    "symbol": "00647L.TW",
-    "name": "元大S&P500正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.86,
-    "kd_d": 74.81,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 143.25,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00647L.TW (元大S&P500正2) is OVERBOUGHT! KD-K: 85.86, KD-D: 74.81 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-13T00:28:18.815364",
-    "date": "2026-10-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00652.TW_20261013_oversold",
-    "symbol": "00652.TW",
-    "name": "富邦印度",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 9.5,
-    "kd_d": 9.39,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 30.8,
-    "threshold": 20,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）",
-      "個股外資近3日買超達20日均量的62%（籌碼面轉強，非籌碼出走）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ 00652.TW (富邦印度) is OVERSOLD! KD-K: 9.5, KD-D: 9.39 (<= 20)",
-    "timestamp": "2026-10-13T00:28:18.815506",
-    "date": "2026-10-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00653L.TW_20261013_oversold",
-    "symbol": "00653L.TW",
-    "name": "富邦印度正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 11.08,
-    "kd_d": 16.85,
-    "kd_state": "OVERSOLD",
-    "current_price": 39.93,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ 00653L.TW (富邦印度正2) is OVERSOLD! KD-K: 11.08, KD-D: 16.85 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-13T00:28:18.815639",
-    "date": "2026-10-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00662.TW_20261013_overbought",
-    "symbol": "00662.TW",
-    "name": "富邦NASDAQ",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.39,
-    "kd_d": 76.37,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 127.15,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00662.TW (富邦NASDAQ) is OVERBOUGHT! KD-K: 85.39, KD-D: 76.37 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-13T00:28:18.815802",
     "date": "2026-10-13",
     "acknowledged": false
   }
