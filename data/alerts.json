@@ -1,5 +1,85 @@
 [
   {
+    "id": "00637L.TW_20261015_oversold",
+    "symbol": "00637L.TW",
+    "name": "元大滜深300正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.82,
+    "kd_d": 19.9,
+    "kd_state": "DEATH_CROSS",
+    "current_price": 16.91,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00637L.TW (元大滜深300正2) is OVERSOLD! KD-K: 18.82, KD-D: 19.9 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-15T10:59:20.917307",
+    "date": "2026-10-15",
+    "acknowledged": false
+  },
+  {
+    "id": "00713.TW_20261015_overbought",
+    "symbol": "00713.TW",
+    "name": "元大台灣高息低波",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 85.72,
+    "kd_d": 68.76,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 65.45,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00713.TW (元大台灣高息低波) is OVERBOUGHT! KD-K: 85.72, KD-D: 68.76 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-10-15T10:59:20.917643",
+    "date": "2026-10-15",
+    "acknowledged": false
+  },
+  {
+    "id": "00919.TW_20261015_overbought",
+    "symbol": "00919.TW",
+    "name": "群益台灣精選高息",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.66,
+    "kd_d": 64.67,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 32.44,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的94%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00919.TW (群益台灣精選高息) is OVERBOUGHT! KD-K: 80.66, KD-D: 64.67 (>= 80)",
+    "timestamp": "2026-10-15T10:59:20.919034",
+    "date": "2026-10-15",
+    "acknowledged": false
+  },
+  {
     "id": "2850.TW_20261015_overbought",
     "symbol": "2850.TW",
     "name": "新光產物保險",
@@ -2510,78 +2590,6 @@
     "market_regime_label": "多頭趨勢",
     "message": "⚠️ 00662.TW (富邦NASDAQ) is OVERBOUGHT! KD-K: 85.39, KD-D: 76.37 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
     "timestamp": "2026-10-13T00:28:18.815802",
-    "date": "2026-10-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00663L.TW_20261013_overbought",
-    "symbol": "00663L.TW",
-    "name": "國泰臺灣加權正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 82.72,
-    "kd_d": 86.52,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 118.4,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00663L.TW (國泰臺灣加權正2) is OVERBOUGHT! KD-K: 82.72, KD-D: 86.52 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-13T00:28:18.815944",
-    "date": "2026-10-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00670L.TW_20261013_overbought",
-    "symbol": "00670L.TW",
-    "name": "富邦NASDAQ",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 86.62,
-    "kd_d": 87.42,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 218.4,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00670L.TW (富邦NASDAQ) is OVERBOUGHT! KD-K: 86.62, KD-D: 87.42 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-13T00:28:18.816090",
-    "date": "2026-10-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00685L.TW_20261013_overbought",
-    "symbol": "00685L.TW",
-    "name": "群益臺灣加權正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 82.44,
-    "kd_d": 86.46,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 13.55,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00685L.TW (群益臺灣加權正2) is OVERBOUGHT! KD-K: 82.44, KD-D: 86.46 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-13T00:28:18.816225",
     "date": "2026-10-13",
     "acknowledged": false
   }
