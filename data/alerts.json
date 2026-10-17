@@ -1,5 +1,1069 @@
 [
   {
+    "id": "2850.TW_20261018_overbought",
+    "symbol": "2850.TW",
+    "name": "新光產物保險",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 86.99,
+    "kd_d": 85.73,
+    "kd_state": "OVERBOUGHT_REVERSAL",
+    "current_price": 170.0,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "個股外資近3日仍買超達20日均量的182%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 2850.TW (新光產物保險) is OVERBOUGHT! KD-K: 86.99, KD-D: 85.73 (>= 80)",
+    "timestamp": "2026-10-18T01:45:41.710476",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00637L.TW_20261018_oversold",
+    "symbol": "00637L.TW",
+    "name": "元大滜深300正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.99,
+    "kd_d": 19.41,
+    "kd_state": "OVERSOLD_REVERSAL",
+    "current_price": 17.05,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00637L.TW (元大滜深300正2) is OVERSOLD! KD-K: 18.99, KD-D: 19.41 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.710713",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00646.TW_20261018_overbought",
+    "symbol": "00646.TW",
+    "name": "元大S&P500",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 85.73,
+    "kd_d": 84.85,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 79.35,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00646.TW (元大S&P500) is OVERBOUGHT! KD-K: 85.73, KD-D: 84.85 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-10-18T01:45:41.710940",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00713.TW_20261018_overbought",
+    "symbol": "00713.TW",
+    "name": "元大台灣高息低波",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 86.12,
+    "kd_d": 74.09,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 65.8,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的46%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00713.TW (元大台灣高息低波) is OVERBOUGHT! KD-K: 86.12, KD-D: 74.09 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-10-18T01:45:41.711191",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00715L.TW_20261018_overbought",
+    "symbol": "00715L.TW",
+    "name": "期街口布蘭特正2",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 83.19,
+    "kd_d": 83.93,
+    "kd_state": "OVERBOUGHT_BUT_RISING",
+    "current_price": 76.65,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00715L.TW (期街口布蘭特正2) is OVERBOUGHT! KD-K: 83.19, KD-D: 83.93 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-10-18T01:45:41.711395",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00731.TW_20261018_overbought",
+    "symbol": "00731.TW",
+    "name": "復華富時高息低波",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 88.68,
+    "kd_d": 81.65,
+    "kd_state": "OVERBOUGHT_REVERSAL",
+    "current_price": 102.7,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00731.TW (復華富時高息低波) is OVERBOUGHT! KD-K: 88.68, KD-D: 81.65 (>= 80)",
+    "timestamp": "2026-10-18T01:45:41.711595",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00735.TW_20261018_oversold",
+    "symbol": "00735.TW",
+    "name": "國泰臺韓科技",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.74,
+    "kd_d": 31.76,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 98.45,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的58%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00735.TW (國泰臺韓科技) is OVERSOLD! KD-K: 17.74, KD-D: 31.76 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.711793",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00858.TWO_20261018_overbought",
+    "symbol": "00858.TWO",
+    "name": "永豐美國500大",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 79.01,
+    "kd_d": 83.26,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 36.97,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "個股外資近3日仍買超達20日均量的36%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00858.TWO (永豐美國500大) is OVERBOUGHT! KD-K: 79.01, KD-D: 83.26 (>= 80)",
+    "timestamp": "2026-10-18T01:45:41.712025",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00881.TW_20261018_oversold",
+    "symbol": "00881.TW",
+    "name": "國泰台灣科技龍頭",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.28,
+    "kd_d": 36.75,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 50.0,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的61%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00881.TW (國泰台灣科技龍頭) is OVERSOLD! KD-K: 17.28, KD-D: 36.75 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.712248",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00888.TWO_20261018_oversold",
+    "symbol": "00888.TWO",
+    "name": "永豐台灣半導體",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.52,
+    "kd_d": 36.01,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 34.49,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00888.TWO (永豐台灣半導體) is OVERSOLD! KD-K: 18.52, KD-D: 36.01 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.712451",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00907.TW_20261018_overbought",
+    "symbol": "00907.TW",
+    "name": "永豐優息存股",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 87.46,
+    "kd_d": 76.42,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 18.73,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00907.TW (永豐優息存股) is OVERBOUGHT! KD-K: 87.46, KD-D: 76.42 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-10-18T01:45:41.712660",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00909.TW_20261018_oversold",
+    "symbol": "00909.TW",
+    "name": "國泰數位支付服務",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 15.96,
+    "kd_d": 14.63,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 42.97,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "個股外資近3日仍賣超達20日均量的152%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00909.TW (國泰數位支付服務) is OVERSOLD! KD-K: 15.96, KD-D: 14.63 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.712857",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00910.TW_20261018_oversold",
+    "symbol": "00910.TW",
+    "name": "第一金太空衛星",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 13.12,
+    "kd_d": 14.44,
+    "kd_state": "OVERSOLD_REVERSAL",
+    "current_price": 51.65,
+    "threshold": 20,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）",
+      "個股外資近3日買超達20日均量的61%（籌碼面轉強，非籌碼出走）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00910.TW (第一金太空衛星) is OVERSOLD! KD-K: 13.12, KD-D: 14.44 (<= 20)",
+    "timestamp": "2026-10-18T01:45:41.713075",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00926.TW_20261018_overbought",
+    "symbol": "00926.TW",
+    "name": "凱基全球菁英55",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 89.53,
+    "kd_d": 86.56,
+    "kd_state": "OVERBOUGHT_BUT_RISING",
+    "current_price": 27.6,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00926.TW (凱基全球菁英55) is OVERBOUGHT! KD-K: 89.53, KD-D: 86.56 (>= 80)",
+    "timestamp": "2026-10-18T01:45:41.713279",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00939.TW_20261018_overbought",
+    "symbol": "00939.TW",
+    "name": "統一台灣高息動能",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 87.42,
+    "kd_d": 77.71,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 25.09,
+    "threshold": 80,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00939.TW (統一台灣高息動能) is OVERBOUGHT! KD-K: 87.42, KD-D: 77.71 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
+    "timestamp": "2026-10-18T01:45:41.713477",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00940.TW_20261018_overbought",
+    "symbol": "00940.TW",
+    "name": "元大台灣價值高息",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.26,
+    "kd_d": 84.9,
+    "kd_state": "OVERBOUGHT_BUT_RISING",
+    "current_price": 13.48,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
+      "個股外資近3日仍買超達20日均量的50%（籌碼面仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00940.TW (元大台灣價值高息) is OVERBOUGHT! KD-K: 80.26, KD-D: 84.9 (>= 80)",
+    "timestamp": "2026-10-18T01:45:41.714205",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "00955.TWO_20261018_overbought",
+    "symbol": "00955.TWO",
+    "name": "中信日本商社",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.19,
+    "kd_d": 64.63,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 16.47,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價未站穩上彎的20日均線之上（超買對應轉弱的可能性較高）"
+    ],
+    "filter_cautions": [
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00955.TWO (中信日本商社) is OVERBOUGHT! KD-K: 81.19, KD-D: 64.63 (>= 80)",
+    "timestamp": "2026-10-18T01:45:41.714444",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "2317.TW_20261018_oversold",
+    "symbol": "2317.TW",
+    "name": "鴻海",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 15.37,
+    "kd_d": 19.46,
+    "kd_state": "OVERSOLD_REVERSAL",
+    "current_price": 244.0,
+    "threshold": 20,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "個股外資近3日買超達20日均量的31%（籌碼面轉強，非籌碼出走）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 2317.TW (鴻海) is OVERSOLD! KD-K: 15.37, KD-D: 19.46 (<= 20)",
+    "timestamp": "2026-10-18T01:45:41.714674",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "2330.TW_20261018_oversold",
+    "symbol": "2330.TW",
+    "name": "台積電",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.52,
+    "kd_d": 33.93,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 2420.0,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的280%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 2330.TW (台積電) is OVERSOLD! KD-K: 17.52, KD-D: 33.93 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.714878",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "2454.TW_20261018_oversold",
+    "symbol": "2454.TW",
+    "name": "聯發科",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 8.3,
+    "kd_d": 13.08,
+    "kd_state": "OVERSOLD_REVERSAL",
+    "current_price": 4250.0,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的165%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 2454.TW (聯發科) is OVERSOLD! KD-K: 8.3, KD-D: 13.08 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.715115",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "NVDA_20261018_oversold",
+    "symbol": "NVDA",
+    "name": "NVIDIA Corp.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 14.55,
+    "kd_d": 25.8,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 214.13,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ NVDA (NVIDIA Corp.) is OVERSOLD! KD-K: 14.55, KD-D: 25.8 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.715334",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "AMD_20261018_oversold",
+    "symbol": "AMD",
+    "name": "Advanced Micro Devices Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.62,
+    "kd_d": 30.0,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 528.75,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ AMD (Advanced Micro Devices Inc.) is OVERSOLD! KD-K: 17.62, KD-D: 30.0 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.715536",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "AVGO_20261018_oversold",
+    "symbol": "AVGO",
+    "name": "Broadcom Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.54,
+    "kd_d": 33.54,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 328.75,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ AVGO (Broadcom Inc.) is OVERSOLD! KD-K: 19.54, KD-D: 33.54 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.715748",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "CRWD_20261018_oversold",
+    "symbol": "CRWD",
+    "name": "CrowdStrike Holdings Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 13.97,
+    "kd_d": 27.92,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 227.39,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ CRWD (CrowdStrike Holdings Inc.) is OVERSOLD! KD-K: 13.97, KD-D: 27.92 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.715939",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "MU_20261018_oversold",
+    "symbol": "MU",
+    "name": "Micron Technology Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.04,
+    "kd_d": 23.69,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 878.84,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ MU (Micron Technology Inc.) is OVERSOLD! KD-K: 17.04, KD-D: 23.69 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.716146",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "TSM_20261018_oversold",
+    "symbol": "TSM",
+    "name": "Taiwan Semiconductor Manufacturing Company Ltd.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 15.0,
+    "kd_d": 26.13,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 412.61,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ TSM (Taiwan Semiconductor Manufacturing Company Ltd.) is OVERSOLD! KD-K: 15.0, KD-D: 26.13 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.716331",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "SMH_20261018_oversold",
+    "symbol": "SMH",
+    "name": "VanEck Semiconductor ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 13.06,
+    "kd_d": 25.54,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 539.79,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ SMH (VanEck Semiconductor ETF) is OVERSOLD! KD-K: 13.06, KD-D: 25.54 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.716515",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "USD_20261018_oversold",
+    "symbol": "USD",
+    "name": "ProShares Ultra Semiconductors",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 13.42,
+    "kd_d": 25.34,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 76.96,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ USD (ProShares Ultra Semiconductors) is OVERSOLD! KD-K: 13.42, KD-D: 25.34 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.716713",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "NVDL_20261018_oversold",
+    "symbol": "NVDL",
+    "name": "GraniteShares 2x Long NVDA Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 13.93,
+    "kd_d": 24.95,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 31.98,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ NVDL (GraniteShares 2x Long NVDA Daily ETF) is OVERSOLD! KD-K: 13.93, KD-D: 24.95 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.716915",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "MULL_20261018_oversold",
+    "symbol": "MULL",
+    "name": "GraniteShares 2x Long MU Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 15.15,
+    "kd_d": 21.55,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 16.94,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ MULL (GraniteShares 2x Long MU Daily ETF) is OVERSOLD! KD-K: 15.15, KD-D: 21.55 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.717132",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "AMDL_20261018_oversold",
+    "symbol": "AMDL",
+    "name": "GraniteShares 2x Long AMD Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 16.54,
+    "kd_d": 28.43,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 57.9,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ AMDL (GraniteShares 2x Long AMD Daily ETF) is OVERSOLD! KD-K: 16.54, KD-D: 28.43 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.717321",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "TSMX_20261018_oversold",
+    "symbol": "TSMX",
+    "name": "Direxion Daily TSM Bull 2X Shares",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 14.31,
+    "kd_d": 25.21,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 73.09,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ TSMX (Direxion Daily TSM Bull 2X Shares) is OVERSOLD! KD-K: 14.31, KD-D: 25.21 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.717504",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "AVGX_20261018_oversold",
+    "symbol": "AVGX",
+    "name": "Defiance Daily Target 2X Long AVGO ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.11,
+    "kd_d": 31.44,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 32.6,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ AVGX (Defiance Daily Target 2X Long AVGO ETF) is OVERSOLD! KD-K: 18.11, KD-D: 31.44 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.717680",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "SNDK_20261018_oversold",
+    "symbol": "SNDK",
+    "name": "Sandisk Corporation",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 12.08,
+    "kd_d": 15.02,
+    "kd_state": "OVERSOLD",
+    "current_price": 1299.3,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ SNDK (Sandisk Corporation) is OVERSOLD! KD-K: 12.08, KD-D: 15.02 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.717859",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "SNXX_20261018_oversold",
+    "symbol": "SNXX",
+    "name": "Tradr 2X Long Sndk Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 10.73,
+    "kd_d": 13.37,
+    "kd_state": "OVERSOLD",
+    "current_price": 9.11,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ SNXX (Tradr 2X Long Sndk Daily ETF) is OVERSOLD! KD-K: 10.73, KD-D: 13.37 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.718000",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "RKLB_20261018_oversold",
+    "symbol": "RKLB",
+    "name": "Rocket Lab USA, Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 10.62,
+    "kd_d": 16.94,
+    "kd_state": "OVERSOLD",
+    "current_price": 50.84,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ RKLB (Rocket Lab USA, Inc.) is OVERSOLD! KD-K: 10.62, KD-D: 16.94 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.718186",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "RKLX_20261018_oversold",
+    "symbol": "RKLX",
+    "name": "Defiance Daily Target 2X Long RKLB ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 9.65,
+    "kd_d": 15.46,
+    "kd_state": "OVERSOLD",
+    "current_price": 8.7,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ RKLX (Defiance Daily Target 2X Long RKLB ETF) is OVERSOLD! KD-K: 9.65, KD-D: 15.46 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.718350",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "DRAM_20261018_oversold",
+    "symbol": "DRAM",
+    "name": "Roundhill Memory ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 9.88,
+    "kd_d": 16.91,
+    "kd_state": "OVERSOLD",
+    "current_price": 46.45,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ DRAM (Roundhill Memory ETF) is OVERSOLD! KD-K: 9.88, KD-D: 16.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.718457",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "ARM_20261018_oversold",
+    "symbol": "ARM",
+    "name": "Arm Holdings plc",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 9.94,
+    "kd_d": 15.03,
+    "kd_state": "OVERSOLD",
+    "current_price": 227.8,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ ARM (Arm Holdings plc) is OVERSOLD! KD-K: 9.94, KD-D: 15.03 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.718647",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
+    "id": "ARMG_20261018_oversold",
+    "symbol": "ARMG",
+    "name": "Leverage Shares 2X Long ARM Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 8.46,
+    "kd_d": 12.99,
+    "kd_state": "OVERSOLD",
+    "current_price": 12.61,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 8.46, KD-D: 12.99 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-18T01:45:41.718812",
+    "date": "2026-10-18",
+    "acknowledged": false
+  },
+  {
     "id": "AVGO_20261017_oversold",
     "symbol": "AVGO",
     "name": "Broadcom Inc.",
@@ -1589,1070 +2653,6 @@
     "message": "✅ 00885.TW (富邦越南) is OVERSOLD! KD-K: 22.35, KD-D: 17.28 (<= 20)",
     "timestamp": "2026-10-16T02:00:26.828406",
     "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "00907.TW_20261016_overbought",
-    "symbol": "00907.TW",
-    "name": "永豐優息存股",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.85,
-    "kd_d": 70.9,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 18.46,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00907.TW (永豐優息存股) is OVERBOUGHT! KD-K: 85.85, KD-D: 70.9 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-16T02:00:26.828598",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "00909.TW_20261016_oversold",
-    "symbol": "00909.TW",
-    "name": "國泰數位支付服務",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 11.27,
-    "kd_d": 13.97,
-    "kd_state": "OVERSOLD",
-    "current_price": 41.64,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的136%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ 00909.TW (國泰數位支付服務) is OVERSOLD! KD-K: 11.27, KD-D: 13.97 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.828777",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "00910.TW_20261016_oversold",
-    "symbol": "00910.TW",
-    "name": "第一金太空衛星",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 8.07,
-    "kd_d": 15.1,
-    "kd_state": "OVERSOLD",
-    "current_price": 49.9,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）",
-      "個股外資近3日買超達20日均量的47%（籌碼面轉強，非籌碼出走）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ 00910.TW (第一金太空衛星) is OVERSOLD! KD-K: 8.07, KD-D: 15.1 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.828941",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "00924.TW_20261016_overbought",
-    "symbol": "00924.TW",
-    "name": "復華 S&P 500 成長",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 63.93,
-    "kd_d": 81.27,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 33.93,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00924.TW (復華 S&P 500 成長) is OVERBOUGHT! KD-K: 63.93, KD-D: 81.27 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-16T02:00:26.829130",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "00926.TW_20261016_overbought",
-    "symbol": "00926.TW",
-    "name": "凱基全球菁英55",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 86.59,
-    "kd_d": 85.07,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 27.25,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "個股外資近3日仍買超達20日均量的69%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00926.TW (凱基全球菁英55) is OVERBOUGHT! KD-K: 86.59, KD-D: 85.07 (>= 80)",
-    "timestamp": "2026-10-16T02:00:26.829291",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "00939.TW_20261016_overbought",
-    "symbol": "00939.TW",
-    "name": "統一台灣高息動能",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 87.82,
-    "kd_d": 72.86,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 24.87,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00939.TW (統一台灣高息動能) is OVERBOUGHT! KD-K: 87.82, KD-D: 72.86 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-16T02:00:26.829468",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "00940.TW_20261016_overbought",
-    "symbol": "00940.TW",
-    "name": "元大台灣價值高息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.78,
-    "kd_d": 87.22,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 13.38,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "個股外資近3日仍買超達20日均量的49%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00940.TW (元大台灣價值高息) is OVERBOUGHT! KD-K: 85.78, KD-D: 87.22 (>= 80)",
-    "timestamp": "2026-10-16T02:00:26.829666",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "2317.TW_20261016_oversold",
-    "symbol": "2317.TW",
-    "name": "鴻海",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 12.52,
-    "kd_d": 21.51,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 239.5,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的86%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ 2317.TW (鴻海) is OVERSOLD! KD-K: 12.52, KD-D: 21.51 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.830003",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "2454.TW_20261016_oversold",
-    "symbol": "2454.TW",
-    "name": "聯發科",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 7.3,
-    "kd_d": 15.47,
-    "kd_state": "OVERSOLD",
-    "current_price": 4165.0,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的182%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ 2454.TW (聯發科) is OVERSOLD! KD-K: 7.3, KD-D: 15.47 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.830175",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "CRWD_20261016_oversold",
-    "symbol": "CRWD",
-    "name": "CrowdStrike Holdings Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.18,
-    "kd_d": 34.38,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 242.4,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ CRWD (CrowdStrike Holdings Inc.) is OVERSOLD! KD-K: 17.18, KD-D: 34.38 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.830361",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "MU_20261016_oversold",
-    "symbol": "MU",
-    "name": "Micron Technology Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.64,
-    "kd_d": 26.22,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 914.53,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ MU (Micron Technology Inc.) is OVERSOLD! KD-K: 18.64, KD-D: 26.22 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.830558",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "TSM_20261016_oversold",
-    "symbol": "TSM",
-    "name": "Taiwan Semiconductor Manufacturing Company Ltd.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.23,
-    "kd_d": 31.43,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 420.35,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ TSM (Taiwan Semiconductor Manufacturing Company Ltd.) is OVERSOLD! KD-K: 18.23, KD-D: 31.43 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.830730",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "SMH_20261016_oversold",
-    "symbol": "SMH",
-    "name": "VanEck Semiconductor ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.94,
-    "kd_d": 31.35,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 555.0,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ SMH (VanEck Semiconductor ETF) is OVERSOLD! KD-K: 17.94, KD-D: 31.35 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.830913",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "USD_20261016_oversold",
-    "symbol": "USD",
-    "name": "ProShares Ultra Semiconductors",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.82,
-    "kd_d": 31.0,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 81.55,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ USD (ProShares Ultra Semiconductors) is OVERSOLD! KD-K: 18.82, KD-D: 31.0 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.831086",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "MULL_20261016_oversold",
-    "symbol": "MULL",
-    "name": "GraniteShares 2x Long MU Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 16.86,
-    "kd_d": 24.01,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 18.455,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ MULL (GraniteShares 2x Long MU Daily ETF) is OVERSOLD! KD-K: 16.86, KD-D: 24.01 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.831266",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "TSMX_20261016_oversold",
-    "symbol": "TSMX",
-    "name": "Direxion Daily TSM Bull 2X Shares",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.36,
-    "kd_d": 30.39,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 75.93,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ TSMX (Direxion Daily TSM Bull 2X Shares) is OVERSOLD! KD-K: 17.36, KD-D: 30.39 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.831440",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "SNDK_20261016_oversold",
-    "symbol": "SNDK",
-    "name": "Sandisk Corporation",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 12.58,
-    "kd_d": 15.49,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 1352.98,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ SNDK (Sandisk Corporation) is OVERSOLD! KD-K: 12.58, KD-D: 15.49 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.831657",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "SNXX_20261016_oversold",
-    "symbol": "SNXX",
-    "name": "Tradr 2X Long Sndk Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 11.04,
-    "kd_d": 13.78,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 9.925,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ SNXX (Tradr 2X Long Sndk Daily ETF) is OVERSOLD! KD-K: 11.04, KD-D: 13.78 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.831761",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "RKLB_20261016_oversold",
-    "symbol": "RKLB",
-    "name": "Rocket Lab USA, Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 11.94,
-    "kd_d": 19.44,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 53.5472,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ RKLB (Rocket Lab USA, Inc.) is OVERSOLD! KD-K: 11.94, KD-D: 19.44 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.831915",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "RKLX_20261016_oversold",
-    "symbol": "RKLX",
-    "name": "Defiance Daily Target 2X Long RKLB ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 10.63,
-    "kd_d": 17.78,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 9.7,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ RKLX (Defiance Daily Target 2X Long RKLB ETF) is OVERSOLD! KD-K: 10.63, KD-D: 17.78 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.832071",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "DRAM_20261016_oversold",
-    "symbol": "DRAM",
-    "name": "Roundhill Memory ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 12.78,
-    "kd_d": 19.91,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 48.605,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ DRAM (Roundhill Memory ETF) is OVERSOLD! KD-K: 12.78, KD-D: 19.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.832159",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "ARM_20261016_oversold",
-    "symbol": "ARM",
-    "name": "Arm Holdings plc",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 12.94,
-    "kd_d": 17.18,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 241.75,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ ARM (Arm Holdings plc) is OVERSOLD! KD-K: 12.94, KD-D: 17.18 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.832302",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "ARMG_20261016_oversold",
-    "symbol": "ARMG",
-    "name": "Leverage Shares 2X Long ARM Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 11.18,
-    "kd_d": 14.91,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 14.3,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "✅ ARMG (Leverage Shares 2X Long ARM Daily ETF) is OVERSOLD! KD-K: 11.18, KD-D: 14.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-16T02:00:26.832448",
-    "date": "2026-10-16",
-    "acknowledged": false
-  },
-  {
-    "id": "NVDA_20261015_oversold",
-    "symbol": "NVDA",
-    "name": "NVIDIA Corp.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 15.22,
-    "kd_d": 29.91,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 213.38,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ NVDA (NVIDIA Corp.) is OVERSOLD! KD-K: 15.22, KD-D: 29.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-15T21:54:09.597279",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "AMD_20261015_oversold",
-    "symbol": "AMD",
-    "name": "Advanced Micro Devices Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.39,
-    "kd_d": 33.41,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 531.64,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ AMD (Advanced Micro Devices Inc.) is OVERSOLD! KD-K: 17.39, KD-D: 33.41 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-15T21:54:09.597434",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "CRWD_20261015_oversold",
-    "symbol": "CRWD",
-    "name": "CrowdStrike Holdings Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.58,
-    "kd_d": 34.51,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 243.37,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ CRWD (CrowdStrike Holdings Inc.) is OVERSOLD! KD-K: 17.58, KD-D: 34.51 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-15T21:54:09.597598",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "AMDL_20261015_oversold",
-    "symbol": "AMDL",
-    "name": "GraniteShares 2x Long AMD Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 16.44,
-    "kd_d": 31.78,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 58.59,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ AMDL (GraniteShares 2x Long AMD Daily ETF) is OVERSOLD! KD-K: 16.44, KD-D: 31.78 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-15T21:54:09.598631",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00637L.TW_20261015_oversold",
-    "symbol": "00637L.TW",
-    "name": "元大滜深300正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 18.82,
-    "kd_d": 19.9,
-    "kd_state": "DEATH_CROSS",
-    "current_price": 16.91,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00637L.TW (元大滜深300正2) is OVERSOLD! KD-K: 18.82, KD-D: 19.9 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-15T10:59:20.917307",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00713.TW_20261015_overbought",
-    "symbol": "00713.TW",
-    "name": "元大台灣高息低波",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.72,
-    "kd_d": 68.76,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 65.45,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "⚠️ 00713.TW (元大台灣高息低波) is OVERBOUGHT! KD-K: 85.72, KD-D: 68.76 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-15T10:59:20.917643",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00919.TW_20261015_overbought",
-    "symbol": "00919.TW",
-    "name": "群益台灣精選高息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.66,
-    "kd_d": 64.67,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 32.44,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超達20日均量的94%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "⚠️ 00919.TW (群益台灣精選高息) is OVERBOUGHT! KD-K: 80.66, KD-D: 64.67 (>= 80)",
-    "timestamp": "2026-10-15T10:59:20.919034",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "2850.TW_20261015_overbought",
-    "symbol": "2850.TW",
-    "name": "新光產物保險",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 91.86,
-    "kd_d": 81.33,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 168.0,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超達20日均量的98%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 2850.TW (新光產物保險) is OVERBOUGHT! KD-K: 91.86, KD-D: 81.33 (>= 80)",
-    "timestamp": "2026-10-15T00:26:50.012303",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "0056.TW_20261015_overbought",
-    "symbol": "0056.TW",
-    "name": "元大高股息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 91.07,
-    "kd_d": 80.68,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 59.6,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 0056.TW (元大高股息) is OVERBOUGHT! KD-K: 91.07, KD-D: 80.68 (>= 80)",
-    "timestamp": "2026-10-15T00:26:50.012528",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00646.TW_20261015_overbought",
-    "symbol": "00646.TW",
-    "name": "元大S&P500",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 92.9,
-    "kd_d": 87.31,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 79.25,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00646.TW (元大S&P500) is OVERBOUGHT! KD-K: 92.9, KD-D: 87.31 (>= 80)",
-    "timestamp": "2026-10-15T00:26:50.012726",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00647L.TW_20261015_overbought",
-    "symbol": "00647L.TW",
-    "name": "元大S&P500正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 88.47,
-    "kd_d": 81.65,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 143.7,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00647L.TW (元大S&P500正2) is OVERBOUGHT! KD-K: 88.47, KD-D: 81.65 (>= 80)",
-    "timestamp": "2026-10-15T00:26:50.012926",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00715L.TW_20261015_overbought",
-    "symbol": "00715L.TW",
-    "name": "期街口布蘭特正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 91.22,
-    "kd_d": 84.53,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 77.4,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00715L.TW (期街口布蘭特正2) is OVERBOUGHT! KD-K: 91.22, KD-D: 84.53 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-15T00:26:50.013120",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00731.TW_20261015_overbought",
-    "symbol": "00731.TW",
-    "name": "復華富時高息低波",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.8,
-    "kd_d": 72.6,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 101.75,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00731.TW (復華富時高息低波) is OVERBOUGHT! KD-K: 85.8, KD-D: 72.6 (>= 80)",
-    "timestamp": "2026-10-15T00:26:50.013335",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00733.TW_20261015_overbought",
-    "symbol": "00733.TW",
-    "name": "富邦臺灣中小",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 92.67,
-    "kd_d": 93.33,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 79.3,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "個股外資近3日轉為賣超達20日均量的87%（籌碼面轉弱，超買可能對應真正高點）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00733.TW (富邦臺灣中小) is OVERBOUGHT! KD-K: 92.67, KD-D: 93.33 (>= 80)",
-    "timestamp": "2026-10-15T00:26:50.013523",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00757.TW_20261015_overbought",
-    "symbol": "00757.TW",
-    "name": "統一FANG+",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 87.79,
-    "kd_d": 78.17,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 148.4,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超達20日均量的34%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00757.TW (統一FANG+) is OVERBOUGHT! KD-K: 87.79, KD-D: 78.17 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-15T00:26:50.013711",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00858.TWO_20261015_overbought",
-    "symbol": "00858.TWO",
-    "name": "永豐美國500大",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 93.97,
-    "kd_d": 88.43,
-    "kd_state": "OVERBOUGHT_REVERSAL",
-    "current_price": 37.12,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "個股外資近3日仍買超達20日均量的50%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00858.TWO (永豐美國500大) is OVERBOUGHT! KD-K: 93.97, KD-D: 88.43 (>= 80)",
-    "timestamp": "2026-10-15T00:26:50.013896",
-    "date": "2026-10-15",
-    "acknowledged": false
-  },
-  {
-    "id": "00878.TW_20261015_overbought",
-    "symbol": "00878.TW",
-    "name": "國泰永續高股息",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 81.04,
-    "kd_d": 64.51,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 35.47,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
-    ],
-    "market_regime": "BULL_TREND",
-    "market_regime_label": "多頭趨勢",
-    "message": "⚠️ 00878.TW (國泰永續高股息) is OVERBOUGHT! KD-K: 81.04, KD-D: 64.51 (>= 80)",
-    "timestamp": "2026-10-15T00:26:50.014085",
-    "date": "2026-10-15",
     "acknowledged": false
   }
 ]
