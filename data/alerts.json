@@ -1,5 +1,33 @@
 [
   {
+    "id": "00692.TW_20261019_oversold",
+    "symbol": "00692.TW",
+    "name": "富邦公司治理",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.89,
+    "kd_d": 35.5,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 93.4,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的45%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00692.TW (富邦公司治理) is OVERSOLD! KD-K: 19.89, KD-D: 35.5 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-19T19:59:04.737182",
+    "date": "2026-10-19",
+    "acknowledged": false
+  },
+  {
     "id": "0050.TW_20261019_oversold",
     "symbol": "0050.TW",
     "name": "元大台灣50",
@@ -2626,31 +2654,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 00637L.TW (元大滜深300正2) is OVERSOLD! KD-K: 18.99, KD-D: 19.41 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-17T03:17:02.639117",
-    "date": "2026-10-17",
-    "acknowledged": false
-  },
-  {
-    "id": "00646.TW_20261017_overbought",
-    "symbol": "00646.TW",
-    "name": "元大S&P500",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 85.73,
-    "kd_d": 84.85,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 79.35,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "⚠️ 00646.TW (元大S&P500) is OVERBOUGHT! KD-K: 85.73, KD-D: 84.85 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-10-17T03:17:02.639302",
     "date": "2026-10-17",
     "acknowledged": false
   }
