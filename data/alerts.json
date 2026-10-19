@@ -1,5 +1,86 @@
 [
   {
+    "id": "00905.TW_20261020_oversold",
+    "symbol": "00905.TW",
+    "name": "FT臺灣Smart",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 16.75,
+    "kd_d": 31.91,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 25.89,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的31%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00905.TW (FT臺灣Smart) is OVERSOLD! KD-K: 16.75, KD-D: 31.91 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-20T06:47:42.915048",
+    "date": "2026-10-20",
+    "acknowledged": false
+  },
+  {
+    "id": "00922.TW_20261020_oversold",
+    "symbol": "00922.TW",
+    "name": "國泰台灣領袖50",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 13.64,
+    "kd_d": 25.05,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 40.06,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00922.TW (國泰台灣領袖50) is OVERSOLD! KD-K: 13.64, KD-D: 25.05 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-20T06:47:42.915790",
+    "date": "2026-10-20",
+    "acknowledged": false
+  },
+  {
+    "id": "00992A.TW_20261020_oversold",
+    "symbol": "00992A.TW",
+    "name": "主動群益科技創新",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.24,
+    "kd_d": 31.53,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 17.58,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
+      "個股外資近3日仍賣超達20日均量的34%（籌碼仍在流出，KD超賣可能持續鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00992A.TW (主動群益科技創新) is OVERSOLD! KD-K: 18.24, KD-D: 31.53 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-20T06:47:42.916773",
+    "date": "2026-10-20",
+    "acknowledged": false
+  },
+  {
     "id": "2850.TW_20261020_overbought",
     "symbol": "2850.TW",
     "name": "新光產物保險",
@@ -2547,87 +2628,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ AVGO (Broadcom Inc.) is OVERSOLD! KD-K: 19.54, KD-D: 33.54 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-19T01:47:23.009249",
-    "date": "2026-10-19",
-    "acknowledged": false
-  },
-  {
-    "id": "CRWD_20261019_oversold",
-    "symbol": "CRWD",
-    "name": "CrowdStrike Holdings Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 13.97,
-    "kd_d": 27.92,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 227.39,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ CRWD (CrowdStrike Holdings Inc.) is OVERSOLD! KD-K: 13.97, KD-D: 27.92 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-19T01:47:23.009451",
-    "date": "2026-10-19",
-    "acknowledged": false
-  },
-  {
-    "id": "MU_20261019_oversold",
-    "symbol": "MU",
-    "name": "Micron Technology Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.04,
-    "kd_d": 23.69,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 878.84,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ MU (Micron Technology Inc.) is OVERSOLD! KD-K: 17.04, KD-D: 23.69 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-19T01:47:23.009653",
-    "date": "2026-10-19",
-    "acknowledged": false
-  },
-  {
-    "id": "TSM_20261019_oversold",
-    "symbol": "TSM",
-    "name": "Taiwan Semiconductor Manufacturing Company Ltd.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 15.0,
-    "kd_d": 26.13,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 412.61,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ TSM (Taiwan Semiconductor Manufacturing Company Ltd.) is OVERSOLD! KD-K: 15.0, KD-D: 26.13 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-19T01:47:23.009861",
     "date": "2026-10-19",
     "acknowledged": false
   }
