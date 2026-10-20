@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-21T02:19:19.166859",
+  "timestamp": "2026-10-21T06:03:44.604318",
   "date": "2026-10-21",
   "macro": {
     "taiex": {
@@ -8,51 +8,51 @@
       "change_pct": 0.0
     },
     "us10y": {
-      "value": 5.121,
-      "change": -0.015,
-      "change_pct": -0.29
+      "value": 5.117,
+      "change": -0.019,
+      "change_pct": -0.37
     },
     "dxy": {
-      "value": 101.72,
-      "change": -0.26,
+      "value": 101.71,
+      "change": -0.27,
       "change_pct": -0.26
     },
     "fear_greed": {
-      "value": 17.37,
-      "change": -1.07,
-      "change_pct": -5.8,
+      "value": 17.31,
+      "change": -1.13,
+      "change_pct": -6.13,
       "label": "VIX Index",
-      "timestamp": "2026-10-21T02:17:46.416141"
+      "timestamp": "2026-10-21T06:03:33.346094"
     },
     "btc": {
-      "value": 82578.0,
-      "change": 724.0,
-      "change_pct": 0.89
+      "value": 82924.0,
+      "change": 1071.0,
+      "change_pct": 1.31
     },
     "oil": {
-      "value": 97.78,
-      "change": -5.88,
-      "change_pct": -5.67
+      "value": 98.18,
+      "change": -5.48,
+      "change_pct": -5.29
     },
     "gold": {
-      "value": 4144.3,
-      "change": -15.8,
-      "change_pct": -0.38
+      "value": 4142.5,
+      "change": -17.6,
+      "change_pct": -0.42
     },
     "sox": {
-      "value": 11371.23,
-      "change": 54.89,
-      "change_pct": 0.49
+      "value": 11283.81,
+      "change": -32.53,
+      "change_pct": -0.29
     },
     "ndx": {
-      "value": 29583.46,
-      "change": 54.11,
-      "change_pct": 0.18
+      "value": 29490.28,
+      "change": -39.07,
+      "change_pct": -0.13
     },
     "sp500": {
-      "value": 7722.98,
-      "change": 32.25,
-      "change_pct": 0.42
+      "value": 7712.57,
+      "change": 21.84,
+      "change_pct": 0.28
     }
   },
   "chip": {
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 101.72 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.10pp（未達 0.15pp）",
-          "score": 13.8
+          "detail": "DXY 101.71 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.10pp（未達 0.15pp）",
+          "score": 13.5
         },
         {
           "id": "twd_depreciation",
@@ -168,8 +168,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 11371未跌破近20日支撐11137；美債10Y 5日變動 -0.10pp（未達 0.15pp）",
-          "score": 47.5
+          "detail": "SOX 11284未跌破近20日支撐11137；美債10Y 5日變動 -0.10pp（未達 0.15pp）",
+          "score": 42.1
         }
       ],
       "total_conditions": 5,
@@ -177,7 +177,7 @@
       "triggered_count": 2,
       "triggered_full_count": 2,
       "triggered_partial_count": 0,
-      "avg_score": 36.6
+      "avg_score": 35.5
     },
     "bottom": {
       "conditions": [
@@ -186,8 +186,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 18.9（<= 30.0門檻）；目前 17.4（較高點回落 8%，門檻 15%）",
-          "score": 20.9
+          "detail": "近10日VIX高點 18.9（<= 30.0門檻）；目前 17.3（較高點回落 8%，門檻 15%）",
+          "score": 21.3
         },
         {
           "id": "margin_capitulation",
@@ -211,7 +211,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 19.7
+      "avg_score": 19.8
     },
     "bottom_reversal_score": {
       "total": 38.1,
@@ -247,8 +247,8 @@
       "ma_prior": 46257.71,
       "above_ma": false,
       "ma_rising": true,
-      "vix_today": 17.37,
-      "vix_fast_rise": 2.06,
+      "vix_today": 17.31,
+      "vix_fast_rise": 2.0,
       "vix_recent_peak": 18.91,
       "vix_rolled_over": false,
       "foreign_recent_avg": -1221.55,
@@ -260,15 +260,15 @@
     "as_of_date": "2026-10-20",
     "history_days": 94,
     "bottom": {
-      "total": 29.0,
+      "total": 29.1,
       "dimensions": [
         {
           "name": "macro",
-          "score": 10.4,
+          "score": 10.5,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 18.9 → 目前 17.4（強度 21/100，+3.1）",
-            "DXY 101.72 距近20日高點 -0.64%（美元壓力緩和強度 73/100，+7.3）"
+            "VIX 近10日高點 18.9 → 目前 17.3（強度 21/100，+3.2）",
+            "DXY 101.71 距近20日高點 -0.65%（美元壓力緩和強度 73/100，+7.3）"
           ]
         },
         {
@@ -309,15 +309,15 @@
       ]
     },
     "top": {
-      "total": 23.5,
+      "total": 22.9,
       "dimensions": [
         {
           "name": "macro",
-          "score": 6.8,
+          "score": 6.2,
           "cap": 25,
           "notes": [
-            "DXY 101.72 距近20日高點 -0.64%，美債10Y5日變動 -0.10pp（強度 14/100，+2.1）",
-            "SOX/NDX 距近20日支撐 +2.10%，美債10Y同步變動（強度 48/100，+4.8）"
+            "DXY 101.71 距近20日高點 -0.65%，美債10Y5日變動 -0.10pp（強度 13/100，+2.0）",
+            "SOX/NDX 距近20日支撐 +1.32%，美債10Y同步變動（強度 42/100，+4.2）"
           ]
         },
         {
@@ -423,7 +423,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 -2.2%；相對TAIEX -1.5pp、相對SOX -0.3pp、相對NDX -2.7pp"
+          "2330 近20日漲跌 -2.2%；相對TAIEX -1.5pp、相對SOX +0.5pp、相對NDX -2.4pp"
         ]
       },
       {
@@ -442,7 +442,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "ADR $427.9 換算2330隱含價 2792.5元，2330現價 2405.0元（折價 13.9%）",
+          "ADR $425.1 換算2330隱含價 2773.8元，2330現價 2405.0元（折價 13.3%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -489,6 +489,11 @@
     },
     "news": [
       {
+        "title": "台積電ADR20日上漲4.86美元漲幅1.16%折台股2772.97元",
+        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BBadr20%E6%97%A5%E4%B8%8A%E6%BC%B24-86%E7%BE%8E%E5%85%83%E6%BC%B2%E5%B9%851-16-%E6%8A%98%E5%8F%B0%E8%82%A12772-97%E5%85%83-214141152.html",
+        "meta": null
+      },
+      {
         "title": "台積電楠梓F22廠重大工安 P4工地吊鋼梁砸中4焊工\"3死1重傷\"",
         "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%A5%A0%E6%A2%93f22%E5%BB%A0%E9%87%8D%E5%A4%A7%E5%B7%A5%E5%AE%89-p4%E5%B7%A5%E5%9C%B0%E5%90%8A%E9%8B%BC%E6%A2%81%E7%A0%B8%E4%B8%AD4%E7%84%8A%E5%B7%A5-3%E6%AD%BB1%E9%87%8D%E5%82%B7-163730118.html",
         "meta": null
@@ -521,11 +526,6 @@
       {
         "title": "AI霸主未必只有輝達？ 外媒曝台積電真正價值 2030年前還有大行情",
         "url": "https://tw.stock.yahoo.com/news/ai%E9%9C%B8%E4%B8%BB%E6%9C%AA%E5%BF%85%E5%8F%AA%E6%9C%89%E8%BC%9D%E9%81%94-%E5%A4%96%E5%AA%92%E6%9B%9D%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%9C%9F%E6%AD%A3%E5%83%B9%E5%80%BC-2030%E5%B9%B4%E5%89%8D%E9%82%84%E6%9C%89%E5%A4%A7%E8%A1%8C%E6%83%85-101602193.html",
-        "meta": null
-      },
-      {
-        "title": "外資賣超台股795億元減碼ETF　連10日調節台積電",
-        "url": "https://tw.stock.yahoo.com/news/%E5%A4%96%E8%B3%87%E8%B3%A3%E8%B6%85%E5%8F%B0%E8%82%A1795%E5%84%84%E5%85%83%E6%B8%9B%E7%A2%BCetf-%E9%80%A310%E6%97%A5%E8%AA%BF%E7%AF%80%E5%8F%B0%E7%A9%8D%E9%9B%BB-091357663.html",
         "meta": null
       }
     ],
@@ -586,7 +586,7 @@
         "dimension": "relative_strength",
         "score": 3,
         "cap": 10,
-        "detail": "2330 近20日漲跌 -2.2%；相對TAIEX -1.5pp、相對SOX -0.3pp、相對NDX -2.7pp"
+        "detail": "2330 近20日漲跌 -2.2%；相對TAIEX -1.5pp、相對SOX +0.5pp、相對NDX -2.4pp"
       }
     ]
   },
@@ -1428,11 +1428,11 @@
     },
     "tw_chip": {
       "as_of_date": "2026-10-20",
-      "fetched": true
+      "fetched": false
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-10-20",
-      "fetched": true
+      "fetched": false
     }
   },
   "news": [
@@ -1467,6 +1467,11 @@
       "meta": null
     },
     {
+      "title": "罕見不選親生女！南韓大廠收養23年老員工贈10%股權 還能繼承遺產",
+      "url": "https://tw.stock.yahoo.com/news/%E7%BD%95%E8%A6%8B%E4%B8%8D%E9%81%B8%E8%A6%AA%E7%94%9F%E5%A5%B3-%E5%8D%97%E9%9F%93%E5%A4%A7%E5%BB%A0%E6%94%B6%E9%A4%8A23%E5%B9%B4%E8%80%81%E5%93%A1%E5%B7%A5%E8%B4%8810-%E8%82%A1%E6%AC%8A-%E9%82%84%E8%83%BD%E7%B9%BC%E6%89%BF%E9%81%BA%E7%94%A2-213829653.html",
+      "meta": null
+    },
+    {
       "title": "10月三大法人主動式ETF新寵出爐！　這10檔誰能追漲又抗跌",
       "url": "https://tw.stock.yahoo.com/news/10%E6%9C%88%E4%B8%89%E5%A4%A7%E6%B3%95%E4%BA%BA%E4%B8%BB%E5%8B%95%E5%BC%8Fetf%E6%96%B0%E5%AF%B5%E5%87%BA%E7%88%90-%E9%80%9910%E6%AA%94%E8%AA%B0%E8%83%BD%E8%BF%BD%E6%BC%B2%E5%8F%88%E6%8A%97%E8%B7%8C-163027492.html",
       "meta": null
@@ -1480,20 +1485,15 @@
       "title": "賣房All in台股！他買「這檔ETF」滾出3800萬驚：40歲前退休是有可能的",
       "url": "https://tw.stock.yahoo.com/news/%E8%B3%A3%E6%88%BFall-in%E5%8F%B0%E8%82%A1-%E4%BB%96%E8%B2%B7-%E9%80%99%E6%AA%94etf-%E6%BB%BE%E5%87%BA3800%E8%90%AC%E9%A9%9A-100500719.html",
       "meta": null
-    },
-    {
-      "title": "七旬嬤沒打疫苗遊泰染流感　住加護病房一個月噴60多萬",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%83%E6%97%AC%E5%AC%A4%E6%B2%92%E6%89%93%E7%96%AB%E8%8B%97%E9%81%8A%E6%B3%B0%E6%9F%93%E6%B5%81%E6%84%9F-%E4%BD%8F%E5%8A%A0%E8%AD%B7%E7%97%85%E6%88%BF-%E5%80%8B%E6%9C%88%E5%99%B460%E5%A4%9A%E8%90%AC-081700416.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 61,
+  "new_alerts": 2,
   "overbought_count": 6,
-  "oversold_count": 55,
-  "normal_count": 66,
+  "oversold_count": 57,
+  "normal_count": 64,
   "overbought_stocks": [
     {
       "symbol": "00646.TW",
@@ -2074,282 +2074,310 @@
     {
       "symbol": "NVDA",
       "name": "NVIDIA Corp.",
-      "current_price": 217.19,
-      "change_pct": 0.05,
+      "current_price": 216.47,
+      "change_pct": -0.29,
       "extra_data": {
-        "regular_market_price": 217.19,
+        "regular_market_price": 216.47,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 221.19,
         "prev_close": 217.09
       },
-      "kd_k": 16.12,
-      "kd_d": 20.19
+      "kd_k": 15.14,
+      "kd_d": 19.87
     },
     {
       "symbol": "AMD",
       "name": "Advanced Micro Devices Inc.",
-      "current_price": 541.78,
-      "change_pct": 0.69,
+      "current_price": 534.74,
+      "change_pct": -0.62,
       "extra_data": {
-        "regular_market_price": 541.78,
+        "regular_market_price": 534.74,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 546.9,
         "prev_close": 538.05
       },
-      "kd_k": 14.68,
-      "kd_d": 21.52
+      "kd_k": 12.72,
+      "kd_d": 20.87
     },
     {
       "symbol": "AVGO",
       "name": "Broadcom Inc.",
-      "current_price": 335.4,
-      "change_pct": 0.24,
+      "current_price": 334.37,
+      "change_pct": -0.07,
       "extra_data": {
-        "regular_market_price": 335.4,
+        "regular_market_price": 334.37,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 339.12,
         "prev_close": 334.59
       },
-      "kd_k": 16.52,
-      "kd_d": 24.23
+      "kd_k": 15.76,
+      "kd_d": 23.98
     },
     {
       "symbol": "CRWD",
       "name": "CrowdStrike Holdings Inc.",
-      "current_price": 228.57,
-      "change_pct": 0.21,
+      "current_price": 227.37,
+      "change_pct": -0.32,
       "extra_data": {
-        "regular_market_price": 228.57,
+        "regular_market_price": 227.37,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 229.2,
         "prev_close": 228.1
       },
-      "kd_k": 12.32,
-      "kd_d": 19.16
+      "kd_k": 11.59,
+      "kd_d": 18.92
     },
     {
       "symbol": "MU",
       "name": "Micron Technology Inc.",
-      "current_price": 909.262,
-      "change_pct": 0.48,
+      "current_price": 896.07,
+      "change_pct": -0.98,
       "extra_data": {
-        "regular_market_price": 909.262,
+        "regular_market_price": 896.07,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 921.6721,
         "prev_close": 904.9
       },
-      "kd_k": 19.5,
-      "kd_d": 21.06
+      "kd_k": 17.59,
+      "kd_d": 20.42
     },
     {
       "symbol": "SMH",
       "name": "VanEck Semiconductor ETF",
-      "current_price": 549.92,
-      "change_pct": 0.27,
+      "current_price": 546.36,
+      "change_pct": -0.38,
       "extra_data": {
-        "regular_market_price": 549.92,
+        "regular_market_price": 546.36,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 558.5,
         "prev_close": 548.46
       },
-      "kd_k": 13.46,
-      "kd_d": 18.57
+      "kd_k": 12.1,
+      "kd_d": 18.12
     },
     {
       "symbol": "USD",
       "name": "ProShares Ultra Semiconductors",
-      "current_price": 79.7501,
-      "change_pct": 0.44,
+      "current_price": 78.85,
+      "change_pct": -0.69,
       "extra_data": {
-        "regular_market_price": 79.7501,
+        "regular_market_price": 78.85,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 81.98,
         "prev_close": 79.4
       },
-      "kd_k": 12.87,
-      "kd_d": 18.3
+      "kd_k": 11.69,
+      "kd_d": 17.91
     },
     {
       "symbol": "NVDL",
       "name": "GraniteShares 2x Long NVDA Daily ETF",
-      "current_price": 32.8999,
-      "change_pct": 0.09,
+      "current_price": 32.66,
+      "change_pct": -0.64,
       "extra_data": {
-        "regular_market_price": 32.8999,
+        "regular_market_price": 32.66,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 34.1,
         "prev_close": 32.87
       },
-      "kd_k": 15.1,
-      "kd_d": 19.27
+      "kd_k": 14.09,
+      "kd_d": 18.93
     },
     {
       "symbol": "MULL",
       "name": "GraniteShares 2x Long MU Daily ETF",
-      "current_price": 18.1,
-      "change_pct": 0.92,
+      "current_price": 17.57,
+      "change_pct": -2.04,
       "extra_data": {
-        "regular_market_price": 18.1,
+        "regular_market_price": 17.57,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 18.5721,
         "prev_close": 17.935
       },
-      "kd_k": 16.72,
-      "kd_d": 18.65
+      "kd_k": 15.0,
+      "kd_d": 18.07
     },
     {
       "symbol": "AMDL",
       "name": "GraniteShares 2x Long AMD Daily ETF",
-      "current_price": 60.68,
-      "change_pct": 1.23,
+      "current_price": 59.27,
+      "change_pct": -1.12,
       "extra_data": {
-        "regular_market_price": 60.68,
+        "regular_market_price": 59.27,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 61.9,
         "prev_close": 59.94
       },
-      "kd_k": 13.29,
-      "kd_d": 20.1
+      "kd_k": 11.74,
+      "kd_d": 19.59
+    },
+    {
+      "symbol": "TSMX",
+      "name": "Direxion Daily TSM Bull 2X Shares",
+      "current_price": 77.5,
+      "change_pct": 2.47,
+      "extra_data": {
+        "regular_market_price": 77.5,
+        "pre_market_price": null,
+        "post_market_price": 80.0,
+        "prev_close": 75.63
+      },
+      "kd_k": 18.87,
+      "kd_d": 20.89
     },
     {
       "symbol": "AVGX",
       "name": "Defiance Daily Target 2X Long AVGO ETF",
-      "current_price": 33.9,
-      "change_pct": 0.65,
+      "current_price": 33.68,
+      "change_pct": 0.0,
       "extra_data": {
-        "regular_market_price": 33.9,
+        "regular_market_price": 33.68,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 34.66,
         "prev_close": 33.68
       },
-      "kd_k": 15.13,
-      "kd_d": 22.52
+      "kd_k": 14.38,
+      "kd_d": 22.27
+    },
+    {
+      "symbol": "ORCX",
+      "name": "Defiance Daily Target 2X Long ORCL ETF",
+      "current_price": 16.4,
+      "change_pct": 2.31,
+      "extra_data": {
+        "regular_market_price": 16.4,
+        "pre_market_price": null,
+        "post_market_price": 16.75,
+        "prev_close": 16.03
+      },
+      "kd_k": 19.82,
+      "kd_d": 26.79
     },
     {
       "symbol": "SNDK",
       "name": "Sandisk Corporation",
-      "current_price": 1378.34,
-      "change_pct": 0.53,
+      "current_price": 1365.38,
+      "change_pct": -0.42,
       "extra_data": {
-        "regular_market_price": 1378.34,
+        "regular_market_price": 1365.38,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 1405.11,
         "prev_close": 1371.12
       },
-      "kd_k": 18.54,
-      "kd_d": 16.19
+      "kd_k": 17.46,
+      "kd_d": 15.82
     },
     {
       "symbol": "SNXX",
       "name": "Tradr 2X Long Sndk Daily ETF",
-      "current_price": 10.2082,
-      "change_pct": 0.97,
+      "current_price": 10.02,
+      "change_pct": -0.89,
       "extra_data": {
-        "regular_market_price": 10.2082,
+        "regular_market_price": 10.02,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 10.6,
         "prev_close": 10.11
       },
-      "kd_k": 15.94,
-      "kd_d": 14.15
+      "kd_k": 15.0,
+      "kd_d": 13.83
     },
     {
       "symbol": "RKLB",
       "name": "Rocket Lab USA, Inc.",
-      "current_price": 51.43,
-      "change_pct": 0.14,
+      "current_price": 50.9,
+      "change_pct": -0.9,
       "extra_data": {
-        "regular_market_price": 51.43,
+        "regular_market_price": 50.9,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 52.35,
         "prev_close": 51.36
       },
-      "kd_k": 9.54,
-      "kd_d": 12.81
+      "kd_k": 8.75,
+      "kd_d": 12.55
     },
     {
       "symbol": "RKLX",
       "name": "Defiance Daily Target 2X Long RKLB ETF",
-      "current_price": 8.9,
-      "change_pct": 0.11,
+      "current_price": 8.71,
+      "change_pct": -2.02,
       "extra_data": {
-        "regular_market_price": 8.9,
+        "regular_market_price": 8.71,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 9.1998,
         "prev_close": 8.89
       },
-      "kd_k": 8.4,
-      "kd_d": 11.62
+      "kd_k": 7.75,
+      "kd_d": 11.4
     },
     {
       "symbol": "DRAM",
       "name": "Roundhill Memory ETF",
-      "current_price": 48.135,
-      "change_pct": -0.4,
+      "current_price": 47.72,
+      "change_pct": -1.26,
       "extra_data": {
-        "regular_market_price": 48.135,
+        "regular_market_price": 47.72,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 49.15,
         "prev_close": 48.33
       },
-      "kd_k": 12.38,
-      "kd_d": 14.18
+      "kd_k": 11.3,
+      "kd_d": 13.82
     },
     {
       "symbol": "ARM",
       "name": "Arm Holdings plc",
-      "current_price": 223.0768,
-      "change_pct": -2.18,
+      "current_price": 221.06,
+      "change_pct": -3.07,
       "extra_data": {
-        "regular_market_price": 223.0768,
+        "regular_market_price": 221.06,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 227.0,
         "prev_close": 228.05
       },
-      "kd_k": 7.66,
-      "kd_d": 10.86
+      "kd_k": 6.69,
+      "kd_d": 10.54
     },
     {
       "symbol": "ARMG",
       "name": "Leverage Shares 2X Long ARM Daily ETF",
-      "current_price": 12.07,
-      "change_pct": -4.96,
+      "current_price": 11.84,
+      "change_pct": -6.77,
       "extra_data": {
-        "regular_market_price": 12.07,
+        "regular_market_price": 11.84,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 12.63,
         "prev_close": 12.7
       },
-      "kd_k": 6.71,
-      "kd_d": 9.41
+      "kd_k": 5.84,
+      "kd_d": 9.12
     },
     {
       "symbol": "DELL",
       "name": "Dell Technologies Inc.",
-      "current_price": 464.7,
-      "change_pct": 2.17,
+      "current_price": 461.56,
+      "change_pct": 1.48,
       "extra_data": {
-        "regular_market_price": 464.7,
+        "regular_market_price": 461.56,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 487.8574,
         "prev_close": 454.81
       },
-      "kd_k": 18.31,
-      "kd_d": 31.07
+      "kd_k": 17.63,
+      "kd_d": 30.85
     },
     {
       "symbol": "DLLL",
       "name": "GraniteShares 2x Long DELL Daily ETF",
-      "current_price": 23.51,
-      "change_pct": 4.67,
+      "current_price": 23.29,
+      "change_pct": 3.7,
       "extra_data": {
-        "regular_market_price": 23.51,
+        "regular_market_price": 23.29,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 25.86,
         "prev_close": 22.46
       },
-      "kd_k": 16.58,
-      "kd_d": 29.78
+      "kd_k": 16.18,
+      "kd_d": 29.64
     }
   ],
   "errors": []
