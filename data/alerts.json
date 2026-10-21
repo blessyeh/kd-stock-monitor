@@ -1,5 +1,30 @@
 [
   {
+    "id": "00753L.TW_20261021_oversold",
+    "symbol": "00753L.TW",
+    "name": "中信中國50正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.01,
+    "kd_d": 29.61,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 8.12,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00753L.TW (中信中國50正2) is OVERSOLD! KD-K: 19.01, KD-D: 29.61 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-21T14:59:11.251994",
+    "date": "2026-10-21",
+    "acknowledged": false
+  },
+  {
     "id": "TSMX_20261021_oversold",
     "symbol": "TSMX",
     "name": "Direxion Daily TSM Bull 2X Shares",
@@ -2585,33 +2610,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 00923.TW (群益台ESG低碳50) is OVERSOLD! KD-K: 18.42, KD-D: 29.59 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-20T02:35:14.376355",
-    "date": "2026-10-20",
-    "acknowledged": false
-  },
-  {
-    "id": "00926.TW_20261020_overbought",
-    "symbol": "00926.TW",
-    "name": "凱基全球菁英55",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 91.96,
-    "kd_d": 88.36,
-    "kd_state": "OVERBOUGHT_BUT_RISING",
-    "current_price": 27.62,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "⚠️ 00926.TW (凱基全球菁英55) is OVERBOUGHT! KD-K: 91.96, KD-D: 88.36 (>= 80)",
-    "timestamp": "2026-10-20T02:35:14.376577",
     "date": "2026-10-20",
     "acknowledged": false
   }
