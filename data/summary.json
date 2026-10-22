@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-22T05:12:01.445994",
+  "timestamp": "2026-10-22T08:24:56.729074",
   "date": "2026-10-22",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": 0.57
     },
     "dxy": {
-      "value": 101.71,
-      "change": -0.02,
-      "change_pct": -0.02
+      "value": 101.7,
+      "change": -0.03,
+      "change_pct": -0.03
     },
     "fear_greed": {
       "value": 16.68,
       "change": -0.63,
       "change_pct": -3.64,
       "label": "VIX Index",
-      "timestamp": "2026-10-22T05:11:52.056827"
+      "timestamp": "2026-10-22T08:24:45.832093"
     },
     "btc": {
-      "value": 84630.0,
-      "change": 1689.0,
-      "change_pct": 2.04
+      "value": 84119.0,
+      "change": 0,
+      "change_pct": 0
     },
     "oil": {
-      "value": 97.71,
-      "change": -4.08,
-      "change_pct": -4.01
+      "value": 97.94,
+      "change": -3.85,
+      "change_pct": -3.78
     },
     "gold": {
-      "value": 4159.5,
-      "change": 16.9,
-      "change_pct": 0.41
+      "value": 4138.7,
+      "change": -3.9,
+      "change_pct": -0.09
     },
     "sox": {
       "value": 11505.56,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 101.71 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 +0.09pp（未達 0.15pp）",
-          "score": 36.9
+          "detail": "DXY 101.70 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 +0.09pp（未達 0.15pp）",
+          "score": 36.8
         },
         {
           "id": "twd_depreciation",
@@ -268,7 +268,7 @@
           "cap": 25,
           "notes": [
             "VIX 近10日高點 18.9 → 目前 16.7（強度 26/100，+3.9）",
-            "DXY 101.71 距近20日高點 -0.65%（美元壓力緩和強度 73/100，+7.3）"
+            "DXY 101.70 距近20日高點 -0.66%（美元壓力緩和強度 73/100，+7.3）"
           ]
         },
         {
@@ -316,7 +316,7 @@
           "score": 12.9,
           "cap": 25,
           "notes": [
-            "DXY 101.71 距近20日高點 -0.65%，美債10Y5日變動 +0.09pp（強度 37/100，+5.5）",
+            "DXY 101.70 距近20日高點 -0.66%，美債10Y5日變動 +0.09pp（強度 37/100，+5.5）",
             "SOX/NDX 距近20日支撐 +3.31%，美債10Y同步變動（強度 73/100，+7.3）"
           ]
         },
@@ -489,6 +489,16 @@
     },
     "news": [
       {
+        "title": "SpaceX、美超微報喜！費半勁揚近2％　台指期夜盤狂飆近5百點",
+        "url": "https://tw.stock.yahoo.com/news/spacex-%E7%BE%8E%E8%B6%85%E5%BE%AE%E5%A0%B1%E5%96%9C-%E8%B2%BB%E5%8D%8A%E5%8B%81%E6%8F%9A%E8%BF%912-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E7%8B%82%E9%A3%86%E8%BF%915%E7%99%BE%E9%BB%9E-224009631.html",
+        "meta": null
+      },
+      {
+        "title": "台積電ADR21日上漲6.81美元漲幅1.60%折台股2806.25元",
+        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BBadr21%E6%97%A5%E4%B8%8A%E6%BC%B26-81%E7%BE%8E%E5%85%83%E6%BC%B2%E5%B9%851-60-%E6%8A%98%E5%8F%B0%E8%82%A12806-25%E5%85%83-213056415.html",
+        "meta": null
+      },
+      {
         "title": "台積電產能太搶手！英特爾擴廠向前 能接住AI商機？",
         "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%94%A2%E8%83%BD%E5%A4%AA%E6%90%B6%E6%89%8B-%E8%8B%B1%E7%89%B9%E7%88%BE%E6%93%B4%E5%BB%A0%E5%90%91%E5%89%8D-%E8%83%BD%E6%8E%A5%E4%BD%8Fai%E5%95%86%E6%A9%9F-170005944.html",
         "meta": null
@@ -516,16 +526,6 @@
       {
         "title": "終止連10賣！ 外資買超9.6億 掃貨友達、鴻海、南亞",
         "url": "https://tw.stock.yahoo.com/news/%E7%B5%82%E6%AD%A2%E9%80%A310%E8%B3%A3-%E5%A4%96%E8%B3%87%E8%B2%B7%E8%B6%859-6%E5%84%84-%E6%8E%83%E8%B2%A8%E5%8F%8B%E9%81%94-%E9%B4%BB%E6%B5%B7-093600865.html",
-        "meta": null
-      },
-      {
-        "title": "不靠台積電、英特爾了？馬斯克晶圓廠碰壁 外媒爆改向這國求助",
-        "url": "https://tw.stock.yahoo.com/news/%E4%B8%8D%E9%9D%A0%E5%8F%B0%E7%A9%8D%E9%9B%BB-%E8%8B%B1%E7%89%B9%E7%88%BE%E4%BA%86-%E9%A6%AC%E6%96%AF%E5%85%8B%E6%99%B6%E5%9C%93%E5%BB%A0%E7%A2%B0%E5%A3%81-%E5%A4%96%E5%AA%92%E7%88%86%E6%94%B9%E5%90%91%E9%80%99%E5%9C%8B%E6%B1%82%E5%8A%A9-083530504.html",
-        "meta": null
-      },
-      {
-        "title": "力積電Q4營收拚季增雙位數；明年邏輯代工價續漲",
-        "url": "https://tw.stock.yahoo.com/news/%E5%8A%9B%E7%A9%8D%E9%9B%BBq4%E7%87%9F%E6%94%B6%E6%8B%9A%E5%AD%A3%E5%A2%9E%E9%9B%99%E4%BD%8D%E6%95%B8-%E6%98%8E%E5%B9%B4%E9%82%8F%E8%BC%AF%E4%BB%A3%E5%B7%A5%E5%83%B9%E7%BA%8C%E6%BC%B2-082600423.html",
         "meta": null
       }
     ],
@@ -1491,7 +1491,7 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 1,
+  "new_alerts": 0,
   "overbought_count": 9,
   "oversold_count": 51,
   "normal_count": 67,
@@ -1588,7 +1588,7 @@
       "extra_data": {
         "regular_market_price": 527.7,
         "pre_market_price": null,
-        "post_market_price": 527.7,
+        "post_market_price": 525.92,
         "prev_close": 524.36
       },
       "kd_k": 83.08,
@@ -1602,7 +1602,7 @@
       "extra_data": {
         "regular_market_price": 255.06,
         "pre_market_price": null,
-        "post_market_price": 255.06,
+        "post_market_price": 254.1,
         "prev_close": 256.73
       },
       "kd_k": 82.09,
@@ -1616,7 +1616,7 @@
       "extra_data": {
         "regular_market_price": 4.15,
         "pre_market_price": null,
-        "post_market_price": 4.1886,
+        "post_market_price": 4.12,
         "prev_close": 4.2
       },
       "kd_k": 80.84,
@@ -2094,7 +2094,7 @@
       "extra_data": {
         "regular_market_price": 552.72,
         "pre_market_price": null,
-        "post_market_price": 552.9,
+        "post_market_price": 540.5,
         "prev_close": 534.74
       },
       "kd_k": 17.6,
@@ -2108,7 +2108,7 @@
       "extra_data": {
         "regular_market_price": 337.8,
         "pre_market_price": null,
-        "post_market_price": 335.999,
+        "post_market_price": 333.4,
         "prev_close": 334.37
       },
       "kd_k": 18.58,
@@ -2122,7 +2122,7 @@
       "extra_data": {
         "regular_market_price": 239.34,
         "pre_market_price": null,
-        "post_market_price": 240.82,
+        "post_market_price": 237.5,
         "prev_close": 227.37
       },
       "kd_k": 18.62,
@@ -2136,7 +2136,7 @@
       "extra_data": {
         "regular_market_price": 556.7,
         "pre_market_price": null,
-        "post_market_price": 554.3001,
+        "post_market_price": 547.2985,
         "prev_close": 546.36
       },
       "kd_k": 16.67,
@@ -2150,7 +2150,7 @@
       "extra_data": {
         "regular_market_price": 82.01,
         "pre_market_price": null,
-        "post_market_price": 81.89,
+        "post_market_price": 79.55,
         "prev_close": 78.85
       },
       "kd_k": 16.39,
@@ -2164,7 +2164,7 @@
       "extra_data": {
         "regular_market_price": 18.26,
         "pre_market_price": null,
-        "post_market_price": 18.26,
+        "post_market_price": 17.6648,
         "prev_close": 17.57
       },
       "kd_k": 18.13,
@@ -2178,7 +2178,7 @@
       "extra_data": {
         "regular_market_price": 63.15,
         "pre_market_price": null,
-        "post_market_price": 63.15,
+        "post_market_price": 60.34,
         "prev_close": 59.27
       },
       "kd_k": 16.04,
@@ -2192,7 +2192,7 @@
       "extra_data": {
         "regular_market_price": 34.33,
         "pre_market_price": null,
-        "post_market_price": 33.9,
+        "post_market_price": 33.55,
         "prev_close": 33.68
       },
       "kd_k": 16.81,
@@ -2206,7 +2206,7 @@
       "extra_data": {
         "regular_market_price": 129.13,
         "pre_market_price": null,
-        "post_market_price": 128.85,
+        "post_market_price": 127.8999,
         "prev_close": 131.14
       },
       "kd_k": 18.48,
@@ -2220,7 +2220,7 @@
       "extra_data": {
         "regular_market_price": 15.88,
         "pre_market_price": null,
-        "post_market_price": 15.82,
+        "post_market_price": 15.5501,
         "prev_close": 16.4
       },
       "kd_k": 16.03,
@@ -2234,7 +2234,7 @@
       "extra_data": {
         "regular_market_price": 1378.22,
         "pre_market_price": null,
-        "post_market_price": 1379.98,
+        "post_market_price": 1350.01,
         "prev_close": 1365.38
       },
       "kd_k": 21.05,
@@ -2248,7 +2248,7 @@
       "extra_data": {
         "regular_market_price": 10.22,
         "pre_market_price": null,
-        "post_market_price": 10.2005,
+        "post_market_price": 9.7775,
         "prev_close": 10.02
       },
       "kd_k": 18.23,
@@ -2262,7 +2262,7 @@
       "extra_data": {
         "regular_market_price": 53.67,
         "pre_market_price": null,
-        "post_market_price": 54.1,
+        "post_market_price": 52.86,
         "prev_close": 50.9
       },
       "kd_k": 13.2,
@@ -2276,7 +2276,7 @@
       "extra_data": {
         "regular_market_price": 9.66,
         "pre_market_price": null,
-        "post_market_price": 9.848,
+        "post_market_price": 9.3662,
         "prev_close": 8.71
       },
       "kd_k": 11.04,
@@ -2290,7 +2290,7 @@
       "extra_data": {
         "regular_market_price": 49.16,
         "pre_market_price": null,
-        "post_market_price": 49.01,
+        "post_market_price": 48.2637,
         "prev_close": 47.72
       },
       "kd_k": 15.66,
@@ -2304,7 +2304,7 @@
       "extra_data": {
         "regular_market_price": 226.59,
         "pre_market_price": null,
-        "post_market_price": 225.36,
+        "post_market_price": 222.4,
         "prev_close": 221.06
       },
       "kd_k": 9.3,
@@ -2318,7 +2318,7 @@
       "extra_data": {
         "regular_market_price": 12.41,
         "pre_market_price": null,
-        "post_market_price": 12.43,
+        "post_market_price": 11.8608,
         "prev_close": 11.84
       },
       "kd_k": 7.99,
@@ -2332,7 +2332,7 @@
       "extra_data": {
         "regular_market_price": 25.66,
         "pre_market_price": null,
-        "post_market_price": 25.8,
+        "post_market_price": 24.531,
         "prev_close": 23.29
       },
       "kd_k": 19.08,
