@@ -1,5 +1,30 @@
 [
   {
+    "id": "009815.TWO_20261022_oversold",
+    "symbol": "009815.TWO",
+    "name": "大華美國MAG7+",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.76,
+    "kd_d": 35.15,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 11.91,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 009815.TWO (大華美國MAG7+) is OVERSOLD! KD-K: 19.76, KD-D: 35.15 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-22T19:05:03.174182",
+    "date": "2026-10-22",
+    "acknowledged": false
+  },
+  {
     "id": "00662.TW_20261022_oversold",
     "symbol": "00662.TW",
     "name": "富邦NASDAQ",
@@ -2517,31 +2542,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 00935.TW (野村臺灣創新科技50) is OVERSOLD! KD-K: 12.5, KD-D: 25.74 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-21T02:19:14.720115",
-    "date": "2026-10-21",
-    "acknowledged": false
-  },
-  {
-    "id": "00951.TW_20261021_oversold",
-    "symbol": "00951.TW",
-    "name": "台新日本半導體",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 13.68,
-    "kd_d": 29.97,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 16.15,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00951.TW (台新日本半導體) is OVERSOLD! KD-K: 13.68, KD-D: 29.97 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-21T02:19:14.720302",
     "date": "2026-10-21",
     "acknowledged": false
   }
