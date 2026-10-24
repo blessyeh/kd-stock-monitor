@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-24T08:13:51.111066",
+  "timestamp": "2026-10-24T13:21:00.776827",
   "date": "2026-10-24",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": 0.71
     },
     "dxy": {
-      "value": 101.75,
-      "change": 0.14,
-      "change_pct": 0.14
+      "value": 101.81,
+      "change": 0.2,
+      "change_pct": 0.2
     },
     "fear_greed": {
       "value": 19.45,
       "change": 0.42,
       "change_pct": 2.21,
       "label": "VIX Index",
-      "timestamp": "2026-10-24T08:13:42.962551"
+      "timestamp": "2026-10-24T13:20:50.773554"
     },
     "btc": {
-      "value": 80894.0,
+      "value": 80724.0,
       "change": 0,
       "change_pct": 0
     },
     "oil": {
-      "value": 103.44,
-      "change": 3.97,
-      "change_pct": 3.99
+      "value": 103.27,
+      "change": 3.8,
+      "change_pct": 3.82
     },
     "gold": {
-      "value": 4010.0,
-      "change": -50.4,
-      "change_pct": -1.24
+      "value": 4007.9,
+      "change": -52.5,
+      "change_pct": -1.29
     },
     "sox": {
       "value": 10779.46,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 101.75 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.10pp（未達 0.15pp）",
-          "score": 13.8
+          "detail": "DXY 101.81 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.10pp（未達 0.15pp）",
+          "score": 14.4
         },
         {
           "id": "twd_depreciation",
@@ -177,7 +177,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 21.2
+      "avg_score": 21.3
     },
     "bottom": {
       "conditions": [
@@ -260,15 +260,15 @@
     "as_of_date": "2026-10-22",
     "history_days": 96,
     "bottom": {
-      "total": 40.6,
+      "total": 40.5,
       "dimensions": [
         {
           "name": "macro",
-          "score": 8.7,
+          "score": 8.6,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 19.4 → 目前 19.4（強度 10/100，+1.5）",
-            "DXY 101.75 距近20日高點 -0.62%（美元壓力緩和強度 72/100，+7.2）"
+            "DXY 101.81 距近20日高點 -0.56%（美元壓力緩和強度 71/100，+7.1）"
           ]
         },
         {
@@ -309,14 +309,14 @@
       ]
     },
     "top": {
-      "total": 15.8,
+      "total": 15.9,
       "dimensions": [
         {
           "name": "macro",
-          "score": 2.1,
+          "score": 2.2,
           "cap": 25,
           "notes": [
-            "DXY 101.75 距近20日高點 -0.62%，美債10Y5日變動 -0.10pp（強度 14/100，+2.1）",
+            "DXY 101.81 距近20日高點 -0.56%，美債10Y5日變動 -0.10pp（強度 14/100，+2.2）",
             "SOX/NDX 距近20日支撐 -3.21%，美債10Y同步變動（強度 0/100，+0.0）"
           ]
         },
@@ -494,6 +494,11 @@
     },
     "news": [
       {
+        "title": "別被台積電ADR反彈騙了？專家爆下周恐再崩1000點 5大未爆彈還沒拆",
+        "url": "https://tw.stock.yahoo.com/news/%E5%88%A5%E8%A2%AB%E5%8F%B0%E7%A9%8D%E9%9B%BBadr%E5%8F%8D%E5%BD%88%E9%A8%99%E4%BA%86-%E5%B0%88%E5%AE%B6%E7%88%86%E4%B8%8B%E5%91%A8%E6%81%90%E5%86%8D%E5%B4%A91000%E9%BB%9E-5%E5%A4%A7%E6%9C%AA%E7%88%86%E5%BD%88%E9%82%84%E6%B2%92%E6%8B%86-031836386.html",
+        "meta": null
+      },
+      {
         "title": "台積電ADR23日上漲6.16美元漲幅1.49%折台股2720.98元",
         "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BBadr23%E6%97%A5%E4%B8%8A%E6%BC%B26-16%E7%BE%8E%E5%85%83%E6%BC%B2%E5%B9%851-49-%E6%8A%98%E5%8F%B0%E8%82%A12720-98%E5%85%83-235628787.html",
         "meta": null
@@ -526,11 +531,6 @@
       {
         "title": "史上最大包！台積電「員工運動會大紅包」每人平均領3萬元",
         "url": "https://tw.stock.yahoo.com/news/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%A4%A7%E5%8C%85%EF%BC%81%E5%8F%B0%E7%A9%8D%E9%9B%BB%E3%80%8C%E5%93%A1%E5%B7%A5%E9%81%8B%E5%8B%95%E6%9C%83%E5%A4%A7%E7%B4%85%E5%8C%85%E3%80%8D%E6%AF%8F%E4%BA%BA%E5%B9%B3%E5%9D%87%E9%A0%983%E8%90%AC%E5%85%83-100803253.html",
-        "meta": null
-      },
-      {
-        "title": "台積電一口氣蓋13座廠！日商伊藤忠殺進台灣 奪台工機龍頭51％股權",
-        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB-%E5%8F%A3%E6%B0%A3%E8%93%8B13%E5%BA%A7%E5%BB%A0-%E6%97%A5%E5%95%86%E4%BC%8A%E8%97%A4%E5%BF%A0%E6%AE%BA%E9%80%B2%E5%8F%B0%E7%81%A3-%E5%A5%AA%E5%8F%B0%E5%B7%A5%E6%A9%9F%E9%BE%8D%E9%A0%AD51-%E8%82%A1%E6%AC%8A-094741683.html",
         "meta": null
       }
     ],
@@ -2331,7 +2331,7 @@
         "post_market_price": 31.02,
         "prev_close": 31.32
       },
-      "kd_k": 12.69,
+      "kd_k": 12.68,
       "kd_d": 17.03
     },
     {
@@ -2373,8 +2373,8 @@
         "post_market_price": 31.1437,
         "prev_close": 31.35
       },
-      "kd_k": 9.45,
-      "kd_d": 15.11
+      "kd_k": 9.7,
+      "kd_d": 15.2
     },
     {
       "symbol": "FNGS",
@@ -2387,7 +2387,7 @@
         "post_market_price": null,
         "prev_close": 78.5
       },
-      "kd_k": 16.58,
+      "kd_k": 16.59,
       "kd_d": 27.62
     },
     {
@@ -2457,8 +2457,8 @@
         "post_market_price": 8.16,
         "prev_close": 8.44
       },
-      "kd_k": 10.14,
-      "kd_d": 13.22
+      "kd_k": 10.18,
+      "kd_d": 13.24
     },
     {
       "symbol": "RKLB",
