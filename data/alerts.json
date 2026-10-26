@@ -1,5 +1,59 @@
 [
   {
+    "id": "NFLX_20261026_oversold",
+    "symbol": "NFLX",
+    "name": "Netflix Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.96,
+    "kd_d": 31.21,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 63.88,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ NFLX (Netflix Inc.) is OVERSOLD! KD-K: 18.96, KD-D: 31.21 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-26T23:48:33.994818",
+    "date": "2026-10-26",
+    "acknowledged": false
+  },
+  {
+    "id": "NFXL_20261026_oversold",
+    "symbol": "NFXL",
+    "name": "Direxion Daily NFLX Bull 2X Shares",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.48,
+    "kd_d": 29.39,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 11.4495,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ NFXL (Direxion Daily NFLX Bull 2X Shares) is OVERSOLD! KD-K: 17.48, KD-D: 29.39 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-26T23:48:33.995631",
+    "date": "2026-10-26",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20261026_oversold",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2469,62 +2523,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 00735.TW (國泰臺韓科技) is OVERSOLD! KD-K: 8.12, KD-D: 13.54 (<= 20)",
     "timestamp": "2026-10-25T01:49:43.755936",
-    "date": "2026-10-25",
-    "acknowledged": false
-  },
-  {
-    "id": "00753L.TW_20261025_oversold",
-    "symbol": "00753L.TW",
-    "name": "中信中國50正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 8.45,
-    "kd_d": 18.79,
-    "kd_state": "OVERSOLD",
-    "current_price": 7.46,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的39%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00753L.TW (中信中國50正2) is OVERSOLD! KD-K: 8.45, KD-D: 18.79 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-25T01:49:43.756147",
-    "date": "2026-10-25",
-    "acknowledged": false
-  },
-  {
-    "id": "00757.TW_20261025_oversold",
-    "symbol": "00757.TW",
-    "name": "統一FANG+",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 13.77,
-    "kd_d": 30.01,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 142.55,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）",
-      "個股外資近3日仍賣超達20日均量的34%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00757.TW (統一FANG+) is OVERSOLD! KD-K: 13.77, KD-D: 30.01 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-25T01:49:43.756332",
     "date": "2026-10-25",
     "acknowledged": false
   }
