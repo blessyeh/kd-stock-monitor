@@ -1,5 +1,29 @@
 [
   {
+    "id": "FNGS_20261028_oversold",
+    "symbol": "FNGS",
+    "name": "MicroSectors FANG+ Index ETN",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.7,
+    "kd_d": 21.75,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 79.23,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ FNGS (MicroSectors FANG+ Index ETN) is OVERSOLD! KD-K: 18.7, KD-D: 21.75 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-28T05:46:41.966525",
+    "date": "2026-10-28",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20261028_oversold",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2530,31 +2554,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 00891.TW (中信關鍵半導體) is OVERSOLD! KD-K: 7.3, KD-D: 14.92 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-27T04:54:26.357217",
-    "date": "2026-10-27",
-    "acknowledged": false
-  },
-  {
-    "id": "00893.TW_20261027_oversold",
-    "symbol": "00893.TW",
-    "name": "國泰智能電動車",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 6.29,
-    "kd_d": 14.9,
-    "kd_state": "OVERSOLD",
-    "current_price": 43.27,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "個股外資近3日仍賣超達20日均量的114%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00893.TW (國泰智能電動車) is OVERSOLD! KD-K: 6.29, KD-D: 14.9 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-27T04:54:26.357394",
     "date": "2026-10-27",
     "acknowledged": false
   }
