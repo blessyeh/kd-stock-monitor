@@ -1,5 +1,59 @@
 [
   {
+    "id": "TSLA_20261028_overbought",
+    "symbol": "TSLA",
+    "name": "Tesla Inc.",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.6,
+    "kd_d": 72.31,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 401.9601,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ TSLA (Tesla Inc.) is OVERBOUGHT! KD-K: 81.6, KD-D: 72.31 (>= 80)",
+    "timestamp": "2026-10-28T21:48:16.471454",
+    "date": "2026-10-28",
+    "acknowledged": false
+  },
+  {
+    "id": "TSLL_20261028_overbought",
+    "symbol": "TSLL",
+    "name": "Direxion Daily TSLA Bull 2X Shares",
+    "market": "US",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 80.37,
+    "kd_d": 70.64,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 11.32,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
+      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ TSLL (Direxion Daily TSLA Bull 2X Shares) is OVERBOUGHT! KD-K: 80.37, KD-D: 70.64 (>= 80)",
+    "timestamp": "2026-10-28T21:48:16.472938",
+    "date": "2026-10-28",
+    "acknowledged": false
+  },
+  {
     "id": "FNGS_20261028_oversold",
     "symbol": "FNGS",
     "name": "MicroSectors FANG+ Index ETN",
@@ -2505,55 +2559,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 00881.TW (國泰台灣科技龍頭) is OVERSOLD! KD-K: 5.24, KD-D: 11.89 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-27T04:54:26.356871",
-    "date": "2026-10-27",
-    "acknowledged": false
-  },
-  {
-    "id": "00888.TWO_20261027_oversold",
-    "symbol": "00888.TWO",
-    "name": "永豐台灣半導體",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 12.0,
-    "kd_d": 16.51,
-    "kd_state": "OVERSOLD",
-    "current_price": 33.94,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00888.TWO (永豐台灣半導體) is OVERSOLD! KD-K: 12.0, KD-D: 16.51 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-27T04:54:26.357045",
-    "date": "2026-10-27",
-    "acknowledged": false
-  },
-  {
-    "id": "00891.TW_20261027_oversold",
-    "symbol": "00891.TW",
-    "name": "中信關鍵半導體",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 7.3,
-    "kd_d": 14.92,
-    "kd_state": "OVERSOLD",
-    "current_price": 34.51,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "個股外資近3日仍賣超達20日均量的110%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00891.TW (中信關鍵半導體) is OVERSOLD! KD-K: 7.3, KD-D: 14.92 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-27T04:54:26.357217",
     "date": "2026-10-27",
     "acknowledged": false
   }
