@@ -1,5 +1,32 @@
 [
   {
+    "id": "00929.TW_20261029_oversold",
+    "symbol": "00929.TW",
+    "name": "復華台灣科技優息",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.66,
+    "kd_d": 21.74,
+    "kd_state": "DEATH_CROSS",
+    "current_price": 28.54,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00929.TW (復華台灣科技優息) is OVERSOLD! KD-K: 19.66, KD-D: 21.74 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-10-29T12:09:31.423426",
+    "date": "2026-10-29",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20261029_oversold",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2509,33 +2536,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 00980A.TW (主動野村臺灣優選) is OVERSOLD! KD-K: 8.38, KD-D: 15.17 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-28T01:24:24.214061",
-    "date": "2026-10-28",
-    "acknowledged": false
-  },
-  {
-    "id": "009815.TWO_20261028_oversold",
-    "symbol": "009815.TWO",
-    "name": "大華美國MAG7+",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 13.17,
-    "kd_d": 27.83,
-    "kd_state": "BEARISH_MOMENTUM",
-    "current_price": 11.76,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 009815.TWO (大華美國MAG7+) is OVERSOLD! KD-K: 13.17, KD-D: 27.83 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-28T01:24:24.214134",
     "date": "2026-10-28",
     "acknowledged": false
   }
