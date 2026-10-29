@@ -1,5 +1,31 @@
 [
   {
+    "id": "00939.TW_20261029_overbought",
+    "symbol": "00939.TW",
+    "name": "統一台灣高息動能",
+    "market": "TW",
+    "type": "overbought",
+    "level": "high",
+    "kd_k": 81.37,
+    "kd_d": 79.84,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 25.33,
+    "threshold": 80,
+    "filter_confidence": "high",
+    "filter_passed": [
+      "大盤處於「空頭趨勢」，超買/反彈訊號可信度上調（下修個股層級的確認門檻）"
+    ],
+    "filter_cautions": [
+      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "⚠️ 00939.TW (統一台灣高息動能) is OVERBOUGHT! KD-K: 81.37, KD-D: 79.84 (>= 80)",
+    "timestamp": "2026-10-29T19:16:36.042646",
+    "date": "2026-10-29",
+    "acknowledged": false
+  },
+  {
     "id": "00929.TW_20261029_oversold",
     "symbol": "00929.TW",
     "name": "復華台灣科技優息",
@@ -2511,31 +2537,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 009800.TW (中信NASDAQ) is OVERSOLD! KD-K: 18.19, KD-D: 29.26 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-10-28T01:24:24.213960",
-    "date": "2026-10-28",
-    "acknowledged": false
-  },
-  {
-    "id": "00980A.TW_20261028_oversold",
-    "symbol": "00980A.TW",
-    "name": "主動野村臺灣優選",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 8.38,
-    "kd_d": 15.17,
-    "kd_state": "OVERSOLD",
-    "current_price": 23.5,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00980A.TW (主動野村臺灣優選) is OVERSOLD! KD-K: 8.38, KD-D: 15.17 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-10-28T01:24:24.214061",
     "date": "2026-10-28",
     "acknowledged": false
   }
