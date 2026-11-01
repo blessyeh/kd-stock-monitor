@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-01T19:38:34.323383",
-  "date": "2026-11-01",
+  "timestamp": "2026-11-02T01:35:58.587917",
+  "date": "2026-11-02",
   "macro": {
     "taiex": {
       "value": 45211.83,
@@ -22,12 +22,12 @@
       "change": 2.22,
       "change_pct": 12.91,
       "label": "VIX Index",
-      "timestamp": "2026-11-01T19:38:25.851224"
+      "timestamp": "2026-11-02T01:34:23.670429"
     },
     "btc": {
-      "value": 77793.0,
-      "change": 358.0,
-      "change_pct": 0.46
+      "value": 78019.0,
+      "change": 585.0,
+      "change_pct": 0.76
     },
     "oil": {
       "value": 104.12,
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 32.567,
-      "change": 0.184,
-      "change_pct": 0.57
+      "value": 32.605,
+      "change": 0.038,
+      "change_pct": 0.12
     },
     "foreign_futures_net": {
       "value": -92241,
@@ -110,19 +110,19 @@
       "change_pct": -3.04
     },
     "put_call_ratio": {
-      "value": 61.58,
+      "value": null,
+      "change": null,
+      "change_pct": null,
       "unit": "%",
-      "date": "2026-10-30",
-      "change": -2.88,
-      "change_pct": -4.47
+      "date": null
     },
     "night_session": {
-      "close": 45926.0,
-      "prev_close": 46577.0,
-      "gap": -651.0,
-      "gap_pct": -1.4,
-      "date": "2026-10-30",
-      "prev_date": "2026-10-29"
+      "close": 44433.0,
+      "prev_close": 45301.0,
+      "gap": -868.0,
+      "gap_pct": -1.92,
+      "date": "2026-11-02",
+      "prev_date": "2026-10-30"
     }
   },
   "signal_confluence": {
@@ -144,8 +144,8 @@
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.168（貶值門檻 0.3）",
-          "score": 43.6
+          "detail": "USD/TWD 5日變動 +0.206（貶值門檻 0.3）",
+          "score": 51.2
         },
         {
           "id": "foreign_dual_short",
@@ -158,10 +158,10 @@
         {
           "id": "retail_holding_bag",
           "label": "籌碼過度樂觀/散戶接刀",
-          "status": false,
+          "status": null,
           "completeness": "full",
-          "detail": "今日外資賣超；融資餘額5日已回落（6235億元）；P/C Ratio 61.6%（< 100%門檻）",
-          "score": 35.0
+          "detail": "歷史資料不足或期間內有缺漏，尚無法判斷",
+          "score": null
         },
         {
           "id": "tech_capital_retreat",
@@ -173,11 +173,11 @@
         }
       ],
       "total_conditions": 5,
-      "evaluated_count": 5,
+      "evaluated_count": 4,
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 18.8
+      "avg_score": 16.6
     },
     "bottom": {
       "conditions": [
@@ -202,8 +202,8 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.168（仍在貶值）；外資今日仍賣超，近期均值 -280.5億元；台指期淨部位5日變動 -6169口（未回補）",
-          "score": 8.3
+          "detail": "USD/TWD 5日變動 +0.206（仍在貶值）；外資今日仍賣超，近期均值 -280.5億元；台指期淨部位5日變動 -6169口（未回補）",
+          "score": 6.8
         }
       ],
       "total_conditions": 3,
@@ -211,15 +211,15 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 6.1
+      "avg_score": 5.6
     },
     "bottom_reversal_score": {
-      "total": 8.3,
+      "total": 6.8,
       "components": [
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 27.6
+          "score": 22.5
         },
         {
           "name": "foreign_flow_reversal",
@@ -285,8 +285,7 @@
           "score": 0,
           "cap": 20,
           "notes": [
-            "台指期淨空單5日變動 -6169口（回補強度 0/100，+0.0）",
-            "P/C Ratio 61.6%（避險需求強度 0/100，+0.0）"
+            "台指期淨空單5日變動 -6169口（回補強度 0/100，+0.0）"
           ]
         },
         {
@@ -309,7 +308,7 @@
       ]
     },
     "top": {
-      "total": 14.7,
+      "total": 7.4,
       "dimensions": [
         {
           "name": "macro",
@@ -322,20 +321,19 @@
         },
         {
           "name": "chip_flow",
-          "score": 4.4,
+          "score": 5.1,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 +0.168（強度 44/100，+4.4）",
+            "新台幣5日貶值 +0.206（強度 51/100，+5.1）",
             "外資今日 -1124.7億元，融資餘額5日變動 -209億元（散戶未離場強度 0/100，+0.0）"
           ]
         },
         {
           "name": "derivative",
-          "score": 8.0,
+          "score": 0,
           "cap": 20,
           "notes": [
-            "外資台指期淨空單 -92241口（強度 0/100，+0.0）",
-            "P/C Ratio 61.6%（自滿強度 100/100，+8.0）"
+            "外資台指期淨空單 -92241口（強度 0/100，+0.0）"
           ]
         },
         {
@@ -442,7 +440,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "ADR $406.1 換算2330隱含價 2645.3元，2330現價 2370.0元（折價 10.4%）",
+          "ADR $406.1 換算2330隱含價 2648.4元，2330現價 2370.0元（折價 10.5%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -1444,20 +1442,20 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-11-01",
+      "as_of_date": "2026-11-02",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-11-01",
+      "as_of_date": "2026-11-02",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-10-30",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-10-30",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
@@ -1515,7 +1513,7 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 25,
   "overbought_count": 3,
   "oversold_count": 22,
   "normal_count": 102,
