@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-02T05:39:00.303170",
+  "timestamp": "2026-11-02T09:12:39.180997",
   "date": "2026-11-02",
   "macro": {
     "taiex": {
       "value": 45211.83,
-      "change": -1156.5,
-      "change_pct": -2.49
+      "change": 0.0,
+      "change_pct": 0.0
     },
     "us10y": {
       "value": 4.929,
@@ -13,31 +13,31 @@
       "change_pct": -1.2
     },
     "dxy": {
-      "value": 101.88,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 101.93,
+      "change": 0.05,
+      "change_pct": 0.05
     },
     "fear_greed": {
       "value": 19.42,
       "change": 2.22,
       "change_pct": 12.91,
       "label": "VIX Index",
-      "timestamp": "2026-11-02T05:38:50.524553"
+      "timestamp": "2026-11-02T09:12:31.410543"
     },
     "btc": {
-      "value": 77835.0,
-      "change": 401.0,
-      "change_pct": 0.52
+      "value": 78279.0,
+      "change": 0,
+      "change_pct": 0
     },
     "oil": {
-      "value": 104.12,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 102.02,
+      "change": -2.1,
+      "change_pct": -2.02
     },
     "gold": {
-      "value": 3898.9,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 3904.2,
+      "change": 5.3,
+      "change_pct": 0.14
     },
     "sox": {
       "value": 10688.8,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 101.88 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.22pp（未達 0.15pp）",
-          "score": 15.3
+          "detail": "DXY 101.93 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.22pp（未達 0.15pp）",
+          "score": 16.8
         },
         {
           "id": "twd_depreciation",
@@ -177,7 +177,7 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 16.6
+      "avg_score": 17.0
     },
     "bottom": {
       "conditions": [
@@ -260,15 +260,15 @@
     "as_of_date": "2026-10-30",
     "history_days": 100,
     "bottom": {
-      "total": 24.1,
+      "total": 23.8,
       "dimensions": [
         {
           "name": "macro",
-          "score": 8.4,
+          "score": 8.1,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 19.4 → 目前 19.4（強度 10/100，+1.5）",
-            "DXY 101.88 距近20日高點 -0.49%（美元壓力緩和強度 69/100，+6.9）"
+            "DXY 101.93 距近20日高點 -0.44%（美元壓力緩和強度 66/100，+6.6）"
           ]
         },
         {
@@ -308,14 +308,14 @@
       ]
     },
     "top": {
-      "total": 7.4,
+      "total": 7.6,
       "dimensions": [
         {
           "name": "macro",
-          "score": 2.3,
+          "score": 2.5,
           "cap": 25,
           "notes": [
-            "DXY 101.88 距近20日高點 -0.49%，美債10Y5日變動 -0.22pp（強度 15/100，+2.3）",
+            "DXY 101.93 距近20日高點 -0.44%，美債10Y5日變動 -0.22pp（強度 17/100，+2.5）",
             "SOX/NDX 距近20日支撐 -3.56%，美債10Y同步變動（強度 0/100，+0.0）"
           ]
         },
@@ -487,6 +487,21 @@
     },
     "news": [
       {
+        "title": "【統一證券晨訊】靜待籌碼沉澱",
+        "url": "https://tw.stock.yahoo.com/news/%E7%B5%B1-%E8%AD%89%E5%88%B8%E6%99%A8%E8%A8%8A-%E9%9D%9C%E5%BE%85%E7%B1%8C%E7%A2%BC%E6%B2%89%E6%BE%B1-003208149.html",
+        "meta": null
+      },
+      {
+        "title": "AI股崩 歷史：選舉年晶片股10月底至隔年6月皆漲",
+        "url": "https://tw.stock.yahoo.com/news/ai%E8%82%A1%E5%B4%A9-%E6%AD%B7%E5%8F%B2-%E9%81%B8%E8%88%89%E5%B9%B4%E6%99%B6%E7%89%87%E8%82%A110%E6%9C%88%E5%BA%95%E8%87%B3%E9%9A%94%E5%B9%B46%E6%9C%88%E7%9A%86%E6%BC%B2-232500519.html",
+        "meta": null
+      },
+      {
+        "title": "美國科技股上週五重摔，台股今日恐持續承壓",
+        "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E5%9C%8B%E7%A7%91%E6%8A%80%E8%82%A1%E4%B8%8A%E9%80%B1%E4%BA%94%E9%87%8D%E6%91%94-%E5%8F%B0%E8%82%A1%E4%BB%8A%E6%97%A5%E6%81%90%E6%8C%81%E7%BA%8C%E6%89%BF%E5%A3%93-231340208.html",
+        "meta": null
+      },
+      {
         "title": "AI變現疑慮引爆科技股賣壓　法人：台股45000點保衛戰",
         "url": "https://tw.stock.yahoo.com/news/ai%E8%AE%8A%E7%8F%BE%E7%96%91%E6%85%AE%E5%BC%95%E7%88%86%E7%A7%91%E6%8A%80%E8%82%A1%E8%B3%A3%E5%A3%93-%E6%B3%95%E4%BA%BA-%E5%8F%B0%E8%82%A145000%E9%BB%9E%E4%BF%9D%E8%A1%9B%E6%88%B0-034819150.html",
         "meta": null
@@ -509,21 +524,6 @@
       {
         "title": "美科技股重挫台積電ADR跌近6%　法人：台股下週開盤恐承壓",
         "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E7%A7%91%E6%8A%80%E8%82%A1%E9%87%8D%E6%8C%AB%E5%8F%B0%E7%A9%8D%E9%9B%BBadr%E8%B7%8C%E8%BF%916-%E6%B3%95%E4%BA%BA-%E5%8F%B0%E8%82%A1%E4%B8%8B%E9%80%B1%E9%96%8B%E7%9B%A4%E6%81%90%E6%89%BF%E5%A3%93-041908763.html",
-        "meta": null
-      },
-      {
-        "title": "美科技股大幅下修　蘋果超越輝達成全球最大企業",
-        "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E7%A7%91%E6%8A%80%E8%82%A1%E5%A4%A7%E5%B9%85%E4%B8%8B%E4%BF%AE-%E8%98%8B%E6%9E%9C%E8%B6%85%E8%B6%8A%E8%BC%9D%E9%81%94%E6%88%90%E5%85%A8%E7%90%83%E6%9C%80%E5%A4%A7%E4%BC%81%E6%A5%AD-013240936.html",
-        "meta": null
-      },
-      {
-        "title": "台股週一剉咧等？科技股「重賣壓」英特爾崩跌逾28％",
-        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E9%80%B1-%E5%89%89%E5%92%A7%E7%AD%89-%E7%A7%91%E6%8A%80%E8%82%A1-%E9%87%8D%E8%B3%A3%E5%A3%93-%E8%8B%B1%E7%89%B9%E7%88%BE%E5%B4%A9%E8%B7%8C%E9%80%BE28-225324853.html",
-        "meta": null
-      },
-      {
-        "title": "星期一慘了！美股費半狂瀉7.2%　台指期夜盤崩跌867點",
-        "url": "https://tw.stock.yahoo.com/news/%E6%98%9F%E6%9C%9F-%E6%85%98%E4%BA%86-%E7%BE%8E%E8%82%A1%E8%B2%BB%E5%8D%8A%E7%8B%82%E7%80%897-2-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E5%B4%A9%E8%B7%8C867%E9%BB%9E-223812648.html",
         "meta": null
       }
     ],
@@ -1460,53 +1460,53 @@
   },
   "news": [
     {
-      "title": "目標價一口氣砍掉530元！這「電源大廠」獲利不如預期引爆賣壓　 今年EPS下修至36.57元",
+      "title": "投顧點45K成多空分水嶺 三情境操盤策略曝光",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%8B%89%E8%AD%A6%E5%A0%B12-45000%E9%BB%9E%E5%AE%88%E4%B8%8D%E4%BD%8F%E6%80%8E%E9%BA%BC%E8%BE%A6-%E6%B3%95%E4%BA%BA%E6%8F%AD2%E5%A4%A7%E6%93%8D%E4%BD%9C%E5%8D%80%E9%96%93-%E5%88%A5%E5%86%8D%E7%9B%B2%E7%9B%AE%E6%90%B6%E5%8F%8D%E5%BD%88-233000908.html",
+      "meta": null
+    },
+    {
+      "title": "台達電獲利低於預期 法人砍目標價530元仍喊買進",
       "url": "https://tw.stock.yahoo.com/news/%E7%9B%AE%E6%A8%99%E5%83%B9-%E5%8F%A3%E6%B0%A3%E7%A0%8D%E6%8E%89530%E5%85%83-%E8%BF%99-%E9%9B%BB%E6%BA%90%E5%A4%A7%E5%BB%A0-%E7%8D%B2%E5%88%A9%E4%B8%8D%E5%A6%82%E9%A0%90%E6%9C%9F%E5%BC%95%E7%88%86%E8%B3%A3%E5%A3%93-093000992.html",
       "meta": null
     },
     {
-      "title": "「地方創生利他行動168專案」獎勵金最高68萬 國發會助青年團隊持續扎根",
-      "url": "https://tw.stock.yahoo.com/news/%E5%9C%B0%E6%96%B9%E5%89%B5%E7%94%9F%E5%88%A9%E4%BB%96%E8%A1%8C%E5%8B%95168%E5%B0%88%E6%A1%88-%E7%8D%8E%E5%8B%B5%E9%87%91%E6%9C%80%E9%AB%9868%E8%90%AC-%E5%9C%8B%E7%99%BC%E6%9C%83%E5%8A%A9%E9%9D%92%E5%B9%B4%E5%9C%98%E9%9A%8A%E6%8C%81%E7%BA%8C%E6%89%8E%E6%A0%B9-143406311.html",
+      "title": "聯電奪光通訊大單 價格為傳統製程七倍",
+      "url": "https://tw.stock.yahoo.com/news/%E8%81%AF%E9%9B%BB%E5%A5%AA%E5%85%89%E9%80%9A%E8%A8%8A%E9%87%8D%E9%87%8F%E7%B4%9A%E5%A4%A7%E5%96%AE-%E5%83%B9%E6%A0%BC%E7%82%BA%E5%82%B3%E7%B5%B1%E8%A3%BD%E7%A8%8B%E4%B8%83%E5%80%8D-%E6%8C%B9%E6%B3%A8%E7%8D%B2%E5%88%A9%E5%A4%A7%E8%BA%8D%E9%80%B2-224236053.html",
       "meta": null
     },
     {
-      "title": "二哥神話破滅？聯電兩天慘崩近13%、股民嘆「準備回60元」　不敗教主曝觀點：還是可以買",
-      "url": "https://tw.stock.yahoo.com/news/%E4%BA%8C%E5%93%A5%E7%A5%9E%E8%A9%B1%E7%A0%B4%E6%BB%85-%E8%81%AF%E9%9B%BB%E5%85%A9%E5%A4%A9%E6%85%98%E5%B4%A9%E8%BF%9113-%E8%82%A1%E6%B0%91%E5%98%86-%E6%BA%96%E5%82%99%E5%9B%9E60%E5%85%83-%E4%B8%8D%E6%95%97%E6%95%99%E4%B8%BB%E6%9B%9D%E8%A7%80%E9%BB%9E-042500633.html",
+      "title": "美股上周五慘烈⋯費半崩逾7% 台指期夜盤跌867點",
+      "url": "https://tw.stock.yahoo.com/news/%E7%9B%A4%E5%89%8D-ai%E7%A5%9E%E8%A9%B1%E7%A0%B4%E6%BB%85%E8%8B%B1%E7%89%B9%E7%88%BE%E6%9A%B4%E8%B7%8C-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E8%B7%8C867%E9%BB%9E-%E9%96%8B%E7%9B%A4%E6%81%90%E8%BF%8E%E7%A9%BA%E9%A0%AD%E6%AE%BA%E7%9B%A4-221700524.html",
       "meta": null
     },
     {
-      "title": "大三生靠打工存近百萬！鎖定006208拚100張　聽長輩喊「第一桶金300萬」急問致富秘訣",
-      "url": "https://tw.stock.yahoo.com/news/%E5%A4%A7%E4%B8%89%E7%94%9F%E9%9D%A0%E6%89%93%E5%B7%A5%E5%AD%98%E8%BF%91%E7%99%BE%E8%90%AC-%E9%8E%96%E5%AE%9A006208%E6%8B%9A100%E5%BC%B5-%E8%81%BD%E9%95%B7%E8%BC%A9%E5%96%8A-%E7%AC%AC-%E6%A1%B6%E9%87%91300%E8%90%AC-134500368.html",
+      "title": "外資10月賣超台股近兆元 狠砍0050逾72萬張",
+      "url": "https://tw.stock.yahoo.com/news/374%E8%90%AC%E8%82%A1%E6%9D%B1%E8%A2%AB%E5%A5%97%E4%BD%8F-%E9%80%99-%E5%85%83%E8%80%81%E7%B4%9Aetf-%E9%81%AD10%E6%9C%88%E9%81%AD%E5%A4%96%E8%B3%87%E9%87%8D%E7%A0%8D72-2%E8%90%AC%E5%BC%B5-103000625.html",
       "meta": null
     },
     {
-      "title": "26歲男炒股獲利！「賺400⭢340萬」快崩潰 網揭痛苦真相",
-      "url": "https://tw.stock.yahoo.com/news/26%E6%AD%B2%E7%94%B7%E7%82%92%E8%82%A1%E7%8D%B2%E5%88%A9-%E8%B3%BA400-340%E8%90%AC-%E5%BF%AB%E5%B4%A9%E6%BD%B0-%E7%B6%B2%E6%8F%AD%E7%97%9B%E8%8B%A6%E7%9C%9F%E7%9B%B8-111000895.html",
+      "title": "長鑫揮拳記憶體全趴 謝金河示警價格戰",
+      "url": "https://tw.stock.yahoo.com/news/%E8%A8%98%E6%86%B6%E9%AB%94%E5%85%A8%E8%B6%B4%E4%B8%8B-%E9%99%B8%E7%A7%91%E6%8A%80%E5%A4%A7%E5%BB%A0%E6%8A%80%E8%A1%93%E7%AA%81%E7%A0%B4-%E8%AC%9D%E9%87%91%E6%B2%B3%E7%A4%BA%E8%AD%A6-%E6%81%90%E6%8E%80%E5%85%A8%E7%90%83%E5%83%B9%E6%A0%BC%E6%88%B0-215119543.html",
       "meta": null
     },
     {
-      "title": "9歲已買0050「每天看漲跌」！ 網驚：比巴菲特更早",
-      "url": "https://tw.stock.yahoo.com/news/9%E6%AD%B2%E5%B7%B2%E8%B2%B70050-%E6%AF%8F%E5%A4%A9%E7%9C%8B%E6%BC%B2%E8%B7%8C-%E7%B6%B2%E9%A9%9A-%E6%AF%94%E5%B7%B4%E8%8F%B2%E7%89%B9%E6%9B%B4%E6%97%A9-105200516.html",
+      "title": "新台幣上月淪最弱亞幣 陷33元保衛戰",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E5%B9%A3%E6%81%90%E7%BA%8C%E5%BC%B1-33%E5%85%83%E8%AD%A6%E5%A0%B1%E9%9A%A8%E6%99%82%E5%A4%A7%E9%9F%BF-201000088.html",
       "meta": null
     },
     {
-      "title": "低軌衛星綠油油！「這2檔」一度跌停暴跌8%　國巨、群創、騰輝也殺破7%",
-      "url": "https://tw.stock.yahoo.com/news/%E4%BD%8E%E8%BB%8C%E8%A1%9B%E6%98%9F%E7%B6%A0%E6%B2%B9%E6%B2%B9-%E9%80%992%E6%AA%94-%E5%BA%A6%E8%B7%8C%E5%81%9C%E6%9A%B4%E8%B7%8C8-%E5%9C%8B%E5%B7%A8-%E7%BE%A4%E5%89%B5-100400048.html",
+      "title": "登峰！金融三業前9月獲利暴增77%",
+      "url": "https://tw.stock.yahoo.com/news/%E7%8D%B2%E5%88%A9%E5%BC%B7%E5%BC%B7%E6%BB%BE-%E9%87%91%E8%9E%8D%E4%B8%89%E6%A5%AD-%E5%89%8D9%E6%9C%88%E7%8B%82%E8%B3%BA1-27%E5%85%86%E5%8F%B2%E4%B8%8A%E6%9C%80%E9%AB%98-113408727.html",
       "meta": null
     },
     {
-      "title": "中聯停工引爆沙拉油荒 經濟部：缺口仍大 協調業者年底擴量",
-      "url": "https://tw.stock.yahoo.com/news/%E4%B8%AD%E8%81%AF%E5%81%9C%E5%B7%A5%E5%BC%95%E7%88%86%E6%B2%99%E6%8B%89%E6%B2%B9%E8%8D%92-%E7%B6%93%E6%BF%9F%E9%83%A8-%E7%BC%BA%E5%8F%A3%E4%BB%8D%E5%A4%A7-%E5%8D%94%E8%AA%BF%E6%A5%AD%E8%80%85%E5%B9%B4%E5%BA%95%E6%93%B4%E9%87%8F-094255764.html",
+      "title": "iPhone Duo暫無召回計畫 但換機與維修不易",
+      "url": "https://tw.stock.yahoo.com/news/%E8%98%8B%E6%9E%9Ciphone-duo%E6%9A%AB%E7%84%A1%E5%8F%AC%E5%9B%9E%E8%A8%88%E7%95%AB-%E7%B7%8A%E6%80%A5%E4%B8%8B%E7%99%BC%E5%94%AE%E5%BE%8C%E6%8C%87%E5%BC%95-%E4%BD%86%E6%8F%9B%E6%A9%9F%E4%BB%8D%E9%9D%A2%E8%87%A8%E7%BC%BA%E8%B2%A8-101004372.html",
       "meta": null
     },
     {
-      "title": "PCB綠光罩頂！台燿、金像電、定穎投控、楠梓電都摜跌停　「這檔」卻連飆6根漲停",
-      "url": "https://tw.stock.yahoo.com/news/pcb%E7%B6%A0%E5%85%89%E7%BD%A9%E9%A0%82-%E5%8F%B0%E7%87%BF-%E9%87%91%E5%83%8F%E9%9B%BB-%E5%AE%9A%E7%A9%8E%E6%8A%95%E6%8E%A7-%E6%A5%A0%E6%A2%93%E9%9B%BB%E9%83%BD%E6%91%9C%E8%B7%8C%E5%81%9C-074500606.html",
-      "meta": null
-    },
-    {
-      "title": "日銀宣布通膨達2%、8比1維持利率1.25%　路透：12月升息似成定局",
-      "url": "https://tw.stock.yahoo.com/news/%E6%97%A5%E9%8A%80%E5%AE%A3%E5%B8%83%E9%80%9A%E8%86%A8%E9%81%942-8%E6%AF%941%E7%B6%AD%E6%8C%81%E5%88%A9%E7%8E%871-25-%E8%B7%AF%E9%80%8F-12%E6%9C%88%E5%8D%87%E6%81%AF%E4%BC%BC%E6%88%90%E5%AE%9A%E5%B1%80-064800895.html",
+      "title": "摔到一年來新低⋯金價失守3900美元 陸現搶買潮",
+      "url": "https://tw.stock.yahoo.com/news/%E9%87%91%E5%83%B9%E8%B7%8C%E8%87%B3-%E5%B9%B4%E6%96%B0%E4%BD%8E-%E5%A4%A7%E9%99%B8%E6%B0%91%E7%9C%BE%E5%86%8D%E7%8F%BE%E6%90%B6%E8%B2%B7%E6%BD%AE-%E6%88%B2%E7%A8%B1-%E5%83%8F%E8%8F%9C%E5%B8%82%E5%A0%B4-225035711.html",
       "meta": null
     }
   ],
