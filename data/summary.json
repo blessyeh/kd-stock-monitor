@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-04T01:30:46.987564",
+  "timestamp": "2026-11-04T06:50:28.829518",
   "date": "2026-11-04",
   "macro": {
     "taiex": {
@@ -8,51 +8,51 @@
       "change_pct": 0.0
     },
     "us10y": {
-      "value": 4.954,
-      "change": 0.06,
-      "change_pct": 1.23
+      "value": 4.952,
+      "change": 0.058,
+      "change_pct": 1.19
     },
     "dxy": {
-      "value": 101.83,
-      "change": 0.08,
-      "change_pct": 0.08
+      "value": 101.88,
+      "change": 0.12,
+      "change_pct": 0.12
     },
     "fear_greed": {
-      "value": 20.86,
-      "change": -0.29,
-      "change_pct": -1.37,
+      "value": 20.83,
+      "change": -0.32,
+      "change_pct": -1.51,
       "label": "VIX Index",
-      "timestamp": "2026-11-04T01:29:36.839287"
+      "timestamp": "2026-11-04T06:50:20.426798"
     },
     "btc": {
-      "value": 77582.0,
-      "change": 904.0,
-      "change_pct": 1.18
+      "value": 77708.0,
+      "change": 1031.0,
+      "change_pct": 1.34
     },
     "oil": {
-      "value": 95.94,
-      "change": -0.52,
-      "change_pct": -0.54
+      "value": 96.76,
+      "change": 0.3,
+      "change_pct": 0.31
     },
     "gold": {
-      "value": 3939.4,
-      "change": -30.2,
-      "change_pct": -0.76
+      "value": 3940.2,
+      "change": -29.4,
+      "change_pct": -0.74
     },
     "sox": {
-      "value": 10684.54,
-      "change": 356.21,
-      "change_pct": 3.45
+      "value": 10600.4,
+      "change": 272.07,
+      "change_pct": 2.63
     },
     "ndx": {
-      "value": 28260.5,
-      "change": 270.68,
-      "change_pct": 0.97
+      "value": 28180.26,
+      "change": 190.44,
+      "change_pct": 0.68
     },
     "sp500": {
-      "value": 7581.44,
-      "change": 40.04,
-      "change_pct": 0.53
+      "value": 7568.92,
+      "change": 27.52,
+      "change_pct": 0.36
     }
   },
   "chip": {
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 101.83 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.04pp（未達 0.15pp）",
-          "score": 17.4
+          "detail": "DXY 101.88 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.05pp（未達 0.15pp）",
+          "score": 18.0
         },
         {
           "id": "twd_depreciation",
@@ -168,8 +168,8 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 10685未跌破近20日支撐10328；NDX 28260未跌破近20日支撐27990；美債10Y 5日變動 -0.04pp（未達 0.15pp）",
-          "score": 42.3
+          "detail": "SOX 10600未跌破近20日支撐10328；NDX 28180未跌破近20日支撐27990；美債10Y 5日變動 -0.05pp（未達 0.15pp）",
+          "score": 38.7
         }
       ],
       "total_conditions": 5,
@@ -177,7 +177,7 @@
       "triggered_count": 2,
       "triggered_full_count": 2,
       "triggered_partial_count": 0,
-      "avg_score": 34.9
+      "avg_score": 34.3
     },
     "bottom": {
       "conditions": [
@@ -186,8 +186,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 21.8（<= 30.0門檻）；目前 20.9（較高點回落 4%，門檻 15%）",
-          "score": 19.7
+          "detail": "近10日VIX高點 21.8（<= 30.0門檻）；目前 20.8（較高點回落 5%，門檻 15%）",
+          "score": 19.8
         },
         {
           "id": "margin_capitulation",
@@ -247,8 +247,8 @@
       "ma_prior": 47097.17,
       "above_ma": false,
       "ma_rising": true,
-      "vix_today": 20.86,
-      "vix_fast_rise": 3.43,
+      "vix_today": 20.83,
+      "vix_fast_rise": 3.4,
       "vix_recent_peak": 21.84,
       "vix_rolled_over": false,
       "foreign_recent_avg": -493.77,
@@ -260,15 +260,15 @@
     "as_of_date": "2026-11-03",
     "history_days": 102,
     "bottom": {
-      "total": 35.4,
+      "total": 35.3,
       "dimensions": [
         {
           "name": "macro",
-          "score": 10.0,
+          "score": 9.9,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 21.8 → 目前 20.9（強度 20/100，+2.9）",
-            "DXY 101.83 距近20日高點 -0.54%（美元壓力緩和強度 71/100，+7.1）"
+            "VIX 近10日高點 21.8 → 目前 20.8（強度 20/100，+3.0）",
+            "DXY 101.88 距近20日高點 -0.49%（美元壓力緩和強度 69/100，+6.9）"
           ]
         },
         {
@@ -309,15 +309,15 @@
       ]
     },
     "top": {
-      "total": 22.8,
+      "total": 22.6,
       "dimensions": [
         {
           "name": "macro",
-          "score": 6.8,
+          "score": 6.6,
           "cap": 25,
           "notes": [
-            "DXY 101.83 距近20日高點 -0.54%，美債10Y5日變動 -0.04pp（強度 17/100，+2.6）",
-            "SOX/NDX 距近20日支撐 +0.97%，美債10Y同步變動（強度 42/100，+4.2）"
+            "DXY 101.88 距近20日高點 -0.49%，美債10Y5日變動 -0.05pp（強度 18/100，+2.7）",
+            "SOX/NDX 距近20日支撐 +0.68%，美債10Y同步變動（強度 39/100，+3.9）"
           ]
         },
         {
@@ -423,7 +423,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 -8.2%；相對TAIEX -0.9pp、相對SOX +10.2pp、相對NDX +0.1pp"
+          "2330 近20日漲跌 -8.2%；相對TAIEX -0.9pp、相對SOX +10.8pp、相對NDX +0.3pp"
         ]
       },
       {
@@ -442,7 +442,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "ADR $405.5 換算2330隱含價 2660.0元，2330現價 2295.0元（折價 13.7%）",
+          "ADR $404.8 換算2330隱含價 2655.2元，2330現價 2295.0元（折價 13.6%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -586,7 +586,7 @@
         "dimension": "relative_strength",
         "score": 6,
         "cap": 10,
-        "detail": "2330 近20日漲跌 -8.2%；相對TAIEX -0.9pp、相對SOX +10.2pp、相對NDX +0.1pp"
+        "detail": "2330 近20日漲跌 -8.2%；相對TAIEX -0.9pp、相對SOX +10.8pp、相對NDX +0.3pp"
       }
     ]
   },
@@ -1465,11 +1465,11 @@
     },
     "tw_chip": {
       "as_of_date": "2026-11-03",
-      "fetched": true
+      "fetched": false
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-11-03",
-      "fetched": true
+      "fetched": false
     }
   },
   "news": [
@@ -1527,10 +1527,10 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 56,
+  "new_alerts": 1,
   "overbought_count": 1,
-  "oversold_count": 55,
-  "normal_count": 71,
+  "oversold_count": 56,
+  "normal_count": 70,
   "overbought_stocks": [
     {
       "symbol": "00652.TW",
@@ -2195,128 +2195,142 @@
     {
       "symbol": "GOOGL",
       "name": "Alphabet Inc.",
-      "current_price": 280.55,
-      "change_pct": 0.56,
+      "current_price": 280.03,
+      "change_pct": 0.37,
       "extra_data": {
-        "regular_market_price": 280.55,
+        "regular_market_price": 280.03,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 279.78,
         "prev_close": 278.99
       },
-      "kd_k": 6.91,
-      "kd_d": 9.15
+      "kd_k": 6.59,
+      "kd_d": 9.04
     },
     {
       "symbol": "META",
       "name": "Meta Platforms Inc.",
-      "current_price": 623.31,
-      "change_pct": 2.73,
+      "current_price": 621.03,
+      "change_pct": 2.36,
       "extra_data": {
-        "regular_market_price": 623.31,
+        "regular_market_price": 621.03,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 624.41,
         "prev_close": 606.73
       },
-      "kd_k": 11.01,
-      "kd_d": 9.02
+      "kd_k": 9.99,
+      "kd_d": 8.68
     },
     {
       "symbol": "NFLX",
       "name": "Netflix Inc.",
-      "current_price": 62.645,
-      "change_pct": 0.49,
+      "current_price": 63.42,
+      "change_pct": 1.73,
       "extra_data": {
-        "regular_market_price": 62.645,
+        "regular_market_price": 63.42,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 63.1,
         "prev_close": 62.34
       },
-      "kd_k": 13.83,
-      "kd_d": 13.58
+      "kd_k": 17.84,
+      "kd_d": 14.92
     },
     {
       "symbol": "FBL",
       "name": "GraniteShares 2x Long META Daily ETF",
-      "current_price": 22.92,
-      "change_pct": 5.38,
+      "current_price": 22.79,
+      "change_pct": 4.78,
       "extra_data": {
-        "regular_market_price": 22.92,
+        "regular_market_price": 22.79,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 23.1,
         "prev_close": 21.75
       },
-      "kd_k": 9.89,
-      "kd_d": 8.17
+      "kd_k": 9.15,
+      "kd_d": 7.92
     },
     {
       "symbol": "GGLL",
       "name": "Direxion Daily GOOGL Bull 2X Shares",
-      "current_price": 63.88,
-      "change_pct": 1.12,
+      "current_price": 63.54,
+      "change_pct": 0.59,
       "extra_data": {
-        "regular_market_price": 63.88,
+        "regular_market_price": 63.54,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 63.5,
         "prev_close": 63.17
       },
-      "kd_k": 6.21,
-      "kd_d": 8.6
+      "kd_k": 5.82,
+      "kd_d": 8.47
     },
     {
       "symbol": "NFXL",
       "name": "Direxion Daily NFLX Bull 2X Shares",
-      "current_price": 10.98,
-      "change_pct": 0.83,
+      "current_price": 11.23,
+      "change_pct": 3.12,
       "extra_data": {
-        "regular_market_price": 10.98,
+        "regular_market_price": 11.23,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 11.13,
         "prev_close": 10.89
       },
-      "kd_k": 12.37,
-      "kd_d": 12.33
+      "kd_k": 15.9,
+      "kd_d": 13.51
     },
     {
       "symbol": "FNGS",
       "name": "MicroSectors FANG+ Index ETN",
-      "current_price": 74.88,
-      "change_pct": 0.66,
+      "current_price": 75.34,
+      "change_pct": 1.28,
       "extra_data": {
-        "regular_market_price": 74.88,
+        "regular_market_price": 75.34,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 74.39
       },
-      "kd_k": 10.33,
-      "kd_d": 14.45
+      "kd_k": 13.0,
+      "kd_d": 15.34
     },
     {
       "symbol": "FNGG",
       "name": "Direxion Daily NYSE FANG+ Bull 2X Shares",
-      "current_price": 227.29,
-      "change_pct": 1.73,
+      "current_price": 229.754,
+      "change_pct": 2.83,
       "extra_data": {
-        "regular_market_price": 227.29,
+        "regular_market_price": 229.754,
         "pre_market_price": null,
         "post_market_price": null,
-        "prev_close": 223.4349
+        "prev_close": 223.435
       },
-      "kd_k": 10.6,
-      "kd_d": 13.99
+      "kd_k": 12.98,
+      "kd_d": 14.78
+    },
+    {
+      "symbol": "CRCL",
+      "name": "Circle Internet Group, Inc.",
+      "current_price": 75.22,
+      "change_pct": 4.36,
+      "extra_data": {
+        "regular_market_price": 75.22,
+        "pre_market_price": null,
+        "post_market_price": 75.4903,
+        "prev_close": 72.08
+      },
+      "kd_k": 19.5,
+      "kd_d": 26.88
     },
     {
       "symbol": "SNXX",
       "name": "Tradr 2X Long Sndk Daily ETF",
-      "current_price": 6.345,
-      "change_pct": 7.72,
+      "current_price": 6.445,
+      "change_pct": 9.42,
       "extra_data": {
-        "regular_market_price": 6.345,
+        "regular_market_price": 6.445,
         "pre_market_price": null,
-        "post_market_price": null,
+        "post_market_price": 6.59,
         "prev_close": 5.89
       },
-      "kd_k": 18.26,
-      "kd_d": 24.22
+      "kd_k": 18.98,
+      "kd_d": 24.46
     }
   ],
   "errors": []

@@ -1,5 +1,29 @@
 [
   {
+    "id": "CRCL_20261104_oversold",
+    "symbol": "CRCL",
+    "name": "Circle Internet Group, Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.5,
+    "kd_d": 26.88,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 75.22,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ CRCL (Circle Internet Group, Inc.) is OVERSOLD! KD-K: 19.5, KD-D: 26.88 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-04T06:50:26.483263",
+    "date": "2026-11-04",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20261104_oversold",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2607,31 +2631,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 00909.TW (國泰數位支付服務) is OVERSOLD! KD-K: 16.37, KD-D: 17.29 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-11-03T03:07:40.509760",
-    "date": "2026-11-03",
-    "acknowledged": false
-  },
-  {
-    "id": "00922.TW_20261103_oversold",
-    "symbol": "00922.TW",
-    "name": "國泰台灣領袖50",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 19.72,
-    "kd_d": 19.05,
-    "kd_state": "OVERSOLD",
-    "current_price": 38.33,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "個股外資近3日仍賣超達20日均量的42%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00922.TW (國泰台灣領袖50) is OVERSOLD! KD-K: 19.72, KD-D: 19.05 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-03T03:07:40.509895",
     "date": "2026-11-03",
     "acknowledged": false
   }
