@@ -18,7 +18,7 @@
       "bias_5": -9.46,
       "bias_10": -14.89,
       "bias_20": -20.07,
-      "last_updated": "2026-11-07T12:26:06.078615",
+      "last_updated": "2026-11-07T19:27:58.087643",
       "data_points": 134,
       "history": [
         {
@@ -205,11 +205,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 7.66,
-          "high": 8.18,
-          "low": 7.65,
+          "open": 7.659999847412109,
+          "high": 8.180000305175781,
+          "low": 7.650000095367432,
           "close": 8.0,
-          "volume": 371612289,
+          "volume": 370632482,
           "kd_k": 11.45,
           "kd_d": 13.8,
           "bias_5": -9.46,
@@ -222,7 +222,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 71.5,
@@ -309,7 +309,7 @@
       "bias_5": -2.53,
       "bias_10": -4.07,
       "bias_20": -4.68,
-      "last_updated": "2026-11-07T12:26:06.074977",
+      "last_updated": "2026-11-07T19:27:58.150733",
       "data_points": 548,
       "history": [
         {
@@ -513,7 +513,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 52.8,
@@ -600,7 +600,7 @@
       "bias_5": -2.01,
       "bias_10": 0.0,
       "bias_20": 1.76,
-      "last_updated": "2026-11-07T12:26:06.019975",
+      "last_updated": "2026-11-07T19:27:58.145375",
       "data_points": 548,
       "history": [
         {
@@ -804,7 +804,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 51.0,
@@ -885,13 +885,13 @@
         "post_market_price": null,
         "prev_close": 97.15
       },
-      "kd_k": 8.23,
-      "kd_d": 14.35,
-      "kd_state": "OVERSOLD",
-      "bias_5": -6.58,
-      "bias_10": -10.24,
-      "bias_20": -13.41,
-      "last_updated": "2026-11-07T12:26:06.047948",
+      "kd_k": 16.05,
+      "kd_d": 16.95,
+      "kd_state": "OVERSOLD_REVERSAL",
+      "bias_5": -6.41,
+      "bias_10": -10.07,
+      "bias_20": -13.23,
+      "last_updated": "2026-11-07T19:27:58.137437",
       "data_points": 620,
       "history": [
         {
@@ -1078,16 +1078,16 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 92.30000305175781,
-          "high": 92.30000305175781,
-          "low": 92.30000305175781,
-          "close": 92.30000305175781,
-          "volume": 0,
-          "kd_k": 8.23,
-          "kd_d": 14.35,
-          "bias_5": -6.58,
-          "bias_10": -10.24,
-          "bias_20": -13.41
+          "open": 89.94999694824219,
+          "high": 94.44999694824219,
+          "low": 87.55000305175781,
+          "close": 92.5,
+          "volume": 862920367,
+          "kd_k": 16.05,
+          "kd_d": 16.95,
+          "bias_5": -6.41,
+          "bias_10": -10.07,
+          "bias_20": -13.23
         }
       ],
       "patterns": {
@@ -1095,64 +1095,64 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
-        "total": 66.8,
+        "total": 69.2,
         "recommendation": "持有觀望",
         "details": {
           "kd": {
-            "score": 100,
-            "k": 8.23,
-            "d": 14.35
+            "score": 90,
+            "k": 16.05,
+            "d": 16.95
           },
           "rsi": {
             "score": 100,
-            "value": 13.05
+            "value": 13.17
           },
           "ma_bias": {
             "score": 85,
-            "ma20": 106.59,
+            "ma20": 106.6,
             "ma60": 107.79,
-            "bias20": -13.41,
-            "bias60": -14.37
+            "bias20": -13.23,
+            "bias60": -14.19
           },
           "macd": {
             "score": 10,
-            "macd_hist": -1.632,
+            "macd_hist": -1.6192,
             "macd_hist_prev": -1.2872,
             "trend": "bearish"
           },
           "volume_price": {
-            "score": 50,
-            "volume_ratio": 0.0,
-            "price_change": 0.0
+            "score": 80,
+            "volume_ratio": 4.38,
+            "price_change": 2.83
           },
           "trend": {
             "score": 50,
-            "slope_20d": -0.767,
-            "volatility": 1.48,
+            "slope_20d": -0.765,
+            "volatility": 1.47,
             "trend_dir": "flat"
           },
           "bollinger": {
-            "bb_upper": 117.7,
-            "bb_mid": 106.59,
-            "bb_lower": 95.48,
-            "percent_b": -0.143
+            "bb_upper": 117.66,
+            "bb_mid": 106.6,
+            "bb_lower": 95.55,
+            "percent_b": -0.138
           }
         },
         "raw": {
-          "rsi": 13.05,
-          "ma20": 106.59,
+          "rsi": 13.17,
+          "ma20": 106.6,
           "ma60": 107.79,
-          "macd_hist": -1.632,
+          "macd_hist": -1.6192,
           "macd_hist_prev": -1.2872,
-          "volume_ratio": 0.0,
-          "slope_20d": -0.767,
+          "volume_ratio": 4.38,
+          "slope_20d": -0.765,
           "trend_dir": "flat",
-          "bb_upper": 117.7,
-          "bb_lower": 95.48,
-          "percent_b": -0.143
+          "bb_upper": 117.66,
+          "bb_lower": 95.55,
+          "percent_b": -0.138
         }
       },
       "institutional": {
@@ -1176,13 +1176,13 @@
         "post_market_price": null,
         "prev_close": 51.55
       },
-      "kd_k": 12.45,
-      "kd_d": 23.59,
+      "kd_k": 20.74,
+      "kd_d": 26.36,
       "kd_state": "BEARISH_MOMENTUM",
-      "bias_5": -5.7,
-      "bias_10": -9.02,
-      "bias_20": -11.25,
-      "last_updated": "2026-11-07T12:26:06.624002",
+      "bias_5": -5.41,
+      "bias_10": -8.7,
+      "bias_20": -10.93,
+      "last_updated": "2026-11-07T19:27:58.448942",
       "data_points": 620,
       "history": [
         {
@@ -1369,16 +1369,16 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 49.720001220703125,
-          "high": 49.720001220703125,
-          "low": 49.720001220703125,
-          "close": 49.720001220703125,
-          "volume": 0,
-          "kd_k": 12.45,
-          "kd_d": 23.59,
-          "bias_5": -5.7,
-          "bias_10": -9.02,
-          "bias_20": -11.25
+          "open": 47.95000076293945,
+          "high": 50.5,
+          "low": 47.400001525878906,
+          "close": 49.90999984741211,
+          "volume": 182842060,
+          "kd_k": 20.74,
+          "kd_d": 26.36,
+          "bias_5": -5.41,
+          "bias_10": -8.7,
+          "bias_20": -10.93
         }
       ],
       "patterns": {
@@ -1386,64 +1386,64 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
-        "total": 64.8,
-        "recommendation": "持有觀望",
+        "total": 71.5,
+        "recommendation": "加碼買進",
         "details": {
           "kd": {
             "score": 90,
-            "k": 12.45,
-            "d": 23.59
+            "k": 20.74,
+            "d": 26.36
           },
           "rsi": {
             "score": 100,
-            "value": 18.85
+            "value": 19.16
           },
           "ma_bias": {
             "score": 85,
-            "ma20": 56.02,
+            "ma20": 56.03,
             "ma60": 55.42,
-            "bias20": -11.25,
-            "bias60": -10.28
+            "bias20": -10.93,
+            "bias60": -9.94
           },
           "macd": {
             "score": 10,
-            "macd_hist": -0.802,
+            "macd_hist": -0.7899,
             "macd_hist_prev": -0.6362,
             "trend": "bearish"
           },
           "volume_price": {
-            "score": 50,
-            "volume_ratio": 0.0,
-            "price_change": 0.0
+            "score": 95,
+            "volume_ratio": 2.63,
+            "price_change": 4.09
           },
           "trend": {
             "score": 50,
-            "slope_20d": -0.585,
-            "volatility": 1.57,
+            "slope_20d": -0.58,
+            "volatility": 1.55,
             "trend_dir": "flat"
           },
           "bollinger": {
-            "bb_upper": 60.74,
-            "bb_mid": 56.02,
-            "bb_lower": 51.31,
-            "percent_b": -0.169
+            "bb_upper": 60.69,
+            "bb_mid": 56.03,
+            "bb_lower": 51.37,
+            "percent_b": -0.157
           }
         },
         "raw": {
-          "rsi": 18.85,
-          "ma20": 56.02,
+          "rsi": 19.16,
+          "ma20": 56.03,
           "ma60": 55.42,
-          "macd_hist": -0.802,
+          "macd_hist": -0.7899,
           "macd_hist_prev": -0.6362,
-          "volume_ratio": 0.0,
-          "slope_20d": -0.585,
+          "volume_ratio": 2.63,
+          "slope_20d": -0.58,
           "trend_dir": "flat",
-          "bb_upper": 60.74,
-          "bb_lower": 51.31,
-          "percent_b": -0.169
+          "bb_upper": 60.69,
+          "bb_lower": 51.37,
+          "percent_b": -0.157
         }
       },
       "institutional": {
@@ -1473,7 +1473,7 @@
       "bias_5": -7.07,
       "bias_10": -10.8,
       "bias_20": -13.97,
-      "last_updated": "2026-11-07T12:26:06.726032",
+      "last_updated": "2026-11-07T19:27:58.456537",
       "data_points": 620,
       "history": [
         {
@@ -1661,10 +1661,10 @@
         {
           "date": "2026-11-06T00:00:00",
           "open": 203.0,
-          "high": 217.7,
-          "low": 201.1,
-          "close": 210.1,
-          "volume": 20923029,
+          "high": 217.6999969482422,
+          "low": 201.10000610351562,
+          "close": 210.10000610351562,
+          "volume": 17697847,
           "kd_k": 13.76,
           "kd_d": 15.26,
           "bias_5": -7.07,
@@ -1677,7 +1677,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 73.5,
@@ -1707,7 +1707,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 4.12,
+            "volume_ratio": 3.6,
             "price_change": 3.5
           },
           "trend": {
@@ -1729,7 +1729,7 @@
           "ma60": 247.05,
           "macd_hist": -3.8319,
           "macd_hist_prev": -2.9556,
-          "volume_ratio": 4.12,
+          "volume_ratio": 3.6,
           "slope_20d": -0.778,
           "trend_dir": "flat",
           "bb_upper": 270.14,
@@ -1764,7 +1764,7 @@
       "bias_5": -13.3,
       "bias_10": -20.26,
       "bias_20": -25.87,
-      "last_updated": "2026-11-07T12:26:06.667191",
+      "last_updated": "2026-11-07T19:27:58.453227",
       "data_points": 591,
       "history": [
         {
@@ -1951,11 +1951,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 24.44,
-          "high": 27.8,
-          "low": 23.8,
-          "close": 26.3,
-          "volume": 1318253893,
+          "open": 24.440000534057617,
+          "high": 27.799999237060547,
+          "low": 23.799999237060547,
+          "close": 26.299999237060547,
+          "volume": 1310661885,
           "kd_k": 12.86,
           "kd_d": 13.76,
           "bias_5": -13.3,
@@ -1968,7 +1968,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 73.8,
@@ -1998,7 +1998,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 4.22,
+            "volume_ratio": 4.2,
             "price_change": 7.61
           },
           "trend": {
@@ -2020,7 +2020,7 @@
           "ma60": 36.48,
           "macd_hist": -1.0494,
           "macd_hist_prev": -0.8436,
-          "volume_ratio": 4.22,
+          "volume_ratio": 4.2,
           "slope_20d": -1.427,
           "trend_dir": "down",
           "bb_upper": 42.79,
@@ -2055,7 +2055,7 @@
       "bias_5": 1.22,
       "bias_10": 0.59,
       "bias_20": -1.2,
-      "last_updated": "2026-11-07T12:26:06.727071",
+      "last_updated": "2026-11-07T19:27:58.475400",
       "data_points": 620,
       "history": [
         {
@@ -2242,11 +2242,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 42.05,
-          "high": 42.07,
-          "low": 41.47,
-          "close": 41.47,
-          "volume": 6906987,
+          "open": 42.04999923706055,
+          "high": 42.06999969482422,
+          "low": 41.470001220703125,
+          "close": 41.470001220703125,
+          "volume": 6815809,
           "kd_k": 46.29,
           "kd_d": 30.38,
           "bias_5": 1.22,
@@ -2259,7 +2259,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 61.0,
@@ -2289,7 +2289,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 2.64,
+            "volume_ratio": 2.61,
             "price_change": -1.38
           },
           "trend": {
@@ -2311,7 +2311,7 @@
           "ma60": 44.12,
           "macd_hist": 0.0534,
           "macd_hist_prev": 0.0157,
-          "volume_ratio": 2.64,
+          "volume_ratio": 2.61,
           "slope_20d": -0.295,
           "trend_dir": "flat",
           "bb_upper": 43.82,
@@ -2346,7 +2346,7 @@
       "bias_5": -1.02,
       "bias_10": -1.47,
       "bias_20": -4.58,
-      "last_updated": "2026-11-07T12:26:06.794277",
+      "last_updated": "2026-11-07T19:27:58.653979",
       "data_points": 616,
       "history": [
         {
@@ -2533,11 +2533,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 16.05,
-          "high": 16.13,
-          "low": 15.81,
-          "close": 15.91,
-          "volume": 21626924,
+          "open": 16.049999237060547,
+          "high": 16.1299991607666,
+          "low": 15.8100004196167,
+          "close": 15.90999984741211,
+          "volume": 21615030,
           "kd_k": 38.94,
           "kd_d": 32.13,
           "bias_5": -1.02,
@@ -2550,7 +2550,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 63.2,
@@ -2637,7 +2637,7 @@
       "bias_5": -9.43,
       "bias_10": -12.17,
       "bias_20": -15.27,
-      "last_updated": "2026-11-07T12:26:07.123769",
+      "last_updated": "2026-11-07T19:27:58.769357",
       "data_points": 616,
       "history": [
         {
@@ -2824,11 +2824,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 89.9,
-          "high": 90.4,
+          "open": 89.9000015258789,
+          "high": 90.4000015258789,
           "low": 87.5,
-          "close": 87.9,
-          "volume": 661789,
+          "close": 87.9000015258789,
+          "volume": 651112,
           "kd_k": 22.06,
           "kd_d": 21.31,
           "bias_5": -9.43,
@@ -2845,12 +2845,12 @@
             "signal": "AVOID",
             "description": "恐慌殺跌無承接(量5.1倍,5日跌13.1%,20日跌22.0%)",
             "confidence": 75.0,
-            "detected_at": "2026-11-07 12:26:27"
+            "detected_at": "2026-11-07 19:28:13"
           }
         ],
         "dominant_signal": "AVOID",
         "signal_strength": 75.0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 61.0,
@@ -2880,7 +2880,7 @@
           },
           "volume_price": {
             "score": 10,
-            "volume_ratio": 5.13,
+            "volume_ratio": 5.07,
             "price_change": -2.22
           },
           "trend": {
@@ -2902,7 +2902,7 @@
           "ma60": 106.97,
           "macd_hist": -1.3522,
           "macd_hist_prev": -0.7337,
-          "volume_ratio": 5.13,
+          "volume_ratio": 5.07,
           "slope_20d": -0.726,
           "trend_dir": "flat",
           "bb_upper": 114.1,
@@ -2937,7 +2937,7 @@
       "bias_5": -4.38,
       "bias_10": -5.82,
       "bias_20": -7.41,
-      "last_updated": "2026-11-07T12:26:07.393693",
+      "last_updated": "2026-11-07T19:27:58.768530",
       "data_points": 591,
       "history": [
         {
@@ -3124,11 +3124,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 52.8,
+          "open": 52.79999923706055,
           "high": 53.25,
-          "low": 52.55,
-          "close": 52.6,
-          "volume": 293776,
+          "low": 52.54999923706055,
+          "close": 52.599998474121094,
+          "volume": 275000,
           "kd_k": 21.82,
           "kd_d": 21.67,
           "bias_5": -4.38,
@@ -3143,14 +3143,14 @@
             "pattern_id": "放量下跌",
             "pattern_name": "恐慌殺跌",
             "signal": "AVOID",
-            "description": "恐慌殺跌無承接(量3.1倍,5日跌6.5%,20日跌11.1%)",
+            "description": "恐慌殺跌無承接(量2.9倍,5日跌6.5%,20日跌11.1%)",
             "confidence": 75.0,
-            "detected_at": "2026-11-07 12:26:27"
+            "detected_at": "2026-11-07 19:28:13"
           }
         ],
         "dominant_signal": "AVOID",
         "signal_strength": 75.0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 60.2,
@@ -3180,7 +3180,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 3.1,
+            "volume_ratio": 2.93,
             "price_change": -0.38
           },
           "trend": {
@@ -3202,7 +3202,7 @@
           "ma60": 57.64,
           "macd_hist": -0.3628,
           "macd_hist_prev": -0.1995,
-          "volume_ratio": 3.1,
+          "volume_ratio": 2.93,
           "slope_20d": -0.363,
           "trend_dir": "flat",
           "bb_upper": 59.58,
@@ -3237,7 +3237,7 @@
       "bias_5": -2.04,
       "bias_10": -2.64,
       "bias_20": -2.95,
-      "last_updated": "2026-11-07T12:26:07.360167",
+      "last_updated": "2026-11-07T19:27:58.781153",
       "data_points": 620,
       "history": [
         {
@@ -3424,11 +3424,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 76.7,
-          "high": 76.7,
-          "low": 76.15,
-          "close": 76.3,
-          "volume": 7863875,
+          "open": 76.69999694824219,
+          "high": 76.69999694824219,
+          "low": 76.1500015258789,
+          "close": 76.30000305175781,
+          "volume": 7386386,
           "kd_k": 33.84,
           "kd_d": 37.82,
           "bias_5": -2.04,
@@ -3441,7 +3441,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 49.8,
@@ -3471,7 +3471,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 2.14,
+            "volume_ratio": 2.03,
             "price_change": -0.52
           },
           "trend": {
@@ -3493,7 +3493,7 @@
           "ma60": 77.55,
           "macd_hist": -0.2375,
           "macd_hist_prev": -0.0969,
-          "volume_ratio": 2.14,
+          "volume_ratio": 2.03,
           "slope_20d": -0.066,
           "trend_dir": "flat",
           "bb_upper": 80.07,
@@ -3528,7 +3528,7 @@
       "bias_5": -4.67,
       "bias_10": -6.27,
       "bias_20": -7.69,
-      "last_updated": "2026-11-07T12:26:07.380965",
+      "last_updated": "2026-11-07T19:27:58.800291",
       "data_points": 590,
       "history": [
         {
@@ -3715,11 +3715,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 129.45,
-          "high": 130.4,
-          "low": 128.85,
-          "close": 128.95,
-          "volume": 252950,
+          "open": 129.4499969482422,
+          "high": 130.39999389648438,
+          "low": 128.85000610351562,
+          "close": 128.9499969482422,
+          "volume": 240393,
           "kd_k": 28.08,
           "kd_d": 28.8,
           "bias_5": -4.67,
@@ -3734,14 +3734,14 @@
             "pattern_id": "放量下跌",
             "pattern_name": "恐慌殺跌",
             "signal": "AVOID",
-            "description": "恐慌殺跌無承接(量4.3倍,5日跌6.8%,20日跌9.5%)",
+            "description": "恐慌殺跌無承接(量4.1倍,5日跌6.8%,20日跌9.5%)",
             "confidence": 75.0,
-            "detected_at": "2026-11-07 12:26:27"
+            "detected_at": "2026-11-07 19:28:13"
           }
         ],
         "dominant_signal": "AVOID",
         "signal_strength": 75.0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 57.2,
@@ -3771,7 +3771,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 4.3,
+            "volume_ratio": 4.13,
             "price_change": -0.39
           },
           "trend": {
@@ -3793,7 +3793,7 @@
           "ma60": 139.13,
           "macd_hist": -1.0005,
           "macd_hist_prev": -0.5095,
-          "volume_ratio": 4.3,
+          "volume_ratio": 4.13,
           "slope_20d": -0.32,
           "trend_dir": "flat",
           "bb_upper": 146.47,
@@ -3828,7 +3828,7 @@
       "bias_5": 3.26,
       "bias_10": 6.37,
       "bias_20": 8.33,
-      "last_updated": "2026-11-07T12:26:07.299328",
+      "last_updated": "2026-11-07T19:27:58.928230",
       "data_points": 616,
       "history": [
         {
@@ -4015,11 +4015,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 34.63,
-          "high": 35.22,
-          "low": 34.6,
-          "close": 35.04,
-          "volume": 1381797,
+          "open": 34.630001068115234,
+          "high": 35.220001220703125,
+          "low": 34.599998474121094,
+          "close": 35.040000915527344,
+          "volume": 1350598,
           "kd_k": 90.88,
           "kd_d": 83.34,
           "bias_5": 3.26,
@@ -4032,7 +4032,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 39.2,
@@ -4062,7 +4062,7 @@
           },
           "volume_price": {
             "score": 65,
-            "volume_ratio": 3.64,
+            "volume_ratio": 3.57,
             "price_change": 1.18
           },
           "trend": {
@@ -4084,7 +4084,7 @@
           "ma60": 32.39,
           "macd_hist": 0.3509,
           "macd_hist_prev": 0.295,
-          "volume_ratio": 3.64,
+          "volume_ratio": 3.57,
           "slope_20d": 0.525,
           "trend_dir": "flat",
           "bb_upper": 34.56,
@@ -4119,7 +4119,7 @@
       "bias_5": 5.19,
       "bias_10": 10.24,
       "bias_20": 12.9,
-      "last_updated": "2026-11-07T12:26:07.620946",
+      "last_updated": "2026-11-07T19:27:59.047653",
       "data_points": 591,
       "history": [
         {
@@ -4306,11 +4306,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 46.8,
-          "high": 48.15,
+          "open": 46.79999923706055,
+          "high": 48.150001525878906,
           "low": 46.5,
-          "close": 47.68,
-          "volume": 539267,
+          "close": 47.68000030517578,
+          "volume": 535000,
           "kd_k": 88.98,
           "kd_d": 79.94,
           "bias_5": 5.19,
@@ -4323,7 +4323,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 39.0,
@@ -4353,7 +4353,7 @@
           },
           "volume_price": {
             "score": 65,
-            "volume_ratio": 2.23,
+            "volume_ratio": 2.21,
             "price_change": 1.88
           },
           "trend": {
@@ -4375,7 +4375,7 @@
           "ma60": 43.76,
           "macd_hist": 0.8072,
           "macd_hist_prev": 0.6834,
-          "volume_ratio": 2.23,
+          "volume_ratio": 2.21,
           "slope_20d": 0.695,
           "trend_dir": "flat",
           "bb_upper": 46.4,
@@ -4410,7 +4410,7 @@
       "bias_5": -3.57,
       "bias_10": -5.64,
       "bias_20": -7.44,
-      "last_updated": "2026-11-07T12:26:07.802364",
+      "last_updated": "2026-11-07T19:27:59.071215",
       "data_points": 620,
       "history": [
         {
@@ -4598,10 +4598,10 @@
         {
           "date": "2026-11-06T00:00:00",
           "open": 113.25,
-          "high": 114.4,
+          "high": 114.4000015258789,
           "low": 113.25,
-          "close": 113.35,
-          "volume": 8531672,
+          "close": 113.3499984741211,
+          "volume": 7693570,
           "kd_k": 15.37,
           "kd_d": 19.23,
           "bias_5": -3.57,
@@ -4614,7 +4614,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 64.8,
@@ -4644,7 +4644,7 @@
           },
           "volume_price": {
             "score": 65,
-            "volume_ratio": 1.86,
+            "volume_ratio": 1.69,
             "price_change": 0.09
           },
           "trend": {
@@ -4666,7 +4666,7 @@
           "ma60": 121.76,
           "macd_hist": -1.0538,
           "macd_hist_prev": -0.7911,
-          "volume_ratio": 1.86,
+          "volume_ratio": 1.69,
           "slope_20d": -0.419,
           "trend_dir": "flat",
           "bb_upper": 129.32,
@@ -4701,7 +4701,7 @@
       "bias_5": -13.94,
       "bias_10": -21.26,
       "bias_20": -27.07,
-      "last_updated": "2026-11-07T12:26:07.929975",
+      "last_updated": "2026-11-07T19:27:59.072321",
       "data_points": 591,
       "history": [
         {
@@ -4888,11 +4888,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 67.3,
-          "high": 78.9,
+          "open": 67.30000305175781,
+          "high": 78.9000015258789,
           "low": 67.0,
-          "close": 74.55,
-          "volume": 30344420,
+          "close": 74.55000305175781,
+          "volume": 30192623,
           "kd_k": 12.65,
           "kd_d": 13.57,
           "bias_5": -13.94,
@@ -4905,7 +4905,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 73.8,
@@ -4935,7 +4935,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 3.7,
+            "volume_ratio": 3.69,
             "price_change": 10.77
           },
           "trend": {
@@ -4957,7 +4957,7 @@
           "ma60": 105.2,
           "macd_hist": -3.1944,
           "macd_hist_prev": -2.5884,
-          "volume_ratio": 3.7,
+          "volume_ratio": 3.69,
           "slope_20d": -1.49,
           "trend_dir": "down",
           "bb_upper": 124.32,
@@ -4992,7 +4992,7 @@
       "bias_5": 4.75,
       "bias_10": 9.0,
       "bias_20": 7.47,
-      "last_updated": "2026-11-07T12:26:07.921538",
+      "last_updated": "2026-11-07T19:27:59.113093",
       "data_points": 616,
       "history": [
         {
@@ -5179,11 +5179,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 9.22,
-          "high": 9.36,
-          "low": 9.08,
-          "close": 9.17,
-          "volume": 12388201,
+          "open": 9.220000267028809,
+          "high": 9.359999656677246,
+          "low": 9.079999923706055,
+          "close": 9.170000076293945,
+          "volume": 12382218,
           "kd_k": 77.65,
           "kd_d": 60.63,
           "bias_5": 4.75,
@@ -5196,7 +5196,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 48.8,
@@ -5283,7 +5283,7 @@
       "bias_5": -7.96,
       "bias_10": -12.84,
       "bias_20": -17.42,
-      "last_updated": "2026-11-07T12:26:07.960103",
+      "last_updated": "2026-11-07T19:27:59.214750",
       "data_points": 591,
       "history": [
         {
@@ -5470,11 +5470,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 162.2,
-          "high": 164.35,
-          "low": 159.8,
-          "close": 161.15,
-          "volume": 3720445,
+          "open": 162.1999969482422,
+          "high": 164.35000610351562,
+          "low": 159.8000030517578,
+          "close": 161.14999389648438,
+          "volume": 3493867,
           "kd_k": 13.4,
           "kd_d": 16.52,
           "bias_5": -7.96,
@@ -5489,14 +5489,14 @@
             "pattern_id": "放量下跌",
             "pattern_name": "恐慌殺跌",
             "signal": "AVOID",
-            "description": "恐慌殺跌無承接(量3.6倍,5日跌14.7%,20日跌27.2%)",
+            "description": "恐慌殺跌無承接(量3.4倍,5日跌14.7%,20日跌27.2%)",
             "confidence": 75.0,
-            "detected_at": "2026-11-07 12:26:27"
+            "detected_at": "2026-11-07 19:28:13"
           }
         ],
         "dominant_signal": "AVOID",
         "signal_strength": 75.0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 67.0,
@@ -5526,7 +5526,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 3.58,
+            "volume_ratio": 3.4,
             "price_change": -0.65
           },
           "trend": {
@@ -5548,7 +5548,7 @@
           "ma60": 200.22,
           "macd_hist": -3.646,
           "macd_hist_prev": -2.8946,
-          "volume_ratio": 3.58,
+          "volume_ratio": 3.4,
           "slope_20d": -1.068,
           "trend_dir": "down",
           "bb_upper": 224.25,
@@ -5583,7 +5583,7 @@
       "bias_5": -13.85,
       "bias_10": -21.12,
       "bias_20": -26.91,
-      "last_updated": "2026-11-07T12:26:08.128490",
+      "last_updated": "2026-11-07T19:27:59.340469",
       "data_points": 591,
       "history": [
         {
@@ -5770,11 +5770,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 7.9,
-          "high": 9.04,
-          "low": 7.8,
-          "close": 8.56,
-          "volume": 1564974473,
+          "open": 7.900000095367432,
+          "high": 9.039999961853027,
+          "low": 7.800000190734863,
+          "close": 8.5600004196167,
+          "volume": 1562504184,
           "kd_k": 12.39,
           "kd_d": 13.85,
           "bias_5": -13.85,
@@ -5787,7 +5787,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 73.8,
@@ -5817,7 +5817,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 3.47,
+            "volume_ratio": 3.46,
             "price_change": 8.35
           },
           "trend": {
@@ -5839,7 +5839,7 @@
           "ma60": 12.03,
           "macd_hist": -0.2566,
           "macd_hist_prev": -0.1788,
-          "volume_ratio": 3.47,
+          "volume_ratio": 3.46,
           "slope_20d": -1.481,
           "trend_dir": "down",
           "bb_upper": 14.23,
@@ -5874,7 +5874,7 @@
       "bias_5": -6.26,
       "bias_10": -9.78,
       "bias_20": -12.71,
-      "last_updated": "2026-11-07T12:26:08.325229",
+      "last_updated": "2026-11-07T19:27:59.396625",
       "data_points": 620,
       "history": [
         {
@@ -6062,10 +6062,10 @@
         {
           "date": "2026-11-06T00:00:00",
           "open": 77.0,
-          "high": 82.65,
-          "low": 76.05,
-          "close": 80.6,
-          "volume": 4199455,
+          "high": 82.6500015258789,
+          "low": 76.05000305175781,
+          "close": 80.5999984741211,
+          "volume": 3953305,
           "kd_k": 15.88,
           "kd_d": 16.6,
           "bias_5": -6.26,
@@ -6078,7 +6078,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 71.5,
@@ -6108,7 +6108,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 4.31,
+            "volume_ratio": 4.11,
             "price_change": 4.68
           },
           "trend": {
@@ -6130,7 +6130,7 @@
           "ma60": 92.93,
           "macd_hist": -1.3665,
           "macd_hist_prev": -1.0811,
-          "volume_ratio": 4.31,
+          "volume_ratio": 4.11,
           "slope_20d": -0.72,
           "trend_dir": "flat",
           "bb_upper": 101.4,
@@ -6165,7 +6165,7 @@
       "bias_5": 2.32,
       "bias_10": 1.07,
       "bias_20": -2.6,
-      "last_updated": "2026-11-07T12:26:08.474873",
+      "last_updated": "2026-11-07T19:27:59.368828",
       "data_points": 591,
       "history": [
         {
@@ -6352,11 +6352,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 68.65,
-          "high": 68.9,
-          "low": 66.9,
-          "close": 66.95,
-          "volume": 8059452,
+          "open": 68.6500015258789,
+          "high": 68.9000015258789,
+          "low": 66.9000015258789,
+          "close": 66.94999694824219,
+          "volume": 7998910,
           "kd_k": 46.45,
           "kd_d": 30.7,
           "bias_5": 2.32,
@@ -6369,7 +6369,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 57.2,
@@ -6399,7 +6399,7 @@
           },
           "volume_price": {
             "score": 10,
-            "volume_ratio": 1.95,
+            "volume_ratio": 1.94,
             "price_change": -2.48
           },
           "trend": {
@@ -6421,7 +6421,7 @@
           "ma60": 76.33,
           "macd_hist": 0.1916,
           "macd_hist_prev": 0.073,
-          "volume_ratio": 1.95,
+          "volume_ratio": 1.94,
           "slope_20d": -0.593,
           "trend_dir": "flat",
           "bb_upper": 74.81,
@@ -6450,13 +6450,13 @@
         "post_market_price": null,
         "prev_close": 63.8
       },
-      "kd_k": 15.86,
-      "kd_d": 33.04,
+      "kd_k": 27.14,
+      "kd_d": 36.8,
       "kd_state": "BEARISH_MOMENTUM",
-      "bias_5": -2.28,
-      "bias_10": -3.69,
-      "bias_20": -3.58,
-      "last_updated": "2026-11-07T12:26:08.437658",
+      "bias_5": -2.62,
+      "bias_10": -4.07,
+      "bias_20": -3.98,
+      "last_updated": "2026-11-07T19:27:59.404707",
       "data_points": 620,
       "history": [
         {
@@ -6643,16 +6643,16 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 62.619998931884766,
-          "high": 62.619998931884766,
-          "low": 62.619998931884766,
-          "close": 62.619998931884766,
-          "volume": 0,
-          "kd_k": 15.86,
-          "kd_d": 33.04,
-          "bias_5": -2.28,
-          "bias_10": -3.69,
-          "bias_20": -3.58
+          "open": 60.45000076293945,
+          "high": 62.95000076293945,
+          "low": 60.150001525878906,
+          "close": 62.349998474121094,
+          "volume": 12390580,
+          "kd_k": 27.14,
+          "kd_d": 36.8,
+          "bias_5": -2.62,
+          "bias_10": -4.07,
+          "bias_20": -3.98
         }
       ],
       "patterns": {
@@ -6660,64 +6660,64 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
-        "total": 58.0,
+        "total": 61.8,
         "recommendation": "持有觀望",
         "details": {
           "kd": {
-            "score": 90,
-            "k": 15.86,
-            "d": 33.04
+            "score": 75,
+            "k": 27.14,
+            "d": 36.8
           },
           "rsi": {
             "score": 85,
-            "value": 24.68
+            "value": 23.66
           },
           "ma_bias": {
             "score": 55,
-            "ma20": 64.95,
-            "ma60": 63.39,
-            "bias20": -3.58,
-            "bias60": -1.21
+            "ma20": 64.93,
+            "ma60": 63.38,
+            "bias20": -3.98,
+            "bias60": -1.63
           },
           "macd": {
             "score": 10,
-            "macd_hist": -0.3768,
+            "macd_hist": -0.3941,
             "macd_hist_prev": -0.2672,
             "trend": "bearish"
           },
           "volume_price": {
-            "score": 50,
-            "volume_ratio": 0.0,
-            "price_change": 0.0
+            "score": 95,
+            "volume_ratio": 2.03,
+            "price_change": 3.14
           },
           "trend": {
             "score": 50,
-            "slope_20d": -0.006,
-            "volatility": 0.72,
+            "slope_20d": -0.012,
+            "volatility": 0.74,
             "trend_dir": "flat"
           },
           "bollinger": {
-            "bb_upper": 67.01,
-            "bb_mid": 64.95,
-            "bb_lower": 62.88,
-            "percent_b": -0.063
+            "bb_upper": 67.06,
+            "bb_mid": 64.93,
+            "bb_lower": 62.8,
+            "percent_b": -0.106
           }
         },
         "raw": {
-          "rsi": 24.68,
-          "ma20": 64.95,
-          "ma60": 63.39,
-          "macd_hist": -0.3768,
+          "rsi": 23.66,
+          "ma20": 64.93,
+          "ma60": 63.38,
+          "macd_hist": -0.3941,
           "macd_hist_prev": -0.2672,
-          "volume_ratio": 0.0,
-          "slope_20d": -0.006,
+          "volume_ratio": 2.03,
+          "slope_20d": -0.012,
           "trend_dir": "flat",
-          "bb_upper": 67.01,
-          "bb_lower": 62.88,
-          "percent_b": -0.063
+          "bb_upper": 67.06,
+          "bb_lower": 62.8,
+          "percent_b": -0.106
         }
       },
       "institutional": {
@@ -6747,7 +6747,7 @@
       "bias_5": -6.75,
       "bias_10": -13.26,
       "bias_20": -10.93,
-      "last_updated": "2026-11-07T12:26:08.649825",
+      "last_updated": "2026-11-07T19:27:59.481406",
       "data_points": 616,
       "history": [
         {
@@ -6934,11 +6934,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 70.6,
-          "high": 72.9,
-          "low": 70.6,
-          "close": 71.1,
-          "volume": 3917844,
+          "open": 70.5999984741211,
+          "high": 72.9000015258789,
+          "low": 70.5999984741211,
+          "close": 71.0999984741211,
+          "volume": 3891066,
           "kd_k": 26.09,
           "kd_d": 42.04,
           "bias_5": -6.75,
@@ -6951,7 +6951,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 49.0,
@@ -6981,7 +6981,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 1.26,
+            "volume_ratio": 1.25,
             "price_change": 0.71
           },
           "trend": {
@@ -7003,7 +7003,7 @@
           "ma60": 66.2,
           "macd_hist": -2.4189,
           "macd_hist_prev": -2.1122,
-          "volume_ratio": 1.26,
+          "volume_ratio": 1.25,
           "slope_20d": 0.315,
           "trend_dir": "flat",
           "bb_upper": 93.55,
@@ -7038,7 +7038,7 @@
       "bias_5": -3.55,
       "bias_10": -5.63,
       "bias_20": -6.05,
-      "last_updated": "2026-11-07T12:26:08.653020",
+      "last_updated": "2026-11-07T19:27:59.631824",
       "data_points": 591,
       "history": [
         {
@@ -7225,11 +7225,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 90.85,
-          "high": 95.9,
-          "low": 90.7,
-          "close": 94.8,
-          "volume": 661459,
+          "open": 90.8499984741211,
+          "high": 95.9000015258789,
+          "low": 90.69999694824219,
+          "close": 94.80000305175781,
+          "volume": 646200,
           "kd_k": 28.01,
           "kd_d": 38.65,
           "bias_5": -3.55,
@@ -7242,7 +7242,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 58.0,
@@ -7272,7 +7272,7 @@
           },
           "volume_price": {
             "score": 70,
-            "volume_ratio": 1.45,
+            "volume_ratio": 1.42,
             "price_change": 4.35
           },
           "trend": {
@@ -7294,7 +7294,7 @@
           "ma60": 97.47,
           "macd_hist": -0.9201,
           "macd_hist_prev": -0.677,
-          "volume_ratio": 1.45,
+          "volume_ratio": 1.42,
           "slope_20d": -0.146,
           "trend_dir": "flat",
           "bb_upper": 105.16,
@@ -7329,7 +7329,7 @@
       "bias_5": -11.05,
       "bias_10": -17.54,
       "bias_20": -22.68,
-      "last_updated": "2026-11-07T12:26:08.932545",
+      "last_updated": "2026-11-07T19:27:59.723696",
       "data_points": 620,
       "history": [
         {
@@ -7516,11 +7516,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 52.7,
+          "open": 52.70000076293945,
           "high": 56.5,
-          "low": 52.7,
+          "low": 52.70000076293945,
           "close": 54.5,
-          "volume": 1132627,
+          "volume": 1081494,
           "kd_k": 10.1,
           "kd_d": 13.52,
           "bias_5": -11.05,
@@ -7533,7 +7533,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:13"
       },
       "score": {
         "total": 71.5,
@@ -7563,7 +7563,7 @@
           },
           "volume_price": {
             "score": 80,
-            "volume_ratio": 1.74,
+            "volume_ratio": 1.67,
             "price_change": 3.42
           },
           "trend": {
@@ -7585,7 +7585,7 @@
           "ma60": 69.07,
           "macd_hist": -2.0772,
           "macd_hist_prev": -1.738,
-          "volume_ratio": 1.74,
+          "volume_ratio": 1.67,
           "slope_20d": -1.251,
           "trend_dir": "down",
           "bb_upper": 83.07,
@@ -7620,7 +7620,7 @@
       "bias_5": -8.87,
       "bias_10": -12.7,
       "bias_20": -15.58,
-      "last_updated": "2026-11-07T12:26:09.032146",
+      "last_updated": "2026-11-07T19:27:59.727238",
       "data_points": 616,
       "history": [
         {
@@ -7807,11 +7807,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 77.7,
-          "high": 84.35,
-          "low": 77.7,
-          "close": 82.35,
-          "volume": 3417317,
+          "open": 77.69999694824219,
+          "high": 84.3499984741211,
+          "low": 77.69999694824219,
+          "close": 82.3499984741211,
+          "volume": 3304014,
           "kd_k": 18.39,
           "kd_d": 24.24,
           "bias_5": -8.87,
@@ -7824,7 +7824,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 69.2,
@@ -7854,7 +7854,7 @@
           },
           "volume_price": {
             "score": 80,
-            "volume_ratio": 1.59,
+            "volume_ratio": 1.54,
             "price_change": 5.98
           },
           "trend": {
@@ -7876,7 +7876,7 @@
           "ma60": 102.45,
           "macd_hist": -1.4584,
           "macd_hist_prev": -1.0079,
-          "volume_ratio": 1.59,
+          "volume_ratio": 1.54,
           "slope_20d": -0.787,
           "trend_dir": "flat",
           "bb_upper": 109.93,
@@ -7911,7 +7911,7 @@
       "bias_5": 4.89,
       "bias_10": 8.43,
       "bias_20": 5.28,
-      "last_updated": "2026-11-07T12:26:09.026693",
+      "last_updated": "2026-11-07T19:27:59.719611",
       "data_points": 591,
       "history": [
         {
@@ -8098,11 +8098,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 8.59,
-          "high": 8.66,
-          "low": 8.4,
-          "close": 8.49,
-          "volume": 34821765,
+          "open": 8.59000015258789,
+          "high": 8.65999984741211,
+          "low": 8.399999618530273,
+          "close": 8.489999771118164,
+          "volume": 34833400,
           "kd_k": 69.33,
           "kd_d": 49.26,
           "bias_5": 4.89,
@@ -8115,7 +8115,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 51.8,
@@ -8202,7 +8202,7 @@
       "bias_5": -2.68,
       "bias_10": -4.95,
       "bias_20": -7.79,
-      "last_updated": "2026-11-07T12:26:09.309755",
+      "last_updated": "2026-11-07T19:27:59.801725",
       "data_points": 620,
       "history": [
         {
@@ -8389,11 +8389,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 129.95,
-          "high": 131.15,
-          "low": 129.65,
-          "close": 130.15,
-          "volume": 1581584,
+          "open": 129.9499969482422,
+          "high": 131.14999389648438,
+          "low": 129.64999389648438,
+          "close": 130.14999389648438,
+          "volume": 1422900,
           "kd_k": 15.82,
           "kd_d": 15.92,
           "bias_5": -2.68,
@@ -8406,7 +8406,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 60.2,
@@ -8436,7 +8436,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 1.34,
+            "volume_ratio": 1.22,
             "price_change": 0.15
           },
           "trend": {
@@ -8458,7 +8458,7 @@
           "ma60": 140.48,
           "macd_hist": -1.3448,
           "macd_hist_prev": -1.1759,
-          "volume_ratio": 1.34,
+          "volume_ratio": 1.22,
           "slope_20d": -0.58,
           "trend_dir": "flat",
           "bb_upper": 151.53,
@@ -8493,7 +8493,7 @@
       "bias_5": -4.4,
       "bias_10": -7.56,
       "bias_20": -10.32,
-      "last_updated": "2026-11-07T12:26:09.206338",
+      "last_updated": "2026-11-07T19:27:59.916694",
       "data_points": 620,
       "history": [
         {
@@ -8681,10 +8681,10 @@
         {
           "date": "2026-11-06T00:00:00",
           "open": 56.0,
-          "high": 57.1,
-          "low": 55.85,
-          "close": 56.7,
-          "volume": 933480,
+          "high": 57.099998474121094,
+          "low": 55.849998474121094,
+          "close": 56.70000076293945,
+          "volume": 866000,
           "kd_k": 13.54,
           "kd_d": 15.42,
           "bias_5": -4.4,
@@ -8697,7 +8697,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 69.0,
@@ -8714,7 +8714,7 @@
           },
           "ma_bias": {
             "score": 85,
-            "ma20": 63.22,
+            "ma20": 63.23,
             "ma60": 65.22,
             "bias20": -10.32,
             "bias60": -13.06
@@ -8727,7 +8727,7 @@
           },
           "volume_price": {
             "score": 65,
-            "volume_ratio": 1.97,
+            "volume_ratio": 1.84,
             "price_change": 1.25
           },
           "trend": {
@@ -8738,18 +8738,18 @@
           },
           "bollinger": {
             "bb_upper": 68.58,
-            "bb_mid": 63.22,
+            "bb_mid": 63.23,
             "bb_lower": 57.87,
             "percent_b": -0.109
           }
         },
         "raw": {
           "rsi": 16.87,
-          "ma20": 63.22,
+          "ma20": 63.23,
           "ma60": 65.22,
           "macd_hist": -0.6596,
           "macd_hist_prev": -0.5091,
-          "volume_ratio": 1.97,
+          "volume_ratio": 1.84,
           "slope_20d": -0.64,
           "trend_dir": "flat",
           "bb_upper": 68.58,
@@ -8784,7 +8784,7 @@
       "bias_5": -8.84,
       "bias_10": -12.86,
       "bias_20": -16.6,
-      "last_updated": "2026-11-07T12:26:09.446273",
+      "last_updated": "2026-11-07T19:27:59.983391",
       "data_points": 620,
       "history": [
         {
@@ -8971,11 +8971,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 66.9,
-          "high": 69.1,
-          "low": 66.65,
-          "close": 67.95,
-          "volume": 32030799,
+          "open": 66.9000015258789,
+          "high": 69.0999984741211,
+          "low": 66.6500015258789,
+          "close": 67.94999694824219,
+          "volume": 30047974,
           "kd_k": 12.54,
           "kd_d": 18.3,
           "bias_5": -8.84,
@@ -8988,7 +8988,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 67.0,
@@ -9018,7 +9018,7 @@
           },
           "volume_price": {
             "score": 65,
-            "volume_ratio": 2.49,
+            "volume_ratio": 2.35,
             "price_change": 1.57
           },
           "trend": {
@@ -9040,7 +9040,7 @@
           "ma60": 83.64,
           "macd_hist": -1.3927,
           "macd_hist_prev": -1.018,
-          "volume_ratio": 2.49,
+          "volume_ratio": 2.35,
           "slope_20d": -0.908,
           "trend_dir": "flat",
           "bb_upper": 92.18,
@@ -9069,13 +9069,13 @@
         "post_market_price": null,
         "prev_close": 82.45
       },
-      "kd_k": 8.68,
-      "kd_d": 14.81,
-      "kd_state": "OVERSOLD",
-      "bias_5": -7.13,
-      "bias_10": -11.05,
-      "bias_20": -14.27,
-      "last_updated": "2026-11-07T12:26:09.523853",
+      "kd_k": 14.04,
+      "kd_d": 16.59,
+      "kd_state": "OVERSOLD_REVERSAL",
+      "bias_5": -7.02,
+      "bias_10": -10.93,
+      "bias_20": -14.14,
+      "last_updated": "2026-11-07T19:28:00.024054",
       "data_points": 591,
       "history": [
         {
@@ -9262,16 +9262,16 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 78.33000183105469,
-          "high": 78.33000183105469,
-          "low": 78.33000183105469,
-          "close": 78.33000183105469,
-          "volume": 0,
-          "kd_k": 8.68,
-          "kd_d": 14.81,
-          "bias_5": -7.13,
-          "bias_10": -11.05,
-          "bias_20": -14.27
+          "open": 76.5,
+          "high": 80.4000015258789,
+          "low": 75.55000305175781,
+          "close": 78.44999694824219,
+          "volume": 2575817,
+          "kd_k": 14.04,
+          "kd_d": 16.59,
+          "bias_5": -7.02,
+          "bias_10": -10.93,
+          "bias_20": -14.14
         }
       ],
       "patterns": {
@@ -9279,64 +9279,64 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
-        "total": 66.8,
+        "total": 69.2,
         "recommendation": "持有觀望",
         "details": {
           "kd": {
-            "score": 100,
-            "k": 8.68,
-            "d": 14.81
+            "score": 90,
+            "k": 14.04,
+            "d": 16.59
           },
           "rsi": {
             "score": 100,
-            "value": 14.34
+            "value": 14.42
           },
           "ma_bias": {
             "score": 85,
             "ma20": 91.37,
             "ma60": 92.38,
-            "bias20": -14.27,
-            "bias60": -15.21
+            "bias20": -14.14,
+            "bias60": -15.08
           },
           "macd": {
             "score": 10,
-            "macd_hist": -1.5077,
+            "macd_hist": -1.5,
             "macd_hist_prev": -1.1894,
             "trend": "bearish"
           },
           "volume_price": {
-            "score": 50,
-            "volume_ratio": 0.0,
-            "price_change": 0.0
+            "score": 80,
+            "volume_ratio": 4.04,
+            "price_change": 2.55
           },
           "trend": {
             "score": 50,
-            "slope_20d": -0.793,
-            "volatility": 1.69,
+            "slope_20d": -0.791,
+            "volatility": 1.68,
             "trend_dir": "flat"
           },
           "bollinger": {
-            "bb_upper": 101.3,
+            "bb_upper": 101.27,
             "bb_mid": 91.37,
-            "bb_lower": 81.43,
-            "percent_b": -0.156
+            "bb_lower": 81.47,
+            "percent_b": -0.153
           }
         },
         "raw": {
-          "rsi": 14.34,
+          "rsi": 14.42,
           "ma20": 91.37,
           "ma60": 92.38,
-          "macd_hist": -1.5077,
+          "macd_hist": -1.5,
           "macd_hist_prev": -1.1894,
-          "volume_ratio": 0.0,
-          "slope_20d": -0.793,
+          "volume_ratio": 4.04,
+          "slope_20d": -0.791,
           "trend_dir": "flat",
-          "bb_upper": 101.3,
-          "bb_lower": 81.43,
-          "percent_b": -0.156
+          "bb_upper": 101.27,
+          "bb_lower": 81.47,
+          "percent_b": -0.153
         }
       },
       "institutional": {
@@ -9366,7 +9366,7 @@
       "bias_5": -3.94,
       "bias_10": -4.8,
       "bias_20": -4.37,
-      "last_updated": "2026-11-07T12:26:09.678785",
+      "last_updated": "2026-11-07T19:28:00.041309",
       "data_points": 591,
       "history": [
         {
@@ -9553,11 +9553,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 32.95,
+          "open": 32.95000076293945,
           "high": 33.0,
-          "low": 32.39,
-          "close": 32.4,
-          "volume": 402193,
+          "low": 32.38999938964844,
+          "close": 32.400001525878906,
+          "volume": 395190,
           "kd_k": 35.13,
           "kd_d": 45.25,
           "bias_5": -3.94,
@@ -9570,7 +9570,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 49.8,
@@ -9600,7 +9600,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 1.12,
+            "volume_ratio": 1.1,
             "price_change": -1.67
           },
           "trend": {
@@ -9622,7 +9622,7 @@
           "ma60": 34.32,
           "macd_hist": -0.0408,
           "macd_hist_prev": 0.0996,
-          "volume_ratio": 1.12,
+          "volume_ratio": 1.1,
           "slope_20d": 0.105,
           "trend_dir": "flat",
           "bb_upper": 35.44,
@@ -9657,7 +9657,7 @@
       "bias_5": -2.32,
       "bias_10": -3.2,
       "bias_20": -3.86,
-      "last_updated": "2026-11-07T12:26:09.738535",
+      "last_updated": "2026-11-07T19:28:00.103694",
       "data_points": 591,
       "history": [
         {
@@ -9861,7 +9861,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 54.2,
@@ -9948,7 +9948,7 @@
       "bias_5": -4.39,
       "bias_10": -6.93,
       "bias_20": -8.09,
-      "last_updated": "2026-11-07T12:26:09.981310",
+      "last_updated": "2026-11-07T19:28:00.269661",
       "data_points": 620,
       "history": [
         {
@@ -10135,11 +10135,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 30.65,
-          "high": 32.45,
-          "low": 30.46,
-          "close": 31.99,
-          "volume": 195212100,
+          "open": 30.649999618530273,
+          "high": 32.45000076293945,
+          "low": 30.459999084472656,
+          "close": 31.989999771118164,
+          "volume": 189521188,
           "kd_k": 22.73,
           "kd_d": 30.31,
           "bias_5": -4.39,
@@ -10152,7 +10152,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 66.2,
@@ -10182,7 +10182,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 3.32,
+            "volume_ratio": 3.23,
             "price_change": 4.37
           },
           "trend": {
@@ -10204,7 +10204,7 @@
           "ma60": 34.19,
           "macd_hist": -0.3763,
           "macd_hist_prev": -0.2863,
-          "volume_ratio": 3.32,
+          "volume_ratio": 3.23,
           "slope_20d": -0.314,
           "trend_dir": "flat",
           "bb_upper": 36.66,
@@ -10239,7 +10239,7 @@
       "bias_5": -7.83,
       "bias_10": -12.65,
       "bias_20": -17.02,
-      "last_updated": "2026-11-07T12:26:09.975374",
+      "last_updated": "2026-11-07T19:28:00.265992",
       "data_points": 616,
       "history": [
         {
@@ -10426,11 +10426,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 38.11,
-          "high": 40.9,
-          "low": 38.06,
-          "close": 40.13,
-          "volume": 47409457,
+          "open": 38.11000061035156,
+          "high": 40.900001525878906,
+          "low": 38.060001373291016,
+          "close": 40.130001068115234,
+          "volume": 46190249,
           "kd_k": 11.72,
           "kd_d": 11.85,
           "bias_5": -7.83,
@@ -10443,7 +10443,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 73.8,
@@ -10473,7 +10473,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.23,
+            "volume_ratio": 2.18,
             "price_change": 5.3
           },
           "trend": {
@@ -10495,7 +10495,7 @@
           "ma60": 49.92,
           "macd_hist": -0.9165,
           "macd_hist_prev": -0.7565,
-          "volume_ratio": 2.23,
+          "volume_ratio": 2.18,
           "slope_20d": -1.032,
           "trend_dir": "down",
           "bb_upper": 55.14,
@@ -10530,7 +10530,7 @@
       "bias_5": 1.07,
       "bias_10": 0.88,
       "bias_20": 1.57,
-      "last_updated": "2026-11-07T12:26:10.133815",
+      "last_updated": "2026-11-07T19:28:00.328511",
       "data_points": 616,
       "history": [
         {
@@ -10717,11 +10717,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 17.63,
-          "high": 18.17,
-          "low": 17.63,
-          "close": 18.15,
-          "volume": 7895297,
+          "open": 17.6299991607666,
+          "high": 18.170000076293945,
+          "low": 17.6299991607666,
+          "close": 18.149999618530273,
+          "volume": 7860001,
           "kd_k": 65.47,
           "kd_d": 61.27,
           "bias_5": 1.07,
@@ -10734,7 +10734,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 54.0,
@@ -10764,7 +10764,7 @@
           },
           "volume_price": {
             "score": 80,
-            "volume_ratio": 3.48,
+            "volume_ratio": 3.47,
             "price_change": 2.95
           },
           "trend": {
@@ -10786,7 +10786,7 @@
           "ma60": 18.1,
           "macd_hist": 0.0447,
           "macd_hist_prev": 0.0377,
-          "volume_ratio": 3.48,
+          "volume_ratio": 3.47,
           "slope_20d": 0.121,
           "trend_dir": "flat",
           "bb_upper": 18.28,
@@ -10821,7 +10821,7 @@
       "bias_5": -7.07,
       "bias_10": -11.73,
       "bias_20": -17.14,
-      "last_updated": "2026-11-07T12:26:10.210923",
+      "last_updated": "2026-11-07T19:28:00.366532",
       "data_points": 591,
       "history": [
         {
@@ -11025,7 +11025,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 70.0,
@@ -11112,7 +11112,7 @@
       "bias_5": -8.43,
       "bias_10": -13.07,
       "bias_20": -16.98,
-      "last_updated": "2026-11-07T12:26:10.324723",
+      "last_updated": "2026-11-07T19:28:00.425481",
       "data_points": 616,
       "history": [
         {
@@ -11299,11 +11299,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 27.4,
+          "open": 27.399999618530273,
           "high": 29.5,
-          "low": 27.39,
-          "close": 28.79,
-          "volume": 57790901,
+          "low": 27.389999389648438,
+          "close": 28.790000915527344,
+          "volume": 56990181,
           "kd_k": 14.47,
           "kd_d": 17.56,
           "bias_5": -8.43,
@@ -11316,7 +11316,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 73.8,
@@ -11346,7 +11346,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.25,
+            "volume_ratio": 2.23,
             "price_change": 5.07
           },
           "trend": {
@@ -11368,7 +11368,7 @@
           "ma60": 35.29,
           "macd_hist": -0.6691,
           "macd_hist_prev": -0.5337,
-          "volume_ratio": 2.25,
+          "volume_ratio": 2.23,
           "slope_20d": -0.965,
           "trend_dir": "flat",
           "bb_upper": 39.37,
@@ -11403,7 +11403,7 @@
       "bias_5": -6.73,
       "bias_10": -8.58,
       "bias_20": -10.52,
-      "last_updated": "2026-11-07T12:26:10.476753",
+      "last_updated": "2026-11-07T19:28:00.618250",
       "data_points": 620,
       "history": [
         {
@@ -11591,10 +11591,10 @@
         {
           "date": "2026-11-06T00:00:00",
           "open": 39.0,
-          "high": 39.76,
-          "low": 38.51,
-          "close": 39.31,
-          "volume": 2926505,
+          "high": 39.7599983215332,
+          "low": 38.5099983215332,
+          "close": 39.310001373291016,
+          "volume": 2878170,
           "kd_k": 21.77,
           "kd_d": 28.74,
           "bias_5": -6.73,
@@ -11611,12 +11611,12 @@
             "signal": "AVOID",
             "description": "恐慌殺跌無承接(量2.6倍,5日跌9.8%,20日跌18.0%)",
             "confidence": 85.0,
-            "detected_at": "2026-11-07 12:26:27"
+            "detected_at": "2026-11-07 19:28:14"
           }
         ],
         "dominant_signal": "AVOID",
         "signal_strength": 85.0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 61.8,
@@ -11646,7 +11646,7 @@
           },
           "volume_price": {
             "score": 65,
-            "volume_ratio": 2.59,
+            "volume_ratio": 2.55,
             "price_change": 0.79
           },
           "trend": {
@@ -11668,7 +11668,7 @@
           "ma60": 43.85,
           "macd_hist": -0.4346,
           "macd_hist_prev": -0.2448,
-          "volume_ratio": 2.59,
+          "volume_ratio": 2.55,
           "slope_20d": -0.501,
           "trend_dir": "flat",
           "bb_upper": 47.27,
@@ -11703,7 +11703,7 @@
       "bias_5": -6.26,
       "bias_10": -8.53,
       "bias_20": -10.55,
-      "last_updated": "2026-11-07T12:26:10.687148",
+      "last_updated": "2026-11-07T19:28:00.623465",
       "data_points": 620,
       "history": [
         {
@@ -11890,11 +11890,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 44.67,
-          "high": 45.4,
-          "low": 43.13,
-          "close": 44.86,
-          "volume": 712427,
+          "open": 44.66999816894531,
+          "high": 45.400001525878906,
+          "low": 43.130001068115234,
+          "close": 44.86000061035156,
+          "volume": 687376,
           "kd_k": 16.4,
           "kd_d": 20.26,
           "bias_5": -6.26,
@@ -11907,7 +11907,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 67.0,
@@ -11937,7 +11937,7 @@
           },
           "volume_price": {
             "score": 65,
-            "volume_ratio": 2.22,
+            "volume_ratio": 2.15,
             "price_change": 0.43
           },
           "trend": {
@@ -11959,7 +11959,7 @@
           "ma60": 50.48,
           "macd_hist": -0.5301,
           "macd_hist_prev": -0.3387,
-          "volume_ratio": 2.22,
+          "volume_ratio": 2.15,
           "slope_20d": -0.509,
           "trend_dir": "flat",
           "bb_upper": 53.83,
@@ -11994,7 +11994,7 @@
       "bias_5": -7.49,
       "bias_10": -11.71,
       "bias_20": -15.46,
-      "last_updated": "2026-11-07T12:26:10.745145",
+      "last_updated": "2026-11-07T19:28:00.614833",
       "data_points": 620,
       "history": [
         {
@@ -12181,11 +12181,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 20.61,
-          "high": 22.06,
-          "low": 20.52,
-          "close": 21.53,
-          "volume": 2045861,
+          "open": 20.610000610351562,
+          "high": 22.059999465942383,
+          "low": 20.520000457763672,
+          "close": 21.530000686645508,
+          "volume": 1964386,
           "kd_k": 14.25,
           "kd_d": 16.4,
           "bias_5": -7.49,
@@ -12198,7 +12198,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 71.5,
@@ -12228,7 +12228,7 @@
           },
           "volume_price": {
             "score": 80,
-            "volume_ratio": 1.8,
+            "volume_ratio": 1.73,
             "price_change": 4.46
           },
           "trend": {
@@ -12250,7 +12250,7 @@
           "ma60": 26.31,
           "macd_hist": -0.4286,
           "macd_hist_prev": -0.3424,
-          "volume_ratio": 1.8,
+          "volume_ratio": 1.73,
           "slope_20d": -0.901,
           "trend_dir": "flat",
           "bb_upper": 28.69,
@@ -12285,7 +12285,7 @@
       "bias_5": -3.11,
       "bias_10": -4.38,
       "bias_20": -4.89,
-      "last_updated": "2026-11-07T12:26:10.837455",
+      "last_updated": "2026-11-07T19:28:00.658744",
       "data_points": 591,
       "history": [
         {
@@ -12472,11 +12472,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 16.6,
-          "high": 17.46,
-          "low": 16.57,
-          "close": 17.3,
-          "volume": 1734701,
+          "open": 16.600000381469727,
+          "high": 17.459999084472656,
+          "low": 16.56999969482422,
+          "close": 17.299999237060547,
+          "volume": 1708090,
           "kd_k": 29.04,
           "kd_d": 32.46,
           "bias_5": -3.11,
@@ -12489,7 +12489,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 61.8,
@@ -12519,7 +12519,7 @@
           },
           "volume_price": {
             "score": 80,
-            "volume_ratio": 1.72,
+            "volume_ratio": 1.7,
             "price_change": 4.22
           },
           "trend": {
@@ -12541,7 +12541,7 @@
           "ma60": 17.72,
           "macd_hist": -0.1229,
           "macd_hist_prev": -0.0843,
-          "volume_ratio": 1.72,
+          "volume_ratio": 1.7,
           "slope_20d": -0.13,
           "trend_dir": "flat",
           "bb_upper": 18.83,
@@ -12576,7 +12576,7 @@
       "bias_5": -5.95,
       "bias_10": -9.23,
       "bias_20": -14.41,
-      "last_updated": "2026-11-07T12:26:10.874455",
+      "last_updated": "2026-11-07T19:28:00.759145",
       "data_points": 620,
       "history": [
         {
@@ -12763,11 +12763,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 34.9,
-          "high": 35.35,
-          "low": 34.81,
-          "close": 34.86,
-          "volume": 3070739,
+          "open": 34.900001525878906,
+          "high": 35.349998474121094,
+          "low": 34.810001373291016,
+          "close": 34.86000061035156,
+          "volume": 2931210,
           "kd_k": 16.0,
           "kd_d": 17.51,
           "bias_5": -5.95,
@@ -12780,7 +12780,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 62.8,
@@ -12810,7 +12810,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 1.29,
+            "volume_ratio": 1.24,
             "price_change": -0.11
           },
           "trend": {
@@ -12832,7 +12832,7 @@
           "ma60": 44.96,
           "macd_hist": -0.3814,
           "macd_hist_prev": -0.2818,
-          "volume_ratio": 1.29,
+          "volume_ratio": 1.24,
           "slope_20d": -1.063,
           "trend_dir": "down",
           "bb_upper": 46.74,
@@ -12867,7 +12867,7 @@
       "bias_5": -6.31,
       "bias_10": -8.65,
       "bias_20": -10.08,
-      "last_updated": "2026-11-07T12:26:10.992763",
+      "last_updated": "2026-11-07T19:28:00.963356",
       "data_points": 620,
       "history": [
         {
@@ -13054,11 +13054,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 45.37,
-          "high": 46.2,
-          "low": 44.94,
-          "close": 45.98,
-          "volume": 1312267,
+          "open": 45.369998931884766,
+          "high": 46.20000076293945,
+          "low": 44.939998626708984,
+          "close": 45.97999954223633,
+          "volume": 1244236,
           "kd_k": 20.26,
           "kd_d": 31.44,
           "bias_5": -6.31,
@@ -13071,7 +13071,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 59.5,
@@ -13101,7 +13101,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 1.48,
+            "volume_ratio": 1.41,
             "price_change": 1.34
           },
           "trend": {
@@ -13123,7 +13123,7 @@
           "ma60": 56.1,
           "macd_hist": -0.2486,
           "macd_hist_prev": -0.0419,
-          "volume_ratio": 1.48,
+          "volume_ratio": 1.41,
           "slope_20d": -0.452,
           "trend_dir": "flat",
           "bb_upper": 55.52,
@@ -13158,7 +13158,7 @@
       "bias_5": -9.34,
       "bias_10": -13.91,
       "bias_20": -17.82,
-      "last_updated": "2026-11-07T12:26:11.248821",
+      "last_updated": "2026-11-07T19:28:00.959568",
       "data_points": 620,
       "history": [
         {
@@ -13345,11 +13345,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 40.85,
-          "high": 43.97,
+          "open": 40.849998474121094,
+          "high": 43.970001220703125,
           "low": 40.0,
-          "close": 42.42,
-          "volume": 813741,
+          "close": 42.41999816894531,
+          "volume": 745178,
           "kd_k": 14.54,
           "kd_d": 17.73,
           "bias_5": -9.34,
@@ -13364,14 +13364,14 @@
             "pattern_id": "放量下跌",
             "pattern_name": "恐慌殺跌",
             "signal": "AVOID",
-            "description": "恐慌後有承接(量4.1倍,下影2.0%,5日跌17.6%)",
+            "description": "恐慌後有承接(量3.8倍,下影2.0%,5日跌17.6%)",
             "confidence": 100.0,
-            "detected_at": "2026-11-07 12:26:27"
+            "detected_at": "2026-11-07 19:28:14"
           }
         ],
         "dominant_signal": "AVOID",
         "signal_strength": 100.0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 73.8,
@@ -13401,7 +13401,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 4.07,
+            "volume_ratio": 3.8,
             "price_change": 3.84
           },
           "trend": {
@@ -13423,7 +13423,7 @@
           "ma60": 53.07,
           "macd_hist": -0.9574,
           "macd_hist_prev": -0.708,
-          "volume_ratio": 4.07,
+          "volume_ratio": 3.8,
           "slope_20d": -0.96,
           "trend_dir": "flat",
           "bb_upper": 58.79,
@@ -13458,7 +13458,7 @@
       "bias_5": -4.22,
       "bias_10": -6.77,
       "bias_20": -7.55,
-      "last_updated": "2026-11-07T12:26:11.446926",
+      "last_updated": "2026-11-07T19:28:00.997636",
       "data_points": 620,
       "history": [
         {
@@ -13646,10 +13646,10 @@
         {
           "date": "2026-11-06T00:00:00",
           "open": 29.25,
-          "high": 30.97,
+          "high": 30.969999313354492,
           "low": 29.0,
-          "close": 30.55,
-          "volume": 4156355,
+          "close": 30.549999237060547,
+          "volume": 4097243,
           "kd_k": 21.66,
           "kd_d": 28.71,
           "bias_5": -4.22,
@@ -13662,7 +13662,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 66.2,
@@ -13692,7 +13692,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.2,
+            "volume_ratio": 2.18,
             "price_change": 4.44
           },
           "trend": {
@@ -13714,7 +13714,7 @@
           "ma60": 32.56,
           "macd_hist": -0.332,
           "macd_hist_prev": -0.2433,
-          "volume_ratio": 2.2,
+          "volume_ratio": 2.18,
           "slope_20d": -0.234,
           "trend_dir": "flat",
           "bb_upper": 34.69,
@@ -13749,7 +13749,7 @@
       "bias_5": -4.15,
       "bias_10": -6.39,
       "bias_20": -7.03,
-      "last_updated": "2026-11-07T12:26:11.422453",
+      "last_updated": "2026-11-07T19:28:00.977795",
       "data_points": 620,
       "history": [
         {
@@ -13936,11 +13936,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 30.09,
-          "high": 32.1,
-          "low": 30.08,
-          "close": 31.7,
-          "volume": 61465513,
+          "open": 30.09000015258789,
+          "high": 32.099998474121094,
+          "low": 30.079999923706055,
+          "close": 31.700000762939453,
+          "volume": 59954388,
           "kd_k": 23.7,
           "kd_d": 31.22,
           "bias_5": -4.15,
@@ -13953,7 +13953,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 66.2,
@@ -13983,7 +13983,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.17,
+            "volume_ratio": 2.12,
             "price_change": 5.35
           },
           "trend": {
@@ -14005,7 +14005,7 @@
           "ma60": 34.27,
           "macd_hist": -0.2772,
           "macd_hist_prev": -0.1834,
-          "volume_ratio": 2.17,
+          "volume_ratio": 2.12,
           "slope_20d": -0.207,
           "trend_dir": "flat",
           "bb_upper": 35.61,
@@ -14040,7 +14040,7 @@
       "bias_5": -3.88,
       "bias_10": -5.91,
       "bias_20": -6.35,
-      "last_updated": "2026-11-07T12:26:11.403929",
+      "last_updated": "2026-11-07T19:28:01.078146",
       "data_points": 620,
       "history": [
         {
@@ -14227,11 +14227,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 28.99,
-          "high": 30.57,
-          "low": 28.62,
-          "close": 30.14,
-          "volume": 185841784,
+          "open": 28.989999771118164,
+          "high": 30.56999969482422,
+          "low": 28.6200008392334,
+          "close": 30.139999389648438,
+          "volume": 181365856,
           "kd_k": 27.9,
           "kd_d": 35.81,
           "bias_5": -3.88,
@@ -14244,7 +14244,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 64.0,
@@ -14274,7 +14274,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.48,
+            "volume_ratio": 2.43,
             "price_change": 3.97
           },
           "trend": {
@@ -14296,7 +14296,7 @@
           "ma60": 31.79,
           "macd_hist": -0.2618,
           "macd_hist_prev": -0.1765,
-          "volume_ratio": 2.48,
+          "volume_ratio": 2.43,
           "slope_20d": -0.157,
           "trend_dir": "flat",
           "bb_upper": 33.52,
@@ -14331,7 +14331,7 @@
       "bias_5": -4.52,
       "bias_10": -7.46,
       "bias_20": -9.72,
-      "last_updated": "2026-11-07T12:26:11.500554",
+      "last_updated": "2026-11-07T19:28:01.313385",
       "data_points": 591,
       "history": [
         {
@@ -14518,11 +14518,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 19.95,
-          "high": 21.31,
-          "low": 19.53,
-          "close": 21.1,
-          "volume": 232493,
+          "open": 19.950000762939453,
+          "high": 21.309999465942383,
+          "low": 19.530000686645508,
+          "close": 21.100000381469727,
+          "volume": 200049,
           "kd_k": 20.43,
           "kd_d": 18.13,
           "bias_5": -4.52,
@@ -14539,12 +14539,12 @@
             "signal": "AVOID",
             "description": "無量陰跌10.4%(20天跌13.0%)",
             "confidence": 100.0,
-            "detected_at": "2026-11-07 12:26:27"
+            "detected_at": "2026-11-07 19:28:14"
           }
         ],
         "dominant_signal": "AVOID",
         "signal_strength": 100.0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 67.8,
@@ -14574,7 +14574,7 @@
           },
           "volume_price": {
             "score": 70,
-            "volume_ratio": 1.04,
+            "volume_ratio": 0.9,
             "price_change": 5.76
           },
           "trend": {
@@ -14596,7 +14596,7 @@
           "ma60": 23.73,
           "macd_hist": -0.2655,
           "macd_hist_prev": -0.2128,
-          "volume_ratio": 1.04,
+          "volume_ratio": 0.9,
           "slope_20d": -0.545,
           "trend_dir": "flat",
           "bb_upper": 25.1,
@@ -14631,7 +14631,7 @@
       "bias_5": -6.96,
       "bias_10": -10.92,
       "bias_20": -14.64,
-      "last_updated": "2026-11-07T12:26:11.831655",
+      "last_updated": "2026-11-07T19:28:01.336149",
       "data_points": 620,
       "history": [
         {
@@ -14818,11 +14818,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 32.17,
-          "high": 34.28,
-          "low": 31.97,
-          "close": 33.62,
-          "volume": 43369760,
+          "open": 32.16999816894531,
+          "high": 34.279998779296875,
+          "low": 31.969999313354492,
+          "close": 33.619998931884766,
+          "volume": 42475837,
           "kd_k": 13.88,
           "kd_d": 14.38,
           "bias_5": -6.96,
@@ -14835,7 +14835,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 75.8,
@@ -14865,7 +14865,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.63,
+            "volume_ratio": 2.58,
             "price_change": 4.51
           },
           "trend": {
@@ -14887,7 +14887,7 @@
           "ma60": 41.25,
           "macd_hist": -0.5923,
           "macd_hist_prev": -0.4727,
-          "volume_ratio": 2.63,
+          "volume_ratio": 2.58,
           "slope_20d": -0.866,
           "trend_dir": "flat",
           "bb_upper": 44.24,
@@ -14922,7 +14922,7 @@
       "bias_5": -7.06,
       "bias_10": -11.22,
       "bias_20": -14.8,
-      "last_updated": "2026-11-07T12:26:11.974469",
+      "last_updated": "2026-11-07T19:28:01.340083",
       "data_points": 620,
       "history": [
         {
@@ -15109,11 +15109,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 33.1,
-          "high": 33.88,
-          "low": 31.53,
-          "close": 33.16,
-          "volume": 10682468,
+          "open": 33.099998474121094,
+          "high": 33.880001068115234,
+          "low": 31.530000686645508,
+          "close": 33.15999984741211,
+          "volume": 10302164,
           "kd_k": 13.67,
           "kd_d": 14.96,
           "bias_5": -7.06,
@@ -15126,7 +15126,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 71.2,
@@ -15156,7 +15156,7 @@
           },
           "volume_price": {
             "score": 65,
-            "volume_ratio": 2.52,
+            "volume_ratio": 2.44,
             "price_change": 0.18
           },
           "trend": {
@@ -15178,7 +15178,7 @@
           "ma60": 39.84,
           "macd_hist": -0.6383,
           "macd_hist_prev": -0.5116,
-          "volume_ratio": 2.52,
+          "volume_ratio": 2.44,
           "slope_20d": -0.863,
           "trend_dir": "flat",
           "bb_upper": 43.51,
@@ -15213,7 +15213,7 @@
       "bias_5": -2.97,
       "bias_10": -4.42,
       "bias_20": -6.03,
-      "last_updated": "2026-11-07T12:26:11.985528",
+      "last_updated": "2026-11-07T19:28:01.343587",
       "data_points": 591,
       "history": [
         {
@@ -15400,11 +15400,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 31.79,
-          "high": 31.88,
-          "low": 31.63,
-          "close": 31.64,
-          "volume": 3140690,
+          "open": 31.790000915527344,
+          "high": 31.8799991607666,
+          "low": 31.6299991607666,
+          "close": 31.639999389648438,
+          "volume": 2939299,
           "kd_k": 20.25,
           "kd_d": 21.48,
           "bias_5": -2.97,
@@ -15417,7 +15417,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 60.2,
@@ -15447,7 +15447,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 2.01,
+            "volume_ratio": 1.9,
             "price_change": -0.47
           },
           "trend": {
@@ -15469,7 +15469,7 @@
           "ma60": 33.42,
           "macd_hist": -0.2203,
           "macd_hist_prev": -0.1543,
-          "volume_ratio": 2.01,
+          "volume_ratio": 1.9,
           "slope_20d": -0.345,
           "trend_dir": "flat",
           "bb_upper": 35.19,
@@ -15504,7 +15504,7 @@
       "bias_5": -1.55,
       "bias_10": -1.75,
       "bias_20": -1.73,
-      "last_updated": "2026-11-07T12:26:11.988830",
+      "last_updated": "2026-11-07T19:28:01.442657",
       "data_points": 591,
       "history": [
         {
@@ -15691,11 +15691,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 26.9,
-          "high": 27.05,
+          "open": 26.899999618530273,
+          "high": 27.049999237060547,
           "low": 26.5,
-          "close": 26.95,
-          "volume": 491455,
+          "close": 26.950000762939453,
+          "volume": 474250,
           "kd_k": 38.34,
           "kd_d": 39.99,
           "bias_5": -1.55,
@@ -15708,7 +15708,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 49.8,
@@ -15738,7 +15738,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 0.92,
+            "volume_ratio": 0.89,
             "price_change": 0.19
           },
           "trend": {
@@ -15760,7 +15760,7 @@
           "ma60": 26.75,
           "macd_hist": -0.0614,
           "macd_hist_prev": -0.0199,
-          "volume_ratio": 0.92,
+          "volume_ratio": 0.89,
           "slope_20d": 0.015,
           "trend_dir": "flat",
           "bb_upper": 27.86,
@@ -15795,7 +15795,7 @@
       "bias_5": -6.45,
       "bias_10": -10.99,
       "bias_20": -14.4,
-      "last_updated": "2026-11-07T12:26:12.006342",
+      "last_updated": "2026-11-07T19:28:01.682814",
       "data_points": 620,
       "history": [
         {
@@ -15982,11 +15982,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 23.01,
-          "high": 24.64,
-          "low": 23.01,
-          "close": 24.28,
-          "volume": 100463001,
+          "open": 23.010000228881836,
+          "high": 24.639999389648438,
+          "low": 23.010000228881836,
+          "close": 24.280000686645508,
+          "volume": 99325192,
           "kd_k": 12.52,
           "kd_d": 12.46,
           "bias_5": -6.45,
@@ -15999,7 +15999,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 73.5,
@@ -16029,7 +16029,7 @@
           },
           "volume_price": {
             "score": 80,
-            "volume_ratio": 1.78,
+            "volume_ratio": 1.76,
             "price_change": 5.52
           },
           "trend": {
@@ -16051,7 +16051,7 @@
           "ma60": 28.8,
           "macd_hist": -0.5012,
           "macd_hist_prev": -0.4207,
-          "volume_ratio": 1.78,
+          "volume_ratio": 1.76,
           "slope_20d": -0.822,
           "trend_dir": "flat",
           "bb_upper": 31.56,
@@ -16086,7 +16086,7 @@
       "bias_5": -3.85,
       "bias_10": -6.42,
       "bias_20": -7.6,
-      "last_updated": "2026-11-07T12:26:12.475975",
+      "last_updated": "2026-11-07T19:28:01.659217",
       "data_points": 620,
       "history": [
         {
@@ -16273,11 +16273,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 25.47,
-          "high": 27.1,
-          "low": 25.47,
+          "open": 25.469999313354492,
+          "high": 27.100000381469727,
+          "low": 25.469999313354492,
           "close": 27.0,
-          "volume": 7372824,
+          "volume": 7292010,
           "kd_k": 23.5,
           "kd_d": 27.33,
           "bias_5": -3.85,
@@ -16290,7 +16290,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:14"
       },
       "score": {
         "total": 62.5,
@@ -16320,7 +16320,7 @@
           },
           "volume_price": {
             "score": 70,
-            "volume_ratio": 1.31,
+            "volume_ratio": 1.3,
             "price_change": 6.01
           },
           "trend": {
@@ -16342,7 +16342,7 @@
           "ma60": 29.46,
           "macd_hist": -0.2711,
           "macd_hist_prev": -0.2086,
-          "volume_ratio": 1.31,
+          "volume_ratio": 1.3,
           "slope_20d": -0.333,
           "trend_dir": "flat",
           "bb_upper": 30.78,
@@ -16377,7 +16377,7 @@
       "bias_5": -9.14,
       "bias_10": -14.46,
       "bias_20": -19.35,
-      "last_updated": "2026-11-07T12:26:12.502245",
+      "last_updated": "2026-11-07T19:28:01.695543",
       "data_points": 616,
       "history": [
         {
@@ -16564,11 +16564,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 42.33,
+          "open": 42.33000183105469,
           "high": 45.5,
-          "low": 42.33,
-          "close": 44.43,
-          "volume": 30239287,
+          "low": 42.33000183105469,
+          "close": 44.43000030517578,
+          "volume": 29309375,
           "kd_k": 12.18,
           "kd_d": 14.28,
           "bias_5": -9.14,
@@ -16581,7 +16581,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 73.8,
@@ -16611,7 +16611,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.17,
+            "volume_ratio": 2.11,
             "price_change": 4.96
           },
           "trend": {
@@ -16633,7 +16633,7 @@
           "ma60": 57.47,
           "macd_hist": -1.177,
           "macd_hist_prev": -0.9715,
-          "volume_ratio": 2.17,
+          "volume_ratio": 2.11,
           "slope_20d": -1.166,
           "trend_dir": "down",
           "bb_upper": 64.09,
@@ -16668,7 +16668,7 @@
       "bias_5": -5.27,
       "bias_10": -8.25,
       "bias_20": -9.4,
-      "last_updated": "2026-11-07T12:26:12.648205",
+      "last_updated": "2026-11-07T19:28:01.706754",
       "data_points": 620,
       "history": [
         {
@@ -16855,11 +16855,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 19.2,
-          "high": 19.35,
-          "low": 17.85,
-          "close": 19.11,
-          "volume": 1294699,
+          "open": 19.200000762939453,
+          "high": 19.350000381469727,
+          "low": 17.850000381469727,
+          "close": 19.110000610351562,
+          "volume": 1305008,
           "kd_k": 23.39,
           "kd_d": 29.2,
           "bias_5": -5.27,
@@ -16872,7 +16872,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 57.2,
@@ -16902,7 +16902,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 2.1,
+            "volume_ratio": 2.11,
             "price_change": -0.47
           },
           "trend": {
@@ -16924,7 +16924,7 @@
           "ma60": 21.28,
           "macd_hist": -0.2299,
           "macd_hist_prev": -0.1625,
-          "volume_ratio": 2.1,
+          "volume_ratio": 2.11,
           "slope_20d": -0.363,
           "trend_dir": "flat",
           "bb_upper": 22.42,
@@ -16959,7 +16959,7 @@
       "bias_5": -3.46,
       "bias_10": -5.37,
       "bias_20": -5.58,
-      "last_updated": "2026-11-07T12:26:12.534985",
+      "last_updated": "2026-11-07T19:28:01.778275",
       "data_points": 620,
       "history": [
         {
@@ -17146,11 +17146,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 22.21,
-          "high": 23.63,
-          "low": 22.08,
-          "close": 23.3,
-          "volume": 8078716,
+          "open": 22.209999084472656,
+          "high": 23.6299991607666,
+          "low": 22.079999923706055,
+          "close": 23.299999237060547,
+          "volume": 7672067,
           "kd_k": 32.0,
           "kd_d": 41.83,
           "bias_5": -3.46,
@@ -17163,10 +17163,10 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
-        "total": 61.0,
+        "total": 58.8,
         "recommendation": "持有觀望",
         "details": {
           "kd": {
@@ -17192,8 +17192,8 @@
             "trend": "bearish"
           },
           "volume_price": {
-            "score": 95,
-            "volume_ratio": 2.01,
+            "score": 80,
+            "volume_ratio": 1.92,
             "price_change": 4.91
           },
           "trend": {
@@ -17215,7 +17215,7 @@
           "ma60": 23.85,
           "macd_hist": -0.2123,
           "macd_hist_prev": -0.1529,
-          "volume_ratio": 2.01,
+          "volume_ratio": 1.92,
           "slope_20d": -0.087,
           "trend_dir": "flat",
           "bb_upper": 25.68,
@@ -17244,13 +17244,13 @@
         "post_market_price": null,
         "prev_close": 12.23
       },
-      "kd_k": 8.0,
-      "kd_d": 16.43,
-      "kd_state": "OVERSOLD",
-      "bias_5": -4.59,
-      "bias_10": -7.86,
-      "bias_20": -9.55,
-      "last_updated": "2026-11-07T12:26:12.433551",
+      "kd_k": 15.7,
+      "kd_d": 18.99,
+      "kd_state": "OVERSOLD_REVERSAL",
+      "bias_5": -4.98,
+      "bias_10": -8.29,
+      "bias_20": -9.98,
+      "last_updated": "2026-11-07T19:28:01.925471",
       "data_points": 616,
       "history": [
         {
@@ -17437,16 +17437,16 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 11.859999656677246,
-          "high": 11.859999656677246,
-          "low": 11.859999656677246,
-          "close": 11.859999656677246,
-          "volume": 0,
-          "kd_k": 8.0,
-          "kd_d": 16.43,
-          "bias_5": -4.59,
-          "bias_10": -7.86,
-          "bias_20": -9.55
+          "open": 11.800000190734863,
+          "high": 11.930000305175781,
+          "low": 11.279999732971191,
+          "close": 11.800000190734863,
+          "volume": 34423302,
+          "kd_k": 15.7,
+          "kd_d": 18.99,
+          "bias_5": -4.98,
+          "bias_10": -8.29,
+          "bias_20": -9.98
         }
       ],
       "patterns": {
@@ -17454,64 +17454,64 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
-        "total": 64.5,
+        "total": 62.5,
         "recommendation": "持有觀望",
         "details": {
           "kd": {
-            "score": 100,
-            "k": 8.0,
-            "d": 16.43
+            "score": 90,
+            "k": 15.7,
+            "d": 18.99
           },
           "rsi": {
             "score": 100,
-            "value": 14.47
+            "value": 14.1
           },
           "ma_bias": {
             "score": 70,
             "ma20": 13.11,
             "ma60": 12.92,
-            "bias20": -9.55,
-            "bias60": -8.23
+            "bias20": -9.98,
+            "bias60": -8.68
           },
           "macd": {
             "score": 10,
-            "macd_hist": -0.172,
+            "macd_hist": -0.1759,
             "macd_hist_prev": -0.1395,
             "trend": "bearish"
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 0.0,
+            "volume_ratio": 2.92,
             "price_change": 0.0
           },
           "trend": {
             "score": 50,
-            "slope_20d": -0.434,
-            "volatility": 1.12,
+            "slope_20d": -0.441,
+            "volatility": 1.14,
             "trend_dir": "flat"
           },
           "bollinger": {
-            "bb_upper": 14.0,
+            "bb_upper": 14.02,
             "bb_mid": 13.11,
-            "bb_lower": 12.22,
-            "percent_b": -0.201
+            "bb_lower": 12.2,
+            "percent_b": -0.219
           }
         },
         "raw": {
-          "rsi": 14.47,
+          "rsi": 14.1,
           "ma20": 13.11,
           "ma60": 12.92,
-          "macd_hist": -0.172,
+          "macd_hist": -0.1759,
           "macd_hist_prev": -0.1395,
-          "volume_ratio": 0.0,
-          "slope_20d": -0.434,
+          "volume_ratio": 2.92,
+          "slope_20d": -0.441,
           "trend_dir": "flat",
-          "bb_upper": 14.0,
-          "bb_lower": 12.22,
-          "percent_b": -0.201
+          "bb_upper": 14.02,
+          "bb_lower": 12.2,
+          "percent_b": -0.219
         }
       },
       "institutional": {
@@ -17541,7 +17541,7 @@
       "bias_5": -5.17,
       "bias_10": -8.85,
       "bias_20": -10.57,
-      "last_updated": "2026-11-07T12:26:13.009392",
+      "last_updated": "2026-11-07T19:28:01.971729",
       "data_points": 606,
       "history": [
         {
@@ -17728,11 +17728,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 12.94,
-          "high": 13.72,
-          "low": 12.89,
-          "close": 13.62,
-          "volume": 5227169,
+          "open": 12.9399995803833,
+          "high": 13.720000267028809,
+          "low": 12.890000343322754,
+          "close": 13.619999885559082,
+          "volume": 5186200,
           "kd_k": 18.52,
           "kd_d": 24.33,
           "bias_5": -5.17,
@@ -17745,7 +17745,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 71.5,
@@ -17775,7 +17775,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.55,
+            "volume_ratio": 2.53,
             "price_change": 5.26
           },
           "trend": {
@@ -17797,7 +17797,7 @@
           "ma60": 15.31,
           "macd_hist": -0.2089,
           "macd_hist_prev": -0.1665,
-          "volume_ratio": 2.55,
+          "volume_ratio": 2.53,
           "slope_20d": -0.453,
           "trend_dir": "flat",
           "bb_upper": 16.38,
@@ -17832,7 +17832,7 @@
       "bias_5": -11.83,
       "bias_10": -16.9,
       "bias_20": -22.88,
-      "last_updated": "2026-11-07T12:26:13.113279",
+      "last_updated": "2026-11-07T19:28:01.999913",
       "data_points": 563,
       "history": [
         {
@@ -18021,9 +18021,9 @@
           "date": "2026-11-06T00:00:00",
           "open": 12.0,
           "high": 12.75,
-          "low": 11.94,
-          "close": 12.49,
-          "volume": 7632009,
+          "low": 11.9399995803833,
+          "close": 12.489999771118164,
+          "volume": 7528300,
           "kd_k": 11.85,
           "kd_d": 16.52,
           "bias_5": -11.83,
@@ -18036,7 +18036,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 73.8,
@@ -18066,7 +18066,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.21,
+            "volume_ratio": 2.19,
             "price_change": 4.08
           },
           "trend": {
@@ -18088,7 +18088,7 @@
           "ma60": 17.08,
           "macd_hist": -0.3725,
           "macd_hist_prev": -0.2917,
-          "volume_ratio": 2.21,
+          "volume_ratio": 2.19,
           "slope_20d": -1.403,
           "trend_dir": "down",
           "bb_upper": 19.68,
@@ -18123,7 +18123,7 @@
       "bias_5": -12.81,
       "bias_10": -18.1,
       "bias_20": -24.11,
-      "last_updated": "2026-11-07T12:26:13.093526",
+      "last_updated": "2026-11-07T19:28:02.117659",
       "data_points": 546,
       "history": [
         {
@@ -18311,10 +18311,10 @@
         {
           "date": "2026-11-06T00:00:00",
           "open": 12.75,
-          "high": 13.47,
-          "low": 12.6,
-          "close": 13.1,
-          "volume": 4047943,
+          "high": 13.470000267028809,
+          "low": 12.600000381469727,
+          "close": 13.100000381469727,
+          "volume": 4017153,
           "kd_k": 11.36,
           "kd_d": 16.8,
           "bias_5": -12.81,
@@ -18327,7 +18327,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 67.0,
@@ -18357,7 +18357,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 1.16,
+            "volume_ratio": 1.15,
             "price_change": 2.75
           },
           "trend": {
@@ -18379,7 +18379,7 @@
           "ma60": 18.21,
           "macd_hist": -0.4153,
           "macd_hist_prev": -0.3187,
-          "volume_ratio": 1.16,
+          "volume_ratio": 1.15,
           "slope_20d": -1.437,
           "trend_dir": "down",
           "bb_upper": 21.08,
@@ -18414,7 +18414,7 @@
       "bias_5": -3.11,
       "bias_10": -4.19,
       "bias_20": -3.62,
-      "last_updated": "2026-11-07T12:26:13.158108",
+      "last_updated": "2026-11-07T19:28:02.045403",
       "data_points": 546,
       "history": [
         {
@@ -18618,7 +18618,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:27"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 49.8,
@@ -18705,7 +18705,7 @@
       "bias_5": -3.42,
       "bias_10": -5.46,
       "bias_20": -7.29,
-      "last_updated": "2026-11-07T12:26:13.285644",
+      "last_updated": "2026-11-07T19:28:02.196790",
       "data_points": 426,
       "history": [
         {
@@ -18892,11 +18892,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 12.3,
-          "high": 12.41,
-          "low": 12.26,
-          "close": 12.3,
-          "volume": 2720215,
+          "open": 12.300000190734863,
+          "high": 12.40999984741211,
+          "low": 12.260000228881836,
+          "close": 12.300000190734863,
+          "volume": 2642454,
           "kd_k": 17.2,
           "kd_d": 21.78,
           "bias_5": -3.42,
@@ -18909,7 +18909,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 62.5,
@@ -18939,7 +18939,7 @@
           },
           "volume_price": {
             "score": 50,
-            "volume_ratio": 1.74,
+            "volume_ratio": 1.69,
             "price_change": 0.0
           },
           "trend": {
@@ -18961,7 +18961,7 @@
           "ma60": 13.19,
           "macd_hist": -0.1131,
           "macd_hist_prev": -0.0863,
-          "volume_ratio": 1.74,
+          "volume_ratio": 1.69,
           "slope_20d": -0.419,
           "trend_dir": "flat",
           "bb_upper": 14.0,
@@ -18996,7 +18996,7 @@
       "bias_5": -9.89,
       "bias_10": -15.46,
       "bias_20": -20.37,
-      "last_updated": "2026-11-07T12:26:13.552814",
+      "last_updated": "2026-11-07T19:28:02.261138",
       "data_points": 381,
       "history": [
         {
@@ -19183,11 +19183,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 18.09,
+          "open": 18.09000015258789,
           "high": 19.25,
-          "low": 18.09,
-          "close": 18.85,
-          "volume": 23647953,
+          "low": 18.09000015258789,
+          "close": 18.850000381469727,
+          "volume": 23439355,
           "kd_k": 11.87,
           "kd_d": 15.34,
           "bias_5": -9.89,
@@ -19200,7 +19200,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 73.8,
@@ -19230,7 +19230,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.39,
+            "volume_ratio": 2.37,
             "price_change": 4.2
           },
           "trend": {
@@ -19252,7 +19252,7 @@
           "ma60": 24.49,
           "macd_hist": -0.5504,
           "macd_hist_prev": -0.45,
-          "volume_ratio": 2.39,
+          "volume_ratio": 2.37,
           "slope_20d": -1.186,
           "trend_dir": "down",
           "bb_upper": 27.59,
@@ -19287,7 +19287,7 @@
       "bias_5": -3.03,
       "bias_10": -5.22,
       "bias_20": -7.56,
-      "last_updated": "2026-11-07T12:26:13.610930",
+      "last_updated": "2026-11-07T19:28:02.312810",
       "data_points": 188,
       "history": [
         {
@@ -19491,7 +19491,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 62.5,
@@ -19578,7 +19578,7 @@
       "bias_5": -4.41,
       "bias_10": -6.91,
       "bias_20": -8.99,
-      "last_updated": "2026-11-07T12:26:13.701522",
+      "last_updated": "2026-11-07T19:28:02.327164",
       "data_points": 144,
       "history": [
         {
@@ -19765,11 +19765,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 8.6,
+          "open": 8.600000381469727,
           "high": 8.75,
-          "low": 8.6,
-          "close": 8.72,
-          "volume": 8964800,
+          "low": 8.600000381469727,
+          "close": 8.720000267028809,
+          "volume": 8902199,
           "kd_k": 13.37,
           "kd_d": 19.04,
           "bias_5": -4.41,
@@ -19782,7 +19782,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 62.5,
@@ -19812,7 +19812,7 @@
           },
           "volume_price": {
             "score": 65,
-            "volume_ratio": 2.38,
+            "volume_ratio": 2.36,
             "price_change": 1.4
           },
           "trend": {
@@ -19834,7 +19834,7 @@
           "ma60": 9.75,
           "macd_hist": -0.0861,
           "macd_hist_prev": -0.0612,
-          "volume_ratio": 2.38,
+          "volume_ratio": 2.36,
           "slope_20d": -0.511,
           "trend_dir": "flat",
           "bb_upper": 10.26,
@@ -19869,7 +19869,7 @@
       "bias_5": -11.41,
       "bias_10": -17.41,
       "bias_20": -23.45,
-      "last_updated": "2026-11-07T12:26:13.721074",
+      "last_updated": "2026-11-07T19:28:02.388939",
       "data_points": 330,
       "history": [
         {
@@ -20057,10 +20057,10 @@
         {
           "date": "2026-11-06T00:00:00",
           "open": 20.75,
-          "high": 22.14,
+          "high": 22.139999389648438,
           "low": 20.75,
-          "close": 21.46,
-          "volume": 535284930,
+          "close": 21.459999084472656,
+          "volume": 530745450,
           "kd_k": 10.28,
           "kd_d": 12.96,
           "bias_5": -11.41,
@@ -20073,7 +20073,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 73.8,
@@ -20103,7 +20103,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.31,
+            "volume_ratio": 2.29,
             "price_change": 3.42
           },
           "trend": {
@@ -20125,7 +20125,7 @@
           "ma60": 29.21,
           "macd_hist": -0.7319,
           "macd_hist_prev": -0.6027,
-          "volume_ratio": 2.31,
+          "volume_ratio": 2.29,
           "slope_20d": -1.411,
           "trend_dir": "down",
           "bb_upper": 33.57,
@@ -20160,7 +20160,7 @@
       "bias_5": -8.51,
       "bias_10": -14.06,
       "bias_20": -19.0,
-      "last_updated": "2026-11-07T12:26:13.861702",
+      "last_updated": "2026-11-07T19:28:02.490767",
       "data_points": 256,
       "history": [
         {
@@ -20347,11 +20347,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 11.72,
-          "high": 12.45,
-          "low": 11.71,
-          "close": 12.21,
-          "volume": 50169133,
+          "open": 11.720000267028809,
+          "high": 12.449999809265137,
+          "low": 11.710000038146973,
+          "close": 12.210000038146973,
+          "volume": 49793829,
           "kd_k": 11.56,
           "kd_d": 14.47,
           "bias_5": -8.51,
@@ -20364,7 +20364,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 73.8,
@@ -20394,7 +20394,7 @@
           },
           "volume_price": {
             "score": 95,
-            "volume_ratio": 2.13,
+            "volume_ratio": 2.12,
             "price_change": 4.18
           },
           "trend": {
@@ -20416,7 +20416,7 @@
           "ma60": 16.04,
           "macd_hist": -0.2899,
           "macd_hist_prev": -0.2359,
-          "volume_ratio": 2.13,
+          "volume_ratio": 2.12,
           "slope_20d": -1.182,
           "trend_dir": "down",
           "bb_upper": 17.62,
@@ -20451,7 +20451,7 @@
       "bias_5": -11.77,
       "bias_10": -18.36,
       "bias_20": -24.7,
-      "last_updated": "2026-11-07T12:26:14.061440",
+      "last_updated": "2026-11-07T19:28:02.607351",
       "data_points": 183,
       "history": [
         {
@@ -20638,11 +20638,11 @@
         },
         {
           "date": "2026-11-06T00:00:00",
-          "open": 12.23,
-          "high": 12.95,
-          "low": 12.22,
-          "close": 12.62,
-          "volume": 136946947,
+          "open": 12.229999542236328,
+          "high": 12.949999809265137,
+          "low": 12.220000267028809,
+          "close": 12.619999885559082,
+          "volume": 136564269,
           "kd_k": 8.99,
           "kd_d": 11.9,
           "bias_5": -11.77,
@@ -20655,7 +20655,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 71.5,
@@ -20685,7 +20685,7 @@
           },
           "volume_price": {
             "score": 80,
-            "volume_ratio": 1.89,
+            "volume_ratio": 1.88,
             "price_change": 3.19
           },
           "trend": {
@@ -20707,7 +20707,7 @@
           "ma60": 17.81,
           "macd_hist": -0.4585,
           "macd_hist_prev": -0.385,
-          "volume_ratio": 1.89,
+          "volume_ratio": 1.88,
           "slope_20d": -1.452,
           "trend_dir": "down",
           "bb_upper": 20.31,
@@ -20742,7 +20742,7 @@
       "bias_5": -6.15,
       "bias_10": -7.75,
       "bias_20": -7.79,
-      "last_updated": "2026-11-07T12:26:14.175362",
+      "last_updated": "2026-11-07T19:28:02.630338",
       "data_points": 619,
       "history": [
         {
@@ -20946,7 +20946,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 58.8,
@@ -21033,7 +21033,7 @@
       "bias_5": -5.2,
       "bias_10": -8.19,
       "bias_20": -10.7,
-      "last_updated": "2026-11-07T12:26:14.222179",
+      "last_updated": "2026-11-07T19:28:02.635673",
       "data_points": 619,
       "history": [
         {
@@ -21237,7 +21237,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 71.5,
@@ -21324,7 +21324,7 @@
       "bias_5": -6.92,
       "bias_10": -11.66,
       "bias_20": -16.92,
-      "last_updated": "2026-11-07T12:26:14.237720",
+      "last_updated": "2026-11-07T19:28:02.723080",
       "data_points": 619,
       "history": [
         {
@@ -21528,7 +21528,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 69.5,
@@ -21615,7 +21615,7 @@
       "bias_5": -3.73,
       "bias_10": -4.99,
       "bias_20": -4.49,
-      "last_updated": "2026-11-07T12:26:14.390388",
+      "last_updated": "2026-11-07T19:28:02.803688",
       "data_points": 615,
       "history": [
         {
@@ -21819,7 +21819,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 56.5,
@@ -21908,7 +21908,7 @@
       "bias_5": 0.33,
       "bias_10": -0.32,
       "bias_20": -0.3,
-      "last_updated": "2026-11-07T12:26:14.569290",
+      "last_updated": "2026-11-07T19:28:02.993039",
       "data_points": 158,
       "history": [
         {
@@ -22112,7 +22112,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 42.0,
@@ -22192,7 +22192,7 @@
       "bias_5": -5.2,
       "bias_10": -8.05,
       "bias_20": -5.84,
-      "last_updated": "2026-11-07T12:26:14.674599",
+      "last_updated": "2026-11-07T19:28:02.955318",
       "data_points": 637,
       "history": [
         {
@@ -22396,7 +22396,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 45.5,
@@ -22476,7 +22476,7 @@
       "bias_5": 0.1,
       "bias_10": 0.16,
       "bias_20": -0.15,
-      "last_updated": "2026-11-07T12:26:14.795731",
+      "last_updated": "2026-11-07T19:28:02.960055",
       "data_points": 637,
       "history": [
         {
@@ -22680,7 +22680,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 44.0,
@@ -22760,7 +22760,7 @@
       "bias_5": 0.61,
       "bias_10": -3.18,
       "bias_20": -10.29,
-      "last_updated": "2026-11-07T12:26:14.790477",
+      "last_updated": "2026-11-07T19:28:03.083199",
       "data_points": 637,
       "history": [
         {
@@ -22968,12 +22968,12 @@
             "signal": "BUY",
             "description": "低檔吸籌：跌19.0%>快跌11.7%慢漲2.1%",
             "confidence": 90.0,
-            "detected_at": "2026-11-07 12:26:28"
+            "detected_at": "2026-11-07 19:28:15"
           }
         ],
         "dominant_signal": "BUY",
         "signal_strength": 90.0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 74.5,
@@ -23053,7 +23053,7 @@
       "bias_5": -4.49,
       "bias_10": -8.72,
       "bias_20": -11.77,
-      "last_updated": "2026-11-07T12:26:14.916841",
+      "last_updated": "2026-11-07T19:28:03.082283",
       "data_points": 637,
       "history": [
         {
@@ -23257,7 +23257,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 58.5,
@@ -23337,7 +23337,7 @@
       "bias_5": 1.14,
       "bias_10": 2.78,
       "bias_20": 1.97,
-      "last_updated": "2026-11-07T12:26:15.019085",
+      "last_updated": "2026-11-07T19:28:03.319199",
       "data_points": 637,
       "history": [
         {
@@ -23541,7 +23541,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 53.2,
@@ -23621,7 +23621,7 @@
       "bias_5": -0.72,
       "bias_10": -1.2,
       "bias_20": -7.93,
-      "last_updated": "2026-11-07T12:26:15.181577",
+      "last_updated": "2026-11-07T19:28:03.244021",
       "data_points": 637,
       "history": [
         {
@@ -23825,7 +23825,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 67.2,
@@ -23905,7 +23905,7 @@
       "bias_5": -2.08,
       "bias_10": -10.8,
       "bias_20": -14.84,
-      "last_updated": "2026-11-07T12:26:15.274545",
+      "last_updated": "2026-11-07T19:28:03.304798",
       "data_points": 637,
       "history": [
         {
@@ -24109,7 +24109,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 74.8,
@@ -24189,7 +24189,7 @@
       "bias_5": -6.17,
       "bias_10": -9.9,
       "bias_20": -11.57,
-      "last_updated": "2026-11-07T12:26:15.315149",
+      "last_updated": "2026-11-07T19:28:03.379391",
       "data_points": 637,
       "history": [
         {
@@ -24393,7 +24393,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 55.8,
@@ -24473,7 +24473,7 @@
       "bias_5": -1.27,
       "bias_10": 0.07,
       "bias_20": -4.28,
-      "last_updated": "2026-11-07T12:26:15.412812",
+      "last_updated": "2026-11-07T19:28:03.396781",
       "data_points": 637,
       "history": [
         {
@@ -24677,7 +24677,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 61.0,
@@ -24757,7 +24757,7 @@
       "bias_5": -4.63,
       "bias_10": -11.67,
       "bias_20": -15.64,
-      "last_updated": "2026-11-07T12:26:15.496289",
+      "last_updated": "2026-11-07T19:28:03.537365",
       "data_points": 637,
       "history": [
         {
@@ -24961,7 +24961,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 62.5,
@@ -25041,7 +25041,7 @@
       "bias_5": -6.64,
       "bias_10": -12.17,
       "bias_20": -11.57,
-      "last_updated": "2026-11-07T12:26:15.744901",
+      "last_updated": "2026-11-07T19:28:03.632693",
       "data_points": 637,
       "history": [
         {
@@ -25245,7 +25245,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 48.2,
@@ -25325,7 +25325,7 @@
       "bias_5": -9.93,
       "bias_10": -18.49,
       "bias_20": -21.5,
-      "last_updated": "2026-11-07T12:26:15.803947",
+      "last_updated": "2026-11-07T19:28:03.634118",
       "data_points": 637,
       "history": [
         {
@@ -25529,7 +25529,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 60.5,
@@ -25609,7 +25609,7 @@
       "bias_5": -2.62,
       "bias_10": -7.67,
       "bias_20": -9.85,
-      "last_updated": "2026-11-07T12:26:15.852302",
+      "last_updated": "2026-11-07T19:28:03.730888",
       "data_points": 637,
       "history": [
         {
@@ -25813,7 +25813,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:15"
       },
       "score": {
         "total": 72.2,
@@ -25893,7 +25893,7 @@
       "bias_5": -1.63,
       "bias_10": -2.56,
       "bias_20": -3.21,
-      "last_updated": "2026-11-07T12:26:15.950552",
+      "last_updated": "2026-11-07T19:28:03.718508",
       "data_points": 637,
       "history": [
         {
@@ -26097,7 +26097,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 52.8,
@@ -26177,7 +26177,7 @@
       "bias_5": -1.73,
       "bias_10": -2.91,
       "bias_20": -3.67,
-      "last_updated": "2026-11-07T12:26:15.984466",
+      "last_updated": "2026-11-07T19:28:03.892503",
       "data_points": 637,
       "history": [
         {
@@ -26381,7 +26381,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 55.0,
@@ -26461,7 +26461,7 @@
       "bias_5": -1.74,
       "bias_10": -2.92,
       "bias_20": -3.68,
-      "last_updated": "2026-11-07T12:26:16.273536",
+      "last_updated": "2026-11-07T19:28:03.991581",
       "data_points": 637,
       "history": [
         {
@@ -26665,7 +26665,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 52.8,
@@ -26745,7 +26745,7 @@
       "bias_5": -2.41,
       "bias_10": -5.27,
       "bias_20": -7.28,
-      "last_updated": "2026-11-07T12:26:16.390610",
+      "last_updated": "2026-11-07T19:28:03.995655",
       "data_points": 637,
       "history": [
         {
@@ -26949,7 +26949,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 58.0,
@@ -27029,7 +27029,7 @@
       "bias_5": -1.34,
       "bias_10": -1.62,
       "bias_20": -1.65,
-      "last_updated": "2026-11-07T12:26:16.401107",
+      "last_updated": "2026-11-07T19:28:04.046461",
       "data_points": 637,
       "history": [
         {
@@ -27233,7 +27233,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 50.5,
@@ -27313,7 +27313,7 @@
       "bias_5": -5.03,
       "bias_10": -10.68,
       "bias_20": -13.59,
-      "last_updated": "2026-11-07T12:26:16.547544",
+      "last_updated": "2026-11-07T19:28:04.075085",
       "data_points": 637,
       "history": [
         {
@@ -27517,7 +27517,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 62.5,
@@ -27597,7 +27597,7 @@
       "bias_5": -11.64,
       "bias_10": -22.53,
       "bias_20": -28.58,
-      "last_updated": "2026-11-07T12:26:16.474503",
+      "last_updated": "2026-11-07T19:28:04.184391",
       "data_points": 637,
       "history": [
         {
@@ -27801,7 +27801,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 54.5,
@@ -27881,7 +27881,7 @@
       "bias_5": 1.85,
       "bias_10": 4.77,
       "bias_20": 2.65,
-      "last_updated": "2026-11-07T12:26:16.737266",
+      "last_updated": "2026-11-07T19:28:04.316986",
       "data_points": 637,
       "history": [
         {
@@ -28085,7 +28085,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 53.2,
@@ -28165,7 +28165,7 @@
       "bias_5": -0.17,
       "bias_10": -0.41,
       "bias_20": -1.33,
-      "last_updated": "2026-11-07T12:26:16.933398",
+      "last_updated": "2026-11-07T19:28:04.332450",
       "data_points": 637,
       "history": [
         {
@@ -28369,7 +28369,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 44.0,
@@ -28449,7 +28449,7 @@
       "bias_5": -1.63,
       "bias_10": -2.74,
       "bias_20": -16.61,
-      "last_updated": "2026-11-07T12:26:16.928194",
+      "last_updated": "2026-11-07T19:28:04.333220",
       "data_points": 637,
       "history": [
         {
@@ -28653,7 +28653,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 71.8,
@@ -28733,7 +28733,7 @@
       "bias_5": 0.97,
       "bias_10": -7.78,
       "bias_20": -22.02,
-      "last_updated": "2026-11-07T12:26:16.956574",
+      "last_updated": "2026-11-07T19:28:04.407803",
       "data_points": 637,
       "history": [
         {
@@ -28941,12 +28941,12 @@
             "signal": "BUY",
             "description": "低檔吸籌：跌36.7%>快跌23.9%慢漲3.8%",
             "confidence": 90.0,
-            "detected_at": "2026-11-07 12:26:28"
+            "detected_at": "2026-11-07 19:28:16"
           }
         ],
         "dominant_signal": "BUY",
         "signal_strength": 90.0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 79.0,
@@ -29026,7 +29026,7 @@
       "bias_5": -9.86,
       "bias_10": -18.11,
       "bias_20": -23.93,
-      "last_updated": "2026-11-07T12:26:17.122965",
+      "last_updated": "2026-11-07T19:28:04.490291",
       "data_points": 637,
       "history": [
         {
@@ -29230,7 +29230,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 58.8,
@@ -29310,7 +29310,7 @@
       "bias_5": -2.93,
       "bias_10": -0.51,
       "bias_20": -9.74,
-      "last_updated": "2026-11-07T12:26:17.196806",
+      "last_updated": "2026-11-07T19:28:04.646573",
       "data_points": 526,
       "history": [
         {
@@ -29514,7 +29514,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 63.5,
@@ -29594,7 +29594,7 @@
       "bias_5": -22.68,
       "bias_10": -38.01,
       "bias_20": -43.2,
-      "last_updated": "2026-11-07T12:26:17.444616",
+      "last_updated": "2026-11-07T19:28:04.631448",
       "data_points": 498,
       "history": [
         {
@@ -29798,7 +29798,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 56.0,
@@ -29878,7 +29878,7 @@
       "bias_5": -8.39,
       "bias_10": -26.4,
       "bias_20": -34.17,
-      "last_updated": "2026-11-07T12:26:17.417417",
+      "last_updated": "2026-11-07T19:28:04.696724",
       "data_points": 637,
       "history": [
         {
@@ -30082,7 +30082,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 77.0,
@@ -30162,7 +30162,7 @@
       "bias_5": -6.55,
       "bias_10": -16.83,
       "bias_20": -21.19,
-      "last_updated": "2026-11-07T12:26:17.405293",
+      "last_updated": "2026-11-07T19:28:04.692788",
       "data_points": 526,
       "history": [
         {
@@ -30366,7 +30366,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 66.5,
@@ -30446,7 +30446,7 @@
       "bias_5": -13.51,
       "bias_10": -20.84,
       "bias_20": -24.33,
-      "last_updated": "2026-11-07T12:26:17.627486",
+      "last_updated": "2026-11-07T19:28:04.834003",
       "data_points": 555,
       "history": [
         {
@@ -30650,7 +30650,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 56.0,
@@ -30730,7 +30730,7 @@
       "bias_5": -2.05,
       "bias_10": -4.68,
       "bias_20": -7.79,
-      "last_updated": "2026-11-07T12:26:17.650333",
+      "last_updated": "2026-11-07T19:28:04.923287",
       "data_points": 637,
       "history": [
         {
@@ -30934,7 +30934,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 60.2,
@@ -31014,7 +31014,7 @@
       "bias_5": -5.1,
       "bias_10": -10.37,
       "bias_20": -16.37,
-      "last_updated": "2026-11-07T12:26:17.933284",
+      "last_updated": "2026-11-07T19:28:04.971005",
       "data_points": 637,
       "history": [
         {
@@ -31218,7 +31218,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 64.8,
@@ -31298,7 +31298,7 @@
       "bias_5": -5.93,
       "bias_10": -10.26,
       "bias_20": -15.3,
-      "last_updated": "2026-11-07T12:26:17.901919",
+      "last_updated": "2026-11-07T19:28:05.007745",
       "data_points": 359,
       "history": [
         {
@@ -31502,7 +31502,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 62.5,
@@ -31582,7 +31582,7 @@
       "bias_5": -3.9,
       "bias_10": -7.2,
       "bias_20": -9.53,
-      "last_updated": "2026-11-07T12:26:17.998296",
+      "last_updated": "2026-11-07T19:28:05.012577",
       "data_points": 633,
       "history": [
         {
@@ -31786,7 +31786,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 60.2,
@@ -31866,7 +31866,7 @@
       "bias_5": -8.09,
       "bias_10": -14.77,
       "bias_20": -19.59,
-      "last_updated": "2026-11-07T12:26:18.157475",
+      "last_updated": "2026-11-07T19:28:05.117586",
       "data_points": 401,
       "history": [
         {
@@ -32070,7 +32070,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 58.2,
@@ -32150,7 +32150,7 @@
       "bias_5": -2.87,
       "bias_10": -3.78,
       "bias_20": -4.13,
-      "last_updated": "2026-11-07T12:26:18.162057",
+      "last_updated": "2026-11-07T19:28:05.269895",
       "data_points": 633,
       "history": [
         {
@@ -32354,7 +32354,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 52.8,
@@ -32434,7 +32434,7 @@
       "bias_5": -5.76,
       "bias_10": -7.67,
       "bias_20": -9.01,
-      "last_updated": "2026-11-07T12:26:18.580408",
+      "last_updated": "2026-11-07T19:28:05.319355",
       "data_points": 411,
       "history": [
         {
@@ -32638,7 +32638,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 58.0,
@@ -32718,7 +32718,7 @@
       "bias_5": -3.31,
       "bias_10": -8.71,
       "bias_20": -10.25,
-      "last_updated": "2026-11-07T12:26:18.432794",
+      "last_updated": "2026-11-07T19:28:05.331916",
       "data_points": 633,
       "history": [
         {
@@ -32922,7 +32922,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 58.0,
@@ -33002,7 +33002,7 @@
       "bias_5": -7.31,
       "bias_10": -18.84,
       "bias_20": -22.61,
-      "last_updated": "2026-11-07T12:26:18.494695",
+      "last_updated": "2026-11-07T19:28:05.323804",
       "data_points": 440,
       "history": [
         {
@@ -33206,7 +33206,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 56.0,
@@ -33286,7 +33286,7 @@
       "bias_5": -11.52,
       "bias_10": -17.08,
       "bias_20": -13.59,
-      "last_updated": "2026-11-07T12:26:18.677388",
+      "last_updated": "2026-11-07T19:28:05.394851",
       "data_points": 633,
       "history": [
         {
@@ -33490,7 +33490,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 53.0,
@@ -33570,7 +33570,7 @@
       "bias_5": -14.45,
       "bias_10": -26.27,
       "bias_20": -33.22,
-      "last_updated": "2026-11-07T12:26:18.678250",
+      "last_updated": "2026-11-07T19:28:05.569294",
       "data_points": 436,
       "history": [
         {
@@ -33774,7 +33774,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 58.8,
@@ -33854,7 +33854,7 @@
       "bias_5": -31.69,
       "bias_10": -51.52,
       "bias_20": -61.03,
-      "last_updated": "2026-11-07T12:26:18.882536",
+      "last_updated": "2026-11-07T19:28:05.587300",
       "data_points": 198,
       "history": [
         {
@@ -34058,7 +34058,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 62.8,
@@ -34138,7 +34138,7 @@
       "bias_5": 2.88,
       "bias_10": -2.17,
       "bias_20": -3.28,
-      "last_updated": "2026-11-07T12:26:19.024955",
+      "last_updated": "2026-11-07T19:28:05.636493",
       "data_points": 623,
       "history": [
         {
@@ -34342,7 +34342,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 65.5,
@@ -34422,7 +34422,7 @@
       "bias_5": 2.38,
       "bias_10": -8.97,
       "bias_20": -13.0,
-      "last_updated": "2026-11-07T12:26:19.072320",
+      "last_updated": "2026-11-07T19:28:05.621823",
       "data_points": 417,
       "history": [
         {
@@ -34626,7 +34626,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 69.5,
@@ -34706,7 +34706,7 @@
       "bias_5": -8.78,
       "bias_10": -16.06,
       "bias_20": -18.11,
-      "last_updated": "2026-11-07T12:26:19.194709",
+      "last_updated": "2026-11-07T19:28:05.688784",
       "data_points": 152,
       "history": [
         {
@@ -34910,7 +34910,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:16"
       },
       "score": {
         "total": 62.5,
@@ -34990,7 +34990,7 @@
       "bias_5": -6.36,
       "bias_10": -14.94,
       "bias_20": -20.09,
-      "last_updated": "2026-11-07T12:26:19.126357",
+      "last_updated": "2026-11-07T19:28:05.867137",
       "data_points": 611,
       "history": [
         {
@@ -35194,7 +35194,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:17"
       },
       "score": {
         "total": 60.5,
@@ -35274,7 +35274,7 @@
       "bias_5": -14.72,
       "bias_10": -31.18,
       "bias_20": -40.43,
-      "last_updated": "2026-11-07T12:26:19.319203",
+      "last_updated": "2026-11-07T19:28:05.885808",
       "data_points": 457,
       "history": [
         {
@@ -35478,7 +35478,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:17"
       },
       "score": {
         "total": 74.5,
@@ -35558,7 +35558,7 @@
       "bias_5": -9.69,
       "bias_10": -21.43,
       "bias_20": -27.58,
-      "last_updated": "2026-11-07T12:26:19.546720",
+      "last_updated": "2026-11-07T19:28:05.914217",
       "data_points": 611,
       "history": [
         {
@@ -35762,7 +35762,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:17"
       },
       "score": {
         "total": 58.0,
@@ -35842,7 +35842,7 @@
       "bias_5": -20.93,
       "bias_10": -42.38,
       "bias_20": -52.05,
-      "last_updated": "2026-11-07T12:26:19.539627",
+      "last_updated": "2026-11-07T19:28:05.964423",
       "data_points": 435,
       "history": [
         {
@@ -36046,7 +36046,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:17"
       },
       "score": {
         "total": 56.5,
@@ -36126,7 +36126,7 @@
       "bias_5": 0.63,
       "bias_10": -3.76,
       "bias_20": -4.64,
-      "last_updated": "2026-11-07T12:26:19.676693",
+      "last_updated": "2026-11-07T19:28:06.052473",
       "data_points": 611,
       "history": [
         {
@@ -36330,7 +36330,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:17"
       },
       "score": {
         "total": 61.8,
@@ -36410,7 +36410,7 @@
       "bias_5": -0.24,
       "bias_10": -10.01,
       "bias_20": -12.34,
-      "last_updated": "2026-11-07T12:26:19.766628",
+      "last_updated": "2026-11-07T19:28:06.149789",
       "data_points": 402,
       "history": [
         {
@@ -36614,7 +36614,7 @@
         "patterns": [],
         "dominant_signal": "HOLD",
         "signal_strength": 0,
-        "last_updated": "2026-11-07 12:26:28"
+        "last_updated": "2026-11-07 19:28:17"
       },
       "score": {
         "total": 68.5,
@@ -36677,5 +36677,5 @@
       "institutional": null
     }
   ],
-  "last_updated": "2026-11-07T12:26:27.083140"
+  "last_updated": "2026-11-07T19:28:13.142456"
 }
