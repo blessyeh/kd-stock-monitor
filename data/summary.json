@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-07T19:28:17.218145",
-  "date": "2026-11-07",
+  "timestamp": "2026-11-08T01:22:46.330519",
+  "date": "2026-11-08",
   "macro": {
     "taiex": {
       "value": 39701.64,
@@ -22,12 +22,12 @@
       "change": -2.54,
       "change_pct": -9.01,
       "label": "VIX Index",
-      "timestamp": "2026-11-07T19:28:06.795418"
+      "timestamp": "2026-11-08T01:21:15.935977"
     },
     "btc": {
-      "value": 75858.0,
-      "change": 111.0,
-      "change_pct": 0.15
+      "value": 75679.0,
+      "change": -68.0,
+      "change_pct": -0.09
     },
     "oil": {
       "value": 90.83,
@@ -98,9 +98,9 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 32.757,
-      "change": -0.064,
-      "change_pct": -0.2
+      "value": 33.109,
+      "change": 0.288,
+      "change_pct": 0.88
     },
     "foreign_futures_net": {
       "value": -99930,
@@ -140,10 +140,10 @@
         {
           "id": "twd_depreciation",
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
-          "status": false,
+          "status": true,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.152（貶值門檻 0.3）",
-          "score": 40.4
+          "detail": "USD/TWD 5日變動 +0.504（貶值門檻 0.3）；期間貶破NT$1整數關卡",
+          "score": 90.1
         },
         {
           "id": "foreign_dual_short",
@@ -172,10 +172,10 @@
       ],
       "total_conditions": 5,
       "evaluated_count": 4,
-      "triggered_count": 1,
-      "triggered_full_count": 1,
+      "triggered_count": 2,
+      "triggered_full_count": 2,
       "triggered_partial_count": 0,
-      "avg_score": 28.4
+      "avg_score": 40.8
     },
     "bottom": {
       "conditions": [
@@ -200,8 +200,8 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.152（仍在貶值）；外資今日仍賣超，近期均值 -1091.3億元；台指期淨部位5日變動 -7689口（未回補）",
-          "score": 43.9
+          "detail": "USD/TWD 5日變動 +0.504（仍在貶值）；外資今日仍賣超，近期均值 -1091.3億元；台指期淨部位5日變動 -7689口（未回補）",
+          "score": 35.0
         }
       ],
       "total_conditions": 3,
@@ -209,15 +209,15 @@
       "triggered_count": 0,
       "triggered_full_count": 0,
       "triggered_partial_count": 0,
-      "avg_score": 36.1
+      "avg_score": 31.7
     },
     "bottom_reversal_score": {
-      "total": 43.9,
+      "total": 35.0,
       "components": [
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 29.7
+          "score": 0.0
         },
         {
           "name": "foreign_flow_reversal",
@@ -306,7 +306,7 @@
       ]
     },
     "top": {
-      "total": 20.8,
+      "total": 25.8,
       "dimensions": [
         {
           "name": "macro",
@@ -319,10 +319,10 @@
         },
         {
           "name": "chip_flow",
-          "score": 4.0,
+          "score": 9.0,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 +0.152（強度 40/100，+4.0）"
+            "新台幣5日貶值 +0.504（強度 90/100，+9.0）"
           ]
         },
         {
@@ -438,7 +438,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "ADR $375.4 換算2330隱含價 2459.7元，2330現價 2135.0元（折價 13.2%）",
+          "ADR $375.4 換算2330隱含價 2486.1元，2330現價 2135.0元（折價 14.1%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
@@ -457,7 +457,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "目前本益比 24.8，位於近729筆歷史資料的第 41 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+          "目前本益比 24.8，位於近728筆歷史資料的第 41 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
         ]
       }
     ],
@@ -485,6 +485,11 @@
     },
     "news": [
       {
+        "title": "門打開了！  經部修法開放火力CCS低碳電   台塑化、台電可直售台積電",
+        "url": "https://tw.stock.yahoo.com/news/%E9%96%80%E6%89%93%E9%96%8B%E4%BA%86-%E7%B6%93%E9%83%A8%E4%BF%AE%E6%B3%95%E9%96%8B%E6%94%BE%E7%81%AB%E5%8A%9Bccs%E4%BD%8E%E7%A2%B3%E9%9B%BB-%E5%8F%B0%E5%A1%91%E5%8C%96-%E5%8F%B0%E9%9B%BB%E5%8F%AF%E7%9B%B4%E5%94%AE%E5%8F%B0%E7%A9%8D%E9%9B%BB-144343758.html",
+        "meta": null
+      },
+      {
         "title": "血洗3700點…大戶暗中爆買「第1是它」！16檔下周絕地反彈黑馬出列",
         "url": "https://tw.stock.yahoo.com/news/%E8%A1%80%E6%B4%973700%E9%BB%9E-%E5%A4%A7%E6%88%B6%E6%9A%97%E4%B8%AD%E7%88%86%E8%B2%B7-%E7%AC%AC1%E6%98%AF%E5%AE%83-16%E6%AA%94%E4%B8%8B%E5%91%A8%E7%B5%95%E5%9C%B0%E5%8F%8D%E5%BD%88%E9%BB%91%E9%A6%AC%E5%87%BA%E5%88%97-103524853.html",
         "meta": null
@@ -505,7 +510,7 @@
         "meta": null
       },
       {
-        "title": "下周一狂噴1000點？「這5檔有大人在顧」反彈第一槍 小鬼股先閃開",
+        "title": "下周一狂噴1000點？「5檔護盤股」反彈第一波 小鬼股沒大人別碰",
         "url": "https://tw.stock.yahoo.com/news/%E4%B8%8B%E5%91%A8-%E7%8B%82%E5%99%B41000%E9%BB%9E-%E9%80%995%E6%AA%94%E6%9C%89%E5%A4%A7%E4%BA%BA%E5%9C%A8%E9%A1%A7-%E5%8F%8D%E5%BD%88%E7%AC%AC-%E6%A7%8D-072756170.html",
         "meta": null
       },
@@ -517,11 +522,6 @@
       {
         "title": "〈華邦電展望〉晶圓龍頭傳跨足3D DRAM 焦佑鈞：台積追求卓越 不會做半調子",
         "url": "https://tw.stock.yahoo.com/news/%E8%8F%AF%E9%82%A6%E9%9B%BB%E5%B1%95%E6%9C%9B-%E6%99%B6%E5%9C%93%E9%BE%8D%E9%A0%AD%E5%82%B3%E8%B7%A8%E8%B6%B33d-dram-%E7%84%A6%E4%BD%91%E9%88%9E-%E5%8F%B0%E7%A9%8D%E8%BF%BD%E6%B1%82%E5%8D%93%E8%B6%8A-050059033.html",
-        "meta": null
-      },
-      {
-        "title": "因應AI潮流 台積電秦永沛點出AI三大隱憂",
-        "url": "https://tw.stock.yahoo.com/news/%E5%9B%A0%E6%87%89ai%E6%BD%AE%E6%B5%81-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%A7%A6%E6%B0%B8%E6%B2%9B%E9%BB%9E%E5%87%BAai%E4%B8%89%E5%A4%A7%E9%9A%B1%E6%86%82-045236436.html",
         "meta": null
       }
     ],
@@ -556,7 +556,7 @@
         "dimension": "valuation",
         "score": 4,
         "cap": 5,
-        "detail": "目前本益比 24.8，位於近729筆歷史資料的第 41 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+        "detail": "目前本益比 24.8，位於近728筆歷史資料的第 41 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
       },
       {
         "dimension": "guidance",
@@ -685,7 +685,7 @@
             "cap": 5,
             "available": true,
             "notes": [
-              "目前本益比 10.3，位於近729筆歷史資料的第 60 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+              "目前本益比 10.3，位於近728筆歷史資料的第 60 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
             ]
           }
         ],
@@ -773,7 +773,7 @@
             "dimension": "valuation",
             "score": 3,
             "cap": 5,
-            "detail": "目前本益比 10.3，位於近729筆歷史資料的第 60 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+            "detail": "目前本益比 10.3，位於近728筆歷史資料的第 60 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
           },
           {
             "dimension": "momentum_composite",
@@ -903,7 +903,7 @@
             "cap": 5,
             "available": true,
             "notes": [
-              "目前本益比 15.4，位於近729筆歷史資料的第 0 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+              "目前本益比 15.4，位於近728筆歷史資料的第 0 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
             ]
           }
         ],
@@ -991,7 +991,7 @@
             "dimension": "valuation",
             "score": 5,
             "cap": 5,
-            "detail": "目前本益比 15.4，位於近729筆歷史資料的第 0 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+            "detail": "目前本益比 15.4，位於近728筆歷史資料的第 0 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
           },
           {
             "dimension": "relative_strength",
@@ -1462,23 +1462,28 @@
   },
   "data_freshness": {
     "us_stocks": {
-      "as_of_date": "2026-11-07",
+      "as_of_date": "2026-11-08",
       "fetched": true
     },
     "macro": {
-      "as_of_date": "2026-11-07",
+      "as_of_date": "2026-11-08",
       "fetched": true
     },
     "tw_chip": {
       "as_of_date": "2026-11-06",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-11-06",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
+    {
+      "title": "陳珮騏為動保燒5000萬「完全沒存款」　靠愛國情操買股賺30％",
+      "url": "https://tw.stock.yahoo.com/news/%E9%99%B3%E7%8F%AE%E9%A8%8F%E7%82%BA%E5%8B%95%E4%BF%9D%E7%87%925000%E8%90%AC-%E5%AE%8C%E5%85%A8%E6%B2%92%E5%AD%98%E6%AC%BE-%E9%9D%A0%E6%84%9B%E5%9C%8B%E6%83%85%E6%93%8D%E8%B2%B7%E8%82%A1%E8%B3%BA30-162029136.html",
+      "meta": null
+    },
     {
       "title": "陳珮騏投入動保15年燒光5000萬！沒存款全靠股市 買1檔飆漲30％",
       "url": "https://tw.stock.yahoo.com/news/%E9%99%B3%E7%8F%AE%E9%A8%8F%E6%8A%95%E5%85%A5%E5%8B%95%E4%BF%9D15%E5%B9%B4%E7%87%92%E5%85%895000%E8%90%AC-%E6%B2%92%E5%AD%98%E6%AC%BE%E5%85%A8%E9%9D%A0%E8%82%A1%E5%B8%82-%E8%B2%B71%E6%AA%94%E9%A3%86%E6%BC%B230-082909939.html",
@@ -1523,17 +1528,12 @@
       "title": "矽光子綠意盎然！「這檔」週摜3根挾IET、上詮、台星科跌停　華星光、波若威殺破8%",
       "url": "https://tw.stock.yahoo.com/news/%E7%9F%BD%E5%85%89%E5%AD%90%E7%B6%A0%E6%84%8F%E7%9B%8E%E7%84%B6-%E9%80%99%E6%AA%94-%E9%80%B1%E6%91%9C3%E6%A0%B9%E6%8C%BEiet-%E4%B8%8A%E8%A9%AE-%E5%8F%B0%E6%98%9F%E7%A7%91%E8%B7%8C%E5%81%9C-085000050.html",
       "meta": null
-    },
-    {
-      "title": "低軌衛星股空中慘墜！「這2檔」竟逆風飆漲停、穩懋4天吞3跌停　奇鋐、啟碁同亮綠燈、CCL廠續跌",
-      "url": "https://tw.stock.yahoo.com/news/%E4%BD%8E%E8%BB%8C%E8%A1%9B%E6%98%9F%E8%82%A1%E7%A9%BA%E4%B8%AD%E6%85%98%E5%A2%9C-%E9%80%992%E6%AA%94-%E7%AB%9F%E9%80%86%E9%A2%A8%E9%A3%86%E6%BC%B2%E5%81%9C-%E7%A9%A9%E6%87%8B4%E5%A4%A9%E5%90%9E3%E8%B7%8C%E5%81%9C-%E5%A5%87%E9%8B%90-083500037.html",
-      "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 0,
+  "new_alerts": 71,
   "overbought_count": 2,
   "oversold_count": 69,
   "normal_count": 56,
@@ -2416,7 +2416,7 @@
       "extra_data": {
         "regular_market_price": 116.1,
         "pre_market_price": null,
-        "post_market_price": 115.98,
+        "post_market_price": 115.9804,
         "prev_close": 115.16
       },
       "kd_k": 19.47,
