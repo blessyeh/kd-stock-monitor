@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-09T04:09:25.063599",
+  "timestamp": "2026-11-09T08:28:20.827293",
   "date": "2026-11-09",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": 0.45
     },
     "dxy": {
-      "value": 102.3,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 102.18,
+      "change": -0.12,
+      "change_pct": -0.12
     },
     "fear_greed": {
       "value": 25.64,
       "change": -2.54,
       "change_pct": -9.01,
       "label": "VIX Index",
-      "timestamp": "2026-11-09T04:07:51.153669"
+      "timestamp": "2026-11-09T08:28:12.519406"
     },
     "btc": {
-      "value": 75779.0,
-      "change": 32.0,
-      "change_pct": 0.04
+      "value": 74834.0,
+      "change": 0,
+      "change_pct": 0
     },
     "oil": {
-      "value": 90.83,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 90.25,
+      "change": -0.58,
+      "change_pct": -0.64
     },
     "gold": {
-      "value": 4074.9,
-      "change": 0.0,
-      "change_pct": 0.0
+      "value": 4082.2,
+      "change": 7.3,
+      "change_pct": 0.18
     },
     "sox": {
       "value": 9390.25,
@@ -136,8 +136,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 102.30 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.07pp（未達 0.15pp）",
-          "score": 29.2
+          "detail": "DXY 102.18 vs 近20日高點 102.38（未突破）；美債10Y 5日變動 -0.07pp（未達 0.15pp）",
+          "score": 25.6
         },
         {
           "id": "twd_depreciation",
@@ -177,7 +177,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 28.8
+      "avg_score": 27.9
     },
     "bottom": {
       "conditions": [
@@ -260,15 +260,15 @@
     "as_of_date": "2026-11-06",
     "history_days": 105,
     "bottom": {
-      "total": 36.7,
+      "total": 37.4,
       "dimensions": [
         {
           "name": "macro",
-          "score": 8.7,
+          "score": 9.4,
           "cap": 25,
           "notes": [
             "VIX 近10日高點 26.6 → 目前 25.6（強度 28/100，+4.3）",
-            "DXY 102.30 距近20日高點 -0.08%（美元壓力緩和強度 45/100，+4.5）"
+            "DXY 102.18 距近20日高點 -0.20%（美元壓力緩和強度 52/100，+5.2）"
           ]
         },
         {
@@ -307,14 +307,14 @@
       ]
     },
     "top": {
-      "total": 13.0,
+      "total": 12.4,
       "dimensions": [
         {
           "name": "macro",
-          "score": 8.8,
+          "score": 8.2,
           "cap": 25,
           "notes": [
-            "DXY 102.30 距近20日高點 -0.08%，美債10Y5日變動 -0.07pp（強度 29/100，+4.4）",
+            "DXY 102.18 距近20日高點 -0.20%，美債10Y5日變動 -0.07pp（強度 26/100，+3.8）",
             "SOX/NDX 距近20日支撐 +1.35%，美債10Y同步變動（強度 44/100，+4.4）"
           ]
         },
@@ -485,6 +485,16 @@
     },
     "news": [
       {
+        "title": "台積電傳獲輝達點名布局3D DRAM先進記憶體，ADR上週五強彈6.33%",
+        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%82%B3%E7%8D%B2%E8%BC%9D%E9%81%94%E9%BB%9E%E5%90%8D%E5%B8%83%E5%B1%803d-dram%E5%85%88%E9%80%B2%E8%A8%98%E6%86%B6%E9%AB%94-adr%E4%B8%8A%E9%80%B1%E4%BA%94%E5%BC%B7%E5%BD%886-33-235443277.html",
+        "meta": null
+      },
+      {
+        "title": "國安基金授權進場，有利週一台股表現",
+        "url": "https://tw.stock.yahoo.com/news/%E5%9C%8B%E5%AE%89%E5%9F%BA%E9%87%91%E6%8E%88%E6%AC%8A%E9%80%B2%E5%A0%B4-%E6%9C%89%E5%88%A9%E9%80%B1-%E5%8F%B0%E8%82%A1%E8%A1%A8%E7%8F%BE-232223189.html",
+        "meta": null
+      },
+      {
         "title": "國安基金進場就是最低點？專家曝3指標須緊盯 台積電營收將公布",
         "url": "https://tw.stock.yahoo.com/news/%E5%9C%8B%E5%AE%89%E5%9F%BA%E9%87%91%E9%80%B2%E5%A0%B4%E5%B0%B1%E6%98%AF%E6%9C%80%E4%BD%8E%E9%BB%9E-%E5%B0%88%E5%AE%B6%E6%9B%9D3%E6%8C%87%E6%A8%99%E9%A0%88%E7%B7%8A%E7%9B%AF-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%87%9F%E6%94%B6%E5%B0%87%E5%85%AC%E5%B8%83-141456833.html",
         "meta": null
@@ -512,16 +522,6 @@
       {
         "title": "門打開了！  經部修法開放火力CCS低碳電   台塑化、台電可直售台積電",
         "url": "https://tw.stock.yahoo.com/news/%E9%96%80%E6%89%93%E9%96%8B%E4%BA%86-%E7%B6%93%E9%83%A8%E4%BF%AE%E6%B3%95%E9%96%8B%E6%94%BE%E7%81%AB%E5%8A%9Bccs%E4%BD%8E%E7%A2%B3%E9%9B%BB-%E5%8F%B0%E5%A1%91%E5%8C%96-%E5%8F%B0%E9%9B%BB%E5%8F%AF%E7%9B%B4%E5%94%AE%E5%8F%B0%E7%A9%8D%E9%9B%BB-144343758.html",
-        "meta": null
-      },
-      {
-        "title": "血洗3700點…大戶暗中爆買「第1是它」！16檔下周絕地反彈黑馬出列",
-        "url": "https://tw.stock.yahoo.com/news/%E8%A1%80%E6%B4%973700%E9%BB%9E-%E5%A4%A7%E6%88%B6%E6%9A%97%E4%B8%AD%E7%88%86%E8%B2%B7-%E7%AC%AC1%E6%98%AF%E5%AE%83-16%E6%AA%94%E4%B8%8B%E5%91%A8%E7%B5%95%E5%9C%B0%E5%8F%8D%E5%BD%88%E9%BB%91%E9%A6%AC%E5%87%BA%E5%88%97-103524853.html",
-        "meta": null
-      },
-      {
-        "title": "柏林安全會議　林佳龍盼攜手歐洲強化關鍵基礎設施",
-        "url": "https://tw.stock.yahoo.com/news/%E6%9F%8F%E6%9E%97%E5%AE%89%E5%85%A8%E6%9C%83%E8%AD%B0-%E6%9E%97%E4%BD%B3%E9%BE%8D%E7%9B%BC%E6%94%9C%E6%89%8B%E6%AD%90%E6%B4%B2%E5%BC%B7%E5%8C%96%E9%97%9C%E9%8D%B5%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD-085132412.html",
         "meta": null
       }
     ],
@@ -1471,69 +1471,69 @@
     },
     "tw_chip": {
       "as_of_date": "2026-11-06",
-      "fetched": true
+      "fetched": false
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-11-06",
-      "fetched": true
+      "fetched": false
     }
   },
   "news": [
     {
-      "title": "外資押寶名單大洗牌！單週掃貨「這ETF」11萬張　00953B、00984D齊入袋",
-      "url": "https://tw.stock.yahoo.com/news/%E5%A4%96%E8%B3%87%E6%8A%BC%E5%AF%B6%E5%90%8D%E5%96%AE%E5%A4%A7%E6%B4%97%E7%89%8C-%E5%96%AE%E9%80%B1%E6%8E%83%E8%B2%A8-%E9%80%99etf-11%E8%90%AC%E5%BC%B5-00953b-104500405.html",
+      "title": "捲共諜風暴 黃仁勳認「對妻子不忠」輝達董事會啟動調查",
+      "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E8%AA%8D%E4%BA%86%E5%B0%8D%E5%A6%BB%E4%B8%8D%E5%BF%A0-%E6%8D%B2%E5%85%B1%E8%AB%9C%E5%A9%9A%E5%A4%96%E6%83%85%E9%A2%A8%E6%9A%B4-%E6%B7%B1%E6%84%9F%E6%8A%B1%E6%AD%89-%E8%BC%9D%E9%81%94%E8%91%A3%E4%BA%8B%E6%9C%83%E5%95%9F%E5%8B%95%E8%AA%BF%E6%9F%A5-225118491.html",
       "meta": null
     },
     {
-      "title": "許志豪台股慘賠50萬！自嘲要「淪落街頭」　緋聞女友翁鈺鈞求婚鑽戒恐飛了",
-      "url": "https://tw.stock.yahoo.com/news/%E8%A8%B1%E5%BF%97%E8%B1%AA%E5%8F%B0%E8%82%A1%E6%85%98%E8%B3%A050%E8%90%AC-%E8%87%AA%E5%98%B2%E8%A6%81-%E6%B7%AA%E8%90%BD%E8%A1%97%E9%A0%AD-%E7%B7%8B%E8%81%9E%E5%A5%B3%E5%8F%8B%E7%BF%81%E9%88%BA%E9%88%9E%E6%B1%82%E5%A9%9A%E9%91%BD%E6%88%92%E6%81%90%E9%A3%9B%E4%BA%86-042700426.html",
+      "title": "限空令來了！16檔高借券股迎轉機",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E9%87%8D%E6%8C%AB%E6%9C%89%E6%9C%9B%E5%8F%8D%E6%94%BB-%E5%B0%88%E5%AE%B6%E9%BB%9E%E5%90%8D-16%E6%AA%94%E9%AB%98%E5%80%9F%E5%88%B8%E8%82%A1-%E8%8B%B1%E6%A5%AD%E9%81%9416-9-143000098.html",
       "meta": null
     },
     {
-      "title": "12萬投資人注意了！「這檔千億級ETF」1拆5進入倒數　最後交易日只剩2天",
-      "url": "https://tw.stock.yahoo.com/news/12%E8%90%AC%E6%8A%95%E8%B3%87%E4%BA%BA%E6%B3%A8%E6%84%8F%E4%BA%86-%E9%80%99%E6%AA%94%E5%8D%83%E5%84%84%E7%B4%9Aetf-1%E6%8B%865%E9%80%B2%E5%85%A5%E5%80%92%E6%95%B8-%E6%9C%80%E5%BE%8C%E4%BA%A4%E6%98%93%E6%97%A5%E5%8F%AA%E5%89%A92%E5%A4%A9-040500109.html",
+      "title": "業界推演AI產業三劇本 最慘恐現大量違約、砍單潮",
+      "url": "https://tw.stock.yahoo.com/news/ai%E7%94%A2%E6%A5%AD%E7%99%BC%E5%B1%95%E4%B8%89%E5%8A%87%E6%9C%AC%E6%8E%A8%E6%BC%94-%E8%97%8D%E6%BD%AE-%E6%95%88%E6%87%89-%E6%82%B2%E8%A7%80%E6%83%85%E5%A2%83-%E5%87%BA%E7%8F%BE%E5%A4%A7%E9%87%8F%E7%A0%8D%E5%96%AE%E6%BD%AE-221412852.html",
       "meta": null
     },
     {
-      "title": "陳珮騏為動保燒5000萬「完全沒存款」　靠愛國情操買股賺30％",
-      "url": "https://tw.stock.yahoo.com/news/%E9%99%B3%E7%8F%AE%E9%A8%8F%E7%82%BA%E5%8B%95%E4%BF%9D%E7%87%925000%E8%90%AC-%E5%AE%8C%E5%85%A8%E6%B2%92%E5%AD%98%E6%AC%BE-%E9%9D%A0%E6%84%9B%E5%9C%8B%E6%83%85%E6%93%8D%E8%B2%B7%E8%82%A1%E8%B3%BA30-162029136.html",
+      "title": "跟上0050腳步 006208估將「1拆8」",
+      "url": "https://tw.stock.yahoo.com/news/006208-%E6%8B%86%E5%85%AB-0050%E9%9C%B8%E4%B8%BB%E5%9C%B0%E4%BD%8D%E5%8F%97%E6%8C%91%E6%88%B0-%E5%B0%88%E5%AE%B6%E6%8F%AD%E8%BF%9110%E5%B9%B4%E5%A0%B1%E9%85%AC%E8%B4%8F%E5%AE%B6%E6%98%AF%E5%AE%83-170530859.html",
       "meta": null
     },
     {
-      "title": "陳珮騏投入動保15年燒光5000萬！沒存款全靠股市 買1檔飆漲30％",
-      "url": "https://tw.stock.yahoo.com/news/%E9%99%B3%E7%8F%AE%E9%A8%8F%E6%8A%95%E5%85%A5%E5%8B%95%E4%BF%9D15%E5%B9%B4%E7%87%92%E5%85%895000%E8%90%AC-%E6%B2%92%E5%AD%98%E6%AC%BE%E5%85%A8%E9%9D%A0%E8%82%A1%E5%B8%82-%E8%B2%B71%E6%AA%94%E9%A3%86%E6%BC%B230-082909939.html",
+      "title": "銷量差⋯馬斯克宣布停產Cybertruck",
+      "url": "https://tw.stock.yahoo.com/news/%E7%89%B9%E6%96%AF%E6%8B%89cybertruck%E6%98%8E%E5%B9%B4%E5%81%9C%E7%94%A2-%E9%8A%B7%E9%87%8F%E6%9A%B4%E8%B7%8C48-%E9%A6%AC%E6%96%AF%E5%85%8B%E8%AA%8D%E4%BA%86-%E5%80%8B%E6%99%82%E4%BB%A3%E7%B5%90%E6%9D%9F-070800838.html",
       "meta": null
     },
     {
-      "title": "台股跌逾20％想認賠！他問「短期盤整可以先賣再立刻買回嗎」 鄉民急勸：別亂動",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E8%B7%8C%E9%80%BE20-%E6%83%B3%E8%AA%8D%E8%B3%A0-%E4%BB%96%E5%95%8F-%E7%9F%AD%E6%9C%9F%E7%9B%A4%E6%95%B4%E5%8F%AF%E4%BB%A5%E5%85%88%E8%B3%A3%E5%86%8D%E7%AB%8B%E5%88%BB%E8%B2%B7%E5%9B%9E%E5%97%8E-%E9%84%89%E6%B0%91%E6%80%A5%E5%8B%B8-051700431.html",
+      "title": "外資連七賣台股 逆勢掃貨航空、內需族群抗壓力強",
+      "url": "https://tw.stock.yahoo.com/news/%E5%A4%96%E8%B3%87%E9%80%86%E5%8B%A2%E6%8E%83%E8%B2%A8%E8%82%A1-%E6%8A%97%E5%A3%93%E5%8A%9B%E5%BC%B7-222140767.html",
       "meta": null
     },
     {
-      "title": "台股急跌想借錢加碼！他考慮「理財型房貸投入市值型ETF」　鄉民曝風險",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%80%A5%E8%B7%8C%E6%83%B3%E5%80%9F%E9%8C%A2%E5%8A%A0%E7%A2%BC-%E4%BB%96%E8%80%83%E6%85%AE-%E7%90%86%E8%B2%A1%E5%9E%8B%E6%88%BF%E8%B2%B8%E6%8A%95%E5%85%A5%E5%B8%82%E5%80%BC%E5%9E%8Betf-%E9%84%89%E6%B0%91%E6%9B%9D%E9%A2%A8%E9%9A%AA-044600022.html",
+      "title": "房市買氣蕭條 今年恐再探底 專家：受股市崩跌影響 Q4保守看",
+      "url": "https://tw.stock.yahoo.com/news/%E6%88%BF%E5%B8%82%E8%B2%B7%E6%B0%A3%E8%95%AD%E6%A2%9D-%E4%BB%8A%E5%B9%B4%E6%81%90%E5%86%8D%E6%8E%A2%E5%BA%95-%E5%B0%88%E5%AE%B6-%E5%8F%97%E8%82%A1%E5%B8%82%E5%B4%A9%E8%B7%8C%E5%BD%B1%E9%9F%BF-q4%E4%BF%9D%E5%AE%88%E7%9C%8B-222746185.html",
       "meta": null
     },
     {
-      "title": "台股急跌正5族卻越跌越買！他質疑「跌20%了也打死不退嗎」　投資人搖頭：本多終勝",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%80%A5%E8%B7%8C%E6%AD%A35%E6%97%8F%E5%8D%BB%E8%B6%8A%E8%B7%8C%E8%B6%8A%E8%B2%B7-%E4%BB%96%E8%B3%AA%E7%96%91-%E8%B7%8C20-%E4%BA%86%E4%B9%9F%E6%89%93%E6%AD%BB%E4%B8%8D%E9%80%80%E5%97%8E-%E6%8A%95%E8%B3%87%E4%BA%BA%E6%90%96%E9%A0%AD-041600846.html",
+      "title": "美國民主黨大勝 大陸CSP巨頭乘勢崛起 英業達、神達意外撿到槍",
+      "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E5%9C%8B%E6%B0%91%E4%B8%BB%E9%BB%A8%E5%A4%A7%E5%8B%9D-%E5%A4%A7%E9%99%B8csp%E5%B7%A8%E9%A0%AD%E4%B9%98%E5%8B%A2%E5%B4%9B%E8%B5%B7-%E8%8B%B1%E6%A5%AD%E9%81%94-%E7%A5%9E%E9%81%94%E6%84%8F%E5%A4%96%E6%92%BF%E5%88%B0%E6%A7%8D-222746581.html",
       "meta": null
     },
     {
-      "title": "營收越旺、股價卻摔了！「這檔網通股」10月營收衝446億元創新高　新品出貨添Q4動能有望再寫高",
-      "url": "https://tw.stock.yahoo.com/news/%E7%87%9F%E6%94%B6%E8%B6%8A%E6%97%BA-%E8%82%A1%E5%83%B9%E5%8D%BB%E6%91%94%E4%BA%86-%E9%80%99%E6%AA%94%E7%B6%B2%E9%80%9A%E8%82%A1-10%E6%9C%88%E7%87%9F%E6%94%B6%E8%A1%9D446%E5%84%84%E5%85%83%E5%89%B5%E6%96%B0%E9%AB%98-%E6%96%B0%E5%93%81%E5%87%BA%E8%B2%A8%E6%B7%BBq4%E5%8B%95%E8%83%BD%E6%9C%89%E6%9C%9B%E5%86%8D%E5%AF%AB%E9%AB%98-153000953.html",
+      "title": "太陽能廠新一波大單要來了！美客戶詢問度大增 聯合再生加快當地建廠腳步",
+      "url": "https://tw.stock.yahoo.com/news/%E5%A4%AA%E9%99%BD%E8%83%BD%E5%BB%A0%E6%96%B0-%E6%B3%A2%E5%A4%A7%E5%96%AE%E8%A6%81%E4%BE%86%E4%BA%86-%E7%BE%8E%E5%AE%A2%E6%88%B6%E8%A9%A2%E5%95%8F%E5%BA%A6%E5%A4%A7%E5%A2%9E-%E8%81%AF%E5%90%88%E5%86%8D%E7%94%9F%E5%8A%A0%E5%BF%AB%E7%95%B6%E5%9C%B0%E5%BB%BA%E5%BB%A0%E8%85%B3%E6%AD%A5-222746907.html",
       "meta": null
     },
     {
-      "title": "0050漲到116.6元沒跑！一路下跌他後悔 網曝「最佳賣點」",
-      "url": "https://tw.stock.yahoo.com/news/0050%E6%BC%B2%E5%88%B0116-6%E5%85%83%E6%B2%92%E8%B7%91-%E8%B7%AF%E4%B8%8B%E8%B7%8C%E4%BB%96%E5%BE%8C%E6%82%94-%E7%B6%B2%E6%9B%9D-%E6%9C%80%E4%BD%B3%E8%B3%A3%E9%BB%9E-103200318.html",
+      "title": "MSCI半年度調整 美國10月CPI決定Fed年底升降息路徑",
+      "url": "https://tw.stock.yahoo.com/news/msci%E5%8D%8A%E5%B9%B4%E5%BA%A6%E8%AA%BF%E6%95%B412%E6%97%A5%E6%8F%AD%E6%9B%89-%E7%BE%8E%E5%9C%8B10%E6%9C%88cpi%E6%B1%BA%E5%AE%9Afed%E5%B9%B4%E5%BA%95%E5%8D%87%E9%99%8D%E6%81%AF%E8%B7%AF%E5%BE%91-%E4%B8%89%E5%A4%A7ai%E6%B3%95%E8%AA%AA%E9%80%A3%E7%99%BC-%E4%BE%9B%E6%87%89%E9%8F%88%E8%83%BD%E8%A6%8B%E5%BA%A6%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%B8%85-%E4%B8%AD%E6%B2%B9%E6%B2%B9%E5%83%B9%E9%80%A38%E5%87%8D%EF%BD%9C%E6%8A%95%E8%B3%87%E6%97%A9%E7%9F%A5%E9%81%93-122440739.html",
       "meta": null
     }
   ],
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 71,
+  "new_alerts": 0,
   "overbought_count": 2,
   "oversold_count": 69,
   "normal_count": 56,
