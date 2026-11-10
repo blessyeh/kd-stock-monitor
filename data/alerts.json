@@ -1,5 +1,29 @@
 [
   {
+    "id": "00980A.TW_20261110_oversold",
+    "symbol": "00980A.TW",
+    "name": "主動野村臺灣優選",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 26.71,
+    "kd_d": 19.76,
+    "kd_state": "BULLISH_MOMENTUM",
+    "current_price": 20.88,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00980A.TW (主動野村臺灣優選) is OVERSOLD! KD-K: 26.71, KD-D: 19.76 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-10T17:09:18.881849",
+    "date": "2026-11-10",
+    "acknowledged": false
+  },
+  {
     "id": "00403A.TW_20261110_oversold",
     "symbol": "00403A.TW",
     "name": "主動統一升級50",
@@ -2585,33 +2609,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ NVDL (GraniteShares 2x Long NVDA Daily ETF) is OVERSOLD! KD-K: 11.18, KD-D: 15.86 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-11-09T04:09:21.015568",
-    "date": "2026-11-09",
-    "acknowledged": false
-  },
-  {
-    "id": "MULL_20261109_oversold",
-    "symbol": "MULL",
-    "name": "GraniteShares 2x Long MU Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 11.02,
-    "kd_d": 19.96,
-    "kd_state": "OVERSOLD",
-    "current_price": 9.58,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ MULL (GraniteShares 2x Long MU Daily ETF) is OVERSOLD! KD-K: 11.02, KD-D: 19.96 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-09T04:09:21.015784",
     "date": "2026-11-09",
     "acknowledged": false
   }
