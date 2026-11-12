@@ -1,5 +1,53 @@
 [
   {
+    "id": "MULL_20261112_oversold",
+    "symbol": "MULL",
+    "name": "GraniteShares 2x Long MU Daily ETF",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 25.93,
+    "kd_d": 19.68,
+    "kd_state": "GOLDEN_CROSS",
+    "current_price": 13.01,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ MULL (GraniteShares 2x Long MU Daily ETF) is OVERSOLD! KD-K: 25.93, KD-D: 19.68 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-12T09:16:03.293323",
+    "date": "2026-11-12",
+    "acknowledged": false
+  },
+  {
+    "id": "CRCL_20261112_oversold",
+    "symbol": "CRCL",
+    "name": "Circle Internet Group, Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.09,
+    "kd_d": 19.95,
+    "kd_state": "OVERSOLD_REVERSAL",
+    "current_price": 67.12,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ CRCL (Circle Internet Group, Inc.) is OVERSOLD! KD-K: 19.09, KD-D: 19.95 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-12T09:16:03.293468",
+    "date": "2026-11-12",
+    "acknowledged": false
+  },
+  {
     "id": "00652.TW_20261112_overbought",
     "symbol": "00652.TW",
     "name": "富邦印度",
@@ -2436,56 +2484,6 @@
     "message": "✅ DELL (Dell Technologies Inc.) is OVERSOLD! KD-K: 12.13, KD-D: 16.09 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-11-10T09:53:05.972065",
     "date": "2026-11-10",
-    "acknowledged": false
-  },
-  {
-    "id": "DLLL_20261110_oversold",
-    "symbol": "DLLL",
-    "name": "GraniteShares 2x Long DELL Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 9.48,
-    "kd_d": 13.64,
-    "kd_state": "OVERSOLD_REVERSAL",
-    "current_price": 12.01,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ DLLL (GraniteShares 2x Long DELL Daily ETF) is OVERSOLD! KD-K: 9.48, KD-D: 13.64 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-10T09:53:05.972243",
-    "date": "2026-11-10",
-    "acknowledged": false
-  },
-  {
-    "id": "00665L.TW_20261109_overbought",
-    "symbol": "00665L.TW",
-    "name": "富邦恒生國企正2",
-    "market": "TW",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 80.76,
-    "kd_d": 67.34,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 9.19,
-    "threshold": 80,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）",
-      "個股外資近3日仍買超達20日均量的34%（籌碼面仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "⚠️ 00665L.TW (富邦恒生國企正2) is OVERBOUGHT! KD-K: 80.76, KD-D: 67.34 (>= 80)（⚠️ 疑似高檔鈍化，非明確賣出訊號）",
-    "timestamp": "2026-11-09T15:35:33.039900",
-    "date": "2026-11-09",
     "acknowledged": false
   }
 ]
