@@ -1,5 +1,29 @@
 [
   {
+    "id": "NFXL_20261114_oversold",
+    "symbol": "NFXL",
+    "name": "Direxion Daily NFLX Bull 2X Shares",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.69,
+    "kd_d": 29.05,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 10.72,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ NFXL (Direxion Daily NFLX Bull 2X Shares) is OVERSOLD! KD-K: 19.69, KD-D: 29.05 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-14T09:14:25.650949",
+    "date": "2026-11-14",
+    "acknowledged": false
+  },
+  {
     "id": "00652.TW_20261114_overbought",
     "symbol": "00652.TW",
     "name": "富邦印度",
@@ -2469,31 +2493,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ 00988A.TW (主動統一全球創新) is OVERSOLD! KD-K: 24.3, KD-D: 17.99 (<= 20)",
     "timestamp": "2026-11-10T09:53:05.968279",
-    "date": "2026-11-10",
-    "acknowledged": false
-  },
-  {
-    "id": "00992A.TW_20261110_oversold",
-    "symbol": "00992A.TW",
-    "name": "主動群益科技創新",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 25.51,
-    "kd_d": 17.13,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 14.56,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "個股外資近3日仍賣超達20日均量的38%（籌碼仍在流出，KD超賣可能持續鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00992A.TW (主動群益科技創新) is OVERSOLD! KD-K: 25.51, KD-D: 17.13 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-10T09:53:05.968422",
     "date": "2026-11-10",
     "acknowledged": false
   }
