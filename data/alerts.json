@@ -1,5 +1,83 @@
 [
   {
+    "id": "00635U.TW_20261117_oversold",
+    "symbol": "00635U.TW",
+    "name": "期元大S&P黃金",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.03,
+    "kd_d": 35.52,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 39.5,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00635U.TW (期元大S&P黃金) is OVERSOLD! KD-K: 19.03, KD-D: 35.52 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-17T09:30:12.676922",
+    "date": "2026-11-17",
+    "acknowledged": false
+  },
+  {
+    "id": "00708L.TW_20261117_oversold",
+    "symbol": "00708L.TW",
+    "name": "期元大S&P黃金正2",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 18.87,
+    "kd_d": 35.36,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 60.45,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00708L.TW (期元大S&P黃金正2) is OVERSOLD! KD-K: 18.87, KD-D: 35.36 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-17T09:30:12.677676",
+    "date": "2026-11-17",
+    "acknowledged": false
+  },
+  {
+    "id": "00951.TW_20261117_oversold",
+    "symbol": "00951.TW",
+    "name": "台新日本半導體",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 8.07,
+    "kd_d": 11.73,
+    "kd_state": "OVERSOLD",
+    "current_price": 10.5,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00951.TW (台新日本半導體) is OVERSOLD! KD-K: 8.07, KD-D: 11.73 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-17T09:30:12.678046",
+    "date": "2026-11-17",
+    "acknowledged": false
+  },
+  {
     "id": "00652.TW_20261117_overbought",
     "symbol": "00652.TW",
     "name": "富邦印度",
@@ -2408,81 +2486,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ GGLL (Direxion Daily GOOGL Bull 2X Shares) is OVERSOLD! KD-K: 25.4, KD-D: 16.06 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-11-11T01:28:42.202580",
-    "date": "2026-11-11",
-    "acknowledged": false
-  },
-  {
-    "id": "NVDL_20261111_oversold",
-    "symbol": "NVDL",
-    "name": "GraniteShares 2x Long NVDA Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 9.06,
-    "kd_d": 12.85,
-    "kd_state": "OVERSOLD",
-    "current_price": 18.9956,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ NVDL (GraniteShares 2x Long NVDA Daily ETF) is OVERSOLD! KD-K: 9.06, KD-D: 12.85 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-11T01:28:42.202741",
-    "date": "2026-11-11",
-    "acknowledged": false
-  },
-  {
-    "id": "MULL_20261111_oversold",
-    "symbol": "MULL",
-    "name": "GraniteShares 2x Long MU Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 12.83,
-    "kd_d": 16.08,
-    "kd_state": "OVERSOLD",
-    "current_price": 9.99,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ MULL (GraniteShares 2x Long MU Daily ETF) is OVERSOLD! KD-K: 12.83, KD-D: 16.08 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-11T01:28:42.202897",
-    "date": "2026-11-11",
-    "acknowledged": false
-  },
-  {
-    "id": "FNGG_20261111_oversold",
-    "symbol": "FNGG",
-    "name": "Direxion Daily NYSE FANG+ Bull 2X Shares",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 23.54,
-    "kd_d": 19.54,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 217.0,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ FNGG (Direxion Daily NYSE FANG+ Bull 2X Shares) is OVERSOLD! KD-K: 23.54, KD-D: 19.54 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-11T01:28:42.203044",
     "date": "2026-11-11",
     "acknowledged": false
   }
