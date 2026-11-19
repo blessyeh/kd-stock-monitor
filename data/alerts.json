@@ -1,5 +1,109 @@
 [
   {
+    "id": "00733.TW_20261119_oversold",
+    "symbol": "00733.TW",
+    "name": "富邦臺灣中小",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.89,
+    "kd_d": 29.09,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 50.35,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00733.TW (富邦臺灣中小) is OVERSOLD! KD-K: 19.89, KD-D: 29.09 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-19T17:49:19.117996",
+    "date": "2026-11-19",
+    "acknowledged": false
+  },
+  {
+    "id": "00891.TW_20261119_oversold",
+    "symbol": "00891.TW",
+    "name": "中信關鍵半導體",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.79,
+    "kd_d": 26.99,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 26.46,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00891.TW (中信關鍵半導體) is OVERSOLD! KD-K: 17.79, KD-D: 26.99 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-19T17:49:19.118608",
+    "date": "2026-11-19",
+    "acknowledged": false
+  },
+  {
+    "id": "00929.TW_20261119_oversold",
+    "symbol": "00929.TW",
+    "name": "復華台灣科技優息",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 17.32,
+    "kd_d": 25.06,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 22.53,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00929.TW (復華台灣科技優息) is OVERSOLD! KD-K: 17.32, KD-D: 25.06 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-19T17:49:19.118911",
+    "date": "2026-11-19",
+    "acknowledged": false
+  },
+  {
+    "id": "00936.TW_20261119_oversold",
+    "symbol": "00936.TW",
+    "name": "台新永續高息中小",
+    "market": "TW",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.61,
+    "kd_d": 28.01,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 17.65,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [
+      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
+    ],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ 00936.TW (台新永續高息中小) is OVERSOLD! KD-K: 19.61, KD-D: 28.01 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-19T17:49:19.119079",
+    "date": "2026-11-19",
+    "acknowledged": false
+  },
+  {
     "id": "00665L.TW_20261119_oversold",
     "symbol": "00665L.TW",
     "name": "富邦恒生國企正2",
@@ -2411,109 +2515,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "⚠️ 00653L.TW (富邦印度正2) is OVERBOUGHT! KD-K: 95.26, KD-D: 91.27 (>= 80)",
     "timestamp": "2026-11-13T01:54:44.535622",
-    "date": "2026-11-13",
-    "acknowledged": false
-  },
-  {
-    "id": "00715L.TW_20261113_oversold",
-    "symbol": "00715L.TW",
-    "name": "期街口布蘭特正2",
-    "market": "TW",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 8.28,
-    "kd_d": 18.13,
-    "kd_state": "OVERSOLD",
-    "current_price": 60.45,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ 00715L.TW (期街口布蘭特正2) is OVERSOLD! KD-K: 8.28, KD-D: 18.13 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-13T01:54:44.535798",
-    "date": "2026-11-13",
-    "acknowledged": false
-  },
-  {
-    "id": "AAPL_20261113_overbought",
-    "symbol": "AAPL",
-    "name": "Apple Inc.",
-    "market": "US",
-    "type": "overbought",
-    "level": "high",
-    "kd_k": 82.73,
-    "kd_d": 73.14,
-    "kd_state": "BULLISH_MOMENTUM",
-    "current_price": 355.5999,
-    "threshold": 80,
-    "filter_confidence": "high",
-    "filter_passed": [
-      "股價觸及布林通道上軌但成交量未放大（追高動能不足，短線過熱風險較高）"
-    ],
-    "filter_cautions": [
-      "股價仍在上彎的20日均線之上（強勢多頭排列，KD高檔鈍化風險高，未必是賣出訊號）",
-      "MACD柱狀體在零軸上持續擴大（多頭動能仍強，超買可能只是鈍化）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "⚠️ AAPL (Apple Inc.) is OVERBOUGHT! KD-K: 82.73, KD-D: 73.14 (>= 80)",
-    "timestamp": "2026-11-13T01:54:44.535977",
-    "date": "2026-11-13",
-    "acknowledged": false
-  },
-  {
-    "id": "NVDA_20261113_oversold",
-    "symbol": "NVDA",
-    "name": "NVIDIA Corp.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.82,
-    "kd_d": 15.25,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 165.15,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [
-      "股價觸及/跌破布林通道下軌（統計上短線反彈機率較高）"
-    ],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ NVDA (NVIDIA Corp.) is OVERSOLD! KD-K: 17.82, KD-D: 15.25 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-13T01:54:44.536149",
-    "date": "2026-11-13",
-    "acknowledged": false
-  },
-  {
-    "id": "NVDL_20261113_oversold",
-    "symbol": "NVDL",
-    "name": "GraniteShares 2x Long NVDA Daily ETF",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 15.97,
-    "kd_d": 13.85,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 18.35,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
-      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ NVDL (GraniteShares 2x Long NVDA Daily ETF) is OVERSOLD! KD-K: 15.97, KD-D: 13.85 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-13T01:54:44.536307",
     "date": "2026-11-13",
     "acknowledged": false
   }
