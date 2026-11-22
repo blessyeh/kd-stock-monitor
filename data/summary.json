@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-22T04:46:45.992964",
+  "timestamp": "2026-11-22T08:54:24.669944",
   "date": "2026-11-22",
   "macro": {
     "taiex": {
@@ -22,12 +22,12 @@
       "change": 7.45,
       "change_pct": 26.2,
       "label": "VIX Index",
-      "timestamp": "2026-11-22T04:45:22.273597"
+      "timestamp": "2026-11-22T08:54:16.703714"
     },
     "btc": {
-      "value": 60288.0,
-      "change": 1489.0,
-      "change_pct": 2.53
+      "value": 60067.0,
+      "change": 0,
+      "change_pct": 0
     },
     "oil": {
       "value": 83.98,
@@ -487,6 +487,11 @@
     },
     "news": [
       {
+        "title": "台積電2千元已到地板價！杜金龍曝長線目標 4檔作帳行情",
+        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB2%E5%8D%83%E5%85%83%E5%B7%B2%E5%88%B0%E5%9C%B0%E6%9D%BF%E5%83%B9-%E6%9D%9C%E9%87%91%E9%BE%8D%E6%9B%9D%E9%95%B7%E7%B7%9A%E7%9B%AE%E6%A8%99-4%E6%AA%94%E4%BD%9C%E5%B8%B3%E8%A1%8C%E6%83%85-220530285.html",
+        "meta": null
+      },
+      {
         "title": "下周再崩1900點敢上車？外資暗中吃貨友達16檔 竟與國家隊同步抄底",
         "url": "https://tw.stock.yahoo.com/news/%E4%B8%8B%E5%91%A8%E5%86%8D%E5%B4%A91900%E9%BB%9E%E6%95%A2%E4%B8%8A%E8%BB%8A-%E5%A4%96%E8%B3%87%E6%9A%97%E4%B8%AD%E5%90%83%E8%B2%A8%E5%8F%8B%E9%81%9416%E6%AA%94-%E7%AB%9F%E8%88%87%E5%9C%8B%E5%AE%B6%E9%9A%8A%E5%90%8C%E6%AD%A5%E6%8A%84%E5%BA%95-104926099.html",
         "meta": null
@@ -519,11 +524,6 @@
       {
         "title": "台積電ADR20日下跌32.945美元跌幅9.36%折台股2102.27元",
         "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BBadr20%E6%97%A5%E4%B8%8B%E8%B7%8C32-945%E7%BE%8E%E5%85%83%E8%B7%8C%E5%B9%859-36-%E6%8A%98%E5%8F%B0%E8%82%A12102-27%E5%85%83-232055398.html",
-        "meta": null
-      },
-      {
-        "title": "AI殺盤引爆恐慌！費半血崩10%　台指期夜盤狂殺1881點",
-        "url": "https://tw.stock.yahoo.com/news/ai%E6%AE%BA%E7%9B%A4%E5%BC%95%E7%88%86%E6%81%90%E6%85%8C-%E8%B2%BB%E5%8D%8A%E8%A1%80%E5%B4%A910-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E7%8B%82%E6%AE%BA1881%E9%BB%9E-224716772.html",
         "meta": null
       }
     ],
@@ -1498,11 +1498,11 @@
     },
     "tw_chip": {
       "as_of_date": "2026-11-20",
-      "fetched": true
+      "fetched": false
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-11-20",
-      "fetched": true
+      "fetched": false
     }
   },
   "news": [
@@ -1560,7 +1560,7 @@
   "stocks_processed": 127,
   "stocks_successful": 127,
   "stocks_failed": 0,
-  "new_alerts": 65,
+  "new_alerts": 0,
   "overbought_count": 2,
   "oversold_count": 63,
   "normal_count": 62,
