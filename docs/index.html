@@ -254,6 +254,21 @@
             </div>
         </div>
 
+        <!-- Risk Score (台股上市市場綜合風險評分 — Phase 2 risk_engine.py) -->
+        <div class="dark-card rounded-lg border border-dark-border mb-6 p-4">
+            <h2 class="text-sm font-bold text-white mb-1 flex items-center">
+                <i class="fas fa-shield-halved mr-2 text-accent"></i>台股上市市場綜合風險評分
+                <i class="fas fa-circle-info opacity-50 info-trigger cursor-pointer ml-2" data-info="risk_score"></i>
+                <span id="risk-score-date" class="text-xs text-dark-text2 font-normal ml-2"></span>
+            </h2>
+            <div id="risk-score-body">
+                <!-- filled by JS -->
+            </div>
+            <p class="text-[10px] text-dark-text2 opacity-70 mt-3 border-t border-dark-border pt-2 leading-relaxed">
+                免責聲明：本評分僅追蹤證交所上市市場與台指期大台（不含上櫃、不含小台/選擇權），為規則式加權評分，部分子項（標註於下）屬工程預設的過渡評分邏輯，尚待歷史資料回測校準，並非機率或勝率，請勿單獨作為買賣依據。
+            </p>
+        </div>
+
         <!-- Signal Score (訊號評分：頂部風險 / 底部佈局) -->
         <div class="dark-card rounded-lg border border-dark-border mb-6 p-4">
             <h2 class="text-sm font-bold text-white mb-1 flex items-center">

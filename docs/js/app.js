@@ -73,6 +73,10 @@ const INFO_TEXT = {
         title: '今日市場分析報告',
         body: '將本頁下方已經各自計算好的數據（國際市場九項指標、台股籌碼面七項指標、訊號共振、訊號評分、台股上市市場綜合風險評分、市場狀態）自動模板化成一段可直接閱讀的文字摘要，方便不想逐項解讀數字的使用者快速掌握今日概況。這是規則式文字生成，不是另一套獨立判斷——內容完全來自下方其他區塊已經核實過的資料，不會出現與其他區塊互相矛盾的說法，也不是投資建議。'
     },
+    risk_score: {
+        title: '台股上市市場綜合風險評分',
+        body: '依規格文件拆成五個權重構面：融資風險30%（融資餘額變化/去槓桿速度/與大盤背離）、法人風險25%（外資買賣超占成交金額比例/投信與自營商是否同步賣超）、外資期貨風險20%（台指期淨空單占未平倉比例/5日變化/現貨期貨方向）、匯率風險15%（央行USD/TWD收盤匯率5日及20日變化/美元指數）、權值股風險10%（台積電與0050五日報酬、台積電外資五日買賣超）。任一子項缺資料不會算0分，而是直接排除在加權平均外，並顯示「資料覆蓋率」；覆蓋率低於80%時不會給出正式總分（下方會改顯示「資料累積中」），這是規格明訂的規則，不是故障。下方另附「融資動態警戒」（以60日滾動高點回撤取代舊的固定金額門檻）與「融資去槓桿型態」「外資現貨期貨背離」兩項獨立觀察。多數子項評分表直接取自規格文件，但部分規格只給公式與權重、沒給離散的評分表，這些地方標註為工程預設，尚待歷史資料回測校準，並非正式統計模型。'
+    },
     signal_confluence: {
         title: '訊號共振：大盤轉折觀察',
         body: '整合多項技術面與籌碼面條件（如 VIX 反轉、融資斷頭、外資回補空單、費半/那斯達克跌破支撐、美債殖利率急升等），尋找台股大盤「可能出現短線頂部或底部」的訊號共振時刻。當愈多條件同時成立，代表出現轉折的機率愈高——但這是機率參考工具，並非即時買賣訊號，也不是放空建議，請勿單獨依賴、更不建議因短線訊號打斷既有的定期定額投資紀律。'
@@ -289,6 +293,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderMarketNews();
     updateChipStats();
     renderMarketReport();
+    renderRiskScore();
     renderSignalScore();
     renderSignalConfluence();
     renderSignalBacktest();
@@ -973,6 +978,137 @@ function renderRegimeBadge() {
  * probability — the caveat text is repeated here in the UI, not just in
  * the card's footer disclaimer, so it's visible right next to the number.
  */
+const RISK_FACET_LABELS = {
+    margin: '融資風險', institutional: '法人風險', futures: '外資期貨風險',
+    fx: '匯率風險', leaders: '權值股風險'
+};
+const RISK_FACET_WEIGHTS = { margin: 30, institutional: 25, futures: 20, fx: 15, leaders: 10 };
+const RISK_LEVEL_STYLE = {
+    '低風險': { text: 'text-kd-green', badge: 'bg-kd-green/10 text-kd-green' },
+    '正常觀察': { text: 'text-dark-text2', badge: 'bg-dark-bg text-dark-text2' },
+    '風險升高': { text: 'text-kd-yellow', badge: 'bg-kd-yellow/15 text-kd-yellow' },
+    '高度警戒': { text: 'text-orange-400', badge: 'bg-orange-500/15 text-orange-400' },
+    '極端風險': { text: 'text-kd-red', badge: 'bg-kd-red/15 text-kd-red' }
+};
+const MARGIN_ALERT_LABELS = ['正常', '第一警戒', '第二警戒', '第三警戒', '第四警戒'];
+const MARGIN_ALERT_COLORS = ['text-dark-text2', 'text-kd-yellow', 'text-orange-400', 'text-orange-500', 'text-kd-red'];
+
+/**
+ * Render the Phase 2 risk_engine.py output — the 5-facet weighted
+ * 台股上市市場綜合風險評分, plus the two standalone reads that share its
+ * inputs (融資動態警戒 drawdown tiers from chip.margin_drawdown_alert, and
+ * margin_deleverage_vs_index / the futures facet's spot-futures divergence).
+ * A facet missing data is never shown as 0 — it's greyed out with its
+ * `reason`, matching risk_engine.py's own "excluded, not zeroed" coverage
+ * rule (see that module's docstring).
+ */
+function renderRiskScore() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const rs = summary.risk_score || {};
+        const chip = summary.chip || {};
+        const dateEl = document.getElementById('risk-score-date');
+        const body = document.getElementById('risk-score-body');
+        if (!body) return;
+
+        if (dateEl) {
+            dateEl.innerHTML = `(資料日期: ${summary.date || '-'})${freshnessBadge((summary.data_freshness || {}).tw_chip, 'eod')}`;
+        }
+
+        const facets = rs.facets || {};
+        const facetsHtml = Object.keys(RISK_FACET_LABELS).map(key => {
+            const f = facets[key] || {};
+            const weight = RISK_FACET_WEIGHTS[key];
+            if (!f.available) {
+                return `
+                    <div class="py-1.5 opacity-50">
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="text-dark-text">${RISK_FACET_LABELS[key]} <span class="text-dark-text2">(權重${weight}%)</span></span>
+                            <span class="font-mono text-dark-text2">資料不足</span>
+                        </div>
+                        <div class="h-1.5 rounded-full bg-dark-bg overflow-hidden"></div>
+                        <div class="text-[10px] text-dark-text2 mt-0.5">歷史資料累積中，尚不足以計算此構面</div>
+                    </div>
+                `;
+            }
+            const score = f.score;
+            const barColor = score >= 80 ? 'bg-kd-red' : score >= 60 ? 'bg-orange-400' : score >= 40 ? 'bg-kd-yellow' : 'bg-kd-green';
+            return `
+                <div class="py-1.5">
+                    <div class="flex items-center justify-between text-[11px] mb-1">
+                        <span class="text-dark-text">${RISK_FACET_LABELS[key]} <span class="text-dark-text2">(權重${weight}%)</span></span>
+                        <span class="font-mono text-dark-text">${score}/100</span>
+                    </div>
+                    <div class="h-1.5 rounded-full bg-dark-bg overflow-hidden">
+                        <div class="h-full ${barColor} rounded-full" style="width: ${score}%"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        let overallHtml;
+        if (rs.available) {
+            const style = RISK_LEVEL_STYLE[rs.risk_level] || { text: 'text-dark-text2', badge: 'bg-dark-bg text-dark-text2' };
+            overallHtml = `
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="text-3xl font-bold font-mono ${style.text}">${rs.score}<span class="text-xs text-dark-text2">/100</span></div>
+                    <div>
+                        <span class="inline-block px-2 py-0.5 rounded text-xs font-semibold ${style.badge}">${rs.risk_level}</span>
+                        <div class="text-[11px] text-dark-text2 mt-0.5">${rs.risk_level_desc}（${rs.status === 'formal' ? '正式分數' : '暫定分數'}，覆蓋率 ${rs.coverage_pct}%）</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            overallHtml = `
+                <div class="text-center py-3 text-dark-text2 text-sm mb-2">
+                    <i class="fas fa-hourglass-half mr-1"></i>
+                    資料覆蓋率僅 ${rs.coverage_pct != null ? rs.coverage_pct : 0}%（需達80%才會正式評分），暫無法提供綜合分數
+                </div>
+            `;
+        }
+
+        const dd = chip.margin_drawdown_alert || { available: false };
+        let ddHtml = '';
+        if (dd.available) {
+            ddHtml = `
+                <div class="mt-3 pt-3 border-t border-dark-border/50">
+                    <div class="flex items-center justify-between text-xs mb-1">
+                        <span class="text-dark-text font-medium">融資動態警戒（60日滾動高點回撤）</span>
+                        <span class="font-semibold ${MARGIN_ALERT_COLORS[dd.alert_level] || 'text-dark-text2'}">${MARGIN_ALERT_LABELS[dd.alert_level] || '-'}</span>
+                    </div>
+                    <div class="text-[11px] text-dark-text2">
+                        近60日高點 ${dd.peak_60.toLocaleString()} 億元（${dd.peak_date}）→ 目前 ${dd.current.toLocaleString()} 億元（${dd.current_date}），回撤 ${dd.drawdown_pct}%
+                        （警戒門檻：${dd.tiers_pct.join('% / ')}%）
+                    </div>
+                </div>
+            `;
+        }
+
+        const dl = rs.margin_deleverage_vs_index;
+        const dlHtml = dl ? `
+            <div class="mt-2 text-[11px] text-dark-text2">
+                <span class="text-dark-text font-medium">融資去槓桿型態：</span>${dl.pattern}
+                （大盤5日 ${dl.taiex_5d_pct >= 0 ? '+' : ''}${dl.taiex_5d_pct}%，融資5日 ${dl.margin_5d_pct >= 0 ? '+' : ''}${dl.margin_5d_pct}%）
+            </div>
+        ` : '';
+
+        const divergence = (facets.futures || {}).divergence;
+        const divHtml = divergence ? `
+            <div class="mt-1 text-[11px] text-dark-text2">
+                <span class="text-dark-text font-medium">外資現貨期貨背離：</span>${divergence.pattern}（${divergence.reading}）
+            </div>
+        ` : '';
+
+        body.innerHTML = `
+            ${overallHtml}
+            <div class="divide-y divide-dark-border/50">${facetsHtml}</div>
+            ${ddHtml}${dlHtml}${divHtml}
+        `;
+    } catch (e) {
+        console.error('renderRiskScore failed:', e);
+    }
+}
+
 function renderSignalScore() {
     try {
         const summary = DataManager.getSummary() || {};
@@ -2095,6 +2231,7 @@ async function refreshData() {
     renderMarketNews();
     updateChipStats();
     renderMarketReport();
+    renderRiskScore();
     renderSignalScore();
     renderSignalConfluence();
     renderSignalBacktest();
