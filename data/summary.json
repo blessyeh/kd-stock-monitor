@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-25T19:43:14.752025",
+  "timestamp": "2026-11-25T20:32:26.465772",
   "date": "2026-11-25",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -0.28
     },
     "dxy": {
-      "value": 104.03,
-      "change": 0.22,
-      "change_pct": 0.21
+      "value": 103.91,
+      "change": 0.1,
+      "change_pct": 0.1
     },
     "fear_greed": {
-      "value": 30.0,
-      "change": 3.64,
-      "change_pct": 13.81,
+      "value": 30.88,
+      "change": 4.52,
+      "change_pct": 17.15,
       "label": "VIX Index",
-      "timestamp": "2026-11-25T19:43:04.280470"
+      "timestamp": "2026-11-25T20:30:14.184299"
     },
     "btc": {
-      "value": 58388.0,
-      "change": -1360.0,
-      "change_pct": -2.28
+      "value": 58623.0,
+      "change": -1124.0,
+      "change_pct": -1.88
     },
     "oil": {
-      "value": 81.69,
-      "change": -0.36,
-      "change_pct": -0.44
+      "value": 82.3,
+      "change": 0.25,
+      "change_pct": 0.3
     },
     "gold": {
-      "value": 3544.3,
-      "change": -17.6,
-      "change_pct": -0.49
+      "value": 3547.1,
+      "change": -14.8,
+      "change_pct": -0.42
     },
     "sox": {
       "value": 8832.5,
@@ -57,18 +57,18 @@
   },
   "chip": {
     "foreign_net": {
-      "value": -503.9,
+      "value": -1236.55,
       "unit": "億元",
-      "date": "2026-11-24",
-      "change": -214.42,
-      "change_pct": -74.07
+      "date": "2026-11-25",
+      "change": -732.65,
+      "change_pct": -145.4
     },
     "trust_net": {
-      "value": 97.63,
+      "value": 550.35,
       "unit": "億元",
-      "date": "2026-11-24",
-      "change": 139.18,
-      "change_pct": 334.97
+      "date": "2026-11-25",
+      "change": 452.72,
+      "change_pct": 463.71
     },
     "margin_balance": {
       "value": 9964974.0,
@@ -98,35 +98,79 @@
       "unit": "%"
     },
     "usdtwd": {
-      "value": 32.963,
-      "change": 0.008,
-      "change_pct": 0.03
+      "value": 33.126,
+      "change": 0.278,
+      "change_pct": 0.84
+    },
+    "dealer_self_net": {
+      "value": -73.63,
+      "unit": "億元",
+      "date": "2026-11-25"
+    },
+    "dealer_hedge_net": {
+      "value": -54.7,
+      "unit": "億元",
+      "date": "2026-11-25"
+    },
+    "institutional_total_net": {
+      "value": -814.53,
+      "unit": "億元",
+      "date": "2026-11-25"
     },
     "foreign_futures_net": {
-      "value": -103182,
+      "value": -105709,
       "unit": "口",
-      "date": "2026-11-24",
-      "change": 250,
-      "change_pct": 0.24
+      "date": "2026-11-25",
+      "change": -2527,
+      "change_pct": -2.45
     },
-    "put_call_ratio": {
-      "value": 45.96,
-      "unit": "%",
+    "foreign_futures_net_taifex": {
+      "value": -103182.0,
+      "unit": "口",
       "date": "2026-11-24"
     },
+    "put_call_ratio": {
+      "value": 55.46,
+      "unit": "%",
+      "date": "2026-11-25",
+      "change": 9.5,
+      "change_pct": 20.67
+    },
+    "usdtwd_cbc": {
+      "value": 33.126,
+      "date": "2026-11-25",
+      "unit": "元",
+      "rate_type": "interbank_closing",
+      "source": "CBC_TAIPEI_FOREX"
+    },
     "night_session": {
-      "close": 39829.0,
-      "prev_close": 36576.0,
-      "gap": 3253.0,
-      "gap_pct": 8.89,
-      "date": "2026-11-24",
-      "prev_date": "2026-11-23"
+      "close": 38482.0,
+      "prev_close": 40324.0,
+      "gap": -1842.0,
+      "gap_pct": -4.57,
+      "date": "2026-11-25",
+      "prev_date": "2026-11-24"
+    },
+    "margin_drawdown_alert": {
+      "available": true,
+      "peak_60": 6533.3,
+      "peak_date": "2026-10-12",
+      "current": 4535.05,
+      "current_date": "2026-11-25",
+      "drawdown_pct": 30.59,
+      "alert_level": 4,
+      "tiers_pct": [
+        3,
+        5,
+        8,
+        12
+      ]
     }
   },
   "signal_confluence": {
     "available": true,
-    "as_of_date": "2026-11-24",
-    "history_days": 117,
+    "as_of_date": "2026-11-25",
+    "history_days": 118,
     "top": {
       "conditions": [
         {
@@ -134,23 +178,23 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 104.03 vs 近20日高點 104.34（未突破）；美債10Y 5日變動 -0.20pp（未達 0.15pp）",
-          "score": 21.1
+          "detail": "DXY 103.91 vs 近20日高點 104.34（未突破）；美債10Y 5日變動 -0.16pp（未達 0.15pp）",
+          "score": 17.6
         },
         {
           "id": "twd_depreciation",
           "label": "匯率表態 (新台幣連續走貶/貶破關卡)",
-          "status": false,
+          "status": true,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.053（貶值門檻 0.3）",
-          "score": 27.1
+          "detail": "USD/TWD 5日變動 +0.167（貶值門檻 0.3）；期間貶破NT$1整數關卡",
+          "score": 65.0
         },
         {
           "id": "foreign_dual_short",
           "label": "外資期現貨雙空",
           "status": true,
           "completeness": "full",
-          "detail": "外資現貨連續3日賣超：是（[-95.1, -289.5, -503.9]億元）；台指期淨部位 -103182口（達 -30000口門檻）",
+          "detail": "外資現貨連續3日賣超：是（[-289.5, -503.9, -1236.5]億元）；台指期淨部位 -105709口（達 -30000口門檻）",
           "score": 0.0
         },
         {
@@ -158,7 +202,7 @@
           "label": "籌碼過度樂觀/散戶接刀",
           "status": false,
           "completeness": "full",
-          "detail": "今日外資賣超；融資餘額5日已回落（4535億元）；P/C Ratio 46.0%（< 100%門檻）",
+          "detail": "今日外資賣超；融資餘額5日已回落（4535億元）；P/C Ratio 55.5%（< 100%門檻）",
           "score": 35.0
         },
         {
@@ -166,16 +210,16 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 8832未跌破近20日支撐8409；NDX 26214未跌破近20日支撐25029；美債10Y 5日變動 -0.20pp（未達 0.15pp）",
+          "detail": "SOX 8832未跌破近20日支撐8409；NDX 26214未跌破近20日支撐25029；美債10Y 5日變動 -0.16pp（未達 0.15pp）",
           "score": 50.0
         }
       ],
       "total_conditions": 5,
       "evaluated_count": 5,
-      "triggered_count": 1,
-      "triggered_full_count": 1,
+      "triggered_count": 2,
+      "triggered_full_count": 2,
       "triggered_partial_count": 0,
-      "avg_score": 26.6
+      "avg_score": 33.5
     },
     "bottom": {
       "conditions": [
@@ -184,8 +228,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 30.1（> 30.0門檻）；目前 30.0（較高點回落 0%，門檻 15%）",
-          "score": 30.8
+          "detail": "近10日VIX高點 30.9（> 30.0門檻）；目前 30.9（較高點回落 0%，門檻 15%）",
+          "score": 31.3
         },
         {
           "id": "margin_capitulation",
@@ -200,8 +244,8 @@
           "label": "外資空單回補與匯率止穩",
           "status": false,
           "completeness": "full",
-          "detail": "USD/TWD 5日變動 +0.053（仍在貶值）；外資今日仍賣超，近期均值 -354.9億元；台指期淨部位5日變動 -5286口（未回補）",
-          "score": 13.8
+          "detail": "USD/TWD 5日變動 +0.167（仍在貶值）；外資今日仍賣超，近期均值 -379.4億元；台指期淨部位5日變動 -6271口（未回補）",
+          "score": 8.3
         }
       ],
       "total_conditions": 3,
@@ -209,15 +253,15 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 14.9
+      "avg_score": 13.2
     },
     "bottom_reversal_score": {
-      "total": 13.8,
+      "total": 8.3,
       "components": [
         {
           "name": "fx_stabilization",
           "weight": 30,
-          "score": 46.2
+          "score": 27.7
         },
         {
           "name": "foreign_flow_reversal",
@@ -234,39 +278,39 @@
   },
   "market_regime": {
     "available": true,
-    "as_of_date": "2026-11-24",
-    "regime": "BEAR_TREND",
-    "regime_label": "空頭趨勢",
+    "as_of_date": "2026-11-25",
+    "regime": "PANIC",
+    "regime_label": "恐慌急殺",
     "ma_period_used": 20,
-    "detail": "TAIEX 38,195 跌破 20日均線 41,352，且未觀察到回穩訊號 — 判定為空頭趨勢",
+    "detail": "VIX 30.9 高於 30 門檻，且近5日急升 +8.5 點（門檻 5 點）— 判定為急性恐慌",
     "metrics": {
       "taiex": 38195.43,
-      "ma_now": 41351.87,
-      "ma_prior": 47930.33,
+      "ma_now": 40943.22,
+      "ma_prior": 47847.51,
       "above_ma": false,
       "ma_rising": false,
-      "vix_today": 30.0,
-      "vix_fast_rise": 6.35,
-      "vix_recent_peak": 30.14,
+      "vix_today": 30.88,
+      "vix_fast_rise": 8.51,
+      "vix_recent_peak": 30.88,
       "vix_rolled_over": false,
-      "foreign_recent_avg": -354.86,
+      "foreign_recent_avg": -379.45,
       "foreign_reversing": false
     }
   },
   "signal_score": {
     "available": true,
-    "as_of_date": "2026-11-24",
-    "history_days": 117,
+    "as_of_date": "2026-11-25",
+    "history_days": 118,
     "bottom": {
-      "total": 34.3,
+      "total": 34.1,
       "dimensions": [
         {
           "name": "macro",
-          "score": 10.4,
+          "score": 11.2,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 30.1 → 目前 30.0（強度 31/100，+4.6）",
-            "DXY 104.03 距近20日高點 -0.30%（美元壓力緩和強度 58/100，+5.8）"
+            "VIX 近10日高點 30.9 → 目前 30.9（強度 31/100，+4.7）",
+            "DXY 103.91 距近20日高點 -0.41%（美元壓力緩和強度 65/100，+6.5）"
           ]
         },
         {
@@ -275,7 +319,7 @@
           "cap": 25,
           "notes": [
             "近5日融資餘額最大單日減幅 -491億元（斷頭強度 0/100，+0.0）",
-            "外資今日 -503.9億元，較近5日均值 -354.9億元（轉強強度 0/100，+0.0）"
+            "外資今日 -1236.5億元，較近5日均值 -379.4億元（轉強強度 0/100，+0.0）"
           ]
         },
         {
@@ -283,17 +327,17 @@
           "score": 0,
           "cap": 20,
           "notes": [
-            "台指期淨空單5日變動 -5286口（回補強度 0/100，+0.0）",
-            "P/C Ratio 46.0%（避險需求強度 0/100，+0.0）"
+            "台指期淨空單5日變動 -6271口（回補強度 0/100，+0.0）",
+            "P/C Ratio 55.5%（避險需求強度 0/100，+0.0）"
           ]
         },
         {
           "name": "technical",
-          "score": 13.9,
+          "score": 12.9,
           "cap": 20,
           "notes": [
-            "TAIEX 38,195 距20日布林下軌 35,490 +7.62%（強度 100/100，+12.0）",
-            "TAIEX 14日RSI 40.7（超賣強度 23/100，+1.9）"
+            "TAIEX 38,195 距20日布林下軌 35,407 +7.88%（強度 100/100，+12.0）",
+            "TAIEX 14日RSI 45.4（超賣強度 12/100，+0.9）"
           ]
         },
         {
@@ -301,30 +345,30 @@
           "score": 10,
           "cap": 10,
           "notes": [
-            "VIX 處於近115筆歷史樣本的第 99 百分位（恐慌強度 100/100，+10.0）"
+            "VIX 處於近116筆歷史樣本的第 100 百分位（恐慌強度 100/100，+10.0）"
           ]
         }
       ]
     },
     "top": {
-      "total": 18.9,
+      "total": 22.1,
       "dimensions": [
         {
           "name": "macro",
-          "score": 8.2,
+          "score": 7.6,
           "cap": 25,
           "notes": [
-            "DXY 104.03 距近20日高點 -0.30%，美債10Y5日變動 -0.20pp（強度 21/100，+3.2）",
+            "DXY 103.91 距近20日高點 -0.41%，美債10Y5日變動 -0.16pp（強度 18/100，+2.6）",
             "SOX/NDX 距近20日支撐 +4.74%，美債10Y同步變動（強度 50/100，+5.0）"
           ]
         },
         {
           "name": "chip_flow",
-          "score": 2.7,
+          "score": 6.5,
           "cap": 25,
           "notes": [
-            "新台幣5日貶值 +0.053（強度 27/100，+2.7）",
-            "外資今日 -503.9億元，融資餘額5日變動 -552億元（散戶未離場強度 0/100，+0.0）"
+            "新台幣5日貶值 +0.167（強度 65/100，+6.5）",
+            "外資今日 -1236.5億元，融資餘額5日變動 -545億元（散戶未離場強度 0/100，+0.0）"
           ]
         },
         {
@@ -332,8 +376,8 @@
           "score": 8.0,
           "cap": 20,
           "notes": [
-            "外資台指期淨空單 -103182口（強度 0/100，+0.0）",
-            "P/C Ratio 46.0%（自滿強度 100/100，+8.0）"
+            "外資台指期淨空單 -105709口（強度 0/100，+0.0）",
+            "P/C Ratio 55.5%（自滿強度 100/100，+8.0）"
           ]
         },
         {
@@ -341,8 +385,8 @@
           "score": 0,
           "cap": 20,
           "notes": [
-            "TAIEX 38,195 距20日布林上軌 47,214 -19.10%（強度 0/100，+0.0）",
-            "TAIEX 14日RSI 40.7（超買強度 0/100，+0.0）"
+            "TAIEX 38,195 距20日布林上軌 46,480 -17.82%（強度 0/100，+0.0）",
+            "TAIEX 14日RSI 45.4（超買強度 0/100，+0.0）"
           ]
         },
         {
@@ -350,7 +394,7 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近115筆歷史樣本的第 99 百分位（自滿強度 0/100，+0.0）"
+            "VIX 處於近116筆歷史樣本的第 100 百分位（自滿強度 0/100，+0.0）"
           ]
         }
       ]
@@ -359,7 +403,7 @@
   },
   "tsmc_analysis": {
     "available": true,
-    "total": 58.8,
+    "total": 57.8,
     "coverage": "10/10",
     "recommendation": "中性持有",
     "dimensions": [
@@ -420,7 +464,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 -11.3%；相對TAIEX +7.5pp、相對SOX +12.1pp、相對NDX +0.3pp"
+          "2330 近20日漲跌 -11.3%；相對TAIEX +6.3pp、相對SOX +13.1pp、相對NDX +0.7pp"
         ]
       },
       {
@@ -429,7 +473,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "近3日累計外資 -27000 張，同期股價上漲",
+          "近3日累計外資 -42109 張，同期股價上漲",
           "背離：價漲但外資賣，須留意籌碼面未跟上"
         ]
       },
@@ -439,17 +483,17 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "ADR $349.2 換算2330隱含價 2302.1元，2330現價 2150.0元（折價 6.6%）",
+          "ADR $349.2 換算2330隱含價 2313.5元，2330現價 2150.0元（折價 7.1%）",
           "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
         ]
       },
       {
         "name": "market_regime",
-        "score": 1,
+        "score": 0,
         "cap": 5,
         "available": true,
         "notes": [
-          "目前市場狀態：空頭趨勢"
+          "目前市場狀態：恐慌急殺"
         ]
       },
       {
@@ -458,7 +502,7 @@
         "cap": 5,
         "available": true,
         "notes": [
-          "目前本益比 22.7，位於近729筆歷史資料的第 28 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+          "目前本益比 21.9，位於近730筆歷史資料的第 24 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
         ]
       }
     ],
@@ -480,8 +524,8 @@
     },
     "news": [
       {
-        "title": "台指期夜盤再下殺！ 一度重挫千點 37K岌岌可危",
-        "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E5%86%8D%E4%B8%8B%E6%AE%BA-%E5%BA%A6%E9%87%8D%E6%8C%AB%E5%8D%83%E9%BB%9E-37k%E5%B2%8C%E5%B2%8C%E5%8F%AF%E5%8D%B1-102537374.html",
+        "title": "救回黃仁勳後再出招！川普擬親赴台積電美廠動土",
+        "url": "https://tw.stock.yahoo.com/news/%E6%95%91%E5%9B%9E%E9%BB%83%E4%BB%81%E5%8B%B3%E5%BE%8C%E5%86%8D%E5%87%BA%E6%8B%9B-%E5%B7%9D%E6%99%AE%E6%93%AC%E8%A6%AA%E8%B5%B4%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%BE%8E%E5%BB%A0%E5%8B%95%E5%9C%9F-112725832.html",
         "meta": null
       },
       {
@@ -524,34 +568,34 @@
     "valuation": {
       "available": true,
       "current_price": 2150.0,
-      "per": 22.7,
+      "per": 21.88,
       "peers": [
         {
           "symbol": "2303",
           "name": "聯電(UMC，晶圓代工同業)",
-          "per": 14.34
+          "per": 12.91
         },
         {
           "symbol": "2454",
           "name": "聯發科(MediaTek，IC設計，非晶圓代工同業)",
-          "per": 65.14
+          "per": 58.63
         }
       ],
-      "peer_avg_per": 39.7,
-      "vs_peer_avg_pct": -42.9
+      "peer_avg_per": 35.8,
+      "vs_peer_avg_pct": -38.8
     },
     "bull_points": [
       {
         "dimension": "valuation",
         "score": 5,
         "cap": 5,
-        "detail": "目前本益比 22.7，位於近729筆歷史資料的第 28 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+        "detail": "目前本益比 21.9，位於近730筆歷史資料的第 24 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
       },
       {
         "dimension": "relative_strength",
         "score": 10,
         "cap": 10,
-        "detail": "2330 近20日漲跌 -11.3%；相對TAIEX +7.5pp、相對SOX +12.1pp、相對NDX +0.3pp"
+        "detail": "2330 近20日漲跌 -11.3%；相對TAIEX +6.3pp、相對SOX +13.1pp、相對NDX +0.7pp"
       },
       {
         "dimension": "revenue_momentum",
@@ -571,7 +615,7 @@
         "dimension": "institutional",
         "score": 3,
         "cap": 10,
-        "detail": "近3日累計外資 -27000 張，同期股價上漲"
+        "detail": "近3日累計外資 -42109 張，同期股價上漲"
       },
       {
         "dimension": "margin_eps_trend",
@@ -586,7 +630,7 @@
       "label": "新光產物保險",
       "investment_score": {
         "available": true,
-        "total": 42.8,
+        "total": 41.8,
         "coverage": "7/10",
         "recommendation": "減碼/等待",
         "dimensions": [
@@ -643,7 +687,7 @@
             "cap": 10,
             "available": true,
             "notes": [
-              "新光產物保險 近20日漲跌 -5.4%；相對TAIEX +13.4pp"
+              "新光產物保險 近20日漲跌 -5.4%；相對TAIEX +12.3pp"
             ]
           },
           {
@@ -652,7 +696,7 @@
             "cap": 10,
             "available": true,
             "notes": [
-              "近3日累計外資 +15 張，同期股價上漲",
+              "近3日累計外資 +77 張，同期股價上漲",
               "外資買賣超不明顯"
             ]
           },
@@ -667,11 +711,11 @@
           },
           {
             "name": "market_regime",
-            "score": 1,
+            "score": 0,
             "cap": 5,
             "available": true,
             "notes": [
-              "目前市場狀態：空頭趨勢"
+              "目前市場狀態：恐慌急殺"
             ]
           },
           {
@@ -680,7 +724,7 @@
             "cap": 5,
             "available": true,
             "notes": [
-              "目前本益比 7.5，位於近729筆歷史資料的第 1 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+              "目前本益比 7.3，位於近730筆歷史資料的第 0 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
             ]
           }
         ],
@@ -746,29 +790,29 @@
         "valuation": {
           "available": true,
           "current_price": 159.0,
-          "per": 7.47,
+          "per": 7.29,
           "peers": [
             {
               "symbol": "2851",
               "name": "中再保(產物再保險同業)",
-              "per": 4.1
+              "per": 3.93
             }
           ],
-          "peer_avg_per": 4.1,
-          "vs_peer_avg_pct": 82.2
+          "peer_avg_per": 3.9,
+          "vs_peer_avg_pct": 85.5
         },
         "bull_points": [
           {
             "dimension": "valuation",
             "score": 5,
             "cap": 5,
-            "detail": "目前本益比 7.5，位於近729筆歷史資料的第 1 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+            "detail": "目前本益比 7.3，位於近730筆歷史資料的第 0 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
           },
           {
             "dimension": "relative_strength",
             "score": 10,
             "cap": 10,
-            "detail": "新光產物保險 近20日漲跌 -5.4%；相對TAIEX +13.4pp"
+            "detail": "新光產物保險 近20日漲跌 -5.4%；相對TAIEX +12.3pp"
           },
           {
             "dimension": "revenue_momentum",
@@ -788,7 +832,7 @@
             "dimension": "institutional",
             "score": 5,
             "cap": 10,
-            "detail": "近3日累計外資 +15 張，同期股價上漲"
+            "detail": "近3日累計外資 +77 張，同期股價上漲"
           },
           {
             "dimension": "momentum_composite",
@@ -803,7 +847,7 @@
       "label": "大統益",
       "investment_score": {
         "available": true,
-        "total": 45.2,
+        "total": 44.2,
         "coverage": "8/10",
         "recommendation": "減碼/等待",
         "dimensions": [
@@ -862,7 +906,7 @@
             "cap": 10,
             "available": true,
             "notes": [
-              "大統益 近20日漲跌 +1.3%；相對TAIEX +20.1pp"
+              "大統益 近20日漲跌 +1.3%；相對TAIEX +18.9pp"
             ]
           },
           {
@@ -871,7 +915,7 @@
             "cap": 10,
             "available": true,
             "notes": [
-              "近3日累計外資 +56 張，同期股價下跌",
+              "近3日累計外資 +21 張，同期股價下跌",
               "外資買賣超不明顯"
             ]
           },
@@ -886,11 +930,11 @@
           },
           {
             "name": "market_regime",
-            "score": 1,
+            "score": 0,
             "cap": 5,
             "available": true,
             "notes": [
-              "目前市場狀態：空頭趨勢"
+              "目前市場狀態：恐慌急殺"
             ]
           },
           {
@@ -899,7 +943,7 @@
             "cap": 5,
             "available": true,
             "notes": [
-              "目前本益比 15.3，位於近729筆歷史資料的第 1 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+              "目前本益比 15.2，位於近730筆歷史資料的第 1 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
             ]
           }
         ],
@@ -965,7 +1009,7 @@
         "valuation": {
           "available": true,
           "current_price": 159.0,
-          "per": 15.31,
+          "per": 15.22,
           "peers": [
             {
               "symbol": "1225",
@@ -981,13 +1025,13 @@
             "dimension": "valuation",
             "score": 5,
             "cap": 5,
-            "detail": "目前本益比 15.3，位於近729筆歷史資料的第 1 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
+            "detail": "目前本益比 15.2，位於近730筆歷史資料的第 1 百分位（好公司≠好價格：基本面分數再高，若估值已在自身歷史高檔，仍需留意追價風險）"
           },
           {
             "dimension": "relative_strength",
             "score": 10,
             "cap": 10,
-            "detail": "大統益 近20日漲跌 +1.3%；相對TAIEX +20.1pp"
+            "detail": "大統益 近20日漲跌 +1.3%；相對TAIEX +18.9pp"
           },
           {
             "dimension": "margin_eps_trend",
@@ -1013,7 +1057,7 @@
             "dimension": "institutional",
             "score": 5,
             "cap": 10,
-            "detail": "近3日累計外資 +56 張，同期股價下跌"
+            "detail": "近3日累計外資 +21 張，同期股價下跌"
           }
         ]
       }
@@ -1021,8 +1065,8 @@
   },
   "signal_backtest": {
     "available": true,
-    "as_of_date": "2026-11-24",
-    "log_days": 68,
+    "as_of_date": "2026-11-25",
+    "log_days": 69,
     "signals": {
       "macro_drain": {
         "label": "macro_drain",
@@ -1101,40 +1145,40 @@
         "direction": "top",
         "horizons": {
           "1": {
-            "sample_size": 24,
+            "sample_size": 25,
             "insufficient_sample": false,
-            "win_rate": 45.8,
-            "avg_return": 0.34,
-            "expectancy": 0.34,
+            "win_rate": 44.0,
+            "avg_return": 0.33,
+            "expectancy": 0.33,
             "worst_case_return": -4.94,
-            "sharpe": 0.12
+            "sharpe": 0.11
           },
           "3": {
-            "sample_size": 22,
+            "sample_size": 23,
             "insufficient_sample": false,
-            "win_rate": 59.1,
-            "avg_return": 0.7,
-            "expectancy": 0.7,
+            "win_rate": 56.5,
+            "avg_return": 0.51,
+            "expectancy": 0.51,
             "worst_case_return": -11.47,
-            "sharpe": 0.14
+            "sharpe": 0.1
           },
           "5": {
-            "sample_size": 20,
+            "sample_size": 21,
             "insufficient_sample": false,
-            "win_rate": 60.0,
-            "avg_return": 1.8,
-            "expectancy": 1.8,
+            "win_rate": 61.9,
+            "avg_return": 1.74,
+            "expectancy": 1.74,
             "worst_case_return": -10.01,
             "sharpe": 0.29
           },
           "10": {
-            "sample_size": 18,
+            "sample_size": 19,
             "insufficient_sample": false,
-            "win_rate": 83.3,
-            "avg_return": 6.24,
-            "expectancy": 6.24,
+            "win_rate": 84.2,
+            "avg_return": 6.51,
+            "expectancy": 6.51,
             "worst_case_return": -7.4,
-            "sharpe": 0.96
+            "sharpe": 1.02
           },
           "20": {
             "sample_size": 11,
@@ -1255,31 +1299,31 @@
         "direction": "bottom",
         "horizons": {
           "1": {
-            "sample_size": 38,
+            "sample_size": 39,
             "insufficient_sample": false,
-            "win_rate": 47.4,
-            "avg_return": -0.55,
-            "expectancy": -0.55,
+            "win_rate": 46.2,
+            "avg_return": -0.53,
+            "expectancy": -0.53,
             "worst_case_return": -6.23,
             "sharpe": -0.26
           },
           "3": {
-            "sample_size": 36,
+            "sample_size": 37,
             "insufficient_sample": false,
-            "win_rate": 44.4,
-            "avg_return": -1.37,
-            "expectancy": -1.37,
+            "win_rate": 45.9,
+            "avg_return": -1.23,
+            "expectancy": -1.23,
             "worst_case_return": -10.12,
-            "sharpe": -0.35
+            "sharpe": -0.31
           },
           "5": {
-            "sample_size": 34,
+            "sample_size": 35,
             "insufficient_sample": false,
-            "win_rate": 44.1,
-            "avg_return": -1.58,
-            "expectancy": -1.58,
+            "win_rate": 42.9,
+            "avg_return": -1.55,
+            "expectancy": -1.55,
             "worst_case_return": -12.19,
-            "sharpe": -0.34
+            "sharpe": -0.33
           },
           "10": {
             "sample_size": 31,
@@ -1291,13 +1335,13 @@
             "sharpe": -0.29
           },
           "20": {
-            "sample_size": 25,
+            "sample_size": 26,
             "insufficient_sample": false,
-            "win_rate": 56.0,
-            "avg_return": -4.01,
-            "expectancy": -4.01,
+            "win_rate": 53.8,
+            "avg_return": -4.54,
+            "expectancy": -4.54,
             "worst_case_return": -23.15,
-            "sharpe": -0.4
+            "sharpe": -0.44
           }
         }
       },
@@ -1322,7 +1366,7 @@
             "insufficient_sample": true
           },
           "20": {
-            "sample_size": 1,
+            "sample_size": 2,
             "insufficient_sample": true
           }
         }
@@ -1393,13 +1437,13 @@
             "sharpe": 0.16
           },
           "3": {
-            "sample_size": 18,
+            "sample_size": 19,
             "insufficient_sample": false,
-            "win_rate": 44.4,
-            "avg_return": 0.58,
-            "expectancy": 0.58,
+            "win_rate": 47.4,
+            "avg_return": 0.86,
+            "expectancy": 0.86,
             "worst_case_return": -6.97,
-            "sharpe": 0.13
+            "sharpe": 0.19
           },
           "5": {
             "sample_size": 17,
@@ -1495,12 +1539,12 @@
       "fetched": true
     },
     "tw_chip": {
-      "as_of_date": "2026-11-24",
-      "fetched": false
+      "as_of_date": "2026-11-25",
+      "fetched": true
     },
     "tsmc_fundamentals": {
-      "as_of_date": "2026-11-24",
-      "fetched": false
+      "as_of_date": "2026-11-25",
+      "fetched": true
     }
   },
   "news": [
@@ -1550,8 +1594,8 @@
       "meta": null
     },
     {
-      "title": "3人買飲料成千萬富翁！7-11開出4張特別獎、最低只花10元　幸運門市一次看",
-      "url": "https://tw.stock.yahoo.com/news/3%E4%BA%BA%E8%B2%B7%E9%A3%B2%E6%96%99%E6%88%90%E5%8D%83%E8%90%AC%E5%AF%8C%E7%BF%81-7-11%E9%96%8B%E5%87%BA4%E5%BC%B5%E7%89%B9%E5%88%A5%E7%8D%8E-%E6%9C%80%E4%BD%8E%E5%8F%AA%E8%8A%B110%E5%85%83-%E5%B9%B8%E9%81%8B%E9%96%80%E5%B8%82-091600020.html",
+      "title": "資本與碳市雙進擊 證交所衝 IPO、碳交所接軌 COP31",
+      "url": "https://tw.stock.yahoo.com/news/%E8%B3%87%E6%9C%AC%E8%88%87%E7%A2%B3%E5%B8%82%E9%9B%99%E9%80%B2%E6%93%8A-%E8%AD%89%E4%BA%A4%E6%89%80%E8%A1%9D-ipo-%E7%A2%B3%E4%BA%A4%E6%89%80%E6%8E%A5%E8%BB%8C-cop31-082238599.html",
       "meta": null
     }
   ],
@@ -1782,7 +1826,7 @@
       "change_pct": 1.33,
       "extra_data": {
         "regular_market_price": 58.87,
-        "pre_market_price": 58.2248,
+        "pre_market_price": 58.15,
         "post_market_price": null,
         "prev_close": 58.1
       },
@@ -1796,7 +1840,7 @@
       "change_pct": 1.41,
       "extra_data": {
         "regular_market_price": 35.89,
-        "pre_market_price": 34.0118,
+        "pre_market_price": 33.33,
         "post_market_price": null,
         "prev_close": 35.39
       },
@@ -1810,7 +1854,7 @@
       "change_pct": 2.58,
       "extra_data": {
         "regular_market_price": 9.55,
-        "pre_market_price": 9.51,
+        "pre_market_price": 9.3596,
         "post_market_price": null,
         "prev_close": 9.31
       },
@@ -1824,7 +1868,7 @@
       "change_pct": -17.85,
       "extra_data": {
         "regular_market_price": 29.17,
-        "pre_market_price": 25.356,
+        "pre_market_price": 25.63,
         "post_market_price": null,
         "prev_close": 35.51
       },
@@ -1838,7 +1882,7 @@
       "change_pct": -7.05,
       "extra_data": {
         "regular_market_price": 47.72,
-        "pre_market_price": 46.2,
+        "pre_market_price": 46.34,
         "post_market_price": null,
         "prev_close": 51.34
       },
@@ -1880,7 +1924,7 @@
       "change_pct": 7.42,
       "extra_data": {
         "regular_market_price": 3.33,
-        "pre_market_price": null,
+        "pre_market_price": 3.21,
         "post_market_price": null,
         "prev_close": 3.1
       },
@@ -1894,12 +1938,12 @@
       "change_pct": -11.13,
       "extra_data": {
         "regular_market_price": 77.95,
-        "pre_market_price": 72.82,
+        "pre_market_price": 72.77,
         "post_market_price": null,
         "prev_close": 87.71
       },
-      "kd_k": 3.17,
-      "kd_d": 3.08
+      "kd_k": 3.2,
+      "kd_d": 3.09
     },
     {
       "symbol": "SNXX",
@@ -1908,7 +1952,7 @@
       "change_pct": -21.05,
       "extra_data": {
         "regular_market_price": 1.65,
-        "pre_market_price": 1.4203,
+        "pre_market_price": 1.4199,
         "post_market_price": null,
         "prev_close": 2.09
       },
@@ -1922,7 +1966,7 @@
       "change_pct": -7.35,
       "extra_data": {
         "regular_market_price": 45.98,
-        "pre_market_price": 44.28,
+        "pre_market_price": 43.9799,
         "post_market_price": null,
         "prev_close": 49.63
       },
@@ -1936,7 +1980,7 @@
       "change_pct": -14.98,
       "extra_data": {
         "regular_market_price": 6.13,
-        "pre_market_price": 5.7,
+        "pre_market_price": 5.619,
         "post_market_price": null,
         "prev_close": 7.21
       },
@@ -1950,7 +1994,7 @@
       "change_pct": -23.97,
       "extra_data": {
         "regular_market_price": 7.96,
-        "pre_market_price": 6.78,
+        "pre_market_price": 7.02,
         "post_market_price": null,
         "prev_close": 10.47
       },
