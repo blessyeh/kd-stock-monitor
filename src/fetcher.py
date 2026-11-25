@@ -597,6 +597,7 @@ class StockFetcher:
             "foreign_futures_net_taifex": {"value": None, "unit": "口", "date": None, "source": "TAIFEX_OPENAPI_OFFICIAL"},
             "put_call_ratio": {"value": None, "change": None, "change_pct": None, "unit": "%", "date": None},
             "usdtwd_cbc": {"value": None, "unit": "元", "date": None, "source": "CBC_TAIPEI_FOREX"},
+            "market_turnover_amount": {"value": None, "unit": "億元", "date": None},
             "night_session": {"close": None, "prev_close": None, "gap": None,
                                "gap_pct": None, "date": None, "prev_date": None}
         }
@@ -722,6 +723,17 @@ class StockFetcher:
                 chip_data["usdtwd_cbc"] = cbc
         except Exception as e:
             logger.error(f"Error fetching CBC USD/TWD: {e}")
+
+        # 6c. 大盤成交金額 (market-wide turnover amount) — needed for the
+        # risk engine's ForeignRatio5 = F5 / MarketTurnover5 (spec explicitly
+        # rejects fixed NT$ thresholds for 法人風險 since market-wide volume
+        # scale drifts over time; a ratio to turnover is scale-invariant).
+        try:
+            turnover = self.fetch_market_turnover()
+            if turnover:
+                chip_data["market_turnover_amount"] = turnover
+        except Exception as e:
+            logger.error(f"Error fetching market turnover: {e}")
 
         # 7. 外資台指期未平倉淨部位 (foreign futures net long/short position)
         try:
@@ -866,6 +878,38 @@ class StockFetcher:
             logger.error(f"Error fetching CBC USD/TWD: {e}")
             return None
 
+    def fetch_market_turnover(self) -> Optional[Dict]:
+        """
+        上市市場每日成交金額 (market-wide daily turnover), via TWSE's FMTQIK
+        report. Confirmed (2026-11-25): one call with any `date=YYYYMMDD` in
+        a month returns that WHOLE MONTH's daily rows (fields: 日期,成交股數,
+        成交金額,成交筆數,發行量加權股價指數,漲跌點數) — the date parameter
+        selects the month, not a single day — so this fetches the current
+        month once and returns its latest row, which is cheap (no per-day
+        looping needed).
+
+        Returns {"value": 億元, "date": "YYYY-MM-DD"} for the most recent
+        row, or None on failure. Dates in the response are ROC "115/11/24"
+        style, normalized to ISO here.
+        """
+        url = f"https://www.twse.com.tw/exchangeReport/FMTQIK?response=json&date={datetime.now().strftime('%Y%m%d')}"
+        try:
+            headers = {"User-Agent": "Mozilla/5.0 (compatible; KDStockMonitor/1.0)"}
+            resp = requests.get(url, headers=headers, timeout=15)
+            resp.raise_for_status()
+            data = resp.json()
+            if data.get("stat") != "OK" or not data.get("data"):
+                return None
+            last_row = data["data"][-1]  # fields[0]=日期, fields[2]=成交金額
+            roc_date = last_row[0]  # "115/11/24"
+            y, m, d = roc_date.split("/")
+            date_iso = f"{int(y) + 1911:04d}-{int(m):02d}-{int(d):02d}"
+            amount_ntb = self._twse_num(last_row[2]) / 1e8  # NT$ -> 億元
+            return {"value": round(amount_ntb, 2), "unit": "億元", "date": date_iso}
+        except Exception as e:
+            logger.error(f"Error fetching FMTQIK market turnover: {e}")
+            return None
+
     def fetch_tx_foreign_futures_official(self) -> Optional[Dict]:
         """
         外資及陸資 TX(臺股期貨) 未平倉淨部位, direct from TAIFEX's own OpenAPI —
@@ -904,10 +948,15 @@ class StockFetcher:
                 logger.warning("TAIFEX official TX futures response had no 臺股期貨/外資及陸資 row")
                 return None
 
+            long_oi = self._twse_num(row["OpenInterest(Long)"])
+            short_oi = self._twse_num(row["OpenInterest(Short)"])
             net_oi = self._twse_num(row["OpenInterest(Net)"])
             raw_date = row.get("Date", "")  # "YYYYMMDD"
             date_iso = f"{raw_date[0:4]}-{raw_date[4:6]}-{raw_date[6:8]}" if len(raw_date) == 8 else None
-            return {"value": net_oi, "unit": "口", "date": date_iso}
+            return {
+                "value": net_oi, "unit": "口", "date": date_iso,
+                "long_oi": long_oi, "short_oi": short_oi,
+            }
         except Exception as e:
             logger.error(f"Error fetching TAIFEX official TX futures OI: {e}")
             return None
@@ -1087,7 +1136,7 @@ class StockFetcher:
             return None
         return payload.get("data") or None
 
-    def _fetch_stock_institutional_flow(self, symbol: str, days_back: int = 10) -> Optional[Dict]:
+    def _fetch_stock_institutional_flow(self, symbol: str, days_back: int = 12) -> Optional[Dict]:
         """
         Per-stock 三大法人買賣超 (foreign/investment-trust/dealer net buy-sell, in
         shares) via FinMind's TaiwanStockInstitutionalInvestorsBuySell dataset —
@@ -1111,6 +1160,7 @@ class StockFetcher:
                 "trust_net": int,         # today's 投信 (Investment_Trust) net, shares
                 "dealer_net": int,        # today's 自營商 (Dealer_self + Dealer_Hedging) net, shares
                 "foreign_net_3d": int,    # sum of the latest up to 3 trading days' foreign net
+                "foreign_net_5d": int,    # sum of the latest up to 5 trading days' foreign net
             }
         """
         data_id = symbol.split(".")[0]
@@ -1148,6 +1198,7 @@ class StockFetcher:
         latest_date = dates[-1]
         prev_date = dates[-2] if len(dates) >= 2 else None
         last_3 = dates[-3:]
+        last_5 = dates[-5:]
 
         return {
             "date": latest_date,
@@ -1156,6 +1207,7 @@ class StockFetcher:
             "trust_net": round(by_date[latest_date]["trust"]),
             "dealer_net": round(by_date[latest_date]["dealer"]),
             "foreign_net_3d": round(sum(by_date[d]["foreign"] for d in last_3)),
+            "foreign_net_5d": round(sum(by_date[d]["foreign"] for d in last_5)),
         }
 
     def attach_stock_institutional_flow(self, stocks_with_kd: Dict[str, List[Dict]]):

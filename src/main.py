@@ -33,6 +33,7 @@ from tsmc_analyzer import calculate_tsmc_score, calculate_stock_investment_score
 from signal_backtest import record_signal_snapshot, compute_backtest_stats
 import trading_calendar
 import data_quality
+import risk_engine
 
 
 class NumpyJSONEncoder(json.JSONEncoder):
@@ -410,6 +411,23 @@ class KDStockMonitor:
             logger.info("\n[Step 2.75/4] Updating macro history, signal confluence, regime, and scores...")
             macro_history = self._save_macro_history(macro_indicators, tw_chip_indicators, test_mode=test_mode)
             tw_chip_indicators["margin_drawdown_alert"] = self._compute_margin_drawdown_alert(macro_history)
+
+            try:
+                closes_2330 = self._get_recent_closes(stock_data, "TW", "2330.TW")
+                closes_0050 = self._get_recent_closes(stock_data, "TW", "0050.TW")
+                foreign_net_5d_2330 = next(
+                    (s.get("institutional", {}).get("foreign_net_5d")
+                     for s in stocks_with_kd.get("TW", []) if s.get("symbol") == "2330.TW"),
+                    None
+                )
+                risk_score_result = risk_engine.compute_risk_score(
+                    macro_history, closes_2330, closes_0050, foreign_net_5d_2330
+                )
+                risk_score_result["margin_deleverage_vs_index"] = risk_engine.margin_deleverage_vs_index(macro_history)
+                self._save_risk_score_history(risk_score_result)
+            except Exception as e:
+                logger.warning(f"Risk score computation failed (non-fatal): {e}")
+                risk_score_result = {"available": False, "reason": str(e)}
             confluence_result = evaluate_signal_confluence(macro_history)
             regime_result = detect_market_regime(macro_history)
             signal_score_result = calculate_signal_scores(macro_history)
@@ -558,7 +576,8 @@ class KDStockMonitor:
                                               regime_result, signal_score_result, tsmc_analysis,
                                               signal_backtest_result, data_freshness,
                                               tsmc_fundamentals_summary=tsmc_fundamentals_summary,
-                                              additional_stock_analysis=additional_stock_analysis)
+                                              additional_stock_analysis=additional_stock_analysis,
+                                              risk_score_result=risk_score_result)
             
             # Save run log
             self._save_run_log(summary)
@@ -628,7 +647,8 @@ class KDStockMonitor:
                            signal_score_result: Dict = None, tsmc_analysis: Dict = None,
                            signal_backtest_result: Dict = None, data_freshness: Dict = None,
                            tsmc_fundamentals_summary: Dict = None,
-                           additional_stock_analysis: Dict = None) -> Dict:
+                           additional_stock_analysis: Dict = None,
+                           risk_score_result: Dict = None) -> Dict:
         """Generate a summary of the run."""
         all_stocks = []
         for market in ["TW", "US"]:
@@ -679,6 +699,7 @@ class KDStockMonitor:
             "signal_confluence": confluence_result or {"available": False},
             "market_regime": regime_result or {"available": False},
             "signal_score": signal_score_result or {"available": False},
+            "risk_score": risk_score_result or {"available": False},
             "tsmc_analysis": tsmc_analysis or {"available": False},
             "tsmc_fundamentals_summary": tsmc_fundamentals_summary or {"available": False},
             "additional_stock_analysis": additional_stock_analysis or {},
@@ -1044,6 +1065,52 @@ class KDStockMonitor:
         with open(quality_file, 'w', encoding='utf-8') as f:
             json.dump(payload, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
 
+    @staticmethod
+    def _get_recent_closes(stock_data: Dict, market: str, symbol: str, n: int = 6) -> Optional[list]:
+        """
+        Last `n` closing prices (ascending by date) for `symbol` from
+        fetch_all_stocks()'s raw-DataFrame output (stock_data), for
+        risk_engine.compute_leaders_facet()'s Return5. Returns None if the
+        symbol isn't present or has fewer than `n` rows — never pads or
+        extrapolates a short series.
+        """
+        entry = next((s for s in stock_data.get(market, []) if s.get("symbol") == symbol), None)
+        if entry is None:
+            return None
+        df = entry.get("data")
+        if df is None or "close" not in df.columns or len(df) < n:
+            return None
+        return df["close"].tail(n).tolist()
+
+    def _save_risk_score_history(self, risk_score_result: Dict):
+        """
+        Append today's risk_score_result to data/risk_scores.json (per spec
+        第二章/第五章: a persisted daily record, not just a point-in-time
+        summary.json value, so the score is reviewable/backtestable later).
+        Overwrites today's entry on hourly reruns, same pattern as
+        _save_macro_history.
+        """
+        history_file = os.path.join(self.data_dir, 'risk_scores.json')
+        history = []
+        if os.path.exists(history_file):
+            try:
+                with open(history_file, 'r', encoding='utf-8') as f:
+                    history = json.load(f)
+            except Exception as e:
+                logger.warning(f"Could not load risk_scores.json: {e}")
+
+        entry = {"date": datetime.now().strftime("%Y-%m-%d"), **risk_score_result}
+        existing_idx = next((i for i, h in enumerate(history) if h.get("date") == entry["date"]), None)
+        if existing_idx is not None:
+            history[existing_idx] = entry
+        else:
+            history.append(entry)
+        history.sort(key=lambda h: h.get("date") or "")
+        history = history[-250:]
+
+        with open(history_file, 'w', encoding='utf-8') as f:
+            json.dump(history, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
+
     def _load_signal_history(self) -> list:
         """Load the persisted daily signal-state log (see signal_backtest.py)."""
         history_file = os.path.join(self.data_dir, 'signal_history.json')
@@ -1248,6 +1315,19 @@ class KDStockMonitor:
             "ndx": self._to_native(macro_indicators.get("ndx", {}).get("value")),
             "sp500": self._to_native(macro_indicators.get("sp500", {}).get("value")),
             "night_session_gap_pct": self._to_native(tw_chip_indicators.get("night_session", {}).get("gap_pct")),
+            # Phase 2 risk-engine inputs (added 2026-11-25) — history for
+            # these starts accumulating from today forward; there is no
+            # retroactive backfill for CBC/TAIFEX-official/turnover (see
+            # fetcher.py docstrings), so 5/20-day windows on these fields
+            # will report "insufficient history" for the first few weeks.
+            "usdtwd_cbc": self._to_native(tw_chip_indicators.get("usdtwd_cbc", {}).get("value")),
+            "dealer_self_net": self._to_native(tw_chip_indicators.get("dealer_self_net", {}).get("value")),
+            "dealer_hedge_net": self._to_native(tw_chip_indicators.get("dealer_hedge_net", {}).get("value")),
+            "institutional_total_net": self._to_native(tw_chip_indicators.get("institutional_total_net", {}).get("value")),
+            "foreign_futures_net_taifex": self._to_native(tw_chip_indicators.get("foreign_futures_net_taifex", {}).get("value")),
+            "tx_long_oi": self._to_native(tw_chip_indicators.get("foreign_futures_net_taifex", {}).get("long_oi")),
+            "tx_short_oi": self._to_native(tw_chip_indicators.get("foreign_futures_net_taifex", {}).get("short_oi")),
+            "market_turnover_amount": self._to_native(tw_chip_indicators.get("market_turnover_amount", {}).get("value")),
         }
 
         # Overwrite today's entry if we already have one (hourly reruns), else append
