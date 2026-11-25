@@ -590,8 +590,13 @@ class StockFetcher:
             "short_balance": {"value": None, "change": None, "change_pct": None, "unit": "張", "date": None},
             "margin_short_ratio": {"value": None, "change": None, "change_pct": None, "unit": "%"},
             "usdtwd": {"value": None, "change": None, "change_pct": None},
+            "dealer_self_net": {"value": None, "unit": "億元", "date": None},
+            "dealer_hedge_net": {"value": None, "unit": "億元", "date": None},
+            "institutional_total_net": {"value": None, "unit": "億元", "date": None},
             "foreign_futures_net": {"value": None, "change": None, "change_pct": None, "unit": "口", "date": None},
+            "foreign_futures_net_taifex": {"value": None, "unit": "口", "date": None, "source": "TAIFEX_OPENAPI_OFFICIAL"},
             "put_call_ratio": {"value": None, "change": None, "change_pct": None, "unit": "%", "date": None},
+            "usdtwd_cbc": {"value": None, "unit": "元", "date": None, "source": "CBC_TAIPEI_FOREX"},
             "night_session": {"close": None, "prev_close": None, "gap": None,
                                "gap_pct": None, "date": None, "prev_date": None}
         }
@@ -605,12 +610,30 @@ class StockFetcher:
                 rows = {row[0]: row for row in data.get("data", [])}
                 foreign_row = rows.get("外資及陸資(不含外資自營商)")
                 trust_row = rows.get("投信")
+                # 自營商自行買賣 and 自營商避險買賣 must stay separate per spec
+                # (don't collapse into one "dealer" number) — the BFI82U report
+                # labels these two rows distinctly, and 三大法人買賣超 (合計) is
+                # its own row too, not something to re-derive by summing the
+                # others (avoids silently double-counting if TWSE's own
+                # definition of a row changes).
+                dealer_self_row = rows.get("自營商(自行買賣)")
+                dealer_hedge_row = rows.get("自營商(避險)")
+                total_row = rows.get("合計")
                 if foreign_row:
                     net = self._twse_num(foreign_row[3]) / 1e8  # NT$ -> 億元
                     chip_data["foreign_net"] = {"value": round(net, 2), "unit": "億元", "date": report_date}
                 if trust_row:
                     net = self._twse_num(trust_row[3]) / 1e8
                     chip_data["trust_net"] = {"value": round(net, 2), "unit": "億元", "date": report_date}
+                if dealer_self_row:
+                    net = self._twse_num(dealer_self_row[3]) / 1e8
+                    chip_data["dealer_self_net"] = {"value": round(net, 2), "unit": "億元", "date": report_date}
+                if dealer_hedge_row:
+                    net = self._twse_num(dealer_hedge_row[3]) / 1e8
+                    chip_data["dealer_hedge_net"] = {"value": round(net, 2), "unit": "億元", "date": report_date}
+                if total_row:
+                    net = self._twse_num(total_row[3]) / 1e8
+                    chip_data["institutional_total_net"] = {"value": round(net, 2), "unit": "億元", "date": report_date}
         except Exception as e:
             logger.error(f"Error fetching TWSE BFI82U (三大法人買賣金額): {e}")
 
@@ -687,6 +710,19 @@ class StockFetcher:
         except Exception as e:
             logger.error(f"Error fetching USD/TWD: {e}")
 
+        # 6b. USD/TWD — 中央銀行銀行間收盤匯率 (official rate_type the spec
+        # requires; distinct from the yfinance TWD=X value above, which is a
+        # market quote, not the CBC-published interbank closing rate). Kept
+        # as a separate field rather than replacing usdtwd, so existing
+        # consumers of "usdtwd" are unaffected; this is the source of truth
+        # for the FX risk facet.
+        try:
+            cbc = self.fetch_cbc_usdtwd()
+            if cbc:
+                chip_data["usdtwd_cbc"] = cbc
+        except Exception as e:
+            logger.error(f"Error fetching CBC USD/TWD: {e}")
+
         # 7. 外資台指期未平倉淨部位 (foreign futures net long/short position)
         try:
             rows = self._fetch_finmind("TaiwanFuturesInstitutionalInvestors", "TX")
@@ -701,6 +737,17 @@ class StockFetcher:
                     chip_data["foreign_futures_net"] = {"value": net, "unit": "口", "date": latest_date}
         except Exception as e:
             logger.error(f"Error fetching TaiwanFuturesInstitutionalInvestors (外資台指期淨部位): {e}")
+
+        # 7b. Cross-check foreign_futures_net against TAIFEX's own OpenAPI
+        # directly (spec section F 交叉驗證: FinMind and TAIFEX are not truly
+        # independent sources since FinMind re-publishes TAIFEX's own data,
+        # but calling both at least confirms FinMind didn't mis-map a field).
+        try:
+            official = self.fetch_tx_foreign_futures_official()
+            if official:
+                chip_data["foreign_futures_net_taifex"] = official
+        except Exception as e:
+            logger.error(f"Error fetching TAIFEX official TX futures OI: {e}")
 
         # 8. 選擇權 Put/Call Ratio (未平倉量比)
         try:
@@ -767,6 +814,103 @@ class StockFetcher:
             logger.error(f"Error fetching TaiwanFuturesDaily after_market (台指期夜盤): {e}")
 
         return chip_data
+
+    def fetch_cbc_usdtwd(self) -> Optional[Dict]:
+        """
+        USD/TWD 銀行間收盤匯率 (interbank closing rate), scraped from the
+        Central Bank of Taiwan's published table — the official definition
+        the spec requires, distinct from a market quote like yfinance's
+        TWD=X. Confirmed (2026-11-25) that CBC publishes no CSV/JSON feed,
+        only this paginated HTML table
+        (https://www.cbc.gov.tw/tw/lp-645-1-{page}-{page_size}.html, newest
+        date first) — this fetches just page 1 for today's/latest rate.
+        For historical backfill, a caller would need to walk pages 2..N;
+        that's a separate, deliberately-not-automatic operation (57 pages
+        as of the Phase 1 investigation) and isn't done on every run.
+
+        Returns {"value", "date", "unit": "元", "rate_type": "interbank_closing",
+        "source": "CBC_TAIPEI_FOREX"} for the newest row, or None on failure.
+        """
+        try:
+            from bs4 import BeautifulSoup
+        except ImportError:
+            logger.error("beautifulsoup4 not installed — cannot fetch CBC USD/TWD")
+            return None
+
+        url = "https://www.cbc.gov.tw/tw/lp-645-1-1-60.html"
+        try:
+            headers = {"User-Agent": "Mozilla/5.0 (compatible; KDStockMonitor/1.0)"}
+            resp = requests.get(url, headers=headers, timeout=15)
+            resp.raise_for_status()
+            soup = BeautifulSoup(resp.text, "html.parser")
+
+            date_cell = soup.find("td", {"data-th": "標題(日期)"})
+            rate_cell = soup.find("td", {"data-th": "NTD/USD"})
+            if date_cell is None or rate_cell is None:
+                logger.warning("CBC USD/TWD page structure didn't match expected data-th cells")
+                return None
+
+            raw_date = date_cell.get_text(strip=True)  # "2026/11/25"
+            raw_rate = rate_cell.get_text(strip=True)
+            date_iso = raw_date.replace("/", "-")
+            rate = float(raw_rate)
+            if rate <= 0:
+                logger.warning(f"CBC USD/TWD parsed non-positive rate: {raw_rate}")
+                return None
+
+            return {
+                "value": rate, "date": date_iso, "unit": "元",
+                "rate_type": "interbank_closing", "source": "CBC_TAIPEI_FOREX",
+            }
+        except Exception as e:
+            logger.error(f"Error fetching CBC USD/TWD: {e}")
+            return None
+
+    def fetch_tx_foreign_futures_official(self) -> Optional[Dict]:
+        """
+        外資及陸資 TX(臺股期貨) 未平倉淨部位, direct from TAIFEX's own OpenAPI —
+        used as a cross-check against the FinMind-sourced foreign_futures_net
+        above (spec section F 交叉驗證).
+
+        Confirmed (2026-11-25) against live data: the endpoint serves valid
+        JSON despite a mislabeled `Content-Type: application/octet-stream`
+        header — `requests`' `.json()` parses it fine regardless (it doesn't
+        require the content-type to say application/json), so no special
+        decoding is needed. The two previously-uncertain field questions are
+        also confirmed: `Item` for foreign institutions is the literal string
+        "外資及陸資" (NOT "FINI" — that code doesn't appear in this payload at
+        all), and `ContractCode` for TX 大台 is the literal string "臺股期貨"
+        (not an English ticker). `OpenInterest(Long/Short/Net)` are separate
+        fields from `TradingVolume(Long/Short/Net)` — confirmed NOT the same
+        number, so this never conflates open positions with daily turnover.
+
+        This endpoint has no date parameter (confirmed via swagger.json: all
+        30 related paths declare `parameters: []`) — it only ever returns
+        the latest available trading day, so this cannot backfill history;
+        it's a same-day snapshot only, one call per run.
+
+        Returns {"value": net_oi, "unit": "口", "date": "YYYY-MM-DD"} or None.
+        """
+        url = "https://openapi.taifex.com.tw/v1/MarketDataOfMajorInstitutionalTradersDetailsOfFuturesContractsBytheDate"
+        try:
+            resp = requests.get(url, timeout=15)
+            resp.raise_for_status()
+            rows = resp.json()
+            row = next(
+                (r for r in rows if r.get("ContractCode") == "臺股期貨" and r.get("Item") == "外資及陸資"),
+                None
+            )
+            if row is None:
+                logger.warning("TAIFEX official TX futures response had no 臺股期貨/外資及陸資 row")
+                return None
+
+            net_oi = self._twse_num(row["OpenInterest(Net)"])
+            raw_date = row.get("Date", "")  # "YYYYMMDD"
+            date_iso = f"{raw_date[0:4]}-{raw_date[4:6]}-{raw_date[6:8]}" if len(raw_date) == 8 else None
+            return {"value": net_oi, "unit": "口", "date": date_iso}
+        except Exception as e:
+            logger.error(f"Error fetching TAIFEX official TX futures OI: {e}")
+            return None
 
     def fetch_market_news(self, max_items: int = 10) -> List[Dict]:
         """

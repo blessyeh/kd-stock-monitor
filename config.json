@@ -651,5 +651,16 @@
   "alert_thresholds": {
     "overbought": 80,
     "oversold": 20
+  },
+  "risk_monitoring": {
+    "legacy_margin_thresholds_ntb": {
+      "note": "原始四階段固定融資警戒值（億元）。2026/11/24 市場融資餘額約4,535億元，已低於全部四個數字，若直接沿用會造成警戒常態觸發，故保留為歷史設定，現行警戒改用 margin_drawdown_tiers_pct 動態門檻。",
+      "tier_1": 6000,
+      "tier_2": 5850,
+      "tier_3": 5750,
+      "tier_4": 5600
+    },
+    "margin_drawdown_lookback_days": 60,
+    "margin_drawdown_tiers_pct": [3, 5, 8, 12]
   }
 }

@@ -31,6 +31,8 @@ from market_regime import detect_market_regime
 from signal_score import calculate_signal_scores
 from tsmc_analyzer import calculate_tsmc_score, calculate_stock_investment_score, build_fundamentals_summary
 from signal_backtest import record_signal_snapshot, compute_backtest_stats
+import trading_calendar
+import data_quality
 
 
 class NumpyJSONEncoder(json.JSONEncoder):
@@ -256,6 +258,18 @@ class KDStockMonitor:
                 else:
                     tw_chip_indicators = self.fetcher.fetch_tw_chip_indicators()
                     try:
+                        import requests as _requests
+
+                        def _fetch_json(u):
+                            r = _requests.get(u, timeout=15)
+                            r.raise_for_status()
+                            return r.json()
+                        cached_year = trading_calendar.fetch_and_cache_holiday_schedule(_fetch_json)
+                        if cached_year:
+                            logger.info(f"Trading calendar cached for {cached_year}")
+                    except Exception as e:
+                        logger.warning(f"Trading calendar fetch failed (non-fatal): {e}")
+                    try:
                         tsmc_monthly_revenue = self.fetcher.fetch_tsmc_monthly_revenue()
                         tsmc_quarterly_financials = self.fetcher.fetch_tsmc_quarterly_financials()
                         tsmc_valuation = self.fetcher.fetch_tsmc_valuation()
@@ -317,6 +331,11 @@ class KDStockMonitor:
 
             stocks_fetched = sum(len(stocks) for stocks in stock_data.values())
             logger.info(f"Fetched data for {stocks_fetched} stocks and macro indicators")
+
+            try:
+                self._write_data_quality_log(tw_chip_indicators)
+            except Exception as e:
+                logger.warning(f"Data quality log write failed (non-fatal): {e}")
             
             # Step 2: Calculate KD indicators
             logger.info("\n[Step 2/4] Calculating KD indicators...")
@@ -390,6 +409,7 @@ class KDStockMonitor:
             # not computed afterward as a separate side-channel.
             logger.info("\n[Step 2.75/4] Updating macro history, signal confluence, regime, and scores...")
             macro_history = self._save_macro_history(macro_indicators, tw_chip_indicators, test_mode=test_mode)
+            tw_chip_indicators["margin_drawdown_alert"] = self._compute_margin_drawdown_alert(macro_history)
             confluence_result = evaluate_signal_confluence(macro_history)
             regime_result = detect_market_regime(macro_history)
             signal_score_result = calculate_signal_scores(macro_history)
@@ -884,6 +904,145 @@ class KDStockMonitor:
             except Exception as e:
                 logger.warning(f"Could not load macro_history.json: {e}")
         return []
+
+    def _compute_margin_drawdown_alert(self, history: list) -> Dict:
+        """
+        Dynamic 融資警戒 (margin-balance alert) tiers, replacing the old fixed
+        6,000/5,850/5,750/5,600 億元 thresholds — those were checked against
+        TWSE's actual 2026/11/24 market-wide balance (約 4,535 億元, confirmed
+        via fetch_tw_chip_indicators' MI_MARGN aggregate) and found to already
+        sit BELOW all four fixed levels, which would make every one of them
+        permanently triggered regardless of real market conditions. Per spec
+        (KD_Stock_Monitor_市場風險監控規格.docx, 第二章-動態融資警戒線):
+
+            Drawdown = Margin_t / Peak_60 - 1
+
+        scaled to a recent rolling peak instead of an absolute NT$ level, so
+        the tiers stay meaningful as the market's overall margin-balance
+        scale drifts over years. The old fixed values are kept in
+        config.json purely as a historical record, not read by this method.
+
+        Returns {"available": False, "reason": ...} if fewer than
+        `lookback_days` of margin_balance_amount history exist yet (fresh
+        deploys/early backfill) — never fabricates a peak from partial data.
+        """
+        try:
+            with open(self.config_path, 'r', encoding='utf-8') as f:
+                risk_cfg = json.load(f).get("risk_monitoring", {})
+        except Exception:
+            risk_cfg = {}
+        lookback_days = risk_cfg.get("margin_drawdown_lookback_days", 60)
+        tiers_pct = risk_cfg.get("margin_drawdown_tiers_pct", [3, 5, 8, 12])
+
+        series = [
+            (h["date"], h["margin_balance_amount"])
+            for h in history
+            if h.get("margin_balance_amount") is not None
+        ][-lookback_days:]
+
+        if len(series) < lookback_days:
+            return {"available": False, "reason": f"only {len(series)}/{lookback_days} days of margin history"}
+
+        current_date, current_value = series[-1]
+        peak_date, peak_value = max(series, key=lambda x: x[1])
+        if peak_value <= 0:
+            return {"available": False, "reason": "non-positive peak value"}
+
+        drawdown_pct = (1 - current_value / peak_value) * 100
+        # Tier N triggers once drawdown meets or exceeds tiers_pct[N-1];
+        # alert_level 0 means "below the first (mildest) tier".
+        alert_level = sum(1 for t in tiers_pct if drawdown_pct >= t)
+
+        return {
+            "available": True,
+            "peak_60": round(peak_value, 2), "peak_date": peak_date,
+            "current": round(current_value, 2), "current_date": current_date,
+            "drawdown_pct": round(drawdown_pct, 2),
+            "alert_level": alert_level,  # 0 = normal, 1-4 = 第一..第四警戒
+            "tiers_pct": tiers_pct,
+        }
+
+    def _write_data_quality_log(self, chip: Dict):
+        """
+        Build this run's data-quality log (spec 第三章) from tw_chip_indicators
+        and persist to data/data_quality.json. Each VERIFIED/PENDING/
+        CONFLICTED decision here is a basic sanity check (field present,
+        non-negative, cross-field total reconciles) — it does NOT re-derive
+        the official source's own calculation, just catches the failure
+        modes the spec explicitly calls out (empty-but-200 responses,
+        negative amounts, a locally-computed total that doesn't match what
+        TWSE itself published as "合計").
+        """
+        log = data_quality.DataQualityLog()
+
+        def _simple(data_type: str, source: str, endpoint: str, field: dict,
+                    unit: str = None, non_negative: bool = True):
+            value = field.get("value") if field else None
+            date = field.get("date") if field else None
+            err = None
+            if value is None:
+                status = data_quality.PENDING
+                err = "missing value"
+            elif non_negative and value < 0 and data_type not in (
+                    "foreign_net", "trust_net", "dealer_self_net", "dealer_hedge_net",
+                    "institutional_total_net", "foreign_futures_net", "foreign_futures_net_taifex"):
+                # net buy/sell and net-OI fields are legitimately negative
+                # (net sell / net short); only amount-style fields are
+                # checked for non-negativity here.
+                status = data_quality.CONFLICTED
+                err = data_quality.check_non_negative(value, data_type)
+            else:
+                status = data_quality.VERIFIED
+            log.add(data_quality.QualityRecord(
+                source=source, endpoint=endpoint, data_type=data_type,
+                verification_status=status, data_date=date,
+                raw_value=value, normalized_value=value, unit=unit or field.get("unit"),
+                error_message=err,
+            ))
+
+        _simple("margin_balance_amount", "TWSE", "/rwd/zh/marginTrading/MI_MARGN",
+                 chip.get("margin_balance_amount", {}))
+        _simple("foreign_net", "TWSE", "/rwd/zh/fund/BFI82U", chip.get("foreign_net", {}))
+        _simple("trust_net", "TWSE", "/rwd/zh/fund/BFI82U", chip.get("trust_net", {}))
+        _simple("dealer_self_net", "TWSE", "/rwd/zh/fund/BFI82U", chip.get("dealer_self_net", {}))
+        _simple("dealer_hedge_net", "TWSE", "/rwd/zh/fund/BFI82U", chip.get("dealer_hedge_net", {}))
+        _simple("institutional_total_net", "TWSE", "/rwd/zh/fund/BFI82U", chip.get("institutional_total_net", {}))
+        _simple("usdtwd_cbc", "CBC", "/tw/lp-645-1-1-60.html", chip.get("usdtwd_cbc", {}))
+        _simple("foreign_futures_net_taifex", "TAIFEX",
+                 "/v1/MarketDataOfMajorInstitutionalTradersDetailsOfFuturesContractsBytheDate",
+                 chip.get("foreign_futures_net_taifex", {}))
+
+        # Cross-field check (spec rule E): 合計 should equal the sum of its
+        # four parts. Only meaningful when all four values came from the
+        # SAME report date — if any field fell back to a different trading
+        # day (e.g. one source lagging), skip rather than flag a false
+        # mismatch.
+        parts = [chip.get(k, {}) for k in ("foreign_net", "trust_net", "dealer_self_net", "dealer_hedge_net")]
+        total_field = chip.get("institutional_total_net", {})
+        dates = {p.get("date") for p in parts} | {total_field.get("date")}
+        if all(p.get("value") is not None for p in parts) and total_field.get("value") is not None and len(dates) == 1:
+            computed_total = sum(p["value"] for p in parts)
+            err = data_quality.check_cross_field(computed_total, total_field["value"],
+                                                   tolerance_pct=1.0, name="institutional_total_net")
+            log.add(data_quality.QualityRecord(
+                source="TWSE", endpoint="/rwd/zh/fund/BFI82U (cross-check)",
+                data_type="institutional_total_net_crosscheck",
+                verification_status=data_quality.CONFLICTED if err else data_quality.VERIFIED,
+                data_date=total_field.get("date"),
+                raw_value=computed_total, normalized_value=total_field["value"], unit="億元",
+                error_message=err,
+            ))
+
+        weights = {"margin_balance_amount": 30, "foreign_net": 25, "trust_net": 10,
+                   "foreign_futures_net_taifex": 20, "usdtwd_cbc": 15}
+        payload = {
+            "generated_at": datetime.now().astimezone().isoformat(),
+            "coverage": round(log.coverage(weights) * 100, 1),
+            "records": log.as_list(),
+        }
+        quality_file = os.path.join(self.data_dir, 'data_quality.json')
+        with open(quality_file, 'w', encoding='utf-8') as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
 
     def _load_signal_history(self) -> list:
         """Load the persisted daily signal-state log (see signal_backtest.py)."""
