@@ -1,0 +1,50 @@
+[
+  {
+    "date": "2026-11-25",
+    "facets": {
+      "margin": {
+        "available": true,
+        "score": 88.8,
+        "inputs": {
+          "m5_pct": -14.54,
+          "m20_pct": null,
+          "taiex_5d_pct": -0.6
+        }
+      },
+      "institutional": {
+        "available": false,
+        "reason": "insufficient foreign_net/market_turnover_amount history (need 5 days)"
+      },
+      "futures": {
+        "available": true,
+        "score": 95.0,
+        "inputs": {
+          "short_ratio_pct": 80.06,
+          "delta_net_short_5d": null
+        },
+        "divergence": null
+      },
+      "fx": {
+        "available": false,
+        "reason": "insufficient usdtwd_cbc history (need 6 days)"
+      },
+      "leaders": {
+        "available": true,
+        "score": 73.5,
+        "inputs": {
+          "tsmc_return5_pct": -1.15,
+          "etf0050_return5_pct": -4.04,
+          "tsmc_foreign_net_5d_lots": -62607
+        }
+      }
+    },
+    "coverage_pct": 60.0,
+    "available": false,
+    "status": "coverage_too_low",
+    "margin_deleverage_vs_index": {
+      "taiex_5d_pct": -0.6,
+      "margin_5d_pct": -14.54,
+      "pattern": "大盤下跌_融資快速去槓桿"
+    }
+  }
+]

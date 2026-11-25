@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-25T20:36:40.217471",
+  "timestamp": "2026-11-25T20:51:42.696302",
   "date": "2026-11-25",
   "macro": {
     "taiex": {
@@ -13,21 +13,21 @@
       "change_pct": -0.28
     },
     "dxy": {
-      "value": 103.9,
-      "change": 0.1,
-      "change_pct": 0.09
+      "value": 103.97,
+      "change": 0.16,
+      "change_pct": 0.15
     },
     "fear_greed": {
-      "value": 31.02,
-      "change": 4.66,
-      "change_pct": 17.68,
+      "value": 30.84,
+      "change": 4.48,
+      "change_pct": 17.0,
       "label": "VIX Index",
-      "timestamp": "2026-11-25T20:36:30.689180"
+      "timestamp": "2026-11-25T20:49:45.893539"
     },
     "btc": {
-      "value": 58661.0,
-      "change": -1086.0,
-      "change_pct": -1.82
+      "value": 58644.0,
+      "change": -1104.0,
+      "change_pct": -1.85
     },
     "oil": {
       "value": 82.4,
@@ -35,9 +35,9 @@
       "change_pct": 0.43
     },
     "gold": {
-      "value": 3547.8,
-      "change": -14.1,
-      "change_pct": -0.4
+      "value": 3551.0,
+      "change": -10.9,
+      "change_pct": -0.31
     },
     "sox": {
       "value": 8832.5,
@@ -71,30 +71,30 @@
       "change_pct": 463.71
     },
     "margin_balance": {
-      "value": 9964974.0,
-      "change": 1435093.0,
-      "change_pct": 16.82,
+      "value": 9383491.0,
+      "change": -681476.0,
+      "change_pct": -6.77,
       "unit": "張",
-      "date": "2026-11-24"
+      "date": "2026-11-25"
     },
     "margin_balance_amount": {
-      "value": 4535.05,
-      "change": 196.98,
-      "change_pct": 4.54,
+      "value": 4341.38,
+      "change": -193.67,
+      "change_pct": -4.27,
       "unit": "億元",
-      "date": "2026-11-24"
+      "date": "2026-11-25"
     },
     "short_balance": {
-      "value": 186613.0,
-      "change": 13656.0,
-      "change_pct": 7.9,
+      "value": 169365.0,
+      "change": -17248.0,
+      "change_pct": -9.24,
       "unit": "張",
-      "date": "2026-11-24"
+      "date": "2026-11-25"
     },
     "margin_short_ratio": {
-      "value": 1.87,
-      "change": -0.15,
-      "change_pct": -7.64,
+      "value": 1.8,
+      "change": -0.05,
+      "change_pct": -2.65,
       "unit": "%"
     },
     "usdtwd": {
@@ -127,7 +127,9 @@
     "foreign_futures_net_taifex": {
       "value": -103182.0,
       "unit": "口",
-      "date": "2026-11-24"
+      "date": "2026-11-24",
+      "long_oi": 12852.0,
+      "short_oi": 116034.0
     },
     "put_call_ratio": {
       "value": 55.46,
@@ -143,6 +145,11 @@
       "rate_type": "interbank_closing",
       "source": "CBC_TAIPEI_FOREX"
     },
+    "market_turnover_amount": {
+      "value": 12297.62,
+      "unit": "億元",
+      "date": "2026-11-25"
+    },
     "night_session": {
       "close": 38482.0,
       "prev_close": 40324.0,
@@ -155,9 +162,9 @@
       "available": true,
       "peak_60": 6533.3,
       "peak_date": "2026-10-12",
-      "current": 4535.05,
+      "current": 4341.38,
       "current_date": "2026-11-25",
-      "drawdown_pct": 30.59,
+      "drawdown_pct": 33.55,
       "alert_level": 4,
       "tiers_pct": [
         3,
@@ -178,8 +185,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 103.90 vs 近20日高點 104.34（未突破）；美債10Y 5日變動 -0.16pp（未達 0.15pp）",
-          "score": 17.3
+          "detail": "DXY 103.97 vs 近20日高點 104.34（未突破）；美債10Y 5日變動 -0.16pp（未達 0.15pp）",
+          "score": 19.4
         },
         {
           "id": "twd_depreciation",
@@ -202,7 +209,7 @@
           "label": "籌碼過度樂觀/散戶接刀",
           "status": false,
           "completeness": "full",
-          "detail": "今日外資賣超；融資餘額5日已回落（4535億元）；P/C Ratio 55.5%（< 100%門檻）",
+          "detail": "今日外資賣超；融資餘額5日已回落（4341億元）；P/C Ratio 55.5%（< 100%門檻）",
           "score": 35.0
         },
         {
@@ -219,7 +226,7 @@
       "triggered_count": 2,
       "triggered_full_count": 2,
       "triggered_partial_count": 0,
-      "avg_score": 33.5
+      "avg_score": 33.9
     },
     "bottom": {
       "conditions": [
@@ -228,8 +235,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 31.0（> 30.0門檻）；目前 31.0（較高點回落 0%，門檻 15%）",
-          "score": 31.5
+          "detail": "近10日VIX高點 30.8（> 30.0門檻）；目前 30.8（較高點回落 0%，門檻 15%）",
+          "score": 31.3
         },
         {
           "id": "margin_capitulation",
@@ -253,7 +260,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 13.3
+      "avg_score": 13.2
     },
     "bottom_reversal_score": {
       "total": 8.3,
@@ -282,16 +289,16 @@
     "regime": "PANIC",
     "regime_label": "恐慌急殺",
     "ma_period_used": 20,
-    "detail": "VIX 31.0 高於 30 門檻，且近5日急升 +8.6 點（門檻 5 點）— 判定為急性恐慌",
+    "detail": "VIX 30.8 高於 30 門檻，且近5日急升 +8.5 點（門檻 5 點）— 判定為急性恐慌",
     "metrics": {
       "taiex": 38195.43,
       "ma_now": 40943.22,
       "ma_prior": 47847.51,
       "above_ma": false,
       "ma_rising": false,
-      "vix_today": 31.02,
-      "vix_fast_rise": 8.65,
-      "vix_recent_peak": 31.02,
+      "vix_today": 30.84,
+      "vix_fast_rise": 8.47,
+      "vix_recent_peak": 30.84,
       "vix_rolled_over": false,
       "foreign_recent_avg": -379.45,
       "foreign_reversing": false
@@ -302,15 +309,15 @@
     "as_of_date": "2026-11-25",
     "history_days": 118,
     "bottom": {
-      "total": 34.2,
+      "total": 33.7,
       "dimensions": [
         {
           "name": "macro",
-          "score": 11.3,
+          "score": 10.8,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 31.0 → 目前 31.0（強度 32/100，+4.7）",
-            "DXY 103.90 距近20日高點 -0.42%（美元壓力緩和強度 65/100，+6.5）"
+            "VIX 近10日高點 30.8 → 目前 30.8（強度 31/100，+4.7）",
+            "DXY 103.97 距近20日高點 -0.35%（美元壓力緩和強度 61/100，+6.1）"
           ]
         },
         {
@@ -351,14 +358,14 @@
       ]
     },
     "top": {
-      "total": 22.1,
+      "total": 22.4,
       "dimensions": [
         {
           "name": "macro",
-          "score": 7.6,
+          "score": 7.9,
           "cap": 25,
           "notes": [
-            "DXY 103.90 距近20日高點 -0.42%，美債10Y5日變動 -0.16pp（強度 17/100，+2.6）",
+            "DXY 103.97 距近20日高點 -0.35%，美債10Y5日變動 -0.16pp（強度 19/100，+2.9）",
             "SOX/NDX 距近20日支撐 +4.74%，美債10Y同步變動（強度 50/100，+5.0）"
           ]
         },
@@ -368,7 +375,7 @@
           "cap": 25,
           "notes": [
             "新台幣5日貶值 +0.167（強度 65/100，+6.5）",
-            "外資今日 -1236.5億元，融資餘額5日變動 -545億元（散戶未離場強度 0/100，+0.0）"
+            "外資今日 -1236.5億元，融資餘額5日變動 -739億元（散戶未離場強度 0/100，+0.0）"
           ]
         },
         {
@@ -400,6 +407,53 @@
       ]
     },
     "caveat": "本分數為規則式加權評分，尚未經過歷史資料回測驗證統計勝率，僅供比較「目前有多少項已知條件成立」，並非機率或勝率——回測與訊號事後績效追蹤為下一階段規劃項目。"
+  },
+  "risk_score": {
+    "facets": {
+      "margin": {
+        "available": true,
+        "score": 88.8,
+        "inputs": {
+          "m5_pct": -14.54,
+          "m20_pct": null,
+          "taiex_5d_pct": -0.6
+        }
+      },
+      "institutional": {
+        "available": false,
+        "reason": "insufficient foreign_net/market_turnover_amount history (need 5 days)"
+      },
+      "futures": {
+        "available": true,
+        "score": 95.0,
+        "inputs": {
+          "short_ratio_pct": 80.06,
+          "delta_net_short_5d": null
+        },
+        "divergence": null
+      },
+      "fx": {
+        "available": false,
+        "reason": "insufficient usdtwd_cbc history (need 6 days)"
+      },
+      "leaders": {
+        "available": true,
+        "score": 73.5,
+        "inputs": {
+          "tsmc_return5_pct": -1.15,
+          "etf0050_return5_pct": -4.04,
+          "tsmc_foreign_net_5d_lots": -62607
+        }
+      }
+    },
+    "coverage_pct": 60.0,
+    "available": false,
+    "status": "coverage_too_low",
+    "margin_deleverage_vs_index": {
+      "taiex_5d_pct": -0.6,
+      "margin_5d_pct": -14.54,
+      "pattern": "大盤下跌_融資快速去槓桿"
+    }
   },
   "tsmc_analysis": {
     "available": true,
@@ -1540,11 +1594,11 @@
     },
     "tw_chip": {
       "as_of_date": "2026-11-25",
-      "fetched": false
+      "fetched": true
     },
     "tsmc_fundamentals": {
       "as_of_date": "2026-11-25",
-      "fetched": false
+      "fetched": true
     }
   },
   "news": [
@@ -1826,7 +1880,7 @@
       "change_pct": 1.33,
       "extra_data": {
         "regular_market_price": 58.87,
-        "pre_market_price": 58.1301,
+        "pre_market_price": 58.18,
         "post_market_price": null,
         "prev_close": 58.1
       },
@@ -1854,7 +1908,7 @@
       "change_pct": 2.58,
       "extra_data": {
         "regular_market_price": 9.55,
-        "pre_market_price": 9.3007,
+        "pre_market_price": 9.29,
         "post_market_price": null,
         "prev_close": 9.31
       },
@@ -1868,7 +1922,7 @@
       "change_pct": -17.85,
       "extra_data": {
         "regular_market_price": 29.17,
-        "pre_market_price": 26.0342,
+        "pre_market_price": 25.9,
         "post_market_price": null,
         "prev_close": 35.51
       },
@@ -1882,7 +1936,7 @@
       "change_pct": -7.05,
       "extra_data": {
         "regular_market_price": 47.72,
-        "pre_market_price": 46.34,
+        "pre_market_price": 46.33,
         "post_market_price": null,
         "prev_close": 51.34
       },
@@ -1896,7 +1950,7 @@
       "change_pct": 4.21,
       "extra_data": {
         "regular_market_price": 193.26,
-        "pre_market_price": 189.31,
+        "pre_market_price": 189.9,
         "post_market_price": null,
         "prev_close": 185.46
       },
@@ -1910,7 +1964,7 @@
       "change_pct": 8.13,
       "extra_data": {
         "regular_market_price": 5.2551,
-        "pre_market_price": 4.9908,
+        "pre_market_price": 5.0303,
         "post_market_price": null,
         "prev_close": 4.86
       },
@@ -1938,12 +1992,12 @@
       "change_pct": -11.13,
       "extra_data": {
         "regular_market_price": 77.95,
-        "pre_market_price": 73.18,
+        "pre_market_price": 72.61,
         "post_market_price": null,
         "prev_close": 87.71
       },
-      "kd_k": 3.17,
-      "kd_d": 3.08
+      "kd_k": 3.2,
+      "kd_d": 3.09
     },
     {
       "symbol": "SNXX",
@@ -1952,7 +2006,7 @@
       "change_pct": -21.05,
       "extra_data": {
         "regular_market_price": 1.65,
-        "pre_market_price": 1.4382,
+        "pre_market_price": 1.41,
         "post_market_price": null,
         "prev_close": 2.09
       },
@@ -1980,7 +2034,7 @@
       "change_pct": -14.98,
       "extra_data": {
         "regular_market_price": 6.13,
-        "pre_market_price": 5.6137,
+        "pre_market_price": 5.5999,
         "post_market_price": null,
         "prev_close": 7.21
       },
@@ -1994,7 +2048,7 @@
       "change_pct": -23.97,
       "extra_data": {
         "regular_market_price": 7.96,
-        "pre_market_price": 7.1938,
+        "pre_market_price": 7.23,
         "post_market_price": null,
         "prev_close": 10.47
       },
