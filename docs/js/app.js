@@ -69,6 +69,10 @@ const INFO_TEXT = {
         title: '重大財經新聞',
         body: '每小時自動從 Yahoo奇摩股市（tw.stock.yahoo.com）財經新聞頁面抓取的繁體中文頭條，涵蓋台股盤勢、美股、陸港股、黃金、外匯等大盤／宏觀新聞，點擊可開啟原始新聞頁面。這是本專案資料來源中最容易失效的一項——Yahoo 並未提供正式的新聞 API，抓取邏輯依賴新聞頁面的網址格式，若 Yahoo 改版可能暫時抓不到新聞（此時此區塊會顯示暫無新聞，不影響其他功能）。'
     },
+    market_report: {
+        title: '今日市場分析報告',
+        body: '將本頁下方已經各自計算好的數據（國際市場九項指標、台股籌碼面七項指標、訊號共振、訊號評分、台股上市市場綜合風險評分、市場狀態）自動模板化成一段可直接閱讀的文字摘要，方便不想逐項解讀數字的使用者快速掌握今日概況。這是規則式文字生成，不是另一套獨立判斷——內容完全來自下方其他區塊已經核實過的資料，不會出現與其他區塊互相矛盾的說法，也不是投資建議。'
+    },
     signal_confluence: {
         title: '訊號共振：大盤轉折觀察',
         body: '整合多項技術面與籌碼面條件（如 VIX 反轉、融資斷頭、外資回補空單、費半/那斯達克跌破支撐、美債殖利率急升等），尋找台股大盤「可能出現短線頂部或底部」的訊號共振時刻。當愈多條件同時成立，代表出現轉折的機率愈高——但這是機率參考工具，並非即時買賣訊號，也不是放空建議，請勿單獨依賴、更不建議因短線訊號打斷既有的定期定額投資紀律。'
@@ -284,6 +288,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderRegimeBadge();
     renderMarketNews();
     updateChipStats();
+    renderMarketReport();
     renderSignalScore();
     renderSignalConfluence();
     renderSignalBacktest();
@@ -683,6 +688,55 @@ function freshnessBadge(freshnessEntry, cadence) {
  * leg isn't fetched yet) and are visually flagged as such, never presented
  * the same as a fully-verified trigger.
  */
+/**
+ * Render the auto-generated Chinese-language "今日市場分析報告" — short
+ * template sentences built server-side (src/market_report.py) from data every
+ * other panel on this page already shows individually (international macro
+ * indicators, TW chip flow, signal confluence, signal score, risk score,
+ * market regime). Purely presentational here: all content/wording decisions
+ * already happened in the Python template, this just lays out the sections.
+ */
+function renderMarketReport() {
+    try {
+        const summary = DataManager.getSummary() || {};
+        const mr = summary.market_report || { available: false };
+        const dateEl = document.getElementById('market-report-date');
+        const body = document.getElementById('market-report-body');
+        if (!body) return;
+
+        if (!mr.available) {
+            if (dateEl) dateEl.textContent = '';
+            body.innerHTML = `<div class="text-center py-4 text-dark-text2 text-sm">尚無法產生分析報告</div>`;
+            return;
+        }
+
+        if (dateEl) dateEl.textContent = `(資料日期: ${mr.date})`;
+
+        const toneColor = {
+            risk_high: 'text-kd-red',
+            risk_low_opportunity: 'text-kd-green',
+            neutral: 'text-dark-text2'
+        }[mr.tone] || 'text-dark-text2';
+
+        const sectionsHtml = (mr.sections || []).map(s => `
+            <div class="mb-3">
+                <h3 class="text-xs font-bold text-dark-text mb-1">${s.title}</h3>
+                <ul class="space-y-1 list-disc list-inside">
+                    ${(s.lines || []).map(l => `<li class="text-xs text-dark-text2 leading-relaxed">${l}</li>`).join('')}
+                </ul>
+            </div>
+        `).join('');
+
+        body.innerHTML = `
+            <div class="${toneColor} text-sm font-semibold mb-3">${mr.headline}</div>
+            ${sectionsHtml}
+            <p class="text-[10px] text-dark-text2 opacity-70 mt-2 border-t border-dark-border pt-2 leading-relaxed">${mr.disclaimer}</p>
+        `;
+    } catch (e) {
+        console.error('renderMarketReport failed:', e);
+    }
+}
+
 function renderSignalConfluence() {
     try {
         const summary = DataManager.getSummary() || {};
@@ -2040,6 +2094,7 @@ async function refreshData() {
     renderRegimeBadge();
     renderMarketNews();
     updateChipStats();
+    renderMarketReport();
     renderSignalScore();
     renderSignalConfluence();
     renderSignalBacktest();

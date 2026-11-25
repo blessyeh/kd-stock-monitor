@@ -34,6 +34,7 @@ from signal_backtest import record_signal_snapshot, compute_backtest_stats
 import trading_calendar
 import data_quality
 import risk_engine
+import market_report
 
 
 class NumpyJSONEncoder(json.JSONEncoder):
@@ -436,6 +437,16 @@ class KDStockMonitor:
             logger.info(f"Market regime: {regime_result.get('regime')} "
                         f"({regime_result.get('regime_label')}), available={regime_result.get('available')}")
 
+            try:
+                market_report_result = market_report.generate_market_report(
+                    macro_indicators, tw_chip_indicators, confluence_result,
+                    signal_score_result, risk_score_result, regime_result
+                )
+                self._save_market_report(market_report_result)
+            except Exception as e:
+                logger.warning(f"Market report generation failed (non-fatal): {e}")
+                market_report_result = {"available": False, "reason": str(e)}
+
             # Step 2.85: 台積電 (2330) five-layer Investment Score — needs
             # regime_result/confluence_result (just computed above, for the
             # Market Regime dimension and the Panic Reversal buy-point) and
@@ -577,7 +588,8 @@ class KDStockMonitor:
                                               signal_backtest_result, data_freshness,
                                               tsmc_fundamentals_summary=tsmc_fundamentals_summary,
                                               additional_stock_analysis=additional_stock_analysis,
-                                              risk_score_result=risk_score_result)
+                                              risk_score_result=risk_score_result,
+                                              market_report_result=market_report_result)
             
             # Save run log
             self._save_run_log(summary)
@@ -648,7 +660,8 @@ class KDStockMonitor:
                            signal_backtest_result: Dict = None, data_freshness: Dict = None,
                            tsmc_fundamentals_summary: Dict = None,
                            additional_stock_analysis: Dict = None,
-                           risk_score_result: Dict = None) -> Dict:
+                           risk_score_result: Dict = None,
+                           market_report_result: Dict = None) -> Dict:
         """Generate a summary of the run."""
         all_stocks = []
         for market in ["TW", "US"]:
@@ -700,6 +713,7 @@ class KDStockMonitor:
             "market_regime": regime_result or {"available": False},
             "signal_score": signal_score_result or {"available": False},
             "risk_score": risk_score_result or {"available": False},
+            "market_report": market_report_result or {"available": False},
             "tsmc_analysis": tsmc_analysis or {"available": False},
             "tsmc_fundamentals_summary": tsmc_fundamentals_summary or {"available": False},
             "additional_stock_analysis": additional_stock_analysis or {},
@@ -1110,6 +1124,18 @@ class KDStockMonitor:
 
         with open(history_file, 'w', encoding='utf-8') as f:
             json.dump(history, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
+
+    def _save_market_report(self, market_report_result: Dict):
+        """
+        Persist today's auto-generated market report as data/market_report.json —
+        a single latest-snapshot file (overwritten every run), not a growing
+        history, since it's a point-in-time narrative over data that's already
+        separately persisted (macro_history.json, risk_scores.json) rather than
+        something to backtest on its own.
+        """
+        report_file = os.path.join(self.data_dir, 'market_report.json')
+        with open(report_file, 'w', encoding='utf-8') as f:
+            json.dump(market_report_result, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
 
     def _load_signal_history(self) -> list:
         """Load the persisted daily signal-state log (see signal_backtest.py)."""
