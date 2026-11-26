@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-26T19:36:17.247678",
+  "timestamp": "2026-11-26T22:41:45.476100",
   "date": "2026-11-26",
   "macro": {
     "taiex": {
@@ -13,31 +13,31 @@
       "change_pct": -1.14
     },
     "dxy": {
-      "value": 103.79,
-      "change": 0.12,
-      "change_pct": 0.11
+      "value": 103.65,
+      "change": -0.02,
+      "change_pct": -0.02
     },
     "fear_greed": {
-      "value": 27.09,
-      "change": -1.2,
-      "change_pct": -4.24,
+      "value": 27.17,
+      "change": -1.12,
+      "change_pct": -3.96,
       "label": "VIX Index",
-      "timestamp": "2026-11-26T19:36:09.097026"
+      "timestamp": "2026-11-26T22:41:36.597867"
     },
     "btc": {
-      "value": 60579.0,
-      "change": 201.0,
-      "change_pct": 0.33
+      "value": 60698.0,
+      "change": 320.0,
+      "change_pct": 0.53
     },
     "oil": {
-      "value": 84.59,
-      "change": 0.91,
-      "change_pct": 1.09
+      "value": 84.7,
+      "change": 1.02,
+      "change_pct": 1.22
     },
     "gold": {
-      "value": 3591.4,
-      "change": 55.6,
-      "change_pct": 1.57
+      "value": 3606.3,
+      "change": 70.5,
+      "change_pct": 1.99
     },
     "sox": {
       "value": 8774.86,
@@ -185,8 +185,8 @@
           "label": "宏觀資金抽離 (DXY突破前高+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "DXY 103.79 vs 近20日高點 104.34（未突破）；美債10Y 5日變動 -0.22pp（未達 0.15pp）",
-          "score": 14.7
+          "detail": "DXY 103.65 vs 近20日高點 104.34（未突破）；美債10Y 5日變動 -0.22pp（未達 0.15pp）",
+          "score": 13.4
         },
         {
           "id": "twd_depreciation",
@@ -226,7 +226,7 @@
       "triggered_count": 2,
       "triggered_full_count": 2,
       "triggered_partial_count": 0,
-      "avg_score": 34.2
+      "avg_score": 33.9
     },
     "bottom": {
       "conditions": [
@@ -235,8 +235,8 @@
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
           "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 30.1（> 30.0門檻）；目前 27.1（較高點回落 10%，門檻 15%）",
-          "score": 43.7
+          "detail": "近10日VIX高點 30.1（> 30.0門檻）；目前 27.2（較高點回落 10%，門檻 15%）",
+          "score": 43.3
         },
         {
           "id": "margin_capitulation",
@@ -260,7 +260,7 @@
       "triggered_count": 1,
       "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 15.5
+      "avg_score": 15.4
     },
     "bottom_reversal_score": {
       "total": 2.8,
@@ -296,8 +296,8 @@
       "ma_prior": 47847.51,
       "above_ma": false,
       "ma_rising": false,
-      "vix_today": 27.09,
-      "vix_fast_rise": 4.72,
+      "vix_today": 27.17,
+      "vix_fast_rise": 4.8,
       "vix_recent_peak": 30.14,
       "vix_rolled_over": false,
       "foreign_recent_avg": -379.45,
@@ -309,15 +309,15 @@
     "as_of_date": "2026-11-25",
     "history_days": 118,
     "bottom": {
-      "total": 35.9,
+      "total": 36.1,
       "dimensions": [
         {
           "name": "macro",
-          "score": 13.6,
+          "score": 13.8,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 30.1 → 目前 27.1（強度 44/100，+6.6）",
-            "DXY 103.79 距近20日高點 -0.53%（美元壓力緩和強度 71/100，+7.1）"
+            "VIX 近10日高點 30.1 → 目前 27.2（強度 43/100，+6.5）",
+            "DXY 103.65 距近20日高點 -0.66%（美元壓力緩和強度 73/100，+7.3）"
           ]
         },
         {
@@ -358,14 +358,14 @@
       ]
     },
     "top": {
-      "total": 22.3,
+      "total": 22.1,
       "dimensions": [
         {
           "name": "macro",
-          "score": 7.2,
+          "score": 7.0,
           "cap": 25,
           "notes": [
-            "DXY 103.79 距近20日高點 -0.53%，美債10Y5日變動 -0.22pp（強度 15/100，+2.2）",
+            "DXY 103.65 距近20日高點 -0.66%，美債10Y5日變動 -0.22pp（強度 13/100，+2.0）",
             "SOX/NDX 距近20日支撐 +4.07%，美債10Y同步變動（強度 50/100，+5.0）"
           ]
         },
@@ -458,7 +458,7 @@
   "market_report": {
     "available": true,
     "date": "2026-11-26",
-    "generated_at": "2026-11-26T19:36:15.180813",
+    "generated_at": "2026-11-26T22:41:43.171716",
     "headline": "風險偏高：國際與台股籌碼面同步出現避險訊號，短線宜留意波動加大",
     "tone": "risk_high",
     "sections": [
@@ -466,12 +466,12 @@
         "id": "international",
         "title": "國際市場總覽",
         "lines": [
-          "VIX恐慌指數報27.09，持平-4.24%。",
+          "VIX恐慌指數報27.17，持平-3.96%。",
           "美債10年期殖利率報4.85%，下跌-1.14%。",
-          "美元指數(DXY)報103.79，持平+0.11%。",
-          "比特幣報$60,579，持平+0.33%。",
-          "WTI原油報$84.59，持平+1.09%。",
-          "黃金報$3,591，上升+1.57%。",
+          "美元指數(DXY)報103.65，持平-0.02%。",
+          "比特幣報$60,698，持平+0.53%。",
+          "WTI原油報$84.70，持平+1.22%。",
+          "黃金報$3,606，上升+1.99%。",
           "費城半導體指數(SOX)報8,775，持平-0.65%。",
           "那斯達克100(NDX)報26,047，持平-0.64%。",
           "標普500(S&P 500)報7,183，持平-0.25%。"
@@ -635,6 +635,21 @@
     },
     "news": [
       {
+        "title": "盧超群：台灣可整合資源切入中型邊緣資料中心",
+        "url": "https://tw.stock.yahoo.com/news/%E7%9B%A7%E8%B6%85%E7%BE%A4-%E5%8F%B0%E7%81%A3%E5%8F%AF%E6%95%B4%E5%90%88%E8%B3%87%E6%BA%90%E5%88%87%E5%85%A5%E4%B8%AD%E5%9E%8B%E9%82%8A%E7%B7%A3%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83-115100563.html",
+        "meta": null
+      },
+      {
+        "title": "侯永清：3D堆疊促AI快速發展　盧超群20年前即提出",
+        "url": "https://tw.stock.yahoo.com/news/%E4%BE%AF%E6%B0%B8%E6%B8%85-3d%E5%A0%86%E7%96%8A%E4%BF%83ai%E5%BF%AB%E9%80%9F%E7%99%BC%E5%B1%95-%E7%9B%A7%E8%B6%85%E7%BE%A420%E5%B9%B4%E5%89%8D%E5%8D%B3%E6%8F%90%E5%87%BA-114031082.html",
+        "meta": null
+      },
+      {
+        "title": "今年ETF第2例！00981A也爆違約交割　規模破1億元",
+        "url": "https://tw.stock.yahoo.com/news/%E4%BB%8A%E5%B9%B4etf%E7%AC%AC2%E4%BE%8B-00981a%E4%B9%9F%E7%88%86%E9%81%95%E7%B4%84%E4%BA%A4%E5%89%B2-%E8%A6%8F%E6%A8%A1%E7%A0%B41%E5%84%84%E5%85%83-111941673.html",
+        "meta": null
+      },
+      {
         "title": "外資連9賣續砍491億元　減碼玻璃傳產與金融股",
         "url": "https://tw.stock.yahoo.com/news/%E5%A4%96%E8%B3%87%E9%80%A39%E8%B3%A3%E7%BA%8C%E7%A0%8D491%E5%84%84%E5%85%83-%E6%B8%9B%E7%A2%BC%E7%8E%BB%E7%92%83%E5%82%B3%E7%94%A2%E8%88%87%E9%87%91%E8%9E%8D%E8%82%A1-104744107.html",
         "meta": null
@@ -657,21 +672,6 @@
       {
         "title": "【公告】列特博一年內累積取得同一有價證券達實收資本額百分之二十",
         "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E5%88%97%E7%89%B9%E5%8D%9A-%E5%B9%B4%E5%85%A7%E7%B4%AF%E7%A9%8D%E5%8F%96%E5%BE%97%E5%90%8C-%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E9%81%94%E5%AF%A6%E6%94%B6%E8%B3%87%E6%9C%AC%E9%A1%8D%E7%99%BE%E5%88%86%E4%B9%8B%E4%BA%8C%E5%8D%81-093316587.html",
-        "meta": null
-      },
-      {
-        "title": "列特博 公告本公司一年內累積取得同一有價證券達實收資本額百分之二十",
-        "url": "https://tw.stock.yahoo.com/news/%E5%88%97%E7%89%B9%E5%8D%9A-%E5%85%AC%E5%91%8A%E6%9C%AC%E5%85%AC%E5%8F%B8-%E5%B9%B4%E5%85%A7%E7%B4%AF%E7%A9%8D%E5%8F%96%E5%BE%97%E5%90%8C-%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E9%81%94%E5%AF%A6%E6%94%B6%E8%B3%87%E6%9C%AC%E9%A1%8D%E7%99%BE%E5%88%86%E4%B9%8B%E4%BA%8C%E5%8D%81-092900544.html",
-        "meta": null
-      },
-      {
-        "title": "宜新實業 公告本公司一年內累積處分同一有價證券金額達實收資本額20%",
-        "url": "https://tw.stock.yahoo.com/news/%E5%AE%9C%E6%96%B0%E5%AF%A6%E6%A5%AD-%E5%85%AC%E5%91%8A%E6%9C%AC%E5%85%AC%E5%8F%B8-%E5%B9%B4%E5%85%A7%E7%B4%AF%E7%A9%8D%E8%99%95%E5%88%86%E5%90%8C-%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E9%87%91%E9%A1%8D%E9%81%94%E5%AF%A6%E6%94%B6%E8%B3%87%E6%9C%AC%E9%A1%8D20-091400306.html",
-        "meta": null
-      },
-      {
-        "title": "大立光國巨紅燈雙響炮！台積尾盤挨刀翻黑 台股照漲956點攻回3萬9｜Yahoo財經掃描",
-        "url": "https://tw.stock.yahoo.com/news/%E5%A4%A7%E7%AB%8B%E5%85%89%E5%9C%8B%E5%B7%A8%E7%B4%85%E7%87%88%E9%9B%99%E9%9F%BF%E7%82%AE%EF%BC%81%E5%8F%B0%E7%A9%8D%E5%B0%BE%E7%9B%A4%E6%8C%A8%E5%88%80%E7%BF%BB%E9%BB%91-%E5%8F%B0%E8%82%A1%E7%85%A7%E6%BC%B2956%E9%BB%9E%E6%94%BB%E5%9B%9E3%E8%90%AC9%EF%BD%9Cyahoo%E8%B2%A1%E7%B6%93%E6%8E%83%E6%8F%8F-090940579.html",
         "meta": null
       }
     ],
@@ -1665,7 +1665,7 @@
     },
     {
       "title": "「瑤池金母」也翻車 遭爆違約交割1.38億",
-      "url": "https://tw.stock.yahoo.com/news/%E7%91%A4%E6%B1%A0%E9%87%91%E6%AF%8D%E9%90%B5%E7%B2%89%E7%BF%BB%E8%BB%8A%EF%BC%8100981a%E9%81%AD%E9%81%95%E7%B4%84%E4%BA%A4%E5%89%B2138%E5%84%84%E5%85%83-%E4%BB%8A%E5%B9%B4%E7%AC%AC%E4%B8%89%E5%A4%A7%E7%AD%86-103959148.html",
+      "url": "https://tw.stock.yahoo.com/news/%E7%91%A4%E6%B1%A0%E9%87%91%E6%AF%8D%E9%90%B5%E7%B2%89%E7%BF%BB%E8%BB%8A%EF%BC%8100981a%E9%81%AD%E9%81%95%E7%B4%84%E4%BA%A4%E5%89%B2103%E5%84%84%E5%85%83-%E4%BB%8A%E5%B9%B4%E7%AC%AC%E4%B8%89%E5%A4%A7%E7%AD%86-121707670.html",
       "meta": null
     },
     {
@@ -1694,7 +1694,7 @@
       "meta": null
     },
     {
-      "title": "美232關稅調查出爐！鄭麗君：半導體配額內免稅、無人機全球最低 助輸美競爭力",
+      "title": "232半導體關稅未定！鄭麗君：台灣已握MOU保障 配額內免稅、配額外不疊加",
       "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E232%E9%97%9C%E7%A8%85%E8%AA%BF%E6%9F%A5%E5%87%BA%E7%88%90-%E9%84%AD%E9%BA%97%E5%90%9B-%E5%8D%8A%E5%B0%8E%E9%AB%94%E9%85%8D%E9%A1%8D%E5%85%A7%E5%85%8D%E7%A8%85-%E7%84%A1%E4%BA%BA%E6%A9%9F%E5%85%A8%E7%90%83%E6%9C%80%E4%BD%8E-%E5%8A%A9%E8%BC%B8%E7%BE%8E%E7%AB%B6%E7%88%AD%E5%8A%9B-082739533.html",
       "meta": null
     },
