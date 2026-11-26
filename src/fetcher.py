@@ -340,21 +340,28 @@ class StockFetcher:
             "sp500": {"value": None, "change": None, "change_pct": None}
         }
 
-        # 0. Fetch TAIEX (台股加權指數, ^TWII) — the actual "台股大盤" this whole
-        # dashboard exists to monitor, shown prominently at the top of the page.
-        try:
-            ticker_taiex = yf.Ticker("^TWII")
-            hist_taiex = ticker_taiex.history(period="2d")
-            latest_val, prev_val = self._yf_latest_prev(hist_taiex)
-            if latest_val is not None:
-                change = latest_val - prev_val
-                change_pct = (change / prev_val * 100) if prev_val else 0
-                macro_data["taiex"] = {
-                    "value": round(latest_val, 2), "change": round(change, 2),
-                    "change_pct": round(change_pct, 2)
-                }
-        except Exception as e:
-            logger.error(f"Error fetching TAIEX: {e}")
+        # 0. Fetch TAIEX (台股加權指數) — the actual "台股大盤" this whole
+        # dashboard exists to monitor, shown prominently at the top of the
+        # page. Prefer TWSE's own MIS real-time endpoint (near-live, see
+        # fetch_taiex_realtime()); fall back to yfinance's delayed ^TWII
+        # quote if that unofficial endpoint fails.
+        realtime_taiex = self.fetch_taiex_realtime()
+        if realtime_taiex is not None:
+            macro_data["taiex"] = realtime_taiex
+        else:
+            try:
+                ticker_taiex = yf.Ticker("^TWII")
+                hist_taiex = ticker_taiex.history(period="2d")
+                latest_val, prev_val = self._yf_latest_prev(hist_taiex)
+                if latest_val is not None:
+                    change = latest_val - prev_val
+                    change_pct = (change / prev_val * 100) if prev_val else 0
+                    macro_data["taiex"] = {
+                        "value": round(latest_val, 2), "change": round(change, 2),
+                        "change_pct": round(change_pct, 2)
+                    }
+            except Exception as e:
+                logger.error(f"Error fetching TAIEX: {e}")
 
         # 1. Fetch US10Y Yield (^TNX)
         try:
@@ -573,14 +580,17 @@ class StockFetcher:
             unlike TAIFEX's own OpenAPI (see _fetch_finmind() docstring for why that
             route was abandoned).
           - night_session: 台指期夜盤跳空幅度 (overnight TX futures gap vs the prior
-            day session close), via FinMind. Retrospective only — published in the
-            same ~16:30 daily batch as the fields above, not a real-time feed.
+            day session close). Scraped live from Yahoo's WTX& futures quote page
+            (see fetch_tx_night_session_yahoo()) so this tracks whatever the gap
+            looks like at the time of the run; falls back to FinMind's
+            TaiwanFuturesDaily 'after_market' row (retrospective only, published in
+            the same ~16:30 daily batch as the fields above) if that scrape fails.
 
-        These are End-of-Day figures, not intraday ticks, so on an hourly refresh
-        they'll typically only change once per trading day (when TWSE/FinMind post
-        that day's numbers in the evening). Each value's 'date' field says which
-        trading day it's actually for, so the UI can show that instead of implying
-        it's live.
+        Most of these are End-of-Day figures, not intraday ticks, so on an hourly
+        refresh they'll typically only change once per trading day (when
+        TWSE/FinMind post that day's numbers in the evening) — night_session is the
+        exception, see above. Each value's 'date' field says which trading day it's
+        actually for, so the UI can show that instead of implying it's live.
         """
         chip_data = {
             "foreign_net": {"value": None, "change": None, "change_pct": None, "unit": "億元", "date": None},
@@ -599,7 +609,8 @@ class StockFetcher:
             "usdtwd_cbc": {"value": None, "unit": "元", "date": None, "source": "CBC_TAIPEI_FOREX"},
             "market_turnover_amount": {"value": None, "unit": "億元", "date": None},
             "night_session": {"close": None, "prev_close": None, "gap": None,
-                               "gap_pct": None, "date": None, "prev_date": None}
+                               "gap_pct": None, "date": None, "prev_date": None,
+                               "fetched_at": None, "source": None}
         }
 
         # 1+2. 三大法人買賣金額統計表 (foreign + investment trust net buy/sell, NT$)
@@ -780,52 +791,177 @@ class StockFetcher:
         except Exception as e:
             logger.error(f"Error fetching TaiwanOptionDaily (選擇權P/C Ratio): {e}")
 
-        # 9. 台指期夜盤跳空 (TAIFEX night-session gap) — retrospective, not real-time.
-        # FinMind's TaiwanFuturesDaily carries an 'after_market' (夜盤) row alongside
-        # the regular 'position' (日盤) row, but the whole day's data — both
-        # sessions — is only published in FinMind's ~16:30 Taipei daily batch, same
-        # cadence as the other TWSE chip data above. So this confirms what already
-        # happened overnight (useful as a signal-confluence corroboration point);
-        # it is NOT a live intraday feed for real-time hedging during the actual
-        # night session — that requires FinMind's paid sponsor-tier real-time
-        # snapshot endpoint (taiwan_futures_snapshot), which this project doesn't use.
+        # 9. 台指期夜盤跳空 (TAIFEX night-session gap). Prefer scraping Yahoo's
+        # WTX& futures quote page (fetch_tx_night_session_yahoo()) — it's a
+        # live-updating quote, not an EOD batch, so an hourly run picks up
+        # whatever the gap looks like at that point in the night session
+        # (good enough for a "~5 分鐘等級" refresh; not tick-by-tick). If that
+        # unofficial scrape fails, fall back to FinMind's TaiwanFuturesDaily
+        # 'after_market' row, which is retrospective-only — the whole day's
+        # data (both day and night sessions) is only published in FinMind's
+        # ~16:30 Taipei daily batch, so it just confirms what already
+        # happened overnight rather than tracking it live.
         try:
-            rows = self._fetch_finmind("TaiwanFuturesDaily", "TX", days_back=10)
-            if rows:
-                # 只取近月合約 (front-month，流動性與參考性最高)：每個 (日期, 時段)
-                # 只保留 contract_date 最小 (YYYYMM 字串可直接比較) 的那一筆。
-                by_date_session = {}
-                for r in rows:
-                    key = (r["date"], r["trading_session"])
-                    if key not in by_date_session or r["contract_date"] < by_date_session[key]["contract_date"]:
-                        by_date_session[key] = r
-
-                am_dates = sorted(d for (d, s) in by_date_session if s == "after_market")
-                pos_dates = sorted(d for (d, s) in by_date_session if s == "position")
-
-                if am_dates and pos_dates:
-                    latest_am_date = am_dates[-1]
-                    am_row = by_date_session[(latest_am_date, "after_market")]
-                    prior_pos_dates = [d for d in pos_dates if d < latest_am_date]
-                    if prior_pos_dates:
-                        prior_date = prior_pos_dates[-1]
-                        pos_row = by_date_session[(prior_date, "position")]
-                        am_close = am_row.get("close")
-                        pos_close = pos_row.get("close")
-                        if am_close and pos_close:
-                            gap = am_close - pos_close
-                            chip_data["night_session"] = {
-                                "close": am_close,
-                                "prev_close": pos_close,
-                                "gap": round(gap, 0),
-                                "gap_pct": round(gap / pos_close * 100, 2),
-                                "date": latest_am_date,
-                                "prev_date": prior_date
-                            }
+            live = self.fetch_tx_night_session_yahoo()
+            if live is not None:
+                chip_data["night_session"] = {
+                    "close": live["close"], "prev_close": live["prev_close"],
+                    "gap": live["gap"], "gap_pct": live["gap_pct"],
+                    "date": None, "prev_date": None, "fetched_at": live["fetched_at"],
+                    "source": "YAHOO_WTX_LIVE"
+                }
         except Exception as e:
-            logger.error(f"Error fetching TaiwanFuturesDaily after_market (台指期夜盤): {e}")
+            logger.error(f"Error fetching TX night session (Yahoo WTX&): {e}")
+
+        if chip_data["night_session"]["close"] is None:
+            try:
+                rows = self._fetch_finmind("TaiwanFuturesDaily", "TX", days_back=10)
+                if rows:
+                    # 只取近月合約 (front-month，流動性與參考性最高)：每個 (日期, 時段)
+                    # 只保留 contract_date 最小 (YYYYMM 字串可直接比較) 的那一筆。
+                    by_date_session = {}
+                    for r in rows:
+                        key = (r["date"], r["trading_session"])
+                        if key not in by_date_session or r["contract_date"] < by_date_session[key]["contract_date"]:
+                            by_date_session[key] = r
+
+                    am_dates = sorted(d for (d, s) in by_date_session if s == "after_market")
+                    pos_dates = sorted(d for (d, s) in by_date_session if s == "position")
+
+                    if am_dates and pos_dates:
+                        latest_am_date = am_dates[-1]
+                        am_row = by_date_session[(latest_am_date, "after_market")]
+                        prior_pos_dates = [d for d in pos_dates if d < latest_am_date]
+                        if prior_pos_dates:
+                            prior_date = prior_pos_dates[-1]
+                            pos_row = by_date_session[(prior_date, "position")]
+                            am_close = am_row.get("close")
+                            pos_close = pos_row.get("close")
+                            if am_close and pos_close:
+                                gap = am_close - pos_close
+                                chip_data["night_session"] = {
+                                    "close": am_close,
+                                    "prev_close": pos_close,
+                                    "gap": round(gap, 0),
+                                    "gap_pct": round(gap / pos_close * 100, 2),
+                                    "date": latest_am_date,
+                                    "prev_date": prior_date,
+                                    "fetched_at": None,
+                                    "source": "FINMIND_EOD_RETROSPECTIVE"
+                                }
+            except Exception as e:
+                logger.error(f"Error fetching TaiwanFuturesDaily after_market (台指期夜盤): {e}")
 
         return chip_data
+
+    def fetch_taiex_realtime(self) -> Optional[Dict]:
+        """
+        TAIEX (台股加權指數) near-real-time quote via TWSE's own MIS JSON
+        endpoint — the same one twse.com.tw's 即時行情 page calls client-side.
+        Confirmed (2026-11-26): msgArray[0]['z'] is the current index level
+        and ['y'] is the previous session's close, both updating intraday
+        with only a few seconds' lag — unlike yfinance's ^TWII, which lags
+        by minutes. This is an unofficial, undocumented endpoint, so a
+        schema change on TWSE's end could silently break it; callers should
+        fall back to yfinance's ^TWII on failure.
+
+        Returns {"value", "change", "change_pct"}, or None if the market
+        hasn't printed a tick yet (z == "-", e.g. before the open) or the
+        request fails.
+        """
+        url = "https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_t00.tw&json=1&delay=0"
+        try:
+            headers = {"User-Agent": "Mozilla/5.0 (compatible; KDStockMonitor/1.0)"}
+            resp = requests.get(url, headers=headers, timeout=10)
+            resp.raise_for_status()
+            rows = resp.json().get("msgArray") or []
+            if not rows:
+                return None
+            z, y = rows[0].get("z"), rows[0].get("y")
+            if not z or z == "-" or not y or y == "-":
+                return None
+            latest_val, prev_val = float(z), float(y)
+            change = latest_val - prev_val
+            change_pct = (change / prev_val * 100) if prev_val else 0
+            return {
+                "value": round(latest_val, 2), "change": round(change, 2),
+                "change_pct": round(change_pct, 2)
+            }
+        except Exception as e:
+            logger.error(f"Error fetching TAIEX realtime (TWSE MIS): {e}")
+            return None
+
+    def fetch_tx_night_session_yahoo(self) -> Optional[Dict]:
+        """
+        台指期(TX)近月合約現價, scraped from Yahoo奇摩股市's futures quote page
+        (https://tw.stock.yahoo.com/future/WTX&). The page is a JS SPA with
+        no price data in its static HTML, but it does ship its initial
+        quote as server-rendered JSON inlined in a `root.App.main = {...}`
+        <script> blob (the same legacy pattern Yahoo Finance has used for
+        years) — so a plain GET + regex extract works without a headless
+        browser or reverse-engineering their internal XHR API.
+
+        This single quote updates continuously whenever a TX session (day
+        or night, 15:00–05:00 Taipei for night) is live, so running this on
+        an hourly schedule just picks up whichever session happens to be
+        open at that time — a "~5 分鐘等級" refresh is fine, this is not a
+        tick-by-tick feed. Confirmed (2026-11-26) against the live page's
+        displayed 成交/昨收.
+
+        `changePercent`/`priceDiff` are also present in that blob but
+        aren't used here — gap/gap_pct are derived from price/prev_close
+        directly instead, since (2026-11-26) `priceDiff` was observed
+        misaligned with the `price`/`previousClose` pair it sat next to
+        (likely bled in from an adjacent instrument's block in the same
+        page-wide JS object).
+
+        Returns {"close", "prev_close", "gap", "gap_pct", "fetched_at"} (an
+        ISO UTC timestamp of the underlying quote, not of this HTTP
+        request), or None if the page's structure didn't match (layout
+        change) or the request failed.
+        """
+        import re
+
+        url = "https://tw.stock.yahoo.com/future/WTX&"
+        try:
+            headers = {
+                "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+            }
+            resp = requests.get(url, headers=headers, timeout=15)
+            resp.raise_for_status()
+            html = resp.text
+
+            anchor = '"symbol":"WTX&"'
+            idx = html.find(anchor)
+            if idx == -1:
+                logger.warning("Yahoo WTX& page didn't contain the expected quote anchor")
+                return None
+            # The fields we need sit before the anchor in page source order;
+            # a 2000-char window comfortably covers them without risking a
+            # match against a different instrument's block further away.
+            window = html[max(0, idx - 2000): idx]
+
+            price_m = re.search(r'"price":\{"raw":"([\d.]+)"', window)
+            prev_m = re.search(r'"regularMarketPreviousClose":\{"raw":"([\d.]+)"', window)
+            time_m = re.search(r'"regularMarketTime":"([^"]+)"', window)
+            if not price_m or not prev_m:
+                logger.warning("Yahoo WTX& page didn't contain price/previousClose fields")
+                return None
+
+            close = float(price_m.group(1))
+            prev_close = float(prev_m.group(1))
+            gap = close - prev_close
+            gap_pct = (gap / prev_close * 100) if prev_close else None
+            return {
+                "close": close, "prev_close": prev_close,
+                "gap": round(gap, 0),
+                "gap_pct": round(gap_pct, 2) if gap_pct is not None else None,
+                "fetched_at": time_m.group(1) if time_m else None
+            }
+        except Exception as e:
+            logger.error(f"Error fetching TX night session (Yahoo WTX&): {e}")
+            return None
 
     def fetch_cbc_usdtwd(self) -> Optional[Dict]:
         """

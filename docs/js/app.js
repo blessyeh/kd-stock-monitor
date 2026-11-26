@@ -63,7 +63,7 @@ const INFO_TEXT = {
     },
     night_session: {
         title: '台指期夜盤',
-        body: '台指期夜盤跳空幅度，與前一交易日日盤收盤價比較。這是收盤後回溯性資料（約台北時間16:30才更新，隨當天籌碼面資料一起發布），並非盤中即時報價，主要用來輔助觀察隔夜國際盤氣氛，判斷隔天台股開盤可能的跳空方向與幅度。'
+        body: '台指期（近月合約）現價，與前一交易日收盤價比較的跳空幅度。每小時更新一次，抓取當下台指期報價（夜盤時段 15:00–05:00 抓到的即是夜盤價），非逐筆即時，但足以反映隔夜國際盤氣氛與隔天台股開盤可能的跳空方向與幅度。若當次抓取失敗，會改用前一交易日收盤後的回溯性資料（約台北時間16:30更新）。'
     },
     market_news: {
         title: '重大財經新聞',
@@ -591,9 +591,11 @@ function renderMarketNews() {
  * Render the top-of-page 台股大盤 (TAIEX) + 台指期夜盤 hero section.
  * TAIEX itself is the actual index this whole dashboard exists to monitor,
  * so it gets the most prominent placement on the page. The night-session gap
- * sits right beside it since it's the overnight lead-in to TAIEX's next open
- * — but per the tooltip on the card, it's retrospective (posted ~16:30
- * Taipei), not a live intraday feed.
+ * sits right beside it since it's the overnight lead-in to TAIEX's next open.
+ * Both figures are refreshed each hourly run from near-live quotes (see
+ * fetcher.py's fetch_taiex_realtime()/fetch_tx_night_session_yahoo()), not
+ * literal tick-by-tick feeds — night_session falls back to a retrospective
+ * EOD figure (ns.date set, ns.fetched_at null) only if that live scrape fails.
  */
 function updateTaiexSection() {
     try {
@@ -626,7 +628,21 @@ function updateTaiexSection() {
             nightValueEl.textContent = ns.close ? ns.close.toLocaleString('en-US') : '-';
             nightGapEl.className = `text-base font-semibold ${colorClass}`;
             nightGapEl.textContent = `${sign}${ns.gap} (${sign}${ns.gap_pct.toFixed(2)}%)`;
-            if (nightDateEl) nightDateEl.textContent = ns.date ? `(${ns.date})` : '';
+            if (nightDateEl) {
+                // Live scrape (fetch_tx_night_session_yahoo) leaves ns.date
+                // null and sets ns.fetched_at instead; the EOD fallback is
+                // the reverse. Show whichever one is actually set.
+                if (ns.fetched_at) {
+                    const t = new Date(ns.fetched_at).toLocaleTimeString('zh-TW', {
+                        timeZone: 'Asia/Taipei', hour: '2-digit', minute: '2-digit'
+                    });
+                    nightDateEl.textContent = `(即時 ${t})`;
+                } else if (ns.date) {
+                    nightDateEl.textContent = `(${ns.date})`;
+                } else {
+                    nightDateEl.textContent = '';
+                }
+            }
         }
     } catch (e) {
         console.error("Error updating TAIEX section:", e);
