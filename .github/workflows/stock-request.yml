@@ -7,9 +7,13 @@ name: Stock Watchlist Request
 # earlier, see commit 53fc74560).
 #
 # The real gatekeeping happens here: this workflow only ever runs for issues
-# opened by github.repository_owner (see the job-level `if:` below). A
-# stock-request issue opened by anyone else is left completely untouched —
-# no comment, no config change, no indication it was even inspected.
+# opened by whoever actually operates this dashboard (see the job-level
+# `if:` below — an explicit allow-list, not just github.repository_owner,
+# since the repo's nominal owner login and the operator's own everyday
+# GitHub login can differ; confirmed 2026-11-27 they're different accounts
+# here). A stock-request issue opened by anyone else is left completely
+# untouched — no comment, no config change, no indication it was even
+# inspected.
 on:
   issues:
     types: [opened]
@@ -20,7 +24,7 @@ permissions:
 
 jobs:
   apply:
-    if: github.event.issue.user.login == github.repository_owner
+    if: contains(fromJSON('["blessyeh", "timranma"]'), github.event.issue.user.login)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

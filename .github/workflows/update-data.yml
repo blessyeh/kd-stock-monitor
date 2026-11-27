@@ -38,12 +38,16 @@ concurrency:
 
 jobs:
   build:
-    # Gate the issues-triggered path to the repo owner, same as
-    # stock-request.yml — an update-request issue opened by anyone else is
-    # left completely untouched (job shows as "skipped", no steps run).
+    # Gate the issues-triggered path to whoever actually operates this
+    # dashboard. Not just `github.repository_owner`: the repo's nominal
+    # GitHub owner login and the operator's own everyday GitHub login can
+    # differ (confirmed 2026-11-27 — they're different accounts here), so
+    # this checks an explicit allow-list instead. An update-request issue
+    # opened by anyone else is left completely untouched (job shows as
+    # "skipped", no steps run) — same as stock-request.yml.
     if: |
       github.event_name != 'issues' ||
-      (github.event.issue.user.login == github.repository_owner &&
+      (contains(fromJSON('["blessyeh", "timranma"]'), github.event.issue.user.login) &&
        contains(github.event.issue.title, '[手動更新]'))
     runs-on: ubuntu-latest
     steps:

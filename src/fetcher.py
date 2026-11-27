@@ -791,20 +791,47 @@ class StockFetcher:
         except Exception as e:
             logger.error(f"Error fetching TaiwanOptionDaily (選擇權P/C Ratio): {e}")
 
-        # 9. 台指期夜盤跳空 (TAIFEX night-session gap). Prefer scraping Yahoo's
-        # WTX& futures quote page (fetch_tx_night_session_yahoo()) — it's a
-        # live-updating quote, not an EOD batch, so an hourly run picks up
-        # whatever the gap looks like at that point in the night session
-        # (good enough for a "~5 分鐘等級" refresh; not tick-by-tick). If that
-        # unofficial scrape fails, fall back to FinMind's TaiwanFuturesDaily
-        # 'after_market' row, which is retrospective-only — the whole day's
-        # data (both day and night sessions) is only published in FinMind's
-        # ~16:30 Taipei daily batch, so it just confirms what already
-        # happened overnight rather than tracking it live.
+        # 9. 台指期夜盤跳空 (TAIFEX night-session gap) — see fetch_night_session().
+        # Deliberately NOT inlined here: unlike every other field above, this
+        # one is near-live, not once-a-day EOD, and main.py's same-calendar-
+        # day cache (_load_tw_eod_cache / tw_eod_fresh) wraps this whole
+        # method's result — so main.py calls fetch_night_session() again on
+        # its own, every run, to overwrite this field even on cache-hit runs.
+        chip_data["night_session"] = self.fetch_night_session()
+
+        return chip_data
+
+    def fetch_night_session(self) -> Dict:
+        """
+        台指期夜盤跳空 (TAIFEX night-session gap vs the prior session close).
+        Prefer scraping Yahoo's WTX& futures quote page
+        (fetch_tx_night_session_yahoo()) — it's a live-updating quote, not an
+        EOD batch, so calling this picks up whatever the gap looks like right
+        now (good enough for a "~5 分鐘等級" refresh; not tick-by-tick). If
+        that unofficial scrape fails, fall back to FinMind's
+        TaiwanFuturesDaily 'after_market' row, which is retrospective-only —
+        the whole day's data (both day and night sessions) is only published
+        in FinMind's ~16:30 Taipei daily batch, so it just confirms what
+        already happened overnight rather than tracking it live.
+
+        Called both from fetch_tw_chip_indicators() (for a cold/cache-miss
+        run) and directly from main.py on every run, bypassing the
+        same-calendar-day EOD cache that wraps the rest of
+        fetch_tw_chip_indicators's fields — see the call site comments for
+        why this one specifically can't be cached once-a-day like the rest.
+
+        Returns {"close", "prev_close", "gap", "gap_pct", "date", "prev_date",
+        "fetched_at", "source"}, all None (except "source") if both sources
+        failed.
+        """
+        night_session = {"close": None, "prev_close": None, "gap": None,
+                          "gap_pct": None, "date": None, "prev_date": None,
+                          "fetched_at": None, "source": None}
+
         try:
             live = self.fetch_tx_night_session_yahoo()
             if live is not None:
-                chip_data["night_session"] = {
+                night_session = {
                     "close": live["close"], "prev_close": live["prev_close"],
                     "gap": live["gap"], "gap_pct": live["gap_pct"],
                     "date": None, "prev_date": None, "fetched_at": live["fetched_at"],
@@ -813,7 +840,7 @@ class StockFetcher:
         except Exception as e:
             logger.error(f"Error fetching TX night session (Yahoo WTX&): {e}")
 
-        if chip_data["night_session"]["close"] is None:
+        if night_session["close"] is None:
             try:
                 rows = self._fetch_finmind("TaiwanFuturesDaily", "TX", days_back=10)
                 if rows:
@@ -839,7 +866,7 @@ class StockFetcher:
                             pos_close = pos_row.get("close")
                             if am_close and pos_close:
                                 gap = am_close - pos_close
-                                chip_data["night_session"] = {
+                                night_session = {
                                     "close": am_close,
                                     "prev_close": pos_close,
                                     "gap": round(gap, 0),
@@ -852,7 +879,7 @@ class StockFetcher:
             except Exception as e:
                 logger.error(f"Error fetching TaiwanFuturesDaily after_market (台指期夜盤): {e}")
 
-        return chip_data
+        return night_session
 
     def fetch_taiex_realtime(self) -> Optional[Dict]:
         """

@@ -313,6 +313,17 @@ class KDStockMonitor:
                             "valuation": valuation, "peer_valuation": peer_valuation,
                         }
 
+                # night_session is a near-live quote, not a once-a-day EOD
+                # figure like the rest of tw_chip_indicators — refetch it on
+                # EVERY run, even a tw_eod_fresh cache-hit one, otherwise
+                # today's night-session gap freezes at whatever it was on
+                # the day's first run (observed 2026-11-27: stuck all day at
+                # a value from the previous night's 04:59 fetch).
+                try:
+                    tw_chip_indicators["night_session"] = self.fetcher.fetch_night_session()
+                except Exception as e:
+                    logger.error(f"Night session refetch failed (non-fatal, keeping cached value): {e}")
+
                 try:
                     market_news = self.fetcher.fetch_market_news()
                 except Exception as e:
