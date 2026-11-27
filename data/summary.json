@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-27T22:31:13.704610",
+  "timestamp": "2026-11-27T22:40:37.115465",
   "date": "2026-11-27",
   "macro": {
     "taiex": {
@@ -8,9 +8,9 @@
       "change_pct": 0.4
     },
     "us10y": {
-      "value": 4.904,
-      "change": 0.056,
-      "change_pct": 1.16
+      "value": 4.902,
+      "change": 0.054,
+      "change_pct": 1.11
     },
     "dxy": {
       "value": 103.93,
@@ -18,41 +18,41 @@
       "change_pct": 0.25
     },
     "fear_greed": {
-      "value": 25.56,
-      "change": -1.24,
-      "change_pct": -4.63,
+      "value": 25.99,
+      "change": -0.81,
+      "change_pct": -3.02,
       "label": "VIX Index",
-      "timestamp": "2026-11-27T22:31:03.796722"
+      "timestamp": "2026-11-27T22:40:28.823026"
     },
     "btc": {
-      "value": 61082.0,
-      "change": 587.0,
-      "change_pct": 0.97
+      "value": 60144.0,
+      "change": -351.0,
+      "change_pct": -0.58
     },
     "oil": {
-      "value": 84.39,
-      "change": 0.71,
-      "change_pct": 0.85
+      "value": 84.08,
+      "change": 0.4,
+      "change_pct": 0.48
     },
     "gold": {
-      "value": 3667.5,
-      "change": 131.7,
-      "change_pct": 3.72
+      "value": 3663.0,
+      "change": 127.2,
+      "change_pct": 3.6
     },
     "sox": {
-      "value": 8990.92,
-      "change": 216.06,
-      "change_pct": 2.46
+      "value": 8860.43,
+      "change": 85.57,
+      "change_pct": 0.98
     },
     "ndx": {
-      "value": 26468.93,
-      "change": 422.03,
-      "change_pct": 1.62
+      "value": 26250.71,
+      "change": 203.81,
+      "change_pct": 0.78
     },
     "sp500": {
-      "value": 7265.6,
-      "change": 82.82,
-      "change_pct": 1.15
+      "value": 7233.31,
+      "change": 50.53,
+      "change_pct": 0.7
     }
   },
   "chip": {
@@ -151,13 +151,13 @@
       "date": "2026-11-26"
     },
     "night_session": {
-      "close": 39492.0,
-      "prev_close": 39492.0,
-      "gap": 0.0,
-      "gap_pct": 0.0,
+      "close": 38746.0,
+      "prev_close": 39350.0,
+      "gap": -604.0,
+      "gap_pct": -1.53,
       "date": null,
       "prev_date": null,
-      "fetched_at": "2026-11-26T20:59:57Z",
+      "fetched_at": "2026-11-27T14:40:28Z",
       "source": "YAHOO_WTX_LIVE"
     },
     "margin_drawdown_alert": {
@@ -219,7 +219,7 @@
           "label": "科技資金退潮 (SOX/NDX跌破支撐+美債10Y快速攀升)",
           "status": false,
           "completeness": "full",
-          "detail": "SOX 8991未跌破近20日支撐8409；NDX 26469未跌破近20日支撐25029；美債10Y 5日變動 -0.15pp（未達 0.15pp）",
+          "detail": "SOX 8860未跌破近20日支撐8409；NDX 26251未跌破近20日支撐25029；美債10Y 5日變動 -0.15pp（未達 0.15pp）",
           "score": 50.0
         }
       ],
@@ -235,10 +235,10 @@
         {
           "id": "vix_extreme_reversal",
           "label": "恐慌極值反轉 (VIX飆高後見頂回落)",
-          "status": true,
+          "status": false,
           "completeness": "full",
-          "detail": "近10日VIX高點 30.1（> 30.0門檻）；目前 25.6（較高點回落 15%，門檻 15%）",
-          "score": 50.4
+          "detail": "近10日VIX高點 30.1（> 30.0門檻）；目前 26.0（較高點回落 14%，門檻 15%）",
+          "score": 48.6
         },
         {
           "id": "margin_capitulation",
@@ -259,10 +259,10 @@
       ],
       "total_conditions": 3,
       "evaluated_count": 3,
-      "triggered_count": 2,
-      "triggered_full_count": 2,
+      "triggered_count": 1,
+      "triggered_full_count": 1,
       "triggered_partial_count": 0,
-      "avg_score": 23.6
+      "avg_score": 23.0
     },
     "bottom_reversal_score": {
       "total": 20.5,
@@ -298,10 +298,10 @@
       "ma_prior": 47726.51,
       "above_ma": false,
       "ma_rising": false,
-      "vix_today": 25.56,
-      "vix_fast_rise": -2.88,
+      "vix_today": 25.99,
+      "vix_fast_rise": -2.45,
       "vix_recent_peak": 30.14,
-      "vix_rolled_over": true,
+      "vix_rolled_over": false,
       "foreign_recent_avg": -473.63,
       "foreign_reversing": false
     }
@@ -311,14 +311,14 @@
     "as_of_date": "2026-11-26",
     "history_days": 119,
     "bottom": {
-      "total": 37.4,
+      "total": 37.3,
       "dimensions": [
         {
           "name": "macro",
-          "score": 13.9,
+          "score": 13.6,
           "cap": 25,
           "notes": [
-            "VIX 近10日高點 30.1 → 目前 25.6（強度 50/100，+7.6）",
+            "VIX 近10日高點 30.1 → 目前 26.0（強度 49/100，+7.3）",
             "DXY 103.93 距近20日高點 -0.39%（美元壓力緩和強度 64/100，+6.4）"
           ]
         },
@@ -350,10 +350,10 @@
         },
         {
           "name": "sentiment",
-          "score": 9.8,
+          "score": 10.0,
           "cap": 10,
           "notes": [
-            "VIX 處於近117筆歷史樣本的第 94 百分位（恐慌強度 98/100，+9.8）"
+            "VIX 處於近117筆歷史樣本的第 95 百分位（恐慌強度 100/100，+10.0）"
           ]
         }
       ]
@@ -367,7 +367,7 @@
           "cap": 25,
           "notes": [
             "DXY 103.93 距近20日高點 -0.39%，美債10Y5日變動 -0.15pp（強度 18/100，+2.7）",
-            "SOX/NDX 距近20日支撐 +5.75%，美債10Y同步變動（強度 50/100，+5.0）"
+            "SOX/NDX 距近20日支撐 +4.88%，美債10Y同步變動（強度 50/100，+5.0）"
           ]
         },
         {
@@ -401,7 +401,7 @@
           "score": 0,
           "cap": 10,
           "notes": [
-            "VIX 處於近117筆歷史樣本的第 94 百分位（自滿強度 0/100，+0.0）"
+            "VIX 處於近117筆歷史樣本的第 95 百分位（自滿強度 0/100，+0.0）"
           ]
         }
       ]
@@ -458,23 +458,23 @@
   "market_report": {
     "available": true,
     "date": "2026-11-27",
-    "generated_at": "2026-11-27T22:31:11.060010",
-    "headline": "出現底部訊號：部分籌碼面轉強條件成立，但仍需等待更多確認",
-    "tone": "risk_low_opportunity",
+    "generated_at": "2026-11-27T22:40:34.704472",
+    "headline": "訊號中性：目前尚未出現明顯頂部或底部共振訊號",
+    "tone": "neutral",
     "sections": [
       {
         "id": "international",
         "title": "國際市場總覽",
         "lines": [
-          "VIX恐慌指數報25.56，持平-4.63%。",
-          "美債10年期殖利率報4.90%，上升+1.16%。",
+          "VIX恐慌指數報25.99，持平-3.02%。",
+          "美債10年期殖利率報4.90%，上升+1.11%。",
           "美元指數(DXY)報103.93，持平+0.25%。",
-          "比特幣報$61,082，持平+0.97%。",
-          "WTI原油報$84.39，持平+0.85%。",
-          "黃金報$3,668，大幅上升+3.72%。",
-          "費城半導體指數(SOX)報8,991，上升+2.46%。",
-          "那斯達克100(NDX)報26,469，上升+1.62%。",
-          "標普500(S&P 500)報7,266，上升+1.15%。"
+          "比特幣報$60,144，持平-0.58%。",
+          "WTI原油報$84.08，持平+0.48%。",
+          "黃金報$3,663，大幅上升+3.60%。",
+          "費城半導體指數(SOX)報8,860，持平+0.98%。",
+          "那斯達克100(NDX)報26,251，持平+0.78%。",
+          "標普500(S&P 500)報7,233，上升+0.70%。"
         ]
       },
       {
@@ -495,7 +495,7 @@
         "lines": [
           "目前市場狀態判定為「空頭趨勢」。",
           "訊號共振（轉折觀察）目前觸發 1 項頂部訊號：外資期現貨雙空。",
-          "訊號共振目前觸發 2 項底部訊號：恐慌極值反轉 (VIX飆高後見頂回落)、散戶投降/融資斷頭式大減。",
+          "訊號共振目前觸發 1 項底部訊號：散戶投降/融資斷頭式大減。",
           "頂部風險分數 9/100。",
           "底部佈局分數 37/100。",
           "台股上市市場綜合風險評分資料覆蓋率僅 60.0%（需達80%才會正式評分），暫無法提供綜合分數。"
@@ -505,7 +505,7 @@
         "id": "conclusion",
         "title": "綜合觀察",
         "lines": [
-          "部分底部訊號浮現，但訊號尚未達到高度共振，建議持續觀察而非立即大幅加碼。"
+          "目前市場訊號大致中性，未見顯著的頂部或底部共振，建議維持既定投資紀律。"
         ]
       }
     ],
@@ -513,7 +513,7 @@
   },
   "tsmc_analysis": {
     "available": true,
-    "total": 55.3,
+    "total": 57.3,
     "coverage": "10/10",
     "recommendation": "中性持有",
     "dimensions": [
@@ -574,7 +574,7 @@
         "cap": 10,
         "available": true,
         "notes": [
-          "2330 近20日漲跌 -8.0%；相對TAIEX +5.0pp、相對SOX +13.9pp、相對NDX +2.0pp"
+          "2330 近20日漲跌 -8.0%；相對TAIEX +5.0pp、相對SOX +15.1pp、相對NDX +2.7pp"
         ]
       },
       {
@@ -589,12 +589,11 @@
       },
       {
         "name": "adr_premium",
-        "score": 1,
+        "score": 3,
         "cap": 5,
         "available": true,
         "notes": [
-          "ADR $351.7 換算2330隱含價 2315.5元，2330現價 2180.0元（折價 5.9%）",
-          "台股與ADR隱含價差偏大，可能反映短線資金流向或流動性落差，非直接看多看空訊號"
+          "ADR $347.1 換算2330隱含價 2285.0元，2330現價 2180.0元（折價 4.6%）"
         ]
       },
       {
@@ -705,7 +704,7 @@
         "dimension": "relative_strength",
         "score": 10,
         "cap": 10,
-        "detail": "2330 近20日漲跌 -8.0%；相對TAIEX +5.0pp、相對SOX +13.9pp、相對NDX +2.0pp"
+        "detail": "2330 近20日漲跌 -8.0%；相對TAIEX +5.0pp、相對SOX +15.1pp、相對NDX +2.7pp"
       },
       {
         "dimension": "revenue_momentum",
@@ -1820,38 +1819,38 @@
     {
       "symbol": "AMDL",
       "name": "GraniteShares 2x Long AMD Daily ETF",
-      "current_price": 29.36,
-      "change_pct": 4.45,
+      "current_price": 28.26,
+      "change_pct": 0.53,
       "extra_data": {
-        "regular_market_price": 29.36,
+        "regular_market_price": 28.26,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 28.11
       },
-      "kd_k": 17.44,
-      "kd_d": 22.85
+      "kd_k": 16.43,
+      "kd_d": 22.51
     },
     {
       "symbol": "CRCL",
       "name": "Circle Internet Group, Inc.",
-      "current_price": 49.93,
-      "change_pct": 3.55,
+      "current_price": 48.435,
+      "change_pct": 0.45,
       "extra_data": {
-        "regular_market_price": 49.93,
+        "regular_market_price": 48.435,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 48.22
       },
-      "kd_k": 22.19,
-      "kd_d": 13.45
+      "kd_k": 19.2,
+      "kd_d": 12.46
     },
     {
       "symbol": "SNDK",
       "name": "Sandisk Corporation",
-      "current_price": 78.495,
-      "change_pct": 6.64,
+      "current_price": 78.45,
+      "change_pct": 6.58,
       "extra_data": {
-        "regular_market_price": 78.495,
+        "regular_market_price": 78.45,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 73.61
@@ -1862,44 +1861,44 @@
     {
       "symbol": "SNXX",
       "name": "Tradr 2X Long Sndk Daily ETF",
-      "current_price": 1.645,
-      "change_pct": 13.45,
+      "current_price": 1.6442,
+      "change_pct": 13.39,
       "extra_data": {
-        "regular_market_price": 1.645,
+        "regular_market_price": 1.6442,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 1.45
       },
-      "kd_k": 13.31,
+      "kd_k": 13.3,
       "kd_d": 10.32
     },
     {
       "symbol": "RKLX",
       "name": "Defiance Daily Target 2X Long RKLB ETF",
-      "current_price": 6.93,
-      "change_pct": 7.94,
+      "current_price": 6.6006,
+      "change_pct": 2.81,
       "extra_data": {
-        "regular_market_price": 6.93,
+        "regular_market_price": 6.6006,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 6.42
       },
-      "kd_k": 19.43,
-      "kd_d": 21.33
+      "kd_k": 17.75,
+      "kd_d": 20.77
     },
     {
       "symbol": "DLLL",
       "name": "GraniteShares 2x Long DELL Daily ETF",
-      "current_price": 8.49,
-      "change_pct": 5.73,
+      "current_price": 8.35,
+      "change_pct": 3.99,
       "extra_data": {
-        "regular_market_price": 8.49,
+        "regular_market_price": 8.35,
         "pre_market_price": null,
         "post_market_price": null,
         "prev_close": 8.03
       },
-      "kd_k": 24.11,
-      "kd_d": 19.6
+      "kd_k": 23.39,
+      "kd_d": 19.36
     }
   ],
   "errors": []
