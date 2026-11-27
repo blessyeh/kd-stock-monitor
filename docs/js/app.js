@@ -248,6 +248,27 @@ function buildStockRequestIssueUrl(action, symbol, name, market) {
     return `https://github.com/${STOCK_REQUEST_REPO}/issues/new?${params.toString()}`;
 }
 
+/**
+ * Manual data-refresh button (立即更新資料) — same owner-gated GitHub Issue
+ * trick as the watchlist request above, used instead of a `schedule:`
+ * trigger because GitHub's own cron for this plan proved unreliable
+ * (confirmed 2026-11-27: hourly runs were actually landing 7-11 hours
+ * apart). See .github/workflows/update-data.yml's `issues:` trigger and
+ * job-level `if:` for the matching title marker + owner check.
+ */
+function buildManualUpdateIssueUrl() {
+    const params = new URLSearchParams({
+        title: '[手動更新] 更新資料',
+        body: ['<!-- manual-update -->', `REQUESTED_AT: ${new Date().toISOString()}`].join('\n'),
+        labels: 'manual-update'
+    });
+    return `https://github.com/${STOCK_REQUEST_REPO}/issues/new?${params.toString()}`;
+}
+
+function requestManualUpdate() {
+    window.open(buildManualUpdateIssueUrl(), '_blank');
+}
+
 function submitAddStockRequest() {
     const symbol = document.getElementById('add-stock-symbol').value.trim();
     const name = document.getElementById('add-stock-name').value.trim();

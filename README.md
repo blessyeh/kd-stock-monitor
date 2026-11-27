@@ -16,9 +16,9 @@ A GitHub-powered stock monitoring system that tracks KD (Stochastic Oscillator) 
 - 🇺🇸 **US Stocks**: Supports NYSE/NASDAQ stocks (e.g., AAPL, TSLA).
 - 🌐 **Web Dashboard**: Interactive dashboard with charts and real-time data. TAIEX (台股加權指數) and the TAIFEX night-session gap are shown prominently at the top of the page, above everything else.
 - 🌍 **Global Macro Indicators**: VIX, US 10Y yield, DXY, Bitcoin, WTI Crude Oil, Gold, plus SOX (Philadelphia Semiconductor), Nasdaq 100, and S&P 500 — the indices that actually drive TW-listed tech/semiconductor names, rather than the Dow.
-- 🇹🇼 **Taiwan Chip Flow**: Foreign/investment-trust net buy-sell, margin & short balances, USD/TWD (TWSE open data), foreign TAIFEX futures net position and options Put/Call Ratio (FinMind), plus a retrospective TAIFEX night-session (夜盤) gap indicator.
+- 🇹🇼 **Taiwan Chip Flow**: Foreign/investment-trust net buy-sell, margin & short balances, USD/TWD (TWSE open data), foreign TAIFEX futures net position and options Put/Call Ratio (FinMind), plus a near-live TAIFEX night-session (夜盤) gap indicator (falls back to a retrospective figure if the live scrape fails).
 - 🎯 **Signal Confluence Model**: Cross-validates macro + chip-flow + derivatives + tech-index indicators against a fully-verified top/bottom turning-point framework (see below).
-- ⚡ **Auto Updates**: **Hourly** automated data fetching and deployment via GitHub Actions.
+- ⚡ **Updates on Demand**: Click "立即更新資料" on the dashboard to trigger a fetch + deploy via GitHub Actions — no unreliable cron schedule.
 - 📱 **Mobile Friendly**: Responsive design works on all devices.
 
 ### 📉 Trading Patterns
@@ -191,7 +191,7 @@ What's still open, in priority order:
 <a name="繁體中文"></a>
 ## 🌐 繁體中文說明
 
-這是一個利用 GitHub Actions 驅動的股票監控系統，追蹤台股與美股的 KD 指標。具備**每小時**自動資料更新功能，並透過 GitHub Pages 提供互動式儀表板。
+這是一個利用 GitHub Actions 驅動的股票監控系統，追蹤台股與美股的 KD 指標。資料更新由儀表板上的按鈕手動觸發，並透過 GitHub Pages 提供互動式儀表板。
 
 ### ✨ 核心功能
 - 📈 **KD 指標追蹤**：自動計算所有監控股票的 9 日隨機指標 (KD)。
@@ -200,9 +200,9 @@ What's still open, in priority order:
 - 🇺🇸 **美股支援**：支援美股代碼 (如 AAPL, TSLA)。
 - 🌐 **網頁儀表板**：提供圖表與即時數據的互動式介面。台股大盤（加權指數）與台指期夜盤跳空放在頁面最上方最顯眼的位置。
 - 🌍 **全球宏觀指標**：VIX、美債 10Y、美元指數、比特幣、原油 (WTI)、黃金，以及費半 (SOX)、那斯達克100、標普500——真正牽動台股科技/半導體權值股的指數，而非道瓊。
-- 🇹🇼 **台股籌碼面**：外資/投信買賣超、融資融券餘額、新台幣匯率（TWSE 開放資料），外資台指期淨部位、選擇權 P/C Ratio（FinMind），以及追溯性的台指期夜盤跳空指標。
+- 🇹🇼 **台股籌碼面**：外資/投信買賣超、融資融券餘額、新台幣匯率（TWSE 開放資料），外資台指期淨部位、選擇權 P/C Ratio（FinMind），以及近即時的台指期夜盤跳空指標（即時抓取失敗時會改用回溯性資料）。
 - 🎯 **訊號共振模型**：交叉驗證宏觀指標、台股籌碼面、衍生性商品與科技指數指標，判斷大盤頂部/底部轉折，所有條件皆可完整驗證（詳見下方說明）。
-- ⚡ **自動更新**：透過 GitHub Actions 進行**每小時**自動化抓取與部署。
+- ⚡ **按需更新**：點擊儀表板上的「立即更新資料」即可透過 GitHub Actions 觸發一次抓取與部署——不依賴不可靠的排程。
 - 📱 **行動裝置優化**：響應式設計，適合手機查看。
 
 ### 📉 交易模式分析
@@ -380,9 +380,9 @@ Follow these steps to deploy your own instance of the KD Stock Monitor on GitHub
 2.  **Enable Actions | 啟用 Actions**: In your forked repository, go to the `Actions` tab and click the "I understand my workflows, go ahead and enable them" button. This is required for automatic data updates and deployment.
     *   在您 Fork 的專案中，前往 `Actions` 頁籤，點擊 "I understand my workflows, go ahead and enable them" 按鈕以啟用工作流程。這是實現自動化資料更新與部署的必要步驟。
 3.  **Trigger the Deployment | 觸發部署**:
-    *   Still in the `Actions` tab, click on `Hourly Stock Update & Deploy` on the left sidebar.
+    *   Still in the `Actions` tab, click on `Stock Update & Deploy` on the left sidebar.
     *   Click the `Run workflow` dropdown, then the green `Run workflow` button. This will start the first build and deployment process.
-    *   仍在 `Actions` 頁籤，點擊左側的 `Hourly Stock Update & Deploy`，接著點擊 `Run workflow` 下拉選單，並按下綠色的 `Run workflow` 按鈕。這會開始第一次的建置與部署流程。
+    *   仍在 `Actions` 頁籤，點擊左側的 `Stock Update & Deploy`，接著點擊 `Run workflow` 下拉選單，並按下綠色的 `Run workflow` 按鈕。這會開始第一次的建置與部署流程。
 4.  **Configure and Visit Your Site | 設定並瀏覽您的網站**:
     *   Wait for the workflow to complete (it may take 2-3 minutes).
     *   Go to your repository's `Settings` > `Pages` tab.
@@ -421,10 +421,24 @@ You can run the web dashboard on your local machine to view the latest data you'
 
 ## 📊 Data Update Schedule | 資料更新排程
 
-GitHub Actions runs automatically:
-- **Every Hour**: Runs on the hour (`0 * * * *`), 24/7.
+There is no `schedule:` (cron) trigger — GitHub's own cron for scheduled
+workflows proved unreliable on this plan (hourly runs were sometimes landing
+7-11 hours apart), so updates are manual-only:
+- **Dashboard button**: Click "立即更新資料" on the dashboard itself — opens
+  a pre-filled GitHub "New Issue" (same owner-gated pattern as "管理監控股票"
+  below); only an issue opened by the repo owner actually triggers a run.
 - **On Push**: Whenever code is pushed to the `main` or `master` branch.
-- **Manual Trigger**: Via the **Actions** tab in your GitHub repository.
+- **Manual Trigger**: Via the **Actions** tab in your GitHub repository
+  (`Run workflow` on `Stock Update & Deploy`).
+
+沒有 `schedule:`（cron）排程——GitHub 自己的排程機制在這個方案上不可靠（曾發生
+設定每小時執行、實際卻間隔 7-11 小時才跑一次的情況），因此改為純手動觸發：
+- **儀表板按鈕**：點擊儀表板上的「立即更新資料」，會開啟一個預先填好內容的
+  GitHub「New Issue」（與下方「管理監控股票」相同的擁有者限定機制）——只有本專案
+  擁有者本人開的 Issue 才會真正觸發更新。
+- **推送時**：每次推送到 `main` 或 `master` 分支時。
+- **手動觸發**：在 GitHub 專案的 **Actions** 頁籤中，對 `Stock Update & Deploy`
+  按下 `Run workflow`。
 
 ---
 

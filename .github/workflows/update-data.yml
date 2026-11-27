@@ -29,7 +29,7 @@ env:
 
 concurrency:
   group: "pages"
-  # 每次觸發（push 或每小時排程）都會用「觸發當下」的 commit 執行，不是「執行當下」
+  # 每次觸發（push、手動觸發或按鈕送出的 Issue）都會用「觸發當下」的 commit 執行，不是「執行當下」
   # main 最新的 commit。若保留 false，快速連續 push 修正時，較早觸發、還在排隊的
   # 執行會在較晚的修正已經上線後才真正開始跑，用的還是舊版程式碼，很容易讓人誤以為
   # 「明明推了修正還是失敗」。改成 true：新的執行一開始就會取消還在排隊/執行中的
@@ -38,6 +38,13 @@ concurrency:
 
 jobs:
   build:
+    # Gate the issues-triggered path to the repo owner, same as
+    # stock-request.yml — an update-request issue opened by anyone else is
+    # left completely untouched (job shows as "skipped", no steps run).
+    if: |
+      github.event_name != 'issues' ||
+      (github.event.issue.user.login == github.repository_owner &&
+       contains(github.event.issue.title, '[手動更新]'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -45,6 +52,10 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          # `issues` events have no branch ref of their own (unlike push),
+          # so this always checks out/pushes to the default branch rather
+          # than relying on github.ref_name — same as stock-request.yml.
+          ref: ${{ github.event.repository.default_branch }}
           
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -86,18 +97,18 @@ jobs:
           git commit -m "📊 自動更新資料 - $(date +'%Y-%m-%d %H:%M') (台北時間)"
           
           # 在 push 前拉取遠端最新變更，使用 rebase 避免產生多餘的合併節點。
-          # 這個 commit 只會動到 data/（機器產生、每小時都會被覆蓋的資料），
+          # 這個 commit 只會動到 data/（機器產生、每次執行都會被覆蓋的資料），
           # 所以發生衝突時可以放心採用「這次 rebase 正在套用的 commit」（也就是
           # 這次剛產生的最新資料）── 對 git rebase 而言那是 -X theirs，
           # 而不是字面上看起來相反的 -X ours。
-          if ! git pull --rebase -X theirs origin ${{ github.ref_name }}; then
+          if ! git pull --rebase -X theirs origin ${{ github.event.repository.default_branch }}; then
             echo "Rebase 發生非預期衝突，改用一般 merge 並保留這次最新產生的資料"
             git rebase --abort
-            git pull --no-rebase -X ours origin ${{ github.ref_name }}
+            git pull --no-rebase -X ours origin ${{ github.event.repository.default_branch }}
           fi
 
-          # 推送至觸發工作流程的當前分支
-          git push origin ${{ github.ref_name }}
+          # 推送至預設分支
+          git push origin ${{ github.event.repository.default_branch }}
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -125,3 +136,28 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Comment on manual-update issue
+        if: github.event_name == 'issues'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ 資料已更新並部署完成。'
+            });
+
+      - name: Close manual-update issue
+        if: github.event_name == 'issues'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+              state_reason: 'completed'
+            });
