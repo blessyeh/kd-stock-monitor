@@ -142,5 +142,53 @@
       "margin_5d_pct": -10.3,
       "pattern": "大盤上漲"
     }
+  },
+  {
+    "date": "2026-11-28",
+    "facets": {
+      "margin": {
+        "available": true,
+        "score": 33.8,
+        "inputs": {
+          "m5_pct": -1.16,
+          "m20_pct": null,
+          "taiex_5d_pct": 6.78
+        }
+      },
+      "institutional": {
+        "available": false,
+        "reason": "insufficient foreign_net/market_turnover_amount history (need 5 days)"
+      },
+      "futures": {
+        "available": true,
+        "score": 95.0,
+        "inputs": {
+          "short_ratio_pct": 85.4,
+          "delta_net_short_5d": null
+        },
+        "divergence": null
+      },
+      "fx": {
+        "available": false,
+        "reason": "insufficient usdtwd_cbc history (need 6 days)"
+      },
+      "leaders": {
+        "available": true,
+        "score": 38.0,
+        "inputs": {
+          "tsmc_return5_pct": 9.0,
+          "etf0050_return5_pct": 9.41,
+          "tsmc_foreign_net_5d_lots": -68954
+        }
+      }
+    },
+    "coverage_pct": 60.0,
+    "available": false,
+    "status": "coverage_too_low",
+    "margin_deleverage_vs_index": {
+      "taiex_5d_pct": 6.78,
+      "margin_5d_pct": -1.16,
+      "pattern": "大盤上漲"
+    }
   }
 ]
