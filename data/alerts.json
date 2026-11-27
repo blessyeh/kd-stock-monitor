@@ -1,5 +1,30 @@
 [
   {
+    "id": "AMD_20261127_oversold",
+    "symbol": "AMD",
+    "name": "Advanced Micro Devices Inc.",
+    "market": "US",
+    "type": "oversold",
+    "level": "low",
+    "kd_k": 19.98,
+    "kd_d": 26.49,
+    "kd_state": "BEARISH_MOMENTUM",
+    "current_price": 406.5,
+    "threshold": 20,
+    "filter_confidence": "low",
+    "filter_passed": [],
+    "filter_cautions": [
+      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）",
+      "MACD柱狀體在零軸下持續擴大（空頭動能未歇，不宜視為買進訊號）"
+    ],
+    "market_regime": "BEAR_TREND",
+    "market_regime_label": "空頭趨勢",
+    "message": "✅ AMD (Advanced Micro Devices Inc.) is OVERSOLD! KD-K: 19.98, KD-D: 26.49 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
+    "timestamp": "2026-11-27T22:41:47.899209",
+    "date": "2026-11-27",
+    "acknowledged": false
+  },
+  {
     "id": "00885.TW_20261127_oversold",
     "symbol": "00885.TW",
     "name": "富邦越南",
@@ -2488,30 +2513,6 @@
     "market_regime_label": "空頭趨勢",
     "message": "✅ MSFT (Microsoft Corp.) is OVERSOLD! KD-K: 19.68, KD-D: 19.95 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
     "timestamp": "2026-11-25T03:55:35.372656",
-    "date": "2026-11-25",
-    "acknowledged": false
-  },
-  {
-    "id": "NFLX_20261125_oversold",
-    "symbol": "NFLX",
-    "name": "Netflix Inc.",
-    "market": "US",
-    "type": "oversold",
-    "level": "low",
-    "kd_k": 17.64,
-    "kd_d": 13.87,
-    "kd_state": "GOLDEN_CROSS",
-    "current_price": 58.98,
-    "threshold": 20,
-    "filter_confidence": "low",
-    "filter_passed": [],
-    "filter_cautions": [
-      "股價在20日均線之下或均線走平/下彎（可能處於空頭趨勢，KD超賣可能鈍化、續跌機率較高）"
-    ],
-    "market_regime": "BEAR_TREND",
-    "market_regime_label": "空頭趨勢",
-    "message": "✅ NFLX (Netflix Inc.) is OVERSOLD! KD-K: 17.64, KD-D: 13.87 (<= 20)（⚠️ 疑似低檔鈍化/空頭趨勢，非明確買進訊號）",
-    "timestamp": "2026-11-25T03:55:35.372880",
     "date": "2026-11-25",
     "acknowledged": false
   }
